@@ -5,8 +5,8 @@ from urllib.parse import urlparse
 import openai
 import os
 
-os.environ["OPENAI_API_KEY"] = "sk-YJkQxboKmL0IBC1M0zOzZbVaVZifM5QvN4mLAtSLZ1V4yEDX"
-os.environ["OPENAI_API_BASE"] = "http://123.129.219.111:3000/v1"
+# os.environ["OPENAI_API_KEY"] = ""
+# os.environ["OPENAI_API_BASE"] = ""
 
 
 class WebVisitTool:

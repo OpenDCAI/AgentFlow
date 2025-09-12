@@ -2,12 +2,12 @@ import openai
 import json
 import os
 import concurrent.futures
-from collections import deque
 import argparse
-import pdb
+import threading
+from tqdm import tqdm
 import bdb
-from dotenv import load_dotenv
-load_dotenv()
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(override=True)
 
 from tools import *
 
@@ -135,10 +135,12 @@ def multi_turn_function_call(system_prompt: str, task_id, query: str, benchmark:
 
 
                 response = client.chat.completions.create(
-                    model="gpt-4.1-2025-04-14",
+                    # model="gpt-4.1-2025-04-14",
+                    model=args.model_name,
                     messages=messages,
                     tools=TOOLS_SCHEMA
                 )
+                print(response)
 
 
                 assistant_message = response.choices[0].message
@@ -170,21 +172,18 @@ def multi_turn_function_call(system_prompt: str, task_id, query: str, benchmark:
                     break
                 
                 else:
-
                     print(f"Answer at turn {turn_count}")
+                    return save_messages
 
-                    with open(f"results/result_{benchmark}.jsonl", "a") as f:
-                        f.write(json.dumps(save_messages, ensure_ascii=False) + "\n")
-                    return messages
             except Exception as e:
                 if isinstance(e, bdb.BdbQuit):
                     raise e
                 print(f'[AGENT] ID: {task_id} T: {turn_count} rty: {retry} {e}')
+
         if retry >= 3:
             break
 
         turn_count += 1
-
 
     return None
 
@@ -199,53 +198,119 @@ def run_query(task, benchmark):
     return messages
 
 
+def parse_final_answer(messages: list) -> str:
+    """
+    Parses the messages list to find the final assistant message
+    and extracts the content from the <final_answer> tag.
+    """
+    if not messages:
+        return ""
+
+    last_message = messages[-1]
+    if last_message.get("role") == "assistant":
+        content = last_message.get("content", "")
+        if content and "<final_answer>" in content:
+            start_tag = "<final_answer>"
+            end_tag = "</final_answer>"
+            start_index = content.find(start_tag) + len(start_tag)
+            end_index = content.find(end_tag)
+            if start_index != -1 and end_index != -1:
+                return content[start_index:end_index].strip()
+        return content if content else ""
+    
+    return ""
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data_path", type=str, default="data/hotpotqa_distractor_val_queries_100.json")
-    parser.add_argument("--kb_path", type=str, default="data/hotpotqa_distractor_val_kb_100.json")
+    parser.add_argument("--index_name", type=str, default="colbert_wiki2018")
     parser.add_argument("--benchmark", type=str, default="hotpotqa_distractor_val_100")
+    parser.add_argument("--model_name", type=str, default="gpt-4.1-2025-04-14")
+    parser.add_argument("--max_workers", type=int, default=20, help="Maximum number of threads for concurrent processing.")
     args = parser.parse_args()
-    args.index_path = os.path.join("./rag_index/", args.benchmark)
+
+    # gpt4o-mini
+    # python run_rag.py --index_name colbert_wiki2018 --benchmark 2wiki_val --model_name gpt-4o-mini
+    # python run_rag.py --index_name colbert_wiki2023 --benchmark 2wiki_val --model_name gpt-4o-mini
+
+    # python run_rag.py --index_name colbert_wiki2018 --benchmark hotpotqa_distractor_val --model_name gpt-4o-mini
+    # python run_rag.py --index_name colbert_wiki2018 --benchmark hotpotqa_fullwiki_val --model_name gpt-4o-mini
+
+    # python run_rag.py --index_name colbert_wiki2023 --benchmark hotpotqa_distractor_val --model_name gpt-4o-mini
+    # python run_rag.py --index_name colbert_wiki2023 --benchmark hotpotqa_fullwiki_val --model_name gpt-4o-mini
+
+    # gpt-4.1-2025-04-14
+    # python run_rag.py --index_name colbert_wiki2018 --benchmark 2wiki_val --model_name gpt-4.1-2025-04-14
+    # python run_rag.py --index_name colbert_wiki2023 --benchmark 2wiki_val --model_name gpt-4.1-2025-04-14
+
+    # python run_rag.py --index_name colbert_wiki2018 --benchmark hotpotqa_distractor_val --model_name gpt-4.1-2025-04-14
+    # python run_rag.py --index_name colbert_wiki2018 --benchmark hotpotqa_fullwiki_val --model_name gpt-4.1-2025-04-14
+
+    # python run_rag.py --index_name colbert_wiki2023 --benchmark hotpotqa_distractor_val --model_name gpt-4.1-2025-04-14
+    # python run_rag.py --index_name colbert_wiki2023 --benchmark hotpotqa_fullwiki_val --model_name gpt-4.1-2025-04-14
+
+
+    if args.benchmark in ["hotpotqa_distractor_val_100", "hotpotqa_fullwiki_val_100",  "2wiki_val_100", "2wiki_test_100", ]:
+        base, number_part = args.benchmark.rsplit('_', 1)
+        new_string = f"{base}_queries_{number_part}"
+        args.data_path = os.path.join("data", new_string + ".json")
+    elif args.benchmark in ["hotpotqa_distractor_val", "hotpotqa_fullwiki_val", "2wiki_val", "2wiki_test", ]:
+        args.data_path = os.path.join("data", args.benchmark + "_queries.json")
+
+    if args.index_name == "colbert_wiki2018":
+        args.index_path = "/mnt/public/data/lh/ygc/agentflow/RAGLAB/data/retrieval/colbertv2.0_embedding/wiki2018"
+    elif args.index_name == "colbert_wiki2023":
+        args.index_path = "/mnt/public/data/lh/ygc/agentflow/RAGLAB/data/retrieval/colbertv2.0_embedding/wiki2023"
+    else:
+        raise ValueError(f"Unknown index name: {args.index_name}")
 
     TOOL_CLASS = [
-        QueryRAGIndexTool(),
+        QueryColbertIndexTool(index_path=args.index_path)
     ]
 
     TOOL_MAP = {tool.name: tool for tool in TOOL_CLASS}
 
     TOOLS_SCHEMA = []
+    tool_descriptions = ""
     for tool in TOOL_CLASS:
         tool_schema = convert_json_schema(tool)
         TOOLS_SCHEMA.append(tool_schema)
     tool_descriptions = "\n".join([f"- {tool.name}: {tool.description}" for tool in TOOL_CLASS])
 
-    ### Build Index from given knowledge base
-    is_index_loaded = load_index(index_path=args.index_path)
-    if not is_index_loaded:
-        if args.data_path in ["data/hotpotqa_distractor_val_queries.json", "data/hotpotqa_distractor_val_queries_100.json",]:
-            BuildRAGIndex(args.kb_path, need_chunk=False, index_path=args.index_path)
-        else:
-            BuildRAGIndex(args.kb_path, need_chunk=True, index_path=args.index_path)
-    
     ### Run Query
     all_tasks = []
-    if args.data_path in ["data/hotpotqa_distractor_val_queries.json", "data/hotpotqa_distractor_val_queries_100.json",]:
-        with open(args.data_path, "r", encoding="utf-8") as f:
-            queries = json.load(f)
-        for query in queries:
-            all_tasks.append({
-                "id": query["id"],
-                "question": query["question"],
-            })
-    else:
-        pass
+    with open(args.data_path, "r", encoding="utf-8") as f:
+        queries = json.load(f)
+    for query in queries:
+        all_tasks.append({
+            "id": query["id"],
+            "question": query["question"],
+        })
 
-    for task in all_tasks:
-        run_query(task, args.benchmark)
+    output_dir = "results"
+    os.makedirs(output_dir, exist_ok=True)
+    output_file = os.path.join(output_dir, f"{args.benchmark}_{args.model_name}_{args.index_name}.jsonl")
+    
+    file_lock = threading.Lock()
+    with concurrent.futures.ThreadPoolExecutor(max_workers=args.max_workers) as executor:
+        future_to_task = {executor.submit(run_query, task, args.benchmark): task for task in all_tasks}
+        
+        for future in tqdm(concurrent.futures.as_completed(future_to_task), total=len(all_tasks), desc="Processing tasks"):
+            task = future_to_task[future]
+            try:
+                messages = future.result()
+                final_answer = parse_final_answer(messages)
+                
+                result_data = {
+                    "task_id": task["id"],
+                    "answer": final_answer
+                }
+                
+                with file_lock:
+                    with open(output_file, "a", encoding="utf-8") as f:
+                        f.write(json.dumps(result_data, ensure_ascii=False) + "\n")
 
-    # with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
-    #     futures = [executor.submit(run_query, task, data) for task in all_tasks]
-    #     for future in concurrent.futures.as_completed(futures):
-    #         message = future.result()
+            except Exception as exc:
+                print(f"Task {task['id']} generated an exception: {exc}")
 
-    print('\nAll tasks done!')
+    print(f'\nAll tasks done! Results saved to {output_file}')

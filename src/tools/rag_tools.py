@@ -6,8 +6,12 @@ import openai
 import os
 import json
 from tqdm import trange
-from dotenv import load_dotenv
-load_dotenv()
+from dotenv import load_dotenv, find_dotenv
+
+from colbert import Searcher
+from colbert.infra import Run, RunConfig
+
+load_dotenv(find_dotenv(), override=True)
 
 openai.api_key = os.environ.get("OPENAI_API_KEY", "")
 openai.base_url = os.environ.get("OPENAI_API_URL", "")
@@ -164,3 +168,65 @@ class QueryRAGIndexTool:
 """
         except Exception as e:
             return f"[Query Tool] 错误: 查询索引时发生异常: {str(e)}"
+        
+
+class QueryColbertIndexTool:
+    name = "query_rag_index"
+    description = (
+        "To search in a pre-built ColBERT index (e.g., Wikipedia) to find the most relevant documents. "
+        "Use this for general knowledge questions."
+    )
+    parameters = [
+        {
+            'name': 'query',
+            'type': 'string',
+            'description': 'The query text to search for relevant documents.',
+            'required': True
+        },
+        {
+            'name': 'top_k',
+            'type': 'integer',
+            'description': 'The number of top relevant documents to retrieve (default is 3).',
+            'required': False
+        }
+    ]
+
+    def __init__(self, index_path: str):
+        """
+        Initializes the ColBERT searcher from an existing index path.
+        """
+        if not os.path.exists(index_path):
+            raise FileNotFoundError(f"ColBERT index path does not exist: {index_path}")
+        
+        print(f"[ColBERT] Initializing searcher with index at '{index_path}'...")
+        index_name = os.path.basename(index_path)
+        with Run().context(RunConfig(experiment=index_path, root=os.path.dirname(index_path))):
+            self.searcher = Searcher(index=index_name)
+        print("[ColBERT] Searcher initialized successfully.")
+
+
+    def call(self, params: dict, **kwargs) -> str:
+        query = params.get("query")
+        top_k = params.get("top_k", 3)
+
+        if not query:
+            return "[ColBERT Tool] Error: Query parameter is required."
+
+        try:
+            print(f"#> Searching ColBERT with query: '{query}'")
+            results = self.searcher.search(query, k=top_k)
+
+            retrieved_chunks = []
+            for passage_id, passage_rank, passage_score in zip(*results):
+                passage_text = self.searcher.collection[passage_id]
+                # 添加一些元数据，方便模型理解
+                chunk_info = f"Source Rank: {passage_rank}, Score: {passage_score:.2f}\nContent: {passage_text}"
+                retrieved_chunks.append(chunk_info)
+
+            context = "\n---\n".join(retrieved_chunks)
+            
+            return f"""### Retrieved Context from ColBERT:
+{context}
+"""
+        except Exception as e:
+            return f"[ColBERT Tool] Error: An exception occurred during search: {str(e)}"
