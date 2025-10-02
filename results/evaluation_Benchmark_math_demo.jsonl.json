@@ -1,0 +1,40 @@
+{
+  "benchmark_info": {
+    "name": "Benchmark_math_demo.jsonl",
+    "description": "",
+    "data_path": "src/data/math_demo.jsonl",
+    "total_items": 1
+  },
+  "evaluation_results": [
+    {
+      "item_id": "aaa",
+      "question": "compute: sqrt(144) + pow(3,4)/6 + sin(pi/6)*10",
+      "ground_truth": "### Calculator Results:\nsqrt(144) + pow(3,4)/6 + sin(pi/6)*10 = 30.5\n",
+      "prediction": "The result of the expression sqrt(144) + pow(3,4)/6 + sin(pi/6)*10 is 30.5.",
+      "score": 0.4210526315789474,
+      "metric_name": "f1_score",
+      "details": {
+        "ground_truth_words": 9,
+        "prediction_words": 10,
+        "common_words": 4,
+        "common_words_list": [
+          "sqrt(144)",
+          "+",
+          "pow(3,4)/6",
+          "sin(pi/6)*10"
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "name": "Benchmark_math_demo.jsonl",
+    "description": "",
+    "total_items": 1,
+    "evaluated_items": 1,
+    "metric": "f1_score",
+    "average_score": 0.4210526315789474,
+    "max_score": 0.4210526315789474,
+    "min_score": 0.4210526315789474,
+    "perfect_matches": 0
+  }
+}

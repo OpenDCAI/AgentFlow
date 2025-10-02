@@ -6,12 +6,10 @@ import openai
 import os
 import json
 from tqdm import trange
-from dotenv import load_dotenv, find_dotenv
 
 from colbert import Searcher
 from colbert.infra import Run, RunConfig
 
-load_dotenv(find_dotenv(), override=True)
 
 openai.api_key = os.environ.get("OPENAI_API_KEY", "")
 openai.base_url = os.environ.get("OPENAI_API_URL", "")

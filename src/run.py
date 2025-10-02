@@ -1,23 +1,44 @@
+"""
+AgentFlow - Main execution script using Environment and Benchmark modules.
+
+This script provides a unified interface for running agents on different benchmarks
+using the Environment and Benchmark classes.
+"""
+
 import openai
 import json
 import os
-import concurrent.futures
-from collections import deque
 import argparse
-import pdb
-import bdb
-from dotenv import load_dotenv
-from tools import *
+import concurrent.futures
+from typing import Dict, List, Any, Optional
+from dataclasses import dataclass
 
-load_dotenv()
+# Import our custom modules
+from envs import (
+    MathEnvironment, 
+    PythonEnvironment, 
+    RAGEnvironment, 
+    WebEnvironment,
+    Environment
+)
+from benchmark import Benchmark, create_benchmark
 
-# Prefer environment variables for credentials
-openai.api_key = os.environ.get("OPENAI_API_KEY", "")
-# Support both OPENAI_API_URL and OPENAI_API_BASE naming
-openai.base_url = os.environ.get("OPENAI_API_URL", os.environ.get("OPENAI_API_BASE", ""))
+
+# Configuration
+@dataclass
+class AgentConfig:
+    """Configuration for agent execution."""
+    model_name: str = "gpt-4.1-2025-04-14"
+    max_turns: int = 20
+    max_retries: int = 3
+    max_workers: int = 1
+    save_results: bool = True
+    evaluate_results: bool = True
+    evaluation_metric: str = "exact_match"
 
 
-SYSTEM_PROMPT_GENERIC = """You are powerful AI assistant. You need to use tools to solve the problem.
+# System prompts
+SYSTEM_PROMPT_GENERIC = """You are a helpful assistant. You need to use tools to solve the problem.
 
 ## Available Tools
 
@@ -29,339 +50,521 @@ SYSTEM_PROMPT_GENERIC = """You are powerful AI assistant. You need to use tools 
 1. Break complex problems into logical steps
 2. Use ONE tool at a time to gather information
 3. Verify findings through different approaches when possible
-
-## Response Format
-
-**During Investigation (most responses):**
-Think through your next steps, then use the appropriate tool:
-
-```
-I need to [describe what you're trying to accomplish]. Let me [specific action].
-
-<tool_call>
-{"name": "tool_name", "arguments": {"parameter": "value"}}
-</tool_call>
-```
-
-**For Final Answers (only when completely confident):**
-You can explain your reasoning, but your final answer MUST be concise:
-
-```
-Based on my analysis using [tools used], I can now provide the final answer.
-
-<final_answer>
-[ONLY the precise, minimal answer - no explanations, no "the answer is"]
-</final_answer>
-```
 """
 
 
-def remove_null_keys(d):
-    return dict(filter(lambda x: x[1] is not None, d.items()))
-
-
-def convert_json_schema(Tool):
-    required_param = [param['name'] for param in Tool.parameters if param.get('required', False)]
-    properties = {}
-    for param in Tool.parameters:
-        properties[param['name']] = {
-            "type": param['type'],
-            "description": param['description']
-        }
-        if param['type'] == 'array':
-            properties[param['name']]['items'] = {
-                "type": param['array_type']
+class AgentRunner:
+    """
+    Main agent runner that coordinates Environment and Benchmark.
+    
+    This class handles:
+    - Loading benchmarks
+    - Setting up environments
+    - Running agents on benchmark tasks
+    - Evaluating results
+    - Saving outputs
+    """
+    
+    def __init__(self, config: AgentConfig):
+        """Initialize the agent runner."""
+        self.config = config
+        self.environment: Optional[Environment] = None
+        self.benchmark: Optional[Benchmark] = None
+        self.results: List[Dict[str, Any]] = []
+        
+        # Validate OpenAI configuration
+        self._validate_openai_config()
+    
+    def _validate_openai_config(self):
+        """Validate OpenAI API configuration."""
+        openai.api_key = os.environ.get("OPENAI_API_KEY", "")
+        openai.base_url = os.environ.get("OPENAI_API_URL", os.environ.get("OPENAI_API_BASE", ""))
+        
+        if not openai.api_key:
+            print("Warning: OPENAI_API_KEY is not set. Some features may not work properly.")
+        if not openai.base_url:
+            print("Warning: OPENAI_API_URL or OPENAI_API_BASE is not set. Some features may not work properly.")
+    
+    def setup_environment(self, mode: str, **kwargs) -> Environment:
+        """
+        Setup environment based on mode.
+        
+        Args:
+            mode: Environment mode ("math", "py", "rag", "web")
+            **kwargs: Additional configuration for the environment
+            
+        Returns:
+            Configured environment
+        """
+        print(f"Setting up {mode} environment...")
+        
+        if mode == "math":
+            self.environment = MathEnvironment(**kwargs)
+        elif mode == "py":
+            self.environment = PythonEnvironment(**kwargs)
+        elif mode == "rag":
+            self.environment = RAGEnvironment(**kwargs)
+        elif mode == "web":
+            self.environment = WebEnvironment(**kwargs)
+        else:
+            raise ValueError(f"Unknown mode: {mode}")
+        
+        print(f"Environment setup complete. Available tools: {self.environment.list_tools()}")
+        return self.environment
+    
+    def load_benchmark(self, data_path: str, name: Optional[str] = None, **kwargs) -> Benchmark:
+        """
+        Load benchmark from data file.
+        
+        Args:
+            data_path: Path to benchmark data
+            name: Name of the benchmark
+            **kwargs: Additional configuration (filtered for benchmark)
+            
+        Returns:
+            Loaded benchmark
+        """
+        print(f"Loading benchmark from {data_path}...")
+        
+        # Filter kwargs to only include benchmark-relevant parameters
+        benchmark_kwargs = {k: v for k, v in kwargs.items() 
+                           if k in ['description']}
+        
+        self.benchmark = create_benchmark(
+            data_path=data_path,
+            name=name or f"Benchmark_{os.path.basename(data_path)}",
+            **benchmark_kwargs
+        )
+        
+        print(f"Benchmark loaded: {len(self.benchmark.items)} items")
+        return self.benchmark
+    
+    def run_single_task(self, task: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Run agent on a single task.
+        
+        Args:
+            task: Task dictionary with 'id' and 'question'
+            
+        Returns:
+            Result dictionary
+        """
+        if not self.environment:
+            raise ValueError("Environment not set up")
+        
+        task_id = task["id"]
+        question = task["question"]
+        
+        print(f"\n{'='*60}")
+        print(f"Processing Task {task_id}")
+        print(f"Question: {question}")
+        print(f"{'='*60}")
+        
+        try:
+            # Run multi-turn conversation
+            messages = self._run_conversation(question, task_id)
+            
+            # Extract final answer
+            final_answer = self._extract_final_answer(messages)
+            
+            result = {
+                "task_id": task_id,
+                "question": question,
+                "answer": final_answer,
+                "messages": messages,
+                "success": True,
+                "error": None
             }
-
-    return {
-        "type": "function",
-        "function": {
-            "name": Tool.name,
-            "description": Tool.description.strip(),
-            "parameters": {
-                "type": "object",
-                "properties": properties,
-                "required": required_param
+            
+            print(f"✓ Task {task_id} completed successfully")
+            print(f"Answer: {final_answer[:100]}...")
+            
+        except Exception as e:
+            print(f"✗ Task {task_id} failed: {str(e)}")
+            result = {
+                "task_id": task_id,
+                "question": question,
+                "answer": "",
+                "messages": [],
+                "success": False,
+                "error": str(e)
             }
-        }
-    }
-
-
-def execute_function_call(function_call, **kwargs) -> str:
-    function_name = function_call["name"]
-    print("Current function name:")
-    print("\033[32m" + function_name + "\033[0m")
-    print("Current function arguments:")
-    print("\033[33m" + function_call["arguments"] + "\033[0m")
-    function_call["arguments"] = json.loads(function_call["arguments"])
-    function_args = function_call["arguments"]
-
-    if function_name in TOOL_MAP:
-        function_args["params"] = function_args
-
-        result = TOOL_MAP[function_name].call(function_args)
+        
         return result
-
-    else:
-        return f"Error: Tool {function_name} not found"
-
-
-def multi_turn_function_call(system_prompt: str, task_id, query: str, benchmark: str,
-                             tools_schema, model_name: str, max_turns: int = 20) -> str:
-    messages = [
-        {"role": "system", "content": system_prompt},
-        {"role": "user", "content": query}
-    ]
-
-    save_messages = [
-        {"role": "system", "content": system_prompt},
-        {"role": "user", "content": query}
-    ]
-
-    turn_count = 0
-
-    client = openai.OpenAI(
-        api_key=openai.api_key,
-        base_url=openai.base_url
-    )
-    while turn_count < max_turns:
-        retry = 0
-
-        while retry < 3:
-            try:
-
-
-                response = client.chat.completions.create(
-                    model=model_name,
-                    messages=messages,
-                    tools=tools_schema
-                )
-
-
-                assistant_message = response.choices[0].message
-                messages.append(assistant_message)
-                save_messages.append(assistant_message.model_dump())
-
-                if assistant_message.tool_calls:
-                    for tool_call in assistant_message.tool_calls:
-
-                        tool_name = tool_call.function.name
-                        tool_args = tool_call.function.arguments
-
-                        function_result = execute_function_call(tool_call.function.model_dump())
-
-
-                        messages.append({
-                            "role": "tool",
-                            "tool_call_id": tool_call.id,
-                            "name": tool_call.function.name,
-                            "content": json.dumps(function_result, ensure_ascii=False)
-                        })
-                        save_messages.append({
-                            "role": "tool",
-                            "tool_call_id": tool_call.id,
-                            "name": tool_call.function.name,
-                            "content": json.dumps(function_result, ensure_ascii=False)
-                        })
-
-                    break
+    
+    def _run_conversation(self, question: str, task_id: str) -> List[Dict[str, Any]]:
+        """
+        Run multi-turn conversation with the agent.
+        
+        Args:
+            question: User question
+            task_id: Task identifier
+            
+        Returns:
+            List of messages from the conversation
+        """
+        # Prepare system prompt
+        system_prompt = SYSTEM_PROMPT_GENERIC.replace(
+            "{tool_descriptions}", 
+            self.environment.get_tool_descriptions()
+        )
+        
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": question}
+        ]
+        
+        # Initialize OpenAI client
+        client = openai.OpenAI(
+            api_key=openai.api_key,
+            base_url=openai.base_url
+        )
+        
+        turn_count = 0
+        
+        while turn_count < self.config.max_turns:
+            retry = 0
+            
+            while retry < self.config.max_retries:
+                try:
+                    # Get response from OpenAI
+                    response = client.chat.completions.create(
+                        model=self.config.model_name,
+                        messages=messages,
+                        tools=self.environment.get_tool_schemas()
+                    )
+                    
+                    assistant_message = response.choices[0].message
+                    # Convert to dict format for consistency
+                    messages.append(assistant_message.model_dump())
+                    
+                    if assistant_message.tool_calls:
+                        # Execute tool calls
+                        for tool_call in assistant_message.tool_calls:
+                            tool_name = tool_call.function.name
+                            tool_args = json.loads(tool_call.function.arguments)
+                            
+                            print(f"🔧 Using tool: {tool_name}")
+                            print(f"   Arguments: {tool_args}")
+                            
+                            # Execute tool
+                            tool_result = self.environment.execute_tool(
+                                tool_name, 
+                                tool_args
+                            )
+                            
+                            print(f"   Result: {tool_result[:100]}...")
+                            
+                            # Add tool result to conversation
+                            messages.append({
+                                "role": "tool",
+                                "tool_call_id": tool_call.id,
+                                "name": tool_name,
+                                "content": tool_result
+                            })
+                        
+                        # Continue conversation after tool use
+                        turn_count += 1
+                        break
+                    
+                    else:
+                        # No tool calls, conversation complete
+                        print(f"💬 Final answer at turn {turn_count}")
+                        return messages
                 
-                else:
+                except Exception as e:
+                    print(f"⚠️  Retry {retry + 1}/{self.config.max_retries}: {str(e)}")
+                    retry += 1
+                    if retry >= self.config.max_retries:
+                        raise e
+            
+            turn_count += 1
+        
+        print(f"⚠️  Max turns ({self.config.max_turns}) reached")
+        return messages
+    
+    def _extract_final_answer(self, messages: List[Dict[str, Any]]) -> str:
+        """
+        Extract final answer from conversation messages.
+        
+        Args:
+            messages: List of conversation messages
+            
+        Returns:
+            Final answer string
+        """
+        # Find the last assistant message without tool calls
+        for message in reversed(messages):
+            # Handle both dict and object types
+            if hasattr(message, 'role'):
+                # OpenAI message object
+                if (message.role == "assistant" and 
+                    not hasattr(message, 'tool_calls') or not message.tool_calls):
+                    return getattr(message, 'content', "")
+            else:
+                # Dict format
+                if (message.get("role") == "assistant" and 
+                    not message.get("tool_calls")):
+                    return message.get("content", "")
+        
+        return "No final answer found"
+    
+    def run_benchmark(self, parallel: bool = False) -> List[Dict[str, Any]]:
+        """
+        Run agent on all benchmark tasks.
+        
+        Args:
+            parallel: Whether to run tasks in parallel
+            
+        Returns:
+            List of results
+        """
+        if not self.benchmark:
+            raise ValueError("Benchmark not loaded")
+        
+        print(f"\n🚀 Starting benchmark execution...")
+        print(f"   Tasks: {len(self.benchmark.items)}")
+        print(f"   Parallel: {parallel}")
+        print(f"   Max workers: {self.config.max_workers}")
+        
+        # Prepare tasks
+        tasks = [
+            {"id": item.id, "question": item.question}
+            for item in self.benchmark.items
+        ]
+        
+        if parallel and len(tasks) > 1:
+            # Run in parallel
+            with concurrent.futures.ThreadPoolExecutor(max_workers=self.config.max_workers) as executor:
+                futures = [
+                    executor.submit(self.run_single_task, task) 
+                    for task in tasks
+                ]
+                
+                self.results = []
+                for future in concurrent.futures.as_completed(futures):
+                    result = future.result()
+                    self.results.append(result)
+        else:
+            # Run sequentially
+            self.results = []
+            for task in tasks:
+                result = self.run_single_task(task)
+                self.results.append(result)
+        
+        print(f"\n✅ Benchmark execution completed!")
+        print(f"   Successful: {sum(1 for r in self.results if r['success'])}")
+        print(f"   Failed: {sum(1 for r in self.results if not r['success'])}")
+        
+        return self.results
+    
+    def evaluate_results(self) -> Dict[str, Any]:
+        """
+        Evaluate results against benchmark ground truth.
+        
+        Returns:
+            Evaluation summary
+        """
+        if not self.benchmark or not self.results:
+            raise ValueError("No benchmark or results to evaluate")
+        
+        print(f"\n📊 Evaluating results...")
+        
+        # Prepare predictions
+        predictions = {}
+        for result in self.results:
+            if result["success"]:
+                predictions[result["task_id"]] = result["answer"]
+        
+        # Run evaluation
+        evaluation_results = self.benchmark.evaluate(
+            predictions, 
+            metric=self.config.evaluation_metric
+        )
+        
+        # Get summary
+        summary = self.benchmark.get_summary()
+        
+        print(f"📈 Evaluation Summary:")
+        print(f"   Metric: {summary.get('metric', 'unknown')}")
+        print(f"   Average Score: {summary.get('average_score', 0.0):.3f}")
+        print(f"   Perfect Matches: {summary.get('perfect_matches', 0)}")
+        print(f"   Total Items: {summary.get('total_items', 0)}")
+        
+        return summary
+    
+    def save_results(self, output_dir: str = "results") -> str:
+        """
+        Save results to files.
+        
+        Args:
+            output_dir: Output directory
+            
+        Returns:
+            Path to saved results
+        """
+        if not self.results:
+            print("No results to save")
+            return ""
+        
+        # Create output directory
+        os.makedirs(output_dir, exist_ok=True)
+        
+        # Generate output filename
+        benchmark_name = self.benchmark.name if self.benchmark else "unknown"
+        output_file = os.path.join(output_dir, f"result_{benchmark_name}.jsonl")
+        
+        # Save results
+        with open(output_file, "w", encoding="utf-8") as f:
+            for result in self.results:
+                f.write(json.dumps(result, ensure_ascii=False) + "\n")
+        
+        print(f"💾 Results saved to: {output_file}")
+        
+        # Save evaluation results if available
+        if self.config.evaluate_results and self.benchmark.evaluation_results:
+            eval_file = os.path.join(output_dir, f"evaluation_{benchmark_name}.json")
+            self.benchmark.save_results(eval_file)
+            print(f"📊 Evaluation results saved to: {eval_file}")
+        
+        return output_file
+    
+    def run(self, mode: str, data_path: str, **kwargs) -> Dict[str, Any]:
+        """
+        Complete run pipeline.
+        
+        Args:
+            mode: Environment mode
+            data_path: Path to benchmark data
+            **kwargs: Additional configuration
+            
+        Returns:
+            Run summary
+        """
+        print(f"🎯 Starting AgentFlow run...")
+        print(f"   Mode: {mode}")
+        print(f"   Data: {data_path}")
+        
+        # Setup environment
+        self.setup_environment(mode, **kwargs)
+        
+        # Load benchmark
+        self.load_benchmark(data_path, **kwargs)
+        
+        # Run benchmark
+        self.run_benchmark(parallel=kwargs.get('parallel', False))
+        
+        # Evaluate results
+        if self.config.evaluate_results:
+            evaluation_summary = self.evaluate_results()
+        else:
+            evaluation_summary = None
+        
+        # Save results
+        if self.config.save_results:
+            output_file = self.save_results()
+        else:
+            output_file = ""
+        
+        # Return summary
+        summary = {
+            "mode": mode,
+            "data_path": data_path,
+            "total_tasks": len(self.results),
+            "successful_tasks": sum(1 for r in self.results if r["success"]),
+            "failed_tasks": sum(1 for r in self.results if not r["success"]),
+            "evaluation": evaluation_summary,
+            "output_file": output_file
+        }
+        
+        print(f"\n🎉 Run completed successfully!")
+        print(f"   Summary: {summary}")
+        
+        return summary
 
-                    print(f"Answer at turn {turn_count}")
 
-                    with open(f"results/result_{benchmark}.jsonl", "a") as f:
-                        f.write(json.dumps(save_messages, ensure_ascii=False) + "\n")
-                    return messages
-            except Exception as e:
-                if isinstance(e, bdb.BdbQuit):
-                    raise e
-                print(f'[AGENT] ID: {task_id} T: {turn_count} rty: {retry} {e}')
-        if retry >= 3:
-            break
-
-        turn_count += 1
-
-
-    return None
-
-
-def run_query(task, benchmark, system_prompt, tools_schema, model_name, tool_descriptions):
-    task_id = task["id"]
-    query = task["question"]
-    print("Current query:")
-    print("\033[31m" + query + "\033[0m")
-    system_prompt_filled = system_prompt.replace("{tool_descriptions}", tool_descriptions)
-    print(f"tool_descriptions::::{tool_descriptions}")
-    messages = multi_turn_function_call(system_prompt_filled, task_id, query, benchmark, tools_schema, model_name)
-    return messages
+def main():
+    """Main entry point."""
+    parser = argparse.ArgumentParser(description="AgentFlow - Agent execution with Environment and Benchmark")
+    
+    # Required arguments
+    parser.add_argument("--mode", type=str, choices=["math", "py", "rag", "web"], 
+                       required=True, help="Environment mode")
+    parser.add_argument("--data", type=str, required=True, 
+                       help="Path to benchmark data file")
+    
+    # Optional arguments
+    parser.add_argument("--model", type=str, default="gpt-4.1-2025-04-14",
+                       help="OpenAI model name")
+    parser.add_argument("--max-turns", type=int, default=20,
+                       help="Maximum conversation turns")
+    parser.add_argument("--max-retries", type=int, default=3,
+                       help="Maximum retries per turn")
+    parser.add_argument("--max-workers", type=int, default=1,
+                       help="Maximum parallel workers")
+    parser.add_argument("--output-dir", type=str, default="results",
+                       help="Output directory for results")
+    parser.add_argument("--no-eval", action="store_true",
+                       help="Skip evaluation")
+    parser.add_argument("--no-save", action="store_true",
+                       help="Skip saving results")
+    parser.add_argument("--parallel", action="store_true",
+                       help="Run tasks in parallel")
+    parser.add_argument("--metric", type=str, default="exact_match",
+                       choices=["exact_match", "f1_score", "similarity", "contains_answer", "numeric_match"],
+                       help="Evaluation metric")
+    
+    # Environment-specific arguments
+    parser.add_argument("--web-search-top-k", type=int, default=5,
+                       help="Web search top-k results")
+    parser.add_argument("--web-search-type", type=str, default="search",
+                       choices=["search", "news", "images"],
+                       help="Web search type")
+    parser.add_argument("--kb-path", type=str,
+                       help="Knowledge base path for RAG mode")
+    
+    args = parser.parse_args()
+    
+    # Create configuration
+    config = AgentConfig(
+        model_name=args.model,
+        max_turns=args.max_turns,
+        max_retries=args.max_retries,
+        max_workers=args.max_workers,
+        save_results=not args.no_save,
+        evaluate_results=not args.no_eval,
+        evaluation_metric=args.metric
+    )
+    
+    # Prepare environment-specific arguments
+    env_kwargs = {}
+    if args.mode == "web":
+        env_kwargs.update({
+            "web_search_top_k": args.web_search_top_k,
+            "web_search_type": args.web_search_type
+        })
+    elif args.mode == "rag" and args.kb_path:
+        env_kwargs["kb_path"] = args.kb_path
+    
+    # Create and run agent
+    runner = AgentRunner(config)
+    
+    try:
+        summary = runner.run(
+            mode=args.mode,
+            data_path=args.data,
+            parallel=args.parallel,
+            **env_kwargs
+        )
+        
+        print(f"\n🏁 Final Summary:")
+        for key, value in summary.items():
+            print(f"   {key}: {value}")
+            
+    except Exception as e:
+        print(f"❌ Run failed: {str(e)}")
+        raise
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--mode", type=str, choices=["math", "py", "rag", "web"], default="math")
-    # Common demo selectors
-    parser.add_argument("--data", type=str, help="dataset key for math/py/web", default=None)
-    # RAG-specific args
-    parser.add_argument("--data_path", type=str, default="data/hotpotqa_distractor_val_queries_100.json")
-    parser.add_argument("--kb_path", type=str, default="data/hotpotqa_distractor_val_kb_100.json")
-    parser.add_argument("--benchmark", type=str, default="hotpotqa_distractor_val_100")
-    args = parser.parse_args()
-
-    # Initialize containers to be set per mode
-    TOOL_CLASS = []
-    TOOL_MAP = {}
-    TOOLS_SCHEMA = []
-    tool_descriptions = ""
-    system_prompt = SYSTEM_PROMPT_GENERIC
-    model_name = "gpt-4.1-2025-04-14"
-
-    if args.mode == "math":
-        # Data file
-        data_key = args.data or "math_demo"
-        data_file = "data/math_demo.jsonl"
-        TOOL_CLASS = [
-            CalculatorTool(),
-        ]
-        benchmark = data_key
-
-        TOOL_MAP = {tool.name: tool for tool in TOOL_CLASS}
-        TOOLS_SCHEMA = [convert_json_schema(tool) for tool in TOOL_CLASS]
-        tool_descriptions = "\n".join([f"- {tool.name}: {tool.description}" for tool in TOOL_CLASS])
-
-        visited = []
-        if not os.path.exists("results"):
-            os.makedirs("results")
-        if os.path.exists(f"results/result_{benchmark}.jsonl"):
-            with open(f"results/result_{benchmark}.jsonl", "r") as f:
-                for line in f:
-                    item = json.loads(line)
-                    visited.append(item[1]["content"])
-        else:
-            with open(f"results/result_{benchmark}.jsonl", "w") as f:
-                f.write("")
-
-        all_tasks = []
-        with open(data_file, "r") as f:
-            for line in f:
-                task = json.loads(line)
-                question = task["question"]
-                if question not in visited:
-                    all_tasks.append(task)
-
-        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
-            futures = [executor.submit(run_query, task, benchmark, system_prompt, TOOLS_SCHEMA, model_name, tool_descriptions) for task in all_tasks]
-            for future in concurrent.futures.as_completed(futures):
-                _ = future.result()
-
-    elif args.mode == "py":
-        data_key = args.data or "demo"
-        data_file = "data/python_interpreter_demo.jsonl"
-        TOOL_CLASS = [
-            PythonInterpreterTool(),
-        ]
-        model_name = "gpt-4.1"  # align with original python interpreter script
-        benchmark = data_key
-
-        TOOL_MAP = {tool.name: tool for tool in TOOL_CLASS}
-        TOOLS_SCHEMA = [convert_json_schema(tool) for tool in TOOL_CLASS]
-        tool_descriptions = "\n".join([f"- {tool.name}: {tool.description}" for tool in TOOL_CLASS])
-
-        visited = []
-        if not os.path.exists("results"):
-            os.makedirs("results")
-        if os.path.exists(f"results/result_{benchmark}.jsonl"):
-            with open(f"results/result_{benchmark}.jsonl", "r") as f:
-                for line in f:
-                    item = json.loads(line)
-                    visited.append(item[1]["content"])
-        else:
-            with open(f"results/result_{benchmark}.jsonl", "w") as f:
-                f.write("")
-
-        all_tasks = []
-        with open(data_file, "r") as f:
-            for line in f:
-                task = json.loads(line)
-                question = task["question"]
-                if question not in visited:
-                    all_tasks.append(task)
-
-        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
-            futures = [executor.submit(run_query, task, benchmark, system_prompt, TOOLS_SCHEMA, model_name, tool_descriptions) for task in all_tasks]
-            for future in concurrent.futures.as_completed(futures):
-                _ = future.result()
-
-    elif args.mode == "web":
-        data_key = args.data or "webagent_demo"
-        data_file = "data/webagent_demo.jsonl"
-        TOOL_CLASS = [
-            WebSearchTool(top_k=5, search_type="search"),
-            WebVisitTool(summary_model='gpt-4.1-2025-04-14'),
-        ]
-        benchmark = data_key
-
-        TOOL_MAP = {tool.name: tool for tool in TOOL_CLASS}
-        TOOLS_SCHEMA = [convert_json_schema(tool) for tool in TOOL_CLASS]
-        tool_descriptions = "\n".join([f"- {tool.name}: {tool.description}" for tool in TOOL_CLASS])
-
-        visited = []
-        if not os.path.exists("results"):
-            os.makedirs("results")
-        if os.path.exists(f"results/result_{benchmark}.jsonl"):
-            with open(f"results/result_{benchmark}.jsonl", "r") as f:
-                for line in f:
-                    item = json.loads(line)
-                    visited.append(item[1]["content"])
-        else:
-            with open(f"results/result_{benchmark}.jsonl", "w") as f:
-                f.write("")
-
-        all_tasks = []
-        with open(data_file, "r") as f:
-            for line in f:
-                task = json.loads(line)
-                question = task["question"]
-                if question not in visited:
-                    all_tasks.append(task)
-
-        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
-            futures = [executor.submit(run_query, task, benchmark, system_prompt, TOOLS_SCHEMA, model_name, tool_descriptions) for task in all_tasks]
-            for future in concurrent.futures.as_completed(futures):
-                _ = future.result()
-
-    elif args.mode == "rag":
-        # RAG mode follows src/run_rag.py flow
-        TOOL_CLASS = [
-            QueryRAGIndexTool(),
-        ]
-        TOOL_MAP = {tool.name: tool for tool in TOOL_CLASS}
-        TOOLS_SCHEMA = [convert_json_schema(tool) for tool in TOOL_CLASS]
-        tool_descriptions = "\n".join([f"- {tool.name}: {tool.description}" for tool in TOOL_CLASS])
-
-        # Build or load index
-        index_path = os.path.join("./rag_index/", args.benchmark)
-        is_index_loaded = load_index(index_path=index_path)
-        if not is_index_loaded:
-            if args.data_path in ["data/hotpotqa_distractor_val_queries.json", "data/hotpotqa_distractor_val_queries_100.json"]:
-                BuildRAGIndex(args.kb_path, need_chunk=False, index_path=index_path)
-            else:
-                BuildRAGIndex(args.kb_path, need_chunk=True, index_path=index_path)
-
-        # Load queries
-        all_tasks = []
-        if args.data_path in ["data/hotpotqa_distractor_val_queries.json", "data/hotpotqa_distractor_val_queries_100.json"]:
-            with open(args.data_path, "r", encoding="utf-8") as f:
-                queries = json.load(f)
-            for query in queries:
-                all_tasks.append({
-                    "id": query["id"],
-                    "question": query["question"],
-                })
-
-        benchmark = args.benchmark
-
-        for task in all_tasks:
-            _ = run_query(task, benchmark, system_prompt, TOOLS_SCHEMA, model_name, tool_descriptions)
-
-    print('\nAll tasks done!')
+    main()
