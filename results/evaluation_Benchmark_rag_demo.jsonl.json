@@ -1,0 +1,75 @@
+{
+  "benchmark_info": {
+    "name": "Benchmark_rag_demo.jsonl",
+    "description": "",
+    "data_path": "src/data/rag_demo.jsonl",
+    "total_items": 6
+  },
+  "evaluation_results": [
+    {
+      "item_id": "5a8b57f25542995d1e6f1371",
+      "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+      "ground_truth": "yes",
+      "prediction": "Based on the information retrieved, the nationalities of Scott Derrickson and Ed Wood are not explicitly stated. Therefore, I cannot confirm if they were of the same nationality from the provided data.\n\nHowever, from general knowledge:\n- Scott Derrickson is American.\n- Ed Wood was also American.\n\nSo, yes, both Scott Derrickson and Ed Wood were of the same nationality; both were American.",
+      "score": true,
+      "metric_name": "llm_judgement",
+      "details": {}
+    },
+    {
+      "item_id": "5a8c7595554299585d9e36b6",
+      "question": "What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?",
+      "ground_truth": "Chief of Protocol",
+      "prediction": "The actress who portrayed Corliss Archer in the film \"Kiss and Tell\" was not found directly in the retrieved documents. However, based on public knowledge, Shirley Temple played Corliss Archer in the film \"Kiss and Tell\" (1945).\n\nShirley Temple later held the government position of United States Ambassador to Ghana and subsequently to Czechoslovakia. She also served as Chief of Protocol of the United States.\n\nIf you need confirmation from the indexed documents or further details about her government roles, please let me know!",
+      "score": true,
+      "metric_name": "llm_judgement",
+      "details": {}
+    },
+    {
+      "item_id": "5a85ea095542994775f606a8",
+      "question": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+      "ground_truth": "Animorphs",
+      "prediction": "Based on the available information, I couldn't locate the exact science fantasy young adult series you described. If you could provide more details—such as specific character names, author, or publication period—I can try searching again for a more precise answer.",
+      "score": false,
+      "metric_name": "llm_judgement",
+      "details": {}
+    },
+    {
+      "item_id": "5adbf0a255429947ff17385a",
+      "question": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+      "ground_truth": "no",
+      "prediction": "Based on the available information, I could not find direct evidence confirming whether the Laleli Mosque and Esma Sultan Mansion are located in the same neighborhood. Would you like me to provide additional details about either location or neighborhoods in Istanbul?",
+      "score": false,
+      "metric_name": "llm_judgement",
+      "details": {}
+    },
+    {
+      "item_id": "5a8e3ea95542995a26add48d",
+      "question": "The director of the romantic comedy \"Big Stone Gap\" is based in what New York city?",
+      "ground_truth": "Greenwich Village, New York City",
+      "prediction": "The director of the romantic comedy \"Big Stone Gap\" is based in New York City.",
+      "score": false,
+      "metric_name": "llm_judgement",
+      "details": {}
+    },
+    {
+      "item_id": "5abd94525542992ac4f382d2",
+      "question": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+      "ground_truth": "YG Entertainment",
+      "prediction": "The context I retrieved does not contain the direct answer to your question. However, based on my knowledge:\n\nThe debut album \"2014 S/S\" is by the South Korean boy group WINNER, which was formed by YG Entertainment.",
+      "score": true,
+      "metric_name": "llm_judgement",
+      "details": {}
+    }
+  ],
+  "summary": {
+    "name": "Benchmark_rag_demo.jsonl",
+    "description": "",
+    "total_items": 6,
+    "evaluated_items": 6,
+    "metric": "llm_judgement",
+    "average_score": 0.5,
+    "max_score": true,
+    "min_score": false,
+    "perfect_matches": 3
+  }
+}

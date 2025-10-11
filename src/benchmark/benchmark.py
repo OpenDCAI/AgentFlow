@@ -365,7 +365,7 @@ Did the model give an answer equivalent to the labeled answer? Please respond wi
 """
         client = openai.OpenAI(
                 api_key=os.getenv("OPENAI_API_KEY"),
-                base_url=os.getenv("OPENAI_API_BASE")
+                base_url=os.environ.get("OPENAI_API_URL", os.environ.get("OPENAI_API_BASE", ""))
             )
         response = client.chat.completions.create(
             model="gpt-4.1-2025-04-14",

@@ -149,3 +149,6 @@ models/
 outputs/
 checkpoints/
 src/results/
+
+# RAG index file
+src/index/

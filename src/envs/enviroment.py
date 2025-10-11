@@ -279,7 +279,11 @@ class PythonEnvironment(Environment):
 
 class RAGEnvironment(Environment):
     """RAG environment with retrieval tools."""
-    
+
+    def __init__(self, rag_index, **kwargs):
+        self.rag_index = rag_index
+        super().__init__(**kwargs)
+
     @property
     def mode(self) -> str:
         return "rag"
@@ -288,7 +292,8 @@ class RAGEnvironment(Environment):
         """Initialize RAG-specific tools."""
         try:
             from tools.rag_tools import QueryRAGIndexTool
-            self.register_tool(QueryRAGIndexTool())
+            query_tool = QueryRAGIndexTool(self.rag_index)
+            self.register_tool(query_tool)
         except ImportError:
             raise ImportError("RAG tools not available")
 

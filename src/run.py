@@ -522,8 +522,20 @@ def main():
                        help="Web search type")
     parser.add_argument("--kb-path", type=str,
                        help="Knowledge base path for RAG mode")
+    parser.add_argument("--emb-model", type=str, default="text-embedding-3-small",
+                       help="Embedding model used for RAG mode")
+    parser.add_argument("--emb-batchsize", type=int, default=512,
+                       help="Batchsize of embedding for RAG mode")
+    parser.add_argument("--index-path", type=str, default='',
+                       help="Index path for RAG mode")
+    parser.add_argument("--use-faiss", action="store_true",
+                       help="Whether to use Faiss for RAG mode")
+    parser.add_argument("--load-index", action="store_true",
+                       help="Whether to load exsiting index for RAG mode")
     
     args = parser.parse_args()
+
+    # python src/run.py --mode rag --data src/data/rag_demo.jsonl --kb-path src/data/kb_demo.json --index-path src/index/ --metric llm_judgement --load-index
     
     # Create configuration
     config = AgentConfig(
@@ -544,8 +556,34 @@ def main():
             "web_search_type": args.web_search_type
         })
     elif args.mode == "rag" and args.kb_path:
-        env_kwargs["kb_path"] = args.kb_path
-    
+        from tools.rag_tools import get_rag_index_class
+        use_faiss_flag = args.use_faiss
+        IndexClass = get_rag_index_class(use_faiss=use_faiss_flag)
+        rag_index = None
+        client = openai.OpenAI(
+            api_key=openai.api_key,
+            base_url=openai.base_url 
+        )
+        if args.load_index:
+            try:
+                print(f"Attempting to load RAG index from {args.index_path}")
+                rag_index = IndexClass.load_index(args.index_path, client)
+            except FileNotFoundError:
+                print(f"No existing index found at {args.index_path}. Will build a new one.")
+        
+        if rag_index is None:
+            if not args.kb_path:
+                raise ValueError("--kb-path is required to build a new RAG index.")
+            
+            print(f"Building new RAG index from {args.kb_path}...")
+            rag_index = IndexClass(client, model=args.emb_model)
+            rag_index.build_index(file_path=args.kb_path, batch_size=args.emb_batchsize)
+            
+            if args.index_path:
+                rag_index.save_index(args.index_path)
+
+        env_kwargs["rag_index"] = rag_index    # will pass it to RAGEnvironment
+
     # Create and run agent
     runner = AgentRunner(config)
     
