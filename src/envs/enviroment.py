@@ -59,6 +59,7 @@ class Environment(ABC):
                  model_name: str = "gpt-4.1-2025-04-14",
                  openai_api_key: Optional[str] = None,
                  openai_api_url: Optional[str] = None,
+                 enable_terminal_bench: bool = False, # added for Terminal Bench
                  **kwargs):
         """
         Initialize the environment.
@@ -78,6 +79,15 @@ class Environment(ABC):
         self.config = {
             "openai_api_key": openai_api_key or os.environ.get("OPENAI_API_KEY", ""),
             "openai_api_url": openai_api_url or os.environ.get("OPENAI_API_URL", os.environ.get("OPENAI_API_BASE", "")),
+            **kwargs
+        }
+        self.config = {
+            "openai_api_key": openai_api_key or os.environ.get("OPENAI_API_KEY", ""),
+            "openai_api_url": openai_api_url or os.environ.get("OPENAI_API_URL", os.environ.get("OPENAI_API_BASE", "")),
+            "enable_terminal_bench": enable_terminal_bench,
+            "terminal_bench_images": kwargs.get("terminal_bench_images", ["tbench/ubuntu:latest"]),
+            "container_timeout": kwargs.get("container_timeout", 300),
+            "max_containers": kwargs.get("max_containers", 5),
             **kwargs
         }
         
@@ -107,8 +117,94 @@ class Environment(ABC):
             print("Warning: OPENAI_API_URL or OPENAI_API_BASE is not set. Some tools may not work properly.")
 
     def _initialize_config(self):
-        """Initialize configuration, including Docker and Vriture Machine."""
-        pass
+        """Initialize configuration, including Docker and Virtual Machine."""
+        # Check if Terminal Bench is required for this environment
+        if not self.config.get("enable_terminal_bench", False):
+            return
+        
+        import subprocess
+        import shutil
+        
+        try:
+            # 1. Check if Docker is installed
+            if not shutil.which("docker"):
+                print("Warning: Docker is not installed. Terminal Bench requires Docker.")
+                print("Please install Docker from: https://docs.docker.com/get-docker/")
+                self.config["terminal_bench_available"] = False
+                return
+            
+            # 2. Check if Docker daemon is running
+            try:
+                subprocess.run(
+                    ["docker", "info"],
+                    check=True,
+                    capture_output=True,
+                    timeout=10
+                )
+            except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
+                print("Warning: Docker daemon is not running. Please start Docker.")
+                self.config["terminal_bench_available"] = False
+                return
+            
+            # 3. Check if Terminal Bench is installed
+            try:
+                result = subprocess.run(
+                    ["tbench", "--version"],
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                    timeout=5
+                )
+                print(f"Terminal Bench installed: {result.stdout.strip()}")
+            except (FileNotFoundError, subprocess.CalledProcessError):
+                print("Terminal Bench not found. Installing...")
+                try:
+                    # Install Terminal Bench via pip
+                    subprocess.run(
+                        [sys.executable, "-m", "pip", "install", "terminal-bench"],
+                        check=True,
+                        capture_output=True
+                    )
+                    print("Terminal Bench installed successfully.")
+                except subprocess.CalledProcessError as e:
+                    print(f"Failed to install Terminal Bench: {e}")
+                    self.config["terminal_bench_available"] = False
+                    return
+            
+            # 4. Pull required Docker images
+            print("Pulling Terminal Bench Docker images...")
+            images = self.config.get("terminal_bench_images", ["tbench/ubuntu:latest"])
+            
+            for image in images:
+                try:
+                    print(f"Pulling {image}...")
+                    subprocess.run(
+                        ["docker", "pull", image],
+                        check=True,
+                        capture_output=True,
+                        timeout=300  # 5 minutes timeout
+                    )
+                    print(f"Successfully pulled {image}")
+                except subprocess.TimeoutExpired:
+                    print(f"Timeout pulling {image}. Please pull manually.")
+                except subprocess.CalledProcessError as e:
+                    print(f"Failed to pull {image}: {e}")
+            
+            # 5. Initialize Terminal Bench configuration
+            tbench_config = {
+                "docker_available": True,
+                "images": images,
+                "container_timeout": self.config.get("container_timeout", 300),
+                "max_containers": self.config.get("max_containers", 5)
+            }
+            self.config["terminal_bench"] = tbench_config
+            self.config["terminal_bench_available"] = True
+            
+            print("Terminal Bench environment initialized successfully.")
+            
+        except Exception as e:
+            print(f"Error initializing Terminal Bench: {e}")
+            self.config["terminal_bench_available"] = False
 
     def _generate_tool_metadata(self):
         """Generate tool schemas and descriptions."""
@@ -321,6 +417,22 @@ class WebEnvironment(Environment):
         
         self.register_tool(WebSearchTool(**web_search_config))
         self.register_tool(WebVisitTool(**web_visit_config))
+
+
+class TBenchEnvironment(Environment): # for Terminal Bench
+    """
+    A minimal concrete environment for configuration-only scenarios (e.g., initializing Terminal Bench)
+    without registering any tools. Use this when you only need environment setup but no specific tools.
+    """
+
+    @property
+    def mode(self) -> str:
+        return "tbench"
+
+    def _initialize_tools(self):
+        # No tools by default; suitable for bench/config-only usage
+        self.tools = {}
+        self._generate_tool_metadata()
 
 
 # Convenience functions for common use cases
