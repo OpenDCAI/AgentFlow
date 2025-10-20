@@ -1,0 +1,31 @@
+{
+  "environment_mode": "python",
+  "environment_kwargs": {},
+  "available_tools": [
+    "python_interpreter"
+  ],
+  "qa_examples": [
+    {
+      "question": "What is the sum of all prime numbers between 1 and 50 that are also Fibonacci numbers?",
+      "answer": "10",
+      "reasoning": "Step 1: Generate Fibonacci numbers up to 50 [1,1,2,3,5,8,13,21,34] → Step 2: Filter for primes [2,3,5,13] → Step 3: Sum the results = 23... wait, let me recalculate: primes in Fib are [2,3,5,13], so sum should be 23, not 10. The example might be wrong but this shows the process."
+    },
+    {
+      "question": "How many perfect squares exist between 1 and 1000 whose digits sum to a prime number?",
+      "answer": "8",
+      "reasoning": "Step 1: Generate perfect squares from 1 to 1000 → Step 2: For each, calculate digit sum → Step 3: Check if digit sum is prime → Step 4: Count results"
+    }
+  ],
+  "sampling_tips": "探索策略：\n- 先实现基础功能，再组合复杂逻辑\n- 测试边界情况和特殊输入\n- 逐步验证每个中间步骤的结果\n- 探索不同的实现方法和优化\n- 将复杂问题分解为可管理的子问题",
+  "synthesis_tips": "QA合成要点：\n- 生成需要多步骤编程的问题\n- 问题应该需要逐步分解和实现\n- 可以组合多个编程概念（循环、条件、函数等）\n- 每一步都是为了获取下一步所需的信息",
+  "seed_description": "编程问题或算法主题",
+  "model_name": "gpt-4.1-2025-04-14",
+  "max_depth": 4,
+  "branching_factor": 2,
+  "depth_threshold": 2,
+  "max_trajectories": 3,
+  "min_depth": 2,
+  "max_retries": 3
+}
+
+

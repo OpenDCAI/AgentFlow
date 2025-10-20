@@ -1,0 +1,555 @@
+[
+  {
+    "trajectory_id": "traj_0",
+    "seed_data": "OpenAI",
+    "total_depth": 5,
+    "nodes": [
+      {
+        "node_id": "node_1_1",
+        "observation": "1.\nurl: https://sass.usst.edu.cn/_upload/article/files/13/52/79f23669493c8ddd5599fb094a94/dcb7fbcd-4618-4759-a9ec-052a84da9e9e.pdf\nsnippet: 圣塔菲研究所Santa Fe Institute（SFI）是一个独立的非盈利研. 究机构，位于美国新墨西哥州的圣塔菲市，世界知名的复杂性科学研. 究中心,正式成立于1984年。\n\n2.\nurl: https://swarma.org/?p=18501\nsnippet: 导语. 圣塔菲研究所（Santa Fe Institute）致力于复杂系统科学，是领域内最具活力和能力的智囊团。它涉猎广泛，成果颇丰，对我国复杂系统科学领域也有很大 ...\n\n3.\nurl: https://www.linkresearcher.com/information/c07fd79b-44d7-4c41-b986-9b895edd6d89\nsnippet: 圣塔菲研究所被誉为复杂性科学的圣地，被称为“没有围墙的研究所”，那么它是如何创建发展起来的呢？2019 年，为了纪念1984 年圣塔菲研究所的首次学术会议， ...\n\n4.\nurl: https://www.santafe.edu/about/history\nsnippet: In George Cowan's telling, the concept of a Santa Fe Institute began to form in the summer of 1956. He had been invited to the Aspen Institute, where prominent ...\n\n5.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: History. edit. The Santa Fe Institute was founded in 1984 by scientists George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb ...\n\n6.\nurl: https://www.santafe.edu/about/overview\nsnippet: SFI's History. Founded in 1984, the Santa Fe Institute was the first research institute dedicated to the study of complex adaptive systems. We are operated ...\n\n7.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: History. The Santa Fe Institute was founded in 1984 by scientists George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb Anderson ...\n\n8.\nurl: https://www.santafe.edu/about/overview\nsnippet: The Santa Fe Institute is a leading research center for complex systems science, founded in 1984, and is a nonprofit research and education center.\n\n9.\nurl: https://www.santafe.edu/about/history\nsnippet: These leading thinkers – including Stirling Colgate, Nick Metropolis, Herb Anderson, Darragh Nagle, Peter Caruthers, Richard Slansky, and others – typically met ...\n\n",
+        "intent": "首先获取圣塔菲研究所的基础信息，包括其成立时间、创始人、研究领域、地理位置等，以便为后续探索实体关系和时间线奠定基础。",
+        "action": {
+          "tool_name": "web_search",
+          "parameters": {
+            "queries": [
+              "圣塔菲研究所 基础信息",
+              "Santa Fe Institute founding history",
+              "Santa Fe Institute founders and research areas"
+            ]
+          }
+        },
+        "parent_id": "node_0_0",
+        "children_ids": [
+          "node_2_2",
+          "node_2_9"
+        ],
+        "depth": 1
+      },
+      {
+        "node_id": "node_2_2",
+        "observation": "**Failed URLs:**\n- https://en.wikipedia.org/wiki/Santa_Fe_Institute: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...",
+        "intent": "为了系统性探索圣塔菲研究所的实体关系链和时间线，下一步需要深入了解其创始人、早期重要人物，以及与其它机构或领域的关系。已知创始人有George Cowan、David Pines等，但名单可能不完整。通过访问维基百科页面，可以系统梳理其成立背景、创始团队、发展历程和研究领域，为后续multi-hop探索打下基础。",
+        "action": {
+          "tool_name": "web_visit",
+          "parameters": {
+            "urls": [
+              "https://en.wikipedia.org/wiki/Santa_Fe_Institute"
+            ],
+            "goal": "提取圣塔菲研究所的详细历史、创始人名单、成立背景、主要研究方向、重要事件、相关机构或人物，以及发展历程中的关键节点。"
+          }
+        },
+        "parent_id": "node_1_1",
+        "children_ids": [
+          "node_3_3",
+          "node_3_6"
+        ],
+        "depth": 2
+      },
+      {
+        "node_id": "node_3_3",
+        "observation": "1.\nurl: https://zh.wikipedia.org/zh-hans/%E8%81%96%E8%8F%B2%E7%A0%94%E7%A9%B6%E6%89%80\nsnippet: 该所于1984年由乔治·考温，大卫·潘恩斯，斯特林·科尔盖塔，默里·盖尔曼，尼克·麦特罗博利斯，赫布·安德森，彼得·A·卡拉瑟斯，以及理查德·斯兰斯基等人一同创办。\n\n2.\nurl: https://swarma.org/?p=15827\nsnippet: 1984年，盖尔曼与乔治·考温（George Cowan）、菲利普·安德森（Philip Anderson）等多位学者，在新墨西哥州共同创建了圣塔菲研究所，推动跨学科研究。 圣塔菲研究 ...\n\n3.\nurl: https://zhuanlan.zhihu.com/p/97048664\nsnippet: 相关阅读： 圣塔菲研究所创始人盖尔曼的简单性与复杂性. 于是1978年，在夸克之父、圣塔菲研究所的首任所长默里·盖尔曼（Murray Gell-Mann）的电话邀请 ...\n\n4.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: History. The Santa Fe Institute was founded in 1984 by scientists George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb Anderson ...\n\n5.\nurl: https://www.santafe.edu/about/history\nsnippet: In George Cowan's telling, the concept of a Santa Fe Institute began to form in the summer of 1956. He had been invited to the Aspen Institute, where prominent ...\n\n6.\nurl: https://writings.stephenwolfram.com/2019/06/my-part-in-an-origin-story-the-launching-of-the-santa-fe-institute/\nsnippet: At the initial discussion to determine the focus of what is now the Santa Fe Institute, Stephen Wolfram proposed concentrating on Complex\n\n7.\nurl: https://www.santafe.edu/about/history\nsnippet: This is the first of two articles recounting the early history of the Santa Fe Institute and the field that came to be known as complexity science.\n\n8.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: The Santa Fe Institute (SFI) is an independent, nonprofit theoretical research institute ... History. edit. The Santa Fe Institute was founded in 1984 by ...\n\n9.\nurl: https://www.santafe.edu/about/overview\nsnippet: Founded in 1984, the Santa Fe Institute was the first research institute dedicated to the study of complex adaptive systems. We are operated as an independent, ...\n\n10.\nurl: https://www.santafe.edu/about/history\nsnippet: This is the first of two articles recounting the early history of the Santa Fe Institute and the field that came to be known as complexity science.\n\n11.\nurl: https://www.santafe.edu/about/overview\nsnippet: Founded in 1984, the Santa Fe Institute was the first research institute dedicated to the study of complex adaptive systems. We are operated as an independent, ...\n\n12.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: Although theoretical scientific research is the institute's primary focus, it also runs several popular summer schools on complex systems, along with other ...\n\n13.\nurl: https://www.santafe.edu/engage/learn/alumni\nsnippet: Featured Alumni · Clara Orbe · Megumi Harada · Sahana Subramanyam · Hunter Fraser · Jenny Huang · Chris Kempes & Devorah West · Education News.\n\n14.\nurl: https://en.wikipedia.org/wiki/Category:Santa_Fe_Institute_people\nsnippet: A. Herbert L. Anderson · Philip W. Anderson · B Vijay Balasubramanian · Carl Bergstrom · Luís M. A. · C Derek Cabrera · Peter A. Carruthers · D Daniel Dennett ...\n\n15.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: Santa Fe Institute ; George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb Anderson, Peter A. Carruthers, and Richard Slansky.\n\n",
+        "intent": "由于直接访问维基百科页面失败，改用web_search工具，针对‘圣塔菲研究所 创始人’、‘Santa Fe Institute founders’、‘Santa Fe Institute history’等关键词进行多并行检索，以系统梳理SFI的创始团队、成立背景、早期重要人物、时间线及与其它机构的关系，便于后续实体关系和multi-hop推理探索。",
+        "action": {
+          "tool_name": "web_search",
+          "parameters": {
+            "queries": [
+              "圣塔菲研究所 创始人",
+              "Santa Fe Institute founders",
+              "Santa Fe Institute history",
+              "Santa Fe Institute early research areas",
+              "Santa Fe Institute notable members"
+            ]
+          }
+        },
+        "parent_id": "node_2_2",
+        "children_ids": [
+          "node_4_4"
+        ],
+        "depth": 3
+      },
+      {
+        "node_id": "node_4_4",
+        "observation": "**Failed URLs:**\n- https://zh.wikipedia.org/zh-hans/%E8%81%96%E8%8F%B2%E7%A0%94%E7%A9%B6%E6%89%80: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...\n- https://en.wikipedia.org/wiki/Santa_Fe_Institute: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...\n- https://www.santafe.edu/about/history: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...\n- https://www.santafe.edu/about/overview: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...",
+        "intent": "进一步梳理圣塔菲研究所的创始人、早期重要人物以及其成立背景和发展历程，同时提取与其它机构（如相关大学、研究所）及复杂性科学领域的关系链和时间线。通过访问维基百科和圣塔菲研究所官方网站的历史和概述页面，可以获得详实且系统的信息，为后续multi-hop问题探索奠定基础。",
+        "action": {
+          "tool_name": "web_visit",
+          "parameters": {
+            "urls": [
+              "https://zh.wikipedia.org/zh-hans/%E8%81%96%E8%8F%B2%E7%A0%94%E7%A9%B6%E6%89%80",
+              "https://en.wikipedia.org/wiki/Santa_Fe_Institute",
+              "https://www.santafe.edu/about/history",
+              "https://www.santafe.edu/about/overview"
+            ],
+            "goal": "系统提取圣塔菲研究所的创始人、成立时间、早期重要人物、发展历程、主要研究领域，以及与其他机构或科学领域的关系链和关键时间节点。"
+          }
+        },
+        "parent_id": "node_3_3",
+        "children_ids": [
+          "node_5_5"
+        ],
+        "depth": 4
+      },
+      {
+        "node_id": "node_5_5",
+        "observation": "1.\nurl: https://www.santafe.edu/about/history\nsnippet: This is the first of two articles recounting the early history of the Santa Fe Institute and the field that came to be known as complexity science.Read more\n\n2.\nurl: https://zh.wikipedia.org/wiki/%E8%81%96%E8%8F%B2%E7%A0%94%E7%A9%B6%E6%89%80\nsnippet: 聖菲研究所（SFI，Santa Fe Institute）是一間位於美國新墨西哥州聖菲市的非盈利性研究機構，該所的主要研究方向是複雜系統科學。該所於1984年由喬治·考溫，大衛·潘恩斯，斯 ...Read more\n\n3.\nurl: https://www.linkresearcher.com/information/c07fd79b-44d7-4c41-b986-9b895edd6d89\nsnippet: 沃尔夫勒姆回忆了圣塔菲研究所的创立，与多位创始人的交往，以及自己的复杂性研究历程。 集智俱乐部长期关注复杂系统科学及相关领域的研究进展，推动跨学科 ...Read more\n\n4.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: History. The Santa Fe Institute was founded in 1984 by scientists George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb Anderson ...\n\n5.\nurl: https://www.santafe.edu/about/history\nsnippet: In George Cowan's telling, the concept of a Santa Fe Institute began to form in the summer of 1956. He had been invited to the Aspen Institute, where prominent ...\n\n6.\nurl: https://writings.stephenwolfram.com/2019/06/my-part-in-an-origin-story-the-launching-of-the-santa-fe-institute/\nsnippet: At the initial discussion to determine the focus of what is now the Santa Fe Institute, Stephen Wolfram proposed concentrating on Complex\n\n7.\nurl: https://www.santafe.edu/about/history\nsnippet: Robinson, and George Bell, as well as earlier-career figures like Alan Perelson, Jim Crutchfield, Doyne Farmer, and Norman Packard. The “friends of friends” ...\n\n8.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: 1984; 41 years ago (1984) · George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb Anderson, Peter A. Carruthers, and Richard ...\n\n9.\nurl: https://writings.stephenwolfram.com/2019/06/my-part-in-an-origin-story-the-launching-of-the-santa-fe-institute/\nsnippet: In 1978 I went to Caltech as a graduate student, with Murray Gell-Mann (inventor of quarks, and the first chairman of the Santa Fe Institute) ...\n\n10.\nurl: https://www.santafe.edu/research/overview\nsnippet: SFI scientists use mathematical and computational approaches to search for deep similarities between complex systems such as proteins in cells, people in cities ...\n\n11.\nurl: https://www.santafe.edu/research/projects\nsnippet: Algorithmic justice · Artificial intelligence: Foundations to frontiers · A theory of embodied intelligence · Cities, scaling, & sustainability · Dynamics of wealth ...\n\n12.\nurl: https://www.santafe.edu/research/themes\nsnippet: Research Themes · Complex Intelligence: Natural, Artificial, and Collective · Complexity and History · Complex Time - Adaptation, Aging, Arrow of Time ...\n\n13.\nurl: https://www.santafe.edu/about/history\nsnippet: This is the first of two articles recounting the early history of the Santa Fe Institute and the field that came to be known as complexity science.\n\n14.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: 1984; 41 years ago (1984) · George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb Anderson, Peter A. Carruthers, and Richard ...\n\n15.\nurl: https://www.santafe.edu/about/overview\nsnippet: Founded in 1984, the Santa Fe Institute was the first research institute dedicated to the study of complex adaptive systems. We are operated as an independent, ...\n\n16.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: The Santa Fe Institute (SFI) is an independent, nonprofit theoretical research institute located in Santa Fe, New Mexico, United States\n\n17.\nurl: https://www.santafe.edu/news-center/news/2019-global-think-tank-rankings\nsnippet: For the tenth year running, the Santa Fe Institute has ranked among the world's top science and technology and interdisciplinary think tanks ...\n\n18.\nurl: https://scas.asu.edu/asu-sfi/\nsnippet: ASU-SFI Center for Biosocial Complex Systems. A partnership of Arizona State University and the Santa Fe Institute. For over 30 years, the Santa Fe Institute ...\n\n19.\nurl: https://www.santafe.edu/what-is-complex-systems-science\nsnippet: The most up-to-date textbook on complex systems, co-authored by SFI External Professor Stephan Thurner. It presents many foundational topics such as networks, ...\n\n20.\nurl: https://www.santafe.edu/\nsnippet: Since the early 1980s, it has been a hub of complexity science, gathering researchers across the disciplines to tackle some of the world's most challenging ...\n\n21.\nurl: https://www.santafe.edu/engage/learn/programs/sfi-complex-systems-summer-school\nsnippet: Complex Systems Summer School (CSSS) offers an intensive four-week introduction to complex behavior in mathematical, physical, living, and social systems.\n\n",
+        "intent": "由于无法直接访问维基百科和官方网站，决定使用web_search工具，分别针对圣塔菲研究所的历史、创始人、早期成员、研究领域、发展历程以及与复杂性科学领域及其他机构/大学的关系进行多并行检索。这样可以系统性收集结构化信息，便于后续梳理实体关系链和时间线，满足multi-hop推理需求。",
+        "action": {
+          "tool_name": "web_search",
+          "parameters": {
+            "queries": [
+              "圣塔菲研究所 历史",
+              "Santa Fe Institute founders",
+              "Santa Fe Institute early members",
+              "Santa Fe Institute research areas",
+              "Santa Fe Institute timeline",
+              "Santa Fe Institute related institutions",
+              "Santa Fe Institute complex science"
+            ]
+          }
+        },
+        "parent_id": "node_4_4",
+        "children_ids": [],
+        "depth": 5
+      }
+    ]
+  },
+  {
+    "trajectory_id": "traj_1",
+    "seed_data": "OpenAI",
+    "total_depth": 5,
+    "nodes": [
+      {
+        "node_id": "node_1_1",
+        "observation": "1.\nurl: https://sass.usst.edu.cn/_upload/article/files/13/52/79f23669493c8ddd5599fb094a94/dcb7fbcd-4618-4759-a9ec-052a84da9e9e.pdf\nsnippet: 圣塔菲研究所Santa Fe Institute（SFI）是一个独立的非盈利研. 究机构，位于美国新墨西哥州的圣塔菲市，世界知名的复杂性科学研. 究中心,正式成立于1984年。\n\n2.\nurl: https://swarma.org/?p=18501\nsnippet: 导语. 圣塔菲研究所（Santa Fe Institute）致力于复杂系统科学，是领域内最具活力和能力的智囊团。它涉猎广泛，成果颇丰，对我国复杂系统科学领域也有很大 ...\n\n3.\nurl: https://www.linkresearcher.com/information/c07fd79b-44d7-4c41-b986-9b895edd6d89\nsnippet: 圣塔菲研究所被誉为复杂性科学的圣地，被称为“没有围墙的研究所”，那么它是如何创建发展起来的呢？2019 年，为了纪念1984 年圣塔菲研究所的首次学术会议， ...\n\n4.\nurl: https://www.santafe.edu/about/history\nsnippet: In George Cowan's telling, the concept of a Santa Fe Institute began to form in the summer of 1956. He had been invited to the Aspen Institute, where prominent ...\n\n5.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: History. edit. The Santa Fe Institute was founded in 1984 by scientists George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb ...\n\n6.\nurl: https://www.santafe.edu/about/overview\nsnippet: SFI's History. Founded in 1984, the Santa Fe Institute was the first research institute dedicated to the study of complex adaptive systems. We are operated ...\n\n7.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: History. The Santa Fe Institute was founded in 1984 by scientists George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb Anderson ...\n\n8.\nurl: https://www.santafe.edu/about/overview\nsnippet: The Santa Fe Institute is a leading research center for complex systems science, founded in 1984, and is a nonprofit research and education center.\n\n9.\nurl: https://www.santafe.edu/about/history\nsnippet: These leading thinkers – including Stirling Colgate, Nick Metropolis, Herb Anderson, Darragh Nagle, Peter Caruthers, Richard Slansky, and others – typically met ...\n\n",
+        "intent": "首先获取圣塔菲研究所的基础信息，包括其成立时间、创始人、研究领域、地理位置等，以便为后续探索实体关系和时间线奠定基础。",
+        "action": {
+          "tool_name": "web_search",
+          "parameters": {
+            "queries": [
+              "圣塔菲研究所 基础信息",
+              "Santa Fe Institute founding history",
+              "Santa Fe Institute founders and research areas"
+            ]
+          }
+        },
+        "parent_id": "node_0_0",
+        "children_ids": [
+          "node_2_2",
+          "node_2_9"
+        ],
+        "depth": 1
+      },
+      {
+        "node_id": "node_2_2",
+        "observation": "**Failed URLs:**\n- https://en.wikipedia.org/wiki/Santa_Fe_Institute: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...",
+        "intent": "为了系统性探索圣塔菲研究所的实体关系链和时间线，下一步需要深入了解其创始人、早期重要人物，以及与其它机构或领域的关系。已知创始人有George Cowan、David Pines等，但名单可能不完整。通过访问维基百科页面，可以系统梳理其成立背景、创始团队、发展历程和研究领域，为后续multi-hop探索打下基础。",
+        "action": {
+          "tool_name": "web_visit",
+          "parameters": {
+            "urls": [
+              "https://en.wikipedia.org/wiki/Santa_Fe_Institute"
+            ],
+            "goal": "提取圣塔菲研究所的详细历史、创始人名单、成立背景、主要研究方向、重要事件、相关机构或人物，以及发展历程中的关键节点。"
+          }
+        },
+        "parent_id": "node_1_1",
+        "children_ids": [
+          "node_3_3",
+          "node_3_6"
+        ],
+        "depth": 2
+      },
+      {
+        "node_id": "node_3_6",
+        "observation": "1.\nurl: https://zhuanlan.zhihu.com/p/97048664\nsnippet: 沃尔夫勒姆回忆了圣塔菲研究所的创立，与多位创始人的交往，以及自己的复杂性研究历程。 在1984年10月5号到6号的一个研讨会上，一群学者为圣塔菲研究 ...\n\n2.\nurl: https://swarma.org/?p=15827\nsnippet: 1984年，在他的倡议下，与诺贝尔物理学奖得主菲利普·安德逊(Philip Anderson)和诺贝尔经济学奖获得者肯尼斯·阿罗（KennethArrow)等人共同创立圣塔菲研究所。\n\n3.\nurl: https://swarma.org/?p=18501\nsnippet: 它涉猎广泛，成果颇丰，对我国复杂系统科学领域也有很大影响。本文是著名理论物理学家郝柏林先生（1934-2018）对圣塔菲研究所及复杂性研究领域的介绍，2009 ...\n\n4.\nurl: https://www.santafe.edu/about/history\nsnippet: This is the first of two articles recounting the early history of the Santa Fe Institute and the field that came to be known as complexity science.\n\n5.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: SFI's original mission was to disseminate the notion of a new interdisciplinary research area called complexity theory or simply complex systems. This new ...\n\n6.\nurl: https://www.santafe.edu/research/themes/complexity-and-history\nsnippet: Accidents of the past play an outsized role in what we, at SFI, regard as the historical sciences — archaeology, astronomy, geology, paleontology, and certain ...\n\n7.\nurl: https://www.santafe.edu/\nsnippet: Since the early 1980s, it has been a hub of complexity science, gathering researchers across the disciplines to tackle some of the world's most challenging ...\n\n8.\nurl: https://www.santafe.edu/research/themes\nsnippet: Santa Fe Institute · Research · Themes · Projects · SFI Press · Researchers · Publications · Researcher Resources · Fellowships · Miller Scholarships · News + ...\n\n9.\nurl: https://www.santafe.edu/about/overview\nsnippet: Founded in 1984, the Santa Fe Institute was the first research institute dedicated to the study of complex adaptive systems. We are operated as an independent, ...\n\n",
+        "intent": "为了系统性梳理圣塔菲研究所的创始人、成立背景、研究领域和时间线等详细信息，避免再次遇到无法访问英文维基百科的情况，选择搜索中文和英文的权威百科、官方网站及学术介绍等页面。这样可以获取更全名单和关系链，为后续multi-hop推理和实体扩展打下基础。",
+        "action": {
+          "tool_name": "web_search",
+          "parameters": {
+            "queries": [
+              "圣塔菲研究所 创始人 发展历程",
+              "Santa Fe Institute founders history research areas",
+              "Santa Fe Institute 官方网站"
+            ]
+          }
+        },
+        "parent_id": "node_2_2",
+        "children_ids": [
+          "node_4_7"
+        ],
+        "depth": 3
+      },
+      {
+        "node_id": "node_4_7",
+        "observation": "**Failed URLs:**\n- https://www.santafe.edu/about/history: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...\n- https://www.santafe.edu/about/overview: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...",
+        "intent": "进一步梳理圣塔菲研究所的创始人、成立背景、早期重要人物以及其与其它机构和学科的关系。通过访问圣塔菲研究所的官方网站关于历史和概述页面，系统提取创始团队名单、成立时间、初始研究方向、重要事件等关键信息，为后续multi-hop实体和时间线推理奠定基础。",
+        "action": {
+          "tool_name": "web_visit",
+          "parameters": {
+            "urls": [
+              "https://www.santafe.edu/about/history",
+              "https://www.santafe.edu/about/overview"
+            ],
+            "goal": "提取圣塔菲研究所的创始人名单、成立时间、成立背景、早期重要人物、研究领域、重要事件及与其他机构或学科的关系。"
+          }
+        },
+        "parent_id": "node_3_6",
+        "children_ids": [
+          "node_5_8"
+        ],
+        "depth": 4
+      },
+      {
+        "node_id": "node_5_8",
+        "observation": "1.\nurl: https://zhuanlan.zhihu.com/p/97048664\nsnippet: 沃尔夫勒姆回忆了圣塔菲研究所的创立，与多位创始人的交往，以及自己的复杂性研究历程。 在1984年10月5号到6号的一个研讨会上，一群学者为圣塔菲研究 ...\n\n2.\nurl: https://swarma.org/?p=15827\nsnippet: 1984年，在他的倡议下，与诺贝尔物理学奖得主菲利普·安德逊(Philip Anderson)和诺贝尔经济学奖获得者肯尼斯·阿罗（KennethArrow)等人共同创立圣塔菲研究所。\n\n3.\nurl: https://swarma.org/?p=18501\nsnippet: 它被1984年建立的圣菲研究所买下后，又顺山势往稍低处延建了三层。 笔者1999年在一篇介绍复杂性科学[1]的文章中曾提到这个圣菲研究所（Santa Fe Institute, ...\n\n4.\nurl: https://www.santafe.edu/about/history\nsnippet: In George Cowan's telling, the concept of a Santa Fe Institute began to form in the summer of 1956. He had been invited to the Aspen Institute, where prominent ...\n\n5.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: History. edit. The Santa Fe Institute was founded in 1984 by scientists George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb ...\n\n6.\nurl: https://writings.stephenwolfram.com/2019/06/my-part-in-an-origin-story-the-launching-of-the-santa-fe-institute/\nsnippet: In 1978 I went to Caltech as a graduate student, with Murray Gell-Mann (inventor of quarks, and the first chairman of the Santa Fe Institute) ...\n\n7.\nurl: https://www.zhihu.com/question/57634775/answer/1948318375487971407\nsnippet: 在这个问题下分享一下我参加暑校的经历吧. 圣塔菲研究所是我们复杂科学学者心之所向的“圣地”，创立于在上世纪80年代，是复杂科学的发源地。研究所在管理 ...\n\n8.\nurl: https://www.youtube.com/user/santafeinst\nsnippet: For more than 30 years, this popular series has engaged the Santa Fe community with lively and diverse talks exploring a variety of topics, from cutting-edge ...\n\n9.\nurl: https://www.linkedin.com/company/santafeinstitute\nsnippet: Santa Fe Institute | 30014 followers on LinkedIn. Independent research and education center pioneering the science of complex adaptive systems since 1984.\n\n10.\nurl: https://www.santafe.edu/engage/support/list-of-supporters\nsnippet: Our Supporters ; Complexity Society. Amit and Vicky Patel; Anonymous (1); Bengier Foundation; Dan Tierney ; Emergence Circle. Andrew Dobson and Annarie Lyles ...\n\n11.\nurl: https://swarma.org/?p=18501\nsnippet: SFI有一个董事会，它的成员包括一些企业家、诺贝尔奖获得者及一些著名学者、SFI现任和过去的所长等。这不是一个名誉组织，它每年开会讨论有关SFI的大事。\n\n12.\nurl: https://www.linkresearcher.com/information/c07fd79b-44d7-4c41-b986-9b895edd6d89\nsnippet: 沃尔夫勒姆回忆了圣塔菲研究所的创立，与多位创始人的交往，以及自己的复杂性研究历程。 集智俱乐部长期关注复杂系统科学及相关领域的研究进展，推动跨学科 ...\n\n",
+        "intent": "由于圣塔菲研究所的官方网站和英文维基百科无法访问，已通过中文网络资源获得部分创始人和成立背景信息。为系统性补全创始人名单、成立时间、早期重要人物、初始研究方向等高质量信息，计划并行搜索中文和英文百科、学术文章及权威介绍页面，确保获取详细的实体关系链和时间线信息，为后续multi-hop推理创造丰富数据基础。",
+        "action": {
+          "tool_name": "web_search",
+          "parameters": {
+            "queries": [
+              "圣塔菲研究所 创始人 发展历程",
+              "Santa Fe Institute founders history",
+              "Santa Fe Institute 研究领域 时间线",
+              "圣塔菲研究所 重要人物 合作机构"
+            ]
+          }
+        },
+        "parent_id": "node_4_7",
+        "children_ids": [],
+        "depth": 5
+      }
+    ]
+  },
+  {
+    "trajectory_id": "traj_2",
+    "seed_data": "OpenAI",
+    "total_depth": 5,
+    "nodes": [
+      {
+        "node_id": "node_1_1",
+        "observation": "1.\nurl: https://sass.usst.edu.cn/_upload/article/files/13/52/79f23669493c8ddd5599fb094a94/dcb7fbcd-4618-4759-a9ec-052a84da9e9e.pdf\nsnippet: 圣塔菲研究所Santa Fe Institute（SFI）是一个独立的非盈利研. 究机构，位于美国新墨西哥州的圣塔菲市，世界知名的复杂性科学研. 究中心,正式成立于1984年。\n\n2.\nurl: https://swarma.org/?p=18501\nsnippet: 导语. 圣塔菲研究所（Santa Fe Institute）致力于复杂系统科学，是领域内最具活力和能力的智囊团。它涉猎广泛，成果颇丰，对我国复杂系统科学领域也有很大 ...\n\n3.\nurl: https://www.linkresearcher.com/information/c07fd79b-44d7-4c41-b986-9b895edd6d89\nsnippet: 圣塔菲研究所被誉为复杂性科学的圣地，被称为“没有围墙的研究所”，那么它是如何创建发展起来的呢？2019 年，为了纪念1984 年圣塔菲研究所的首次学术会议， ...\n\n4.\nurl: https://www.santafe.edu/about/history\nsnippet: In George Cowan's telling, the concept of a Santa Fe Institute began to form in the summer of 1956. He had been invited to the Aspen Institute, where prominent ...\n\n5.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: History. edit. The Santa Fe Institute was founded in 1984 by scientists George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb ...\n\n6.\nurl: https://www.santafe.edu/about/overview\nsnippet: SFI's History. Founded in 1984, the Santa Fe Institute was the first research institute dedicated to the study of complex adaptive systems. We are operated ...\n\n7.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: History. The Santa Fe Institute was founded in 1984 by scientists George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb Anderson ...\n\n8.\nurl: https://www.santafe.edu/about/overview\nsnippet: The Santa Fe Institute is a leading research center for complex systems science, founded in 1984, and is a nonprofit research and education center.\n\n9.\nurl: https://www.santafe.edu/about/history\nsnippet: These leading thinkers – including Stirling Colgate, Nick Metropolis, Herb Anderson, Darragh Nagle, Peter Caruthers, Richard Slansky, and others – typically met ...\n\n",
+        "intent": "首先获取圣塔菲研究所的基础信息，包括其成立时间、创始人、研究领域、地理位置等，以便为后续探索实体关系和时间线奠定基础。",
+        "action": {
+          "tool_name": "web_search",
+          "parameters": {
+            "queries": [
+              "圣塔菲研究所 基础信息",
+              "Santa Fe Institute founding history",
+              "Santa Fe Institute founders and research areas"
+            ]
+          }
+        },
+        "parent_id": "node_0_0",
+        "children_ids": [
+          "node_2_2",
+          "node_2_9"
+        ],
+        "depth": 1
+      },
+      {
+        "node_id": "node_2_9",
+        "observation": "**Failed URLs:**\n- https://www.santafe.edu/about/history: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...\n- https://www.santafe.edu/about/overview: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...\n- https://en.wikipedia.org/wiki/Santa_Fe_Institute: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...",
+        "intent": "为了深入了解圣塔菲研究所的创始人、早期成员、发展历史和学术影响，下一步将访问圣塔菲研究所的官方历史和概览页面，以及维基百科页面，提取详细时间线、创始团队、研究方向和与其他机构的关系等信息，为后续探索其合作网络和领域影响奠定基础。",
+        "action": {
+          "tool_name": "web_visit",
+          "parameters": {
+            "urls": [
+              "https://www.santafe.edu/about/history",
+              "https://www.santafe.edu/about/overview",
+              "https://en.wikipedia.org/wiki/Santa_Fe_Institute"
+            ],
+            "goal": "系统提取圣塔菲研究所的成立时间、创始人、发展历程、主要研究领域、重要事件、合作伙伴和与其他科学机构的关系等详细信息。"
+          }
+        },
+        "parent_id": "node_1_1",
+        "children_ids": [
+          "node_3_10",
+          "node_3_13"
+        ],
+        "depth": 2
+      },
+      {
+        "node_id": "node_3_10",
+        "observation": "1.\nurl: https://zh.wikipedia.org/zh-cn/%E8%81%96%E8%8F%B2%E7%A0%94%E7%A9%B6%E6%89%80\nsnippet: 该所于1984年由乔治·考温，大卫·潘恩斯，斯特林·科尔盖塔，默里·盖尔曼，尼克·麦特罗博利斯，赫布·安德森，彼得·A·卡拉瑟斯，以及理查德·斯兰斯基等人一同创办。\n\n2.\nurl: https://swarma.org/?p=15827\nsnippet: 1984年，盖尔曼与乔治·考温（George Cowan）、菲利普·安德森（Philip Anderson）等多位学者，在新墨西哥州共同创建了圣塔菲研究所，推动跨学科研究。 圣塔菲研究 ...\n\n3.\nurl: https://zhuanlan.zhihu.com/p/97048664\nsnippet: 相关阅读： 圣塔菲研究所创始人盖尔曼的简单性与复杂性. 于是1978年，在夸克之父、圣塔菲研究所的首任所长默里·盖尔曼（Murray Gell-Mann）的电话邀请 ...\n\n4.\nurl: https://zh.wikipedia.org/zh-tw/%E8%81%96%E8%8F%B2%E7%A0%94%E7%A9%B6%E6%89%80\nsnippet: 聖菲研究所（SFI，Santa Fe Institute）是一間位於美國新墨西哥州聖菲市的非盈利性研究機構，該所的主要研究方向是複雜系統科學。該所於1984年由喬治·考溫，大衛·潘恩斯，斯 ...\n\n5.\nurl: https://sass.usst.edu.cn/_upload/article/files/13/52/79f23669493c8ddd5599fb094a94/dcb7fbcd-4618-4759-a9ec-052a84da9e9e.pdf\nsnippet: 圣塔菲研究所Santa Fe Institute（SFI）是一个独立的非盈利研. 究机构，位于美国新墨西哥州的圣塔菲市，世界知名的复杂性科学研. 究中心,正式成立于1984年。\n\n6.\nurl: https://zh.wikipedia.org/zh-cn/%E8%81%96%E8%8F%B2%E7%A0%94%E7%A9%B6%E6%89%80\nsnippet: 圣菲研究所（SFI，Santa Fe Institute）是一间位于美国新墨西哥州圣菲市的非盈利性研究机构，该所的主要研究方向是复杂系统科学。该所于1984年由乔治·考温，大卫·潘恩斯，斯 ...\n\n7.\nurl: https://zh.wikipedia.org/zh-cn/%E8%81%96%E8%8F%B2%E7%A0%94%E7%A9%B6%E6%89%80\nsnippet: 圣菲研究所（SFI，Santa Fe Institute）是一间位于美国新墨西哥州圣菲市的非盈利性研究机构，该所的主要研究方向是复杂系统科学。该所于1984年由乔治·考温，大卫·潘恩 ...\n\n8.\nurl: https://zh.wikipedia.org/zh-hant/%E8%81%96%E8%8F%B2%E7%A0%94%E7%A9%B6%E6%89%80\nsnippet: 聖菲研究所（SFI，Santa Fe Institute）是一間位於美國新墨西哥州聖菲市的非盈利性研究機構，該所的主要研究方向是複雜系統科學。該所於1984年由喬治·考溫，大衛·潘恩斯，斯 ...\n\n9.\nurl: https://sass.usst.edu.cn/_upload/article/files/13/52/79f23669493c8ddd5599fb094a94/dcb7fbcd-4618-4759-a9ec-052a84da9e9e.pdf\nsnippet: 组织结构. 主要由帝国理工学院的学者，校外合作者、博士后、博士组成，. 并开展多项合作研究项目. 研究方向. 神经科学，通讯和运输网络，工程学，生物学和社会学. 最新的研究.\n\n10.\nurl: https://www.santafe.edu/about/history\nsnippet: This is the first of two articles recounting the early history of the Santa Fe Institute and the field that came to be known as complexity science.\n\n11.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: The Santa Fe Institute (SFI) is an independent, nonprofit theoretical research institute ... History. edit. The Santa Fe Institute was founded in 1984 by ...\n\n12.\nurl: https://www.santafe.edu/research/themes/complexity-and-history\nsnippet: Complexity and History · Our scientists are applying quantitative techniques from non-linear dynamics, statistical physics, and evolutionary biology to find ...\n\n13.\nurl: https://www.santafe.edu/about/history\nsnippet: Robinson, and George Bell, as well as earlier-career figures like Alan Perelson, Jim Crutchfield, Doyne Farmer, and Norman Packard. The “friends of friends” ...\n\n14.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: 1984; 41 years ago (1984) · George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb Anderson, Peter A. Carruthers, and Richard ...\n\n15.\nurl: https://writings.stephenwolfram.com/2019/06/my-part-in-an-origin-story-the-launching-of-the-santa-fe-institute/\nsnippet: In 1978 I went to Caltech as a graduate student, with Murray Gell-Mann (inventor of quarks, and the first chairman of the Santa Fe Institute) ...\n\n",
+        "intent": "由于直接访问圣塔菲研究所官网和维基百科页面失败，改用web_search工具，分别针对圣塔菲研究所的创始人、成立时间、研究领域、发展历程等核心信息进行搜索，以便系统梳理历史和关键人物，为后续探索其学术影响和合作网络打下基础。",
+        "action": {
+          "tool_name": "web_search",
+          "parameters": {
+            "queries": [
+              "圣塔菲研究所 创始人",
+              "圣塔菲研究所 成立时间",
+              "圣塔菲研究所 研究领域",
+              "Santa Fe Institute history",
+              "Santa Fe Institute early members"
+            ]
+          }
+        },
+        "parent_id": "node_2_9",
+        "children_ids": [
+          "node_4_11"
+        ],
+        "depth": 3
+      },
+      {
+        "node_id": "node_4_11",
+        "observation": "**Failed URLs:**\n- https://en.wikipedia.org/wiki/Santa_Fe_Institute: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...",
+        "intent": "进一步梳理圣塔菲研究所的创始团队、发展历程、主要研究领域及其与其他知名学术机构/人物的关系，以便建立实体关系链和时间线。由于在搜索结果中已发现多个权威来源（如维基百科英文和中文页面），本次将访问英文维基百科页面，提取详细的历史、创始人、研究方向以及与其他机构/人物的关联信息，为下一步多跳推理和关系网络打基础。",
+        "action": {
+          "tool_name": "web_visit",
+          "parameters": {
+            "urls": [
+              "https://en.wikipedia.org/wiki/Santa_Fe_Institute"
+            ],
+            "goal": "提取圣塔菲研究所的成立背景、创始人、早期成员、主要研究领域、发展历程，重点关注与其他知名学者和机构的关系，为后续构建时间线和实体关系网络做准备。"
+          }
+        },
+        "parent_id": "node_3_10",
+        "children_ids": [
+          "node_5_12"
+        ],
+        "depth": 4
+      },
+      {
+        "node_id": "node_5_12",
+        "observation": "1.\nurl: https://zh.wikipedia.org/zh-cn/%E8%81%96%E8%8F%B2%E7%A0%94%E7%A9%B6%E6%89%80\nsnippet: 圣菲研究所（SFI，Santa Fe Institute）是一间位于美国新墨西哥州圣菲市的非盈利性研究机构，该所的主要研究方向是复杂系统科学。 该所于1984年由乔治·考温，大卫·潘恩斯，斯特 ...\n\n2.\nurl: https://ipds.xjtu.edu.cn/info/1024/2413.htm\nsnippet: 圣塔菲研究所位于美国新墨西哥州首府圣塔菲市，汇集了一批物理、经济、理论生物、计算机、数学、哲学等领域的世界知名科学家。圣塔菲研究所是复杂性科学的发源地与研究 ...\n\n3.\nurl: https://zh.wikipedia.org/zh-hant/%E8%81%96%E8%8F%B2%E7%A0%94%E7%A9%B6%E6%89%80\nsnippet: 聖菲研究所（SFI，Santa Fe Institute）是一間位於美國新墨西哥州聖菲市的非盈利性研究機構，該所的主要研究方向是複雜系統科學。 該所於1984年由喬治·考溫，大衛·潘恩斯，斯特 ...\n\n4.\nurl: https://www.linkresearcher.com/information/c07fd79b-44d7-4c41-b986-9b895edd6d89\nsnippet: 沃尔夫勒姆回忆了圣塔菲研究所的创立，与多位创始人的交往，以及自己的复杂性研究历程。 集智俱乐部长期关注复杂系统科学及相关领域的研究进展，推动跨学科 ...\n\n5.\nurl: https://zh.wikipedia.org/wiki/%E8%81%96%E8%8F%B2%E7%A0%94%E7%A9%B6%E6%89%80\nsnippet: 歷史 聖菲研究所最初名為格蘭德河研究所，於1984年經新墨西哥州政府批准成立，第一任所長為著名化學家喬治·考溫。 成立之初的SFI僅有一個名稱和一個信箱地址，創建者在當時還 ...\n\n6.\nurl: https://swarma.org/?p=51485\nsnippet: 复杂科学的圣地圣塔菲研究所成立于80年代的美国，米歇尔·沃尔德罗普在以《复杂：诞生于秩序与混沌边缘的科学》一书，描绘了圣塔菲学者们的探索历程，影响了此 ...\n\n7.\nurl: https://ipds.xjtu.edu.cn/info/1024/2413.htm\nsnippet: 圣塔菲研究所是复杂性科学的发源地与研究中心之一，一直致力于建立一种新的科学研究团队模式，特别追求通过多学科交叉合作的方式去认识来自自然、人工和社会系统的共同规律。\n\n8.\nurl: https://sass.usst.edu.cn/_upload/article/files/13/52/79f23669493c8ddd5599fb094a94/dcb7fbcd-4618-4759-a9ec-052a84da9e9e.pdf\nsnippet: 组织结构. 主要由帝国理工学院的学者，校外合作者、博士后、博士组成，. 并开展多项合作研究项目. 研究方向. 神经科学，通讯和运输网络，工程学，生物学和社会学. 最新的研究.\n\n9.\nurl: https://web-prod.santafe.edu/research/partnerships\nsnippet: Santa Fe Institute · Research · Themes · Projects · SFI Press · Researchers · Publications · Researcher Resources · Fellowships · Miller Scholarships.\n\n10.\nurl: https://zh.wikipedia.org/zh-cn/%E8%81%96%E8%8F%B2%E7%A0%94%E7%A9%B6%E6%89%80\nsnippet: 圣菲研究所（SFI，Santa Fe Institute）是一间位于美国新墨西哥州圣菲市的非 ... 该所于1984年由乔治·考温，大卫·潘恩斯，斯特林·科尔盖塔，默里·盖尔曼，尼克·麦 ...\n\n11.\nurl: https://zh.wikipedia.org/zh-tw/%E8%81%96%E8%8F%B2%E7%A0%94%E7%A9%B6%E6%89%80\nsnippet: 聖菲研究所（SFI，Santa Fe Institute）是一間位於美國新墨西哥州聖菲市的非 ... 該所於1984年由喬治·考溫，大衛·潘恩斯，斯特林·科爾蓋塔，默里·蓋爾曼，尼克·麥 ...\n\n12.\nurl: https://swarma.org/?p=15827\nsnippet: “夸克之父”默里·盖尔曼（Murray Gell-Mann）于5月24日在圣塔菲辞世，享年89岁。默里·盖尔曼曾于1969年荣获诺贝尔物理学奖，是圣塔菲研究所的创始人之一。\n\n13.\nurl: https://zhuanlan.zhihu.com/p/108747394\nsnippet: 本文是著名理论物理学家郝柏林先生（1934-2018）对圣塔菲研究所及复杂性研究领域的介绍，2009 年发表在上海科技出版社《科学》杂志上。\n\n14.\nurl: https://swarma.org/?p=51485\nsnippet: 导语. 这篇随笔是北京师范大学教授张江的在2010年10月左右首次访问圣塔菲研究所的一个记录，他从《复杂》一书了解到圣塔菲研究所，到后来实地的访问 ...\n\n15.\nurl: https://sass.usst.edu.cn/_upload/article/files/13/52/79f23669493c8ddd5599fb094a94/dcb7fbcd-4618-4759-a9ec-052a84da9e9e.pdf\nsnippet: 圣塔菲研究所Santa Fe Institute（SFI）是一个独立的非盈利研. 究机构，位于美国新墨西哥州的圣塔菲市，世界知名的复杂性科学研. 究中心,正式成立于1984年。\n\n",
+        "intent": "由于无法直接访问圣塔菲研究所的官方和维基百科页面，下一步将利用web_search工具，进一步并行搜索其主要研究领域、知名学者（如默里·盖尔曼）、与其他学术机构的合作关系、历史发展等关键词，以获得多维度信息用于建立实体关系链和时间线，为后续多跳推理和领域影响分析做准备。",
+        "action": {
+          "tool_name": "web_search",
+          "parameters": {
+            "queries": [
+              "圣塔菲研究所 研究领域",
+              "圣塔菲研究所 发展历史",
+              "圣塔菲研究所 合作机构",
+              "默里·盖尔曼 圣塔菲研究所",
+              "圣塔菲研究所 知名学者"
+            ]
+          }
+        },
+        "parent_id": "node_4_11",
+        "children_ids": [],
+        "depth": 5
+      }
+    ]
+  },
+  {
+    "trajectory_id": "traj_3",
+    "seed_data": "OpenAI",
+    "total_depth": 5,
+    "nodes": [
+      {
+        "node_id": "node_1_1",
+        "observation": "1.\nurl: https://sass.usst.edu.cn/_upload/article/files/13/52/79f23669493c8ddd5599fb094a94/dcb7fbcd-4618-4759-a9ec-052a84da9e9e.pdf\nsnippet: 圣塔菲研究所Santa Fe Institute（SFI）是一个独立的非盈利研. 究机构，位于美国新墨西哥州的圣塔菲市，世界知名的复杂性科学研. 究中心,正式成立于1984年。\n\n2.\nurl: https://swarma.org/?p=18501\nsnippet: 导语. 圣塔菲研究所（Santa Fe Institute）致力于复杂系统科学，是领域内最具活力和能力的智囊团。它涉猎广泛，成果颇丰，对我国复杂系统科学领域也有很大 ...\n\n3.\nurl: https://www.linkresearcher.com/information/c07fd79b-44d7-4c41-b986-9b895edd6d89\nsnippet: 圣塔菲研究所被誉为复杂性科学的圣地，被称为“没有围墙的研究所”，那么它是如何创建发展起来的呢？2019 年，为了纪念1984 年圣塔菲研究所的首次学术会议， ...\n\n4.\nurl: https://www.santafe.edu/about/history\nsnippet: In George Cowan's telling, the concept of a Santa Fe Institute began to form in the summer of 1956. He had been invited to the Aspen Institute, where prominent ...\n\n5.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: History. edit. The Santa Fe Institute was founded in 1984 by scientists George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb ...\n\n6.\nurl: https://www.santafe.edu/about/overview\nsnippet: SFI's History. Founded in 1984, the Santa Fe Institute was the first research institute dedicated to the study of complex adaptive systems. We are operated ...\n\n7.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: History. The Santa Fe Institute was founded in 1984 by scientists George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb Anderson ...\n\n8.\nurl: https://www.santafe.edu/about/overview\nsnippet: The Santa Fe Institute is a leading research center for complex systems science, founded in 1984, and is a nonprofit research and education center.\n\n9.\nurl: https://www.santafe.edu/about/history\nsnippet: These leading thinkers – including Stirling Colgate, Nick Metropolis, Herb Anderson, Darragh Nagle, Peter Caruthers, Richard Slansky, and others – typically met ...\n\n",
+        "intent": "首先获取圣塔菲研究所的基础信息，包括其成立时间、创始人、研究领域、地理位置等，以便为后续探索实体关系和时间线奠定基础。",
+        "action": {
+          "tool_name": "web_search",
+          "parameters": {
+            "queries": [
+              "圣塔菲研究所 基础信息",
+              "Santa Fe Institute founding history",
+              "Santa Fe Institute founders and research areas"
+            ]
+          }
+        },
+        "parent_id": "node_0_0",
+        "children_ids": [
+          "node_2_2",
+          "node_2_9"
+        ],
+        "depth": 1
+      },
+      {
+        "node_id": "node_2_9",
+        "observation": "**Failed URLs:**\n- https://www.santafe.edu/about/history: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...\n- https://www.santafe.edu/about/overview: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...\n- https://en.wikipedia.org/wiki/Santa_Fe_Institute: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...",
+        "intent": "为了深入了解圣塔菲研究所的创始人、早期成员、发展历史和学术影响，下一步将访问圣塔菲研究所的官方历史和概览页面，以及维基百科页面，提取详细时间线、创始团队、研究方向和与其他机构的关系等信息，为后续探索其合作网络和领域影响奠定基础。",
+        "action": {
+          "tool_name": "web_visit",
+          "parameters": {
+            "urls": [
+              "https://www.santafe.edu/about/history",
+              "https://www.santafe.edu/about/overview",
+              "https://en.wikipedia.org/wiki/Santa_Fe_Institute"
+            ],
+            "goal": "系统提取圣塔菲研究所的成立时间、创始人、发展历程、主要研究领域、重要事件、合作伙伴和与其他科学机构的关系等详细信息。"
+          }
+        },
+        "parent_id": "node_1_1",
+        "children_ids": [
+          "node_3_10",
+          "node_3_13"
+        ],
+        "depth": 2
+      },
+      {
+        "node_id": "node_3_13",
+        "observation": "1.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: History. edit. The Santa Fe Institute was founded in 1984 by scientists George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb ...\n\n2.\nurl: https://www.santafe.edu/about/history\nsnippet: This is the first of two articles recounting the early history of the Santa Fe Institute and the field that came to be known as complexity science.\n\n3.\nurl: https://www.santafe.edu/about/overview\nsnippet: Founded in 1984, the Santa Fe Institute was the first research institute dedicated to the study of complex adaptive systems. We are operated as an independent, ...\n\n4.\nurl: https://www.santafe.edu/research/themes\nsnippet: Themes are institute-wide research topics that draw together large networks of researchers from the extended SFI network and beyond.\n\n5.\nurl: https://www.santafe.edu/about/overview\nsnippet: Operated as an independent, nonprofit 501(c)(3), the Santa Fe Institute is the world's leading research center for complex systems science.\n\n6.\nurl: https://www.adscientificindex.com/scientistranking/?p=7925\nsnippet: The Santa Fe Institute exemplifies how interdisciplinary research can lead to global academic excellence. Its continued contributions will ...\n\n7.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: Santa Fe Institute ; George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb Anderson, Peter A. Carruthers, and Richard Slansky.\n\n8.\nurl: https://www.santafe.edu/engage/learn/alumni\nsnippet: Featured Alumni · Clara Orbe · Megumi Harada · Sahana Subramanyam · Hunter Fraser · Jenny Huang · Chris Kempes & Devorah West · Education News.\n\n9.\nurl: https://www.santafe.edu/engage/support/list-of-supporters\nsnippet: SFI is supported by individuals, corporations, and philanthropic and family foundations, including the Bengier Foundation, Darla Moore Foundation, and James M. ...\n\n10.\nurl: https://www.santafe.edu/about/history\nsnippet: This is the first of two articles recounting the early history of the Santa Fe Institute and the field that came to be known as complexity science.\n\n11.\nurl: https://www.santafe.edu/about/overview\nsnippet: SFI's History. Founded in 1984, the Santa Fe Institute was the first research institute dedicated to the study of complex adaptive systems. We are operated as ...\n\n12.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: The Santa Fe Institute (SFI) is an independent, nonprofit theoretical research institute located in Santa Fe, New Mexico, United States\n\n13.\nurl: https://rocketreach.co/santa-fe-institute-competitors_b5c65771f42e0cb7\nsnippet: View Santa Fe Institute's top competitors like Brookhaven National Laboratory, Complexity Science Hub Vienna, and Institute for Advanced Study.\n\n14.\nurl: https://www.zoominfo.com/c/santa-fe-institute/93095186\nsnippet: Compare insights from companies similar to Santa Fe Institute, focusing on performance, financial data, growth rates, and unique benchmarks to identify key ...\n\n15.\nurl: https://www.scimagoir.com/institution.php?idp=62625\nsnippet: Similar institutions 62625. 1 Mechanobiology Institute SIR institution SGP53similarity2 The Rockefeller University SIR institution USA47similarity3 FOM ...\n\n",
+        "intent": "由于之前无法访问目标网页获取详细历史和创始人信息，现决定通过web_search工具，分别检索圣塔菲研究所的成立时间、创始人、研究方向及其与其他知名机构或人物的关系链，并尝试找到权威信息源（如维基百科、官方网站、学术综述）。这样可以系统地补全基础信息，为后续多跳推理和实体网络探索打基础。",
+        "action": {
+          "tool_name": "web_search",
+          "parameters": {
+            "queries": [
+              "Santa Fe Institute founding year and founders",
+              "Santa Fe Institute research areas and academic influence",
+              "Santa Fe Institute collaborations and notable members",
+              "Santa Fe Institute history and development timeline",
+              "Santa Fe Institute competitors and related institutions"
+            ]
+          }
+        },
+        "parent_id": "node_2_9",
+        "children_ids": [
+          "node_4_14"
+        ],
+        "depth": 3
+      },
+      {
+        "node_id": "node_4_14",
+        "observation": "**Failed URLs:**\n- https://en.wikipedia.org/wiki/Santa_Fe_Institute: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...",
+        "intent": "进一步深入圣塔菲研究所的创始团队、成立背景和早期发展历程，明确多位创始人之间的关系，以及其作为复杂系统科学领域的开创性机构的学术影响和与其他机构的联系。优先访问维基百科页面以提取权威且系统的信息，包括时间线、创始成员、研究方向和相关实体网络。",
+        "action": {
+          "tool_name": "web_visit",
+          "parameters": {
+            "urls": [
+              "https://en.wikipedia.org/wiki/Santa_Fe_Institute"
+            ],
+            "goal": "提取圣塔菲研究所的创始人、成立时间、早期成员、研究领域、历史发展、与其他机构或人物的关系链，以及重大事件和学术影响，形成系统性基础信息和实体网络。"
+          }
+        },
+        "parent_id": "node_3_13",
+        "children_ids": [
+          "node_5_15"
+        ],
+        "depth": 4
+      },
+      {
+        "node_id": "node_5_15",
+        "observation": "1.\nurl: https://zh.wikipedia.org/zh-cn/%E8%81%96%E8%8F%B2%E7%A0%94%E7%A9%B6%E6%89%80\nsnippet: 该所于1984年由乔治·考温，大卫·潘恩斯，斯特林·科尔盖塔，默里·盖尔曼，尼克·麦特罗博利斯，赫布·安德森，彼得·A·卡拉瑟斯，以及理查德·斯兰斯基等人一同创办。\n\n2.\nurl: https://swarma.org/?p=15827\nsnippet: 1984年，盖尔曼与乔治·考温（George Cowan）、菲利普·安德森（Philip Anderson）等多位学者，在新墨西哥州共同创建了圣塔菲研究所，推动跨学科研究。 圣塔菲研究 ...\n\n3.\nurl: https://zhuanlan.zhihu.com/p/97048664\nsnippet: 相关阅读： 圣塔菲研究所创始人盖尔曼的简单性与复杂性. 于是1978年，在夸克之父、圣塔菲研究所的首任所长默里·盖尔曼（Murray Gell-Mann）的电话邀请 ...\n\n4.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: History. The Santa Fe Institute was founded in 1984 by scientists George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb Anderson ...\n\n5.\nurl: https://www.santafe.edu/about/history\nsnippet: In George Cowan's telling, the concept of a Santa Fe Institute began to form in the summer of 1956. He had been invited to the Aspen Institute, where prominent ...\n\n6.\nurl: https://writings.stephenwolfram.com/2019/06/my-part-in-an-origin-story-the-launching-of-the-santa-fe-institute/\nsnippet: At the initial discussion to determine the focus of what is now the Santa Fe Institute, Stephen Wolfram proposed concentrating on Complex\n\n7.\nurl: https://www.santafe.edu/about/history\nsnippet: This is the first of two articles recounting the early history of the Santa Fe Institute and the field that came to be known as complexity science.\n\n8.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: The Santa Fe Institute (SFI) is an independent, nonprofit theoretical research institute located in Santa Fe, New Mexico, United States\n\n9.\nurl: https://writings.stephenwolfram.com/2019/06/my-part-in-an-origin-story-the-launching-of-the-santa-fe-institute/\nsnippet: The first workshop to define what is now the Santa Fe Institute took place on October 5–6, 1984. I was recently asked to give some reminiscences of the event.\n\n10.\nurl: https://www.santafe.edu/research/overview\nsnippet: SFI scientists use mathematical and computational approaches to search for deep similarities between complex systems such as proteins in cells, people in cities ...\n\n11.\nurl: https://www.santafe.edu/research/projects\nsnippet: Algorithmic justice · Artificial intelligence: Foundations to frontiers · A theory of embodied intelligence · Cities, scaling, & sustainability · Dynamics of wealth ...\n\n12.\nurl: https://www.santafe.edu/research/themes\nsnippet: Research Themes · Complex Intelligence: Natural, Artificial, and Collective · Complexity and History · Complex Time - Adaptation, Aging, Arrow of Time ...\n\n",
+        "intent": "由于多次尝试访问维基百科和圣塔菲研究所官网失败，现决定通过web_search工具，分别以'圣塔菲研究所 创始人'、'Santa Fe Institute founders'、'Santa Fe Institute early history'、'Santa Fe Institute research areas'为关键词，检索权威信息源。这样可以获得创始团队、成立背景、研究方向和与其他重要机构的关系等信息，为后续多跳推理和实体网络挖掘打下坚实的基础。",
+        "action": {
+          "tool_name": "web_search",
+          "parameters": {
+            "queries": [
+              "圣塔菲研究所 创始人",
+              "Santa Fe Institute founders",
+              "Santa Fe Institute early history",
+              "Santa Fe Institute research areas"
+            ]
+          }
+        },
+        "parent_id": "node_4_14",
+        "children_ids": [],
+        "depth": 5
+      }
+    ]
+  },
+  {
+    "trajectory_id": "traj_4",
+    "seed_data": "OpenAI",
+    "total_depth": 5,
+    "nodes": [
+      {
+        "node_id": "node_1_16",
+        "observation": "1.\nurl: https://www.santafe.edu/\nsnippet: Since the early 1980s, it has been a hub of complexity science, gathering researchers across the disciplines to tackle some of the world's most challenging ...\n\n2.\nurl: https://zh.wikipedia.org/zh-hant/%E8%81%96%E8%8F%B2%E7%A0%94%E7%A9%B6%E6%89%80\nsnippet: 聖菲研究所（SFI，Santa Fe Institute）是一間位於美國新墨西哥州聖菲市的非盈利性研究機構，該所的主要研究方向是複雜系統科學。 該所於1984年由喬治·考溫，大衛·潘恩斯，斯特 ...\n\n3.\nurl: https://www.santafe.edu/about/overview\nsnippet: Founded in 1984, the Santa Fe Institute was the first research institute dedicated to the study of complex adaptive systems. We are operated as an independent, ...\n\n4.\nurl: https://www.santafe.edu/about/history\nsnippet: In George Cowan's telling, the concept of a Santa Fe Institute began to form in the summer of 1956. He had been invited to the Aspen Institute, where prominent ...\n\n5.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: Founders, George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann ... The Santa Fe Institute was founded in 1984 by scientists George Cowan, David ...\n\n6.\nurl: https://www.santafe.edu/about/overview\nsnippet: Founded in 1984, the Santa Fe Institute was the first research institute dedicated to the study of complex adaptive systems. We are operated as an independent, ...\n\n7.\nurl: https://www.santafe.edu/research/overview\nsnippet: SFI scientists use mathematical and computational approaches to search for deep similarities between complex systems such as proteins in cells, people in cities ...See more\n\n8.\nurl: https://www.santafe.edu/research/projects\nsnippet: Algorithmic justice · Artificial intelligence: Foundations to frontiers · A theory of embodied intelligence · Cities, scaling, & sustainability · Dynamics of wealth ...See more\n\n9.\nurl: https://www.santafe.edu/research/themes\nsnippet: Research Themes · Complex Intelligence: Natural, Artificial, and Collective · Complexity and History · Complex Time - Adaptation, Aging, Arrow of Time ...See more\n\n10.\nurl: https://www.linkresearcher.com/information/c07fd79b-44d7-4c41-b986-9b895edd6d89\nsnippet: 沃尔夫勒姆回忆了圣塔菲研究所的创立，与多位创始人的交往，以及自己的复杂性研究历程。 集智俱乐部长期关注复杂系统科学及相关领域的研究进展，推动跨学科 ...\n\n11.\nurl: https://swarma.org/?p=51485\nsnippet: 他们有一个网站http://pcdb.santafe.edu/，对各种技术的发展、演变历史的数据进行收集。Bela给我看了一篇他目前研究的文章。文章指出，从更长时间的历史数据 ...\n\n12.\nurl: https://zhuanlan.zhihu.com/p/108747394\nsnippet: 它被1984年建立的圣菲研究所买下后，又顺山势往稍低处延建了三层。 笔者1999年在一篇介绍复杂性科学[1]的文章中曾提到这个圣菲研究所（SantaFeInstitute,以 ...\n\n",
+        "intent": "首先获取圣塔菲研究所的基础信息，包括其成立时间、创始人、主要研究领域、地理位置等，为后续的深入探索（如时间线、关键人物、合作关系等）打下基础。",
+        "action": {
+          "tool_name": "web_search",
+          "parameters": {
+            "queries": [
+              "圣塔菲研究所 基本信息",
+              "Santa Fe Institute founding and founders",
+              "Santa Fe Institute research areas",
+              "圣塔菲研究所 发展历程"
+            ]
+          }
+        },
+        "parent_id": "node_0_0",
+        "children_ids": [
+          "node_2_17",
+          "node_2_24"
+        ],
+        "depth": 1
+      },
+      {
+        "node_id": "node_2_17",
+        "observation": "**Failed URLs:**\n- https://en.wikipedia.org/wiki/Santa_Fe_Institute: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...",
+        "intent": "进一步获取圣塔菲研究所的详细基础信息，包括成立时间、创始人名单、主要研究领域、地理位置，以及其发展历程和重要事件，为后续探索其合作关系、影响力和相关领域奠定基础。选择访问维基百科英文页面以获得系统、权威且结构化的信息，便于挖掘实体关系和时间线。",
+        "action": {
+          "tool_name": "web_visit",
+          "parameters": {
+            "urls": [
+              "https://en.wikipedia.org/wiki/Santa_Fe_Institute"
+            ],
+            "goal": "提取圣塔菲研究所的详细基础信息，包括成立时间、创始人、主要研究领域、地理位置、发展历程、重要事件、关键人物及相关实体关系。"
+          }
+        },
+        "parent_id": "node_1_16",
+        "children_ids": [
+          "node_3_18",
+          "node_3_21"
+        ],
+        "depth": 2
+      },
+      {
+        "node_id": "node_3_18",
+        "observation": "1.\nurl: https://www.santafe.edu/about/history\nsnippet: In George Cowan's telling, the concept of a Santa Fe Institute began to form in the summer of 1956. He had been invited to the Aspen Institute, where prominent ...\n\n2.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: History. edit. The Santa Fe Institute was founded in 1984 by scientists George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb ...\n\n3.\nurl: https://www.santafe.edu/about/overview\nsnippet: Founded in 1984, the Santa Fe Institute was the first research institute dedicated to the study of complex adaptive systems. We are operated as an independent, ...\n\n4.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: History. The Santa Fe Institute was founded in 1984 by scientists George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb Anderson ...\n\n5.\nurl: https://www.santafe.edu/about/history\nsnippet: In George Cowan's telling, the concept of a Santa Fe Institute began to form in the summer of 1956. He had been invited to the Aspen Institute, where prominent ...\n\n6.\nurl: https://writings.stephenwolfram.com/2019/06/my-part-in-an-origin-story-the-launching-of-the-santa-fe-institute/\nsnippet: The first workshop to define what is now the Santa Fe Institute took place on October 5–6, 1984. ... George Cowan (Manhattan Project alum, Los ...\n\n7.\nurl: https://www.santafe.edu/research/overview\nsnippet: SFI scientists use mathematical and computational approaches to search for deep similarities between complex systems such as proteins in cells, people in cities ...\n\n8.\nurl: https://www.santafe.edu/research/projects\nsnippet: Algorithmic justice · Artificial intelligence: Foundations to frontiers · A theory of embodied intelligence · Cities, scaling, & sustainability · Dynamics of wealth ...\n\n9.\nurl: https://www.santafe.edu/research/themes\nsnippet: Research Themes · Complex Intelligence: Natural, Artificial, and Collective · Complexity and History · Complex Time - Adaptation, Aging, Arrow of Time ...\n\n10.\nurl: https://www.santafe.edu/campuses\nsnippet: As a visiting institution, we host our community on two distinct campuses in the western foothills of the Sangre de Cristo Mountains.\n\n11.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: The Santa Fe Institute (SFI) is an independent, nonprofit theoretical research institute ... Location. 1399 Hyde Park Rd., Santa Fe, New Mexico, U.S. · 35°42′02″N ...\n\n12.\nurl: https://www.santafe.edu/about/contact\nsnippet: Address. Santa Fe Institute (Cowan Campus) 1399 Hyde Park Road Santa Fe, New Mexico 87501. United States of America. Santa Fe Institute (Miller Campus)\n\n13.\nurl: https://www.santafe.edu/about/history\nsnippet: This is the first of two articles recounting the early history of the Santa Fe Institute and the field that came to be known as complexity science.\n\n14.\nurl: https://www.santafe.edu/research/themes/complexity-and-history\nsnippet: A collection of essays about science and the study of history at different scales. Initiated during a series of working groups at the Santa Fe Institute. ... An ...\n\n15.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: The Santa Fe Institute (SFI) is an independent, nonprofit theoretical research institute located in Santa Fe, New Mexico, United States\n\n",
+        "intent": "由于维基百科英文页面访问失败，为获得结构化且权威的基础信息（如成立时间、创始人、研究领域、地理位置等），选择使用web_search工具，针对圣塔菲研究所的成立时间、创始人、主要研究领域和地理位置多个维度并行搜索，以便获取详细且互补的权威信息，为后续探索其历史、人物、合作等关系链打好基础。",
+        "action": {
+          "tool_name": "web_search",
+          "parameters": {
+            "queries": [
+              "Santa Fe Institute founding year",
+              "Santa Fe Institute founders",
+              "Santa Fe Institute main research areas",
+              "Santa Fe Institute location",
+              "Santa Fe Institute history and major events"
+            ]
+          }
+        },
+        "parent_id": "node_2_17",
+        "children_ids": [
+          "node_4_19"
+        ],
+        "depth": 3
+      },
+      {
+        "node_id": "node_4_19",
+        "observation": "**Failed URLs:**\n- https://www.santafe.edu/about/history: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...\n- https://en.wikipedia.org/wiki/Santa_Fe_Institute: [WebVisit] Error: BrowserType.launch: Executable doesn't exist at /home/a1/.cache/ms-playwright/chromium-1187/chrome-linux/chrome\n╔════════════════════════════════════════════════════════════╗\n║ Looks...",
+        "intent": "为了系统性地梳理圣塔菲研究所的基础信息，包括其成立时间、创始人、地理位置、主要研究领域及其发展历程，选择访问官网历史页面和维基百科条目，从中提取结构化、详细的信息。这些信息将为后续探索其历史事件、合作网络和影响力提供基础数据。",
+        "action": {
+          "tool_name": "web_visit",
+          "parameters": {
+            "urls": [
+              "https://www.santafe.edu/about/history",
+              "https://en.wikipedia.org/wiki/Santa_Fe_Institute"
+            ],
+            "goal": "提取圣塔菲研究所的成立时间、创始人名单、地理位置、主要研究领域、发展历程和重要事件等详细基础信息。"
+          }
+        },
+        "parent_id": "node_3_18",
+        "children_ids": [
+          "node_5_20"
+        ],
+        "depth": 4
+      },
+      {
+        "node_id": "node_5_20",
+        "observation": "1.\nurl: https://www.santafe.edu/about/history\nsnippet: In George Cowan's telling, the concept of a Santa Fe Institute began to form in the summer of 1956. He had been invited to the Aspen Institute, where prominent ...\n\n2.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: History. edit. The Santa Fe Institute was founded in 1984 by scientists George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb ...\n\n3.\nurl: https://www.santafe.edu/about/overview\nsnippet: Founded in 1984, the Santa Fe Institute was the first research institute dedicated to the study of complex adaptive systems. We are operated as an independent, ...\n\n4.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: History. The Santa Fe Institute was founded in 1984 by scientists George Cowan, David Pines, Stirling Colgate, Murray Gell-Mann, Nick Metropolis, Herb Anderson ...\n\n5.\nurl: https://www.santafe.edu/about/history\nsnippet: In George Cowan's telling, the concept of a Santa Fe Institute began to form in the summer of 1956. He had been invited to the Aspen Institute, where prominent ...\n\n6.\nurl: https://writings.stephenwolfram.com/2019/06/my-part-in-an-origin-story-the-launching-of-the-santa-fe-institute/\nsnippet: At the initial discussion to determine the focus of what is now the Santa Fe Institute, Stephen Wolfram proposed concentrating on Complex\n\n7.\nurl: https://www.santafe.edu/research/overview\nsnippet: SFI scientists use mathematical and computational approaches to search for deep similarities between complex systems such as proteins in cells, people in cities ...Read more\n\n8.\nurl: https://www.santafe.edu/research/projects\nsnippet: Algorithmic justice · Artificial intelligence: Foundations to frontiers · A theory of embodied intelligence · Cities, scaling, & sustainability · Dynamics of wealth ...Read more\n\n9.\nurl: https://www.santafe.edu/research/themes\nsnippet: Research Themes · Complex Intelligence: Natural, Artificial, and Collective · Complexity and History · Complex Time - Adaptation, Aging, Arrow of Time ...Read more\n\n10.\nurl: https://www.santafe.edu/campuses\nsnippet: As a visiting institution, we host our community on two distinct campuses in the western foothills of the Sangre de Cristo Mountains.\n\n11.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: The Santa Fe Institute (SFI) is an independent, nonprofit theoretical research institute ... Location. 1399 Hyde Park Rd., Santa Fe, New Mexico, U.S. · 35°42′02″N ...\n\n12.\nurl: https://www.santafe.edu/about/contact\nsnippet: Address. Santa Fe Institute (Cowan Campus) 1399 Hyde Park Road Santa Fe, New Mexico 87501. United States of America. Santa Fe Institute (Miller Campus)\n\n13.\nurl: https://www.santafe.edu/about/history\nsnippet: To improve the Institute's hopes with the foundations, Cowan hired Ron Zee in 1986 as the Institute's first development director. Recalls Zee: “George Cowan ...\n\n14.\nurl: https://en.wikipedia.org/wiki/Santa_Fe_Institute\nsnippet: Historically, researchers affiliated with the institute played roles to varying degrees in the development and use of methods for studying complex systems ...\n\n15.\nurl: https://www.santafe.edu/about/overview\nsnippet: SFI's History. Founded in 1984, the Santa Fe Institute was the first research institute dedicated to the study of complex adaptive systems. We are operated as ...\n\n",
+        "intent": "由于无法直接访问官网和维基百科页面获取结构化基础信息，选择通过web_search工具发起多维度并行搜索，分别针对圣塔菲研究所的成立时间、创始人、主要研究领域、地理位置等关键词，以便汇总分散在不同权威来源的信息，为后续梳理时间线、关键人物及其关联实体提供充分数据支撑。",
+        "action": {
+          "tool_name": "web_search",
+          "parameters": {
+            "queries": [
+              "Santa Fe Institute founding year",
+              "Santa Fe Institute founders",
+              "Santa Fe Institute main research areas",
+              "Santa Fe Institute location",
+              "Santa Fe Institute development history"
+            ]
+          }
+        },
+        "parent_id": "node_4_19",
+        "children_ids": [],
+        "depth": 5
+      }
+    ]
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "config": {
+    "environment_mode": "web",
+    "environment_kwargs": {
+      "web_search_top_k": 3
+    },
+    "available_tools": [
+      "web_search",
+      "web_visit"
+    ],
+    "qa_examples": [
+      {
+        "question": "Please identify the AI research organization co-founded by the entrepreneur who previously co-founded the online payment company that merged with Confinity, and which later released a conversational AI tool that gained over 100 million users within two months.",
+        "answer": "OpenAI",
+        "reasoning": "Hop 1: online payment company merged with Confinity → PayPal → co-founder → Elon Musk; Hop 2: Elon Musk co-founded AI organization → released chatbot with 100M users → OpenAI"
+      },
+      {
+        "question": "What is the company founded in the city home to the Golden Gate Bridge, by someone who previously led a prominent startup accelerator, which developed the technology that powers a chat interface launched in late 2022?",
+        "answer": "OpenAI",
+        "reasoning": "Hop 1: Golden Gate Bridge city → San Francisco; Hop 2: led startup accelerator in SF → Sam Altman; Hop 3: Sam Altman founded company → chat interface 2022 → OpenAI"
+      }
+    ],
+    "sampling_tips": "探索策略：\n- 先搜索基础信息，再深入细节\n- 关注实体之间的关系链（创始人、合作伙伴、前身等）\n- 寻找时间线信息（成立时间、重要事件、发展历程）\n- 探索相关领域和竞争对手\n- 每次搜索应基于前一步结果，逐步深入。尽量探索更多的实体及不同实体间的关系，使得最后形成的QA能形成更多的multi-hop推理问题。",
+    "synthesis_tips": "QA合成要点：\n- 生成需要multi-hop推理的问题\n- 通过中间实体建立连接（关系链推理）\n- 问题应该模糊化具体信息，需要多步探索才能得到答案\n- 优先基于探索到的关系链信息生成问题",
+    "seed_description": "实体名称（公司、人物、产品、事件等）",
+    "model_name": "gpt-4.1-2025-04-14",
+    "max_depth": 5,
+    "branching_factor": 2,
+    "depth_threshold": 3,
+    "max_trajectories": 5,
+    "min_depth": 2,
+    "max_retries": 3
+  },
+  "total_qas": 15,
+  "total_trajectories": 5,
+  "total_nodes": 91,
+  "avg_trajectory_depth": 5.0,
+  "timestamp": "20251019_200627"
+}

@@ -332,3 +332,5 @@ synthesizer.save_results()
 - 训练需要多步推理的模型
 - 评估知识整合和关系理解能力
 
+
+

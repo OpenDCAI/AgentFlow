@@ -4,6 +4,8 @@ from crawl4ai import AsyncWebCrawler
 from urllib.parse import urlparse
 import openai
 import os
+import pdb
+import bdb
 
 # os.environ["OPENAI_API_KEY"] = ""
 # os.environ["OPENAI_API_BASE"] = ""
@@ -216,6 +218,9 @@ Summary:"""
 
 if __name__ == '__main__':
     # 测试WebVisitTool工具
+    os.environ["OPENAI_API_KEY"] = "sk-YJkQxboKmL0IBC1M0zOzZbVaVZifM5QvN4mLAtSLZ1V4yEDX"
+    os.environ["OPENAI_API_BASE"] = "http://123.129.219.111:3000/v1/"
+
     visit_tool = WebVisitTool(summary_model="gpt-4.1-2025-04-14")
     
     print("=== WebVisitTool Test Cases ===\n")

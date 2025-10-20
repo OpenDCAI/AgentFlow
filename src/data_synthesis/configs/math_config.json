@@ -1,0 +1,31 @@
+{
+  "environment_mode": "math",
+  "environment_kwargs": {},
+  "available_tools": [
+    "calculator"
+  ],
+  "qa_examples": [
+    {
+      "question": "If a rectangle has a perimeter of 30 units and its length is twice its width, what is the area?",
+      "answer": "50 square units",
+      "reasoning": "Step 1: Set up equations (2w + 2l = 30, l = 2w) → Step 2: Solve for w=5, l=10 → Step 3: Calculate area = 5 × 10 = 50"
+    },
+    {
+      "question": "A sphere has a volume of 288π cubic units. What is the surface area of this sphere?",
+      "answer": "144π square units",
+      "reasoning": "Step 1: Use volume formula V = (4/3)πr³ to find r → Step 2: Solve 288π = (4/3)πr³ → r=6 → Step 3: Calculate surface area = 4πr² = 144π"
+    }
+  ],
+  "sampling_tips": "探索策略：\n- 从基本概念出发，逐步深入\n- 尝试不同的计算方法和公式\n- 验证中间结果的合理性\n- 探索相关的数学性质和定理\n- 建立不同概念之间的联系",
+  "synthesis_tips": "QA合成要点：\n- 生成需要多步骤计算的问题\n- 每一步计算都依赖前一步的结果\n- 问题描述应该自然，避免直接给出公式\n- 可以包含单位转换、比例关系等中间步骤",
+  "seed_description": "数学主题或概念（如几何图形、代数方程、数论等）",
+  "model_name": "gpt-4.1-2025-04-14",
+  "max_depth": 4,
+  "branching_factor": 2,
+  "depth_threshold": 2,
+  "max_trajectories": 3,
+  "min_depth": 2,
+  "max_retries": 3
+}
+
+
