@@ -130,13 +130,35 @@ print(result)  # Output: "Processed: HELLO WORLD"
 {"id": "q2", "question": "What is 3*3?", "answer": "9"}
 ```
 
-### 2. Run Benchmark
+### 2. Create Environment
+
+```python
+# for Terminal Bench [optional]
+from src.envs.enviroment import TBenchEnvironment
+
+# Create a small config that enables Terminal Bench and specifies images
+env = TBenchEnvironment(enable_terminal_bench=True,
+                                                terminal_bench_images=["tbench/ubuntu:latest"],
+                                                container_timeout=300,
+                                                max_containers=2)
+
+print("Terminal Bench available:", env.get_config("terminal_bench_available"))
+print("TBench config:", env.get_config("terminal_bench"))
+```
+Run a quick check from PowerShell
+
+```powershell
+python -c "from src.envs.enviroment import TBenchEnvironment; e=TBenchEnvironment(enable_terminal_bench=True); print(e.get_config('terminal_bench_available')); print(e.get_config('terminal_bench'))"
+```
+
+### 3. Run Benchmark
 
 ```bash
 python src/run.py --mode math --data my_benchmark.jsonl
+python src/run.py --mode tbench --data src/data/tbench_demo.jsonl
 ```
 
-### 3. View Results
+### 4. View Results
 
 ```bash
 # Results are saved to results/result_my_benchmark.jsonl

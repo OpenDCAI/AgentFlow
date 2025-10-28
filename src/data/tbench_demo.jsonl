@@ -1,0 +1,4 @@
+{"id": "tbench-001", "question": "Echo hello inside a container", "command": "echo Hello from inside container", "expected": "Hello from inside container"}
+{"id": "tbench-002", "question": "Show Python version inside container", "command": "python -V", "expected": "Python"}
+{"id": "tbench-003", "question": "List root directory contents", "command": "ls -la /", "expected": "bin"}
+{"id": "tbench-004", "question": "Run a short shell script", "command": "for i in 1 2 3; do echo item:$i; done", "expected": "item:1"}
