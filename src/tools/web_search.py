@@ -3,6 +3,8 @@ import requests
 import os
 import pdb
 import bdb
+import time
+import random
 
 # os.environ['SERPER_API_KEY'] = ''
 
@@ -22,7 +24,7 @@ class WebSearchTool:
         }
     ]
 
-    def __init__(self, top_k=3, search_type="search", max_workers=5):
+    def __init__(self, top_k=10, search_type="search", max_workers=5, retry_times=5, retry_backoff=1.0):
         """
         Initialize WebSearchTool with configurable parameters
         
@@ -30,6 +32,8 @@ class WebSearchTool:
             top_k: Number of top search results to return per query (default: 3, max: 10)
             search_type: Type of search - "search", "news", or "images" (default: "search")
             max_workers: Maximum number of concurrent workers for parallel requests (default: 5)
+            retry_times: Number of retry attempts per query on failure (default: 3)
+            retry_backoff: Base seconds for exponential backoff between retries (default: 1.0)
         """
         self.api_key = os.getenv('SERPER_API_KEY')
         if not self.api_key:
@@ -37,6 +41,8 @@ class WebSearchTool:
         self.top_k = min(top_k, 10)
         self.search_type = search_type
         self.max_workers = max_workers
+        self.retry_times = max(1, int(retry_times))
+        self.retry_backoff = float(retry_backoff)
 
     def call(self, params: Union[str, dict]) -> str:
         try:
@@ -64,40 +70,86 @@ class WebSearchTool:
         import concurrent.futures
         
         def search_single_query(query):
-            try:
-                # Make API request to Serper
-                url = f"https://google.serper.dev/{self.search_type}"
-                headers = {
-                    'X-API-KEY': self.api_key,
-                    'Content-Type': 'application/json'
-                }
-                
-                payload = {
-                    'q': query,
-                    'num': self.top_k
-                }
-                
-                response = requests.post(url, headers=headers, json=payload, timeout=10)
-                response.raise_for_status()
+            last_error = None
+            for attempt in range(1, self.retry_times + 1):
+                try:
+                    # Make API request to Serper
+                    url = f"https://google.serper.dev/{self.search_type}"
+                    headers = {
+                        'X-API-KEY': self.api_key,
+                        'Content-Type': 'application/json'
+                    }
 
-                
-                data = response.json()
-                results = self._format_results(data, query, self.search_type)
-                
-                return {
-                    'query': query,
-                    'success': True,
-                    'results': results
-                }
-                
-            except Exception as e:
-                if isinstance(e, bdb.BdbQuit):
-                    raise e
-                return {
-                    'query': query,
-                    'success': False,
-                    'error': str(e)
-                }
+                    payload = {
+                        'q': query,
+                        'num': self.top_k
+                    }
+
+                    response = requests.post(url, headers=headers, json=payload, timeout=10)
+
+                    status_code = response.status_code
+                    if 200 <= status_code < 300:
+                        try:
+                            data = response.json()
+                        except Exception:
+                            data = {}
+                        results = self._format_results(data, query, self.search_type)
+                        return {
+                            'query': query,
+                            'success': True,
+                            'results': results
+                        }
+
+                    # build error message
+                    try:
+                        err_json = response.json()
+                        err_detail = err_json.get('message') if isinstance(err_json, dict) else err_json
+                    except Exception:
+                        err_detail = response.text or ''
+                    err_detail = str(err_detail)[:1000] if err_detail else f"HTTP {status_code}"
+                    err_msg = f"HTTP {status_code}: {err_detail}"
+
+                    last_error = err_msg
+                    if attempt < self.retry_times:
+                        sleep_seconds = self.retry_backoff * (2 ** (attempt - 1))
+                        sleep_seconds += random.uniform(0, 0.25 * max(self.retry_backoff, 0.001))
+                        time.sleep(sleep_seconds)
+                        continue
+
+                    # Non-retriable or retries exhausted
+                    return {
+                        'query': query,
+                        'success': False,
+                        'results': err_msg
+                    }
+
+                except requests.exceptions.RequestException as e:
+                    # Network/timeout errors -> retriable
+                    last_error = e
+                    if attempt < self.retry_times:
+                        sleep_seconds = self.retry_backoff * (2 ** (attempt - 1))
+                        sleep_seconds += random.uniform(0, 0.25 * max(self.retry_backoff, 0.001))
+                        time.sleep(sleep_seconds)
+                        continue
+                    return {
+                        'query': query,
+                        'success': False,
+                        'results': str(last_error)
+                    }
+                except Exception as e:
+                    if isinstance(e, bdb.BdbQuit):
+                        raise e
+                    last_error = e
+                    if attempt < self.retry_times:
+                        sleep_seconds = self.retry_backoff * (2 ** (attempt - 1))
+                        sleep_seconds += random.uniform(0, 0.25 * max(self.retry_backoff, 0.001))
+                        time.sleep(sleep_seconds)
+                        continue
+                    return {
+                        'query': query,
+                        'success': False,
+                        'results': str(last_error)
+                    }
         
         # Process queries in parallel
         with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
@@ -170,13 +222,24 @@ class WebSearchTool:
             snippet = item.get('snippet', '')
             if url:  # Only show items with valid URLs
                 output += f"{i}.\nurl: {url}\nsnippet: {snippet}\n\n"
-        
+        # If there are no successful formatted results, include failure reasons
+        if not output.strip():
+            failed_queries = [r for r in search_results if not r.get('success')]
+            if failed_queries:
+                for fail in failed_queries:
+                    query = fail.get('query', '')
+                    reason = str(fail.get('results', 'Unknown error'))
+                    output += f"[WebSearch] Query '{query}' failed: {reason}\n"
+            # If still empty for any reason, provide a generic message
+            if not output.strip():
+                output = "[WebSearch] Search failed with no results or error details"
+
         return output
 
 
 if __name__ == '__main__':
     # 测试WebSearchTool工具
-    search_tool = WebSearchTool(top_k=3, search_type="search")
+    search_tool = WebSearchTool(top_k=10, search_type="search")
     
     print("=== WebSearchTool Test Cases ===\n")
     

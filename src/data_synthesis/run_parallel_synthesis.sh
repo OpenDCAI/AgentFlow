@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# 通用Agent数据合成运行脚本
+# 通用Agent数据合成运行脚本 - 并行版本
 # 
 # 使用方法:
-#   ./run_generic_synthesis.sh web      # 使用Web配置
-#   ./run_generic_synthesis.sh math     # 使用Math配置
-#   ./run_generic_synthesis.sh python   # 使用Python配置
-#   ./run_generic_synthesis.sh rag      # 使用RAG配置
-#   ./run_generic_synthesis.sh custom path/to/config.json  # 使用自定义配置
+#   ./run_parallel_synthesis.sh web      # 使用Web配置
+#   ./run_parallel_synthesis.sh math     # 使用Math配置
+#   ./run_parallel_synthesis.sh python   # 使用Python配置
+#   ./run_parallel_synthesis.sh rag      # 使用RAG配置
+#   ./run_parallel_synthesis.sh custom path/to/config.json  # 使用自定义配置
 
 echo "=========================================="
-echo "通用Agent数据合成系统"
+echo "通用Agent数据合成系统 - 并行版本"
 echo "=========================================="
 echo ""
 
@@ -31,13 +31,12 @@ fi
 
 # 确定使用哪个配置文件
 CONFIG_TYPE=${1:-"web"}
-# CONFIG_TYPE=${1:-"rag"}
 SEED_FILE=${2:-"example_seed_entities.json"}
-OUTPUT_DIR=${3:-"synthesis_results"}
+OUTPUT_DIR=${3:-"synthesis_results_1031"}
 
 case $CONFIG_TYPE in
     web)
-        CONFIG_FILE="configs/web_config.json"
+        CONFIG_FILE="configs/web_config_parallel.json"
         echo "使用配置: Web环境 (web_search + web_visit)"
         ;;
     math)
@@ -92,11 +91,15 @@ echo "配置文件: $CONFIG_FILE"
 echo "Seed文件: $SEED_FILE"
 echo "输出目录: $OUTPUT_DIR"
 echo ""
+echo "💡 提示: 并行度可在配置文件中通过 'max_workers' 参数设置"
+echo "   - max_workers = 1: 串行处理"
+echo "   - max_workers > 1: 并行处理"
+echo ""
 echo "开始运行数据合成..."
 echo ""
 
-# 运行数据合成
-python synthesis_pipeline.py \
+# 运行数据合成（使用并行版本pipeline）
+python synthesis_pipeline_multi.py \
     --config "$CONFIG_FILE" \
     --seeds "$SEED_FILE" \
     --output-dir "$OUTPUT_DIR"
@@ -118,5 +121,4 @@ else
     echo "=========================================="
 fi
 echo ""
-
 

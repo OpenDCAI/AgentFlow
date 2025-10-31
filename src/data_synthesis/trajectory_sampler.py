@@ -1,7 +1,7 @@
 """
-Trajectory采样器
+Trajectory Sampler
 
-负责从seed实体出发，采样trajectory tree
+Responsible for sampling trajectory tree starting from seed entity
 """
 
 import openai
@@ -20,41 +20,41 @@ from envs import Environment
 
 class GenericTrajectorySampler:
     """
-    通用Trajectory采样器，支持任意工具组合
+    Generic Trajectory Sampler supporting arbitrary tool combinations
     """
     
     def __init__(self, 
                  environment: Environment,
                  config: SynthesisConfig):
         """
-        初始化通用Trajectory采样器
+        Initialize Generic Trajectory Sampler
         
         Args:
-            environment: 环境实例（任意类型）
-            config: 合成配置
+            environment: Environment instance (any type)
+            config: Synthesis configuration
         """
         self.environment = environment
         self.config = config
         
-        # 初始化OpenAI客户端
+        # Initialize OpenAI client
         self.client = openai.OpenAI(
             api_key=os.environ.get("OPENAI_API_KEY", ""),
             base_url=os.environ.get("OPENAI_API_URL", os.environ.get("OPENAI_API_BASE", ""))
         )
         
-        # 获取可用工具信息
+        # Get available tools information
         self.available_tools = self._get_available_tools()
         self.tool_descriptions = self._generate_tool_descriptions()
         
-        # Trajectory tree存储
+        # Trajectory tree storage
         self.nodes: Dict[str, TrajectoryNode] = {}
         self.root_id: Optional[str] = None
         
     def _get_available_tools(self) -> List[Dict[str, Any]]:
-        """获取环境中的可用工具信息"""
+        """Get available tools information from environment"""
         tools = []
         
-        # 如果配置中指定了工具列表，只使用这些工具
+        # If tools list is specified in config, only use these tools
         if self.config.available_tools:
             tool_names = self.config.available_tools
         else:
@@ -72,19 +72,19 @@ class GenericTrajectorySampler:
         return tools
     
     def _generate_tool_descriptions(self) -> str:
-        """生成工具描述文本"""
+        """Generate tool description text"""
         descriptions = []
         
         for tool in self.available_tools:
             desc = f"\n{len(descriptions) + 1}. {tool['name']}: {tool['description']}\n"
-            desc += "   参数:\n"
+            desc += "   Parameters:\n"
             
             for param in tool['parameters']:
                 param_type = param['type']
                 if param_type == 'array':
                     param_type = f"array of {param.get('array_type', 'string')}"
                 
-                required_str = " (必需)" if param.get('required', False) else " (可选)"
+                required_str = " (required)" if param.get('required', False) else " (optional)"
                 desc += f"   - {param['name']} ({param_type}){required_str}: {param['description']}\n"
             
             descriptions.append(desc)
@@ -93,32 +93,33 @@ class GenericTrajectorySampler:
     
     def sample_trajectory_tree(self, seed_data: str) -> Dict[str, TrajectoryNode]:
         """
-        从seed起点开始采样trajectory tree
+        Sample trajectory tree starting from seed
         
         Args:
-            seed_data: 起始点数据（字符串，可以是任意内容：实体名、URL、问题描述、文本等）
+            seed_data: Starting point data (string, can be any content: entity name, URL, question description, text, etc.)
             
         Returns:
-            完整的trajectory tree
+            Complete trajectory tree
         """
         print(f"\n{'='*60}")
-        print(f"开始采样 Trajectory Tree")
-        print(f"Seed内容: {seed_data}")
-        print(f"环境模式: {self.environment.mode}")
-        print(f"可用工具: {[t['name'] for t in self.available_tools]}")
-        print(f"最大深度: {self.config.max_depth}, 分支因子: {self.config.branching_factor}")
+        print(f"Starting Trajectory Tree Sampling")
+        print(f"Seed Content: {seed_data}")
+        print(f"Environment Mode: {self.environment.mode}")
+        print(f"Available Tools: {[t['name'] for t in self.available_tools]}")
+        print(f"Max Depth: {self.config.max_depth}, Branching Factor: {self.config.branching_factor}")
         print(f"{'='*60}\n")
         
-        # 创建根节点
-        root_id = f"node_0_0"
-        observation = f"起点: {seed_data}"
+        # Create root node
+        # root_id format: node_d{depth}_t{total_nodes}_b{branch_number}
+        root_id = f"d0_t0_b0"
+        observation = f"Starting point: {seed_data}"
         if self.config.seed_description:
-            observation = f"起点 ({self.config.seed_description}): {seed_data}"
+            observation = f"Starting point ({self.config.seed_description}): {seed_data}"
         
         root_node = TrajectoryNode(
             node_id=root_id,
             observation=observation,
-            intent="开始探索",
+            intent="Start exploration",
             action=None,
             parent_id=None,
             depth=0
@@ -127,83 +128,87 @@ class GenericTrajectorySampler:
         self.nodes[root_id] = root_node
         self.root_id = root_id
         
-        # BFS扩展tree
+        # BFS expand tree
         self._expand_tree(root_id, seed_data)
         
-        print(f"\n✅ Trajectory Tree采样完成!")
-        print(f"   总节点数: {len(self.nodes)}")
-        print(f"   最大深度: {max(node.depth for node in self.nodes.values())}")
+        print(f"\n✅ Trajectory Tree Sampling Completed!")
+        print(f"   Total Nodes: {len(self.nodes)}")
+        print(f"   Max Depth: {max(node.depth for node in self.nodes.values())}")
         
         return self.nodes
     
     def _expand_tree(self, node_id: str, seed_data: str):
-        """递归扩展trajectory tree"""
+        """Recursively expand trajectory tree"""
         current_node = self.nodes[node_id]
         
-        # 检查深度限制
+        # Check depth limit
         if current_node.depth >= self.config.max_depth:
             return
         
-        print(f"\n🌳 扩展节点 {node_id} (深度: {current_node.depth})")
+        print(f"\n🌳 Expanding node {node_id} (depth: {current_node.depth})")
         
-        # 根据深度动态调整分支因子
+        # Dynamically adjust branching factor based on depth
         if current_node.depth >= self.config.depth_threshold:
             current_branching_factor = 1
-            print(f"   ⚠️  深度 {current_node.depth} >= 阈值 {self.config.depth_threshold}，分支因子降为 1")
+            print(f"   ⚠️  Depth {current_node.depth} >= threshold {self.config.depth_threshold}, branching factor reduced to 1")
         else:
             current_branching_factor = self.config.branching_factor
         
-        # 对当前节点进行branching_factor次采样
+        # Sample branching_factor times for current node
         for branch_idx in range(current_branching_factor):
             try:
-                # 生成下一步的action和intent
+                # Generate next action and intent
                 action, intent = self._generate_next_action(current_node, seed_data)
                 
                 if action is None:
-                    print(f"   分支 {branch_idx + 1}: 无法生成有效动作，跳过")
+                    print(f"   Branch {branch_idx + 1}: Unable to generate valid action, skipping")
                     continue
                 
-                # 执行action获取observation
+                # Execute action to get observation
                 observation = self._execute_action(action)
                 
-                # 创建新节点
-                child_id = f"node_{current_node.depth + 1}_{len(self.nodes)}"
+                # Create new node
+                # child_id format: node_d{depth}_t{total_nodes}_b{branch_number}
+                child_depth = current_node.depth + 1
+                total_nodes = len(self.nodes)
+                child_id = f"d{child_depth}_t{total_nodes}_b{branch_idx}"
                 child_node = TrajectoryNode(
                     node_id=child_id,
                     observation=observation,
                     intent=intent,
                     action=action,
                     parent_id=node_id,
-                    depth=current_node.depth + 1
+                    depth=child_depth
                 )
                 
                 self.nodes[child_id] = child_node
                 current_node.children_ids.append(child_id)
                 
-                print(f"   ✓ 分支 {branch_idx + 1}: 创建节点 {child_id}")
+                print(f"   ✓ Branch {branch_idx + 1}: Created node {child_id}")
                 print(f"     Intent: {intent}")
                 print(f"     Action: {action.get('tool_name', 'unknown')}")
+                print(f"     Parameters: {action.get('parameters', {})}")
                 print(f"     Observation: {observation[:100]}...")
                 
-                # 递归扩展子节点
+                # Recursively expand child node
                 self._expand_tree(child_id, seed_data)
                 
             except Exception as e:
                 if isinstance(e, bdb.BdbQuit):
                     raise e
-                print(f"   ✗ 分支 {branch_idx + 1} 失败: {str(e)}")
+                print(f"   ✗ Branch {branch_idx + 1} failed: {str(e)}")
                 continue
     
     def _generate_next_action(self, 
                               current_node: TrajectoryNode, 
                               seed_data: str) -> Tuple[Optional[Dict[str, Any]], str]:
         """
-        基于当前状态生成下一步的action和intent
+        Generate next action and intent based on current state
         """
-        # 构建历史轨迹
+        # Build history trajectory
         history = self._build_history(current_node)
         
-        # 构建prompt（通用版本，基于配置）
+        # Build prompt (generic version, based on configuration)
         prompt = self._build_action_generation_prompt(seed_data, history, current_node.observation)
         
         retry = 0
@@ -220,81 +225,81 @@ class GenericTrajectorySampler:
                 intent = result.get("intent", "")
                 action = result.get("action", {})
                 
-                # 验证action格式
+                # Validate action format
                 if self._validate_action(action):
                     return action, intent
                 
                 retry += 1
                 
             except Exception as e:
-                print(f"      警告: 生成动作失败 (尝试 {retry + 1}): {str(e)}")
+                print(f"      Warning: Failed to generate action (attempt {retry + 1}): {str(e)}")
                 retry += 1
         
         return None, ""
     
     def _build_action_generation_prompt(self, seed_data: str, history: str, current_observation: str) -> str:
-        """构建动作生成的prompt（基于配置动态生成）"""
+        """Build action generation prompt (dynamically generated based on configuration)"""
         
-        # 通用prompt模板
-        prompt = f"""你是一个智能Agent，正在使用可用工具进行探索和推理。
+        # Generic prompt template
+        prompt = f"""You are an intelligent Agent using available tools for exploration and reasoning.
 
-【起点信息】
-内容: {seed_data}"""
+[Starting Point Information]
+Content: {seed_data}"""
         
         if self.config.seed_description:
-            prompt += f"\n说明: {self.config.seed_description}"
+            prompt += f"\nDescription: {self.config.seed_description}"
         
         prompt += """
 
-【探索目标】
-根据起点内容和可用工具，进行系统性探索，收集和推理出有价值的信息。
+[Exploration Goal]
+Based on the starting point content and available tools, conduct systematic exploration to collect and reason about valuable information.
 
 """
         
-        # 添加用户自定义的sampling tips
+        # Add user-defined sampling tips
         if self.config.sampling_tips:
-            prompt += f"""【探索策略和重点】
+            prompt += f"""[Exploration Strategy and Focus]
 {self.config.sampling_tips}
 
 """
         
-        # 添加历史轨迹
-        prompt += f"""当前历史轨迹:
+        # Add history trajectory
+        prompt += f"""Current History Trajectory:
 {history}
 
-当前观察:
+Current Observation:
 {current_observation}
 
 """
         
-        # 添加工具描述
-        prompt += f"""可用工具:
+        # Add tool descriptions
+        prompt += f"""Available Tools:
 {self.tool_descriptions}
 
 """
         
-        # 添加QA示例（如果有）
+        # Add QA examples (if any)
         if self.config.qa_examples:
-            prompt += """参考示例（了解期望的数据类型）:\n"""
-            for i, example in enumerate(self.config.qa_examples[:2], 1):  # 只显示前2个
+            prompt += """Reference Examples (to understand expected data types):\n"""
+            for i, example in enumerate(self.config.qa_examples[:2], 1):  # Show only first 2
                 prompt += f"""
-示例 {i}:
-问题: {example.get('question', '')}
-答案: {example.get('answer', '')}
+Example {i}:
+Question: {example.get('question', '')}
+Answer: {example.get('answer', '')}
 """
                 if 'reasoning' in example:
-                    prompt += f"推理: {example['reasoning']}\n"
+                    prompt += f"Reasoning: {example['reasoning']}\n"
         
-        # 添加输出格式要求
+        # Add output format requirements
         prompt += """
-请基于当前状态和可用工具，选择一个合适的工具和参数，生成下一步的动作和意图。
+Based on the current state and available tools, select an appropriate tool and parameters, and generate the next action and intent.
 
-返回JSON格式:
+Return JSON format:
 {
-    "intent": "执行这个动作的意图和理由",
+    "intent": "The intent and reason for executing this action",
     "action": {
-        "tool_name": "工具名称",
-        "parameters": {参数字典}
+        "tool_name": "tool name",
+        "parameters": {parameter dictionary}
     }
 }
 """
@@ -302,7 +307,7 @@ class GenericTrajectorySampler:
         return prompt
     
     def _validate_action(self, action: Dict[str, Any]) -> bool:
-        """验证action格式是否正确（通用版本）"""
+        """Validate whether action format is correct (generic version)"""
         if not isinstance(action, dict):
             return False
         
@@ -333,7 +338,7 @@ class GenericTrajectorySampler:
         return True
     
     def _execute_action(self, action: Dict[str, Any]) -> str:
-        """执行动作并返回observation"""
+        """Execute action and return observation"""
         tool_name = action["tool_name"]
         parameters = action["parameters"]
         
@@ -341,10 +346,10 @@ class GenericTrajectorySampler:
             result = self.environment.execute_tool(tool_name, parameters)
             return result
         except Exception as e:
-            return f"[Error] 执行动作失败: {str(e)}"
+            return f"[Error] Action execution failed: {str(e)}"
     
     def _build_history(self, node: TrajectoryNode) -> str:
-        """构建从根到当前节点的历史轨迹"""
+        """Build history trajectory from root to current node"""
         path = []
         current = node
         
@@ -355,15 +360,15 @@ class GenericTrajectorySampler:
         path.reverse()
         
         if not path:
-            return "无历史轨迹"
+            return "No history trajectory"
         
         history_str = ""
         for i, n in enumerate(path, 1):
-            history_str += f"\n步骤 {i}:\n"
-            history_str += f"  意图: {n.intent}\n"
+            history_str += f"\nStep {i}:\n"
+            history_str += f"  Intent: {n.intent}\n"
             if n.action:
-                history_str += f"  动作: {n.action.get('tool_name', 'unknown')}\n"
-            history_str += f"  观察: {n.observation[:200]}...\n"
+                history_str += f"  Action: {n.action.get('tool_name', 'unknown')}\n"
+            history_str += f"  Observation: {n.observation[:200]}...\n"
         
         return history_str
 

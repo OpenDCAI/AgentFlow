@@ -27,6 +27,7 @@
   "depth_threshold": 2,
   "max_trajectories": 3,
   "min_depth": 2,
-  "max_retries": 3
+  "max_retries": 3,
+  "max_workers": 1
 }
 

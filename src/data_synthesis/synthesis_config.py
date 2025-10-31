@@ -43,9 +43,16 @@ class SynthesisConfig:
     # Trajectory选择配置
     max_trajectories: int = 5
     min_depth: int = 2
+    max_selected_traj: int = 3  # 每次选择的trajectory数量上限
     
     # 其他配置
     max_retries: int = 3
+    
+    # 并行处理配置
+    max_workers: int = 1  # 并行处理的worker数量，1表示串行处理
+    
+    # Seed处理数量限制
+    number_of_seed: Optional[int] = None  # 只处理前N个seed，None表示处理所有seed
     
     @classmethod
     def from_dict(cls, config_dict: Dict[str, Any]) -> 'SynthesisConfig':
@@ -82,7 +89,10 @@ class SynthesisConfig:
             "depth_threshold": self.depth_threshold,
             "max_trajectories": self.max_trajectories,
             "min_depth": self.min_depth,
-            "max_retries": self.max_retries
+            "max_selected_traj": self.max_selected_traj,
+            "max_retries": self.max_retries,
+            "max_workers": self.max_workers,
+            "number_of_seed": self.number_of_seed
         }
     
     def to_json(self, json_path: str):
@@ -110,6 +120,9 @@ class SynthesisConfig:
         
         if self.max_trajectories < 1:
             errors.append("max_trajectories必须大于0")
+        
+        if self.max_selected_traj < 1:
+            errors.append("max_selected_traj必须大于0")
         
         if self.min_depth < 1:
             errors.append("min_depth必须大于0")

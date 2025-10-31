@@ -1,7 +1,7 @@
 """
-QA合成器
+QA Synthesizer
 
-负责基于trajectory合成问答对
+Responsible for synthesizing Q&A pairs based on trajectories
 """
 
 import openai
@@ -16,11 +16,11 @@ from synthesis_config import SynthesisConfig
 
 class GenericQASynthesizer:
     """
-    通用QA合成器，基于配置和示例生成问答对
+    Generic QA synthesizer that generates Q&A pairs based on configuration and examples
     """
     
     def __init__(self, config: SynthesisConfig):
-        """初始化QA合成器"""
+        """Initialize QA synthesizer"""
         self.config = config
         
         self.client = openai.OpenAI(
@@ -28,14 +28,14 @@ class GenericQASynthesizer:
             base_url=os.environ.get("OPENAI_API_URL", os.environ.get("OPENAI_API_BASE", ""))
         )
     
-    def synthesize_qa(self, trajectory: Trajectory) -> Optional[SynthesizedQA]:
-        """基于trajectory合成问答对"""
-        print(f"\n🔧 合成QA对 - Trajectory: {trajectory.trajectory_id}")
+    def synthesize_qa(self, trajectory: Trajectory, qa_index: int = 0) -> Optional[SynthesizedQA]:
+        """Synthesize Q&A pair based on trajectory"""
+        print(f"\n🔧 Synthesizing QA pair - Trajectory: {trajectory.trajectory_id}")
         
-        # 构建trajectory描述
+        # Build trajectory description
         traj_description = self._format_trajectory(trajectory)
         
-        # 生成问答对
+        # Generate Q&A pair
         prompt = self._build_qa_synthesis_prompt(trajectory, traj_description)
         
         try:
@@ -48,10 +48,15 @@ class GenericQASynthesizer:
             
             result = json.loads(response.choices[0].message.content)
             
+            # 生成QA的唯一标识：source_id + trajectory编号 + qa编号
+            qa_id = f"{trajectory.trajectory_id}_qa_{qa_index}"
+            
             qa = SynthesizedQA(
                 question=result.get("question", ""),
                 answer=result.get("answer", ""),
                 trajectory_id=trajectory.trajectory_id,
+                source_id=trajectory.source_id,
+                qa_id=qa_id,
                 reasoning_steps=result.get("reasoning_steps", []),
                 metadata={
                     "seed_data": trajectory.seed_data,
@@ -62,80 +67,81 @@ class GenericQASynthesizer:
                 }
             )
             
-            print(f"  ✓ 成功合成QA对")
-            print(f"    问题: {qa.question[:100]}...")
-            print(f"    答案: {qa.answer[:100]}...")
+            print(f"  ✓ Successfully synthesized QA pair")
+            print(f"    QA ID: {qa_id}")
+            print(f"    Question: {qa.question[:100]}...")
+            print(f"    Answer: {qa.answer[:100]}...")
             
             return qa
             
         except Exception as e:
-            print(f"  ✗ 合成失败: {str(e)}")
+            print(f"  ✗ Synthesis failed: {str(e)}")
             return None
     
     def _build_qa_synthesis_prompt(self, trajectory: Trajectory, traj_description: str) -> str:
-        """构建QA合成的prompt（基于配置动态生成）"""
+        """Build QA synthesis prompt (dynamically generated based on configuration)"""
         
-        # 通用prompt模板
-        prompt = f"""你是一个数据合成专家。基于以下Agent的探索轨迹，合成一个高质量的问答对。
+        # Generic prompt template
+        prompt = f"""You are a data synthesis expert. Based on the following Agent's exploration trajectory, synthesize a high-quality Q&A pair.
 
-【起点信息】
-内容: {trajectory.seed_data}"""
+【Starting Point Information】
+Content: {trajectory.seed_data}"""
         
         if self.config.seed_description:
-            prompt += f"\n说明: {self.config.seed_description}"
+            prompt += f"\nDescription: {self.config.seed_description}"
         
         prompt += f"""
 
-【完整探索轨迹】
+【Complete Exploration Trajectory】
 {traj_description}
 
 """
         
-        # 添加synthesis tips
+        # Add synthesis tips
         if self.config.synthesis_tips:
-            prompt += f"""数据合成指导:\n{self.config.synthesis_tips}\n\n"""
+            prompt += f"""Data Synthesis Guidance:\n{self.config.synthesis_tips}\n\n"""
         
-        # 添加QA示例
+        # Add QA examples
         if self.config.qa_examples:
-            prompt += """参考以下示例的风格和质量:\n\n"""
+            prompt += """Refer to the style and quality of the following examples:\n\n"""
             for i, example in enumerate(self.config.qa_examples, 1):
-                prompt += f"""示例 {i}:
-问题: {example.get('question', '')}
-答案: {example.get('answer', '')}
+                prompt += f"""Example {i}:
+Question: {example.get('question', '')}
+Answer: {example.get('answer', '')}
 """
                 if 'reasoning' in example:
-                    prompt += f"推理过程: {example['reasoning']}\n"
+                    prompt += f"Reasoning Process: {example['reasoning']}\n"
                 prompt += "\n"
         
         prompt += f"""
-请基于轨迹合成一个问答对:
+Please synthesize a Q&A pair based on the trajectory:
 
-## 问题要求:
-- 参考示例的风格和复杂度
-- 需要多步推理才能得到答案
-- 问题应该清晰但需要探索
-- 问题应该自然地从探索过程中产生
+## Question Requirements:
+- Refer to the style and complexity of examples
+- Requires multi-step reasoning to reach the answer
+- Question should be clear but require exploration
+- Question should naturally arise from the exploration process
 
-## 答案要求:
-- 简洁明确
-- 基于轨迹中的真实信息
-- 答案应该从探索轨迹中自然得出
+## Answer Requirements:
+- Concise and clear
+- Based on real information from the trajectory
+- Answer should naturally derive from the exploration trajectory
 
-## 推理步骤要求:
-- 清晰展示从问题到答案的推理过程
-- 每步说明使用的工具和得到的信息
+## Reasoning Steps Requirements:
+- Clearly show the reasoning process from question to answer
+- Each step should explain the tool used and information obtained
 
-返回JSON格式:
+Return in JSON format:
 {{
-    "question": "问题文本",
-    "answer": "答案内容",
+    "question": "question text",
+    "answer": "answer content",
     "reasoning_steps": [
         {{
             "step": 1,
-            "description": "步骤描述",
-            "intent": "步骤意图",
-            "action": "使用的工具",
-            "observation": "观察到的信息摘要"
+            "description": "step description",
+            "intent": "step intent",
+            "action": "tool used",
+            "observation": "summary of observed information"
         }},
         ...
     ]
@@ -145,19 +151,19 @@ class GenericQASynthesizer:
         return prompt
     
     def _format_trajectory(self, trajectory: Trajectory) -> str:
-        """格式化trajectory为可读文本"""
+        """Format trajectory into readable text"""
         formatted = ""
         
         for i, node in enumerate(trajectory.nodes, 1):
-            formatted += f"\n步骤 {i}:\n"
-            formatted += f"  意图: {node.intent}\n"
+            formatted += f"\nStep {i}:\n"
+            formatted += f"  Intent: {node.intent}\n"
             
             if node.action:
-                formatted += f"  动作: {node.action.get('tool_name', 'unknown')}\n"
-                formatted += f"  参数: {json.dumps(node.action.get('parameters', {}), ensure_ascii=False)}\n"
+                formatted += f"  Action: {node.action.get('tool_name', 'unknown')}\n"
+                formatted += f"  Parameters: {json.dumps(node.action.get('parameters', {}), ensure_ascii=False)}\n"
             
             obs_preview = node.observation[:500] + "..." if len(node.observation) > 500 else node.observation
-            formatted += f"  观察: {obs_preview}\n"
+            formatted += f"  Observation: {obs_preview}\n"
         
         return formatted
 

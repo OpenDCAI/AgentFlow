@@ -4,8 +4,10 @@ from crawl4ai import AsyncWebCrawler
 from urllib.parse import urlparse
 import openai
 import os
+import time
 import pdb
 import bdb
+import requests
 
 # os.environ["OPENAI_API_KEY"] = ""
 # os.environ["OPENAI_API_BASE"] = ""
@@ -14,7 +16,8 @@ import bdb
 class WebVisitTool:
     name = "web_visit"
     description = (
-        "A web page visiting and content extraction tool powered by Crawl4AI. "
+        "A web page visiting and content extraction tool. "
+        "Supports Crawl4AI and Jina Reader API for content extraction. "
         "Can visit web pages, extract content, perform semantic analysis, and extract specific information based on schemas or patterns."
     )
     parameters = [
@@ -33,7 +36,8 @@ class WebVisitTool:
         }
     ]
 
-    def __init__(self, summary_model=None, content_limit=8000, max_tokens=500, max_workers=5):
+    def __init__(self, summary_model=None, content_limit=50000, max_tokens=1000, max_workers=5, 
+                 visit_method='jina', jina_api_key=None, retry_max_attempts=3, retry_initial_delay=1.0):
         """Initialize WebVisitTool
         
         Args:
@@ -41,11 +45,22 @@ class WebVisitTool:
             content_limit: Maximum content length for LLM summarization (default: 8000)
             max_tokens: Maximum tokens for LLM response (default: 500)
             max_workers: Maximum number of concurrent workers for parallel requests (default: 5)
+            visit_method: Method to visit web pages, 'crawl4ai' or 'jina' (default: 'crawl4ai')
+            jina_api_key: API key for Jina Reader API (required if visit_method='jina')
         """
         self.summary_model = summary_model
         self.content_limit = content_limit
         self.max_tokens = max_tokens
         self.max_workers = max_workers
+        self.visit_method = visit_method
+        self.jina_api_key = jina_api_key or os.getenv("JINA_API_KEY")
+        self.retry_max_attempts = retry_max_attempts
+        self.retry_initial_delay = retry_initial_delay
+        
+        # Validate configuration
+        if self.visit_method == 'jina' and not self.jina_api_key:
+            raise ValueError("Jina API key is required when visit_method='jina'. "
+                           "Set JINA_API_KEY environment variable or pass jina_api_key parameter.")
 
     def call(self, params: Union[str, dict]) -> str:
         try:
@@ -82,8 +97,12 @@ class WebVisitTool:
                         'summary': '[WebVisit] Error: Invalid URL format'
                     }
                 
-                # Step 1: Get markdown content
-                markdown_content = asyncio.run(self._crawl_page_for_markdown(url))
+                # Step 1: Get markdown content using selected method
+                if self.visit_method == 'jina':
+                    markdown_content = self._visit_page_with_jina(url)
+                else:  # crawl4ai
+                    markdown_content = asyncio.run(self._crawl_page_for_markdown(url))
+
                 
                 if markdown_content.startswith('[WebVisit] Error') or markdown_content.startswith('[WebVisit] Failed'):
                     return {
@@ -99,6 +118,12 @@ class WebVisitTool:
                 else:
                     # Summarize using LLM
                     content = self._summarize_with_llm(markdown_content, goal, url)
+                    if isinstance(content, str) and (content.startswith('[WebVisit] Error') or content.startswith('[WebVisit] Failed')):
+                        return {
+                            'url': url,
+                            'success': False,
+                            'summary': content
+                        }
                 
                 return {
                     'url': url,
@@ -139,48 +164,77 @@ class WebVisitTool:
             except Exception as e:
                 return f"[WebVisit] Crawling error: {str(e)}"
 
+    def _visit_page_with_jina(self, url: str) -> str:
+        """Visit a page using Jina Reader API and get markdown content"""
+        last_error_message = None
+        for attempt in range(1, self.retry_max_attempts + 1):
+            try:
+                jina_url = f"https://r.jina.ai/{url}"
+                headers = {
+                    "Authorization": f"Bearer {self.jina_api_key}"
+                }
+                response = requests.get(jina_url, headers=headers, timeout=30)
+                if response.status_code == 200:
+                    return response.text
+                last_error_message = f"Jina API Status {response.status_code}, {response.text[:200]}"
+            except requests.exceptions.Timeout:
+                last_error_message = "Request timeout when accessing Jina API"
+            except Exception as e:
+                last_error_message = f"Jina API error: {str(e)}"
+
+            if attempt < self.retry_max_attempts:
+                delay = self.retry_initial_delay * (2 ** (attempt - 1))
+                time.sleep(delay)
+
+        return f"[WebVisit] Failed: {last_error_message} after {self.retry_max_attempts} attempts"
+
     def _summarize_with_llm(self, markdown_content: str, goal: str, url: str) -> str:
         """Summarize markdown content using LLM based on goal"""
         # Skip LLM summarization if no model is specified
+
         if self.summary_model is None:
             return f"Content from {url}:\n\n{markdown_content}"
             
-        try:
-            # Get OpenAI configuration from environment or use defaults
-            
-            client = openai.OpenAI(
-                api_key=os.getenv("OPENAI_API_KEY"),
-                base_url=os.getenv("OPENAI_API_BASE")
-            )
-            
-            # Limit content length for API
-            if len(markdown_content) > self.content_limit:
-                markdown_content = markdown_content[:self.content_limit] + "\n\n[Content truncated for summarization]"
-            
-            prompt = f"""Based on the goal: "{goal}"
-            
-Please summarize the following content from {url}, focusing only on information relevant to the goal. Keep the summary concise but informative:
+        last_error_message = None
+        # Limit content length for API
+        if len(markdown_content) > self.content_limit:
+            markdown_content = markdown_content[:self.content_limit] + "\n\n[Content truncated for summarization]"
 
-Content:
+        for attempt in range(1, self.retry_max_attempts + 1):
+            try:
+                client = openai.OpenAI(
+                    api_key=os.getenv("OPENAI_API_KEY"),
+                    base_url=os.getenv("OPENAI_API_URL")
+                )
+
+                prompt = f"""Based on the goal: "{goal}"
+            
+Please summarize the following content from {url}, focusing only on information relevant to the goal. Keep the summary concise but informative. Only output the summary, no other text.
+
++++Content:
 {markdown_content}
 
-Summary:"""
-            
-            response = client.chat.completions.create(
-                model=self.summary_model,
-                messages=[
-                    {"role": "user", "content": prompt}
-                ],
-                max_tokens=self.max_tokens,
-                temperature=0.3
-            )
-            
-            summary = response.choices[0].message.content.strip()
-            return summary
-            
-        except Exception as e:
-            # Fallback to truncated content if LLM fails
-            return f"Content from {url}:\n\n{markdown_content[:2000]}...\n[Note: LLM summarization failed: {str(e)}]"
++++Summary:"""
+
+                response = client.chat.completions.create(
+                    # model=self.summary_model,
+                    model='gpt-oss-20b',
+                    messages=[
+                        {"role": "user", "content": prompt}
+                    ],
+                    max_tokens=self.max_tokens,
+                    temperature=0.3
+                )
+
+                summary = response.choices[0].message.content.strip()
+                return summary
+            except Exception as e:
+                last_error_message = str(e)
+                if attempt < self.retry_max_attempts:
+                    delay = self.retry_initial_delay * (2 ** (attempt - 1))
+                    time.sleep(delay)
+
+        return f"[WebVisit] Failed: LLM summarization failed after {self.retry_max_attempts} attempts. Last error: {last_error_message}"
 
     def _combine_summaries(self, results: List[Dict]) -> str:
         """Combine multiple URL summaries"""
@@ -219,47 +273,20 @@ Summary:"""
 if __name__ == '__main__':
     # 测试WebVisitTool工具
     os.environ["OPENAI_API_KEY"] = "sk-YJkQxboKmL0IBC1M0zOzZbVaVZifM5QvN4mLAtSLZ1V4yEDX"
-    os.environ["OPENAI_API_BASE"] = "http://123.129.219.111:3000/v1/"
+    os.environ["OPENAI_API_URL"] = "http://123.129.219.111:3000/v1/"
+    os.environ["JINA_API_KEY"] = "jina_0349f5f308d54b01ade1fa24842e044dGGlzH9kzcQxCdlNltX-3Na7EKSiW"
 
-    visit_tool = WebVisitTool(summary_model="gpt-4.1-2025-04-14")
+    print("=== Testing with Jina API ===\n")
+    visit_tool_jina = WebVisitTool(
+        summary_model="gpt-4o-2024-11-20",
+        visit_method='jina'
+    )
     
-    print("=== WebVisitTool Test Cases ===\n")
-    
-    # 测试用例1: 单个URL访问
-    print("Test 1: Single URL visit with goal")
-    result = visit_tool.call({
-        "urls": ["https://httpbin.org/html"],
-        "goal": "Extract any HTML content and structure information"
+    result = visit_tool_jina.call({
+        "urls": ["https://www.aabasdgasdtawefasdgsd.com"],
+        "goal": "Extract main content and purpose of the page"
     })
     print(result)
     print("-" * 50)
     
-    # 测试用例2: 多个URL并行访问
-    print("Test 2: Multiple URLs parallel visit with specific goal")
-    result = visit_tool.call({
-        "urls": [
-            "https://httpbin.org/html", 
-            "https://example.com"
-        ],
-        "goal": "Find information about web services and example content"
-    })
-    print(result)
-    print("-" * 50)
     
-    # # 测试用例3: 参数验证
-    # print("Test 3: Parameter validation")
-    # result = visit_tool.call({})  # 缺少URLs和goal
-    # print(result)
-    # print("-" * 50)
-    
-    # # 测试用例4: 单个URL作为字符串
-    # print("Test 4: Single URL as string with goal")
-    # result = visit_tool.call({
-    #     "urls": "https://httpbin.org/html",
-    #     "goal": "Extract technical documentation or API information"
-    # })
-    # success = "Content from" in result or len(result) > 100
-    # print("Success: Single URL processed" if success else f"Result: {result}")
-    # print("-" * 50)
-    
-    # print("Note: For full functionality, install: pip install crawl4ai openai")

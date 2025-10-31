@@ -29,10 +29,16 @@ class GenericTrajectorySelector:
     def select_trajectories(self, 
                            nodes: Dict[str, TrajectoryNode],
                            root_id: str,
-                           seed_data: str) -> List[Trajectory]:
+                           seed_data: str,
+                           source_id: str,
+                           max_selected_traj: int = None) -> List[Trajectory]:
         """从trajectory tree中选择高质量的完整链路"""
+        # 如果没有指定max_selected_traj，使用配置中的值
+        if max_selected_traj is None:
+            max_selected_traj = self.config.max_selected_traj
+        
         print(f"\n{'='*60}")
-        print(f"开始选择 Trajectories")
+        print(f"开始选择 Trajectories (最多选择 {max_selected_traj} 条)")
         print(f"{'='*60}\n")
         
         # 1. 找到所有叶子节点
@@ -57,7 +63,7 @@ class GenericTrajectorySelector:
         print(f"构建了 {len(candidate_paths)} 条候选路径")
         
         # 4. 评分并选择
-        selected = self._score_and_select(candidate_paths, seed_data)
+        selected = self._score_and_select(candidate_paths, seed_data, source_id, max_selected_traj)
         
         print(f"\n✅ 选择了 {len(selected)} 条trajectories")
         
@@ -81,13 +87,25 @@ class GenericTrajectorySelector:
         return path
     
     def _score_and_select(self, 
-                         paths: List[List[TrajectoryNode]],
-                         seed_data: str) -> List[Trajectory]:
+                        paths: List[List[TrajectoryNode]],
+                        seed_data: str,
+                        source_id: str,
+                        max_selected: int) -> List[Trajectory]:
         """评分并选择最好的路径"""
-        scored_paths = []
+        # 先计算所有路径的平均observation长度
+        all_avg_lengths = []
+        for path in paths:
+            avg_length = sum(len(node.observation) for node in path) / len(path) if path else 0
+            all_avg_lengths.append(avg_length)
         
+        # 计算min和max用于归一化
+        min_length = min(all_avg_lengths) if all_avg_lengths else 0
+        max_length = max(all_avg_lengths) if all_avg_lengths else 1
+        length_range = max_length - min_length if max_length > min_length else 1
+        
+        scored_paths = []
         for idx, path in enumerate(paths):
-            score = self._score_path(path)
+            score = self._score_path(path, all_avg_lengths[idx], min_length, length_range)
             scored_paths.append((score, idx, path))
         
         # 按分数排序
@@ -95,26 +113,32 @@ class GenericTrajectorySelector:
         
         # 选择top-k
         selected_trajectories = []
-        for rank, (score, idx, path) in enumerate(scored_paths[:self.config.max_trajectories], 1):
+        for rank, (score, idx, path) in enumerate(scored_paths[:max_selected], 1):
             trajectory = Trajectory(
-                trajectory_id=f"traj_{idx}",
+                trajectory_id=f"{source_id}_traj_{idx}",
                 nodes=path,
                 seed_data=seed_data,
+                source_id=source_id,
                 total_depth=len(path)
             )
             selected_trajectories.append(trajectory)
-            print(f"  选择 Trajectory {rank}: 深度={len(path)}, 分数={score:.2f}")
+            print(f"  选择 Trajectory {rank}: ID={trajectory.trajectory_id}, 深度={len(path)}, 分数={score:.2f}")
         
         return selected_trajectories
     
-    def _score_path(self, path: List[TrajectoryNode]) -> float:
+    def _score_path(self, path: List[TrajectoryNode], 
+                    avg_obs_length: float = None,
+                    min_length: float = 0,
+                    length_range: float = 1) -> float:
         """为路径打分"""
         # 深度得分
         depth_score = min(len(path) / 5.0, 1.0) * 40
         
-        # 信息量得分
-        avg_obs_length = sum(len(node.observation) for node in path) / len(path) if path else 0
-        info_score = min(avg_obs_length / 1000, 1.0) * 30
+        # 信息量得分 - 使用相对归一化
+        if avg_obs_length is None:
+            avg_obs_length = sum(len(node.observation) for node in path) / len(path) if path else 0
+        normalized_length = (avg_obs_length - min_length) / length_range if length_range > 0 else 0
+        info_score = normalized_length * 30
         
         # 多样性得分
         tool_names = set()
