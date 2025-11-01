@@ -413,7 +413,8 @@ class WebEnvironment(Environment):
         
         # Configure web visit tool
         web_visit_config = {
-            "summary_model": self.config.get("web_visit_summary_model", "gpt-4.1-2025-04-14")
+            "summary_model": self.config.get("web_visit_summary_model", "gpt-4.1-2025-04-14"),
+            "visit_method": self.config.get("web_visit_visit_method", "jina")
         }
         
         self.register_tool(WebSearchTool(**web_search_config))
