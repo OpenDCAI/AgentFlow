@@ -31,11 +31,13 @@ class Trajectory:
     nodes: List[TrajectoryNode]
     seed_data: str
     total_depth: int
+    source_id: str = ""  # 添加source_id用于追溯到原始seed
     
     def to_dict(self) -> Dict[str, Any]:
         """转换为字典格式"""
         return {
             "trajectory_id": self.trajectory_id,
+            "source_id": self.source_id,
             "seed_data": self.seed_data,
             "total_depth": self.total_depth,
             "nodes": [node.to_dict() for node in self.nodes]
@@ -49,6 +51,8 @@ class SynthesizedQA:
     answer: str
     trajectory_id: str
     reasoning_steps: List[Dict[str, str]]
+    source_id: str = ""  # 添加source_id用于追溯到原始seed
+    qa_id: str = ""  # 添加qa_id作为QA的唯一标识
     metadata: Dict[str, Any] = field(default_factory=dict)
     
     def to_dict(self) -> Dict[str, Any]:

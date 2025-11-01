@@ -7,8 +7,8 @@
 import json
 import os
 import bdb
-from typing import List, Dict
-from datetime import datetime
+import hashlib
+from typing import List, Dict, Set
 
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -32,14 +32,16 @@ class GenericDataSynthesis:
     通用数据合成主类 - 支持所有环境和工具
     """
     
-    def __init__(self, config: SynthesisConfig):
+    def __init__(self, config: SynthesisConfig, output_dir: str = "synthesis_results"):
         """
         初始化通用数据合成系统
         
         Args:
             config: 合成配置
+            output_dir: 输出目录
         """
         self.config = config
+        self.output_dir = output_dir
         
         # 验证配置
         errors = config.validate()
@@ -64,6 +66,13 @@ class GenericDataSynthesis:
         self.trajectory_tree: Dict[str, TrajectoryNode] = {}
         self.selected_trajectories: List[Trajectory] = []
         self.synthesized_qas: List[SynthesizedQA] = []
+        
+        # 初始化输出文件路径（在run时创建）
+        self.qa_file_path = None
+        self.traj_file_path = None
+        
+        # 已处理的source_id集合
+        self.processed_source_ids: Set[str] = set()
     
     def _create_environment(self) -> Environment:
         """根据配置创建相应的环境"""
@@ -84,6 +93,67 @@ class GenericDataSynthesis:
         else:
             raise ValueError(f"不支持的环境模式: {mode}")
     
+    def _initialize_output_files(self):
+        """初始化输出文件路径并创建输出目录"""
+        os.makedirs(self.output_dir, exist_ok=True)
+        
+        # 设置QA输出文件路径（固定文件名，支持断点续传）
+        self.qa_file_path = os.path.join(
+            self.output_dir, 
+            f"synthesized_qa_{self.config.environment_mode}.jsonl"
+        )
+        
+        # 设置trajectories输出文件路径（固定文件名，支持断点续传）
+        self.traj_file_path = os.path.join(
+            self.output_dir, 
+            f"trajectories_{self.config.environment_mode}.jsonl"
+        )
+        
+        print(f"💾 输出文件: {self.qa_file_path}")
+        
+        # 加载已处理的source_id
+        self._load_processed_source_ids()
+    
+    def _generate_source_id(self, seed_data: str, seed_idx: int) -> str:
+        """
+        生成source的唯一标识
+        格式: src_{index}_{hash}
+        """
+        # 使用seed内容的hash来保证唯一性
+        content_hash = hashlib.md5(seed_data.encode('utf-8')).hexdigest()[:8]
+        return f"src_{seed_idx:04d}_{content_hash}"
+    
+    def _load_processed_source_ids(self):
+        """从已有的输出文件中加载已处理的source_id"""
+        self.processed_source_ids.clear()
+        
+        # 从QA文件中读取已处理的source_id
+        if os.path.exists(self.qa_file_path):
+            try:
+                with open(self.qa_file_path, "r", encoding="utf-8") as f:
+                    for line in f:
+                        if line.strip():
+                            qa_dict = json.loads(line)
+                            if "source_id" in qa_dict:
+                                self.processed_source_ids.add(qa_dict["source_id"])
+                
+                if self.processed_source_ids:
+                    print(f"🔄 发现 {len(self.processed_source_ids)} 个已处理的source，将跳过这些seed")
+            except Exception as e:
+                print(f"⚠️  读取已处理记录时出错: {e}")
+                self.processed_source_ids.clear()
+    
+    def _save_qa_immediately(self, qa: SynthesizedQA):
+        """立即将单个QA对追加保存到文件"""
+        with open(self.qa_file_path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(qa.to_dict(), ensure_ascii=False) + "\n")
+    
+    def _save_trajectories_immediately(self, trajectories: List[Trajectory]):
+        """立即将trajectories追加保存到文件"""
+        with open(self.traj_file_path, "a", encoding="utf-8") as f:
+            for traj in trajectories:
+                f.write(json.dumps(traj.to_dict(), ensure_ascii=False) + "\n")
+    
     def run(self, seeds: List[str]) -> List[SynthesizedQA]:
         """
         运行完整的数据合成pipeline
@@ -94,6 +164,10 @@ class GenericDataSynthesis:
         Returns:
             合成的QA对列表
         """
+        # 根据配置限制处理的seed数量
+        if self.config.number_of_seed is not None:
+            seeds = seeds[:self.config.number_of_seed]
+        
         print(f"\n{'='*80}")
         print(f"🚀 通用Agent数据合成 Pipeline 启动")
         print(f"{'='*80}")
@@ -104,11 +178,25 @@ class GenericDataSynthesis:
         print(f"模型: {self.config.model_name}")
         print(f"{'='*80}\n")
         
+        # 初始化输出文件
+        self._initialize_output_files()
+        
         all_qas = []
+        skipped_count = 0
         
         for seed_idx, seed_data in enumerate(seeds, 1):
+            # 为每个seed生成唯一的source_id
+            source_id = self._generate_source_id(seed_data, seed_idx)
+            
+            # 检查是否已处理
+            if source_id in self.processed_source_ids:
+                skipped_count += 1
+                print(f"\n⏭️  跳过 Seed {seed_idx}/{len(seeds)} (已处理: {source_id})")
+                continue
+            
             print(f"\n\n{'#'*80}")
             print(f"处理 Seed {seed_idx}/{len(seeds)}")
+            print(f"Source ID: {source_id}")
             print(f"内容: {seed_data}")
             print(f"{'#'*80}\n")
             
@@ -122,18 +210,26 @@ class GenericDataSynthesis:
                 self.selected_trajectories = self.selector.select_trajectories(
                     nodes=self.trajectory_tree,
                     root_id=self.sampler.root_id,
-                    seed_data=seed_data
+                    seed_data=seed_data,
+                    source_id=source_id,
+                    max_selected_traj=self.config.max_selected_traj
                 )
                 
                 # Step 3: QA Synthesis
                 print(f"\n✨ 步骤 3/3: QA Synthesis")
-                for trajectory in self.selected_trajectories:
-                    qa = self.synthesizer.synthesize_qa(trajectory)
+                for qa_idx, trajectory in enumerate(self.selected_trajectories):
+                    qa = self.synthesizer.synthesize_qa(trajectory, qa_idx)
                     if qa:
                         all_qas.append(qa)
                         self.synthesized_qas.append(qa)
+                        # 立即保存生成的QA对
+                        self._save_qa_immediately(qa)
                 
-                print(f"\n✅ Seed {seed_idx} 完成! 生成了 {len([qa for qa in all_qas if qa.metadata.get('seed_data') == seed_data])} 个QA对")
+                # 立即保存该seed的所有trajectories
+                if self.selected_trajectories:
+                    self._save_trajectories_immediately(self.selected_trajectories)
+                
+                print(f"\n✅ Seed {seed_idx} 完成! 生成了 {len([qa for qa in all_qas if qa.source_id == source_id])} 个QA对")
                 
             except Exception as e:
                 if isinstance(e, bdb.BdbQuit):
@@ -146,48 +242,22 @@ class GenericDataSynthesis:
         print(f"\n\n{'='*80}")
         print(f"🎉 数据合成完成!")
         print(f"{'='*80}")
-        print(f"总共处理: {len(seeds)} 个 Seed")
+        print(f"总Seed数量: {len(seeds)} 个")
+        print(f"已跳过: {skipped_count} 个")
+        print(f"新处理: {len(seeds) - skipped_count} 个")
         print(f"成功生成: {len(all_qas)} 个QA对")
         print(f"{'='*80}\n")
         
         return all_qas
     
-    def save_results(self, output_dir: str = "synthesis_results"):
-        """保存所有结果"""
-        os.makedirs(output_dir, exist_ok=True)
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    def save_results(self):
+        """显示结果保存位置（QA对和trajectories已实时保存）"""
+        if not self.qa_file_path:
+            print("⚠️  警告: 没有运行过pipeline，无法保存结果")
+            return
         
-        # 保存QA对
-        qa_file = os.path.join(output_dir, f"synthesized_qa_{self.config.environment_mode}_{timestamp}.jsonl")
-        with open(qa_file, "w", encoding="utf-8") as f:
-            for qa in self.synthesized_qas:
-                f.write(json.dumps(qa.to_dict(), ensure_ascii=False) + "\n")
-        
-        print(f"💾 QA对已保存到: {qa_file}")
-        
-        # 保存trajectories
-        traj_file = os.path.join(output_dir, f"trajectories_{self.config.environment_mode}_{timestamp}.json")
-        with open(traj_file, "w", encoding="utf-8") as f:
-            trajectories_data = [traj.to_dict() for traj in self.selected_trajectories]
-            json.dump(trajectories_data, f, indent=2, ensure_ascii=False)
-        
-        print(f"💾 Trajectories已保存到: {traj_file}")
-        
-        # 保存配置和统计
-        stats_file = os.path.join(output_dir, f"statistics_{self.config.environment_mode}_{timestamp}.json")
-        stats = {
-            "config": self.config.to_dict(),
-            "total_qas": len(self.synthesized_qas),
-            "total_trajectories": len(self.selected_trajectories),
-            "total_nodes": len(self.trajectory_tree),
-            "avg_trajectory_depth": sum(t.total_depth for t in self.selected_trajectories) / len(self.selected_trajectories) if self.selected_trajectories else 0,
-            "timestamp": timestamp
-        }
-        
-        with open(stats_file, "w", encoding="utf-8") as f:
-            json.dump(stats, f, indent=2, ensure_ascii=False)
-        
-        print(f"💾 统计信息已保存到: {stats_file}")
+        print(f"💾 QA对已保存到: {self.qa_file_path}")
+        print(f"💾 Trajectories已保存到: {self.traj_file_path}")
 
 
 def main():
@@ -226,13 +296,13 @@ def main():
     print(f"加载了 {len(seeds)} 个 seed 数据")
     
     # 创建数据合成系统
-    synthesizer = GenericDataSynthesis(config=config)
+    synthesizer = GenericDataSynthesis(config=config, output_dir=args.output_dir)
     
     # 运行合成pipeline
     qas = synthesizer.run(seeds)
     
-    # 保存结果
-    synthesizer.save_results(output_dir=args.output_dir)
+    # 保存结果（trajectories和统计信息，QA对已实时保存）
+    synthesizer.save_results()
     
     print(f"\n✅ 全部完成! 共生成 {len(qas)} 个QA对")
 

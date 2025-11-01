@@ -285,4 +285,4 @@ if __name__ == '__main__':
     })
     print(result)
     print("-" * 50)
-    
+    print("=== Testing with Crawl4AI ===\n")
