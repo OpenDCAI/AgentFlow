@@ -40,10 +40,6 @@ class AgentConfig:
 # System prompts
 SYSTEM_PROMPT_GENERIC = """You are a helpful assistant. You need to use tools to solve the problem.
 
-## Available Tools
-
-{tool_descriptions}
-
 ## Tool Usage Strategy
 
 **For Multi-Step Analysis:**
@@ -70,6 +66,7 @@ class AgentRunner:
         self.environment: Optional[Environment] = None
         self.benchmark: Optional[Benchmark] = None
         self.results: List[Dict[str, Any]] = []
+        self.output_file: Optional[str] = None
         
         # Validate OpenAI configuration
         self._validate_openai_config()
@@ -233,10 +230,6 @@ class AgentRunner:
                         model=self.config.model_name,
                         messages=messages,
                         tools=self.environment.get_tool_schemas(),
-                        extra_body={
-                            "reasoning_effort": "high",
-                            "tool_choice": "required",
-                        }
                     )
                     
                     assistant_message = response.choices[0].message
@@ -245,6 +238,9 @@ class AgentRunner:
                     
                     if assistant_message.tool_calls:
                         # Execute tool calls
+                        if messages[-1]["content"] == "":
+                            tc =messages[-1].tool_calls[0].model_dump()['function']messages[-1]
+                            content = f'Calling tools: {tc}'
                         for tool_call in assistant_message.tool_calls[:1]:
                             tool_name = tool_call.function.name
                             tool_args = json.loads(tool_call.function.arguments)
@@ -269,7 +265,6 @@ class AgentRunner:
                             })
                         
                         # Continue conversation after tool use
-                        turn_count += 1
                         break
                     
                     else:
@@ -314,12 +309,13 @@ class AgentRunner:
         
         return "No final answer found"
     
-    def run_benchmark(self, parallel: bool = False) -> List[Dict[str, Any]]:
+    def run_benchmark(self, parallel: bool = False, output_dir: str = "results") -> List[Dict[str, Any]]:
         """
         Run agent on all benchmark tasks.
         
         Args:
             parallel: Whether to run tasks in parallel
+            output_dir: Output directory for results
             
         Returns:
             List of results
@@ -336,7 +332,7 @@ class AgentRunner:
         tasks = [
             {"id": item.id, "question": item.question}
             for item in self.benchmark.items
-        ][:5]
+        ]
         
         if parallel and len(tasks) > 1:
             # Run in parallel
@@ -350,12 +346,18 @@ class AgentRunner:
                 for future in concurrent.futures.as_completed(futures):
                     result = future.result()
                     self.results.append(result)
+                    # Write result immediately after completion
+                    if self.config.save_results:
+                        self._write_single_result(result, output_dir=output_dir)
         else:
             # Run sequentially
             self.results = []
             for task in tasks:
                 result = self.run_single_task(task)
                 self.results.append(result)
+                # Write result immediately after completion
+                if self.config.save_results:
+                    self._write_single_result(result, output_dir=output_dir)
         
         print(f"\n✅ Benchmark execution completed!")
         print(f"   Successful: {sum(1 for r in self.results if r['success'])}")
@@ -398,6 +400,26 @@ class AgentRunner:
         
         return summary
     
+    def _write_single_result(self, result: Dict[str, Any], output_dir: str = "results"):
+        """
+        Write a single result to file immediately.
+        
+        Args:
+            result: Single result dictionary
+            output_dir: Output directory
+        """
+        if self.output_file is None:
+            # Create output directory
+            os.makedirs(output_dir, exist_ok=True)
+            
+            # Generate output filename
+            benchmark_name = self.benchmark.name if self.benchmark else "unknown"
+            self.output_file = os.path.join(output_dir, f"result_{benchmark_name}.jsonl")
+        
+        # Append result to file
+        with open(self.output_file, "a", encoding="utf-8") as f:
+            f.write(json.dumps(result, ensure_ascii=False) + "\n")
+    
     def save_results(self, output_dir: str = "results") -> str:
         """
         Save results to files.
@@ -412,19 +434,18 @@ class AgentRunner:
             print("No results to save")
             return ""
         
-        # Create output directory
-        os.makedirs(output_dir, exist_ok=True)
-        
-        # Generate output filename
+        # Get benchmark name
         benchmark_name = self.benchmark.name if self.benchmark else "unknown"
-        output_file = os.path.join(output_dir, f"result_{benchmark_name}.jsonl")
         
-        # Save results
-        with open(output_file, "w", encoding="utf-8") as f:
-            for result in self.results:
-                f.write(json.dumps(result, ensure_ascii=False) + "\n")
+        # Output file should already be created during run_benchmark
+        if not self.output_file:
+            # Create output directory
+            os.makedirs(output_dir, exist_ok=True)
+            
+            # Generate output filename
+            self.output_file = os.path.join(output_dir, f"result_{benchmark_name}.jsonl")
         
-        print(f"💾 Results saved to: {output_file}")
+        print(f"💾 Results saved to: {self.output_file}")
         
         # Save evaluation results if available
         if self.config.evaluate_results and self.benchmark.evaluation_results:
@@ -432,7 +453,7 @@ class AgentRunner:
             self.benchmark.save_results(eval_file)
             print(f"📊 Evaluation results saved to: {eval_file}")
         
-        return output_file
+        return self.output_file
     
     def run(self, mode: str, data_path: str, **kwargs) -> Dict[str, Any]:
         """
@@ -457,7 +478,8 @@ class AgentRunner:
         self.load_benchmark(data_path, **kwargs)
         
         # Run benchmark
-        self.run_benchmark(parallel=kwargs.get('parallel', False))
+        output_dir = kwargs.get('output_dir', 'results')
+        self.run_benchmark(parallel=kwargs.get('parallel', False), output_dir=output_dir)
         
         # Evaluate results
         if self.config.evaluate_results:
@@ -467,7 +489,7 @@ class AgentRunner:
         
         # Save results
         if self.config.save_results:
-            output_file = self.save_results()
+            output_file = self.save_results(output_dir=output_dir)
         else:
             output_file = ""
         
@@ -505,7 +527,7 @@ def main():
                        help="Maximum conversation turns")
     parser.add_argument("--max-retries", type=int, default=3,
                        help="Maximum retries per turn")
-    parser.add_argument("--max-workers", type=int, default=1,
+    parser.add_argument("--max-workers", type=int, default=10,
                        help="Maximum parallel workers")
     parser.add_argument("--output-dir", type=str, default="results",
                        help="Output directory for results")
@@ -595,6 +617,7 @@ def main():
             mode=args.mode,
             data_path=args.data,
             parallel=args.parallel,
+            output_dir=args.output_dir,
             **env_kwargs
         )
         
