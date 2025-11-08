@@ -5,7 +5,6 @@ import sys
 from typing import Union, List, Dict, Any, Optional
 from pathlib import Path
 from PIL import Image
-from pathlib import Path
 from pdf2image import convert_from_path
 
 import base64
@@ -21,9 +20,9 @@ from pathlib import Path
 
 import os
 
-DEFAULT_OUTPUT_ROOT = os.environ.get('ocr-output-root', "src/data/doc_demo/output")
-DEFAULT_PDF_DIR = os.environ.get('pdf-root', "src/data/doc_demo/PDF")
-DEFAULT_TEMP_DIR = os.environ.get('temp-output-root', "src/data/doc_demo/temp")
+DEFAULT_OUTPUT_ROOT = Path(os.environ.get('ocr-output-root', "src/data/doc_demo/output"))
+DEFAULT_PDF_DIR = Path(os.environ.get('pdf-root', "src/data/doc_demo/PDF"))
+DEFAULT_TEMP_DIR = Path(os.environ.get('temp-output-root', "src/data/doc_demo/temp"))
 
 class DocCheckTool:
     """
@@ -77,8 +76,8 @@ class DocCheckTool:
         if not file_name_or_all:
             return {**error_template, "message": "Error: 'file_name_or_all' is required."}
         
-        pdf_dir_path = Path(DEFAULT_PDF_DIR)
-        output_root_path = Path(DEFAULT_OUTPUT_ROOT)
+        pdf_dir_path = DEFAULT_PDF_DIR
+        output_root_path = DEFAULT_OUTPUT_ROOT
 
         if not pdf_dir_path.is_dir():
             return {**error_template, "message": f"Error: PDF directory not found at {pdf_dir_path.resolve()}"}
@@ -276,7 +275,6 @@ class DocOCRTool:
             for i, page_image in enumerate(pages):
                 # Placeholder for actual model call:
                 page_results = self.client.two_step_extract(page_image)
-                page_results = [] # Replace with actual results
                 
                 page_ocr_content = self._extract_ocr_content_from_page(page_image, page_results)
                 
@@ -426,7 +424,7 @@ class SearchKeywordTool:
         """
         json_base_list = []
         
-        output_root_path = Path(DEFAULT_OUTPUT_ROOT)
+        output_root_path = DEFAULT_OUTPUT_ROOT
         
         if not output_root_path.exists():
             return []
@@ -523,10 +521,10 @@ class SearchKeywordTool:
                 "message": "Error: 'keyword' is required."
             }
         
-        if not Path(DEFAULT_OUTPUT_ROOT).exists():
+        if not DEFAULT_OUTPUT_ROOT.exists():
              return {
                 "status": False, "keyword": keyword or "", "matches": [], 
-                "message": f"Error: Output root directory not found at {Path(DEFAULT_OUTPUT_ROOT).resolve()}."
+                "message": f"Error: Output root directory not found at {DEFAULT_OUTPUT_ROOT.resolve()}."
             }
 
 
@@ -592,13 +590,11 @@ class GetPageOCRTool:
         file_name = params.get('file_name')
         page_id = params.get('page_id')
         
-        output_root = DEFAULT_OUTPUT_ROOT
 
         if not all([file_name, page_id is not None]):
             return {**error_template, "message": "Error: 'file_name' and 'page_id' are required."}
-        
-        output_root_path = Path(output_root)
-        json_path = output_root_path / f"{file_name}_ocr.json"
+  
+        json_path = DEFAULT_OUTPUT_ROOT / f"{file_name}_ocr.json"
 
         if not json_path.exists():
             return {**error_template, "message": f"Error: OCR JSON file not found at {json_path.resolve()}. Has the file been processed by DocOCRTool?"}
@@ -677,8 +673,8 @@ class CropImageTool:
 
         match_block = params.get('match_block')
         
-        pdf_dir_path = Path(DEFAULT_PDF_DIR)
-        output_crop_path = Path(DEFAULT_TEMP_DIR)
+        pdf_dir_path = DEFAULT_PDF_DIR
+        output_crop_path = DEFAULT_TEMP_DIR
         
         if not match_block:
             return {**error_template, "message": "Error: 'match_block' is required."}
@@ -789,8 +785,8 @@ class GetPageImageTool:
         file_name = params.get('file_name')
         page_id = params.get('page_id')
         
-        pdf_dir_path = Path(DEFAULT_PDF_DIR)
-        output_dir = Path(DEFAULT_TEMP_DIR)
+        pdf_dir_path = DEFAULT_PDF_DIR
+        output_dir = DEFAULT_TEMP_DIR
 
         if not all([file_name, page_id is not None]):
             return {**error_template, "message": "Error: 'file_name' and 'page_id' are required."}
