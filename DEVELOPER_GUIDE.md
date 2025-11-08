@@ -45,6 +45,8 @@ AgentFlow/
 │   │   ├── web_search.py
 │   │   ├── web_visit.py
 │   │   ├── rag_tools.py
+|   |   ├── doc_tools.py
+|   |   ├── mineru_vl_utils
 │   │   └── __init__.py
 │   ├── benchmark/         # Benchmark system
 │   │   ├── benchmark.py   # Benchmark class
@@ -91,6 +93,7 @@ class CustomEnvironment(Environment):
 - **PythonEnvironment**: Python interpreter for code execution
 - **WebEnvironment**: Web search and browsing capabilities
 - **RAGEnvironment**: Retrieval-augmented generation tools
+- **DocEnvironment**: Document understanding and Q&A tools
 
 ### 2. Tool System
 
@@ -176,6 +179,10 @@ cd AgentFlow
 # Install dependencies
 pip install -r requirements.txt
 
+# If using Doc Agent, refer to src/tools/mineru_vl_utils/pyproject.toml
+pip install -U "mineru-vl-utils[transformers]"
+# pip install -U "mineru-vl-utils[vllm]" # Optional
+
 # Set up environment variables
 export OPENAI_API_KEY="your-api-key"
 export OPENAI_API_URL="your-api-url"  # Optional
@@ -195,6 +202,8 @@ src/
 │   ├── web_search.py     # Web search tool
 │   ├── web_visit.py      # Web browsing tool
 │   ├── rag_tools.py      # RAG tools
+|   ├── doc_tools.py        # Doc QA tools
+|   ├── mineru_vl_utils     # MinerU2.5 toolkit
 │   └── __init__.py
 ├── benchmark/             # Benchmark system
 │   ├── benchmark.py       # Benchmark class

@@ -29,6 +29,8 @@ python src/run.py --mode web --data src/data/webagent_demo.jsonl
 
 # RAG agent
 python src/run.py --mode rag --data src/data/rag_demo.jsonl --kb-path src/data/kb_demo.json --index-path src/index/ --metric llm_judgement
+
+python src/run.py --mode doc --data src/data/doc_demo/doc_demo.jsonl --ocr-model-path opendatalab/MinerU2.5-2509-1.2B --ocr-backend-type "transformers" --metric llm_judgement
 ```
 
 ## 📚 Basic Usage

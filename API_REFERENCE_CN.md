@@ -143,6 +143,50 @@ class RAGEnvironment(Environment):
         self.register_tool(QueryRAGIndexTool())
 ```
 
+#### DocEnvironment
+
+```python
+class DocEnvironment(Environment):
+    """带有解析检查、文档解析、关键词检索、多模态分析等的Doc环境。"""
+    @property
+    def mode(self) -> str:
+        return "doc"
+    
+    def _initialize_tools(self):
+        """初始化Doc特定工具。""""
+        
+        self.register_tool(DocCheckTool())
+        ocr_tool = DocOCRTool(
+            model_path=self.config.get("ocr_model_path"), 
+            backend_type=self.config.get("ocr_backend_type", "transformers")
+        )
+        self.register_tool(ocr_tool)
+        self.register_tool(SearchKeywordTool())
+        self.register_tool(GetPageOCRTool())
+        self.register_tool(GetPageImageTool())
+        self.register_tool(CropImageTool())
+        api_key = self.config.get("openai_api_key") or os.environ.get("OPENAI_API_KEY") or None
+        if api_key and api_key.strip():
+            api_key = api_key.strip()
+        else:
+            api_key = None
+        api_base = (self.config.get("openai_api_url") or 
+                   os.environ.get("OPENAI_API_BASE") or 
+                   os.environ.get("OPENAI_API_URL") or None)
+        if api_base and api_base.strip():
+            api_base = api_base.strip()
+        else:
+            api_base = None
+        image_desc_tool = ImageDescriptionTool(
+            model_name="gpt-4o",
+            api_key=api_key,
+            api_base=api_base
+        )
+        self.register_tool(image_desc_tool)
+
+```
+
+
 ### 便利函数
 
 ```python
@@ -157,6 +201,9 @@ def create_rag_environment(**kwargs) -> RAGEnvironment:
 
 def create_web_environment(**kwargs) -> WebEnvironment:
     """创建带有搜索和访问工具的Web环境。"""
+
+def create_doc_environment(**kwargs) -> DocEnvironment:
+    """创建带有解析检查、文档解析、关键词检索、多模态分析等的Doc环境。"""
 ```
 
 ## 工具系统
@@ -448,6 +495,14 @@ python src/run.py --mode <环境> --data <数据文件> [选项]
 ##### RAG 环境
 
 - `--kb-path`: 知识库文件路径
+
+##### Doc 环境
+
+- `--ocr-model-path`: MinerU2.5权重路径
+- `--ocr-backend-type`: 文档解析推理模式`transformers`, `vllm`, 默认:`transformers`）
+- `--pdf-root`: PDF文档路径（默认：`src/data/doc_demo/PDF`）
+- `--ocr-output-root`: 文档解析存储路径（默认：`src/data/doc_demo/output`）
+- `--temp-output-root`: 中间文件存储路径（默认：`src/data/doc_demo/temp`）
 
 ### 示例
 

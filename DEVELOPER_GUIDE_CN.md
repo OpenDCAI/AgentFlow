@@ -45,6 +45,8 @@ AgentFlow/
 │   │   ├── web_search.py
 │   │   ├── web_visit.py
 │   │   ├── rag_tools.py
+|   |   ├── doc_tools.py
+|   |   ├── mineru_vl_utils
 │   │   └── __init__.py
 │   ├── benchmark/         # 基准测试系统
 │   │   ├── benchmark.py   # Benchmark类
@@ -91,6 +93,7 @@ class CustomEnvironment(Environment):
 - **PythonEnvironment**: 代码执行的 Python 解释器
 - **WebEnvironment**: 网络搜索和浏览功能
 - **RAGEnvironment**: 检索增强生成工具
+- **DocEnvironment**: 文档理解与问答工具
 
 ### 2. 工具系统
 
@@ -176,6 +179,10 @@ cd AgentFlow
 # 安装依赖
 pip install -r requirements.txt
 
+# 若使用 Doc Agent，参考 src/tools/mineru_vl_utils/pyproject.toml
+pip install -U "mineru-vl-utils[transformers]"
+# pip install -U "mineru-vl-utils[vllm]" # 可选
+
 # 设置环境变量
 export OPENAI_API_KEY="your-api-key"
 export OPENAI_API_URL="your-api-url"  # 可选
@@ -195,6 +202,8 @@ src/
 │   ├── web_search.py     # 网络搜索工具
 │   ├── web_visit.py       # 网络浏览工具
 │   ├── rag_tools.py       # RAG工具
+|   ├── doc_tools.py        # 文档QA工具
+|   ├── mineru_vl_utils     # MinerU2.5工具包
 │   └── __init__.py
 ├── benchmark/             # 基准测试系统
 │   ├── benchmark.py       # Benchmark类

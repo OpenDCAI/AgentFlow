@@ -143,6 +143,49 @@ class RAGEnvironment(Environment):
         self.register_tool(QueryRAGIndexTool())
 ```
 
+#### DocEnvironment
+
+```python
+class DocEnvironment(Environment):
+    """Document processing environment with parsing checks, document parsing, keyword search, multi-modal analysis, etc."""
+    @property
+    def mode(self) -> str:
+        return "doc"
+    
+    def _initialize_tools(self):
+        """Initialize Doc-specific tools.""""
+        
+        self.register_tool(DocCheckTool())
+        ocr_tool = DocOCRTool(
+            model_path=self.config.get("ocr_model_path"), 
+            backend_type=self.config.get("ocr_backend_type", "transformers")
+        )
+        self.register_tool(ocr_tool)
+        self.register_tool(SearchKeywordTool())
+        self.register_tool(GetPageOCRTool())
+        self.register_tool(GetPageImageTool())
+        self.register_tool(CropImageTool())
+        api_key = self.config.get("openai_api_key") or os.environ.get("OPENAI_API_KEY") or None
+        if api_key and api_key.strip():
+            api_key = api_key.strip()
+        else:
+            api_key = None
+        api_base = (self.config.get("openai_api_url") or 
+                   os.environ.get("OPENAI_API_BASE") or 
+                   os.environ.get("OPENAI_API_URL") or None)
+        if api_base and api_base.strip():
+            api_base = api_base.strip()
+        else:
+            api_base = None
+        image_desc_tool = ImageDescriptionTool(
+            model_name="gpt-4o",
+            api_key=api_key,
+            api_base=api_base
+        )
+        self.register_tool(image_desc_tool)
+
+```
+
 ### Convenience Functions
 
 ```python
@@ -157,6 +200,9 @@ def create_rag_environment(**kwargs) -> RAGEnvironment:
 
 def create_web_environment(**kwargs) -> WebEnvironment:
     """Create a web environment with search and visit tools."""
+
+def create_doc_environment(**kwargs) -> DocEnvironment:
+    """Create a Doc environment with parsing checks, document parsing, keyword search, multimodal analysis, etc."""
 ```
 
 ## Tool System
@@ -448,6 +494,14 @@ python src/run.py --mode <environment> --data <data_file> [options]
 ##### RAG Environment
 
 - `--kb-path`: Path to knowledge base file
+
+##### Doc Environment
+
+- `--ocr-model-path`: MinerU2.5 model weights path
+- `--ocr-backend-type`: Document parsing inference mode (`transformers`, `vllm`, default: `transformers`)
+- `--pdf-root`: PDF document path (default: `src/data/doc_demo/PDF`)
+- `--ocr-output-root`: Document parsing storage path (default: `src/data/doc_demo/output`)
+- `--temp-output-root`: Temporary file storage path (default: `src/data/doc_demo/temp`)
 
 ### Examples
 
