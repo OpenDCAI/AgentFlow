@@ -19,6 +19,7 @@ from envs import (
     PythonEnvironment, 
     RAGEnvironment, 
     WebEnvironment,
+    DocEnvironment,
     Environment
 )
 from benchmark import Benchmark, create_benchmark
@@ -39,6 +40,10 @@ class AgentConfig:
 
 # System prompts
 SYSTEM_PROMPT_GENERIC = """You are a helpful assistant. You need to use tools to solve the problem.
+
+## Available Tools
+
+{tool_descriptions}
 
 ## Tool Usage Strategy
 
@@ -102,6 +107,8 @@ class AgentRunner:
             self.environment = RAGEnvironment(**kwargs)
         elif mode == "web":
             self.environment = WebEnvironment(**kwargs)
+        elif mode == "doc": 
+            self.environment = DocEnvironment(**kwargs)
         else:
             raise ValueError(f"Unknown mode: {mode}")
         
@@ -237,11 +244,13 @@ class AgentRunner:
                     messages.append(assistant_message.model_dump())
                     
                     if assistant_message.tool_calls:
-                        # Execute tool calls
-                        if messages[-1]["content"] == "":
-                            tc = messages[-1].tool_calls[0].model_dump()['function']
+                        # Execute all tool calls
+                        if messages[-1].get("content") == "":
+                            tc = messages[-1]["tool_calls"][0].get("function", {})
                             content = f'Calling tools: {tc}'
-                        for tool_call in assistant_message.tool_calls[:1]:
+                        
+                        # Process all tool calls, not just the first one
+                        for tool_call in assistant_message.tool_calls:
                             tool_name = tool_call.function.name
                             tool_args = json.loads(tool_call.function.arguments)
                             
@@ -254,14 +263,22 @@ class AgentRunner:
                                 tool_args
                             )
                             
-                            print(f"Round {turn_count}:    Result: {tool_result[:100]}...")
+                            # Ensure tool_result is a string for display and API
+                            if isinstance(tool_result, (dict, list)):
+                                tool_result_str = json.dumps(tool_result, ensure_ascii=False)
+                            else:
+                                tool_result_str = str(tool_result)
                             
-                            # Add tool result to conversation
+                            # Display truncated result
+                            result_preview = tool_result_str[:100] + "..." if len(tool_result_str) > 100 else tool_result_str
+                            print(f"Round {turn_count}:    Result: {result_preview}")
+                            
+                            # Add tool result to conversation (must be string for API)
                             messages.append({
                                 "role": "tool",
                                 "tool_call_id": tool_call.id,
                                 "name": tool_name,
-                                "content": tool_result
+                                "content": tool_result_str
                             })
                         
                         # Continue conversation after tool use
@@ -595,7 +612,7 @@ def main():
     parser = argparse.ArgumentParser(description="AgentFlow - Agent execution with Environment and Benchmark")
     
     # Required arguments
-    parser.add_argument("--mode", type=str, choices=["math", "py", "rag", "web"], 
+    parser.add_argument("--mode", type=str, choices=["math", "py", "rag", "web", "doc"], 
                        required=True, help="Environment mode")
     parser.add_argument("--data", type=str, required=True, 
                        help="Path to benchmark data file")
@@ -639,6 +656,12 @@ def main():
                        help="Whether to use Faiss for RAG mode")
     parser.add_argument("--load-index", action="store_true",
                        help="Whether to load exsiting index for RAG mode")
+    # Doc mode arguments
+    parser.add_argument("--ocr-model-path", type=str, default="",
+                       help="Path to the MinerU model for Doc mode.")
+    parser.add_argument("--ocr-backend-type", type=str, default="transformers",
+                       choices=["transformers", "vllm-engine"],
+                       help="Backend type for DocOCRTool.")
     
     args = parser.parse_args()
     
@@ -688,6 +711,18 @@ def main():
                 rag_index.save_index(args.index_path)
 
         env_kwargs["rag_index"] = rag_index    # will pass it to RAGEnvironment
+        
+    elif args.mode == "doc":
+        if not args.ocr_model_path:
+            raise ValueError("--ocr-model-path is required for Doc mode.")
+
+        if not args.ocr_backend_type:
+            raise ValueError("--ocr-backend-type is required for Doc mode.")
+            
+        env_kwargs.update({
+            "ocr_model_path": args.ocr_model_path,
+            "ocr_backend_type": args.ocr_backend_type,
+        })
 
     # Create and run agent
     runner = AgentRunner(config)

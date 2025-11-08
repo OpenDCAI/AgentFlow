@@ -1,0 +1,5 @@
+{"id": "001", "question": "In document 'test_pdf', What paradigm does CapRL apply to address the limitations of Supervised Fine-Tuning (SFT) in image captioning?", "answer": "Reinforcement Learning with Verifiable Rewards (RLVR)."}
+{"id": "002", "question": "In document 'test_pdf', How many benchmarks show substantial gains when pretraining on the CapRL5M caption dataset annotated by CapRL-3B?", "answer": "12."}
+{"id": "003", "question": "In document 'test_pdf', Does CapRL use a vision-free LLM to evaluate caption quality in its pipeline?", "answer": "Yes."}
+{"id": "004", "question": "In document 'test_pdf', Does the CapRL framework adopt a single-stage or two-stage pipeline?", "answer": "Two-stage."}
+{"id": "005", "question": "In document 'test_pdf', In the Prism Framework evaluation, is the performance of CapRL-3B comparable to that of Qwen2.5-VL-72B?", "answer": "Yes."}

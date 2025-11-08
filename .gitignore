@@ -150,7 +150,7 @@ outputs/
 checkpoints/
 src/results/
 src/data_synthesis/synthesis_results*
-src/data/
+# src/data/
 
 # RAG index file
 src/index/

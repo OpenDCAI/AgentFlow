@@ -42,6 +42,7 @@ AgentFlow provides a modular architecture with three core components:
 - **PythonEnvironment**: Python interpreter for code execution
 - **WebEnvironment**: Web search and browsing capabilities
 - **RAGEnvironment**: Retrieval-augmented generation tools
+- **DocEnvironment**: Document understanding and Q&A tools
 
 ### Tool System
 
@@ -157,6 +158,7 @@ python src/benchmark/integration_test.py
 - **Python Interpreter Demo**: Code execution tasks
 - **Web Agent Demo**: Web search and information retrieval
 - **RAG Demo**: Knowledge base question answering
+- **Doc Demo**: Document understanding and Q&A tasks
 
 ## 🔧 Configuration
 

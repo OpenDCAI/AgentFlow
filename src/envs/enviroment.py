@@ -16,6 +16,13 @@ from tools import (
     WebSearchTool, 
     WebVisitTool,
     # RAG tools will be imported conditionally
+    DocCheckTool,
+    DocOCRTool,
+    SearchKeywordTool,
+    GetPageOCRTool,
+    GetPageImageTool,
+    CropImageTool,
+    ImageDescriptionTool
 )
 
 
@@ -219,7 +226,6 @@ class Environment(ABC):
             
             # Add to descriptions
             descriptions.append(f"- {tool.name}: {tool.description}")
-        
         self.tool_descriptions = "\n".join(descriptions)
     
     def register_tool(self, tool: Tool):
@@ -436,6 +442,52 @@ class TBenchEnvironment(Environment): # for Terminal Bench
         self.tools = {}
         self._generate_tool_metadata()
 
+# --- 默认路径常量 --- (可选择在环境类外部或内部定义，此处保持外部定义以便于工具统一引用)
+# DEFAULT_PDF_DIR = "src/data/doc_demo/PDF"
+# DEFAULT_OUTPUT_ROOT = "src/data/doc_demo/output"
+# DEFAULT_TEMP_DIR = "src/data/doc_demo/temp"
+
+
+class DocEnvironment(Environment):
+    """Document processing environment with OCR, Search, and Multi-modal analysis tools.
+    
+    Paths (pdf_dir, output_root, temp_dir) are hardcoded within the tools for simplicity.
+    """
+    @property
+    def mode(self) -> str:
+        return "doc"
+    
+    def _initialize_tools(self):
+        """Initialize Document Agent specific tools. Tools now use internal hardcoded paths."""
+        
+        self.register_tool(DocCheckTool())
+        ocr_tool = DocOCRTool(
+            model_path=self.config.get("ocr_model_path"), 
+            backend_type=self.config.get("ocr_backend_type", "transformers")
+        )
+        self.register_tool(ocr_tool)
+        self.register_tool(SearchKeywordTool())
+        self.register_tool(GetPageOCRTool())
+        self.register_tool(GetPageImageTool())
+        self.register_tool(CropImageTool())
+        api_key = self.config.get("openai_api_key") or os.environ.get("OPENAI_API_KEY") or None
+        if api_key and api_key.strip():
+            api_key = api_key.strip()
+        else:
+            api_key = None
+        api_base = (self.config.get("openai_api_url") or 
+                   os.environ.get("OPENAI_API_BASE") or 
+                   os.environ.get("OPENAI_API_URL") or None)
+        if api_base and api_base.strip():
+            api_base = api_base.strip()
+        else:
+            api_base = None
+        image_desc_tool = ImageDescriptionTool(
+            model_name="gpt-4o",
+            api_key=api_key,
+            api_base=api_base
+        )
+        self.register_tool(image_desc_tool)
 
 # Convenience functions for common use cases
 def create_math_environment(**kwargs) -> MathEnvironment:
@@ -457,6 +509,11 @@ def create_web_environment(**kwargs) -> WebEnvironment:
     """Create a web environment with search and visit tools."""
     return WebEnvironment(**kwargs)
 
+def create_doc_environment(**kwargs) -> DocEnvironment:
+    """
+    Create a Document processing environment with OCR, Search, and Multi-modal analysis tools.
+    """
+    return DocEnvironment(**kwargs)      
 
 # Example usage
 if __name__ == "__main__":
