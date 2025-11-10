@@ -239,7 +239,7 @@ class AgentRunner:
                     if assistant_message.tool_calls:
                         # Execute tool calls
                         if messages[-1]["content"] == "":
-                            tc = messages[-1].tool_calls[0].model_dump()['function']
+                            tc =messages[-1].tool_calls[0].model_dump()['function']messages[-1]
                             content = f'Calling tools: {tc}'
                         for tool_call in assistant_message.tool_calls[:1]:
                             tool_name = tool_call.function.name
@@ -273,10 +273,6 @@ class AgentRunner:
                         return messages
                 
                 except Exception as e:
-                    with open("error.jsonl", "a") as f:
-                        f.write(json.dumps({
-                            "messages": messages,
-                        }) + "\n")
                     print(f"⚠️  Retry {retry + 1}/{self.config.max_retries}: {str(e)}")
                     retry += 1
                     if retry >= self.config.max_retries:
@@ -316,7 +312,6 @@ class AgentRunner:
     def run_benchmark(self, parallel: bool = False, output_dir: str = "results") -> List[Dict[str, Any]]:
         """
         Run agent on all benchmark tasks.
-        Skip tasks that have already been completed (based on existing results file).
         
         Args:
             parallel: Whether to run tasks in parallel
@@ -333,46 +328,21 @@ class AgentRunner:
         print(f"   Parallel: {parallel}")
         print(f"   Max workers: {self.config.max_workers}")
         
-        # Load existing results to skip already completed tasks
-        existing_results = {}
-        if self.config.save_results:
-            existing_results = self._load_existing_results(output_dir)
-        
-        # Prepare tasks, filtering out already completed ones
-        all_tasks = [
+        # Prepare tasks
+        tasks = [
             {"id": item.id, "question": item.question}
             for item in self.benchmark.items
         ]
         
-        tasks_to_run = [
-            task for task in all_tasks 
-            if task["id"] not in existing_results
-        ]
-        
-        skipped_count = len(existing_results)
-        if skipped_count > 0:
-            print(f"   ⏭️  Skipping {skipped_count} already completed tasks")
-            print(f"   🆕 Remaining tasks to run: {len(tasks_to_run)}")
-        
-        # Initialize results with existing ones
-        self.results = list(existing_results.values())
-        
-        # If all tasks are already completed, return early
-        if not tasks_to_run:
-            print(f"\n✅ All tasks already completed! No new tasks to run.")
-            print(f"   Total results: {len(self.results)}")
-            print(f"   Successful: {sum(1 for r in self.results if r['success'])}")
-            print(f"   Failed: {sum(1 for r in self.results if not r['success'])}")
-            return self.results
-        
-        if parallel and len(tasks_to_run) > 1:
+        if parallel and len(tasks) > 1:
             # Run in parallel
             with concurrent.futures.ThreadPoolExecutor(max_workers=self.config.max_workers) as executor:
                 futures = [
                     executor.submit(self.run_single_task, task) 
-                    for task in tasks_to_run
+                    for task in tasks
                 ]
                 
+                self.results = []
                 for future in concurrent.futures.as_completed(futures):
                     result = future.result()
                     self.results.append(result)
@@ -381,7 +351,8 @@ class AgentRunner:
                         self._write_single_result(result, output_dir=output_dir)
         else:
             # Run sequentially
-            for task in tasks_to_run:
+            self.results = []
+            for task in tasks:
                 result = self.run_single_task(task)
                 self.results.append(result)
                 # Write result immediately after completion
@@ -389,7 +360,6 @@ class AgentRunner:
                     self._write_single_result(result, output_dir=output_dir)
         
         print(f"\n✅ Benchmark execution completed!")
-        print(f"   Total results: {len(self.results)}")
         print(f"   Successful: {sum(1 for r in self.results if r['success'])}")
         print(f"   Failed: {sum(1 for r in self.results if not r['success'])}")
         
@@ -430,57 +400,6 @@ class AgentRunner:
         
         return summary
     
-    def _get_output_file_path(self, output_dir: str = "results") -> str:
-        """
-        Get the output file path for results.
-        
-        Args:
-            output_dir: Output directory
-            
-        Returns:
-            Path to output file
-        """
-        benchmark_name = self.benchmark.name if self.benchmark else "unknown"
-        return os.path.join(output_dir, f"result_{benchmark_name}.jsonl")
-    
-    def _load_existing_results(self, output_dir: str = "results") -> Dict[str, Dict[str, Any]]:
-        """
-        Load existing results from output file if it exists.
-        
-        Args:
-            output_dir: Output directory
-            
-        Returns:
-            Dictionary mapping task_id to result dictionary
-        """
-        output_file = self._get_output_file_path(output_dir)
-        
-        if not os.path.exists(output_file):
-            return {}
-        
-        existing_results = {}
-        try:
-            with open(output_file, "r", encoding="utf-8") as f:
-                for line in f:
-                    line = line.strip()
-                    if not line:
-                        continue
-                    try:
-                        result = json.loads(line)
-                        task_id = result.get("task_id")
-                        if task_id:
-                            existing_results[task_id] = result
-                    except json.JSONDecodeError:
-                        # Skip invalid lines
-                        continue
-            print(f"📂 Found existing results file: {output_file}")
-            print(f"   Loaded {len(existing_results)} completed tasks")
-        except Exception as e:
-            print(f"⚠️  Warning: Failed to load existing results: {str(e)}")
-            return {}
-        
-        return existing_results
-    
     def _write_single_result(self, result: Dict[str, Any], output_dir: str = "results"):
         """
         Write a single result to file immediately.
@@ -494,7 +413,8 @@ class AgentRunner:
             os.makedirs(output_dir, exist_ok=True)
             
             # Generate output filename
-            self.output_file = self._get_output_file_path(output_dir)
+            benchmark_name = self.benchmark.name if self.benchmark else "unknown"
+            self.output_file = os.path.join(output_dir, f"result_{benchmark_name}.jsonl")
         
         # Append result to file
         with open(self.output_file, "a", encoding="utf-8") as f:
@@ -523,7 +443,7 @@ class AgentRunner:
             os.makedirs(output_dir, exist_ok=True)
             
             # Generate output filename
-            self.output_file = self._get_output_file_path(output_dir)
+            self.output_file = os.path.join(output_dir, f"result_{benchmark_name}.jsonl")
         
         print(f"💾 Results saved to: {self.output_file}")
         
