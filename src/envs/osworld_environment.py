@@ -903,9 +903,19 @@ class OSWorldEnvironment(Environment):
         print(f"   Resetting desktop environment...")
         self.reset(task)
 
-        # Start screen recording
-        print(f"   Starting screen recording...")
-        self.start_recording()
+        # Start screen recording (optional, can be disabled)
+        # Check if recording is enabled (default: True for backward compatibility)
+        enable_recording = self.config.get("osworld", {}).get("enable_recording", True)
+        
+        if enable_recording:
+            print(f"   Starting screen recording...")
+            try:
+                self.start_recording()
+            except Exception as e:
+                print(f"   ⚠️  Warning: Screen recording failed: {e}")
+                print(f"   ℹ️  Continuing without recording...")
+        else:
+            print(f"   ℹ️  Screen recording disabled (enable_recording=False)")
 
         # Clear trajectory storage for new task
         self._current_trajectory = []
@@ -954,8 +964,10 @@ class OSWorldEnvironment(Environment):
         """
         print(f"   Finalizing task {task_id}...")
 
-        # End screen recording and save
-        if task_output_dir:
+        # End screen recording and save (if recording was enabled)
+        enable_recording = self.config.get("osworld", {}).get("enable_recording", True)
+        
+        if enable_recording and task_output_dir:
             try:
                 recording_path = os.path.join(task_output_dir, f"task_{task_id}.mp4")
                 print(f"   Stopping screen recording...")

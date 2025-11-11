@@ -18,7 +18,8 @@ from envs import (
     MathEnvironment,
     PythonEnvironment,
     RAGEnvironment,
-    WebEnvironment
+    WebEnvironment,
+    OSWorldEnvironment
 )
 from models import TrajectoryNode, Trajectory, SynthesizedQA
 from synthesis_config import SynthesisConfig
@@ -90,6 +91,14 @@ class GenericDataSynthesis:
             if 'rag_index' not in kwargs:
                 raise ValueError("RAG环境需要提供rag_index参数")
             return RAGEnvironment(**kwargs)
+        elif mode == "osworld" or mode == "gui":
+            # OSWorld/GUI环境需要VM配置
+            required_params = ['path_to_vm']
+            missing = [p for p in required_params if p not in kwargs]
+            if missing:
+                raise ValueError(f"OSWorld环境需要提供以下参数: {', '.join(missing)}")
+            from envs import OSWorldEnvironment
+            return OSWorldEnvironment(**kwargs)
         else:
             raise ValueError(f"不支持的环境模式: {mode}")
     

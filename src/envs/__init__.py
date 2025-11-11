@@ -46,6 +46,12 @@ def __getattr__(name):
     elif name == "TBenchEnvironment":
         from .tbench_environment import TBenchEnvironment
         return TBenchEnvironment
+    elif name == "OSWorldEnvironment":
+        from .osworld_environment import OSWorldEnvironment
+        return OSWorldEnvironment
+    elif name == "create_osworld_environment":
+        from .osworld_environment import create_osworld_environment
+        return create_osworld_environment
     raise AttributeError(f"module '{__name__}' has no attribute '{name}'")
 
 __all__ = [
@@ -62,9 +68,11 @@ __all__ = [
     "RAGEnvironment",
     "WebEnvironment",
     "TBenchEnvironment",
+    "OSWorldEnvironment",
     # Factory functions (lazy loaded)
     "create_math_environment",
     "create_python_environment",
     "create_rag_environment",
-    "create_web_environment"
+    "create_web_environment",
+    "create_osworld_environment"
 ]

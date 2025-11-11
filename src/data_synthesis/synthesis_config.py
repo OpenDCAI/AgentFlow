@@ -14,8 +14,11 @@ class SynthesisConfig:
     """数据合成配置类"""
     
     # 环境配置
-    environment_mode: str = "web"  # web, math, python, rag等
+    environment_mode: str = "web"  # web, math, python, rag, osworld等
     environment_kwargs: Dict[str, Any] = field(default_factory=dict)
+    
+    # 输出格式配置
+    output_format: str = "qa"  # qa: 问答对格式, task: OSWorld任务格式
     
     # 可用工具列表（如果为空，使用环境默认工具）
     available_tools: List[str] = field(default_factory=list)
@@ -78,6 +81,7 @@ class SynthesisConfig:
         return {
             "environment_mode": self.environment_mode,
             "environment_kwargs": self.environment_kwargs,
+            "output_format": self.output_format,
             "available_tools": self.available_tools,
             "qa_examples": self.qa_examples,
             "sampling_tips": self.sampling_tips,
