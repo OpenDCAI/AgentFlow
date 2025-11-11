@@ -10,6 +10,8 @@ import re
 import difflib
 from dataclasses import dataclass
 import openai
+from tqdm import tqdm
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 @dataclass
 class BenchmarkItem:
@@ -177,6 +179,8 @@ class Benchmark(ABC):
     def evaluate(self, 
                  predictions: Union[Dict[str, str], List[str]], 
                  metric: str = "exact_match",
+                 concurrent: bool = True,
+                 max_workers: Optional[int] = None,
                  **kwargs) -> List[EvaluationResult]:
         """
         Evaluate predictions against ground truth.
@@ -197,15 +201,16 @@ class Benchmark(ABC):
         else:
             pred_dict = predictions
         
-        results = []
-        for item in self.items:
-            if item.id not in pred_dict:
-                print(f"Warning: No prediction for item {item.id}")
-                continue
-            
+        missing_ids = [item.id for item in self.items if item.id not in pred_dict]
+        for missing_id in missing_ids:
+            print(f"Warning: No prediction for item {missing_id}")
+
+        items_to_evaluate = [(index, item) for index, item in enumerate(self.items) if item.id in pred_dict]
+
+        def evaluate_single(index_item_pair):
+            index, item = index_item_pair
             prediction = pred_dict[item.id]
             score = self._compute_metric(item.answer, prediction, metric, question=item.question, **kwargs)
-            
             result = EvaluationResult(
                 item_id=item.id,
                 question=item.question,
@@ -215,7 +220,28 @@ class Benchmark(ABC):
                 metric_name=metric,
                 details=self._get_metric_details(item.answer, prediction, metric, **kwargs)
             )
-            results.append(result)
+            return index, result
+
+        if not concurrent or len(items_to_evaluate) <= 1:
+            results = []
+            for index_item_pair in tqdm(items_to_evaluate):
+                _, result = evaluate_single(index_item_pair)
+                results.append(result)
+        else:
+            results_dict: Dict[int, EvaluationResult] = {}
+            with ThreadPoolExecutor(max_workers=max_workers) as executor:
+                future_to_item = {
+                    executor.submit(evaluate_single, index_item_pair): index_item_pair[1]
+                    for index_item_pair in items_to_evaluate
+                }
+                for future in tqdm(as_completed(future_to_item), total=len(future_to_item)):
+                    item = future_to_item[future]
+                    try:
+                        index, result = future.result()
+                        results_dict[index] = result
+                    except Exception as exc:
+                        raise RuntimeError(f"Error evaluating item {item.id}") from exc
+            results = [results_dict[index] for index, _ in items_to_evaluate]
         
         self.evaluation_results = results
         return results
