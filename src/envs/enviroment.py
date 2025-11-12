@@ -406,15 +406,13 @@ class WebEnvironment(Environment):
         """Initialize web-specific tools."""
         # Configure web search tool
         web_search_config = {
-            "top_k": self.config.get("web_search_top_k", 5),
-            "search_type": self.config.get("web_search_type", "search"),
+            "top_k": self.config.get("web_search_top_k", 10),
             "max_workers": self.config.get("web_search_max_workers", 5)
         }
-        
+            
         # Configure web visit tool
         web_visit_config = {
             "summary_model": self.config.get("web_visit_summary_model", "gpt-4.1-2025-04-14"),
-            "visit_method": self.config.get("web_visit_visit_method", "jina")
         }
         
         self.register_tool(WebSearchTool(**web_search_config))

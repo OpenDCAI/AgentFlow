@@ -1,270 +1,228 @@
-from typing import Union, List, Dict, Any
-import requests
+from typing import List
 import os
-import pdb
-import bdb
-import time
-import random
-
-# os.environ['SERPER_API_KEY'] = ''
+import json
+import http.client
+from concurrent.futures import ThreadPoolExecutor
 
 class WebSearchTool:
-    name = "web_search_google"
+    """Tool for performing web searches using Google Serper API."""
+    
+    name = "search"
     description = (
-        "A web search tool powered by Serper API that can search the internet for current information. "
-        "Use this tool to find recent news, articles, websites, and general information from the web."
+        "Performs batched web searches: supply an array 'query'; "
+        "the tool retrieves the top 10 results for each query in one call."
     )
     parameters = [
         {
-            'name': 'queries',
+            'name': 'query',
             'type': 'array',
-            'array_type': 'string', 
-            'description': 'Array of search queries to execute in parallel.',
+            'array_type': 'string',
+            'description': (
+                'Array of query strings. Include multiple complementary '
+                'search queries in a single call.'
+            ),
             'required': True
         }
     ]
 
-    def __init__(self, top_k=10, search_type="search", max_workers=5, retry_times=5, retry_backoff=1.0):
+    def __init__(self, top_k: int = 10, retry_times: int = 5, max_workers: int = 5):
         """
-        Initialize WebSearchTool with configurable parameters
+        Initialize WebSearchTool with configurable parameters.
         
         Args:
-            top_k: Number of top search results to return per query (default: 3, max: 10)
-            search_type: Type of search - "search", "news", or "images" (default: "search")
-            max_workers: Maximum number of concurrent workers for parallel requests (default: 5)
-            retry_times: Number of retry attempts per query on failure (default: 3)
-            retry_backoff: Base seconds for exponential backoff between retries (default: 1.0)
+            top_k: Number of top search results to return per query (default: 10)
+            retry_times: Number of retry attempts per query on failure (default: 5)
         """
         self.api_key = os.getenv('SERPER_API_KEY')
         if not self.api_key:
             print("Warning: SERPER_API_KEY environment variable not set")
-        self.top_k = min(top_k, 10)
-        self.search_type = search_type
+        self.top_k = top_k
+        self.retry_times = retry_times
         self.max_workers = max_workers
-        self.retry_times = max(1, int(retry_times))
-        self.retry_backoff = float(retry_backoff)
 
-    def call(self, params: Union[str, dict]) -> str:
+    def call(self, params: dict, **kwargs) -> str:
+        """
+        Execute web search with the given parameters.
+        
+        Args:
+            params: Dictionary containing 'query' field (str or List[str])
+            **kwargs: Additional keyword arguments
+            
+        Returns:
+            Formatted search results as a string
+        """
         try:
-            queries = params.get("queries")
-            if not queries:
-                return "[WebSearch] Error: Queries parameter is required"
-            
-            # Handle single query as string
-            if isinstance(queries, str):
-                queries = [queries]
-            elif not isinstance(queries, list):
-                return "[WebSearch] Error: Queries must be a string or array of strings"
-            
-            if not self.api_key:
-                return "[WebSearch] Error: SERPER_API_KEY not configured"
-            
-            # Process all queries in parallel
-            return self._search_queries(queries)
-                
-        except Exception as e:
-            return f"[WebSearch] Error: {str(e)}"
-
-    def _search_queries(self, queries: List[str]) -> str:
-        """Search multiple queries in parallel"""
-        import concurrent.futures
+            query = params["query"]
+        except KeyError:
+            return (
+                "[Search] Invalid request format: Input must be a JSON object "
+                "containing 'query' field"
+            )
         
-        def search_single_query(query):
-            last_error = None
-            for attempt in range(1, self.retry_times + 1):
+        if isinstance(query, str):
+            # Single query
+            response = self._search_with_serp(query)
+        elif isinstance(query, List):
+            # Multiple queries
+            responses = []
+            with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+                futures = [executor.submit(self._search_with_serp, q) for q in query]
+                for future in futures:
+                    responses.append(future.result())
+            response = "\n=======\n".join(responses)
+        else:
+            return (
+                "[Search] Invalid query type: 'query' must be a string or "
+                "array of strings"
+            )
+            
+        return response
+
+    def _contains_chinese(self, text: str) -> bool:
+        """Check if text contains Chinese characters."""
+        return any('\u4E00' <= char <= '\u9FFF' for char in text)
+
+    def _build_search_payload(self, query: str) -> dict:
+        """Build search payload based on query language."""
+        if self._contains_chinese(query):
+            return {
+                "q": query,
+                "location": "China",
+                "gl": "cn",
+                "hl": "zh-cn"
+            }
+        else:
+            return {
+                "q": query,
+                "location": "United States",
+                "gl": "us",
+                "hl": "en"
+            }
+
+    def _search_with_serp(self, query: str) -> str:
+        """
+        Perform a single search using Google Serper API.
+        
+        Args:
+            query: Search query string
+            
+        Returns:
+            Formatted search results as a string
+        """
+        if not self.api_key:
+            return "[Search] Error: SERPER_API_KEY not configured"
+        
+        payload = json.dumps(self._build_search_payload(query))
+        headers = {
+            'X-API-KEY': self.api_key,
+            'Content-Type': 'application/json'
+        }
+        
+        conn = None
+        try:
+            conn = http.client.HTTPSConnection("google.serper.dev")
+            
+            # Retry logic
+            res = None
+            for attempt in range(self.retry_times):
                 try:
-                    # Make API request to Serper
-                    url = f"https://google.serper.dev/{self.search_type}"
-                    headers = {
-                        'X-API-KEY': self.api_key,
-                        'Content-Type': 'application/json'
-                    }
-
-                    payload = {
-                        'q': query,
-                        'num': self.top_k
-                    }
-
-                    response = requests.post(url, headers=headers, json=payload, timeout=10)
-
-                    status_code = response.status_code
-                    if 200 <= status_code < 300:
-                        try:
-                            data = response.json()
-                        except Exception:
-                            data = {}
-                        results = self._format_results(data, query, self.search_type)
-                        return {
-                            'query': query,
-                            'success': True,
-                            'results': results
-                        }
-
-                    # build error message
-                    try:
-                        err_json = response.json()
-                        err_detail = err_json.get('message') if isinstance(err_json, dict) else err_json
-                    except Exception:
-                        err_detail = response.text or ''
-                    err_detail = str(err_detail)[:1000] if err_detail else f"HTTP {status_code}"
-                    err_msg = f"HTTP {status_code}: {err_detail}"
-
-                    last_error = err_msg
-                    if attempt < self.retry_times:
-                        sleep_seconds = self.retry_backoff * (2 ** (attempt - 1))
-                        sleep_seconds += random.uniform(0, 0.25 * max(self.retry_backoff, 0.001))
-                        time.sleep(sleep_seconds)
-                        continue
-
-                    # Non-retriable or retries exhausted
-                    return {
-                        'query': query,
-                        'success': False,
-                        'results': err_msg
-                    }
-
-                except requests.exceptions.RequestException as e:
-                    # Network/timeout errors -> retriable
-                    last_error = e
-                    if attempt < self.retry_times:
-                        sleep_seconds = self.retry_backoff * (2 ** (attempt - 1))
-                        sleep_seconds += random.uniform(0, 0.25 * max(self.retry_backoff, 0.001))
-                        time.sleep(sleep_seconds)
-                        continue
-                    return {
-                        'query': query,
-                        'success': False,
-                        'results': str(last_error)
-                    }
+                    conn.request("POST", "/search", payload, headers)
+                    res = conn.getresponse()
+                    if res.status == 200:
+                        break
                 except Exception as e:
-                    if isinstance(e, bdb.BdbQuit):
-                        raise e
-                    last_error = e
-                    if attempt < self.retry_times:
-                        sleep_seconds = self.retry_backoff * (2 ** (attempt - 1))
-                        sleep_seconds += random.uniform(0, 0.25 * max(self.retry_backoff, 0.001))
-                        time.sleep(sleep_seconds)
-                        continue
-                    return {
-                        'query': query,
-                        'success': False,
-                        'results': str(last_error)
-                    }
-        
-        # Process queries in parallel
-        with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
-            search_results = list(executor.map(search_single_query, queries))
-        
-        # Format combined results as string
-        return self._format_combined_results(search_results)
+                    print(f"Search attempt {attempt + 1} failed: {e}")
+                    if attempt == self.retry_times - 1:
+                        return (
+                            f"[Search] Error: Failed to complete search after "
+                            f"{self.retry_times} attempts. Please try again later."
+                        )
+            
+            if res is None or res.status != 200:
+                return f"[Search] Error: HTTP {res.status if res else 'Unknown'}"
+            
+            data = res.read()
+            results = json.loads(data.decode("utf-8"))
+            
+            return self._format_search_results(results, query)
+            
+        except json.JSONDecodeError as e:
+            return f"[Search] Error: Failed to parse API response: {e}"
+        except Exception as e:
+            return f"[Search] Error: Unexpected error occurred: {e}"
+        finally:
+            if conn:
+                conn.close()
 
-    def _format_results(self, data: Dict[str, Any], query: str, search_type: str) -> List[Dict[str, str]]:
-        """Format the search results as a list of dictionaries for programmatic use"""
+    def _format_search_results(self, results: dict, query: str) -> str:
+        """
+        Format search results into a readable string.
         
-        results = []
-        
-        if search_type == "search":
-            # Handle organic search results
-            organic = data.get('organic', [])
-            for result in organic:
-                results.append({
-                    'query': query,
-                    'url': result.get('link', ''),
-                    'title': result.get('title', ''),
-                    'snippet': result.get('snippet', '')
-                })
-        
-        elif search_type == "news":
-            # Handle news results
-            news = data.get('news', [])
-            for article in news:
-                results.append({
-                    'query': query,
-                    'url': article.get('link', ''),
-                    'title': article.get('title', ''),
-                    'snippet': article.get('snippet', ''),
-                    'date': article.get('date', ''),
-                    'source': article.get('source', '')
-                })
-        
-        elif search_type == "images":
-            # Handle image results
-            images = data.get('images', [])
-            for image in images:
-                results.append({
-                    'query': query,
-                    'url': image.get('imageUrl', ''),
-                    'title': image.get('title', ''),
-                    'snippet': f"Image from {image.get('source', '')}" if image.get('source', '') else ''
-                })
-        
-        # Only need url and snippet
-        results = [{'url': item.get('url', ''), 'snippet': item.get('snippet', '')} for item in results]
-        return results
+        Args:
+            results: API response dictionary
+            query: Original search query
+            
+        Returns:
+            Formatted results string
+        """
+        if "organic" not in results or not results["organic"]:
+            return (
+                f"No results found for '{query}'. "
+                "Try with a more general query."
+            )
 
-    def _format_combined_results(self, search_results: List[Dict]) -> str:
-        """Format all search results into a single string with URLs and snippets"""
-        if not search_results:
-            return "[WebSearch] No queries processed"
-        
-        output = ""
-        successful_queries = [r for r in search_results if r['success']]
-        
-        # Extract all results from successful queries
-        all_results = []
-        for query_result in successful_queries:
-            if 'results' in query_result and query_result['results']:
-                all_results.extend(query_result['results'])
-        
-        # Format results as simple numbered list
-        for i, item in enumerate(all_results, 1):
-            url = item.get('url', '')
-            snippet = item.get('snippet', '')
-            if url:  # Only show items with valid URLs
-                output += f"{i}.\nurl: {url}\nsnippet: {snippet}\n\n"
-        # If there are no successful formatted results, include failure reasons
-        if not output.strip():
-            failed_queries = [r for r in search_results if not r.get('success')]
-            if failed_queries:
-                for fail in failed_queries:
-                    query = fail.get('query', '')
-                    reason = str(fail.get('results', 'Unknown error'))
-                    output += f"[WebSearch] Query '{query}' failed: {reason}\n"
-            # If still empty for any reason, provide a generic message
-            if not output.strip():
-                output = "[WebSearch] Search failed with no results or error details"
+        web_snippets = []
+        for idx, page in enumerate(results["organic"], start=1):
+            date_published = ""
+            if "date" in page:
+                date_published = f"\nDate published: {page['date']}"
 
-        return output
+            source = ""
+            if "source" in page:
+                source = f"\nSource: {page['source']}"
+
+            snippet = ""
+            if "snippet" in page:
+                snippet = f"\n{page['snippet']}"
+
+            formatted_result = (
+                f"{idx}. [{page.get('title', 'No title')}]"
+                f"({page.get('link', '#')}){date_published}{source}\n{snippet}"
+            )
+            # Remove common video player error messages
+            formatted_result = formatted_result.replace(
+                "Your browser can't play this video.", ""
+            )
+            web_snippets.append(formatted_result)
+
+        content = (
+            f"A Google search for '{query}' found {len(web_snippets)} results:\n\n"
+            "## Web Results\n" + "\n\n".join(web_snippets)
+        )
+        return content
 
 
 if __name__ == '__main__':
-    # 测试WebSearchTool工具
-    search_tool = WebSearchTool(top_k=10, search_type="search")
+    # Test WebSearchTool
+    search_tool = WebSearchTool(top_k=10)
     
     print("=== WebSearchTool Test Cases ===\n")
     
-    # 测试用例1: 单个查询
+    # Test case 1: Single query
     print("Test 1: Single query")
     result = search_tool.call({
-        "queries": ["Python programming tutorial"]
+        "query": ["Python programming tutorial"]
     })
     print(result)
     print("-" * 50)
     
-    # 测试用例2: 多个查询并行搜索
-    print("Test 2: Multiple queries parallel search")
+    # Test case 2: Multiple queries
+    print("Test 2: Multiple queries")
     result = search_tool.call({
-        "queries": [
+        "query": [
             "machine learning basics",
             "deep learning frameworks"
         ]
     })
     print(result)
     print("-" * 50)
-    
-    # # 测试用例3: 参数验证
-    # print("Test 3: Parameter validation")
-    # result = search_tool.call({})  # 缺少queries
-    # print(result)
-    
-    # print(f"Tool configuration: top_k={search_tool.top_k}, search_type={search_tool.search_type}")
