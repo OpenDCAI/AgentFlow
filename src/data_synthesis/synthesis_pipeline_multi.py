@@ -20,13 +20,15 @@ from envs import (
     MathEnvironment,
     PythonEnvironment,
     RAGEnvironment,
-    WebEnvironment
+    WebEnvironment,
+    OSWorldEnvironment
 )
-from models import TrajectoryNode, Trajectory, SynthesizedQA
+from models import TrajectoryNode, Trajectory, SynthesizedQA, SynthesizedTask
 from synthesis_config import SynthesisConfig
 from trajectory_sampler import GenericTrajectorySampler
 from trajectory_selector import GenericTrajectorySelector
 from qa_synthesizer import GenericQASynthesizer
+from task_synthesizer import OSWorldTaskSynthesizer
 
 
 def process_single_seed(
@@ -43,7 +45,8 @@ def process_single_seed(
         config: 合成配置
         
     Returns:
-        (seed_idx, source_id, qas_list, trajectories_list, error_msg)
+        (seed_idx, source_id, outputs_list, trajectories_list, error_msg)
+        outputs_list可以是QA对或Task（取决于output_format配置）
     """
     source_id = _generate_source_id(seed_data, seed_idx)
     
@@ -51,6 +54,7 @@ def process_single_seed(
     print(f"Worker处理 Seed {seed_idx}")
     print(f"Source ID: {source_id}")
     print(f"内容: {seed_data[:100]}{'...' if len(seed_data) > 100 else ''}")
+    print(f"输出格式: {config.output_format}")
     print(f"{'#'*80}\n")
     
     try:
@@ -63,7 +67,14 @@ def process_single_seed(
         )
         
         selector = GenericTrajectorySelector(config=config)
-        synthesizer = GenericQASynthesizer(config=config)
+        
+        # 根据输出格式选择合成器
+        if config.output_format == "task":
+            synthesizer = OSWorldTaskSynthesizer(config=config)
+            print(f"📦 使用OSWorld任务合成器")
+        else:
+            synthesizer = GenericQASynthesizer(config=config)
+            print(f"📦 使用QA合成器")
         
         # Step 1: Trajectory Sampling
         print(f"\n📊 步骤 1/3: Trajectory Sampling")
@@ -79,19 +90,29 @@ def process_single_seed(
             max_selected_traj=config.max_selected_traj
         )
         
-        # Step 3: QA Synthesis
-        print(f"\n✨ 步骤 3/3: QA Synthesis")
-        qas = []
-        for qa_idx, trajectory in enumerate(selected_trajectories):
-            qa = synthesizer.synthesize_qa(trajectory, qa_idx)
-            if qa:
-                qas.append(qa.to_dict())
+        # Step 3: 数据合成（QA或Task）
+        if config.output_format == "task":
+            print(f"\n✨ 步骤 3/3: OSWorld Task Synthesis")
+            outputs = []
+            for task_idx, trajectory in enumerate(selected_trajectories):
+                task = synthesizer.synthesize_task(trajectory, task_idx)
+                if task:
+                    outputs.append(task.to_dict())
+            output_type = "任务"
+        else:
+            print(f"\n✨ 步骤 3/3: QA Synthesis")
+            outputs = []
+            for qa_idx, trajectory in enumerate(selected_trajectories):
+                qa = synthesizer.synthesize_qa(trajectory, qa_idx)
+                if qa:
+                    outputs.append(qa.to_dict())
+            output_type = "QA对"
         
         trajectories_data = [traj.to_dict() for traj in selected_trajectories]
         
-        print(f"\n✅ Seed {seed_idx} 完成! 生成了 {len(qas)} 个QA对")
+        print(f"\n✅ Seed {seed_idx} 完成! 生成了 {len(outputs)} 个{output_type}")
         
-        return (seed_idx, source_id, qas, trajectories_data, "")
+        return (seed_idx, source_id, outputs, trajectories_data, "")
         
     except Exception as e:
         error_msg = f"❌ Seed {seed_idx} 失败: {str(e)}"
@@ -127,6 +148,14 @@ def _create_environment(config: SynthesisConfig):
             raise ValueError("RAG环境需要提供rag_index参数")
         from envs import RAGEnvironment
         return RAGEnvironment(**kwargs)
+    elif mode == "osworld" or mode == "gui":
+        # OSWorld/GUI环境需要VM配置
+        required_params = ['path_to_vm']
+        missing = [p for p in required_params if p not in kwargs]
+        if missing:
+            raise ValueError(f"OSWorld环境需要提供以下参数: {', '.join(missing)}")
+        from envs import OSWorldEnvironment
+        return OSWorldEnvironment(**kwargs)
     else:
         raise ValueError(f"不支持的环境模式: {mode}")
 
@@ -164,12 +193,19 @@ class GenericDataSynthesis:
         
         self.selector = GenericTrajectorySelector(config=config)
         
-        self.synthesizer = GenericQASynthesizer(config=config)
+        # 根据输出格式选择合成器
+        if config.output_format == "task":
+            self.synthesizer = OSWorldTaskSynthesizer(config=config)
+            print(f"使用OSWorld任务合成器（输出格式：task）")
+        else:
+            self.synthesizer = GenericQASynthesizer(config=config)
+            print(f"使用QA合成器（输出格式：qa）")
         
         # 存储结果
         self.trajectory_tree: Dict[str, TrajectoryNode] = {}
         self.selected_trajectories: List[Trajectory] = []
-        self.synthesized_qas: List[SynthesizedQA] = []
+        self.synthesized_qas: List[SynthesizedQA] = []  # QA格式
+        self.synthesized_tasks: List[SynthesizedTask] = []  # Task格式
         
         # 初始化输出文件路径（在run时创建）
         self.qa_file_path = None
@@ -189,11 +225,19 @@ class GenericDataSynthesis:
         """初始化输出文件路径并创建输出目录"""
         os.makedirs(self.output_dir, exist_ok=True)
         
-        # 设置QA输出文件路径（固定文件名，支持断点续传）
-        self.qa_file_path = os.path.join(
-            self.output_dir, 
-            f"synthesized_qa_{self.config.environment_mode}.jsonl"
-        )
+        # 根据输出格式设置文件路径
+        if self.config.output_format == "task":
+            # OSWorld任务格式
+            self.qa_file_path = os.path.join(
+                self.output_dir, 
+                f"synthesized_tasks_{self.config.environment_mode}.jsonl"
+            )
+        else:
+            # QA对格式
+            self.qa_file_path = os.path.join(
+                self.output_dir, 
+                f"synthesized_qa_{self.config.environment_mode}.jsonl"
+            )
         
         # 设置trajectories输出文件路径（固定文件名，支持断点续传）
         self.traj_file_path = os.path.join(
@@ -202,6 +246,7 @@ class GenericDataSynthesis:
         )
         
         print(f"💾 输出文件: {self.qa_file_path}")
+        print(f"💾 输出格式: {self.config.output_format}")
         
         # 加载已处理的source_id
         self._load_processed_source_ids()

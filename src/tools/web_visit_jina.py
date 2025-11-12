@@ -1,12 +1,16 @@
 from typing import Union, List, Dict, Any
 import asyncio
-# from crawl4ai import AsyncWebCrawler
+from crawl4ai import AsyncWebCrawler
 from urllib.parse import urlparse
 import openai
 import os
 import time
+import pdb
+import bdb
 import requests
 
+# os.environ["OPENAI_API_KEY"] = ""
+# os.environ["OPENAI_API_BASE"] = ""
 
 
 class WebVisitTool:
@@ -198,8 +202,8 @@ class WebVisitTool:
         for attempt in range(1, self.retry_max_attempts + 1):
             try:
                 client = openai.OpenAI(
-                    api_key="sk-YJkQxboKmL0IBC1M0zOzZbVaVZifM5QvN4mLAtSLZ1V4yEDX",
-                    base_url="http://123.129.219.111:3000/v1/"
+                    api_key=os.getenv("OPENAI_API_KEY"),
+                    base_url=os.getenv("OPENAI_API_URL")
                 )
 
                 prompt = f"""Based on the goal: "{goal}"
@@ -210,9 +214,10 @@ Please summarize the following content from {url}, focusing only on information 
 {markdown_content}
 
 +++Summary:"""
+
                 response = client.chat.completions.create(
-                    model=self.summary_model,
-                    # model='gpt-oss-20b',
+                    # model=self.summary_model,
+                    model='gpt-oss-20b',
                     messages=[
                         {"role": "user", "content": prompt}
                     ],

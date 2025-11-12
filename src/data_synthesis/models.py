@@ -58,4 +58,55 @@ class SynthesizedQA:
     def to_dict(self) -> Dict[str, Any]:
         """转换为字典格式"""
         return asdict(self)
+    
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> 'SynthesizedQA':
+        """从字典创建实例"""
+        return cls(**data)
+
+
+@dataclass
+class SynthesizedTask:
+    """合成的OSWorld格式任务（可执行+可评估）"""
+    id: str  # 任务ID
+    question: str  # 任务指令
+    config: List[Dict[str, Any]]  # 初始化配置
+    evaluator: Dict[str, Any]  # 评估器配置
+    trajectory_id: str  # 关联的轨迹ID
+    source_id: str = ""  # 原始seed标识
+    answer: Optional[float] = None  # 预期评估得分（可选）
+    metadata: Dict[str, Any] = field(default_factory=dict)
+    
+    def to_dict(self) -> Dict[str, Any]:
+        """转换为OSWorld格式的字典"""
+        result = {
+            "id": self.id,
+            "question": self.question,
+            "config": self.config,
+            "evaluator": self.evaluator
+        }
+        
+        # answer字段仅在设置时包含
+        if self.answer is not None:
+            result["answer"] = self.answer
+        
+        # metadata单独存储（不包含在OSWorld标准格式中）
+        if self.metadata:
+            result["metadata"] = self.metadata
+            
+        return result
+    
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> 'SynthesizedTask':
+        """从字典创建实例"""
+        return cls(
+            id=data["id"],
+            question=data["question"],
+            config=data.get("config", []),
+            evaluator=data.get("evaluator", {}),
+            trajectory_id=data.get("trajectory_id", ""),
+            source_id=data.get("source_id", ""),
+            answer=data.get("answer"),
+            metadata=data.get("metadata", {})
+        )
 

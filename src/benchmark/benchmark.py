@@ -133,23 +133,46 @@ class Benchmark(ABC):
         """
         Parse a single item from the data.
         Override this method for custom parsing logic.
-        
+
+        This method now supports flexible metadata handling:
+        - Keeps common fields (id, question, answer) as top-level attributes
+        - Puts all other fields into metadata dictionary
+        - Ensures answer is always a string (converts int/float/etc. to str)
+        - Handles various metadata structures (nested dicts, lists, etc.)
+
         Args:
             data: Raw item data
             line_num: Line number for error reporting
-            
+
         Returns:
             Parsed BenchmarkItem
         """
+        # Define common/reserved field names that should NOT go into metadata
+        # These are standard fields used across different benchmark types
+        reserved_fields = {'id', 'question', 'answer'}
+
         # Extract required fields
         item_id = data.get('id', f'item_{line_num}')
         question = data.get('question', '')
-        answer = data.get('answer', '')
-        
-        # Extract metadata (all other fields)
-        metadata = {k: v for k, v in data.items() 
-                   if k not in ['id', 'question', 'answer']}
-        
+
+        # Extract and normalize answer field (ensure it's always a string)
+        answer_raw = data.get('answer', '')
+        if isinstance(answer_raw, str):
+            answer = answer_raw
+        elif answer_raw is None:
+            answer = ''
+        else:
+            # Convert int, float, bool, etc. to string
+            answer = str(answer_raw)
+
+        # Extract metadata (all other fields that are not reserved)
+        # This supports various metadata structures:
+        # - OSWorld: config, evaluator, proxy
+        # - Math/RAG: difficulty, category, source
+        # - Custom: any other fields
+        metadata = {k: v for k, v in data.items()
+                   if k not in reserved_fields}
+
         return BenchmarkItem(
             id=item_id,
             question=question,

@@ -1,0 +1,55 @@
+{
+  "environment_mode": "osworld",
+  "output_format": "task",
+  "environment_kwargs": {
+    "path_to_vm": "/home/a1/sdb/zhy/GUIAgent/OSWorld/vmware_vm_data/Ubuntu0/Ubuntu.vmx",
+    "provider_name": "vmware",
+    "action_space": "computer_13",
+    "observation_type": "screenshot_a11y_tree",
+    "screen_width": 1920,
+    "screen_height": 1080,
+    "headless": true,
+    "client_password": "password",
+    "sleep_after_execution": 2.0,
+    "enable_recording": false
+  },
+  "available_tools": [
+    "desktop_mouse_move",
+    "desktop_mouse_click",
+    "desktop_mouse_right_click",
+    "desktop_mouse_double_click",
+    "desktop_mouse_drag",
+    "desktop_scroll",
+    "desktop_type",
+    "desktop_key_press",
+    "desktop_hotkey",
+    "desktop_control"
+  ],
+  "qa_examples": [
+    {
+      "question": "I want to create a new text file on Desktop",
+      "answer": "Task completed",
+      "evaluator": {
+        "func": "check_include_exclude",
+        "result": {"type": "vm_command_line", "command": "ls ~/Desktop/"},
+        "expected": {"type": "rule", "rules": {"include": [".txt"], "exclude": []}}
+      }
+    }
+  ],
+  "sampling_tips": "探索式Trajectory采样策略：\n\n=== 核心理念 ===\n你是一个好奇的探索者，而不是任务执行者。目标是发现和了解GUI应用的功能，而非完成特定任务。\n\n=== 探索原则 ===\n\n1. 好奇心驱动 (Curiosity-Driven)\n   - 点击看起来有趣的按钮和菜单\n   - 探索不同的界面区域\n   - 尝试发现新的功能和选项\n   - 不要重复访问相同的地方\n\n2. 新颖性优先 (Novelty-First)\n   - 优先探索没见过的界面元素\n   - 避免重复相同的操作\n   - 寻找隐藏的功能和高级选项\n   - 系统会自动追踪已访问状态，避免重复\n\n3. 多样性探索 (Diversity)\n   - 尝试不同类型的操作（点击、输入、滚动等）\n   - 探索不同的界面区域（菜单栏、工具栏、侧边栏等）\n   - 发现不同的功能类别\n\n4. 价值发现 (Value Discovery)\n   - 关注有用的功能和操作\n   - 识别重要的操作序列\n   - 记录有价值的发现\n\n=== 探索策略 ===\n\n**第1-2步：初步探索**\n- 查看主界面的布局和主要组件\n- 识别菜单栏、工具栏、内容区域\n- 点击主要的菜单项看看有什么选项\n\n**第3-5步：深入探索**\n- 选择感兴趣的菜单项深入探索\n- 尝试打开不同的对话框和设置面板\n- 探索各种工具和功能选项\n\n**第6-8步：系统探索**\n- 探索高级功能和设置\n- 尝试不同的操作组合\n- 发现特殊功能和快捷方式\n\n=== 避免事项 ===\n- ❌ 不要重复点击相同的按钮\n- ❌ 不要在同一个地方徘徊\n- ❌ 不要执行破坏性操作（删除、关闭应用等）\n- ❌ 不要陷入无限循环\n\n=== 记住 ===\n你的目标是**探索和发现**，不是完成任务。保持好奇心，尝试新的操作，发现有价值的功能！",
+  
+  "synthesis_tips": "探索总结指南：\n\n=== 核心任务 ===\n从探索轨迹中**发现**和**提炼**出有价值的任务或问题，而不是凭空创造。\n\n=== 总结原则 ===\n\n1. 基于事实 (Grounded)\n   - 任务必须基于实际探索到的操作\n   - 不要添加轨迹中没有的内容\n   - 所有细节都应来自观察\n\n2. 提炼价值 (Extract Value)\n   - 识别轨迹中有意义的操作序列\n   - 提炼出可重现的任务\n   - 关注实用性和完整性\n\n3. 清晰表达 (Clear Expression)\n   - 任务指令应清晰自然\n   - 避免过于技术化的描述\n   - 使用用户友好的语言\n\n4. 可验证性 (Verifiable)\n   - Evaluator必须明确可验证\n   - 使用确定性的验证方式\n   - 避免依赖时序的验证\n\n=== 发现模式 ===\n\n**模式1: 功能发现**\n探索轨迹显示：点击菜单 → 发现选项 → 执行操作\n总结任务：\"使用[应用]的[功能]来完成[操作]\"\n\n**模式2: 操作序列**\n探索轨迹显示：步骤1 → 步骤2 → 步骤3 → 达到目标\n总结任务：\"通过[操作序列]来实现[目标]\"\n\n**模式3: 状态变化**\n探索轨迹显示：初始状态 → 执行操作 → 新状态\n总结任务：\"将[对象]从[初始状态]改变到[新状态]\"\n\n=== Evaluator设计 ===\n\n根据发现的操作类型选择验证方式：\n\n**文件操作** → 使用 vm_command_line 检查文件\n```json\n{\n  \"func\": \"check_include_exclude\",\n  \"result\": {\"type\": \"vm_command_line\", \"command\": \"ls ~/path/\"},\n  \"expected\": {\"type\": \"rule\", \"rules\": {\"include\": [\"filename\"], \"exclude\": []}}\n}\n```\n\n**应用安装** → 使用 which 命令\n```json\n{\n  \"func\": \"check_include_exclude\",\n  \"result\": {\"type\": \"vm_command_line\", \"command\": \"which app_name\"},\n  \"expected\": {\"type\": \"rule\", \"rules\": {\"include\": [\"app_name\"], \"exclude\": [\"not found\"]}}\n}\n```\n\n**文件内容** → 使用 vm_file_content\n```json\n{\n  \"func\": \"check_include_exclude\",\n  \"result\": {\"type\": \"vm_file_content\", \"path\": \"~/file.txt\"},\n  \"expected\": {\"type\": \"rule\", \"rules\": {\"include\": [\"content\"], \"exclude\": []}}\n}\n```\n\n=== 质量标准 ===\n\n✓ 任务指令自然流畅\n✓ 基于实际探索内容\n✓ Evaluator明确可验证\n✓ 任务具有实用价值\n✓ 可以独立重现\n\n=== 示例 ===\n\n**探索轨迹：**\n1. 点击文件菜单\n2. 选择\"新建\"\n3. 选择\"文本文档\"\n4. 保存到桌面\n\n**总结任务：**\n\"Please create a new text document and save it to the Desktop\"\n\n**Evaluator：**\n检查桌面是否有新的txt文件",
+  
+  "seed_description": "GUI探索方向",
+  "model_name": "gpt-4.1",
+  "max_depth": 8,
+  "branching_factor": 1,
+  "depth_threshold": 5,
+  "max_trajectories": 5,
+  "min_depth": 4,
+  "max_selected_traj": 3,
+  "max_retries": 3,
+  "max_workers": 1,
+  "number_of_seed": 10
+}
+
