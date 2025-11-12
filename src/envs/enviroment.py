@@ -656,6 +656,141 @@ class Environment(ABC):
         print(f"Environment loaded from {filepath}")
 
 
+# Concrete Environment Implementations
+
+class MathEnvironment(Environment):
+    """Math environment with calculator tools."""
+    
+    @property
+    def mode(self) -> str:
+        return "math"
+    
+    def _initialize_tools(self):
+        """Initialize math-specific tools."""
+        self.register_tool(CalculatorTool())
+
+
+class PythonEnvironment(Environment):
+    """Python environment with interpreter tools."""
+    
+    @property
+    def mode(self) -> str:
+        return "py"
+    
+    def _initialize_tools(self):
+        """Initialize Python-specific tools."""
+        try:
+            from tools.python_interpreter import PythonInterpreterTool
+            self.register_tool(PythonInterpreterTool())
+        except ImportError:
+            raise ImportError("PythonInterpreterTool not available")
+
+
+class RAGEnvironment(Environment):
+    """RAG environment with retrieval tools."""
+
+    def __init__(self, rag_index, **kwargs):
+        self.rag_index = rag_index
+        super().__init__(**kwargs)
+
+    @property
+    def mode(self) -> str:
+        return "rag"
+    
+    def _initialize_tools(self):
+        """Initialize RAG-specific tools."""
+        try:
+            from tools.rag_tools import QueryRAGIndexTool
+            local_search_tool = QueryRAGIndexTool(self.rag_index)
+            self.register_tool(local_search_tool)
+        except ImportError:
+            raise ImportError("RAG tools not available")
+
+
+class WebEnvironment(Environment):
+    """Web environment with search and visit tools."""
+    
+    @property
+    def mode(self) -> str:
+        return "web"
+    
+    def _initialize_tools(self):
+        """Initialize web-specific tools."""
+        # Configure web search tool
+        web_search_config = {
+            "top_k": self.config.get("web_search_top_k", 10),
+            "max_workers": self.config.get("web_search_max_workers", 5)
+        }
+            
+        # Configure web visit tool
+        web_visit_config = {
+            "summary_model": self.config.get("web_visit_summary_model", "gpt-4.1-2025-04-14"),
+        }
+        
+        self.register_tool(WebSearchTool(**web_search_config))
+        self.register_tool(WebVisitTool(**web_visit_config))
+
+
+class TBenchEnvironment(Environment): # for Terminal Bench
+    """
+    A minimal concrete environment for configuration-only scenarios (e.g., initializing Terminal Bench)
+    without registering any tools. Use this when you only need environment setup but no specific tools.
+    """
+
+    @property
+    def mode(self) -> str:
+        return "tbench"
+
+    def _initialize_tools(self):
+        # No tools by default; suitable for bench/config-only usage
+        self.tools = {}
+        self._generate_tool_metadata()
+
+
+# Convenience functions for common use cases
+def create_math_environment(**kwargs) -> MathEnvironment:
+    """Create a math environment with calculator tools."""
+    return MathEnvironment(**kwargs)
+
+
+def create_python_environment(**kwargs) -> PythonEnvironment:
+    """Create a Python environment with interpreter tools."""
+    return PythonEnvironment(**kwargs)
+
+
+def create_rag_environment(**kwargs) -> RAGEnvironment:
+    """Create a RAG environment with retrieval tools."""
+    return RAGEnvironment(**kwargs)
+
+
+def create_web_environment(**kwargs) -> WebEnvironment:
+    """Create a web environment with search and visit tools."""
+    return WebEnvironment(**kwargs)
+
+
+# Example usage
+if __name__ == "__main__":
+    # Example: Create different environments
+    print("Creating math environment...")
+    math_env = create_math_environment()
+    print(f"Math environment info: {math_env.get_environment_info()}")
+    
+    print("\nCreating web environment...")
+    web_env = create_web_environment(
+        web_search_top_k=10
+    )
+    print(f"Web environment info: {web_env.get_environment_info()}")
+    
+    # Example: Execute a tool
+    print("\nTesting calculator tool...")
+    result = math_env.execute_tool("calculator", {"expressions": ["2+2", "sqrt(16)"]})
+    print(f"Calculator result: {result}")
+    
+    # Example: Direct instantiation
+    print("\nDirect instantiation example...")
+    math_env_direct = MathEnvironment(model_name="gpt-4")
+    print(f"Direct math environment mode: {math_env_direct.mode}")
+    print(f"Direct math environment tools: {math_env_direct.list_tools()}")
 # Note: Concrete environment implementations have been moved to separate files:
 # - MathEnvironment -> math_environment.py
 # - PythonEnvironment -> python_environment.py
