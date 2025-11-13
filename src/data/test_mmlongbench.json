@@ -1,0 +1,31 @@
+[
+    {
+        "doc_id": "Independents-Report.pdf",
+        "doc_type": "Research report / Introduction",
+        "question": "What's the percentage of people who are democrats and voted in the last election compared to the entire population in 2018?",
+        "answer": "18.29%",
+        "evidence_pages": "[3, 5]",
+        "evidence_sources": "['Pure-text (Plain-text)']",
+        "answer_format": "Float"
+    },
+    {
+        "doc_id": "Test-Document-2.pdf",
+        "doc_type": "Research report",
+        "question": "What is the main topic discussed in the document?",
+        "answer": "Climate change impacts",
+        "evidence_pages": "[1, 2]",
+        "evidence_sources": "['Pure-text (Plain-text)']",
+        "answer_format": "String"
+    },
+    {
+        "doc_id": "Test-Document-3.pdf",
+        "doc_type": "Introduction",
+        "question": "How many participants were in the study?",
+        "answer": "150",
+        "evidence_pages": "[4]",
+        "evidence_sources": "['Pure-text (Plain-text)']",
+        "answer_format": "Integer"
+    }
+]
+
+

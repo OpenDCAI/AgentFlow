@@ -155,4 +155,27 @@ src/data_synthesis/synthesis_results*
 # RAG index file
 src/index/
 
+# Temporary files and directories
+tmp/
+*.backup
+*.tmp
+*~
+
+# Test result files
+results/*_test*.jsonl*
+results/*_demo*.jsonl*
+results/*.backup
+
+# Temporary scripts (if any remain)
+check_*.sh
+start_*.sh
+monitor_*.py
+evaluate_*.py
+run_mmlongbench*.sh
+
+# Temporary documentation
+*运行状态.md
+*运行说明.md
+代码调整报告.md
+
 .DS_Store

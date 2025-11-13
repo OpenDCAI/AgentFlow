@@ -1,0 +1,4439 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    228,
+                    277,
+                    1282,
+                    705
+                ],
+                "angle": 0,
+                "content": "INTRODUCING ALIBABA CLOUD"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    235,
+                    982,
+                    783,
+                    1041
+                ],
+                "angle": 0,
+                "content": "MORE THAN JUST CLOUD"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    2046,
+                    291,
+                    2200,
+                    498
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1992,
+                    880,
+                    2260,
+                    943
+                ],
+                "angle": 0,
+                "content": "Introducing"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1964,
+                    950,
+                    2280,
+                    1006
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    2059,
+                    1213,
+                    2183,
+                    1269
+                ],
+                "angle": 0,
+                "content": "2018"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1920,
+                    1480,
+                    2324,
+                    1540
+                ],
+                "angle": 0,
+                "content": "alibabacloud.com"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1883,
+                    1866,
+                    2351,
+                    1946
+                ],
+                "angle": 0,
+                "content": "[-] Alibaba Cloud"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    1902,
+                    3318,
+                    2312,
+                    3364
+                ],
+                "angle": 0,
+                "content": "© Alibaba Cloud 2018"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    1950,
+                    3367,
+                    2287,
+                    3423
+                ],
+                "angle": 0,
+                "content": "All rights reserved"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    223,
+                    119,
+                    962,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    230,
+                    277,
+                    744,
+                    410
+                ],
+                "angle": 0,
+                "content": "CONTENTS"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    223,
+                    638,
+                    786,
+                    708
+                ],
+                "angle": 0,
+                "content": "Mission and Background"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    977,
+                    754,
+                    1032,
+                    852
+                ],
+                "angle": 0,
+                "content": "1"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1151,
+                    645,
+                    1620,
+                    764
+                ],
+                "angle": 0,
+                "content": "Supporting Business Transformation"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1893,
+                    757,
+                    1957,
+                    855
+                ],
+                "angle": 0,
+                "content": "5"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    228,
+                    1003,
+                    736,
+                    1069
+                ],
+                "angle": 0,
+                "content": "Leaders in Technology"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    932,
+                    1115,
+                    1027,
+                    1213
+                ],
+                "angle": 0,
+                "content": "11"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1153,
+                    1006,
+                    1677,
+                    1062
+                ],
+                "angle": 0,
+                "content": "Products and Solutions"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1845,
+                    1115,
+                    1957,
+                    1213
+                ],
+                "angle": 0,
+                "content": "15"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    228,
+                    1364,
+                    1002,
+                    1427
+                ],
+                "angle": 0,
+                "content": "Getting Started with Alibaba Cloud"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    895,
+                    1476,
+                    1032,
+                    1575
+                ],
+                "angle": 0,
+                "content": "22"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1153,
+                    1368,
+                    1376,
+                    1427
+                ],
+                "angle": 0,
+                "content": "Summary"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1821,
+                    1476,
+                    1950,
+                    1575
+                ],
+                "angle": 0,
+                "content": "23"
+            },
+            {
+                "block_id": 14,
+                "type": "footer",
+                "bbox": [
+                    230,
+                    3399,
+                    587,
+                    3448
+                ],
+                "angle": 0,
+                "content": "alibabacloud.com"
+            },
+            {
+                "block_id": 15,
+                "type": "aside_text",
+                "bbox": [
+                    2364,
+                    129,
+                    2411,
+                    3448
+                ],
+                "angle": 0,
+                "content": "#"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    401,
+                    596,
+                    1501,
+                    733
+                ],
+                "angle": 0,
+                "content": "EXECUTIVE SUMMARY"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    394,
+                    978,
+                    1768,
+                    1375
+                ],
+                "angle": 0,
+                "content": "This whitepaper will introduce you to Alibaba Cloud, the cloud computing division of Alibaba Group. We will take a look at the company's background, explore how Alibaba Cloud has evolved as it has become increasingly established and see how it is facilitating digital transformation and opening up the Chinese market for many businesses."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    394,
+                    1417,
+                    1853,
+                    1806
+                ],
+                "angle": 0,
+                "content": "We will cover how Alibaba Cloud supports business growth through partnerships and competitions, and discuss its unique range of tools and services. This whitepaper will introduce you to a number of Alibaba Cloud's key products and take you through how to get started on the platform, where you can find additional support as well as gain certificates and accreditation."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    394,
+                    1852,
+                    1858,
+                    2378
+                ],
+                "angle": 0,
+                "content": "We will also cover some of what makes Alibaba Cloud stand out in the marketplace, such as powering major shopping festivals, innovative payment methods and big data analysis. And we will look at how your business can benefit from the innovation that runs through the company, helping business from small and medium enterprises through to large multinational corporations to benefit from impressive tools and services including machine learning, elastic computing and a powerful and secure cloud platform."
+            },
+            {
+                "block_id": 5,
+                "type": "aside_text",
+                "bbox": [
+                    2356,
+                    126,
+                    2431,
+                    3462
+                ],
+                "angle": 0,
+                "content": "in G+"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    2379,
+                    140,
+                    2414,
+                    175
+                ],
+                "angle": 0,
+                "content": "1"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    744,
+                    599,
+                    2123,
+                    736
+                ],
+                "angle": 0,
+                "content": "MISSION AND BACKGROUND"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    736,
+                    982,
+                    2123,
+                    1375
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud is one of a number of business units that form part of Alibaba Group, helping companies to transform the way that they market, sell and operate. Alibaba Group, headquartered in Hangzhou, China, is on a mission to make it easy to do business anywhere. It has ambitious growth goals, and aims to help to solve problems for billions of people as it expands."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    744,
+                    1504,
+                    1007,
+                    1568
+                ],
+                "angle": 0,
+                "content": "MISSION"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    205,
+                    1880,
+                    717,
+                    2476
+                ],
+                "angle": 0,
+                "content": "$25BN THE USD AMOUNT PROCESSED IN SALES DURING LAST YEAR'S SINGLES DAY SHOPPING FESTIVAL"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1676,
+                    2123,
+                    2273
+                ],
+                "angle": 0,
+                "content": "Alibaba provides vital technology infrastructure and marketing capabilities to help businesses to grow their products and services online. The group spans commerce, cloud computing, digital media and innovation. For example, AliExpress is our global consumer marketplace, Alipay is our mobile and online payment platform and Alibaba Cloud is the cloud computing arm and business unit of Alibaba Group. And perhaps you've heard of 11-11, our groundbreaking international shopping festival known as Singles Day, which processed over USD $25BN in sales last year in a single day."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2311,
+                    2113,
+                    2841
+                ],
+                "angle": 0,
+                "content": "Alibaba announced in 2017 that it is investing $15BN in research and development up to 2020, including creating the DAMO Academy in 2017. The DAMO Academy has research labs in seven cities around the world, looking into topics including data intelligence, the Internet of Things, fintech, quantum computing and human-machine interaction. The Academy will help Alibaba to be “future-oriented to solve the problems of the future,” according to Alibaba’s founder and chairman Jack Ma. He challenged the Academy to help 100"
+            },
+            {
+                "block_id": 8,
+                "type": "aside_text",
+                "bbox": [
+                    2361,
+                    2880,
+                    2433,
+                    3451
+                ],
+                "angle": 0,
+                "content": "f in G+"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    739,
+                    284,
+                    2076,
+                    543
+                ],
+                "angle": 0,
+                "content": "million companies create opportunities and help solve to problems for billions of people. By doing this, DAMO Academy has the target of growing to become equal in value to the world's fifth-largest economy by 2036.\\(^{1}\\)"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    741,
+                    624,
+                    1602,
+                    677
+                ],
+                "angle": 0,
+                "content": "BACKING BUSINESS TRANSFORMATION"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    739,
+                    729,
+                    2103,
+                    982
+                ],
+                "angle": 0,
+                "content": "Alibaba enables businesses to transform the way they market, sell and operate, providing the fundamental technology to help merchants, brands and other businesses leverage the power of the Internet to engage with their users and customers."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    741,
+                    1066,
+                    1453,
+                    1122
+                ],
+                "angle": 0,
+                "content": "ALIBABA CLOUD'S BACKGROUND"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1171,
+                    2128,
+                    1427
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud is the group's cloud computing arm. It was established in September 2009 as Aliyun, developing cloud computing services that would provide the infrastructure to support Alibaba's vision of making it easy to do business anywhere."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1473,
+                    2131,
+                    1932
+                ],
+                "angle": 0,
+                "content": "Now, Alibaba Cloud's highly scalable cloud computing and data management services is China's largest public cloud service provider<sup>3</sup> and has the third largest share of the cloud computing market globally, according to Gartner.<sup>4</sup> It offers cost-effective solutions that help businesses meet their networking and information needs, and provides them with an easy way to integrate with other Alibaba products and services."
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    570,
+                    1989,
+                    709,
+                    2118
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    796,
+                    2038,
+                    2059,
+                    2290
+                ],
+                "angle": 0,
+                "content": "We are China's largest cloud provider, offering access to China's most advanced cloud network."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2374,
+                    2111,
+                    2830
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud has an international network of 18 data centers, including access to Mainland China. Security and reliability are paramount to Alibaba Cloud's offering, and we will cover those aspects in more depth later in this whitepaper. Alibaba's vast online and mobile commerce ecosystem – including the incredible amount of transactions that take place every year on 11-11 – is also powered by Alibaba Cloud."
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    2374,
+                    140,
+                    2414,
+                    178
+                ],
+                "angle": 0,
+                "content": "2"
+            },
+            {
+                "block_id": 11,
+                "type": "aside_text",
+                "bbox": [
+                    2359,
+                    280,
+                    2433,
+                    3504
+                ],
+                "angle": 0,
+                "content": "in G+"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    349,
+                    291,
+                    583,
+                    512
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "ALIBABA CLOUD HAS 18 DATA CENTERS"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    739,
+                    284,
+                    2126,
+                    1147
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud is dedicated to becoming a world-leading global cloud services provider. Our top-class infrastructure and expanding global presence has helped to establish partnerships and attract over 2.3 million customers worldwide, including over 1 million paying customers. And, in 2017, we were named as a visionary in Gartner's prestigious Magic Quadrant for Data Management Solutions for Analytics. Our strong performance in data management solutions in China and our investment in new markets were acknowledged as making Alibaba Cloud an emerging global player.[5,6] Alibaba Cloud's international operations are registered and headquartered in Singapore, and the company has teams stationed in Dubai, Frankfurt, Hong Kong, London, New York, Paris, San Mateo, Seoul, Singapore, Sydney and Tokyo, driving this international growth."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1185,
+                    2098,
+                    1511
+                ],
+                "angle": 0,
+                "content": "This whitepaper will help you discover more about what makes Alibaba Cloud unique and introduce you to our key products and services. Keep reading to learn how Alibaba Cloud can support your business' cloud computing goals, enable digital transformation and help your company to grow."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    741,
+                    1592,
+                    1317,
+                    1645
+                ],
+                "angle": 0,
+                "content": "ALIBABA CLOUD ET BRAIN"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1697,
+                    2098,
+                    2087
+                ],
+                "angle": 0,
+                "content": "Through initiatives like this, Alibaba Cloud is helping our society to become more sustainable, efficient, and interconnected. From agriculture to manufacturing and city management, we are committed to making the world greener, safer, and more productive. For example, our ET Brain uses our ultra-intelligent technology to solve complex problems in business and society."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2132,
+                    2126,
+                    2588
+                ],
+                "angle": 0,
+                "content": "The ET Brain can create accurate simulations, come up with solutions in real time, and perpetually innovate, thanks to machine learning. For example, we have put some of this powerful technology to work supporting smart cities. Alibaba Cloud's City Brain² project in Malaysia is working in partnership with the Malaysia Digital Economy Corporation to help the government process data and make smarter decisions based on ET Brain's insights."
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    565,
+                    2690,
+                    704,
+                    2816
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    793,
+                    2750,
+                    2084,
+                    3097
+                ],
+                "angle": 0,
+                "content": "The ET Brain can create accurate simulations, come up with solutions in real time, and perpetually innovate, thanks to machine learning."
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    2379,
+                    140,
+                    2414,
+                    182
+                ],
+                "angle": 0,
+                "content": "3"
+            },
+            {
+                "block_id": 11,
+                "type": "aside_text",
+                "bbox": [
+                    2361,
+                    280,
+                    2431,
+                    3451
+                ],
+                "angle": 0,
+                "content": "in G+"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    2379,
+                    140,
+                    2414,
+                    182
+                ],
+                "angle": 0,
+                "content": "4"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    739,
+                    284,
+                    2123,
+                    613
+                ],
+                "angle": 0,
+                "content": "Real time information is collected from roadside video cameras in congested cities such as Kuala Lumpur, then analyzed by computer vision and used to improve the flow of vehicles by changing traffic signals, and to spot traffic accidents, so that emergency vehicles can get to accidents in the shortest possible time."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    739,
+                    652,
+                    2101,
+                    1245
+                ],
+                "angle": 0,
+                "content": "ET Medical Brain is working to solve the healthcare industry's biggest problems, such as introducing a smart scheduling platform to Hangzhou Children's Hospital, and making advances in gene sequencing that enable precision medical treatment. The ET Industrial Brain builds smart algorithms that improve modelling, the accuracy of predictions, regulation enforcement, and emergency response, while our ET Agricultural Brain can use visual recognition, voice recognition and environmental recognition to monitor crops and livestock, reducing disease and improving farming efficiency."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    741,
+                    1287,
+                    2121,
+                    1413
+                ],
+                "angle": 0,
+                "content": "By facilitating access to smart emerging technologies, Alibaba Cloud enables businesses and people to build a more inclusive world."
+            },
+            {
+                "block_id": 5,
+                "type": "aside_text",
+                "bbox": [
+                    2356,
+                    2880,
+                    2436,
+                    3451
+                ],
+                "angle": 0,
+                "content": "f in G+"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    2379,
+                    140,
+                    2411,
+                    182
+                ],
+                "angle": 0,
+                "content": "5"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    744,
+                    547,
+                    1888,
+                    859
+                ],
+                "angle": 0,
+                "content": "SUPPORTING BUSINESS TRANSFORMATION"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1098,
+                    2151,
+                    1361
+                ],
+                "angle": 0,
+                "content": "True to our mission, Alibaba is an expert in digital transformation. Alibaba Cloud technology, including artificial intelligence, machine learning and big data analysis, is used to power innovations in retail, finance and manufacturing around the world."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1403,
+                    2213,
+                    1722
+                ],
+                "angle": 0,
+                "content": "Analyzing how we currently work allows business and society to solve complex problems. Bringing data together with smart tech, such as our AI Platform, can lead to actionable recommendations that will help businesses to become more efficient and cut waste from their production and operating processes."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1771,
+                    2148,
+                    2031
+                ],
+                "angle": 0,
+                "content": "This section of the whitepaper will cover how Alibaba Cloud facilitates international expansion, particularly entry into Mainland China, how it supports digital transformation and how it helps startups and SMEs to grow and globalize."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    744,
+                    2160,
+                    1337,
+                    2224
+                ],
+                "angle": 0,
+                "content": "GATEWAY TO CHINA"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2332,
+                    2188,
+                    2788
+                ],
+                "angle": 0,
+                "content": " Expanding internationally is a key part of becoming a global business, and establishing your company in China could be an important aspect of that. Consultancy McKinsey predicts that by 2020, there will be 400 million consumers with incomes of between $16,000 and $34,0007 amongst the country's population of 1.4 billion. This group will have disposable incomes that will enable them to afford family cars and small luxury items, setting consumption standards around the country."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    741,
+                    2869,
+                    1811,
+                    2929
+                ],
+                "angle": 0,
+                "content": "INFRASTRUCTURE IN CHINA AND CHINACONNECT"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2978,
+                    2213,
+                    3101
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud is the leading public cloud vendor in Mainland China, with the country's most advanced cloud network, including seven data centers"
+            },
+            {
+                "block_id": 10,
+                "type": "aside_text",
+                "bbox": [
+                    2364,
+                    2880,
+                    2431,
+                    2957
+                ],
+                "angle": 0,
+                "content": "f"
+            },
+            {
+                "block_id": 11,
+                "type": "aside_text",
+                "bbox": [
+                    2361,
+                    3051,
+                    2428,
+                    3122
+                ],
+                "angle": 0,
+                "content": "in"
+            },
+            {
+                "block_id": 12,
+                "type": "aside_text",
+                "bbox": [
+                    2361,
+                    3223,
+                    2428,
+                    3279
+                ],
+                "angle": 0,
+                "content": "#"
+            },
+            {
+                "block_id": 13,
+                "type": "aside_text",
+                "bbox": [
+                    2351,
+                    3385,
+                    2441,
+                    3448
+                ],
+                "angle": 0,
+                "content": "G+"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    2379,
+                    133,
+                    2414,
+                    175
+                ],
+                "angle": 0,
+                "content": "6"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    739,
+                    284,
+                    2138,
+                    543
+                ],
+                "angle": 0,
+                "content": "and over 1100 CDN nodes. It received China's first IDC license in 2013 and now has a \\(40 \\%\\)share of the local market with a full ecosystem of products to support different aspects of business, providing access to China under one single global account."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    739,
+                    585,
+                    2136,
+                    908
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud's channel, ChinaConnect, offers advice and support for international companies spanning a range of industries and across all business units and doing business in China. It covers everything from website hosting, online payments and offline logistics, as well as ICP registration."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    741,
+                    992,
+                    1153,
+                    1048
+                ],
+                "angle": 0,
+                "content": "ICP REGISTRATION"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1098,
+                    2111,
+                    1424
+                ],
+                "angle": 0,
+                "content": "An Internet Content Provider (ICP) license is a state- issued registration number that allows you to host your website on a server inside Mainland China, a rule that is enforced at the hosting level and an essential element for any digital business. The application comes after selecting hosting and domain, but before a site can go live."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1466,
+                    1570,
+                    1525
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud provides ICP support here:"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1568,
+                    1451,
+                    1627
+                ],
+                "angle": 0,
+                "content": "https://www.alibabacloud.com/icp"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    513,
+                    1701,
+                    654,
+                    1827
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    739,
+                    1757,
+                    2041,
+                    2010
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud received China's first IDC license in 2013 and now has a \\(40 \\%\\)share of the local market"
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    741,
+                    2111,
+                    1441,
+                    2174
+                ],
+                "angle": 0,
+                "content": "ALIBABA'S ECOSYSTEM"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2283,
+                    2126,
+                    2880
+                ],
+                "angle": 0,
+                "content": "Business units throughout Alibaba Group work to make it easier to do business anywhere, whether that's through logistics, payments or international trade, particularly helping companies to gain a foothold in Mainland China. Alibaba Cloud provides the vital technology infrastructure that powers the group's products and services. We constantly develop these to help companies do more and discover new opportunities. Let's look at some of the business units in our ecosystem, and see how they work together to power logistics, payments, e-commerce, supporting businesses in China and beyond."
+            },
+            {
+                "block_id": 12,
+                "type": "aside_text",
+                "bbox": [
+                    2364,
+                    277,
+                    2436,
+                    3258
+                ],
+                "angle": 0,
+                "content": "in"
+            },
+            {
+                "block_id": 13,
+                "type": "footer",
+                "bbox": [
+                    2349,
+                    3385,
+                    2443,
+                    3448
+                ],
+                "angle": 0,
+                "content": "G+"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    119,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    349,
+                    280,
+                    605,
+                    557
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    262,
+                    652,
+                    654,
+                    1052
+                ],
+                "angle": 0,
+                "content": "CAINIAO ENABLES 24-HOUR DOMESTIC DELIVERY AND 72-HOUR INTERNATIONAL DELIVERY"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    744,
+                    284,
+                    982,
+                    340
+                ],
+                "angle": 0,
+                "content": "LOGISTICS"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    739,
+                    389,
+                    2113,
+                    719
+                ],
+                "angle": 0,
+                "content": "Cainiao Network is our logistics data platform operator that provides real-time access to information for both buyers and sellers, helping them to improve the efficiency of their delivery services. Its fulfilment network has grown by \\(170\\%\\) year-on-year, and it enables 24- hour domestic delivery and 72- hour international delivery.\\(^{8}\\)"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    744,
+                    796,
+                    947,
+                    852
+                ],
+                "angle": 0,
+                "content": "FINANCE"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    739,
+                    898,
+                    2133,
+                    1231
+                ],
+                "angle": 0,
+                "content": "Alipay facilitates online, mobile and in-store payments and has over 520 million users. Users have a digital wallet and can make payments direct from their mobile phone, without the need for cash. Alipay is integrated into a range of financial services, from investments and insurance through to credit ratings and loans."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    744,
+                    1308,
+                    905,
+                    1361
+                ],
+                "angle": 0,
+                "content": "RETAIL"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1410,
+                    2103,
+                    1873
+                ],
+                "angle": 0,
+                "content": "Taobao is an e-commerce and content app that is redefining the shopping experience through innovative content and smart, personalized recommendations. In the year ending March 31, 2018, the app had 552 million active annual consumers<sup>9</sup> and approximately 1.5 million content creators produced short-form videos and live-broadcast events, encouraging dwell time and brand engagement on the app."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1915,
+                    2089,
+                    2171
+                ],
+                "angle": 0,
+                "content": "Tmall is a business-to-consumer e-commerce platform, that allows merchants to reach new customers and gain data insights. It hosts 70,000 online brand stores, including H&M, Nike and Samsung, serving 400 million online customers.[10]"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    248,
+                    2069,
+                    677,
+                    2434
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    240,
+                    2508,
+                    684,
+                    2922
+                ],
+                "angle": 0,
+                "content": "NOVEMBER 2017: ALIBABA CLOUD PROCESSED OVER 325,000 ORDERS PER SECOND AT PEAK"
+            },
+            {
+                "block_id": 12,
+                "type": "title",
+                "bbox": [
+                    744,
+                    2252,
+                    1037,
+                    2308
+                ],
+                "angle": 0,
+                "content": "SINGLES DAY"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2357,
+                    2136,
+                    2683
+                ],
+                "angle": 0,
+                "content": "The most exciting day of the year for our company is 11-11 or Singles Day, a global shopping extravaganza that tests Alibaba's cloud computing processing, payment infrastructure and logistics networks to the limits and provides retailers with an annual opportunity to sell their products and stand out to consumers."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2725,
+                    2069,
+                    2985
+                ],
+                "angle": 0,
+                "content": "At the 2017 festival, Alibaba Cloud processed over 325,000 orders per second at peak, and 1.5 billion Alipay transactions in total, achieving over $25BN of gross merchandise volume (GMV) for retailers.[11]"
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    2374,
+                    136,
+                    2411,
+                    178
+                ],
+                "angle": 0,
+                "content": "7"
+            },
+            {
+                "block_id": 16,
+                "type": "aside_text",
+                "bbox": [
+                    2356,
+                    280,
+                    2433,
+                    3367
+                ],
+                "angle": 0,
+                "content": "in"
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    2349,
+                    3385,
+                    2443,
+                    3448
+                ],
+                "angle": 0,
+                "content": "G+"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    2379,
+                    133,
+                    2414,
+                    175
+                ],
+                "angle": 0,
+                "content": "8"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    744,
+                    280,
+                    1796,
+                    350
+                ],
+                "angle": 0,
+                "content": "DIGITAL TRANSFORMATION EXPERT"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    739,
+                    456,
+                    2093,
+                    645
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud is supporting digitization in every industry, helping major businesses in the retail, finance and manufacturing sectors to evolve."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    741,
+                    726,
+                    1431,
+                    785
+                ],
+                "angle": 0,
+                "content": "SMART RETAIL AND PAYMENTS"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    739,
+                    831,
+                    2103,
+                    1561
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud's technology helps business of all sizes benefit from advances in digital technology, even local convenience stores that might not traditionally be seen as connected. Alibaba Cloud uses big data and AI technology to integrate online and offline retail, providing customers with an improved shopping experience. For example, using Ling Shou Tong, our integrated system and mobile app, retailers can better track their inventory and receive recommendations about what products are proving most popular, so they can stock what is selling best at that time. Over 600,000\\(^{12}\\) outlets in Mainland China – about \\(10\\%\\) of the country's convenience stores – are now benefitting from the technology."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1603,
+                    2123,
+                    2259
+                ],
+                "angle": 0,
+                "content": "This mobile-first approach is also great for shoppers. For example, Alibaba operates a grocery prototype supermarket called Hema, and mobile is central to the experience there. Shoppers can use the Hema app to scan an item's barcode and find out more information about the product, such as its price and origin, and even get recommendations about other items that could go well with their purchase. The Hema app is linked to shoppers' Alipay accounts – Alibaba's mobile payment platform – so when they've finished shopping, they can easily check out and pay for their shopping direct with their smartphone."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2304,
+                    2036,
+                    2494
+                ],
+                "angle": 0,
+                "content": "Alibaba's CEO, Daniel Zhang, describes Hema as \"a showcase of the new business opportunities that emerges from online-offline integration\".<sup>13</sup>"
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    741,
+                    2574,
+                    1247,
+                    2634
+                ],
+                "angle": 0,
+                "content": "FINANCIAL SOLUTIONS"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2680,
+                    2093,
+                    3009
+                ],
+                "angle": 0,
+                "content": "Speed and security are vital in financial services. For example, Imperium Financial Group is a leading financial services company based in Hong Kong. Its business provides one-stop financial investment services to customers, and focuses on precious metals, foreign exchange, brokerage and capital markets."
+            },
+            {
+                "block_id": 10,
+                "type": "aside_text",
+                "bbox": [
+                    2366,
+                    2880,
+                    2431,
+                    3451
+                ],
+                "angle": 0,
+                "content": "f in G+"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    2379,
+                    140,
+                    2414,
+                    182
+                ],
+                "angle": 0,
+                "content": "9"
+            },
+            {
+                "block_id": 2,
+                "type": "aside_text",
+                "bbox": [
+                    2359,
+                    280,
+                    2428,
+                    3371
+                ],
+                "angle": 90,
+                "content": "III 4"
+            },
+            {
+                "block_id": 3,
+                "type": "aside_text",
+                "bbox": [
+                    2349,
+                    3385,
+                    2443,
+                    3448
+                ],
+                "angle": 0,
+                "content": "G+"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    329,
+                    1171,
+                    615,
+                    1469
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    235,
+                    1561,
+                    684,
+                    1929
+                ],
+                "angle": 0,
+                "content": "THE OPTIMIZATION RECOMMENDATIONS TOK REAL-TIME DATA INTO ACCOUNT LEADING TO A \\(7 \\%\\)INCREASE IN PRODUCTION OF GRADE- A PRODUCTS."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    739,
+                    284,
+                    2111,
+                    610
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud helps financial institutions, such as Imperium, to build next generation architecture for a low cost and high availability, even providing customized solutions in risk modelling, data management, security and facial recognition, that can be applied across a range of scenarios, such as payments, insurance, securities and investing."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    739,
+                    652,
+                    2133,
+                    1045
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud powers Imperium's customer interfaces, such as its eportal for personal account management, supporting up to 50,000 page views in a single day, so the site still functions smoothly even when there are many concurrent connections. Behind the scenes, it is maintaining incredibly high levels of security, reassuring Imperium's customers that their assets are safe from DDoS attacks and hacking."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    744,
+                    1122,
+                    1411,
+                    1182
+                ],
+                "angle": 0,
+                "content": "NEXT-LEVEL MANUFACTURING"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1227,
+                    2093,
+                    1420
+                ],
+                "angle": 0,
+                "content": "Artificial Intelligence, powered by Alibaba Cloud, can also be applied to help businesses improve their manufacturing capabilities, improving efficiencies and cutting waste."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1466,
+                    2136,
+                    1992
+                ],
+                "angle": 0,
+                "content": "For example, our client Trina Solar produces cell wafers that power the solar panels that the company makes. It uses extremely complex production techniques that are hard to analyze through traditional methods. Alibaba Cloud's ET Industrial Brain was able to collect and organize data from Trina's entire production process, and analyze it using smart algorithms. The optimization recommendations took real-time data into account leading to a \\(7\\%\\) increase in production of grade-A products.[14]"
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    744,
+                    2118,
+                    1411,
+                    2185
+                ],
+                "angle": 0,
+                "content": "SUPPORTING GROWTH"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2294,
+                    2103,
+                    2420
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud has a key focus on helping small and medium-sized enterprises (SMEs) grow and globalize."
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    744,
+                    2497,
+                    1230,
+                    2557
+                ],
+                "angle": 0,
+                "content": "GLOBAL E-COMMERCE"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2606,
+                    2131,
+                    2995
+                ],
+                "angle": 0,
+                "content": "Facilitating international trade is vital to supporting this growth, which is why Alibaba Cloud is establishing Electronic World Trade Platforms (eWTP). As trade has evolved from large volume, standardized transactions to increasingly fragmented, high-frequency and personalized purchases, it is important to have this kind of global e-commerce platform that will support businesses."
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    2369,
+                    136,
+                    2421,
+                    175
+                ],
+                "angle": 0,
+                "content": "10"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    739,
+                    284,
+                    2084,
+                    680
+                ],
+                "angle": 0,
+                "content": "The eWTP aims to promote dialogue on trade rules between the public and private sectors, enhance cross-border e-commerce infrastructure and help SMEs overcome challenges that they have face in customs clearance and logistics. We envision international entrepreneurs needing nothing more than a smartphone to trade globally."
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    568,
+                    740,
+                    709,
+                    869
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    796,
+                    796,
+                    2151,
+                    1143
+                ],
+                "angle": 0,
+                "content": "Facilitating international trade is vital to supporting this growth, which is why Alibaba Cloud is establishing Electronic World Trade Platforms (eWTP)."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1252,
+                    2096,
+                    1848
+                ],
+                "angle": 0,
+                "content": "The first e-hub outside China under the eWTP platform was created in Malaysia in partnership with the Malaysia Digital Economy Corporation in March 2017.\\(^{15}\\) This includes establishing an e-fulfilment hub near Kuala Lumpur International Airport, along with a one-stop online cross-border trading services platform, e-payment and financing and developing e-talent training as part of Malaysia's roadmap to transform into a digital economy. This initiative should provide many opportunities for SMEs and young people in Malaysia to trade with the rest of the world more easily."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    744,
+                    1922,
+                    1292,
+                    1985
+                ],
+                "angle": 0,
+                "content": "POWERFUL TECHNOLOGY"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2027,
+                    2136,
+                    2560
+                ],
+                "angle": 0,
+                "content": "As well as international cooperation, SMEs need incredibly reliable tech to power their business that is able to scale up and grow as quickly as they are. This is why Alibaba Cloud offers high-performance elastic computing power in the cloud. Services, including data storage, relational databases, big-data processing, Anti-DDoS protection and content delivery networks can be scaled up or down depending on your demand, and are available on a pay-as-you-go basis."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2599,
+                    2136,
+                    2925
+                ],
+                "angle": 0,
+                "content": "Having 18 data centers around the world means that network latency is reduced, so your customers don't have to wait for a page to load or order to process. For example, we opened a new data center in Mumbai, India, in early 2018, to meet the increasing demand from SMEs in that region."
+            },
+            {
+                "block_id": 9,
+                "type": "aside_text",
+                "bbox": [
+                    2364,
+                    2880,
+                    2436,
+                    3451
+                ],
+                "angle": 0,
+                "content": "f in G+"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    119,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    2374,
+                    140,
+                    2418,
+                    175
+                ],
+                "angle": 0,
+                "content": "11"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    744,
+                    550,
+                    1389,
+                    859
+                ],
+                "angle": 0,
+                "content": "LEADERS IN TECHNOLOGY"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    744,
+                    1108,
+                    1322,
+                    1168
+                ],
+                "angle": 0,
+                "content": "ALIBABA CLOUD TIMELINE"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    657,
+                    1238,
+                    1501,
+                    1294
+                ],
+                "angle": 0,
+                "content": "2018 City Brain launches in Malaysia"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    828,
+                    1304,
+                    1989,
+                    1361
+                ],
+                "angle": 0,
+                "content": "> Included in Gartner's Magic Quadrant for Data Analytics"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    826,
+                    1375,
+                    1910,
+                    1487
+                ],
+                "angle": 0,
+                "content": "» Apsara awarded the Chinese Institute of Electronics Grand Prize"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    826,
+                    1504,
+                    2089,
+                    1561
+                ],
+                "angle": 0,
+                "content": "» Alibaba Cloud Receives MySQL Corporate Contributor Award"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    657,
+                    1603,
+                    2086,
+                    1824
+                ],
+                "angle": 0,
+                "content": "2017 » Gang Wang, a leading researcher at Alibaba A.I. Labs, and Hanqing Wu, chief security scientist of Alibaba Cloud, recognized in the “MIT Technology Review’s 2017 Innovators Under 35” List"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    826,
+                    1838,
+                    2089,
+                    2010
+                ],
+                "angle": 0,
+                "content": "» Alibaba Cloud placed in the Visionaries quadrant of Gartner's Magic Quadrant for Cloud Infrastructure as a Service, Worldwide"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    826,
+                    2027,
+                    2093,
+                    2318
+                ],
+                "angle": 0,
+                "content": "» Alibaba announced as the as the Official Cloud Services and Infrastructure Partner for the Olympic Games at the World Economic Forum in Davos. It will contribute cloud computing infrastructure and cloud services to help the games operate more efficiently, effectively and securely"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    657,
+                    2360,
+                    1997,
+                    2469
+                ],
+                "angle": 0,
+                "content": "2016 » Alibaba Cloud partners with HTC Corporation to develop virtual reality (VR) solutions"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    826,
+                    2483,
+                    2111,
+                    2595
+                ],
+                "angle": 0,
+                "content": "> Global Marketplace and AliLaunch Program launch to support technology partners entering the Chinese market"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    657,
+                    2634,
+                    2093,
+                    2802
+                ],
+                "angle": 0,
+                "content": "2015 » Alibaba Cloud helps Tmall and Alipay process orders totalling $14.3BN, at a world record-breaking peak speed of 140,000 orders per second, without dropping a single transaction"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    826,
+                    2816,
+                    1885,
+                    2929
+                ],
+                "angle": 0,
+                "content": "Singapore announced as Alibaba Cloud's overseas headquarters"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    657,
+                    2964,
+                    1984,
+                    3023
+                ],
+                "angle": 0,
+                "content": "2014 » Data Centers open in Beijing, Shenzhen and Hong Kong"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    657,
+                    3055,
+                    2111,
+                    3171
+                ],
+                "angle": 0,
+                "content": "2013 » Alibaba Cloud is awarded the world's first British Standards Institute CSA-STAR Gold Medal Certification in Cloud Security"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    826,
+                    3181,
+                    1843,
+                    3234
+                ],
+                "angle": 0,
+                "content": "» Alibaba Cloud's receives China's first IDC license"
+            },
+            {
+                "block_id": 18,
+                "type": "list",
+                "bbox": [
+                    657,
+                    1238,
+                    2111,
+                    3234
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 19,
+                "type": "aside_text",
+                "bbox": [
+                    2364,
+                    277,
+                    2436,
+                    3227
+                ],
+                "angle": 0,
+                "content": "in"
+            },
+            {
+                "block_id": 20,
+                "type": "footer",
+                "bbox": [
+                    2351,
+                    3385,
+                    2443,
+                    3448
+                ],
+                "angle": 0,
+                "content": "G+"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    587,
+                    263,
+                    756,
+                    301
+                ],
+                "angle": 0,
+                "content": "2012"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    828,
+                    249,
+                    1972,
+                    417
+                ],
+                "angle": 0,
+                "content": "» Alibaba Cloud becomes the first Chinese cloud service provider to pass the Information Security Management certification"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    657,
+                    459,
+                    754,
+                    505
+                ],
+                "angle": 0,
+                "content": "2010"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    828,
+                    456,
+                    1647,
+                    512
+                ],
+                "angle": 0,
+                "content": "» Alibaba Cloud's first data center opens"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    652,
+                    557,
+                    754,
+                    599
+                ],
+                "angle": 0,
+                "content": "2009"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    828,
+                    547,
+                    1379,
+                    599
+                ],
+                "angle": 0,
+                "content": "» Alibaba Cloud is founded"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    828,
+                    617,
+                    1865,
+                    733
+                ],
+                "angle": 0,
+                "content": "R&D centers are opened in Beijing, Hangzhou and Silicon Valley"
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    828,
+                    547,
+                    1865,
+                    733
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    2098,
+                    754,
+                    2133,
+                    782
+                ],
+                "angle": 0,
+                "content": "16"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    739,
+                    912,
+                    2111,
+                    1234
+                ],
+                "angle": 0,
+                "content": "The cloud market is growing rapidly, as more companies start to unlock the benefits of flexible, secure and constant 24/7 services that can power and grow businesses. For example, Gartner predicts that the worldwide public cloud services market will grow to $186.4BN, up from $153.5BN in 2017.[17]"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1280,
+                    2118,
+                    1540
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud is fast becoming recognized as a leader in cloud computing. For example, we have broken competition records at Sort Benchmark in data sorting,\\(^{18}\\) and set records in mitigating DDoS attacks and the processing volume of e-commerce transactions."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1585,
+                    2108,
+                    1838
+                ],
+                "angle": 0,
+                "content": "Our Hybrid Cloud Solutions provides customers with state-of-the-art connectivity solutions with enhanced security that brings together the benefits of both public and private cloud models for our customers."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1887,
+                    2113,
+                    2146
+                ],
+                "angle": 0,
+                "content": "Similarly, Alibaba's Apsara Cloud operating system is receiving recognition for its advances. In May 2018 it was awarded the Grand Prize from the Chinese Institute of Electronics, the first time the prize has been awarded since it was established 15 years ago.[19]"
+            },
+            {
+                "block_id": 14,
+                "type": "title",
+                "bbox": [
+                    744,
+                    2224,
+                    1411,
+                    2280
+                ],
+                "angle": 0,
+                "content": "ENVIRONMENTAL INNOVATION"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2329,
+                    2126,
+                    3055
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud's commitment to innovation extends beyond our products and services, all the way to improving our buildings and infrastructure. Servers consume large amounts of energy, so we have invested heavily in creating eco-friendly data centers, such as Alibaba Cloud Qiandao Lake Data Center, that incorporates a unique mechanical cooling system that uses water from the lake. This means that the data center can be cooled for free over \\(90\\%\\) of the time, without negatively impacting the environment.[20] In fact, with solar energy and hydraulic power incorporated, and heat recovered from the servers used to warm the offices in the facility, the data center is one of the most energy-efficient in the world."
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    2371,
+                    140,
+                    2421,
+                    175
+                ],
+                "angle": 0,
+                "content": "12"
+            },
+            {
+                "block_id": 17,
+                "type": "aside_text",
+                "bbox": [
+                    2361,
+                    280,
+                    2428,
+                    3451
+                ],
+                "angle": 0,
+                "content": "in"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    2371,
+                    140,
+                    2421,
+                    178
+                ],
+                "angle": 0,
+                "content": "13"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    741,
+                    280,
+                    1230,
+                    336
+                ],
+                "angle": 0,
+                "content": "GLOBAL RECOGNITION"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    739,
+                    385,
+                    2133,
+                    645
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud was the first cloud services provider to receive the CSA STAR Certification, for security, trust and assurance, and the first to be certified with the ISO27001 Information Security Management System Certification in China."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    739,
+                    687,
+                    2128,
+                    1080
+                ],
+                "angle": 0,
+                "content": "These kinds of accolades have helped Alibaba Cloud to be featured as a Visionary on Gartner's Magic Quadrant for Cloud Infrastructure as a Service, Worldwide in 2017, and being included in 2018, despite the number of featured vendors decreasing from 14 in 2017 to just six in 2018. Alibaba Cloud also featured in Gartner's Magic Quadrant for Cloud Infrastructure as a Service in 2018.[21]"
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    513,
+                    1101,
+                    652,
+                    1227
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1157,
+                    2123,
+                    1508
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud was featured as a Visionary on Gartner's Magic Quadrant for Cloud Infrastructure as a Service, Worldwide in 2017, and included in 2018."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    741,
+                    1585,
+                    1081,
+                    1641
+                ],
+                "angle": 0,
+                "content": "PARTNERSHIPS"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1690,
+                    2007,
+                    1754
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud has established a number of global partnerships."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    372,
+                    1915,
+                    692,
+                    1982
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    704,
+                    1915,
+                    836,
+                    1978
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    374,
+                    1989,
+                    836,
+                    2027
+                ],
+                "angle": 0,
+                "content": "Worldwide Cloud Services Partner"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    913,
+                    1852,
+                    2051,
+                    2378
+                ],
+                "angle": 0,
+                "content": "The Winter Olympic Games at Pyeongchang, South Korea, in 2018 were the first to showcase our best in-class cloud computing infrastructure that can help the Games to operate more efficiently, effectively and securely. This included demonstrations of AI, deep learning AI and deep learning technologies to processing massive amounts of data in an incredibly secure environment."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2459,
+                    2066,
+                    2852
+                ],
+                "angle": 0,
+                "content": "In July 2018, Alibaba Cloud launched its EMEA Ecosystem Partner Program to strengthen ties between its customers and partners in Europe, the Middle East and Africa, including Intel, Accenture and Micropole. The program focuses on four key issues: digital transformation, supporting talent development, advancing technology innovation and enhancing marketplaces."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2897,
+                    2111,
+                    3153
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud has also partnered with the highly popular web hosting platform Plesk. This means that users can work in Plesk's ready-to-code environment to develop sites and apps that can now run in the cloud."
+            },
+            {
+                "block_id": 15,
+                "type": "aside_text",
+                "bbox": [
+                    2364,
+                    2880,
+                    2431,
+                    2957
+                ],
+                "angle": 0,
+                "content": "f"
+            },
+            {
+                "block_id": 16,
+                "type": "aside_text",
+                "bbox": [
+                    2361,
+                    3051,
+                    2431,
+                    3122
+                ],
+                "angle": 0,
+                "content": "in"
+            },
+            {
+                "block_id": 17,
+                "type": "aside_text",
+                "bbox": [
+                    2361,
+                    3223,
+                    2431,
+                    3279
+                ],
+                "angle": 0,
+                "content": "#"
+            },
+            {
+                "block_id": 18,
+                "type": "aside_text",
+                "bbox": [
+                    2354,
+                    3385,
+                    2443,
+                    3448
+                ],
+                "angle": 0,
+                "content": "G+"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    2371,
+                    140,
+                    2423,
+                    178
+                ],
+                "angle": 0,
+                "content": "14"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    739,
+                    284,
+                    2091,
+                    673
+                ],
+                "angle": 0,
+                "content": "Our partnership with Red Hat provides great performance, flexibility and security for our users, who can deploy Red Hat's open source solutions across their cloud environment. And we are cooperating with NVIDIA GPU Cloud (NGC) so developers can run NGC containers and access NVIDIA's deep learning software and visualization tools."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    744,
+                    754,
+                    1287,
+                    810
+                ],
+                "angle": 0,
+                "content": "LOOKING TO THE FUTURE"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    739,
+                    859,
+                    2059,
+                    1119
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud will continue to pursue opportunities to help businesses of all sizes grow. The company runs a series of competitions on our Tianchi platform, which currently hosts over 200,000 developers from 91 countries and regions."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1164,
+                    2126,
+                    1417
+                ],
+                "angle": 0,
+                "content": "Employing many of the best and brightest innovators helps the company to keep pushing its boundaries. Two of our scientists were recognized in MIT Technology Review List of \"Innovators Under 35\" in 2017.[22]"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1462,
+                    2093,
+                    1855
+                ],
+                "angle": 0,
+                "content": "Hanqing Wu is chief security scientist of Alibaba Cloud who led the development of Alibaba Cloud Security, a service that has protected more than \\(37 \\%\\)of websites in China by the end of 2017. His innovations in Elastic Security Networks allows small to medium- sized companies to fend off massive and potentially incredibly damaging DDoS attacks with limited resources."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1901,
+                    2098,
+                    2224
+                ],
+                "angle": 0,
+                "content": "Gang Wang is a leading researcher at Alibaba A.I. Labs, exploring human-computer interactions, leading computer vision, natural language processing, speech recognition and machine learning. His contributions are being put to use in Alibaba's products, such as Tmall Genie, a voice-controlled smart device developed by the Labs."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2269,
+                    2074,
+                    2659
+                ],
+                "angle": 0,
+                "content": "Alibaba Group also launched Alibaba Innovative Research (AIR) to collaborate with global academics and researchers and encourage innovation in science and technology. The company is funding research programs that fit real world industry scenarios, that will power how the company can support SMEs and enable business growth in the future."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2704,
+                    2103,
+                    3164
+                ],
+                "angle": 0,
+                "content": "Over the quarter up to March 2018, Alibaba Cloud launched 316 new products and features, over 60 of which were focused on artificial intelligence, data management and security. By backing innovation at all levels of our business, partnering with experts and supporting academics, Alibaba Cloud is able to ensure a constant stream of innovation that allows businesses to take advantage of cutting edge developments without the high levels of investment."
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    327,
+                    1803,
+                    610,
+                    2094
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    228,
+                    2196,
+                    702,
+                    2592
+                ],
+                "angle": 0,
+                "content": "THE TIANCHI COMPETITION PLATFORM CURRENTLY HOSTS OVER 200,000 DEVELOPERS FROM 91 COUNTRIES AND REGIONS"
+            },
+            {
+                "block_id": 12,
+                "type": "aside_text",
+                "bbox": [
+                    2361,
+                    277,
+                    2436,
+                    3258
+                ],
+                "angle": 0,
+                "content": "in"
+            },
+            {
+                "block_id": 13,
+                "type": "footer",
+                "bbox": [
+                    2349,
+                    3385,
+                    2443,
+                    3448
+                ],
+                "angle": 0,
+                "content": "G+"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    119,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    2371,
+                    136,
+                    2421,
+                    178
+                ],
+                "angle": 0,
+                "content": "15"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    744,
+                    547,
+                    2101,
+                    684
+                ],
+                "angle": 0,
+                "content": "PRODUCTS AND SOLUTIONS"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    736,
+                    929,
+                    2136,
+                    1459
+                ],
+                "angle": 0,
+                "content": "This section of the whitepaper will take you through some of Alibaba Cloud's key solutions for scenarios such as data migration, web hosting and Internet of Things, and cover some of the products and services associated with them. Crucially, Alibaba Cloud's service is 24/7, with high reliability and powered by a high-speed infrastructure, meaning your web-based products and services will be constantly available to customers and not subject to detrimental lag times or suffering security attacks."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    741,
+                    1585,
+                    1081,
+                    1652
+                ],
+                "angle": 0,
+                "content": "SOLUTIONS"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    741,
+                    1796,
+                    1123,
+                    1852
+                ],
+                "angle": 0,
+                "content": "DATA MIGRATION"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1901,
+                    2103,
+                    2360
+                ],
+                "angle": 0,
+                "content": "Data migration is a critical challenge for businesses, whether migrating data from a physical service to the cloud or switching to a new cloud provider or deployment region. Alibaba Cloud's Data Migration service offers comprehensive services and resources that will ensure a smooth migration. Users can either follow our self-guided tutorials, or outsource the migration through Alibaba Cloud's Migration Service, or to one of our partners."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2402,
+                    2128,
+                    2732
+                ],
+                "angle": 0,
+                "content": "We can help you to consider all the benefits and possible risks, devise a solution that will not only suit your current needs, but forecast your future resource usage through Capacity Evaluation Planning, and establish a distributed cloud architecture design that will ensure high service availability."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    739,
+                    2809,
+                    1059,
+                    2866
+                ],
+                "angle": 0,
+                "content": "WEB HOSTING"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2915,
+                    2046,
+                    3108
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud offers flexible, low cost web hosting, that is perfect for SMEs, and supports a range of popular content management systems such as WordPress and Joomla!"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    337,
+                    2167,
+                    647,
+                    2487
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    280,
+                    2592,
+                    650,
+                    2638
+                ],
+                "angle": 0,
+                "content": "ALIBABA CLOUD'S"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    292,
+                    2652,
+                    640,
+                    2694
+                ],
+                "angle": 0,
+                "content": "DATA MIGRATION"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    292,
+                    2711,
+                    637,
+                    2753
+                ],
+                "angle": 0,
+                "content": "SERVICE OFFERS"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    292,
+                    2771,
+                    640,
+                    2813
+                ],
+                "angle": 0,
+                "content": "COMPREHENSIVE"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    317,
+                    2827,
+                    612,
+                    2869
+                ],
+                "angle": 0,
+                "content": "SERVICES AND"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    228,
+                    2887,
+                    699,
+                    2925
+                ],
+                "angle": 0,
+                "content": "RESOURCES THAT WILL"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    267,
+                    2943,
+                    659,
+                    2981
+                ],
+                "angle": 0,
+                "content": "ENSURE A SMOOTH"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    347,
+                    3002,
+                    580,
+                    3044
+                ],
+                "angle": 0,
+                "content": "MIGRATION"
+            },
+            {
+                "block_id": 19,
+                "type": "aside_text",
+                "bbox": [
+                    2364,
+                    277,
+                    2433,
+                    3258
+                ],
+                "angle": 0,
+                "content": "in"
+            },
+            {
+                "block_id": 20,
+                "type": "footer",
+                "bbox": [
+                    2349,
+                    3385,
+                    2441,
+                    3448
+                ],
+                "angle": 0,
+                "content": "G+"
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    2371,
+                    133,
+                    2423,
+                    175
+                ],
+                "angle": 0,
+                "content": "16"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    739,
+                    284,
+                    2113,
+                    880
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud will support you at each stage of building and maintaining your website, from finding a domain name, selecting a configuration that will suit the required amount of web space, number of concurrent connections and monthly data transfer for your site. Then use our visual control panel to add domains, manage files and analyze traffic. Our web hosting is fast and secure, based on container technology that benefits from our Elastic Compute Service and protected by Alibaba Cloud's Web Application Firewall with \\(99.999\\%\\) data reliability."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    744,
+                    954,
+                    1205,
+                    1013
+                ],
+                "angle": 0,
+                "content": "INTERNET OF THINGS"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1059,
+                    2128,
+                    1518
+                ],
+                "angle": 0,
+                "content": "The power of the Internet of Things (IoT) is set to have a huge impact on how we live in the future, as more and more of the devices we use become connected. Ensure that your smart technology platforms are stable and cost efficient with the Internet of Things. This technology allows you to build automated solutions that will gather, process, analyze and act on data generated by connected devices, with no need to maintain a separate infrastructure."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1564,
+                    2093,
+                    1883
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud's IoT suite has high traffic endurance, handling access requests smoothly, its equipment certification means that each connected device is certified, plus it incorporates secured transmission, device rights management and a reliable message service."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1932,
+                    2093,
+                    2125
+                ],
+                "angle": 0,
+                "content": "You can learn more about Alibaba Clouds solutions across different industries and by different applications at www.alibabacloud.com/solutions"
+            },
+            {
+                "block_id": 7,
+                "type": "aside_text",
+                "bbox": [
+                    2356,
+                    2880,
+                    2436,
+                    3451
+                ],
+                "angle": 0,
+                "content": "f in G+"
+            }
+        ]
+    },
+    {
+        "page_id": 19,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    746,
+                    270,
+                    1513,
+                    336
+                ],
+                "angle": 0,
+                "content": "PRODUCTS AND SERVICES"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    521,
+                    536,
+                    1786,
+                    1736
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    744,
+                    1789,
+                    1213,
+                    1841
+                ],
+                "angle": 0,
+                "content": "ELASTIC COMPUTING"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1894,
+                    2131,
+                    2353
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud's Elastic Compute Service (ECS) is an online computing service that offers elastic and secure virtual cloud servers to cater for all your cloud hosting needs. As your business grows, you can expand your disk and increase your bandwidth at any time, or release resources whenever you need to, to save costs. The software is optimized to achieve faster results, with \\(99.999999999\\%\\) data reliability, and the latest Intel CPUs."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2395,
+                    2136,
+                    2918
+                ],
+                "angle": 0,
+                "content": "Function Compute is Alibaba Cloud's most popular serverless product, offering a fully hosted environment that eliminates the need to manage infrastructure such as servers, so developers can focus on writing and uploading code. It handles the resource management, auto scaling, and load balancing. Event sources from other Alibaba services can also be set up to automatically trigger your code to run. Users only pay for the resources that your code consumes, to the nearest 100 milliseconds."
+            },
+            {
+                "block_id": 6,
+                "type": "page_number",
+                "bbox": [
+                    2371,
+                    140,
+                    2423,
+                    182
+                ],
+                "angle": 0,
+                "content": "17"
+            },
+            {
+                "block_id": 7,
+                "type": "aside_text",
+                "bbox": [
+                    2361,
+                    280,
+                    2433,
+                    3476
+                ],
+                "angle": 0,
+                "content": "in G+"
+            }
+        ]
+    },
+    {
+        "page_id": 20,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    615,
+                    305,
+                    2051,
+                    1333
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1452,
+                    2081,
+                    1778
+                ],
+                "angle": 0,
+                "content": "Simple Application Server is a server-based service that allows you to build, monitor and maintain your website with just a few clicks. It makes private service building much easier, if all you need is a private virtual machine, and is the best way for beginners to get started with cloud computing."
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    813,
+                    1838,
+                    2066,
+                    2395
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2487,
+                    2086,
+                    2883
+                ],
+                "angle": 0,
+                "content": "Server Load Balancer allows users to manage sudden spikes in traffic, minimize response times and - vitally - maintain \\(99.9\\%\\) availability of web applications. The Server Load Balancer monitors the health of servers and automatically distributes application requests to servers with optimal performance in different zones, ensuring high availability."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2922,
+                    2074,
+                    3318
+                ],
+                "angle": 0,
+                "content": "Every year, Alibaba Cloud's Server Load Balancer maximum performance capacity is put to the test by extremely high volumes of traffic during 11-11, Alibaba's annual Global Shopping Festival, discussed earlier. Similarly, our clients, such as Tianhong, use the Server Load Balancer to ensure their system's stability, reliability and user availability."
+            },
+            {
+                "block_id": 6,
+                "type": "page_number",
+                "bbox": [
+                    2369,
+                    133,
+                    2421,
+                    175
+                ],
+                "angle": 0,
+                "content": "18"
+            },
+            {
+                "block_id": 7,
+                "type": "aside_text",
+                "bbox": [
+                    2359,
+                    277,
+                    2436,
+                    3371
+                ],
+                "angle": 0,
+                "content": "in"
+            }
+        ]
+    },
+    {
+        "page_id": 21,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    2371,
+                    140,
+                    2421,
+                    178
+                ],
+                "angle": 0,
+                "content": "19"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    744,
+                    280,
+                    957,
+                    336
+                ],
+                "angle": 0,
+                "content": "STORAGE"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    739,
+                    385,
+                    2103,
+                    778
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud Object Storage Service (OSS) is an easy-to-use service that enables you to store, backup and archive large amounts of data in the cloud. OSS acts as an encrypted central repository, where files can be securely accessed from around the globe. OSS guarantees up to \\(99.9\\%\\) availability and is a perfect fit for global teams and international project management."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    739,
+                    824,
+                    2103,
+                    1013
+                ],
+                "angle": 0,
+                "content": "OSS is available at no upfront cost or long-term commitment. Users only pay for the actual storage space, network traffic and number of requests processed. OSS also comes with no limits to data storage."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1059,
+                    2031,
+                    1248
+                ],
+                "angle": 0,
+                "content": "Users, such as Worktitle, say, \"Alibaba Cloud reduces investment costs in IT and simplifies maintenance allowing us more time to focus on the development of our application.\""
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    744,
+                    1329,
+                    1054,
+                    1385
+                ],
+                "angle": 0,
+                "content": "NETWORKING"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1438,
+                    2059,
+                    2024
+                ],
+                "angle": 0,
+                "content": "Express Connect offers convenient and efficient network services that allow different network environments to communicate directly. This means that even when the connected sites are far away from each other, users benefit from low network latency and high bandwidth communication. This works particularly well for multimedia environments, where low latency is vital, as well as hybrid environments that require private connectivity across on-premise infrastructure, cloud technology and third-party cloud services providers."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2073,
+                    2012,
+                    2329
+                ],
+                "angle": 0,
+                "content": "Our client, DeepICR, says, \"Express Connect not only offered us a commendable solution to fix some of our existing networking problems but also helped us remove the jump server-ECS HPC Support to access public networks directly.\""
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    553,
+                    2515,
+                    1897,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "aside_text",
+                "bbox": [
+                    2364,
+                    2880,
+                    2431,
+                    3371
+                ],
+                "angle": 0,
+                "content": "in"
+            },
+            {
+                "block_id": 11,
+                "type": "footer",
+                "bbox": [
+                    2349,
+                    3381,
+                    2446,
+                    3448
+                ],
+                "angle": 0,
+                "content": "G+"
+            }
+        ]
+    },
+    {
+        "page_id": 22,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    119,
+                    970,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    513,
+                    375,
+                    654,
+                    501
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    744,
+                    431,
+                    2084,
+                    778
+                ],
+                "angle": 0,
+                "content": "- Alibaba Cloud reduces investment costs in IT and simplifies maintenance allowing us more time to focus on the development of our application."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    746,
+                    841,
+                    952,
+                    891
+                ],
+                "angle": 0,
+                "content": "- Worktile"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    744,
+                    996,
+                    967,
+                    1055
+                ],
+                "angle": 0,
+                "content": "SECURITY"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1101,
+                    2123,
+                    1297
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud is committed to the highest levels of compliance, including Germany's C5 standard, PCI DSS for payments, HIPAA for healthcare, and the EU GDPR for data protection and privacy."
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    349,
+                    1378,
+                    563,
+                    1641
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    248,
+                    1718,
+                    674,
+                    1876
+                ],
+                "angle": 0,
+                "content": "ALIBABA CLOUD WAF PROTECTS SERVERS AND WEBSITES"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    258,
+                    1883,
+                    664,
+                    2038
+                ],
+                "angle": 0,
+                "content": "AGAINST DOZENS OF COMMON ATTACK TYPES"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1336,
+                    2111,
+                    1859
+                ],
+                "angle": 0,
+                "content": "Trustworthiness is a key asset for business – PWC’s Global Consumer Insights Survey found that trust plays an important role in how consumers evaluate online security risks, with more than one in three people surveyed stating that ‘trust in a brand’ was in the top three reasons that influence their decision to shop at a particularly retailer. This means that choosing a secure and reliable cloud provider, to enable transactions and reassure customers, is vital for businesses of all sizes."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1908,
+                    2046,
+                    2167
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud's cloud-based security service, Anti-DDoS Basic, integrates with ECS to safeguard your data and applications from DDoS attacks and is available to all Alibaba Cloud users free of charge."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2210,
+                    2103,
+                    2606
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud also integrates Web Application Firewall (WAF), a cloud firewall service that protects against web-based attacks, including SQL injections, XSS, Malicious BOT, command execution vulnerabilities and other common web attacks, protecting users' core website data and safeguarding the security and availability of your site."
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    513,
+                    2746,
+                    654,
+                    2876
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2802,
+                    2039,
+                    3251
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud is committed to the highest levels of compliance, including Germany's C5 standard, PCI DSS for payments, HIPAA for healthcare, and the EU GDPR for data protection and privacy."
+            },
+            {
+                "block_id": 14,
+                "type": "aside_text",
+                "bbox": [
+                    2364,
+                    133,
+                    2428,
+                    3451
+                ],
+                "angle": 0,
+                "content": "20 in G+"
+            }
+        ]
+    },
+    {
+        "page_id": 23,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    223,
+                    119,
+                    970,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    79,
+                    357,
+                    426,
+                    659
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    478,
+                    508,
+                    2143,
+                    1989
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud's Elastic Compute Service (ECS) is an online computing service that offers elastic and secure virtual cloud servers to cater for all your cloud hosting needs."
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    1632,
+                    1932,
+                    1888,
+                    2150
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    0,
+                    2203,
+                    1714,
+                    3378
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "page_number",
+                "bbox": [
+                    2359,
+                    136,
+                    2423,
+                    178
+                ],
+                "angle": 0,
+                "content": "21"
+            },
+            {
+                "block_id": 6,
+                "type": "aside_text",
+                "bbox": [
+                    2356,
+                    277,
+                    2436,
+                    3371
+                ],
+                "angle": 0,
+                "content": "in"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    2349,
+                    3381,
+                    2446,
+                    3451
+                ],
+                "angle": 0,
+                "content": "G+"
+            }
+        ]
+    },
+    {
+        "page_id": 24,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    2369,
+                    136,
+                    2423,
+                    175
+                ],
+                "angle": 0,
+                "content": "22"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    744,
+                    547,
+                    1952,
+                    859
+                ],
+                "angle": 0,
+                "content": "GETTING STARTED WITH ALIBABA CLOUD"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1098,
+                    2024,
+                    1361
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud has established an infrastructure of Free Trials, Tutorials and the Alibaba Cloud Academy to help people get started with our platform, explore different products and gain qualifications."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    744,
+                    1438,
+                    994,
+                    1494
+                ],
+                "angle": 0,
+                "content": "FREE TRIAL"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1543,
+                    2111,
+                    1866
+                ],
+                "angle": 0,
+                "content": "New users of Alibaba Cloud can access a free trial worth up to \\(300 for individuals or\\)1,200 for enterprises at www.alibabacloud.com/campaign/free-trial. You can use this tutorial as a guide on how to sign up to Alibaba Cloud and start exploring our products and services."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    744,
+                    1950,
+                    1565,
+                    2003
+                ],
+                "angle": 0,
+                "content": "TUTIONALS AND QUICK START VIDEOS"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2055,
+                    2118,
+                    2248
+                ],
+                "angle": 0,
+                "content": "Once you're set up with an Alibaba Cloud account, there are a host of tutorials and quick start videos that will guide you through setting up and running quickly with various Alibaba Cloud products."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2290,
+                    2111,
+                    2483
+                ],
+                "angle": 0,
+                "content": "Simply head to www.alibabacloud.com/getting-started and you can access 3-Minute Product Videos that give you a quick run through of a range of our products."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    744,
+                    2564,
+                    1027,
+                    2613
+                ],
+                "angle": 0,
+                "content": "APIS & SDKS"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    739,
+                    2669,
+                    2089,
+                    2992
+                ],
+                "angle": 0,
+                "content": "- Alibaba Cloud provides a range of developer resources, including Software Development Kits (SDKs) and APIs, allowing developers to get access to Alibaba Cloud services and manage applications.\n- Alibaba Cloud's API Gateway provides developers with a complete API hosting service to release your APIs on Alibaba Cloud products."
+            },
+            {
+                "block_id": 11,
+                "type": "aside_text",
+                "bbox": [
+                    2364,
+                    280,
+                    2428,
+                    3472
+                ],
+                "angle": 0,
+                "content": "in G+"
+            }
+        ]
+    },
+    {
+        "page_id": 25,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    960,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    744,
+                    550,
+                    1272,
+                    684
+                ],
+                "angle": 0,
+                "content": "SUMMARY"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    739,
+                    933,
+                    2017,
+                    1392
+                ],
+                "angle": 0,
+                "content": "Thank you for reading this whitepaper. You should now have a better understanding of who Alibaba Cloud is and how our unique offering supports businesses. This whitepaper should have provided you with an insight into how Alibaba Cloud can not only answer your business' cloud hosting, security and storage needs, but how some of our tools can help your business to innovate and grow."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    739,
+                    1434,
+                    2074,
+                    1694
+                ],
+                "angle": 0,
+                "content": "If you have any questions about how you can get started with Alibaba Cloud, or specific questions on our products and services, our team will be more than happy to help. You can contact them at www.alibabacloud.com/contact-sales"
+            },
+            {
+                "block_id": 4,
+                "type": "page_number",
+                "bbox": [
+                    2364,
+                    136,
+                    2423,
+                    182
+                ],
+                "angle": 0,
+                "content": "23"
+            },
+            {
+                "block_id": 5,
+                "type": "aside_text",
+                "bbox": [
+                    2361,
+                    280,
+                    2428,
+                    666
+                ],
+                "angle": 0,
+                "content": "三"
+            },
+            {
+                "block_id": 6,
+                "type": "aside_text",
+                "bbox": [
+                    2361,
+                    2880,
+                    2441,
+                    3451
+                ],
+                "angle": 0,
+                "content": "f in G+"
+            }
+        ]
+    },
+    {
+        "page_id": 26,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    225,
+                    122,
+                    962,
+                    171
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud | Introducing Alibaba Cloud"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    225,
+                    280,
+                    508,
+                    350
+                ],
+                "angle": 0,
+                "content": "REFERENCES"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    230,
+                    592,
+                    1146,
+                    701
+                ],
+                "angle": 0,
+                "content": "1. https://www.alizila.com/jack-ma-lays-hopes-vision-alibaba-damo-academy/"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    230,
+                    733,
+                    1116,
+                    841
+                ],
+                "angle": 0,
+                "content": "2. http://www.alizila.com/alibaba-cloud-launches-ai-driven-city-brain-in-malaysia/"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    230,
+                    869,
+                    1133,
+                    1031
+                ],
+                "angle": 0,
+                "content": "3. https://tutorials.hostucan.com/China-public-cloud-market-share-in-2017-alibaba-leads-the-market-continuously"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    230,
+                    1062,
+                    1094,
+                    1220
+                ],
+                "angle": 0,
+                "content": "4. https://www.techrepublic.com/article/amazon-crushing-iaas-cloud-competition-oracle-gaining-ground-in-saas-and-paas/"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    230,
+                    1255,
+                    1200,
+                    1413
+                ],
+                "angle": 0,
+                "content": "5. https://www.theregister.co.uk/2017/06/19/gartner confirmswhat-we_all-know_aws_and_microsoft_are_the_cloud_leaders_by_a_fair_way/"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    230,
+                    1445,
+                    1148,
+                    1603
+                ],
+                "angle": 0,
+                "content": "6. https://www.alibaba.com/press-room/alibaba-cloud-included-in-gartner-magic-quadrant-for-data-management"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    230,
+                    1638,
+                    1215,
+                    1736
+                ],
+                "angle": 0,
+                "content": "7. https://www.mckinsey.com/global-themes/asia-pacific/meet-the-chinese-consumer-of-2020"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    230,
+                    1775,
+                    1128,
+                    1827
+                ],
+                "angle": 0,
+                "content": "8. https://www.alibaba.com/customers/Cainiao"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    230,
+                    1859,
+                    1151,
+                    1964
+                ],
+                "angle": 0,
+                "content": "9. https://www.alibabagroup.com/en/news/press(pdf/p180504.pdf"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    230,
+                    1996,
+                    1173,
+                    2153
+                ],
+                "angle": 0,
+                "content": "10. https://www.globalgap.org/ja/news/Chinese-Retail- Platform-Tmall-Fresh-Alibaba-Group-Starts-Sourcing- Products-from-GLOBALG.A.P.-Certified-Producers/"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    230,
+                    2188,
+                    975,
+                    2290
+                ],
+                "angle": 0,
+                "content": "11. https://www.alibabagroup.com/en/news/article?news=p171112"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    230,
+                    2325,
+                    1215,
+                    2483
+                ],
+                "angle": 0,
+                "content": "12. https://www.bloomberg.com/news/articles/2017-11-08/ alibaba-prepaes-a-grand-retail-experiment-for-singlesday"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    230,
+                    2515,
+                    1113,
+                    2620
+                ],
+                "angle": 0,
+                "content": "13. http://www.alizila.com/hema-supermarket-offers-shoppers-new-retail-experience/"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    230,
+                    2655,
+                    1069,
+                    2704
+                ],
+                "angle": 0,
+                "content": "14. https://www.alibabacloud.com/et/industrial#f9"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    230,
+                    2739,
+                    975,
+                    2841
+                ],
+                "angle": 0,
+                "content": "15. https://www.alibabagroup.com/en/news/article?news=p170322"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    230,
+                    2876,
+                    908,
+                    2925
+                ],
+                "angle": 0,
+                "content": "16. https://www.alibabacloud.com/about"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    230,
+                    2960,
+                    1096,
+                    3009
+                ],
+                "angle": 0,
+                "content": "17. https://www.gartner.com/newsroom/id/3871416"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    230,
+                    3041,
+                    1051,
+                    3094
+                ],
+                "angle": 0,
+                "content": "18. https://www.alibabacloud.com/forum/read-71"
+            },
+            {
+                "block_id": 20,
+                "type": "list",
+                "bbox": [
+                    230,
+                    592,
+                    1215,
+                    3094
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    592,
+                    2245,
+                    754
+                ],
+                "angle": 0,
+                "content": "19. https://www.alibabacloud.com/blog/alibaba-cloud-apsara-receives-grand-prize-from-the-chinese-institute-of-electronics_590156"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    789,
+                    2208,
+                    943
+                ],
+                "angle": 0,
+                "content": "20. https://www.businesswire.com/news/home/20150908005493/en/AliCloud-Launches-New-Energy-Efficient-Qiandao-Lake-Data"
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    978,
+                    2108,
+                    1080
+                ],
+                "angle": 0,
+                "content": "21. https://www.gartner.com/doc/3875999/magic-quadrant-cloud-infrastructure-service"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1115,
+                    2190,
+                    1217
+                ],
+                "angle": 0,
+                "content": "22. https://www.technologyreview.com/lists/innovators-under-35/2017/"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1255,
+                    2178,
+                    1406
+                ],
+                "angle": 0,
+                "content": "23. https://www.pwc.com/gx/en/industries/consumer-markets/consumer-insights-survey/consumer-trust.html"
+            },
+            {
+                "block_id": 26,
+                "type": "list",
+                "bbox": [
+                    1265,
+                    592,
+                    2245,
+                    1406
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 27,
+                "type": "page_number",
+                "bbox": [
+                    2369,
+                    140,
+                    2423,
+                    182
+                ],
+                "angle": 0,
+                "content": "24"
+            },
+            {
+                "block_id": 28,
+                "type": "aside_text",
+                "bbox": [
+                    2361,
+                    280,
+                    2428,
+                    3371
+                ],
+                "angle": 90,
+                "content": "III 4"
+            },
+            {
+                "block_id": 29,
+                "type": "footer",
+                "bbox": [
+                    2349,
+                    3388,
+                    2443,
+                    3448
+                ],
+                "angle": 0,
+                "content": "G+"
+            }
+        ]
+    },
+    {
+        "page_id": 27,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    563,
+                    1027,
+                    779,
+                    1087
+                ],
+                "angle": 0,
+                "content": "ABOUT"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    560,
+                    1210,
+                    1959,
+                    1403
+                ],
+                "angle": 0,
+                "content": "Established in September 2009, Alibaba Cloud is the cloud computing arm of Alibaba Group and develops highly scalable platforms for cloud computing and data management."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    560,
+                    1445,
+                    1905,
+                    1701
+                ],
+                "angle": 0,
+                "content": "It provides a comprehensive suite of cloud computing services available from www.alibabacloud.com to support participants of Alibaba Group's online and mobile commerce ecosystem, including sellers and other third-party customers and businesses."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    560,
+                    1746,
+                    1895,
+                    1873
+                ],
+                "angle": 0,
+                "content": "Alibaba Cloud is a business within Alibaba Group which is listed on the New York Stock Exchange (NYSE) under the symbol BABBA."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    563,
+                    1918,
+                    1352,
+                    1975
+                ],
+                "angle": 0,
+                "content": "www.alibabacloud.com/contact-sales"
+            }
+        ]
+    }
+]

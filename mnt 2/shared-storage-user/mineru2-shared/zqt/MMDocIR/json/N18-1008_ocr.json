@@ -1,0 +1,2367 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    530,
+                    284,
+                    1959,
+                    354
+                ],
+                "angle": 0,
+                "content": "Tied Multitask Learning for Neural Speech Translation"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    766,
+                    473,
+                    1734,
+                    533
+                ],
+                "angle": 0,
+                "content": "Antonios Anastasopoulos and David Chiang"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    729,
+                    533,
+                    1768,
+                    589
+                ],
+                "angle": 0,
+                "content": "Department of Computer Science and Engineering"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    987,
+                    592,
+                    1513,
+                    645
+                ],
+                "angle": 0,
+                "content": "University of Notre Dame"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    927,
+                    652,
+                    1567,
+                    705
+                ],
+                "angle": 0,
+                "content": "{aanastas,dchiang}@nd.edu"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    654,
+                    929,
+                    846,
+                    978
+                ],
+                "angle": 0,
+                "content": "Abstract"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    357,
+                    1017,
+                    1143,
+                    1768
+                ],
+                "angle": 0,
+                "content": "We explore multitask models for neural translation of speech, augmenting them in order to reflect two intuitive notions. First, we introduce a model where the second task decoder receives information from the decoder of the first task, since higher-level intermediate representations should provide useful information. Second, we apply regularization that encourages transitivity and invertibility. We show that the application of these notions on jointly trained models improves performance on the tasks of low-resource speech transcription and translation. It also leads to better performance when using attention information for word discovery over unsegmented input."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    290,
+                    1806,
+                    650,
+                    1855
+                ],
+                "angle": 0,
+                "content": "1 Introduction"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1894,
+                    1215,
+                    2567
+                ],
+                "angle": 0,
+                "content": "Recent efforts in endangered language documentation focus on collecting spoken language resources, accompanied by spoken translations in a high resource language to make the resource interpretable (Bird et al., 2014a). For example, the BULB project (Adda et al., 2016) used the LIG-Aikuma mobile app (Bird et al., 2014b; Blachon et al., 2016) to collect parallel speech corpora between three Bantu languages and French. Since it's common for speakers of endangered languages to speak one or more additional languages, collection of such a resource is a realistic goal."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2571,
+                    1215,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Speech can be interpreted either by transcription in the original language or translation to another language. Since the size of the data is extremely small, multitask models that jointly train a model for both tasks can take advantage of both signals. Our contribution lies in improving the sequence-to-sequence multitask learning paradigm, by drawing on two intuitive notions: that higher-level representations are more useful than lower-level representations, and that translation should be both transitive and invertible."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    929,
+                    2195,
+                    1659
+                ],
+                "angle": 0,
+                "content": "Higher-level intermediate representations, such as transcriptions, should in principle carry information useful for an end task like speech translation. A typical multitask setup (Weiss et al., 2017) shares information at the level of encoded frames, but intuitively, a human translating speech must work from a higher level of representation, at least at the level of phonemes if not syntax or semantics. Thus, we present a novel architecture for tied multitask learning with sequence-to-sequence models, in which the decoder of the second task receives information not only from the encoder, but also from the decoder of the first task."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1666,
+                    2195,
+                    2059
+                ],
+                "angle": 0,
+                "content": "In addition, transitivity and invertibility are two properties that should hold when mapping between levels of representation or across languages. We demonstrate how these two notions can be implemented through regularization of the attention matrices, and how they lead to further improved performance."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2062,
+                    2195,
+                    2567
+                ],
+                "angle": 0,
+                "content": "We evaluate our models in three experiment settings: low-resource speech transcription and translation, word discovery on unsegmented input, and high-resource text translation. Our high-resource experiments are performed on English, French, and German. Our low-resource speech experiments cover a wider range of linguistic diversity: Spanish-English, Mboshi-French, and Ainu-English."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2571,
+                    2195,
+                    3192
+                ],
+                "angle": 0,
+                "content": "In the speech transcription and translation tasks, our proposed model leads to improved performance against all baselines as well as previous multitask architectures. We observe improvements of up to \\(5\\%\\) character error rate in the transcription task, and up to \\(2.8\\%\\) character-level BLEU in the translation task. However, we didn't observe similar improvements in the text translation experiments. Finally, on the word discovery task, we improve upon previous work by about \\(3\\%\\) F-score on both tokens and types."
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    1215,
+                    3230,
+                    1270,
+                    3279
+                ],
+                "angle": 0,
+                "content": "82"
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    873,
+                    3301,
+                    1602,
+                    3350
+                ],
+                "angle": 0,
+                "content": "Proceedings of NAACL-HLT 2018, pages 82-91"
+            },
+            {
+                "block_id": 16,
+                "type": "footer",
+                "bbox": [
+                    530,
+                    3350,
+                    1942,
+                    3395
+                ],
+                "angle": 0,
+                "content": "New Orleans, Louisiana, June 1 - 6, 2018. ©2018 Association for Computational Linguistics"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    287,
+                    263,
+                    516,
+                    312
+                ],
+                "angle": 0,
+                "content": "2 Model"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    350,
+                    1213,
+                    627
+                ],
+                "angle": 0,
+                "content": "Our models are based on a sequence-to-sequence model with attention (Bahdanau et al., 2015). In general, this type of model is composed of three parts: a recurrent encoder, the attention, and a recurrent decoder (see Figure 1a).<sup>1</sup>"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    287,
+                    631,
+                    1215,
+                    799
+                ],
+                "angle": 0,
+                "content": "The encoder transforms an input sequence of words or feature frames \\(\\mathbf{x}_1, \\ldots, \\mathbf{x}_N\\) into a sequence of input states \\(\\mathbf{h}_1, \\ldots, \\mathbf{h}_N\\):"
+            },
+            {
+                "block_id": 3,
+                "type": "equation",
+                "bbox": [
+                    570,
+                    831,
+                    927,
+                    884
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathbf {h} _ {n} = \\operatorname {e n c} (\\mathbf {h} _ {n - 1}, \\mathbf {x} _ {n}).\n\\]"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    287,
+                    912,
+                    1213,
+                    1076
+                ],
+                "angle": 0,
+                "content": "The attention transforms the input states into a sequence of context vectors via a matrix of attention weights:"
+            },
+            {
+                "block_id": 5,
+                "type": "equation",
+                "bbox": [
+                    595,
+                    1073,
+                    903,
+                    1178
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathbf {c} _ {m} = \\sum_ {n} \\alpha_ {m n} \\mathbf {h} _ {n}.\n\\]"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1192,
+                    1213,
+                    1361
+                ],
+                "angle": 0,
+                "content": "Finally, the decoder computes a sequence of output states from which a probability distribution over output words can be computed."
+            },
+            {
+                "block_id": 7,
+                "type": "equation",
+                "bbox": [
+                    553,
+                    1392,
+                    1012,
+                    1445
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathbf {s} _ {m} = \\operatorname {d e c} (\\mathbf {s} _ {m - 1}, \\mathbf {c} _ {m}, \\mathbf {y} _ {m - 1})\n\\]"
+            },
+            {
+                "block_id": 8,
+                "type": "equation",
+                "bbox": [
+                    493,
+                    1459,
+                    895,
+                    1511
+                ],
+                "angle": 0,
+                "content": "\\[\nP (\\mathbf {y} _ {m}) = \\operatorname {s o f t m a x} (\\mathbf {s} _ {m}).\n\\]"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1543,
+                    1213,
+                    1817
+                ],
+                "angle": 0,
+                "content": "In a standard encoder-decoder multitask model (Figure 1b) (Dong et al., 2015; Weiss et al., 2017), we jointly model two output sequences using a shared encoder, but separate attentions and decoders:"
+            },
+            {
+                "block_id": 10,
+                "type": "equation",
+                "bbox": [
+                    540,
+                    1838,
+                    838,
+                    1946
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathbf {c} _ {m} ^ {1} = \\sum_ {n} \\alpha_ {m n} ^ {1} \\mathbf {h} _ {n}\n\\]"
+            },
+            {
+                "block_id": 11,
+                "type": "equation",
+                "bbox": [
+                    540,
+                    1953,
+                    1017,
+                    2027
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathbf {s} _ {m} ^ {1} = \\mathrm {d e c} ^ {1} (\\mathbf {s} _ {m - 1} ^ {1}, \\mathbf {c} _ {m} ^ {1}, \\mathbf {y} _ {m - 1} ^ {1})\n\\]"
+            },
+            {
+                "block_id": 12,
+                "type": "equation",
+                "bbox": [
+                    483,
+                    2034,
+                    875,
+                    2097
+                ],
+                "angle": 0,
+                "content": "\\[\nP (\\mathbf {y} _ {m} ^ {1}) = \\mathrm {s o f t m a x} (\\mathbf {s} _ {m} ^ {1})\n\\]"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2139,
+                    369,
+                    2185
+                ],
+                "angle": 0,
+                "content": "and"
+            },
+            {
+                "block_id": 14,
+                "type": "equation",
+                "bbox": [
+                    540,
+                    2220,
+                    838,
+                    2329
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathbf {c} _ {m} ^ {2} = \\sum_ {n} \\alpha_ {m n} ^ {2} \\mathbf {h} _ {n}\n\\]"
+            },
+            {
+                "block_id": 15,
+                "type": "equation",
+                "bbox": [
+                    540,
+                    2336,
+                    1017,
+                    2406
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathbf {s} _ {m} ^ {2} = \\mathrm {d e c} ^ {2} (\\mathbf {s} _ {m - 1} ^ {2}, \\mathbf {c} _ {m} ^ {2}, \\mathbf {y} _ {m - 1} ^ {2})\n\\]"
+            },
+            {
+                "block_id": 16,
+                "type": "equation",
+                "bbox": [
+                    483,
+                    2413,
+                    885,
+                    2480
+                ],
+                "angle": 0,
+                "content": "\\[\nP (\\mathbf {y} _ {m} ^ {2}) = \\mathrm {s o f t m a x} (\\mathbf {s} _ {m} ^ {2}).\n\\]"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2504,
+                    1213,
+                    2673
+                ],
+                "angle": 0,
+                "content": "We can also arrange the decoders in a cascade (Figure 1c), in which the second decoder attends only to the output states of the first decoder:"
+            },
+            {
+                "block_id": 18,
+                "type": "equation",
+                "bbox": [
+                    540,
+                    2687,
+                    863,
+                    2799
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathbf {c} _ {m} ^ {2} = \\sum_ {m ^ {\\prime}} \\alpha_ {m m ^ {\\prime}} ^ {1 2} \\mathbf {s} _ {m ^ {\\prime}} ^ {1}\n\\]"
+            },
+            {
+                "block_id": 19,
+                "type": "equation",
+                "bbox": [
+                    540,
+                    2809,
+                    1017,
+                    2880
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathbf {s} _ {m} ^ {2} = \\mathrm {d e c} ^ {2} (\\mathbf {s} _ {m - 1} ^ {2}, \\mathbf {c} _ {m} ^ {2}, \\mathbf {y} _ {m - 1} ^ {2})\n\\]"
+            },
+            {
+                "block_id": 20,
+                "type": "equation",
+                "bbox": [
+                    483,
+                    2887,
+                    885,
+                    2950
+                ],
+                "angle": 0,
+                "content": "\\[\nP (\\mathbf {y} _ {m} ^ {2}) = \\mathrm {s o f t m a x} (\\mathbf {s} _ {m} ^ {2}).\n\\]"
+            },
+            {
+                "block_id": 21,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2974,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "For simplicity, we have assumed only a single layer for both the encoder and decoder. It is possible to use multiple stacked RNNs; typically, the output of the encoder and decoder \\((\\mathbf{c}_m\\) and \\(P(\\mathbf{y}_m)\\), respectively) would be computed from the top layer only."
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    263,
+                    2190,
+                    434
+                ],
+                "angle": 0,
+                "content": "Tu et al. (2017) use exactly this architecture to train on bitext by setting the second output sequence to be equal to the input sequence \\((\\mathbf{y}_i^2 = \\mathbf{x}_i)\\)."
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    438,
+                    2193,
+                    708
+                ],
+                "angle": 0,
+                "content": "In our proposed triangle model (Figure 1d), the first decoder is as above, but the second decoder has two attentions, one for the input states of the encoder and one for the output states of the first decoder:"
+            },
+            {
+                "block_id": 24,
+                "type": "equation",
+                "bbox": [
+                    1463,
+                    750,
+                    2054,
+                    827
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathbf {c} _ {m} ^ {2} = \\left[ \\begin{array}{l l} \\sum_ {m ^ {\\prime}} \\alpha_ {m m ^ {\\prime}} ^ {1 2} \\mathbf {s} _ {m ^ {\\prime}} ^ {1} & \\sum_ {n} \\alpha_ {m n} ^ {2} \\mathbf {h} _ {n} \\end{array} \\right]\n\\]"
+            },
+            {
+                "block_id": 25,
+                "type": "equation",
+                "bbox": [
+                    1471,
+                    831,
+                    1947,
+                    905
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathbf {s} _ {m} ^ {2} = \\mathrm {d e c} ^ {2} (\\mathbf {s} _ {m - 1} ^ {2}, \\mathbf {c} _ {m} ^ {2}, \\mathbf {y} _ {m - 1} ^ {2})\n\\]"
+            },
+            {
+                "block_id": 26,
+                "type": "equation",
+                "bbox": [
+                    1411,
+                    908,
+                    1813,
+                    978
+                ],
+                "angle": 0,
+                "content": "\\[\nP (\\mathbf {y} _ {m} ^ {2}) = \\mathrm {s o f t m a x} (\\mathbf {s} _ {m} ^ {2}).\n\\]"
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1020,
+                    2190,
+                    1129
+                ],
+                "angle": 0,
+                "content": "Note that the context vectors resulting from the two attentions are concatenated, not added."
+            },
+            {
+                "block_id": 28,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1175,
+                    1860,
+                    1231
+                ],
+                "angle": 0,
+                "content": "3 Learning and Inference"
+            },
+            {
+                "block_id": 29,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1266,
+                    2193,
+                    1490
+                ],
+                "angle": 0,
+                "content": "For compactness, we will write \\(\\mathbf{X}\\) for the matrix whose rows are the \\(\\mathbf{x}_n\\), and similarly \\(\\mathbf{H}\\), \\(\\mathbf{C}\\), and so on. We also write \\(\\mathbf{A}\\) for the matrix of attention weights: \\([\\mathbf{A}]_{ij} = \\alpha_{ij}\\)."
+            },
+            {
+                "block_id": 30,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1490,
+                    2190,
+                    1603
+                ],
+                "angle": 0,
+                "content": "Let \\(\\theta\\) be the parameters of our model, which we train on sentence triples \\((\\mathbf{X},\\mathbf{Y}^{1},\\mathbf{Y}^{2})\\)."
+            },
+            {
+                "block_id": 31,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1641,
+                    2002,
+                    1690
+                ],
+                "angle": 0,
+                "content": "3.1 Maximum likelihood estimation"
+            },
+            {
+                "block_id": 32,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1715,
+                    2193,
+                    1876
+                ],
+                "angle": 0,
+                "content": "Define the score of a sentence triple to be a log-linear interpolation of the two decoders' probabilities:"
+            },
+            {
+                "block_id": 33,
+                "type": "equation",
+                "bbox": [
+                    1282,
+                    1922,
+                    2064,
+                    1989
+                ],
+                "angle": 0,
+                "content": "\\[\n\\operatorname {s c o r e} (\\mathbf {Y} ^ {1}, \\mathbf {Y} ^ {2} \\mid \\mathbf {X}; \\theta) = \\lambda \\log P (\\mathbf {Y} ^ {1} \\mid \\mathbf {X}; \\theta) +\n\\]"
+            },
+            {
+                "block_id": 34,
+                "type": "equation",
+                "bbox": [
+                    1689,
+                    1996,
+                    2178,
+                    2062
+                ],
+                "angle": 0,
+                "content": "\\[\n(1 - \\lambda) \\log P (\\mathbf {Y} ^ {2} \\mid \\mathbf {X}, \\mathbf {S} ^ {1}; \\theta)\n\\]"
+            },
+            {
+                "block_id": 35,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2108,
+                    2193,
+                    2273
+                ],
+                "angle": 0,
+                "content": "where \\(\\lambda\\) is a parameter that controls the importance of each sub-task. In all our experiments, we set \\(\\lambda\\) to 0.5. We then train the model to maximize"
+            },
+            {
+                "block_id": 36,
+                "type": "equation",
+                "bbox": [
+                    1434,
+                    2311,
+                    2024,
+                    2399
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathcal {L} (\\theta) = \\sum \\mathrm {s c o r e} (\\mathbf {Y} ^ {1}, \\mathbf {Y} ^ {2} \\mid \\mathbf {X}; \\theta),\n\\]"
+            },
+            {
+                "block_id": 37,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2431,
+                    2193,
+                    2539
+                ],
+                "angle": 0,
+                "content": "where the summation is over all sentence triples in the training data."
+            },
+            {
+                "block_id": 38,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2578,
+                    1672,
+                    2631
+                ],
+                "angle": 0,
+                "content": "3.2 Regularization"
+            },
+            {
+                "block_id": 39,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2652,
+                    2193,
+                    2932
+                ],
+                "angle": 0,
+                "content": "We can optionally add a regularization term to the objective function, in order to encourage our attention mechanisms to conform to two intuitive principles of machine translation: transitivity and invertibility."
+            },
+            {
+                "block_id": 40,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2967,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Transitivity attention regularizer To a first approximation, the translation relation should be transitive (Wang et al., 2006; Levinboim and Chi-ang, 2015): If source word \\(\\mathbf{x}_i\\) aligns to target word"
+            },
+            {
+                "block_id": 41,
+                "type": "page_number",
+                "bbox": [
+                    1215,
+                    3234,
+                    1267,
+                    3279
+                ],
+                "angle": 0,
+                "content": "83"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    315,
+                    459,
+                    573,
+                    919
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(a) single-task"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    620,
+                    459,
+                    1096,
+                    919
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(b) multitask"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1143,
+                    259,
+                    1625,
+                    919
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(c) cascade"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1664,
+                    259,
+                    2160,
+                    919
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(d) triangle"
+            },
+            {
+                "block_id": 8,
+                "type": "image_caption",
+                "bbox": [
+                    285,
+                    1048,
+                    2195,
+                    1297
+                ],
+                "angle": 0,
+                "content": "Figure 1: Variations on the standard attentional model. In the standard single-task model, the decoder attends to the encoder's states. In a typical multitask setup, two decoders attend to the encoder's states. In the cascade (Tu et al., 2017), the second decoder attends to the first decoder's states. In our proposed triangle model, the second decoder attends to both the encoder's states and the first decoder's states. Note that for clarity's sake there are dependencies not shown."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1382,
+                    1213,
+                    1676
+                ],
+                "angle": 0,
+                "content": "\\(\\mathbf{y}_j^1\\) and \\(\\mathbf{y}_j^1\\) aligns to target word \\(\\mathbf{y}_k^2\\), then \\(\\mathbf{x}_i\\) should also probably align to \\(\\mathbf{y}_k^2\\). To encourage the model to preserve this relationship, we add the following transitivity regularizer to the loss function of the triangle models with a small weight \\(\\lambda_{\\mathrm{trans}} = 0.2\\):"
+            },
+            {
+                "block_id": 10,
+                "type": "equation",
+                "bbox": [
+                    322,
+                    1704,
+                    1175,
+                    1785
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathcal {L} _ {\\mathrm {t r a n s}} = \\mathrm {s c o r e} (\\mathbf {Y} ^ {1}, \\mathbf {Y} ^ {2}) - \\lambda_ {\\mathrm {t r a n s}} \\left\\| \\mathbf {A} ^ {1 2} \\mathbf {A} ^ {1} - \\mathbf {A} ^ {2} \\right\\| _ {2} ^ {2}.\n\\]"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1806,
+                    1213,
+                    2424
+                ],
+                "angle": 0,
+                "content": "Invertibility attention regularizer The translation relation also ought to be roughly invertible (Levinboim et al., 2015): if, in the reconstruction version of the cascade model, source word \\(\\mathbf{x}_i\\) aligns to target word \\(\\mathbf{y}_j^1\\), then it stands to reason that \\(\\mathbf{y}_j\\) is likely to align to \\(\\mathbf{x}_i\\). So, whereas Tu et al. (2017) let the attentions of the translator and the reconstructor be unrelated, we try adding the following invertibility regularizer to encourage the attentions to each be the inverse of the other, again with a weight \\(\\lambda_{\\mathrm{inv}} = 0.2\\):"
+            },
+            {
+                "block_id": 12,
+                "type": "equation",
+                "bbox": [
+                    362,
+                    2452,
+                    1138,
+                    2532
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathcal {L} _ {\\mathrm {i n v}} = \\mathrm {s c o r e} (\\mathbf {Y} ^ {1}, \\mathbf {Y} ^ {2}) - \\lambda_ {\\mathrm {i n v}} \\left\\| \\mathbf {A} ^ {1} \\mathbf {A} ^ {1 2} - \\mathbf {I} \\right\\| _ {2} ^ {2}.\n\\]"
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2553,
+                    590,
+                    2606
+                ],
+                "angle": 0,
+                "content": "3.3 Decoding"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2627,
+                    1213,
+                    2792
+                ],
+                "angle": 0,
+                "content": "Since we have two decoders, we now need to employ a two-phase beam search, following Tu et al. (2017):"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    327,
+                    2823,
+                    1210,
+                    3048
+                ],
+                "angle": 0,
+                "content": "1. The first decoder produces, through standard beam search, a set of triples each consisting of a candidate transcription \\(\\hat{\\mathbf{Y}}^1\\), a score \\(P(\\hat{\\mathbf{Y}}^1)\\), and a hidden state sequence \\(\\hat{\\mathbf{S}}\\)."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    325,
+                    3080,
+                    1213,
+                    3192
+                ],
+                "angle": 0,
+                "content": "2. For each transcription candidate from the first decoder, the second decoder now produces"
+            },
+            {
+                "block_id": 17,
+                "type": "list",
+                "bbox": [
+                    325,
+                    2823,
+                    1213,
+                    3192
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 18,
+                "type": "table",
+                "bbox": [
+                    1275,
+                    1378,
+                    2190,
+                    1666
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Corpus</td><td>Speakers</td><td>Segments</td><td>Hours</td></tr><tr><td>Ainu-English</td><td>1</td><td>2,668</td><td>2.5</td></tr><tr><td>Mboshi-French</td><td>3</td><td>5,131</td><td>4.4</td></tr><tr><td>Spanish-English</td><td>240</td><td>17,394</td><td>20</td></tr></table>",
+                "caption": "Table 1: Statistics on our speech datasets."
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    1357,
+                    1838,
+                    2188,
+                    1950
+                ],
+                "angle": 0,
+                "content": "through beam search a set of candidate translations \\(\\hat{\\mathbf{Y}}^2\\), each with a score \\(P(\\hat{\\mathbf{Y}}^2)\\)."
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    1305,
+                    1989,
+                    2193,
+                    2101
+                ],
+                "angle": 0,
+                "content": "3. We then output the combination that yields the highest total score \\((\\mathbf{Y}^{1}, \\mathbf{Y}^{2})\\)."
+            },
+            {
+                "block_id": 22,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    2136,
+                    1697,
+                    2192
+                ],
+                "angle": 0,
+                "content": "3.4 Implementation"
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2210,
+                    2193,
+                    2827
+                ],
+                "angle": 0,
+                "content": "All our models are implemented in DyNet (Neubig et al., 2017). We use a dropout of 0.2, and train using Adam with initial learning rate of 0.0002 for a maximum of 500 epochs. For testing, we select the model with the best performance on dev. At inference time, we use a beam size of 4 for each decoder (due to GPU memory constraints), and the beam scores include length normalization (Wu et al., 2016) with a weight of 0.8, which Nguyen and Chiang (2017) found to work well for low-resource NMT."
+            },
+            {
+                "block_id": 24,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    2873,
+                    2160,
+                    2929
+                ],
+                "angle": 0,
+                "content": "4 Speech Transcription and Translation"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2960,
+                    2193,
+                    3073
+                ],
+                "angle": 0,
+                "content": "We focus on speech transcription and translation of endangered languages, using three different cor-"
+            },
+            {
+                "block_id": 26,
+                "type": "page_footnote",
+                "bbox": [
+                    1267,
+                    3097,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "2Our code is available at: https://bitbucket.org/ antonis/dynet-multitask-models."
+            },
+            {
+                "block_id": 27,
+                "type": "page_number",
+                "bbox": [
+                    1215,
+                    3234,
+                    1267,
+                    3276
+                ],
+                "angle": 0,
+                "content": "84"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    329,
+                    256,
+                    2160,
+                    999
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>Model\nASR MT</td><td>Search\nASR MT</td><td>Mboshi\nCER</td><td>French\nBLEU</td><td>Ainu\nCER</td><td>English\nBLEU</td><td>Spanish\nCER</td><td>English\nBLEU</td></tr><tr><td>(1)</td><td>auto text</td><td>1-best 1-best</td><td>42.3</td><td>21.4</td><td>44.0</td><td>16.4</td><td>63.2</td><td>24.2</td></tr><tr><td>(2)</td><td>gold text</td><td>— 1-best</td><td>0.0</td><td>31.2</td><td>0.0</td><td>19.3</td><td>0.0</td><td>51.3</td></tr><tr><td>(3)</td><td>single-task</td><td>1-best</td><td>—</td><td>20.8</td><td>—</td><td>12.0</td><td>—</td><td>21.6</td></tr><tr><td>(4)</td><td>multitask</td><td>4-best 1-best</td><td>36.9</td><td>21.0</td><td>40.1</td><td>18.3</td><td>57.4</td><td>26.0</td></tr><tr><td>(5)</td><td>Cascade</td><td>4-best 1-best</td><td>39.7</td><td>24.3</td><td>42.1</td><td>19.8</td><td>58.1</td><td>26.8</td></tr><tr><td>(6)</td><td>triangle</td><td>4-best 1-best</td><td>32.3</td><td>24.1</td><td>39.9</td><td>19.2</td><td>58.9</td><td>28.6</td></tr><tr><td>(7)</td><td>triangle+Ltrans</td><td>4-best 1-best</td><td>33.0</td><td>24.7</td><td>43.3</td><td>20.2</td><td>59.3</td><td>28.6</td></tr><tr><td>(8)</td><td>triangle</td><td>1-best 1-best</td><td>31.8</td><td>19.7</td><td>38.9</td><td>19.8</td><td>58.4</td><td>28.8</td></tr><tr><td>(9)</td><td>triangle+Ltrans</td><td>1-best 1-best</td><td>32.1</td><td>20.9</td><td>43.0</td><td>20.3</td><td>59.1</td><td>28.5</td></tr></table>",
+                "caption": "Table 2: The multitask models outperform the baseline single-task model and the pivot approach (auto/text) on all language pairs tested. The triangle model also outperforms the simple multitask models on both tasks in almost all cases. The best results for each dataset and task are highlighted."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1276,
+                    1213,
+                    1445
+                ],
+                "angle": 0,
+                "content": "pora on three different language directions: Spanish (es) to English (en), Ainu (ai) to English, and Mboshi (mb) to French (fr)."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1497,
+                    496,
+                    1543
+                ],
+                "angle": 0,
+                "content": "4.1 Data"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1578,
+                    1213,
+                    2196
+                ],
+                "angle": 0,
+                "content": "Spanish is, of course, not an endangered language, but the availability of the CALLHOME Spanish Speech dataset (LDC2014T23) with English translations (Post et al., 2013) makes it a convenient language to work with, as has been done in almost all previous work in this area. It consists of telephone conversations between relatives (about 20 total hours of audio) with more than 240 speakers. We use the original train-dev-test split, with the training set comprised of 80 conversations and dev and test of 20 conversations each."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2203,
+                    1215,
+                    3104
+                ],
+                "angle": 0,
+                "content": "Hokkaido Ainu is the sole surviving member of the Ainu language family and is generally considered a language isolate. As of 2007, only ten native speakers were alive. The Glossed Audio Corpus of Ainu Folklore provides 10 narratives with audio (about 2.5 hours of audio) and translations in Japanese and English.<sup>3</sup> Since there does not exist a standard train-dev-test split, we employ a cross validation scheme for evaluation purposes. In each fold, one of the 10 narratives becomes the test set, with the previous one (mod 10) becoming the dev set, and the remaining 8 narratives becoming the training set. The models for each of the 10 folds are trained and tested separately. On average, for each fold, we train on about 2000 utterances; the dev and test sets consist of about 270 utterances."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1276,
+                    2190,
+                    1557
+                ],
+                "angle": 0,
+                "content": "We report results on the concatenation of all folds. The Ainu text is split into characters, except for the equals \\((=)\\) and underscore \\((\\_)\\) characters, which are used as phonological or structural markers and are thus merged with the following character.\\(^4\\)"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1564,
+                    2193,
+                    2181
+                ],
+                "angle": 0,
+                "content": "Mboshi (Bantu C25 in the Guthrie classification) is a language spoken in Congo-Brazzaville, without standard orthography. We use a corpus (Godard et al., 2017) of 5517 parallel utterances (about 4.4 hours of audio) collected from three native speakers. The corpus provides non-standard grapheme transcriptions (close to the language phonology) produced by linguists, as well as French translations. We sampled 100 segments from the training set to be our dev set, and used the original dev set (514 sentences) as our test set."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2241,
+                    1697,
+                    2294
+                ],
+                "angle": 0,
+                "content": "4.2 Implementation"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2322,
+                    2193,
+                    3051
+                ],
+                "angle": 0,
+                "content": "We employ a 3-layer speech encoding scheme similar to that of Duong et al. (2016). The first bidirectional layer receives the audio sequence in the form of 39-dimensional Perceptual Linear Predictive (PLP) features (Hermansky, 1990) computed over overlapping 25ms-wide windows every 10ms. The second and third layers consist of LSTMs with hidden state sizes of 128 and 512 respectively. Each layer encodes every second output of the previous layer. Thus, the sequence is downsampled by a factor of 4, decreasing the computation load for the attention mechanism and the decoders. In the speech experiments, the decoders"
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    1267,
+                    3101,
+                    2190,
+                    3185
+                ],
+                "angle": 0,
+                "content": "4The data preprocessing scripts are released with the rest of our code."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    342,
+                    3139,
+                    1173,
+                    3188
+                ],
+                "angle": 0,
+                "content": "<sup>3</sup>http://ainucorpus.ninja.ac.jp/corpus/en/"
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    1218,
+                    3234,
+                    1267,
+                    3276
+                ],
+                "angle": 0,
+                "content": "85"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    287,
+                    266,
+                    1210,
+                    375
+                ],
+                "angle": 0,
+                "content": "output the sequences at the grapheme level, so the output embedding size is set to 64."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    287,
+                    382,
+                    1210,
+                    715
+                ],
+                "angle": 0,
+                "content": "We found that this simpler speech encoder works well for our extremely small datasets. Applying our models to larger datasets with many more speakers would most likely require a more sophisticated speech encoder, such as the one used by Weiss et al. (2017)."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    287,
+                    778,
+                    548,
+                    827
+                ],
+                "angle": 0,
+                "content": "4.3 Results"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    859,
+                    1210,
+                    1645
+                ],
+                "angle": 0,
+                "content": "In Table 2, we present results on three small datasets that demonstrate the efficacy of our models. We compare our proposed models against three baselines and one \"skyline.\" The first baseline is a traditional pivot approach (line 1), where the ASR output, a sequence of characters, is the input to a character-based NMT system (trained on gold transcriptions). The \"skyline\" model (line 2) is the same NMT system, but tested on gold transcriptions instead of ASR output. The second baseline is translation directly from source speech to target text (line 3). The last baseline is the standard multitask model (line 4), which is similar to the model of Weiss et al. (2017)."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1655,
+                    1210,
+                    2160
+                ],
+                "angle": 0,
+                "content": "The cascade model (line 5) outperforms the baselines on the translation task, while only falling behind the multitask model in the transcription task. On all three datasets, the triangle model (lines 6, 7) outperforms all baselines, including the standard multitask model. On Ainu-English, we even obtain translations that are comparable to the \"skyline\" model, which is tested on gold Ainu transcriptions."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2171,
+                    1210,
+                    3125
+                ],
+                "angle": 0,
+                "content": "Comparing the performance of all models across the three datasets, there are two notable trends that verify common intuitions regarding the speech transcription and translation tasks. First, an increase in the number of speakers hurts the performance of the speech transcription tasks. The character error rates for Ainu are smaller than the CER in Mboshi, which in turn are smaller than the CER in CALLHOME. Second, the character-level BLEU scores increase as the amount of training data increases, with our smallest dataset (Ainu) having the lowest BLEU scores, and the largest dataset (CALLHOME) having the highest BLEU scores. This is expected, as more training data means that the translation decoder learns a more informed character-level language model for the target language."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    332,
+                    3136,
+                    1210,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Note that Weiss et al. (2017) report much higher"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    263,
+                    2193,
+                    1161
+                ],
+                "angle": 0,
+                "content": "BLEU scores on CALLHOME: our model underperforms theirs by almost 9 word-level BLEU points. However, their model has significantly more parameters and is trained on 10 times more data than ours. Such an amount of data would never be available in our endangered languages scenario. When calculated on the word-level, all our models' BLEU scores are between 3 and 7 points for the extremely low resource datasets (Mboshi-French and Ainu-English), and between 7 and 10 for CALLHOME. Clearly, the size of the training data in our experiments is not enough for producing high quality speech translations, but we plan to investigate the performance of our proposed models on larger datasets as part of our future work."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1171,
+                    2193,
+                    1848
+                ],
+                "angle": 0,
+                "content": "To evaluate the effect of using the combined score from both decoders at decoding time, we evaluated the triangle models using only the 1-best output from the speech model (lines 8, 9). One would expect that this would favor speech at the expense of translation. In transcription accuracy, we indeed observed improvements across the board. In translation accuracy, we observed a surprisingly large drop on Mboshi-French, but surprisingly little effect on the other language pairs – in fact, BLEU scores tended to go up slightly, but not significantly."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1855,
+                    2193,
+                    2525
+                ],
+                "angle": 0,
+                "content": "Finally, Figure 2 visualizes the attention matrices for one utterance from the baseline multitask model and our proposed triangle model. It is clear that our intuition was correct: the translation decoder receives most of its context from the transcription decoder, as indicated by the higher attention weights of \\(\\mathbf{A}^{12}\\). Ideally, the area under the red squares (gold alignments) would account for \\(100\\%\\) of the attention mass of \\(\\mathbf{A}^{12}\\). In our triangle model, the total mass under the red squares is \\(34\\%\\), whereas the multitask model's correct attentions amount to only \\(21\\%\\) of the attention mass."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2581,
+                    1699,
+                    2638
+                ],
+                "angle": 0,
+                "content": "5 Word Discovery"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2680,
+                    2190,
+                    3073
+                ],
+                "angle": 0,
+                "content": "Although the above results show that our model gives large performance improvements, in absolute terms, its performance on such low-resource tasks leaves a lot of room for future improvement. A possible more realistic application of our methods is word discovery, that is, finding word boundaries in unsegmented phonetic transcriptions."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1267,
+                    3080,
+                    2190,
+                    3192
+                ],
+                "angle": 0,
+                "content": "After training an attentional encoder-decoder model between Mboshi unsegmented phonetic se"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    1218,
+                    3234,
+                    1267,
+                    3279
+                ],
+                "angle": 0,
+                "content": "86"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    292,
+                    245,
+                    1032,
+                    663
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    1094,
+                    252,
+                    1833,
+                    655
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    290,
+                    691,
+                    1037,
+                    1347
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(a) multitask"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1089,
+                    691,
+                    1840,
+                    1347
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(b) triangle + transitivity"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1875,
+                    670,
+                    2175,
+                    1234
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 2: Attentions in an Mboshi-French sentence, extracted from two of our models. The red squares denote gold alignments. The second decoder of the triangle model receives most of its context from the first decoder through \\(\\mathbf{A}^{12}\\) instead of the source. The \\(\\mathbf{A}^2\\) matrix of the triangle model is more informed (34% correct attention mass) than the multitask one (21% correct), due to the transitivity regularizer."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1754,
+                    1213,
+                    2143
+                ],
+                "angle": 0,
+                "content": "quences and French word sequences, the attention weights can be thought of as soft alignments, which allow us to project the French word boundaries onto Mboshi. Although we could in principle perform word discovery directly on speech, we leave this for future work, and only explore single-task and reconstruction models."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2196,
+                    498,
+                    2245
+                ],
+                "angle": 0,
+                "content": "5.1 Data"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2273,
+                    1213,
+                    2609
+                ],
+                "angle": 0,
+                "content": "We use the same Mboshi-French corpus as in Section 4, but with the original training set of 4617 utterances and the dev set of 514 utterances. Our parallel data consist of the unsegmented phonetic Mboshi transcriptions, along with the word-level French translations."
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2662,
+                    717,
+                    2715
+                ],
+                "angle": 0,
+                "content": "5.2 Implementation"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2739,
+                    1213,
+                    3188
+                ],
+                "angle": 0,
+                "content": "We first replicate the model of Boito et al. (2017), with a single-layer bidirectional encoder and single layer decoder, using an embedding and hidden size of 12 for the base model, and an embedding and hidden state size of 64 for the reverse model. In our own models, we set the embedding size to 32 for Mboshi characters, 64 for French words, and the hidden state size to 64. We smooth the at-"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1754,
+                    2190,
+                    1918
+                ],
+                "angle": 0,
+                "content": "tention weights \\(\\mathbf{A}\\) using the method of Duong et al. (2016) with a temperature \\(T = 10\\) for the softmax computation of the attention mechanism."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1925,
+                    2193,
+                    2602
+                ],
+                "angle": 0,
+                "content": "Following Boito et al. (2017), we train models both on the base Mboshi-to-French direction, as well as the reverse (French-to-Mboshi) direction, with and without this smoothing operation. We further smooth the computed soft alignments of all models so that \\( a_{mn} = (a_{mn-1} + a_{mn} + a_{mn+1}) / 3 \\) as a post-processing step. From the single-task models we extract the \\( \\mathbf{A}^1 \\) attention matrices. We also train reconstruction models on both directions, with and without the invertibility regularizer, extracting both \\( \\mathbf{A}^1 \\) and \\( \\mathbf{A}^{12} \\) matrices. The two matrices are then combined so that \\( \\mathbf{A} = \\mathbf{A}^1 + (\\mathbf{A}^{12})^T \\)."
+            },
+            {
+                "block_id": 15,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2659,
+                    1528,
+                    2704
+                ],
+                "angle": 0,
+                "content": "5.3 Results"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2739,
+                    2193,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Evaluation is done both at the token and the type level, by computing precision, recall, and F-score over the discovered segmentation, with the best results shown in Table 3. We reimplemented the base (Mboshi-French) and reverse (French-Mboshi) models from Boito et al. (2017), and the performance of the base model was comparable to the one reported. However, we were unable to"
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    1215,
+                    3234,
+                    1267,
+                    3279
+                ],
+                "angle": 0,
+                "content": "87"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    374,
+                    256,
+                    2113,
+                    947
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\" colspan=\"2\">Model (with smoothing)</td><td colspan=\"3\">Tokens</td><td colspan=\"3\">Types</td></tr><tr><td>Precision</td><td>Recall</td><td>F-score</td><td>Precision</td><td>Recall</td><td>F-score</td></tr><tr><td rowspan=\"2\">Boito et al. 2017 (reported)</td><td>base</td><td>5.85</td><td>6.82</td><td>6.30</td><td>6.76</td><td>15.00</td><td>9.32</td></tr><tr><td>reverse</td><td>21.44</td><td>16.49</td><td>18.64</td><td>27.23</td><td>15.02</td><td>19.36</td></tr><tr><td rowspan=\"2\">Boito et al. 2017 (reimplementation)</td><td>base</td><td>6.87</td><td>6.33</td><td>6.59</td><td>6.17</td><td>13.02</td><td>8.37</td></tr><tr><td>reverse</td><td>7.58</td><td>8.16</td><td>7.86</td><td>9.22</td><td>11.97</td><td>10.42</td></tr><tr><td rowspan=\"2\">our single-task</td><td>base</td><td>7.99</td><td>7.57</td><td>7.78</td><td>7.59</td><td>16.41</td><td>10.38</td></tr><tr><td>reverse</td><td>11.31</td><td>11.82</td><td>11.56</td><td>9.29</td><td>14.75</td><td>11.40</td></tr><tr><td colspan=\"2\">reconstruction + 0.2Linv</td><td>8.93</td><td>9.78</td><td>9.33</td><td>8.66</td><td>15.48</td><td>11.02</td></tr><tr><td colspan=\"2\">reconstruction + 0.5Linv</td><td>7.42</td><td>10.00</td><td>8.52</td><td>10.46</td><td>16.36</td><td>12.76</td></tr></table>",
+                "caption": "Table 3: The reconstruction model with the invertibility regularizer produces more informed attentions that result in better word discovery for Mboshi with an Mboshi-French model. Scores reported by previous work are in italics and best scores from our experiments are in bold."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1220,
+                    1213,
+                    1504
+                ],
+                "angle": 0,
+                "content": "reproduce the significant gains that were reported when using the reverse model (italicized in Table 3). Also, our version of both the base and reverse singletask models performed better than our reimplementation of the baseline."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1508,
+                    1215,
+                    2353
+                ],
+                "angle": 0,
+                "content": "Furthermore, we found that we were able to obtain even better performance at the type level by combining the attention matrices of a reconstruction model trained with the invertibility regularizer. Boito et al. (2017) reported that combining the attention matrices of a base and a reverse model significantly reduced performance, but they trained the two models separately. In contrast, we obtain the base \\((\\mathbf{A}^{1})\\) and the reverse attention matrices \\((\\mathbf{A}^{12})\\) from a model that trains them jointly, while also tying them together through the invertibility regularizer. Using the regularizer is key to the improvements; in fact, we did not observe any improvements when we trained the reconstruction models without the regularizer."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2399,
+                    1188,
+                    2511
+                ],
+                "angle": 0,
+                "content": "6 Negative Results: High-Resource Text Translation"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2553,
+                    503,
+                    2606
+                ],
+                "angle": 0,
+                "content": "6.1 Data"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2627,
+                    1215,
+                    3195
+                ],
+                "angle": 0,
+                "content": "For evaluating our models on text translation, we use the Europarl corpus which provides parallel sentences across several European languages. We extracted 1,450,890 three-way parallel sentences on English, French, and German. The concatenation of the newstest 2011-2013 sets (8,017 sentences) is our dev set, and our test set is the concatenation of the newstest 2014 and 2015 sets (6,003 sentences). We test all architectures on the six possible translation directions between English"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1220,
+                    2195,
+                    1452
+                ],
+                "angle": 0,
+                "content": "(en), French (fr) and German (de). All the sequences are represented by subword units with byte-pair encoding (BPE) (Sennrich et al., 2016) trained on each language with 32000 operations."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1487,
+                    1778,
+                    1540
+                ],
+                "angle": 0,
+                "content": "6.2 Experimental Setup"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1557,
+                    2193,
+                    1845
+                ],
+                "angle": 0,
+                "content": "On all experiments, the encoder and the decoder(s) have 2 layers of LSTM units with hidden state size and attention size of 1024, and embedding size of 1024. For this high resource scenario, we only train for a maximum of 40 epochs."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1876,
+                    1530,
+                    1929
+                ],
+                "angle": 0,
+                "content": "6.3 Results"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1950,
+                    2193,
+                    2683
+                ],
+                "angle": 0,
+                "content": "The accuracy of all the models on all six language pair directions is shown in Table 4. In all cases, the best models are the baseline single-task or simple multitask models. There are some instances, such as English-German, where the reconstruction or the triangle models are not statistically significantly different from the best model. The reason for this, we believe, is that in the case of text translation between so linguistically close languages, the lower level representations (the output of the encoder) provide as much information as the higher level ones, without the search errors that are introduced during inference."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2687,
+                    2195,
+                    3195
+                ],
+                "angle": 0,
+                "content": "A notable outcome of this experiment is that we do not observe the significant improvements with the reconstruction models that Tu et al. (2017) observed. A few possible differences between our experiment and theirs are: our models are BPE-based, theirs are word-based; we use Adam for optimization, they use Adadelta; our model has slightly fewer parameters than theirs; we test on less typologically different language pairs than"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    1215,
+                    3234,
+                    1267,
+                    3279
+                ],
+                "angle": 0,
+                "content": "88"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    451,
+                    256,
+                    2046,
+                    1066
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\">Model</td><td rowspan=\"2\">en→fr</td><td rowspan=\"2\">en→de</td><td colspan=\"4\">s→t</td></tr><tr><td>fr→en</td><td>fr→de</td><td>de→en</td><td>de→fr</td></tr><tr><td>singletask</td><td>20.92</td><td>12.69</td><td>20.96</td><td>11.24</td><td>16.10</td><td>15.29</td></tr><tr><td>multitask s→x,t</td><td>20.54</td><td>12.79</td><td>20.01</td><td>11.18</td><td>16.31</td><td>15.07</td></tr><tr><td>Cascade s→x→t</td><td>15.93</td><td>11.31</td><td>16.58</td><td>7.60</td><td>13.46</td><td>13.24</td></tr><tr><td>Cascade s→t→x</td><td>20.34</td><td>12.27</td><td>19.17</td><td>11.09</td><td>15.24</td><td>14.78</td></tr><tr><td>reconstruction</td><td>20.19</td><td>12.44</td><td>20.63</td><td>10.88</td><td>15.66</td><td>13.44</td></tr><tr><td>reconstruction +Linv</td><td>20.72</td><td>12.64</td><td>20.11</td><td>10.46</td><td>15.43</td><td>12.64</td></tr><tr><td>triangle s x→t</td><td>20.39</td><td>12.70</td><td>17.93</td><td>10.17</td><td>14.94</td><td>14.07</td></tr><tr><td>triangle s x→t+Ltrans</td><td>20.52</td><td>12.64</td><td>18.34</td><td>10.42</td><td>15.22</td><td>14.37</td></tr><tr><td>triangle s x→t→x</td><td>20.38</td><td>12.40</td><td>18.50</td><td>10.22</td><td>15.62</td><td>14.77</td></tr><tr><td>triangle s x+Ltrans</td><td>20.64</td><td>12.42</td><td>19.20</td><td>10.21</td><td>15.87</td><td>14.89</td></tr></table>",
+                "caption": "Table 4: BLEU scores for each model and translation direction \\( s \\rightarrow t \\). In the multitask, cascade, and triangle models, \\( x \\) stands for the third language, other than \\( s \\) and \\( t \\). In each column, the best results are highlighted. The nonhighlighted results are statistically significantly worse than the single-task baseline."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1333,
+                    615,
+                    1389
+                ],
+                "angle": 0,
+                "content": "English-Chinese."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1396,
+                    1215,
+                    2076
+                ],
+                "angle": 0,
+                "content": "However, we also observe that in most cases our proposed regularizers lead to increased performance. The invertibility regularizer aids the reconstruction models in achiev slightly higher BLEU scores in 3 out of the 6 cases. The transitivity regularizer is even more effective: in 9 out the 12 source-target language combinations, the triangle models achieve higher performance when trained using the regularizer. Some of them are statistical significant improvements, as in the case of French to English where English is the intermediate target language and German is the final target."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2129,
+                    677,
+                    2185
+                ],
+                "angle": 0,
+                "content": "7 Related Work"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2231,
+                    1215,
+                    3195
+                ],
+                "angle": 0,
+                "content": "The speech translation problem has been traditionally approached by using the output of an ASR system as input to a MT system. For example, Ney (1999) and Matusov et al. (2005) use ASR output lattices as input to translation models, integrating speech recognition uncertainty into the translation model. Recent work has focused more on modelling speech translation without explicit access to transcriptions. Duong et al. (2016) introduced a sequence-to-sequence model for speech translation without transcriptions but only evaluated on alignment, while Anastasopoulos et al. (2016) presented an unsupervised alignment method for speech-to-translation alignment. Bansal et al. (2017) used an unsupervised term discovery system (Jansen et al., 2010) to cluster recurring audio segments into pseudowords"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1333,
+                    2195,
+                    1845
+                ],
+                "angle": 0,
+                "content": "and translate speech using a bag-of-words model. Bérard et al. (2016) translated synthesized speech data using a model similar to the Listen Attend and Spell model (Chan et al., 2016). A larger-scale study (Bérard et al., 2018) used an end-to-end neural system system for translating audio books between French and English. On a different line of work, Boito et al. (2017) used the attentions of a sequence-to-sequence model for word discovery."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1869,
+                    2195,
+                    2711
+                ],
+                "angle": 0,
+                "content": "Multitask learning (Caruana, 1998) has found extensive use across several machine learning and NLP fields. For example, Luong et al. (2016) and Eriguchi et al. (2017) jointly learn to parse and translate; Kim et al. (2017) combine CTC- and attention-based models using multitask models for speech transcription; Dong et al. (2015) use multitask learning for multiple language translation. Toshniwal et al. (2017) apply multitask learning to neural speech recognition in a less traditional fashion: the lower-level outputs of the speech encoder are used for fine-grained auxiliary tasks such as predicting HMM states or phonemes, while the final output of the encoder is passed to a character-level decoder."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2739,
+                    2200,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Our work is most similar to the work of Weiss et al. (2017). They used sequence-to-sequence models to transcribe Spanish speech and translate it in English, by jointly training the two tasks in a multitask scenario where the decoders share the encoder. In contrast to our work, they use a large corpus for training the model on roughly 163 hours of data, using the Spanish Fisher and CALL-"
+            },
+            {
+                "block_id": 9,
+                "type": "page_number",
+                "bbox": [
+                    1215,
+                    3234,
+                    1270,
+                    3279
+                ],
+                "angle": 0,
+                "content": "89"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    266,
+                    1215,
+                    712
+                ],
+                "angle": 0,
+                "content": "HOME conversational speech corpora. The parameter number of their model is significantly larger than ours, as they use 8 encoder layers, and 4 layers for each decoder. This allows their model to adequately learn from such a large amount of data and deal well with speaker variation. However, training such a large model on endangered language datasets would be infeasible."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    715,
+                    1215,
+                    1059
+                ],
+                "angle": 0,
+                "content": "Our model also bears similarities to the architecture of the model proposed by Tu et al. (2017). They report significant gains in Chinese-English translation by adding an additional reconstruction decoder that attends on the last states of the translation decoder, mainly inspired by auto-encoders."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1105,
+                    615,
+                    1157
+                ],
+                "angle": 0,
+                "content": "8 Conclusion"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1196,
+                    1215,
+                    1813
+                ],
+                "angle": 0,
+                "content": "We presented a novel architecture for multitask learning that provides the second task with higher-level representations produced from the first task decoder. Our model outperforms both the single-task models as well as traditional multitask architectures. Evaluating on extremely low-resource settings, our model improves on both speech transcription and translation. By augmenting our models with regularizers that implement transitivity and invertibility, we obtain further improvements on all low-resource tasks."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1820,
+                    1215,
+                    2329
+                ],
+                "angle": 0,
+                "content": "These results will hopefully lead to new tools for endangered language documentation. Projects like BULB aim to collect about 100 hours of audio with translations, but it may be impractical to transcribe this much audio for many languages. For future work, we aim to extend these methods to settings where we don't necessarily have sentence triples, but where some audio is only transcribed and some audio is only translated."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2367,
+                    1215,
+                    2588
+                ],
+                "angle": 0,
+                "content": "Acknowledgements This work was generously supported by NSF Award 1464553. We are grateful to the anonymous reviewers for their useful comments."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    290,
+                    2690,
+                    535,
+                    2743
+                ],
+                "angle": 0,
+                "content": "References"
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2774,
+                    1215,
+                    3055
+                ],
+                "angle": 0,
+                "content": "Gilles Adda, Sebastian Stüker, Martine Adda-Decker, Odette Ambouroue, Laurent Besacier, David Blachon, Hélène Bonneau-Maynard, Pierre Godard, Fatima Hamlaoui, Dmitry Idiatov, et al. 2016. Breaking the unwritten language barrier: The BULB project. Procedia Computer Science, 81:8-14."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    3094,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Antonios Anastasopoulos, David Chiang, and Long Duong. 2016. An unsupervised probability model"
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    290,
+                    2774,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    1322,
+                    270,
+                    2193,
+                    364
+                ],
+                "angle": 0,
+                "content": "for speech-to-translation alignment of low-resource languages. In Proc. EMNLP."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    396,
+                    2195,
+                    536
+                ],
+                "angle": 0,
+                "content": "Dzmitry Bahdanau, Kyunghyun Cho, and Yoshua Bengio. 2015. Neural machine translation by jointly learning to align and translate. In Proc. ICLR."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    568,
+                    2195,
+                    750
+                ],
+                "angle": 0,
+                "content": "Sameer Bansal, Herman Kamper, Adam Lopez, and Sharon Goldwater. 2017. Towards speech-to-text translation without speech recognition. In Proc. EACL."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    785,
+                    2195,
+                    964
+                ],
+                "angle": 0,
+                "content": "Alexandre Bérard, Laurent Besacier, Ali Can Kocabiyikoglu, and Olivier Pietquin. 2018. End-to-end automatic speech translation of audiobooks. arXiv:1802.04200."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    999,
+                    2195,
+                    1234
+                ],
+                "angle": 0,
+                "content": "Alexandre Bérard, Olivier Pietquin, Christophe Servan, and Laurent Besacier. 2016. Listen and translate: A proof of concept for end-to-end speech-to-text translation. In Proc. NIPS Workshop on End-to-end Learning for Speech and Audio Processing."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1266,
+                    2195,
+                    1406
+                ],
+                "angle": 0,
+                "content": "Steven Bird, Lauren Gawne, Katie Gelbart, and Isaac McAlister. 2014a. Collecting bilingual audio in remote indigenous communities. In Proc. COLING."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1438,
+                    2195,
+                    1669
+                ],
+                "angle": 0,
+                "content": "Steven Bird, Florian R. Hanke, Oliver Adams, and Haejoong Lee. 2014b. Aikuma: A mobile app for collaborative language documentation. In Proc. of the 2014 Workshop on the Use of Computational Methods in the Study of Endangered Languages."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1697,
+                    2195,
+                    2024
+                ],
+                "angle": 0,
+                "content": "David Blachon, Elodie Gauthier, Laurent Besacier, Guy-Noël Kouarata, Martine Adda-Decker, and Annie Rialland. 2016. Parallel speech collection for under-resourced language studies using the LIG-Aikuma mobile device app. In Proc. SLTU (Spoken Language Technologies for Under-Resourced Languages), volume 81."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2055,
+                    2195,
+                    2238
+                ],
+                "angle": 0,
+                "content": "Marcely Zanon Boito, Alexandre Bérard, Aline Villavicencio, and Laurent Besacier. 2017. Unwritten languages demand attention too! word discovery with encoder-decoder models. arXiv:1709.05631."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2269,
+                    2195,
+                    2367
+                ],
+                "angle": 0,
+                "content": "Rich Caruana. 1998. Multitask learning. In Learning to learn, pages 95-133. Springer."
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2395,
+                    2195,
+                    2623
+                ],
+                "angle": 0,
+                "content": "William Chan, Navdeep Jaitly, Quoc Le, and Oriol Vinyals. 2016. Listen, attend and spell: A neural network for large vocabulary conversational speech recognition. In Proc. ICASSP, pages 4960-4964. IEEE."
+            },
+            {
+                "block_id": 21,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2659,
+                    2195,
+                    2802
+                ],
+                "angle": 0,
+                "content": "Daxiang Dong, Hua Wu, Wei He, Dianhai Yu, and Haifeng Wang. 2015. Multi-task learning for multiple language translation. In Proc. ACL-IJCNLP."
+            },
+            {
+                "block_id": 22,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2830,
+                    2195,
+                    3016
+                ],
+                "angle": 0,
+                "content": "Long Duong, Antonios Anastasopoulos, David Chiang, Steven Bird, and Trevor Cohn. 2016. An attentional model for speech translation without transcription. In Proc. NAACL HLT."
+            },
+            {
+                "block_id": 23,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    3048,
+                    2195,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Akiko Eriguchi, Yoshimasa Tsuruoka, and Kyunghyun Cho. 2017. Learning to parse and translate improves neural machine translation. In Proc. ACL."
+            },
+            {
+                "block_id": 24,
+                "type": "list",
+                "bbox": [
+                    1272,
+                    270,
+                    2195,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 25,
+                "type": "page_number",
+                "bbox": [
+                    1218,
+                    3234,
+                    1270,
+                    3279
+                ],
+                "angle": 0,
+                "content": "90"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    270,
+                    1210,
+                    540
+                ],
+                "angle": 0,
+                "content": "P. Godard, G. Adda, M. Adda-Decker, J. Benjumea, L. Besacier, J. Cooper-Leavitt, G-N. Kouarata, L. Lamel, H. Maynard, M. Mueller, et al. 2017. A very low resource language speech corpus for computational language documentation experiments. arXiv:1710.03501."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    582,
+                    1215,
+                    719
+                ],
+                "angle": 0,
+                "content": "Hynek Hermansky. 1990. Perceptual linear predictive (PLP) analysis of speech. J. Acoustical Society of America, 87(4):1738-1752."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    757,
+                    1208,
+                    891
+                ],
+                "angle": 0,
+                "content": "Aren Jansen, Kenneth Church, and Hynek Hermansky. 2010. Towards spoken term discovery at scale with zero resources. In Proc. INTERSPEECH."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    933,
+                    1208,
+                    1069
+                ],
+                "angle": 0,
+                "content": "Suyoun Kim, Takaaki Hori, and Shinji Watanabe. 2017. Joint CTC-attention based end-to-end speech recognition using multi-task learning. In Proc. ICASSP."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1108,
+                    1208,
+                    1245
+                ],
+                "angle": 0,
+                "content": "Tomer Levinboim and David Chiang. 2015. Multi-task word alignment triangulation for low-resource languages. In Proc. NAACL HLT."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1283,
+                    1208,
+                    1459
+                ],
+                "angle": 0,
+                "content": "Tomer Levinboim, Ashish Vaswani, and David Chiang. 2015. Model invertibility regularization: Sequence alignment with or without parallel data. In Proc. NAACL HLT."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1504,
+                    1208,
+                    1641
+                ],
+                "angle": 0,
+                "content": "Minh-Thang Luong, Quoc V Le, Ilya Sutskever, Oriol Vinyals, and Lukasz Kaiser. 2016. Multi-task sequence to sequence learning. In Proc. ICLR."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1680,
+                    1208,
+                    1911
+                ],
+                "angle": 0,
+                "content": "Evgeny Matusov, Stephan Kanthak, and Hermann Ney. 2005. On the integration of speech recognition and statistical machine translation. In Ninth European Conference on Speech Communication and Technology."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1946,
+                    1208,
+                    2171
+                ],
+                "angle": 0,
+                "content": "Graham Neubig, Chris Dyer, Yoav Goldberg, Austin Matthews, Waleed Ammar, Antonios Anastasopoulos, Miguel Ballesteros, David Chiang, Daniel Clothiaux, Trevor Cohn, et al. 2017. DyNet: The dynamic neural network toolkit. arXiv:1701.03980."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2210,
+                    1208,
+                    2346
+                ],
+                "angle": 0,
+                "content": "Hermann Ney. 1999. Speech translation: Coupling of recognition and translation. In Proc. ICASSP, volume 1."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2388,
+                    1208,
+                    2522
+                ],
+                "angle": 0,
+                "content": "Toan Q. Nguyen and David Chiang. 2017. Transfer learning across low-resource related languages for neural machine translation. In Proc. IJCNLP."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2564,
+                    1208,
+                    2788
+                ],
+                "angle": 0,
+                "content": "Matt Post, Gaurav Kumar, Adam Lopez, Damianos Karakos, Chris Callison-Burch, and Sanjeev Khudanpur. 2013. Improved speech-to-text translation with the Fisher and Callhome Spanish-English speech translation corpus. In Proc. IWSLT."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2827,
+                    1208,
+                    2964
+                ],
+                "angle": 0,
+                "content": "Rico Sennrich, Barry Haddow, and Alexandra Birch. 2016. Neural machine translation of rare words with subword units. In Proc. ACL."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    3002,
+                    1208,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Shubham Toshniwal, Hao Tang, Liang Lu, and Karen Livescu. 2017. Multitask learning with low-level auxiliary tasks for encoder-decoder based speech recognition. In Proc. Interspeech."
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    292,
+                    270,
+                    1215,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    270,
+                    2188,
+                    406
+                ],
+                "angle": 0,
+                "content": "Zhaopeng Tu, Yang Liu, Lifeng Shang, Xiaohua Liu, and Hang Li. 2017. Neural machine translation with reconstruction. In Proc. AAAI."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    442,
+                    2188,
+                    627
+                ],
+                "angle": 0,
+                "content": "Haifeng Wang, Hua Wu, and Zhanyi Liu. 2006. Word alignment for languages with scarce resources using bilingual corpora of other language pairs. In Proc. COLING/ACL, pages 874-881."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    663,
+                    2188,
+                    845
+                ],
+                "angle": 0,
+                "content": "Ron J. Weiss, Jan Chorowski, Navdeep Jaitly, Yonghui Wu, and Zhifeng Chen. 2017. Sequence-to-sequence models can directly transcribe foreign speech. In Proc. INTERSPEECH."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    884,
+                    2188,
+                    1157
+                ],
+                "angle": 0,
+                "content": "Yonghui Wu, Mike Schuster, Zhifeng Chen, Quoc V. Le, Mohammad Norouzi, Wolfgang Macherey, Maxim Krikun, Yuan Cao, Qin Gao, Klaus Macherey, et al. 2016. Google's neural machine translation system: Bridging the gap between human and machine translation. arXiv:1609.08144."
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    1272,
+                    270,
+                    2188,
+                    1157
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "page_number",
+                "bbox": [
+                    1215,
+                    3234,
+                    1262,
+                    3279
+                ],
+                "angle": 0,
+                "content": "91"
+            }
+        ]
+    }
+]

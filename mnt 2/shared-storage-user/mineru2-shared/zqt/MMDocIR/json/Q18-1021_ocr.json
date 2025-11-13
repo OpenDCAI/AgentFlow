@@ -1,0 +1,3102 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    522,
+                    250,
+                    2027,
+                    405
+                ],
+                "angle": 0,
+                "content": "Constructing Datasets for Multi-hop Reading Comprehension Across Documents"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    420,
+                    531,
+                    787,
+                    594
+                ],
+                "angle": 0,
+                "content": "Johannes Welbl"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1050,
+                    534,
+                    1445,
+                    597
+                ],
+                "angle": 0,
+                "content": "Pontus Stenetorp<sup>1</sup>"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1711,
+                    534,
+                    2121,
+                    594
+                ],
+                "angle": 0,
+                "content": "Sebastian Riedel\\(^{1,2}\\)"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    629,
+                    617,
+                    1917,
+                    739
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup>University College London, <sup>2</sup>Bloomsbury AI {j.welbl,p.stenetorp,s.riedel}@cs.ucl.ac.uk"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    670,
+                    999,
+                    869,
+                    1049
+                ],
+                "angle": 0,
+                "content": "Abstract"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    377,
+                    1095,
+                    1162,
+                    2593
+                ],
+                "angle": 0,
+                "content": "Most Reading Comprehension methods limit themselves to queries which can be answered using a single sentence, paragraph, or document. Enabling models to combine disjoint pieces of textual evidence would extend the scope of machine comprehension methods, but currently no resources exist to train and test this capability. We propose a novel task to encourage the development of models for text understanding across multiple documents and to investigate the limits of existing methods. In our task, a model learns to seek and combine evidence – effectively performing multi-hop, alias multi-step, inference. We devise a methodology to produce datasets for this task, given a collection of query-answer pairs and thematically linked documents. Two datasets from different domains are induced,\\(^{1}\\) and we identify potential pitfalls and devise circumvention strategies. We evaluate two previously proposed competitive models and find that one can integrate information across documents. However, both models struggle to select relevant information; and providing documents guaranteed to be relevant greatly improves their performance. While the models outperform several strong baselines, their best accuracy reaches \\(54.5\\%\\) on an annotated test set, compared to human performance at \\(85.0\\%\\), leaving ample room for improvement."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    290,
+                    2666,
+                    647,
+                    2715
+                ],
+                "angle": 0,
+                "content": "1 Introduction"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2755,
+                    1249,
+                    2864
+                ],
+                "angle": 0,
+                "content": "Devising computer systems capable of answering questions about knowledge described using text has"
+            },
+            {
+                "block_id": 9,
+                "type": "table",
+                "bbox": [
+                    1308,
+                    1003,
+                    2231,
+                    1392
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>The Hanging Gardens, in [Mumbai], also known as Pherozeshah Mehta Gardens, are terraced gardens ... They provide sunset views over the [Arabian Sea] ...</td></tr><tr><td>Mumbai (also known as Bombay, the official name until 1995) is the capital city of the Indian state of Maharashtra. It is the most populous city in India ...</td></tr><tr><td>The Arabian Sea is a region of the northern Indian Ocean bounded on the north by Pakistan and Iran, on the west by northeastern Somalia and the Arabian Peninsula, and on the east by India ...</td></tr></table>"
+            },
+            {
+                "block_id": 10,
+                "type": "table_footnote",
+                "bbox": [
+                    1394,
+                    1399,
+                    2034,
+                    1481
+                ],
+                "angle": 0,
+                "content": "Q: (Hanging gardens of Mumbai, country, ?)  \nOptions: {Iran, India, Pakistan, Somalia, ...}"
+            },
+            {
+                "block_id": 11,
+                "type": "image_caption",
+                "bbox": [
+                    1290,
+                    1534,
+                    2254,
+                    1686
+                ],
+                "angle": 0,
+                "content": "Figure 1: A sample from the WIKIHOP dataset where it is necessary to combine information spread across multiple documents to infer the correct answer."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    1798,
+                    2254,
+                    2534
+                ],
+                "angle": 0,
+                "content": "been a longstanding challenge in Natural Language Processing (NLP). Contemporary end-to-end Reading Comprehension (RC) methods can learn to extract the correct answer span within a given text and approach human-level performance (Kadlec et al., 2016; Seo et al., 2017a). However, for existing datasets, relevant information is often concentrated locally within a single sentence, emphasizing the role of locating, matching, and aligning information between query and support text. For example, Weissenborn et al. (2017) observed that a simple binary word-in-query indicator feature boosted the relative accuracy of a baseline model by \\(27.9\\%\\)."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    2547,
+                    2256,
+                    2943
+                ],
+                "angle": 0,
+                "content": "We argue that, in order to further the ability of machine comprehension methods to extract knowledge from text, we must move beyond a scenario where relevant information is coherently and explicitly stated within a single document. Methods with this capability would aid Information Extraction (IE) applications, such as discovering drug-drug interac"
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    341,
+                    2887,
+                    1188,
+                    2937
+                ],
+                "angle": 0,
+                "content": "Available at http://qangaroo.cs.ucl.ac.uk"
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3026,
+                    1264,
+                    3069
+                ],
+                "angle": 0,
+                "content": "287"
+            },
+            {
+                "block_id": 16,
+                "type": "footer",
+                "bbox": [
+                    443,
+                    3128,
+                    2017,
+                    3207
+                ],
+                "angle": 0,
+                "content": "Transactions of the Association for Computational Linguistics, vol. 6, pp. 287-302, 2018. Action Editor: Katrin Erk. Submission batch: 10/2017; Revision batch: 2/2018; Published 5/2018."
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    612,
+                    3207,
+                    1841,
+                    3247
+                ],
+                "angle": 0,
+                "content": "©2018 Association for Computational Linguistics. Distributed under a CC-BY 4.0 license."
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    283,
+                    231,
+                    1249,
+                    567
+                ],
+                "angle": 0,
+                "content": "tions (Gurulingappa et al., 2012) by connecting protein interactions reported across different publications. They would also benefit search (Carpineto and Romano, 2012) and Question Answering (QA) applications (Lin and Pantel, 2001) where the required information cannot be found in a single location."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    570,
+                    1249,
+                    1244
+                ],
+                "angle": 0,
+                "content": "Figure 1 shows an example from WIKIPEDIA, where the goal is to identify the country property of the Hanging Gardens of Mumbai. This cannot be inferred solely from the article about them without additional background knowledge, as the answer is not stated explicitly. However, several of the linked articles mention the correct answer India (and other countries), but cover different topics (e.g. Mumbai, Arabian Sea, etc.). Finding the answer requires multi-hop reasoning: figuring out that the Hanging Gardens are located in Mumbai, and then, from a second document, that Mumbai is a city in India."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1247,
+                    1249,
+                    2148
+                ],
+                "angle": 0,
+                "content": "We define a novel RC task in which a model should learn to answer queries by combining evidence stated across documents. We introduce a methodology to induce datasets for this task and derive two datasets. The first, WIKIHOP, uses sets of WIKIPEDIA articles where answers to queries about specific properties of an entity cannot be located in the entity's article. In the second dataset, MEDHOP, the goal is to establish drug-drug interactions based on scientific findings about drugs and proteins and their interactions, found across multiple MEDLINE abstracts. For both datasets we draw upon existing Knowledge Bases (KBs), WIKIDATA and DRUG-BANK, as ground truth, utilizing distant supervision (Mintz et al., 2009) to induce the data - similar to Hewlett et al. (2016) and Joshi et al. (2017)."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2154,
+                    1249,
+                    2547
+                ],
+                "angle": 0,
+                "content": "We establish that for \\(74.1\\%\\) and \\(68.0\\%\\) of the samples, the answer can be inferred from the given documents by a human annotator. Still, constructing multi-document datasets is challenging; we encounter and prescribe remedies for several pitfalls associated with their assembly – for example, spurious co-locations of answers and specific documents."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2547,
+                    1249,
+                    2943
+                ],
+                "angle": 0,
+                "content": "For both datasets we then establish several strong baselines and evaluate the performance of two previously proposed competitive RC models (Seo et al., 2017a; Weissenborn et al., 2017). We find that one can integrate information across documents, but neither excels at selecting relevant information from a larger documents set, as their accuracy increases sig-"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    231,
+                    2256,
+                    455
+                ],
+                "angle": 0,
+                "content": "nificantly when given only documents guaranteed to be relevant. The best model reaches \\(54.5\\%\\) on an annotated test set, compared to human performance at \\(85.0\\%\\), indicating ample room for improvement."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    462,
+                    2256,
+                    966
+                ],
+                "angle": 0,
+                "content": "In summary, our key contributions are as follows: Firstly, proposing a cross-document multi-step RC task, as well as a general dataset induction strategy. Secondly, assembling two datasets from different domains and identifying dataset construction pitfalls and remedies. Thirdly, establishing multiple baselines, including two recently proposed RC models, as well as analysing model behaviour in detail through ablation studies."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1292,
+                    1016,
+                    2223,
+                    1072
+                ],
+                "angle": 0,
+                "content": "2 Task and Dataset Construction Method"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    1112,
+                    2256,
+                    1392
+                ],
+                "angle": 0,
+                "content": "We will now formally define the multi-hop RC task, and a generic methodology to construct multi-hop RC datasets. Later, in Sections 3 and 4 we will demonstrate how this method is applied in practice by creating datasets for two different domains."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    1432,
+                    2256,
+                    2395
+                ],
+                "angle": 0,
+                "content": "Task Formalization A model is given a query \\( q \\), a set of supporting documents \\( S_{q} \\), and a set of candidate answers \\( C_{q} \\) – all of which are mentioned in \\( S_{q} \\). The goal is to identify the correct answer \\( a^{*} \\in C_{q} \\) by drawing on the support documents \\( S_{q} \\). Queries could potentially have several true answers when not constrained to rely on a specific set of support documents – e.g., queries about the parent of a certain individual. However, in our setup each sample has only one true answer among \\( C_{q} \\) and \\( S_{q} \\). Note that even though we will utilize background information during dataset assembly, such information will not be available to a model: the document set will be provided in random order and without any metadata. While certainly beneficial, this would distract from our goal of fostering end-to-end RC methods that infer facts by combining separate facts stated in text."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    2432,
+                    2256,
+                    2880
+                ],
+                "angle": 0,
+                "content": "Dataset Assembly We assume that there exists a document corpus \\(D\\), together with a KB containing fact triples \\((s, r, o)\\) – with subject entity \\(s\\), relation \\(r\\), and object entity \\(o\\). For example, one such fact could be (Hanging_Gardens_of_Mumbai, country, India). We start with individual KB facts and transform them into query-answer pairs by leaving the object slot empty, i.e. \\(q = (s, r, ?)\\) and \\(a^* = o\\)."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1338,
+                    2887,
+                    2254,
+                    2943
+                ],
+                "angle": 0,
+                "content": "Next, we define a directed bipartite graph, where"
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3029,
+                    1264,
+                    3069
+                ],
+                "angle": 0,
+                "content": "288"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    234,
+                    1257,
+                    795
+                ],
+                "angle": 0,
+                "content": "vertices on one side correspond to documents in \\( D \\), and vertices on the other side are entities from the KB - see Figure 2 for an example. A document node \\( d \\) is connected to an entity \\( e \\) if \\( e \\) is mentioned in \\( d \\), though there may be further constraints when defining the graph connectivity. For a given \\( (q, a^{*}) \\) pair, the candidates \\( C_{q} \\) and support documents \\( S_{q} \\subseteq D \\) are identified by traversing the bipartite graph using breadth-first search; the documents visited will become the support documents \\( S_{q} \\)."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    805,
+                    1249,
+                    1313
+                ],
+                "angle": 0,
+                "content": "As the traversal starting point, we use the node belonging to the subject entity \\( s \\) of the query \\( q \\). As traversal end points, we use the set of all entity nodes that are type-consistent answers to \\( q \\). Note that whenever there is another fact \\( (s, r, o') \\) in the KB, i.e. a fact producing the same \\( q \\) but with a different \\( a^* \\), we will not include \\( o' \\) into the set of end points for this sample. This ensures that precisely one of the end points corresponds to a correct answer to \\( q \\)."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1320,
+                    1249,
+                    1877
+                ],
+                "angle": 0,
+                "content": "When traversing the graph starting at \\(s\\), several of the end points will be visited, though generally not all; those visited define the candidate set \\(C_q\\). If however the correct answer \\(a^*\\) is not among them we discard the entire \\((q, a^*)\\) pair. The documents visited to reach the end points will define the support document set \\(S_q\\). That is, \\(S_q\\) comprises chains of documents leading not only from the query subject to the correct answer candidate, but also to type-consistent false answer candidates."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1890,
+                    1249,
+                    2742
+                ],
+                "angle": 0,
+                "content": "With this methodology, relevant textual evidence for \\((q,a^{*})\\) will be spread across documents along the chain connecting \\(s\\) and \\(a^*\\) - ensuring that multihop reasoning goes beyond resolving co-reference within a single document. Note that including other type-consistent candidates alongside \\(a^*\\) as end points in the graph traversal - and thus into the support documents - renders the task considerably more challenging (Jia and Liang, 2017). Models could otherwise identify \\(a^*\\) in the documents by simply relying on type-consistency heuristics. It is worth pointing out that by introducing alternative candidates we counterbalance a type-consistency bias, in contrast to Hermann et al. (2015) and Hill et al. (2016) who instead rely on entity masking."
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1481,
+                    214,
+                    2068,
+                    689
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 2: A bipartite graph connecting entities and documents mentioning them. Bold edges are those traversed for the first fact in the small KB on the right; yellow highlighting indicates documents in \\( S_{q} \\) and candidates in \\( C_{q} \\). Check and cross indicate correct and false candidates."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    1292,
+                    1049,
+                    1606,
+                    1102
+                ],
+                "angle": 0,
+                "content": "3 WIKIHOP"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    1138,
+                    2256,
+                    1755
+                ],
+                "angle": 0,
+                "content": "WIKIPEDIA contains an abundance of human-curated, multi-domain information and has several structured resources such as infoboxes and WIKIDATA (Vrandecic, 2012) associated with it. WIKIPEDIA has thus been used for a wealth of research to build datasets posing queries about a single sentence (Morales et al., 2016; Levy et al., 2017) or article (Yang et al., 2015; Hewlett et al., 2016; Rajpurkar et al., 2016). However, no attempt has been made to construct a cross-document multi-step RC dataset based on WIKIPEDIA."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    1762,
+                    2254,
+                    2494
+                ],
+                "angle": 0,
+                "content": "A recently proposed RC dataset is WIKIREADINGING (Hewlett et al., 2016), where WIKIDATA tuples (item, property, answer) are aligned with the WIKIPEDIA articles regarding their item. The tuples define a slot filling task with the goal of predicting the answer, given an article and property. One problem with using WIKIREADINGING as an extractive RC dataset is that \\(54.4\\%\\) of the samples do not state the answer explicitly in the given article (Hewlett et al., 2016). However, we observed that some of the articles accessible by following hyperlinks from the given article often state the answer, alongside other plausible candidates."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1292,
+                    2534,
+                    1601,
+                    2587
+                ],
+                "angle": 0,
+                "content": "3.1 Assembly"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    2603,
+                    2256,
+                    2946
+                ],
+                "angle": 0,
+                "content": "We now apply the methodology from Section 2 to create a multi-hop dataset with WIKIPEDIA as the document corpus and WIKIDATA as structured knowledge triples. In this setup, (item, property, answer) WIKIDATA tuples correspond to \\((s,r,o)\\) triples, and the item and property of each sample"
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2798,
+                    1249,
+                    2943
+                ],
+                "angle": 0,
+                "content": "2 To determine entities which are type-consistent for a query \\( q \\), we consider all entities which are observed as object in a fact with \\( r \\) as relation type – including the correct answer."
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3026,
+                    1264,
+                    3069
+                ],
+                "angle": 0,
+                "content": "289"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    283,
+                    231,
+                    1249,
+                    620
+                ],
+                "angle": 0,
+                "content": "together form our query \\(q - \\mathrm{e.g.}\\), (Hanging Gardens of Mumbai, country, ?). Similar to Yang et al. (2015) we only use the first paragraph of an article, as relevant information is more often stated in the beginning. Starting with all samples in WIKIREADING, we first remove samples where the answer is stated explicitly in the WIKIPEDIA article about the item.<sup>3</sup>"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    627,
+                    1249,
+                    1075
+                ],
+                "angle": 0,
+                "content": "The bipartite graph is structured as follows: (1) for edges from articles to entities: all articles mentioning an entity \\( e \\) are connected to \\( e \\); (2) for edges from entities to articles: each entity \\( e \\) is only connected to the WIKIPEDIA article about the entity. Traversing the graph is then equivalent to iteratively following hyperlinks to new articles about the anchor text entities."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1082,
+                    1249,
+                    2039
+                ],
+                "angle": 0,
+                "content": "For a given query-answer pair, the item entity is chosen as the starting point for the graph traversal. A traversal will always pass through the article about the item, since this is the only document connected from there. The end point set includes the correct answer alongside other type-consistent candidate expressions, which are determined by considering all facts belonging to WIKIREADINGING training samples, selecting those triples with the same property as in \\( q \\) and keeping their answer expressions. As an example, for the WIKIDATA property country, this would be the set {France, Russia,...}. We executed graph traversal up to a maximum chain length of 3 documents. To not pose unreasonable computational constraints, samples with more than 64 different support documents or 100 candidates are removed, discarding ≈1% of the samples."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    288,
+                    2082,
+                    900,
+                    2135
+                ],
+                "angle": 0,
+                "content": "3.2 Mitigating Dataset Biases"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2158,
+                    1249,
+                    2491
+                ],
+                "angle": 0,
+                "content": "Dataset creation is always fraught with the risk of inducing unintended errors and biases (Chen et al., 2016; Schwartz et al., 2017). As Hewlett et al. (2016) only carried out limited analysis of their WIKIREADINGING dataset, we present an analysis of the downstream effects we observe on WIKIHOP."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2531,
+                    1249,
+                    2811
+                ],
+                "angle": 0,
+                "content": "Candidate Frequency Imbalance A first observation is that there is a significant bias in the answer distribution of WIKIREADING. For example, in the majority of the samples the property country has the United States of America as the answer. A simple"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    231,
+                    2256,
+                    564
+                ],
+                "angle": 0,
+                "content": "majority class baseline would thus prove successful, but would tell us little about multi-hop reasoning. To combat this issue, we subsampled the dataset to ensure that samples of any one particular answer candidate make up no more than \\(0.1\\%\\) of the dataset, and omitted articles about the United States."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    603,
+                    2256,
+                    996
+                ],
+                "angle": 0,
+                "content": "Document-Answer Correlations A problem unique to our multi-document setting is the possibility of spurious correlations between candidates and documents induced by the graph traversal method. In fact, if we were not to address this issue, a model designed to exploit these regularities could achieve \\(74.6\\%\\) accuracy (detailed in Section 6)."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    999,
+                    2254,
+                    1336
+                ],
+                "angle": 0,
+                "content": "Concretely, we observed that certain documents frequently co-occur with the correct answer, independently of the query. For example, if the article about London is present in \\( S_{q} \\), the answer is likely to be the United Kingdom, independent of the query type or entity in question."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    1343,
+                    2254,
+                    2016
+                ],
+                "angle": 0,
+                "content": "We designed a statistic to measure this effect and then used it to sub-sample the dataset. The statistic counts how often a candidate \\( c \\) is observed as the correct answer when a certain document is present in \\( S_{q} \\) across training set samples. More formally, for a given document \\( d \\) and answer candidate \\( c \\), let cooccurrence \\( (d, c) \\) denote the total count of how often \\( d \\) co-occurs with \\( c \\) in a sample where \\( c \\) is also the correct answer. We use this statistic to filter the dataset, by discarding samples with at least one document-candidate pair \\( (d, c) \\) for which cooccurrence \\( (d, c) > 20 \\)."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    1292,
+                    2062,
+                    1593,
+                    2112
+                ],
+                "angle": 0,
+                "content": "4 MEDHOP"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    2154,
+                    2256,
+                    2943
+                ],
+                "angle": 0,
+                "content": "Following the same general methodology, we next construct a second dataset for the domain of molecular biology – a field that has been undergoing exponential growth in the number of publications (Cohen and Hunter, 2004). The promise of applying NLP methods to cope with this increase has led to research efforts in IE (Hirschman et al., 2005; Kim et al., 2011) and QA for biomedical text (Hersh et al., 2007; Nentidis et al., 2017). There are a plethora of manually curated structured resources (Ashburner et al., 2000; The UniProt Consortium, 2017) which can either serve as ground truth or to induce training data using distant supervision (Craven and Kumlien, 1999; Bobic et al., 2012). Existing RC datasets are"
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2844,
+                    1249,
+                    2940
+                ],
+                "angle": 0,
+                "content": "3 We thus use a disjoint subset of WIKIRADING compared to Levy et al. (2017) to construct WIKIHOP."
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3029,
+                    1264,
+                    3069
+                ],
+                "angle": 0,
+                "content": "290"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    283,
+                    231,
+                    1249,
+                    508
+                ],
+                "angle": 0,
+                "content": "either severely limited in size (Hersh et al., 2007) or cover a very diverse set of query types (Nentidis et al., 2017), complicating the application of neural models that have seen successes for other domains (Wiese et al., 2017)."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    514,
+                    1249,
+                    1527
+                ],
+                "angle": 0,
+                "content": "A task that has received significant attention is detecting Drug-Drug Interactions (DDIs). Existing DDI efforts have focused on explicit mentions of interactions in single sentences (Gurulingappa et al., 2012; Percha et al., 2012; Segura-Bedmar et al., 2013). However, as shown by Peng et al. (2017), cross-sentence relation extraction increases the number of available relations. It is thus likely that cross-document interactions would further improve recall, which is of particular importance considering interactions that are never stated explicitly – but rather need to be inferred from separate pieces of evidence. The promise of multi-hop methods is finding and combining individual observations that can suggest previously unobserved DDIs, aiding the process of making scientific discoveries, yet not directly from experiments, but by inferring them from established public knowledge (Swanson, 1986)."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1534,
+                    1249,
+                    2432
+                ],
+                "angle": 0,
+                "content": "DDIs are caused by Protein-Protein Interaction (PPI) chains, forming biomedical pathways. If we consider PPI chains across documents, we find examples like in Figure 3. Here the first document states that the drug Leuprolide causes GnRH receptor-induced synaptic potentiations, which can be blocked by the protein Progonadoliberin-1. The last document states that another drug, Triptorelin, is a superagonist of the same protein. It is therefore likely to affect the potency of Leuprolide, describing a way in which the two drugs interact. Besides the true interaction there is also a false candidate Urofollitropin for which, although mentioned together with GnRH receptor within one document, there is no textual evidence indicating interactions with Leuprolide."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    283,
+                    2475,
+                    594,
+                    2531
+                ],
+                "angle": 0,
+                "content": "4.1 Assembly"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2547,
+                    1249,
+                    2940
+                ],
+                "angle": 0,
+                "content": "We construct MEDHOP using DRUGBANK (Law et al., 2014) as structured knowledge resource and research paper abstracts from MEDLINE as documents. There is only one relation type for DRUGBANK facts, interacts_with, that connects pairs of drugs – an example of a MEDHOP query would thus be (Leuprolide, interacts_with, ?). We start"
+            },
+            {
+                "block_id": 5,
+                "type": "table",
+                "bbox": [
+                    1313,
+                    224,
+                    2244,
+                    514
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Leuprolide ... elicited a long-lasting potentiation of excitatory postsynaptic currents... [GnRH receptor]-induced synaptic potentiation was blocked ... by [Progonadoliberin-1], a specific [GnRH receptor] antagonist...</td></tr><tr><td>... our research to study the distribution, co-localization of Urofollitropin and its receptor[,] and co-localization of Urofollitropin and GnRH receptor...</td></tr><tr><td>Analyses of gene expression demonstrated a dynamic response to the Progonadoliberin-1 superagonist Triptorelin.</td></tr></table>"
+            },
+            {
+                "block_id": 6,
+                "type": "table_footnote",
+                "bbox": [
+                    1486,
+                    521,
+                    1912,
+                    557
+                ],
+                "angle": 0,
+                "content": "Q: (Leuprolide, interacts_with, ?)"
+            },
+            {
+                "block_id": 7,
+                "type": "table_footnote",
+                "bbox": [
+                    1489,
+                    561,
+                    1973,
+                    594
+                ],
+                "angle": 0,
+                "content": "Options: {Triptorelin, Urofollitropin}"
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    1486,
+                    521,
+                    1973,
+                    594
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "image_caption",
+                "bbox": [
+                    1356,
+                    650,
+                    2170,
+                    699
+                ],
+                "angle": 0,
+                "content": "Figure 3: A sample from the MEDHOP dataset."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    795,
+                    2256,
+                    1240
+                ],
+                "angle": 0,
+                "content": "by processing the 2016 MEDLINE release using the preprocessing pipeline employed for the BioNLP 2011 Shared Task (Stenetorp et al., 2011). We restrict the set of entities in the bipartite graph to drugs in DRUGBANK and human proteins in SWISS-PROT (Bairoch et al., 2004). That is, the graph has drugs and proteins on one side, and MEDLINE abstracts on the other."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    1250,
+                    2256,
+                    2098
+                ],
+                "angle": 0,
+                "content": "The edge structure is as follows: (1) There is an edge from a document to all proteins mentioned in it. (2) There is an edge between a document and a drug, if this document also mentions a protein known to be a target for the drug according to DRUGBANK. This edge is bidirectional, i.e. it can be traversed both ways, since there is no canonical document describing each drug – thus one can “hop” to any document mentioning the drug and its target. (3) There is an edge from a protein \\( p \\) to a document mentioning \\( p \\), but only if the document also mentions another protein \\( p' \\) which is known to interact with \\( p \\) according to REACTOME (Fabregat et al., 2016). Given our distant supervision assumption, these additionally constraining requirements err on the side of precision."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    2105,
+                    2254,
+                    2722
+                ],
+                "angle": 0,
+                "content": "As a mention, similar to Percha et al. (2012), we consider any exact match of a name variant of a drug or human protein in DRUGBANK or SWISS-PROT. For a given DDI (drug\\(_1\\), interacts_with, drug\\(_2\\)), we then select drug\\(_1\\) as the starting point for the graph traversal. As possible end points, we consider any other drug, apart from drug\\(_1\\) and those interacting with drug\\(_1\\) other than drug\\(_2\\). Similar to WIKIHOP, we exclude samples with more than 64 support documents and impose a maximum document length of 300 tokens plus title."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    2775,
+                    2254,
+                    2943
+                ],
+                "angle": 0,
+                "content": "Document Sub-sampling The bipartite graph for MEDHOP is orders of magnitude more densely connected than for WIKIHOP. This can lead to poten-"
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3026,
+                    1262,
+                    3069
+                ],
+                "angle": 0,
+                "content": "291"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    283,
+                    231,
+                    1257,
+                    798
+                ],
+                "angle": 0,
+                "content": "tially large support document sets \\( S_{q} \\), to a degree where it becomes computationally infeasible for a majority of existing RC models. After the traversal has finished, we subsample documents by first adding a set of documents that connects the drug in the query with its answer. We then iteratively add documents to connect alternative candidates until we reach the limit of 64 documents – while ensuring that all candidates have the same number of paths through the bipartite graph."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    831,
+                    1254,
+                    1339
+                ],
+                "angle": 0,
+                "content": "Mitigating Candidate Frequency Imbalance Some drugs interact with more drugs than others - Aspirin for example interacts with 743 other drugs, but Isotretinoin with only 34. This leads to similar candidate frequency imbalance issues as with WIKIHOP - but due to its smaller size MEDHOP is difficult to sub-sample. Nevertheless we can successfully combat this issue by masking entity names, detailed in Section 6.2."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    283,
+                    1382,
+                    734,
+                    1438
+                ],
+                "angle": 0,
+                "content": "5 Dataset Analysis"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1475,
+                    1252,
+                    2659
+                ],
+                "angle": 0,
+                "content": "Table 1 shows the dataset sizes. Note that WIKIHOP inherits the train, development, and test set splits from WIKIREADING - i.e., the full dataset creation, filtering, and sub-sampling pipeline is executed on each set individually. Also note that subsampling according to document-answer correlation significantly reduces the size of WIKIHOP from \\(\\approx\\)528K training samples to \\(\\approx\\)44K. While in terms of samples, both WIKIHOP and MEDHOP are smaller than other large-scale RC datasets, such as SQuAD and WIKIREADING, the supervised learning signal available per sample is arguably greater. One could, for example, re-frame the task as binary path classification: given two entities and a document path connecting them, determine whether a given relation holds. For such a case, WIKIHOP and MEDHOP would have more than 1M and 150K paths to be classified, respectively. Instead, in our formulation, this corresponds to each single sample containing the supervised learning signal from an average of 19.5 and 59.8 unique document paths."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2663,
+                    1254,
+                    2943
+                ],
+                "angle": 0,
+                "content": "Table 2 shows statistics on the number of candidates and documents per sample on the respective training sets. For MEDHOP, the majority of samples have 9 candidates, due to the way documents are selected up until a maximum of 64 documents is"
+            },
+            {
+                "block_id": 5,
+                "type": "table",
+                "bbox": [
+                    1320,
+                    224,
+                    2231,
+                    415
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>Train</td><td>Dev</td><td>Test</td><td>Total</td></tr><tr><td>WIKIHOP</td><td>43,738</td><td>5,129</td><td>2,451</td><td>51,318</td></tr><tr><td>MEDHOP</td><td>1,620</td><td>342</td><td>546</td><td>2,508</td></tr></table>",
+                "caption": "Table 1: Dataset sizes for our respective datasets."
+            },
+            {
+                "block_id": 7,
+                "type": "table",
+                "bbox": [
+                    1295,
+                    547,
+                    2261,
+                    986
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>min</td><td>max</td><td>avg</td><td>median</td></tr><tr><td>#cand. - WH</td><td>2</td><td>79</td><td>19.8</td><td>14</td></tr><tr><td>#docs. - WH</td><td>3</td><td>63</td><td>13.7</td><td>11</td></tr><tr><td>#tok/doc - WH</td><td>4</td><td>2,046</td><td>100.4</td><td>91</td></tr><tr><td>#cand. - MH</td><td>2</td><td>9</td><td>8.9</td><td>9</td></tr><tr><td>#docs. - MH</td><td>5</td><td>64</td><td>36.4</td><td>29</td></tr><tr><td>#tok/doc - MH</td><td>5</td><td>458</td><td>253.9</td><td>264</td></tr></table>",
+                "caption": "Table 2: Candidates and documents per sample and document length statistics. WH: WIKIHOP; MH: MEDHOP."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    1207,
+                    2256,
+                    1491
+                ],
+                "angle": 0,
+                "content": "reached. Few samples have less than 9 candidates, and samples would have far more false candidates if more than 64 support documents were included. The number of query types in WIKIHOP is 277, whereas in MEDHOP there is only one: interacts_with."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    1292,
+                    1531,
+                    1802,
+                    1587
+                ],
+                "angle": 0,
+                "content": "5.1 Qualitative Analysis"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    1607,
+                    2254,
+                    1778
+                ],
+                "angle": 0,
+                "content": "To establish the quality of the data and analyze potential distant supervision errors, we sampled and annotated 100 samples from each development set."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    1811,
+                    2256,
+                    2943
+                ],
+                "angle": 0,
+                "content": "WIKIHOP Table 3 lists characteristics along with the proportion of samples that exhibit them. For \\(45\\%\\), the true answer either uniquely follows from multiple texts directly or is suggested as likely. For \\(26\\%\\), more than one candidate is plausibly supported by the documents, including the correct answer. This is often due to hypernymy, where the appropriate level of granularity for the answer is difficult to predict - e.g. (west suffolk, administrative-entity, ?) with candidates suffolk and england. This is a direct consequence of including type-consistent false answer candidates from WIKIDATA, which can lead to questions with several true answers. For \\(9\\%\\) of the cases a single document suffices; these samples contain a document that states enough information about item and answer together. For example, the query (Louis Auguste, father, ?) has the correct answer Louis XIV of France, and French king Louis XIV is mentioned within the same doc"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3026,
+                    1264,
+                    3069
+                ],
+                "angle": 0,
+                "content": "292"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    334,
+                    221,
+                    1203,
+                    646
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Unique multi-step answer.</td><td>36%</td></tr><tr><td>Likely multi-step unique answer.</td><td>9%</td></tr><tr><td>Multiple plausible answers.</td><td>15%</td></tr><tr><td>Ambiguity due to hypernymy.</td><td>11%</td></tr><tr><td>Only single document required.</td><td>9%</td></tr><tr><td>Answer does not follow.</td><td>12%</td></tr><tr><td>WIKIDATA/WIKIPEDIA discrepancy.</td><td>8%</td></tr></table>",
+                "caption": "Table 3: Qualitative analysis of WIKIHOP samples."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    818,
+                    1249,
+                    1831
+                ],
+                "angle": 0,
+                "content": "uments as Louis Auguste. Finally, although our task is significantly more complex than most previous tasks where distant supervision has been applied, the distant supervision assumption is only violated for \\(20\\%\\) of the samples – a proportion similar to previous work (Riedel et al., 2010). These cases can either be due to conflicting information between WIKIDATA and WIKIPEDIA \\((8\\%)\\), e.g. when the date of birth for a person differs between WIKI-DATA and what is stated in the WIKIPEDIA article, or because the answer is consistent but cannot be inferred from the support documents \\((12\\%)\\). When answering 100 questions, the annotator knew the answer prior to reading the documents for \\(9\\%\\), and produced the correct answer after reading the document sets for \\(74\\%\\) of the cases. On 100 questions of a validated portion of the Dev set (see Section 5.3), \\(85\\%\\) accuracy was reached."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1867,
+                    1249,
+                    2712
+                ],
+                "angle": 0,
+                "content": "MEDHOP Since both document complexity and number of documents per sample were significantly larger compared to WIKIHOP, it was not feasible to ask an annotator to read all support documents for 100 samples. We thus opted to verify the dataset quality by providing only the subset of documents relevant to support the correct answer, i.e., those traversed along the path reaching the answer. The annotator was asked if the answer to the query \"follows\", \"is likely\", or \"does not follow\", given the relevant documents. \\(68\\%\\) of the cases were considered as \"follows\" or as \"is likely\". The majority of cases violating the distant supervision assumption were errors due to the lack of a necessary PPI in one of the connecting documents."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    283,
+                    2755,
+                    1078,
+                    2808
+                ],
+                "angle": 0,
+                "content": "5.2 Crowdsourced Human Annotation"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2831,
+                    1249,
+                    2943
+                ],
+                "angle": 0,
+                "content": "We asked human annotators on Amazon Mechanical Turk to evaluate samples of the WIKIHOP develop-"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    231,
+                    2256,
+                    1247
+                ],
+                "angle": 0,
+                "content": "ment set. Similar to our qualitative analysis of MEDHOP, annotators were shown the query-answer pair as a fact and the chain of relevant documents leading to the answer. They were then instructed to answer (1) whether they knew the fact before; (2) whether the fact follows from the texts (with options \"fact follows\", \"fact is likely\", and \"fact does not follow\"); and (3); whether a single or several of the documents are required. Each sample was shown to three annotators and a majority vote was used to aggregate the annotations. Annotators were familiar with the fact \\(4.6\\%\\) of the time; prior knowledge of the fact is thus not likely to be a confounding effect on the other judgments. Inter-annotator agreement as measured by Fleiss' kappa is 0.253 in (2), and 0.281 in (3) – indicating a fair overall agreement, according to Landis and Koch (1977). Overall, \\(9.5\\%\\) of samples have no clear majority in (2)."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    1250,
+                    2256,
+                    1527
+                ],
+                "angle": 0,
+                "content": "Among samples with a majority judgment, \\(59.8\\%\\) are cases where the fact \"follows\", for \\(14.2\\%\\) the fact is judged as \"likely\", and as \"not follow\" for \\(25.9\\%\\). This again provides good justification for the distant supervision strategy."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    1534,
+                    2254,
+                    2603
+                ],
+                "angle": 0,
+                "content": "Among the samples with a majority vote for (2) of either \"follows\" or \"likely\", \\(55.9\\%\\) were marked with a majority vote as requiring multiple documents to infer the fact, and \\(44.1\\%\\) as requiring only a single document. The latter number is larger than initially expected, given the construction of samples through graph traversal. However, when inspecting cases judged as \"single\" more closely, we observed that many indeed provide a clear hint about the correct answer within one document, but without stating it explicitly. For example, for the fact (witold cichy, country-of-citizenship, poland) with documents \\(d_{1}\\): Witold Cichy (born March 15, 1986 in Wodzisaw lski) is a Polish footballer[...] and \\(d_{2}\\): Wodzisaw lski[...] is a town in Silesian Voivodeship, southern Poland[...], the information provided in \\(d_{1}\\) suffices for a human given the background knowledge that Polish is an attribute related to Poland, removing the need for \\(d_{2}\\) to infer the answer."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1292,
+                    2643,
+                    1774,
+                    2692
+                ],
+                "angle": 0,
+                "content": "5.3 Validated Test Sets"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    2719,
+                    2256,
+                    2943
+                ],
+                "angle": 0,
+                "content": "While training models on distantly supervised data is useful, one should ideally evaluate methods on a manually validated test set. We thus identified subsets of the respective test sets for which the correct"
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3026,
+                    1264,
+                    3069
+                ],
+                "angle": 0,
+                "content": "293"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    283,
+                    231,
+                    1257,
+                    1201
+                ],
+                "angle": 0,
+                "content": "answer can be inferred from the text. This is in contrast to prior work such as Hermann et al. (2015), Hill et al. (2016), and Hewlett et al. (2016), who evaluate only on distantly supervised samples. For WIKIHOP, we applied the same annotation strategy as described in Section 5.2. The validated test set consists of those samples labeled by a majority of annotators (at least 2 of 3) as \"follows\", and requiring \"multiple\" documents. While desirable, crowdsourcing is not feasible for MEDHOP since it requires specialist knowledge. In addition, the number of document paths is \\(\\approx 3\\mathrm{x}\\) larger, which along with the complexity of the documents greatly increases the annotation time. We thus manually annotated \\(20\\%\\) of the MEDHOP test set and identified the samples for which the text implies the correct answer and where multiple documents are required."
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    283,
+                    1234,
+                    657,
+                    1293
+                ],
+                "angle": 0,
+                "content": "6 Experiments"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1323,
+                    1249,
+                    1950
+                ],
+                "angle": 0,
+                "content": "This section describes experiments on WIKIHOP and MEDHOP with the goal of establishing the performance of several baseline models, including recent neural RC models. We empirically demonstrate the importance of mitigating dataset biases, probe whether multi-step behavior is beneficial for solving the task, and investigate if RC models can learn to perform lexical abstraction. Training will be conducted on the respective training sets, and evaluation on both the full test set and validated portion (Section 5.3) allowing for a comparison between the two."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    283,
+                    1983,
+                    550,
+                    2036
+                ],
+                "angle": 0,
+                "content": "6.1 Models"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2055,
+                    1249,
+                    2174
+                ],
+                "angle": 0,
+                "content": "Random Selects a random candidate; note that the number of candidates differs between samples."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2201,
+                    1249,
+                    2372
+                ],
+                "angle": 0,
+                "content": "Max-mention Predicts the most frequently mentioned candidate in the support documents \\( S_{q} \\) of a sample – randomly breaking ties."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2402,
+                    1249,
+                    2742
+                ],
+                "angle": 0,
+                "content": "Majority-candidate-per-query-type Predicts the candidate \\( c \\in C_q \\) that was most frequently observed as the true answer in the training set, given the query type of \\( q \\). For WIKIHOP, the query type is the property \\( p \\) of the query; for MEDHOP there is only the single query type – interacts_with."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2772,
+                    1249,
+                    2943
+                ],
+                "angle": 0,
+                "content": "TF-IDF Retrieval-based models are known to be strong QA baselines if candidate answers are provided (Clark et al., 2016; Welbl et al., 2017). They"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    231,
+                    2256,
+                    795
+                ],
+                "angle": 0,
+                "content": "search for individual documents based on keywords in the question, but typically do not combine information across documents. The purpose of this baseline is to see if it is possible to identify the correct answer from a single document alone through lexical correlations. The model forms its prediction as follows: For each candidate \\( c \\), the concatenation of the query \\( q \\) with \\( c \\) is fed as an \\( OR \\) query into the whoosh text retrieval engine. It then predicts the candidate with the highest TF-IDF similarity score:"
+            },
+            {
+                "block_id": 9,
+                "type": "equation",
+                "bbox": [
+                    1397,
+                    815,
+                    2254,
+                    917
+                ],
+                "angle": 0,
+                "content": "\\[\n\\underset {c \\in C _ {q}} {\\arg \\max } \\left[ \\underset {s \\in S _ {q}} {\\max } \\left(T F - I D F (q + c, s)\\right) \\right] \\tag {1}\n\\]"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    937,
+                    2256,
+                    1389
+                ],
+                "angle": 0,
+                "content": "Document-cue During dataset construction we observed that certain document-answer pairs appear more frequently than others, to the effect that the correct candidate is often indicated solely by the presence of certain documents in \\( S_{q} \\). This baseline captures how easy it is for a model to exploit these informative document-answer co-occurrences. It predicts the candidate with highest score across \\( C_{q} \\):"
+            },
+            {
+                "block_id": 11,
+                "type": "equation",
+                "bbox": [
+                    1384,
+                    1405,
+                    2254,
+                    1508
+                ],
+                "angle": 0,
+                "content": "\\[\n\\underset {c \\in C _ {q}} {\\arg \\max } \\left[ \\underset {d \\in S _ {q}} {\\max } \\left(\\operatorname {c o o c c u r n e} (d, c)\\right) \\right] \\tag {2}\n\\]"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    1524,
+                    2254,
+                    2828
+                ],
+                "angle": 0,
+                "content": "Extractive RC models: FastQA and BiDAF In our experiments we evaluate two recently proposed LSTM-based extractive QA models: the Bidirectional Attention Flow model (BiDAF, Seo et al. (2017a)), and FastQA (Weissenborn et al., 2017), which have shown a robust performance across several datasets. These models predict an answer span within a single document. We adapt them to a multi-document setting by sequentially concatenating all \\( d \\in S_q \\) in random order into a superdocument, adding document separator tokens. During training, the first answer mention in the concatenated document serves as the gold span.\\(^4\\) At test time, we measured accuracy based on the exact match between the prediction and answer, both lowercased, after removing articles, trailing white spaces and punctuation, in the same way as Rajpurkar et al. (2016). To rule out any signal stemming from the order of documents in the superdocument, this order is randomized both at training and test time. In a preliminary experiment we also trained models using different random document order permutations, but found that performance did not change significantly."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    1290,
+                    2847,
+                    2254,
+                    2943
+                ],
+                "angle": 0,
+                "content": "4 We also tested assigning the gold span randomly to any one of the mention of the answer, with insignificant changes."
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3026,
+                    1269,
+                    3069
+                ],
+                "angle": 0,
+                "content": "294"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    283,
+                    231,
+                    1257,
+                    851
+                ],
+                "angle": 0,
+                "content": "For BiDAF, the default hyperparameters from the implementation of Seo et al. (2017a) are used, with pretrained GloVe (Pennington et al., 2014) embeddings. However, we restrict the maximum document length to 8,192 tokens and hidden size to 20, and train for 5,000 iterations with batchsize 16 in order to fit the model into memory. For FastQA we use the implementation provided by the authors, also with pre-trained GloVe embeddings, no character-embeddings, no maximum support length, hidden size 50, and batch size 64 for 50 epochs."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    851,
+                    1254,
+                    1362
+                ],
+                "angle": 0,
+                "content": "While BiDAF and FastQA were initially developed and tested on single-hop RC datasets, their usage of bidirectional LSTMs and attention over the full sequence theoretically gives them the capacity to integrate information from different locations in the (super-)document. In addition, BiDAF employs iterative conditioning across multiple layers, potentially making it even better suited to integrate information found across the sequence."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    283,
+                    1399,
+                    1206,
+                    1452
+                ],
+                "angle": 0,
+                "content": "6.2 Lexical Abstraction: Candidate Masking"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1471,
+                    1252,
+                    2544
+                ],
+                "angle": 0,
+                "content": "The presence of lexical regularities among answers is a problem in RC dataset assembly - a phenomenon already observed by Hermann et al. (2015). When comprehending a text, the correct answer should become clear from its context - rather than from an intrinsic property of the answer expression. To evaluate the ability of models to rely on context alone, we created masked versions of the datasets: we replace any candidate expression randomly using 100 unique placeholder tokens, e.g. \"Mumbai is the most populous city in MASK7.\" Masking is consistent within one sample, but generally different for the same expression across samples. This not only removes answer frequency cues, it also removes statistical correlations between frequent answer strings and support documents. Models consequently cannot base their prediction on intrinsic properties of the answer expression, but have to rely on the context surrounding the mentions."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    283,
+                    2580,
+                    851,
+                    2630
+                ],
+                "angle": 0,
+                "content": "6.3 Results and Discussion"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2653,
+                    1249,
+                    2821
+                ],
+                "angle": 0,
+                "content": "Table 5 shows the experimental outcomes for WIKIHOP and MEDHOP, together with results for the masked setting; we will first discuss the former. A"
+            },
+            {
+                "block_id": 6,
+                "type": "table",
+                "bbox": [
+                    1397,
+                    224,
+                    2162,
+                    547
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Model</td><td>Unfiltered</td><td>Filtered</td></tr><tr><td>Document-cue</td><td>74.6</td><td>36.7</td></tr><tr><td>Maj. candidate</td><td>41.2</td><td>38.8</td></tr><tr><td>TF-IDF</td><td>43.8</td><td>25.6</td></tr><tr><td>Train set size</td><td>527,773</td><td>43,738</td></tr></table>",
+                "caption": "Table 4: Accuracy comparison for simple baseline models on WIKIHOP before and after filtering."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    792,
+                    2256,
+                    1353
+                ],
+                "angle": 0,
+                "content": "first observation is that candidate mention frequency does not produce better predictions than a random guess. Predicting the answer most frequently observed at training time achieves strong results: as much as \\(38.8\\% / 44.2\\%\\) and \\(58.4\\% / 67.3\\%\\) on the two datasets, for the full and validated test sets respectively. That is, a simple frequency statistic together with answer type constraints alone is a relatively strong predictor, and the strongest overall for the \"unmasked\" version of MEDHOP."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    1359,
+                    2254,
+                    1980
+                ],
+                "angle": 0,
+                "content": "The TF-IDF retrieval baseline clearly performs better than random for WIKIHOP, but is not very strong overall. That is, the question tokens are helpful to detect relevant documents, but exploiting only this information compares poorly to the other baselines. On the other hand, as no co-mention of an interacting drug pair occurs within any single document in MEDHOP, the TF-IDF baseline performs worse than random. We conclude that lexical matching with a single support document is not enough to build a strong predictive model for both datasets."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    1983,
+                    2254,
+                    2943
+                ],
+                "angle": 0,
+                "content": "The Document-cue baseline can predict more than a third of the samples correctly, for both datasets, even after sub-sampling frequent document-answer pairs for WIKIHOP. The relative strength of this and other baselines proves to be an important issue when designing multi-hop datasets, which we addressed through the measures described in Section 3.2. In Table 4 we compare the two relevant baselines on WIKIHOP before and after applying filtering measures. The absolute strength of these baselines before filtering shows how vital addressing this issue is: \\(74.6\\%\\) accuracy could be reached through exploiting the cooccurrence \\((d, c)\\) statistic alone. This underlines the paramount importance of investigating and addressing dataset biases that otherwise would confound seemingly strong RC model performance. The relative drop demonstrates that"
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2844,
+                    1249,
+                    2943
+                ],
+                "angle": 0,
+                "content": "5 The superdocument has a larger number of tokens compared to e.g. SQuAD, thus the additional memory requirements."
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3026,
+                    1264,
+                    3069
+                ],
+                "angle": 0,
+                "content": "295"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    379,
+                    224,
+                    2170,
+                    834
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"3\">Model</td><td colspan=\"4\">WIKIHOP</td><td colspan=\"4\">MEDHOP</td></tr><tr><td colspan=\"2\">standard</td><td colspan=\"2\">masked</td><td colspan=\"2\">standard</td><td colspan=\"2\">masked</td></tr><tr><td>test</td><td>test*</td><td>test</td><td>test*</td><td>test</td><td>test*</td><td>test</td><td>test*</td></tr><tr><td>Random</td><td>11.5</td><td>12.2</td><td>12.2</td><td>13.0</td><td>13.9</td><td>20.4</td><td>14.1</td><td>22.4</td></tr><tr><td>Max-mention</td><td>10.6</td><td>15.9</td><td>13.9</td><td>20.1</td><td>9.5</td><td>16.3</td><td>9.2</td><td>16.3</td></tr><tr><td>Majority-candidate-per-query-type</td><td>38.8</td><td>44.2</td><td>12.0</td><td>13.7</td><td>58.4</td><td>67.3</td><td>10.4</td><td>6.1</td></tr><tr><td>TF-IDF</td><td>25.6</td><td>36.7</td><td>14.4</td><td>24.2</td><td>9.0</td><td>14.3</td><td>8.8</td><td>14.3</td></tr><tr><td>Document-cue</td><td>36.7</td><td>41.7</td><td>7.4</td><td>20.3</td><td>44.9</td><td>53.1</td><td>15.2</td><td>16.3</td></tr><tr><td>FastQA</td><td>25.7</td><td>27.2</td><td>35.8</td><td>38.0</td><td>23.1</td><td>24.5</td><td>31.3</td><td>30.6</td></tr><tr><td>BiDAF</td><td>42.9</td><td>49.7</td><td>54.5</td><td>59.8</td><td>47.8</td><td>61.2</td><td>33.7</td><td>42.9</td></tr></table>",
+                "caption": "Table 5: Test accuracies for the WIKIHOP and MEDHOP datasets, both in standard (unmasked) and masked setup. Columns marked with asterisk are for the validated portion of the dataset."
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    568,
+                    1029,
+                    1983,
+                    1471
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"3\">Model</td><td colspan=\"4\">WIKIHOP</td><td colspan=\"4\">MEDHOP</td></tr><tr><td colspan=\"2\">standard</td><td colspan=\"2\">gold chain</td><td colspan=\"2\">standard</td><td colspan=\"2\">gold chain</td></tr><tr><td>test</td><td>test*</td><td>test</td><td>test*</td><td>test</td><td>test*</td><td>test</td><td>test*</td></tr><tr><td>BiDAF</td><td>42.9</td><td>49.7</td><td>57.9</td><td>63.4</td><td>47.8</td><td>61.2</td><td>86.4</td><td>89.8</td></tr><tr><td>BiDAF mask</td><td>54.5</td><td>59.8</td><td>81.2</td><td>85.7</td><td>33.7</td><td>42.9</td><td>99.3</td><td>100.0</td></tr><tr><td>FastQA</td><td>25.7</td><td>27.2</td><td>44.5</td><td>53.5</td><td>23.1</td><td>24.5</td><td>54.6</td><td>59.2</td></tr><tr><td>FastQA mask</td><td>35.8</td><td>38.0</td><td>65.3</td><td>70.0</td><td>31.3</td><td>30.6</td><td>51.8</td><td>55.1</td></tr></table>",
+                "caption": "Table 6: Test accuracy comparison when only using documents leading to the correct answer (gold chain). Columns with asterisk hold results for the validated samples."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1709,
+                    1249,
+                    1937
+                ],
+                "angle": 0,
+                "content": "the measures undertaken successfully mitigate the issue. A downside to aggressive filtering is a significantly reduced dataset size, rendering it infeasible for smaller datasets like MEDHOP."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1960,
+                    1249,
+                    2643
+                ],
+                "angle": 0,
+                "content": "Among the two neural models, BiDAF is overall strongest across both datasets – this is in contrast to the reported results for SQuAD where their performance is nearly indistinguishable. This is possibly due to the iterative latent interactions in the BiDAF architecture: we hypothesize that these are of increased importance for our task, where information is distributed across documents. It is worth emphasizing that unlike the other baselines, both FastQA and BiDAF predict the answer by extracting a span from the support documents without relying on the candidate options \\( C_q \\)."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2663,
+                    1249,
+                    2943
+                ],
+                "angle": 0,
+                "content": "In the masked setup all baseline models reliant on lexical cues fail in the face of the randomized answer expressions, since the same answer option has different placeholders in different samples. Especially on MEDHOP, where dataset sub-sampling is not a"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    1709,
+                    2254,
+                    1880
+                ],
+                "angle": 0,
+                "content": "viable option, masking proves to be a valuable alternative, effectively circumventing spurious statistical correlations that RC models can learn to exploit."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    1904,
+                    2256,
+                    2864
+                ],
+                "angle": 0,
+                "content": "Both neural RC models are able to largely retain or even improve their strong performance when answers are masked: they are able to leverage the textual context of the candidate expressions. To understand differences in model behavior between WIKIHOP and MEDHOP, it is worth noting that drug mentions in MEDHOP are normalized to a unique single-word identifier, and performance drops under masking. In contrast, for the open-domain setting of WIKIHOP, a reduction of the answer vocabulary to 100 random single-token mask expressions clearly helps the model in selecting a candidate span, compared to the multi-token candidate expressions in the unmasked setting. Overall, although both neural RC models clearly outperform the other baselines, they still have large room for improvement compared to human performance at \\(74\\% / 85\\%\\) for WIKIHOP."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1338,
+                    2887,
+                    2254,
+                    2943
+                ],
+                "angle": 0,
+                "content": "Comparing results on the full and validated test"
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3029,
+                    1264,
+                    3069
+                ],
+                "angle": 0,
+                "content": "296"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    354,
+                    224,
+                    1185,
+                    600
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td colspan=\"2\">WIKIHOP</td><td colspan=\"2\">MEDHOP</td></tr><tr><td></td><td>test</td><td>test*</td><td>test</td><td>test*</td></tr><tr><td>BiDAF</td><td>54.5</td><td>59.8</td><td>33.7</td><td>42.9</td></tr><tr><td>BiDAF rem</td><td>44.6</td><td>57.7</td><td>30.4</td><td>36.7</td></tr><tr><td>FastQA</td><td>35.8</td><td>38.0</td><td>31.3</td><td>30.6</td></tr><tr><td>FastQA rem</td><td>38.0</td><td>41.2</td><td>28.6</td><td>24.5</td></tr></table>",
+                "caption": "Table 7: Test accuracy (masked) when only documents containing answer candidates are given (rem)."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    848,
+                    1249,
+                    1128
+                ],
+                "angle": 0,
+                "content": "sets, we observe that the results consistently improve on the validated sets. This suggests that the training set contains the signal necessary to make inference on valid samples at test time, and that noisy samples are harder to predict."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    283,
+                    1171,
+                    1002,
+                    1227
+                ],
+                "angle": 0,
+                "content": "6.4 Using only relevant documents"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1247,
+                    1249,
+                    2544
+                ],
+                "angle": 0,
+                "content": "We conducted further experiments to examine the RC models when presented with only the relevant documents in \\( S_{q} \\), i.e., the chain of documents leading to the correct answer. This allows us to investigate the hypothetical performance of the models if they were able to select and read only relevant documents: Table 6 summarizes these results. Models improve greatly in this gold chain setup, with up to \\( 81.2\\% / 85.7\\% \\) on WIKIHOP in the masked setting for BiDAF. This demonstrates that RC models are capable of identifying the answer when few or no plausible false candidates are mentioned, which is particularly evident for MEDHOP, where documents tend to discuss only single drug candidates. In the masked gold chain setup, models can then pick up on what the masking template looks like and achieve almost perfect scores. Conversely, these results also show that the models' answer selection process is not robust to the introduction of unrelated documents with type-consistent candidates. This indicates that learning to intelligently select relevant documents before RC may be among the most promising directions for future model development."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    283,
+                    2587,
+                    989,
+                    2640
+                ],
+                "angle": 0,
+                "content": "6.5 Removing relevant documents"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2659,
+                    1249,
+                    2943
+                ],
+                "angle": 0,
+                "content": "To investigate if the neural RC models can draw upon information requiring multi-step inference we designed an experiment where we discard all documents that do not contain candidate mentions, including the first documents traversed. Table 7 shows"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    231,
+                    2256,
+                    795
+                ],
+                "angle": 0,
+                "content": "the results: we can observe that performance drops across the board for BiDAF. There is a significant drop of \\(3.3\\% / 6.2\\%\\) on MEDHOP, and \\(10.0\\% / 2.1\\%\\) on WIKIHOP, demonstrating that BiDAF, is able to leverage cross-document information. FastQA shows a slight increase of \\(2.2\\% / 3.2\\%\\) for WIKIHOP and a decrease of \\(2.7\\% / 4.1\\%\\) on MEDHOP. While inconclusive, it is clear that FastQA with fewer latent interactions than BiDAF has problems integrating cross-document information."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1295,
+                    841,
+                    1680,
+                    894
+                ],
+                "angle": 0,
+                "content": "7 Related Work"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    930,
+                    2256,
+                    2402
+                ],
+                "angle": 0,
+                "content": "Related Datasets End-to-end text-based QA has witnessed a surge in interest with the advent of large-scale datasets, which have been assembled based on FREEBASE (Berant et al., 2013; Bordes et al., 2015), WIKIPEDIA (Yang et al., 2015; Rajpurkar et al., 2016; Hewlett et al., 2016), web search queries (Nguyen et al., 2016), news articles (Hermann et al., 2015; Onishi et al., 2016), books (Hill et al., 2016; Paperno et al., 2016), science exams (Welbl et al., 2017), and trivia (Boyd-Graber et al., 2012; Dunn et al., 2017). Besides TriviaQA (Joshi et al., 2017), all these datasets are confined to single documents, and RC typically does not require a combination of multiple independent facts. In contrast, WIKIHOP and MEDHOP are specifically designed for cross-document RC and multi-step inference. There exist other multi-hop RC resources, but they are either very limited in size, such as the FraCaS test suite, or based on synthetic language (Weston et al., 2016). TriviaQA partly involves multi-step reasoning, but the complexity largely stems from parsing compositional questions. Our datasets center around compositional inference from comparatively simple queries and the cross-document setup ensures that multi-step inference goes beyond resolving co-reference."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    2435,
+                    2261,
+                    2943
+                ],
+                "angle": 0,
+                "content": "Compositional Knowledge Base Inference Combining multiple facts is common for structured knowledge resources which formulate facts using first-order logic. KB inference methods include Inductive Logic Programming (Quinlan, 1990; Pazzani et al., 1991; Richards and Mooney, 1991) and probabilistic relaxations to logic like Markov Logic (Richardson and Domingos, 2006; Schoenmackers et al., 2008). These approaches suffer from"
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3026,
+                    1264,
+                    3069
+                ],
+                "angle": 0,
+                "content": "297"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    283,
+                    231,
+                    1257,
+                    1023
+                ],
+                "angle": 0,
+                "content": "limited coverage and inefficient inference, though efforts to circumvent sparsity have been undertaken (Schoenmackers et al., 2008; Schoenmackers et al., 2010). A more scalable approach to composite rule learning is the Path Ranking Algorithm (Lao and Cohen, 2010; Lao et al., 2011), which performs random walks to identify salient paths between entities. Gardner et al. (2013) circumvent these sparsity problems by introducing synthetic links via dense latent embeddings. Several other methods have been proposed, using composition functions such as vector addition (Bordes et al., 2014), RNNs (Neelakantan et al., 2015; Das et al., 2017), and memory networks (Jain, 2016)."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1026,
+                    1257,
+                    1989
+                ],
+                "angle": 0,
+                "content": "All of these previous approaches center around learning how to combine facts from a KB, i.e., in a structured form with pre-defined schema. That is, they work as part of a pipeline, and either rely on the output of a previous IE step (Banko et al., 2007), or on direct human annotation (Bollacker et al., 2008) which tends to be costly and biased in coverage. However, recent neural RC methods (Seo et al., 2017a; Shen et al., 2017) have demonstrated that end-to-end language understanding approaches can infer answers directly from text - sidestepping intermediate query parsing and IE steps. Our work aims to evaluate whether end-to-end multi-step RC models can indeed operate on raw text documents only - while performing the kind of inference most commonly associated with logical inference methods operating on structured knowledge."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    283,
+                    2039,
+                    1249,
+                    2092
+                ],
+                "angle": 0,
+                "content": "Text-Based Multi-Step Reading Comprehension"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2098,
+                    1254,
+                    2943
+                ],
+                "angle": 0,
+                "content": "Fried et al. (2015) have demonstrated that exploiting information from other related documents based on lexical semantic similarity is beneficial for re-ranking answers in open-domain non-factoid QA. Jansen et al. (2017) chain textual background resources for science exam QA and provide multisentence answer explanations. Beyond, a rich collection of neural models tailored towards multi-step RC has been developed. Memory networks (Weston et al., 2015; Sukhbaatar et al., 2015; Kumar et al., 2016) define a model class that iteratively attends over textual memory items, and they show promising performance on synthetic tasks requiring multi-step reasoning (Weston et al., 2016). One common characteristic of neural multi-hop models"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    231,
+                    2261,
+                    966
+                ],
+                "angle": 0,
+                "content": "is their rich structure that enables matching and interaction between question, context, answer candidates and combinations thereof (Peng et al., 2015; Weissenborn, 2016; Xiong et al., 2017; Liu and Perez, 2017), which is often iterated over several times (Sordoni et al., 2016; Neumann et al., 2016; Seo et al., 2017b; Hu et al., 2017) and may contain trainable stopping mechanisms (Graves, 2016; Shen et al., 2017). All these methods show promise for single-document RC, and by design should be capable of integrating multiple facts across documents. However, thus far they have not been evaluated for a cross-document multi-step RC task – as in this work."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    999,
+                    2261,
+                    1567
+                ],
+                "angle": 0,
+                "content": "Learning Search Expansion Other research addresses expanding the document set available to a QA system, either in the form of web navigation (Nogueira and Cho, 2016), or via query reformulation techniques, which often use neural reinforcement learning (Narasimhan et al., 2016; Nogueira and Cho, 2017; Buck et al., 2018). While related, this work ultimately aims at reformulating queries to better acquire evidence documents, and not at answering queries through combining facts."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    1292,
+                    1607,
+                    2027,
+                    1659
+                ],
+                "angle": 0,
+                "content": "8 Conclusions and Future Work"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    1699,
+                    2256,
+                    2372
+                ],
+                "angle": 0,
+                "content": "We have introduced a new cross-document multihop RC task, devised a generic dataset derivation strategy and applied it to two separate domains. The resulting datasets test RC methods in their ability to perform composite reasoning – something thus far limited to models operating on structured knowledge resources. In our experiments we found that contemporary RC models can leverage cross-document information, but a sizeable gap to human performance remains. Finally, we identified the selection of relevant document sets as the most promising direction for future research."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    2379,
+                    2261,
+                    2943
+                ],
+                "angle": 0,
+                "content": "Thus far, our datasets center around factoid questions about entities, and as extractive RC datasets, it is assumed that the answer is mentioned verbatim. While this limits the types of questions one can ask, these assumptions can facilitate both training and evaluation, and future work – once free-form abstractive answer composition has advanced – should move beyond. We hope that our work will foster research on cross-document information integration, working towards these long term goals."
+            },
+            {
+                "block_id": 9,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3026,
+                    1264,
+                    3069
+                ],
+                "angle": 0,
+                "content": "298"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    290,
+                    231,
+                    696,
+                    287
+                ],
+                "angle": 0,
+                "content": "Acknowledgments"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    330,
+                    1257,
+                    950
+                ],
+                "angle": 0,
+                "content": "We would like to thank the reviewers and the action editor for their thoughtful and constructive suggestions, as well as Matko Bošnjak, Tim Dettmers, Pasquale Minervini, Jeff Mitchell, and Sebastian Ruder for several helpful comments and feedback on drafts of this paper. This work was supported by an Allen Distinguished Investigator Award, a Marie Curie Career Integration Award, the EU H2020 SUMMA project (grant agreement number 688139), and an Engineering and Physical Sciences Research Council scholarship."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    290,
+                    1049,
+                    535,
+                    1102
+                ],
+                "angle": 0,
+                "content": "References"
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    1141,
+                    1249,
+                    1587
+                ],
+                "angle": 0,
+                "content": "Michael Ashburner, Catherine A. Ball, Judith A. Blake, David Botstein, Heather Butler, J. Michael Cherry, Allan P. Davis, Kara Dolinski, Selina S. Dwight, Janan T. Eppig, Midori A. Harris, David P. Hill, Laurie Issel-Tarver, Andrew Kasarskis, Suzanne Lewis, John C. Matese, Joel E. Richardson, Martin Ringwald, Gerald M. Rubin, and Gavin Sherlock. 2000. Gene ontology: tool for the unification of biology. Nature Genetics, 25(1):25."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    1603,
+                    1249,
+                    1798
+                ],
+                "angle": 0,
+                "content": "Amos Bairoch, Brigitte Boeckmann, Serenella Ferro, and Elisabeth Gasteiger. 2004. Swiss-Prot: Juggling between evolution and stability. *Briefings in Bioinformatics*, 5(1):39–55."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    1811,
+                    1249,
+                    2059
+                ],
+                "angle": 0,
+                "content": "Michele Banko, Michael J. Cafarella, Stephen Soderland, Matt Broadhead, and Oren Etzioni. 2007. Open information extraction from the web. In Proceedings of the 20th International Joint Conference on Artificial Intelligence, IJCAI'07, pages 2670-2676."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    2072,
+                    1249,
+                    2319
+                ],
+                "angle": 0,
+                "content": "Jonathan Berant, Andrew Chou, Roy Frostig, and Percy Liang. 2013. Semantic parsing on freebase from question-answer pairs. In Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing, pages 1533-1544."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    2333,
+                    1249,
+                    2630
+                ],
+                "angle": 0,
+                "content": "Tamara Bobic, Roman Klinger, Philippe Thomas, and Martin Hofmann-Apitius. 2012. Improving distantly supervised extraction of drug-drug and protein-protein interactions. In Proceedings of the Joint Workshop on Unsupervised and Semi-Supervised Learning in NLP, pages 35-43."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    2643,
+                    1249,
+                    2940
+                ],
+                "angle": 0,
+                "content": "Kurt Bollacker, Colin Evans, Praveen Paritosh, Tim Sturge, and Jamie Taylor. 2008. Freebase: a collaboratively created graph database for structuring human knowledge. In SIGMOD '08 Proceedings of the 2008 ACM SIGMOD international conference on Management of data, pages 1247-1250."
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    293,
+                    1141,
+                    1249,
+                    2940
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    234,
+                    2256,
+                    432
+                ],
+                "angle": 0,
+                "content": "Antoine Bordes, Sumit Chopra, and Jason Weston. 2014. Question answering with subgraph embeddings. In Empirical Methods for Natural Language Processing (EMNLP), pages 615-620."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    438,
+                    2256,
+                    630
+                ],
+                "angle": 0,
+                "content": "Antoine Bordes, Nicolas Usunier, Sumit Chopra, and Jason Weston. 2015. Large-scale simple question answering with memory networks. CoRR, abs/1506.02075."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    640,
+                    2256,
+                    983
+                ],
+                "angle": 0,
+                "content": "Jordan Boyd-Graber, Brianna Satinoff, He He, and Hal Daumé, III. 2012. Besting the quiz master: Crowdsourcing incremental classification games. In Proceedings of the 2012 Joint Conference on Empirical Methods in Natural Language Processing and Computational Natural Language Learning, EMNLP-CoNLL '12, pages 1290-1301."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    990,
+                    2256,
+                    1283
+                ],
+                "angle": 0,
+                "content": "Christian Buck, Jannis Bulian, Massimiliano Ciaramita, Andrea Gesmundo, Neil Houlsby, Wojciech Gajewski, and Wei Wang. 2018. Ask the right questions: Active question reformulation with reinforcement learning. International Conference on Learning Representations (ICLR)."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    1290,
+                    2256,
+                    1435
+                ],
+                "angle": 0,
+                "content": "Claudio Carpineto and Giovanni Romano. 2012. A survey of automatic query expansion in information retrieval. ACM Comput. Surv., 44(1):1:1-1:50, January."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    1442,
+                    2256,
+                    1732
+                ],
+                "angle": 0,
+                "content": "Danqi Chen, Jason Bolton, and Christopher D. Manning. 2016. A thorough examination of the CNN/Daily Mail reading comprehension task. In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 2358-2367."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    1739,
+                    2256,
+                    2039
+                ],
+                "angle": 0,
+                "content": "Peter Clark, Oren Etzioni, Tushar Khot, Ashish Sabharwal, Oyvind Tafjord, Peter Turney, and Daniel Khashabi. 2016. Combining retrieval, statistics, and inference to answer elementary science questions. In Proceedings of the Thirtieth AAAI Conference on Artificial Intelligence, AAAI'16, pages 2580-2586."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    2042,
+                    2256,
+                    2237
+                ],
+                "angle": 0,
+                "content": "Kevin Bretonnel Cohen and Lawrence Hunter. 2004. Natural language processing and systems biology. Artificial Intelligence Methods and Tools for Systems Biology, pages 147-173."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    2244,
+                    2256,
+                    2491
+                ],
+                "angle": 0,
+                "content": "Mark Craven and Johan Kumlien. 1999. Constructing biological knowledge bases by extracting information from text sources. In Proceedings of the Seventh International Conference on Intelligent Systems for Molecular Biology, pages 77-86."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    2494,
+                    2256,
+                    2742
+                ],
+                "angle": 0,
+                "content": "Rajarshi Das, Arvind Neelakantan, David Belanger, and Andrew McCallum. 2017. Chains of reasoning over entities, relations, and text using recurrent neural networks. European Chapter of the Association for Computational Linguistics (EACL), pages 132-141."
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    2745,
+                    2256,
+                    2940
+                ],
+                "angle": 0,
+                "content": "Matthew Dunn, Levent Sagun, Mike Higgins, V. Ugur Güney, Volkan Cirik, and Kyunghyun Cho. 2017. SearchQA: A new Q&A dataset augmented with context from a search engine. CoRR, abs/1704.05179."
+            },
+            {
+                "block_id": 21,
+                "type": "list",
+                "bbox": [
+                    1300,
+                    234,
+                    2256,
+                    2940
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 22,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3029,
+                    1264,
+                    3069
+                ],
+                "angle": 0,
+                "content": "299"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    234,
+                    1249,
+                    729
+                ],
+                "angle": 0,
+                "content": "Antonio Fabregat, Konstantinos Sidiropoulos, Phani Garapati, Marc Gillespie, Kerstin Hausmann, Robin Haw, Bijay Jassal, Steven Jupe, Florian Korninger, Sheldon McKay, Lisa Matthews, Bruce May, Marija Milacic, Karen Rothfels, Veronica Shamovsky, Marissa Webber, Joel Weiser, Mark Williams, Guanming Wu, Lincoln Stein, Henning Hermjakob, and Peter D'Eustachio. 2016. The Reactome pathway knowledgebase. Nucleic Acids Research, 44(D1):D481-D487."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    735,
+                    1249,
+                    983
+                ],
+                "angle": 0,
+                "content": "Daniel Fried, Peter Jansen, Gustave Hahn-Powell, Mihai Surdeanu, and Peter Clark. 2015. Higher-order lexical semantic models for non-factoid answer reranking. Transactions of the Association of Computational Linguistics, 3:197-210."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    986,
+                    1249,
+                    1277
+                ],
+                "angle": 0,
+                "content": "Matt Gardner, Partha Pratim Talukdar, Bryan Kisiel, and Tom M. Mitchell. 2013. Improving learning and inference in a large knowledge-base using latent syntactic cues. In Proceedings of the Conference on Empirical Methods in Natural Language Processing, pages 833-838."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    1287,
+                    1246,
+                    1382
+                ],
+                "angle": 0,
+                "content": "Alex Graves. 2016. Adaptive computation time for recurrent neural networks. CoRR, abs/1603.08983."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    1389,
+                    1249,
+                    1782
+                ],
+                "angle": 0,
+                "content": "Harsha Gurulingappa, Abdul Mateen Rajput, Angus Roberts, Juliane Fluck, Martin Hofmann-Apitius, and Luca Toldo. 2012. Development of a benchmark corpus to support the automatic extraction of drug-related adverse effects from medical case reports. Journal of Biomedical Informatics, 45(5):885 - 892. Text Mining and Natural Language Processing in Pharmacogenomics."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    1788,
+                    1249,
+                    2036
+                ],
+                "angle": 0,
+                "content": "Karl Moritz Hermann, Tomas Kocisky, Edward Grefenstette, Lasse Espeholt, Will Kay, Mustafa Suleyman, and Phil Blunsom. 2015. Teaching machines to read and comprehend. In Advances in Neural Information Processing Systems, pages 1693-1701."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    2039,
+                    1246,
+                    2184
+                ],
+                "angle": 0,
+                "content": "William Hersh, Aaron Cohen, Lynn Ruslen, and Phoebe Roberts. 2007. TREC 2007 genomics track overview. In NIST Special Publication."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    2191,
+                    1249,
+                    2537
+                ],
+                "angle": 0,
+                "content": "Daniel Hewlett, Alexandre Lacoste, Llion Jones, Illia Polosukhin, Andrew Fandrianto, Jay Han, Matthew Kelcey, and David Berthelot. 2016. WIKIREADINGING: A novel large-scale language understanding task over Wikipedia. In Proceedings of the The 54th Annual Meeting of the Association for Computational Linguistics (ACL 2016), pages 1535-1545."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    2541,
+                    1249,
+                    2735
+                ],
+                "angle": 0,
+                "content": "Felix Hill, Antoine Bordes, Sumit Chopra, and Jason Weston. 2016. The goldilocks principle: Reading children's books with explicit memory representations. *ICLR*."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    2742,
+                    1249,
+                    2940
+                ],
+                "angle": 0,
+                "content": "Lynette Hirschman, Alexander Yeh, Christian Blaschke, and Alfonso Valencia. 2005. Overview of BioCreativeIvE: Critical assessment of information extraction for biology. BMC Bioinformatics, 6(1):S1, May."
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    293,
+                    234,
+                    1249,
+                    2940
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    234,
+                    2251,
+                    379
+                ],
+                "angle": 0,
+                "content": "Minghao Hu, Yuxing Peng, and Xipeng Qiu. 2017. Mnemonic reader for machine comprehension. CoRR, abs/1705.02798."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    389,
+                    2251,
+                    541
+                ],
+                "angle": 0,
+                "content": "Sarthak Jain. 2016. Question answering over knowledge base using factual memory networks. In Proceedings of NAACL-HLT, pages 109-115."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    547,
+                    2251,
+                    742
+                ],
+                "angle": 0,
+                "content": "Peter Jansen, Rebecca Sharp, Mihai Surdeanu, and Peter Clark. 2017. Framing QA as building and ranking intersentence answer justifications. Computational Linguistics, 43(2):407-449."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    752,
+                    2251,
+                    947
+                ],
+                "angle": 0,
+                "content": "Robin Jia and Percy Liang. 2017. Adversarial examples for evaluating reading comprehension systems. In Empirical Methods in Natural Language Processing (EMNLP)."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    956,
+                    2251,
+                    1207
+                ],
+                "angle": 0,
+                "content": "Mandar Joshi, Eunsol Choi, Daniel S. Weld, and Luke Zettlemoyer. 2017. TriviaQA: A large scale distantly supervised challenge dataset for reading comprehension. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics, July."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    1214,
+                    2251,
+                    1458
+                ],
+                "angle": 0,
+                "content": "Rudolf Kadlec, Martin Schmid, Ondrej Bajgar, and Jan Kleindienst. 2016. Text understanding with the attention sum reader network. Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics, pages 908-918."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    1468,
+                    2251,
+                    1666
+                ],
+                "angle": 0,
+                "content": "Jin-Dong Kim, Yue Wang, Toshihisa Takagi, and Akinori Yonezawa. 2011. Overview of Genia event task in BioNLP shared task 2011. In Proceedings of BioNLP Shared Task 2011 Workshop, pages 7-15."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    1673,
+                    2251,
+                    1970
+                ],
+                "angle": 0,
+                "content": "Ankit Kumar, Ozan Irsoy, Peter Ondruska, Mohit Iyyer, Ishaan Gulrajani James Bradbury, Victor Zhong, Romain Paulus, and Richard Socher. 2016. Ask me anything: Dynamic memory networks for natural language processing. International Conference on Machine Learning, 48:1378-1387."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    1976,
+                    2251,
+                    2125
+                ],
+                "angle": 0,
+                "content": "J. Richard Landis and Gary G. Koch. 1977. The measurement of observer agreement for categorical data. Biometrics, pages 159-174."
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    2131,
+                    2251,
+                    2280
+                ],
+                "angle": 0,
+                "content": "Ni Lao and William W Cohen. 2010. Relational retrieval using a combination of path-constrained random walks. Machine learning, 81(1):53-67."
+            },
+            {
+                "block_id": 21,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    2286,
+                    2251,
+                    2537
+                ],
+                "angle": 0,
+                "content": "Ni Lao, Tom Mitchell, and William W. Cohen. 2011 Random walk inference and learning in a large scale knowledge base. In Proceedings of the Conference on Empirical Methods in Natural Language Processing, pages 529-539."
+            },
+            {
+                "block_id": 22,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    2541,
+                    2251,
+                    2940
+                ],
+                "angle": 0,
+                "content": "Vivian Law, Craig Knox, Yannick Djoumbou, Tim Jewison, An Chi Guo, Yifeng Liu, Adam Maciejewski, David Arndt, Michael Wilson, Vanessa Neveu, Alexandra Tang, Geraldine Gabriel, Carol Ly, Sakina Adamjee, Zerihun T. Dame, Beomsoo Han, You Zhou, and David S. Wishart. 2014. DrugBank 4.0: Shedding new light on drug metabolism. *Nucleic Acids Research*, 42(D1):D1091–D1097."
+            },
+            {
+                "block_id": 23,
+                "type": "list",
+                "bbox": [
+                    1300,
+                    234,
+                    2251,
+                    2940
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 24,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3029,
+                    1267,
+                    3069
+                ],
+                "angle": 0,
+                "content": "300"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    234,
+                    1249,
+                    485
+                ],
+                "angle": 0,
+                "content": "Omer Levy, Minjoon Seo, Eunsol Choi, and Luke Zettle-moyer. 2017. Zero-shot relation extraction via reading comprehension. In Proceedings of the 21st Conference on Computational Natural Language Learning (CoNLL 2017), pages 333-342, August."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    488,
+                    1249,
+                    633
+                ],
+                "angle": 0,
+                "content": "Dekang Lin and Patrick Pantel. 2001. Discovery of inference rules for question-answering. Nat. Lang. Eng., 7(4):343-360, December."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    640,
+                    1249,
+                    887
+                ],
+                "angle": 0,
+                "content": "Fei Liu and Julien Perez. 2017. Gated end-to-end memory networks. In Proceedings of the 15th Conference of the European Chapter of the Association for Computational Linguistics, EACL 2017, Volume 1: Long Papers, pages 1-10."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    891,
+                    1249,
+                    1184
+                ],
+                "angle": 0,
+                "content": "Mike Mintz, Steven Bills, Rion Snow, and Daniel Jurafsky. 2009. Distant supervision for relation extraction without labeled data. In Proceedings of the Joint Conference of the 47th Annual Meeting of the ACL and the 4th International Joint Conference on Natural Language Processing of the AFNLP, pages 1003-1011."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    1191,
+                    1249,
+                    1438
+                ],
+                "angle": 0,
+                "content": "Alvaro Morales, Varot Premtoon, Cordelia Avery, Sue Felshin, and Boris Katz. 2016. Learning to answer questions from Wikipedia infoboxes. In Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing, pages 1930-1935."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    1442,
+                    1249,
+                    1735
+                ],
+                "angle": 0,
+                "content": "Karthik Narasimhan, Adam Yala, and Regina Barzilay. 2016. Improving information extraction by acquiring external evidence with reinforcement learning. In Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing, EMNLP 2016, pages 2355-2365."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    1742,
+                    1252,
+                    2039
+                ],
+                "angle": 0,
+                "content": "Arvind Neelakantan, Benjamin Roth, and Andrew McCallum. 2015. Compositional vector space models for knowledge base completion. Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing, pages 156-166."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    2042,
+                    1249,
+                    2237
+                ],
+                "angle": 0,
+                "content": "Anastasios Nentidis, Konstantinos Bougiatiotis, Anastasia Krithara, Georgios Paliouras, and Ioannis Kakadiaris. 2017. Results of the fifth edition of the BioASQ challenge. In *BioNLP* 2017, pages 48-57."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    2244,
+                    1249,
+                    2534
+                ],
+                "angle": 0,
+                "content": "Mark Neumann, Pontus Stenetorp, and Sebastian Riedel. 2016. Learning to reason with adaptive computation. In Interpretable Machine Learning for Complex Systems at the 2016 Conference on Neural Information Processing Systems (NIPS), Barcelona, Spain, December."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    2541,
+                    1249,
+                    2785
+                ],
+                "angle": 0,
+                "content": "Tri Nguyen, Mir Rosenberg, Xia Song, Jianfeng Gao, Saurabh Tiwary, Rangan Majumder, and Li Deng. 2016. MS MARCO: A human generated machine reading comprehension dataset. CoRR, abs/1611.09268."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2791,
+                    1249,
+                    2943
+                ],
+                "angle": 0,
+                "content": "Rodrigo Nogueira and Kyunghyun Cho. 2016. WebNav: A new large-scale task for natural language based sequential decision making. CoRR, abs/1602.02261."
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    290,
+                    234,
+                    1252,
+                    2943
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    234,
+                    2256,
+                    485
+                ],
+                "angle": 0,
+                "content": "Rodrigo Nogueira and Kyunghyun Cho. 2017. Task-oriented query reformulation with reinforcement learning. Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, pages 574-583."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    495,
+                    2256,
+                    795
+                ],
+                "angle": 0,
+                "content": "Takeshi Onishi, Hai Wang, Mohit Bansal, Kevin Gimpel, and David A. McAllester. 2016. Who did what: A large-scale person-centered cloze dataset. In Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing, EMNLP 2016, pages 2230-2235."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    808,
+                    2256,
+                    1207
+                ],
+                "angle": 0,
+                "content": "Denis Paperno, Germán Kruszewski, Angeliki Lazari-dou, Ngoc Quan Pham, Raffaella Bernardi, Sandro Pezzelle, Marco Baroni, Gemma Boleda, and Raquel Fernandez. 2016. The LAMBADA dataset: Word prediction requiring a broad discourse context. In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 1525-1534."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    1217,
+                    2256,
+                    1461
+                ],
+                "angle": 0,
+                "content": "Michael Pazzani, Clifford Brunk, and Glenn Silverstein. 1991. A knowledge-intensive approach to learning relational concepts. In Proceedings of the Eighth International Workshop on Machine Learning, pages 432-436, Evanston, IL."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    1475,
+                    2256,
+                    1623
+                ],
+                "angle": 0,
+                "content": "Baolin Peng, Zhengdong Lu, Hang Li, and Kam-Fai Wong. 2015. Towards neural network-based reasoning. CoRR, abs/1508.05508."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    1640,
+                    2256,
+                    1884
+                ],
+                "angle": 0,
+                "content": "Nanyun Peng, Hoifung Poon, Chris Quirk, Kristina Toutanova, and Wen-tau Yih. 2017. Cross-sentence N-ary relation extraction with graph LSTMs. Transactions of the Association for Computational Linguistics, 5:101-115."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    1897,
+                    2256,
+                    2145
+                ],
+                "angle": 0,
+                "content": "Jeffrey Pennington, Richard Socher, and Christopher D. Manning. 2014. GloVe: Global vectors for word representation. In Proceedings of the Empirical Methods in Natural Language Processing (EMNLP), pages 1532-1543."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    2158,
+                    2256,
+                    2359
+                ],
+                "angle": 0,
+                "content": "Bethany Percha, Yael Garten, and Russ B Altman. 2012. Discovery and explanation of drug-drug interactions via text mining. In *Pacific symposium on biocomputing*, page 410. NIH Public Access."
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    2369,
+                    2256,
+                    2468
+                ],
+                "angle": 0,
+                "content": "John Ross Quinlan. 1990. Learning logical definitions from relations. Machine Learning, 5:239-266."
+            },
+            {
+                "block_id": 21,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    2481,
+                    2256,
+                    2732
+                ],
+                "angle": 0,
+                "content": "Pranav Rajpurkar, Jian Zhang, Konstantin Lopyrev, and Percy Liang. 2016. SQuAD: 100,000+ questions for machine comprehension of text. In Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing (EMNLP), pages 2383-2392."
+            },
+            {
+                "block_id": 22,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    2742,
+                    2256,
+                    2943
+                ],
+                "angle": 0,
+                "content": "Bradley L. Richards and Raymond J. Mooney. 1991. First-order theory revision. In Proceedings of the Eighth International Workshop on Machine Learning, pages 447-451, Evanston, IL."
+            },
+            {
+                "block_id": 23,
+                "type": "list",
+                "bbox": [
+                    1300,
+                    234,
+                    2256,
+                    2943
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 24,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3029,
+                    1262,
+                    3069
+                ],
+                "angle": 0,
+                "content": "301"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    234,
+                    1249,
+                    382
+                ],
+                "angle": 0,
+                "content": "Matthew Richardson and Pedro Domingos. 2006. Markov logic networks. Mach. Learn., 62(1-2):107-136."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    392,
+                    1249,
+                    693
+                ],
+                "angle": 0,
+                "content": "Sebastian Riedel, Limin Yao, and Andrew McCallum. 2010. Modeling relations and their mentions without labeled text. In Proceedings of the 2010 European Conference on Machine Learning and Knowledge Discovery in Databases: Part III, ECML PKDD'10, pages 148-163."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    699,
+                    1249,
+                    950
+                ],
+                "angle": 0,
+                "content": "Stefan Schoenmackers, Oren Etzioni, and Daniel S. Weld. 2008. Scaling textual inference to the web. In EMNLP '08: Proceedings of the Conference on Empirical Methods in Natural Language Processing, pages 79-88."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    956,
+                    1249,
+                    1204
+                ],
+                "angle": 0,
+                "content": "Stefan Schoenmackers, Oren Etzioni, Daniel S. Weld, and Jesse Davis. 2010. Learning first-order horn clauses from web text. In Proceedings of the 2010 Conference on Empirical Methods in Natural Language Processing, EMNLP '10, pages 1088-1098."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    1211,
+                    1249,
+                    1508
+                ],
+                "angle": 0,
+                "content": "Roy Schwartz, Maarten Sap, Ioannis Konstas, Leila Zilles, Yejin Choi, and Noah A. Smith. 2017. The effect of different writing tasks on linguistic style: A case study of the ROC story cloze task. In Proceedings of the 21st Conference on Computational Natural Language Learning (CoNLL 2017), pages 15-25."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    1514,
+                    1249,
+                    1864
+                ],
+                "angle": 0,
+                "content": "Isabel Segura-Bedmar, Paloma Martínez, and María Herrero Zazo. 2013. SemEval-2013 Task 9: Extraction of drug-drug interactions from biomedical texts (DDIExtraction 2013). In Second Joint Conference on Lexical and Computational Semantics (*SEM), Volume 2: Proceedings of the Seventh International Workshop on Semantic Evaluation (SemEval 2013), pages 341–350."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    1871,
+                    1249,
+                    2069
+                ],
+                "angle": 0,
+                "content": "Minjoon Seo, Aniruddha Kembhavi, Ali Farhadi, and Hannaneh Hajishirzi. 2017a. Bidirectional attention flow for machine comprehension. In *The International Conference on Learning Representations (ICLR)*."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    2075,
+                    1249,
+                    2227
+                ],
+                "angle": 0,
+                "content": "Minjoon Seo, Sewon Min, Ali Farhadi, and Hannaneh Hajishirzi. 2017b. Query-reduction networks for question answering. ICLR."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    2234,
+                    1249,
+                    2527
+                ],
+                "angle": 0,
+                "content": "Yelong Shen, Po-Sen Huang, Jianfeng Gao, and Weizhu Chen. 2017. ReasoNet: Learning to stop reading in machine comprehension. In Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, KDD '17, pages 1047-1055."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    2537,
+                    1249,
+                    2686
+                ],
+                "angle": 0,
+                "content": "Alessandro Sordoni, Phillip Bachman, and Yoshua Bengio. 2016. Iterative alternating neural attention for machine reading. CoRR, abs/1606.02245."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    293,
+                    2692,
+                    1249,
+                    2943
+                ],
+                "angle": 0,
+                "content": "Pontus Stenetorp, Goran Topić, Sampo Pyysalo, Tomoko Ohta, Jin-Dong Kim, and Jun'ichi Tsujii. 2011. BioNLP shared task 2011: Supporting resources. In Proceedings of BioNLP Shared Task 2011 Workshop, pages 112-120."
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    290,
+                    234,
+                    1249,
+                    2943
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    234,
+                    2251,
+                    435
+                ],
+                "angle": 0,
+                "content": "Sainbayar Sukhbaatar, Arthur Szlam, Jason Weston, and Rob Fergus. 2015. End-to-end memory networks. In Advances in Neural Information Processing Systems, pages 2440-2448."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    442,
+                    2251,
+                    541
+                ],
+                "angle": 0,
+                "content": "Don R. Swanson. 1986. Undiscovered public knowledge. The Library Quarterly, 56(2):103-118."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    544,
+                    2251,
+                    689
+                ],
+                "angle": 0,
+                "content": "The UniProt Consortium. 2017. UniProt: the universal protein knowledgebase. *Nucleic Acids Research*, 45(D1):D158–D169."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    696,
+                    2256,
+                    894
+                ],
+                "angle": 0,
+                "content": "Denny Vrandecić. 2012. Wikidata: A new platform for collaborative data collection. In Proceedings of the 21st International Conference on World Wide Web, WWW '12 Companion, pages 1063-1064."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    897,
+                    2251,
+                    1194
+                ],
+                "angle": 0,
+                "content": "Dirk Weissenborn, Georg Wiese, and Laura Seiffe. 2017. Making neural QA as simple as possible but not simpler. In Proceedings of the 21st Conference on Computational Natural Language Learning (CoNLL 2017), pages 271-280. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    1201,
+                    2251,
+                    1346
+                ],
+                "angle": 0,
+                "content": "Dirk Weissenborn. 2016. Separating answers from queries for neural reading comprehension. CoRR, abs/1607.03316."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    1353,
+                    2251,
+                    1551
+                ],
+                "angle": 0,
+                "content": "Johannes Welbl, Nelson F. Liu, and Matt Gardner. 2017. Crowdsourcing multiple choice science questions. In Proceedings of the Third Workshop on Noisy User-generated Text, pages 94-106."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    1557,
+                    2251,
+                    1653
+                ],
+                "angle": 0,
+                "content": "Jason Weston, Sumit Chopra, and Antoine Bordes. 2015. Memory networks. *ICLR*."
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    1659,
+                    2251,
+                    1808
+                ],
+                "angle": 0,
+                "content": "Jason Weston, Antoine Bordes, Sumit Chopra, and Tomas Mikolov. 2016. Towards AI-complete question answering: A set of prerequisite toy tasks. *ICLR*."
+            },
+            {
+                "block_id": 21,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    1811,
+                    2251,
+                    1960
+                ],
+                "angle": 0,
+                "content": "Georg Wiese, Dirk Weissenborn, and Mariana Neves. 2017. Neural question answering at BioASQ 5B. In Proceedings of the BioNLP 2017, pages 76-79."
+            },
+            {
+                "block_id": 22,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    1966,
+                    2251,
+                    2112
+                ],
+                "angle": 0,
+                "content": "Caiming Xiong, Victor Zhong, and Richard Socher. 2017. Dynamic coattention networks for question answering. *ICLR*."
+            },
+            {
+                "block_id": 23,
+                "type": "ref_text",
+                "bbox": [
+                    1300,
+                    2115,
+                    2251,
+                    2362
+                ],
+                "angle": 0,
+                "content": "Yi Yang, Wen-tau Yih, and Christopher Meek. 2015. WikiQA: A challenge dataset for open-domain question answering. In Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing, pages 2013-2018."
+            },
+            {
+                "block_id": 24,
+                "type": "list",
+                "bbox": [
+                    1300,
+                    234,
+                    2256,
+                    2362
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 25,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3029,
+                    1267,
+                    3069
+                ],
+                "angle": 0,
+                "content": "302"
+            }
+        ]
+    }
+]

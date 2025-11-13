@@ -20,9 +20,21 @@ from pathlib import Path
 
 import os
 
-DEFAULT_OUTPUT_ROOT = Path(os.environ.get('ocr-output-root', "src/data/doc_demo/output"))
-DEFAULT_PDF_DIR = Path(os.environ.get('pdf-root', "src/data/doc_demo/PDF"))
-DEFAULT_TEMP_DIR = Path(os.environ.get('temp-output-root', "src/data/doc_demo/temp"))
+DEFAULT_OUTPUT_ROOT = Path(
+    os.environ.get('ocr-output-root') or
+    os.environ.get('OCR_OUTPUT_ROOT') or
+    "src/data/doc_demo/output"
+)
+DEFAULT_PDF_DIR = Path(
+    os.environ.get('pdf-root') or
+    os.environ.get('PDF_ROOT') or
+    "src/data/doc_demo/PDF"
+)
+DEFAULT_TEMP_DIR = Path(
+    os.environ.get('temp-output-root') or
+    os.environ.get('TEMP_OUTPUT_ROOT') or
+    "src/data/doc_demo/temp"
+)
 
 class DocCheckTool:
     """
@@ -87,6 +99,14 @@ class DocCheckTool:
         pdf_files = self._get_pdf_files_to_check(file_name_or_all, pdf_dir_path)
         
         if not pdf_files:
+            # Allow workflows that only rely on pre-generated OCR JSON (e.g., when PDFs live elsewhere).
+            expected_json_path = output_root_path / f"{file_name_or_all}.json" if file_name_or_all.lower() == 'all' else output_root_path / f"{file_name_or_all}_ocr.json"
+            if file_name_or_all.lower() != 'all' and expected_json_path.exists():
+                return {
+                    "status": True,
+                    "files_to_process": [],
+                    "message": f"PDF not found but OCR JSON exists at {expected_json_path.resolve()}. Skipping PDF check."
+                }
             if file_name_or_all.lower() == 'all':
                 msg = f"No PDF files found in directory {pdf_dir_path.resolve()}."
             else:
@@ -480,8 +500,11 @@ class SearchKeywordTool:
         # 'blocks' is a list of page objects
         for page_item in blocks:
             for block in page_item.get('ocr_results', []): 
-                content_text = str(block.get('content', '')).lower()
-                caption_text = str(block.get('caption', '')).lower() 
+                # Safely handle None values
+                content = block.get('content') or ''
+                caption = block.get('caption') or ''
+                content_text = str(content).lower()
+                caption_text = str(caption).lower() 
 
                 # Search in content OR caption
                 if kw_lower in content_text or kw_lower in caption_text:
@@ -489,11 +512,11 @@ class SearchKeywordTool:
                         "file_name": page_item.get('file_name'),
                         "page_id": page_item.get('page_id'),
                         "block_id": block.get('block_id'),
-                        "type": block.get('type'),
-                        "bbox": block.get('bbox'),
+                        "type": block.get('type', ''),
+                        "bbox": block.get('bbox', []),
                         "angle": block.get('angle', 0),
-                        "content": block.get('content', ''),
-                        "caption": block.get('caption', '') # Include the caption field in results
+                        "content": content,  # Use the safe value
+                        "caption": caption  # Use the safe value
                     }
                     matches.append(match_result)
         return matches
@@ -616,11 +639,18 @@ class GetPageOCRTool:
 
         concatenated_content = []
         for block in page_content:
-            block_content = block.get('content', '')
+            # Ensure block_content and caption are strings, not None
+            block_content = block.get('content') or ''
+            if block_content is None:
+                block_content = ''
+            else:
+                block_content = str(block_content)
+            
             block_type = block.get('type', '')
             
-            caption = block.get('caption', '')
+            caption = block.get('caption') or ''
             if caption:
+                caption = str(caption)
                 concatenated_content.append(f"Caption: {caption}")
 
             if block_type == 'formula':
@@ -633,7 +663,8 @@ class GetPageOCRTool:
                 # Standard text blocks
                 formatted_content = block_content
             
-            if formatted_content.strip():
+            # Only add non-empty content
+            if formatted_content and formatted_content.strip():
                 concatenated_content.append(formatted_content.strip())
         
         final_text = '\n\n'.join(concatenated_content)
@@ -842,7 +873,7 @@ class ImageDescriptionTool:
     """
     A tool that uses a multimodal LLM (e.g., OpenAI's GPT-4V) to generate a
     detailed description for an image or chart provided as a local file path.
-    Requires OPENAI_API_KEY and OPENAI_API_BASE environment variables to be set.
+    Requires OPENAI_API_KEY and OPENAI_API_BASE / OPENAI_BASE_URL environment variables to be set.
     """
     name = "image_description_tool"
     description = "Uses a multimodal model (VLM) to analyze a local image file (PNG/JPG) and generate a detailed text description. Use after crop_image_tool or get_page_image_tool to interpret visual content."
@@ -867,7 +898,9 @@ class ImageDescriptionTool:
         else:
             self.api_key = None
         
-        self.api_base = api_base if api_base and api_base.strip() else (os.getenv("OPENAI_API_BASE") or os.getenv("OPENAI_API_URL"))
+        self.api_base = api_base if api_base and api_base.strip() else (
+            os.getenv("OPENAI_API_BASE") or os.getenv("OPENAI_API_URL") or os.getenv("OPENAI_BASE_URL")
+        )
         if self.api_base:
             self.api_base = self.api_base.strip()
         else:
@@ -878,7 +911,7 @@ class ImageDescriptionTool:
         self.is_ready = False
 
         if not self.api_key or not self.api_base:
-            print("Warning: OPENAI_API_KEY or OPENAI_API_BASE/OPENAI_API_URL environment variables are not set. The tool will not be usable.")
+            print("Warning: OPENAI_API_KEY or OPENAI_API_BASE/OPENAI_BASE_URL/OPENAI_API_URL environment variables are not set. The tool will not be usable.")
         else:
             try:
                 client_kwargs = {}
@@ -927,7 +960,11 @@ class ImageDescriptionTool:
 
         # --- 2. Tool Readiness Check ---
         if not self.is_ready or not self.client:
-            return {**input_params, **base_error_template, "message": "Error: OpenAI client is not initialized. Please set OPENAI_API_KEY and OPENAI_API_BASE environment variables."}
+            return {
+                **input_params,
+                **base_error_template,
+                "message": "Error: OpenAI client is not initialized. Please set OPENAI_API_KEY and OPENAI_API_BASE / OPENAI_BASE_URL environment variables."
+            }
 
         image_path = Path(image_path_str)
         if not image_path.exists():

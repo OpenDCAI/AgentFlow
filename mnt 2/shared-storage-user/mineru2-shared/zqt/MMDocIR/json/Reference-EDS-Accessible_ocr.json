@@ -1,0 +1,3596 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    293,
+                    834,
+                    997,
+                    1544
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    298,
+                    1613,
+                    1481,
+                    2022
+                ],
+                "angle": 0,
+                "content": "Enterprise Data Strategy"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2075,
+                    2032,
+                    2191
+                ],
+                "angle": 0,
+                "content": "Empowering Data Informed Diplomacy"
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    288,
+                    2451,
+                    780,
+                    2514
+                ],
+                "angle": 0,
+                "content": "SEPTEMBER 2021"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    907,
+                    656,
+                    1920,
+                    788
+                ],
+                "angle": 0,
+                "content": "Table of Contents"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    910,
+                    933,
+                    2182,
+                    990
+                ],
+                "angle": 0,
+                "content": "Letter From The Deputy Secretary of State for 04"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    912,
+                    1006,
+                    1491,
+                    1065
+                ],
+                "angle": 0,
+                "content": "Management and Resources"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    910,
+                    1148,
+                    2182,
+                    1204
+                ],
+                "angle": 0,
+                "content": "Executive Summary 05"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    910,
+                    1290,
+                    2182,
+                    1343
+                ],
+                "angle": 0,
+                "content": "Introduction 07"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    910,
+                    1432,
+                    2182,
+                    1488
+                ],
+                "angle": 0,
+                "content": "Strategic Drivers for a Data-Centric Department 08"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    910,
+                    1574,
+                    2182,
+                    1626
+                ],
+                "angle": 0,
+                "content": "Department of State Data Vision 09"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    910,
+                    1716,
+                    2182,
+                    1768
+                ],
+                "angle": 0,
+                "content": "Goals and Objectives 11"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    986,
+                    1788,
+                    2182,
+                    1838
+                ],
+                "angle": 0,
+                "content": "Goal 1: Cultivate a Data Culture 12"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    984,
+                    1857,
+                    2182,
+                    1910
+                ],
+                "angle": 0,
+                "content": "Goal 2: Accelerate Decisions through Analytics 13"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    984,
+                    1930,
+                    2182,
+                    1983
+                ],
+                "angle": 0,
+                "content": "Goal 3: Establish Mission-Driven Data Management 14"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    984,
+                    1999,
+                    2182,
+                    2052
+                ],
+                "angle": 0,
+                "content": "Goal 4: Enhance Enterprise Data Governance 15"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    910,
+                    2141,
+                    2182,
+                    2194
+                ],
+                "angle": 0,
+                "content": "Guiding Principles 16"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    910,
+                    2283,
+                    2182,
+                    2336
+                ],
+                "angle": 0,
+                "content": "Moving Forward 17"
+            },
+            {
+                "block_id": 14,
+                "type": "image",
+                "bbox": [
+                    140,
+                    2560,
+                    798,
+                    2953
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    173,
+                    3148,
+                    561,
+                    3194
+                ],
+                "angle": 0,
+                "content": "U.S. Department of State"
+            },
+            {
+                "block_id": 16,
+                "type": "footer",
+                "bbox": [
+                    1160,
+                    3144,
+                    1540,
+                    3191
+                ],
+                "angle": 0,
+                "content": "Enterprise Data Strategy"
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    2256,
+                    3144,
+                    2374,
+                    3191
+                ],
+                "angle": 0,
+                "content": "Page 2"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    1129,
+                    891,
+                    1456,
+                    1184
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    349,
+                    1263,
+                    2195,
+                    1471
+                ],
+                "angle": 0,
+                "content": "U.S. DEPUTY SECRETARY OF STATE FOR MANAGEMENT AND RESOURCES"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    591,
+                    1574,
+                    1953,
+                    1686
+                ],
+                "angle": 0,
+                "content": "BRIAN P. MCKEON"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    599,
+                    1808,
+                    1950,
+                    2382
+                ],
+                "angle": 0,
+                "content": "When our foreign affairs professionals are equipped with high-quality and timely data, we can make the world safer, more just, and less divided."
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    275,
+                    372,
+                    683,
+                    782
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    719,
+                    415,
+                    1996,
+                    587
+                ],
+                "angle": 0,
+                "content": "Enterprise Data Strategy Empowering Data Informed Diplomacy"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    714,
+                    663,
+                    1836,
+                    805
+                ],
+                "angle": 0,
+                "content": "A letter from the Deputy Secretary of State for Management and Resources"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    841,
+                    2193,
+                    1095
+                ],
+                "angle": 0,
+                "content": "To lead America's foreign policy in the 21st century, we must be fully prepared for the challenges, both seen and unseen, that lie before us. As the leader of our country's response to these challenges, the Department of State must leverage data as a critical instrument of diplomacy. When our foreign affairs professionals are equipped with high-quality and timely data, we can help make the world safer, more just, and less divided."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1141,
+                    2238,
+                    1593
+                ],
+                "angle": 0,
+                "content": "Data has already transformed the global landscape, in both life-saving and life-threatening ways, and it is our responsibility to be a world leader in harnessing its power for the good of the American people and the broader international community. As artificial intelligence empowers governments to analyze data at scale and reevaluate how they provide services, regulate industries, and protect their citizens; we will all grapple with the resulting ethical and accountability challenges. Yet, as with all paradigm shifts affecting global economics, culture, human rights, and security, the Department of State must be at the forefront of these issues to ensure the safety and prosperity of the American people."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1640,
+                    2231,
+                    1993
+                ],
+                "angle": 0,
+                "content": "To use data as a strategic asset, we must first empower the Department's greatest resource: its world-class global workforce. Our people require accurate data at their fingertips, where they are and when they need it. To thrive in this data-powered world, our team needs the skills, expertise, and tools to turn data into insights. To be sure, this mindset calls for a culture change in the Department—one that has already begun. We must continue to invest in recruiting, training, and equipping our teams to be skilled data consumers and users. This will take time, but we have none to waste."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2039,
+                    2228,
+                    2544
+                ],
+                "angle": 0,
+                "content": "The Department's first-ever enterprise data strategy represents the dedicated efforts of a diverse team across the Department of State and will guide our digital transformation efforts in the years to come. I would like to sincerely thank all the hardworking members of our Department family who made this effort possible, from the experts who dedicated their time in one-on-one interviews and focus group sessions to influence the strategy's goals, to the leaders on the Enterprise Data Council that have come together to forge a unified vision of data at State. And special thanks to the Office of Management Strategy and Solutions and to the Center for Analytics, which will be supporting the experts and leaders across the Department in achieving our collective data vision in the years to come."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2590,
+                    2205,
+                    2795
+                ],
+                "angle": 0,
+                "content": "I look forward to collaborating with all our bureaus, our workforce, and our interagency partners in implementing this strategy and advancing foreign policy through data. The Department's mission—to advance the interests of the American people, their safety and economic prosperity—cannot succeed without it."
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1634,
+                    2814,
+                    2256,
+                    2913
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1560,
+                    2933,
+                    2261,
+                    3082
+                ],
+                "angle": 0,
+                "content": "Brian P. McKeon  \nU.S. Deputy Secretary of State for Management and Resources"
+            },
+            {
+                "block_id": 10,
+                "type": "footer",
+                "bbox": [
+                    198,
+                    3062,
+                    714,
+                    3105
+                ],
+                "angle": 0,
+                "content": "<RETURN TO TABLE OF CONTENTS"
+            },
+            {
+                "block_id": 11,
+                "type": "footer",
+                "bbox": [
+                    173,
+                    3161,
+                    555,
+                    3201
+                ],
+                "angle": 0,
+                "content": "U.S. Department of State"
+            },
+            {
+                "block_id": 12,
+                "type": "footer",
+                "bbox": [
+                    1086,
+                    3161,
+                    1463,
+                    3207
+                ],
+                "angle": 0,
+                "content": "Enterprise Data Strategy"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    2256,
+                    3164,
+                    2374,
+                    3207
+                ],
+                "angle": 0,
+                "content": "Page 4"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    226,
+                    356,
+                    1326,
+                    488
+                ],
+                "angle": 0,
+                "content": "Executive Summary"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    226,
+                    504,
+                    2167,
+                    706
+                ],
+                "angle": 0,
+                "content": "America faces an evolving global landscape; threats to America's prosperity, values, and security are rapidly changing and affect country, regional, and international contexts dynamically. The pace of America's diplomacy must adapt to meet the speed of these everchanging geopolitical trends."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    226,
+                    752,
+                    2325,
+                    1006
+                ],
+                "angle": 0,
+                "content": "We have the most advanced diplomatic corps in the world, and it is imperative that we match the excellence of our global workforce with excellence in our data-driven insights. Advanced analysis must act in support of diplomacy, putting evidence-based insights at our professionals' fingertips to help them achieve their mission. Likewise, to streamline the delivery of our operations, we must use data to provide enabling services more nimbly and expeditiously."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    226,
+                    1052,
+                    2259,
+                    1356
+                ],
+                "angle": 0,
+                "content": "In the last decade, the private sector has continued to accelerate the pace of technological innovation, putting highly advanced technology in the hands of individuals, companies, and governments around the world. While it has created enormous opportunities to transform the way America conducts its affairs, it has also provided those same opportunities to our adversaries. New technology alone will not solve our problems, but it is a vital component to using data for diplomacy."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    226,
+                    1402,
+                    2325,
+                    1656
+                ],
+                "angle": 0,
+                "content": "These three drivers—an evolving global landscape, the need for data-driven insights, and an increase in the pace of technological innovation—necessitate an enterprise approach to modernizing the way the Department uses data as a strategic asset. This enterprise data strategy provides the Department-wide approach to adapting to these drivers over the next three years."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    226,
+                    1702,
+                    2259,
+                    2055
+                ],
+                "angle": 0,
+                "content": "The creation of this strategy and its resulting initiatives will transform how the Department collectively manages and applies data across all its mission areas. The strategy is grounded in a Vision that provides strategic coherence and alignment for the Department's efforts to improve data maturity and capabilities, with Goals and Objectives that serve as targets to achieve this Vision. The Department's five Guiding Principles serve as our North Star to reinforce decisions around our data (Figure 1). Going forward, these elements will inform an implementation plan that will outline critical activities to execute this strategy."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    226,
+                    2102,
+                    2292,
+                    2458
+                ],
+                "angle": 0,
+                "content": "This strategy represents the close collaboration of bureaus and offices across the Department to develop a holistic approach to building a foundation of data capabilities and assets. As the Department's first data strategy, it is a critical step toward improving our ability to use data to inform diplomacy while upholding the highest levels of scientific and data integrity. This strategy, and a following implementation plan, are set on a three-year time horizon to create momentum, deliver rapid return on its efforts to support the Department's workforce, and provide accountability to American taxpayers."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    219,
+                    2560,
+                    1912,
+                    2930
+                ],
+                "angle": 0,
+                "content": "We have the most advanced diplomatic corps in the world, and it is imperative that we match the excellence of our global workforce with excellence in providing data-driven insights."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    201,
+                    3065,
+                    714,
+                    3105
+                ],
+                "angle": 0,
+                "content": "<RETURN TO TABLE OF CONTENTS"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    178,
+                    3151,
+                    555,
+                    3191
+                ],
+                "angle": 0,
+                "content": "U.S. Department of State"
+            },
+            {
+                "block_id": 10,
+                "type": "footer",
+                "bbox": [
+                    1071,
+                    3154,
+                    1443,
+                    3197
+                ],
+                "angle": 0,
+                "content": "Enterprise Data Strategy"
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    2261,
+                    3158,
+                    2371,
+                    3194
+                ],
+                "angle": 0,
+                "content": "Page 5"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image_caption",
+                "bbox": [
+                    293,
+                    277,
+                    487,
+                    326
+                ],
+                "angle": 0,
+                "content": "Figure 1"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    1150,
+                    617,
+                    1394,
+                    676
+                ],
+                "angle": 0,
+                "content": "VISION"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    754,
+                    712,
+                    1787,
+                    940
+                ],
+                "angle": 0,
+                "content": "Data is a critical instrument of diplomacy, the Department's global workforce is empowered with the skills and tools to derive actionable mission insights from data, and its data assets are securely shared and effectively managed."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    828,
+                    1009,
+                    1713,
+                    1079
+                ],
+                "angle": 0,
+                "content": "GOALS & OBJECTIVES"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    318,
+                    1135,
+                    374,
+                    1214
+                ],
+                "angle": 0,
+                "content": "1"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    313,
+                    1244,
+                    578,
+                    1386
+                ],
+                "angle": 0,
+                "content": "CULTIVATE A DATA CULTURE"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    316,
+                    1491,
+                    731,
+                    1534
+                ],
+                "angle": 0,
+                "content": "1.1 Strengthen Data Fluency"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    318,
+                    1547,
+                    777,
+                    1587
+                ],
+                "angle": 0,
+                "content": "1.2 Enhance Data Collaboration"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    318,
+                    1607,
+                    637,
+                    1643
+                ],
+                "angle": 0,
+                "content": "1.3 Hire for the Future"
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    316,
+                    1491,
+                    777,
+                    1643
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    818,
+                    1135,
+                    874,
+                    1214
+                ],
+                "angle": 0,
+                "content": "2"
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    816,
+                    1244,
+                    1139,
+                    1432
+                ],
+                "angle": 0,
+                "content": "ACCELERATE DECISIONS THROUGH ANALYTICS"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    816,
+                    1491,
+                    1234,
+                    1534
+                ],
+                "angle": 0,
+                "content": "2.1 Deliver Analytic Products"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    816,
+                    1547,
+                    1101,
+                    1626
+                ],
+                "angle": 0,
+                "content": "2.2 Provide Modern Analytic Tools"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    816,
+                    1643,
+                    1188,
+                    1722
+                ],
+                "angle": 0,
+                "content": "2.3 Pilot and Scale AI and ML Applications"
+            },
+            {
+                "block_id": 15,
+                "type": "list",
+                "bbox": [
+                    816,
+                    1491,
+                    1234,
+                    1722
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "title",
+                "bbox": [
+                    1318,
+                    1135,
+                    1374,
+                    1211
+                ],
+                "angle": 0,
+                "content": "3"
+            },
+            {
+                "block_id": 17,
+                "type": "title",
+                "bbox": [
+                    1318,
+                    1244,
+                    1736,
+                    1432
+                ],
+                "angle": 0,
+                "content": "ESTABLISH  \nMISSION-DRIVEN DATA  \nMANAGEMENT"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1318,
+                    1491,
+                    1698,
+                    1534
+                ],
+                "angle": 0,
+                "content": "3.1 Enable Access to Data"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1318,
+                    1547,
+                    1731,
+                    1587
+                ],
+                "angle": 0,
+                "content": "3.2 Define Data Architecture"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    1318,
+                    1607,
+                    1695,
+                    1679
+                ],
+                "angle": 0,
+                "content": "3.3 Define and Implement Data Standards"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    1318,
+                    1699,
+                    1611,
+                    1778
+                ],
+                "angle": 0,
+                "content": "3.4 Establish Data Quality Program"
+            },
+            {
+                "block_id": 22,
+                "type": "list",
+                "bbox": [
+                    1318,
+                    1491,
+                    1731,
+                    1778
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 23,
+                "type": "title",
+                "bbox": [
+                    1820,
+                    1135,
+                    1879,
+                    1214
+                ],
+                "angle": 0,
+                "content": "4"
+            },
+            {
+                "block_id": 24,
+                "type": "title",
+                "bbox": [
+                    1820,
+                    1244,
+                    2159,
+                    1432
+                ],
+                "angle": 0,
+                "content": "ENHANCE ENTERPRISE DATA GOVERNANCE"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    1818,
+                    1485,
+                    2254,
+                    1564
+                ],
+                "angle": 0,
+                "content": "4.1 Institute Data Governance Operating Model"
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    1820,
+                    1580,
+                    2162,
+                    1620
+                ],
+                "angle": 0,
+                "content": "4.2 Develop Data Policy"
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    1820,
+                    1636,
+                    2218,
+                    1752
+                ],
+                "angle": 0,
+                "content": "4.3 Measure the Organizational Value of Data and Analytics"
+            },
+            {
+                "block_id": 28,
+                "type": "list",
+                "bbox": [
+                    1818,
+                    1485,
+                    2254,
+                    1752
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 29,
+                "type": "title",
+                "bbox": [
+                    836,
+                    1844,
+                    1705,
+                    1910
+                ],
+                "angle": 0,
+                "content": "GUIDING PRINCIPLES"
+            },
+            {
+                "block_id": 30,
+                "type": "title",
+                "bbox": [
+                    430,
+                    1986,
+                    624,
+                    2032
+                ],
+                "angle": 0,
+                "content": "SHARED"
+            },
+            {
+                "block_id": 31,
+                "type": "text",
+                "bbox": [
+                    428,
+                    2062,
+                    742,
+                    2306
+                ],
+                "angle": 0,
+                "content": "Data is appropriately shared across the Department through collective stewardship to enable analysis across the enterprise and enhance its value."
+            },
+            {
+                "block_id": 32,
+                "type": "title",
+                "bbox": [
+                    780,
+                    1986,
+                    976,
+                    2032
+                ],
+                "angle": 0,
+                "content": "APPLIED"
+            },
+            {
+                "block_id": 33,
+                "type": "text",
+                "bbox": [
+                    777,
+                    2062,
+                    1099,
+                    2277
+                ],
+                "angle": 0,
+                "content": "Data is broadly understood and applied to inform evidence-based decisions at all levels and missions across the globe."
+            },
+            {
+                "block_id": 34,
+                "type": "title",
+                "bbox": [
+                    1127,
+                    1986,
+                    1379,
+                    2032
+                ],
+                "angle": 0,
+                "content": "GOVERNED"
+            },
+            {
+                "block_id": 35,
+                "type": "text",
+                "bbox": [
+                    1124,
+                    2062,
+                    1402,
+                    2412
+                ],
+                "angle": 0,
+                "content": "Effective oversight and management of data enables the Department's applications through improved data quality, simplified use, and investment decisions prioritized by mission impact."
+            },
+            {
+                "block_id": 36,
+                "type": "title",
+                "bbox": [
+                    1476,
+                    1986,
+                    1670,
+                    2032
+                ],
+                "angle": 0,
+                "content": "ETHICAL"
+            },
+            {
+                "block_id": 37,
+                "type": "text",
+                "bbox": [
+                    1473,
+                    2062,
+                    1800,
+                    2310
+                ],
+                "angle": 0,
+                "content": "Data is responsibly collected, stored, and utilized to provide accountability to the U.S. taxpayer and uphold the highest levels of scientific and data integrity."
+            },
+            {
+                "block_id": 38,
+                "type": "title",
+                "bbox": [
+                    1823,
+                    1986,
+                    2011,
+                    2032
+                ],
+                "angle": 0,
+                "content": "SECURE"
+            },
+            {
+                "block_id": 39,
+                "type": "text",
+                "bbox": [
+                    1820,
+                    2062,
+                    2131,
+                    2306
+                ],
+                "angle": 0,
+                "content": "Data is safeguarded through industry leading security practices at each classification level to protect U.S. national interests at home and abroad."
+            },
+            {
+                "block_id": 40,
+                "type": "image",
+                "bbox": [
+                    1155,
+                    2488,
+                    1422,
+                    2729
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 41,
+                "type": "image",
+                "bbox": [
+                    1652,
+                    2643,
+                    1960,
+                    2953
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 42,
+                "type": "text",
+                "bbox": [
+                    1999,
+                    2709,
+                    2330,
+                    2857
+                ],
+                "angle": 0,
+                "content": "eds"
+            },
+            {
+                "block_id": 43,
+                "type": "text",
+                "bbox": [
+                    2001,
+                    2861,
+                    2458,
+                    2910
+                ],
+                "angle": 0,
+                "content": "enterprise data strategy"
+            },
+            {
+                "block_id": 44,
+                "type": "text",
+                "bbox": [
+                    198,
+                    3045,
+                    714,
+                    3088
+                ],
+                "angle": 0,
+                "content": "<RETURN TO TABLE OF CONTENTS"
+            },
+            {
+                "block_id": 45,
+                "type": "footer",
+                "bbox": [
+                    173,
+                    3144,
+                    555,
+                    3187
+                ],
+                "angle": 0,
+                "content": "U.S. Department of State"
+            },
+            {
+                "block_id": 46,
+                "type": "footer",
+                "bbox": [
+                    1068,
+                    3154,
+                    1443,
+                    3197
+                ],
+                "angle": 0,
+                "content": "Enterprise Data Strategy"
+            },
+            {
+                "block_id": 47,
+                "type": "page_number",
+                "bbox": [
+                    2261,
+                    3144,
+                    2379,
+                    3187
+                ],
+                "angle": 0,
+                "content": "Page 6"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    226,
+                    353,
+                    938,
+                    471
+                ],
+                "angle": 0,
+                "content": "Introduction"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    209,
+                    551,
+                    1239,
+                    1293
+                ],
+                "angle": 0,
+                "content": "This enterprise data strategy represents the elevation of data in American diplomacy at a time when the world demands it, diplomacy calls for it, Ambassadors and other Department leaders require it, and our workforce expects it. Data represents an essential tool to maintain the United States' competitive advantage on the rapidly evolving global landscape. Diplomacy can be more effective with comprehensive, timely, and accurate data and intuitive analysis. With the exponential growth in the magnitude, velocity, and complexity of data, the Department's ability to leverage innovative technologies to harness data's full potential will increase our capacity to advance the interests of the American people their safety and economic prosperity."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    209,
+                    1329,
+                    1236,
+                    1937
+                ],
+                "angle": 0,
+                "content": "The Department's distinct role in foreign relations, with embassies and consulates in 191 countries, means it collects and generates unique data from day-to-day diplomatic, assistance, and security activities. This data not only informs our operations but is also vital to our interagency and foreign partners. As America's allies and adversaries invest in data collection, analysis, and enabling technologies, the Department, too, must develop its own strong and secure data capabilities and cultivate a data-fluent workforce to respond to the world's most pressing challenges."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    211,
+                    1973,
+                    1229,
+                    2257
+                ],
+                "angle": 0,
+                "content": "Applied data and analytics also enable the Department's goals of ensuring the transparent, effective, and efficient use of resources, as described under Goal 4 of the FY 2018-2022 Department of State and U.S. Agency for International Development (USAID) Joint Strategic"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1285,
+                    551,
+                    2315,
+                    1108
+                ],
+                "angle": 0,
+                "content": "Plan (JSP). As a responsible steward of taxpayer dollars, the Department remains committed to operational excellence and must leverage data to appropriately assess program effectiveness, pinpoint and mitigate areas of risk, and provide transparency to the public. This intentional use of data can provide decision-makers and the public alike with not only answers to critical questions about U.S. influence overseas – What are we doing, and where are we doing it?– but it can also allow us to answer more useful questions – How effective are we, and how can we do better?"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1285,
+                    1148,
+                    2297,
+                    1980
+                ],
+                "angle": 0,
+                "content": "To guide the Department in executing its mission both effectively and efficiently, this enterprise data strategy must align our data and analytics activities and accelerate the delivery of data and insights to decision-makers at all levels of the Department. This strategy is the product of close collaboration of stakeholders across the Department. Leaders and data practitioners from over 20 bureaus and offices participated in working sessions and reviews to identify common data challenges and define the Vision, Goals, Objectives, and Guiding Principles required to shape the Department's data-driven future. As we move toward implementing this strategy, the Department will build from its current data leaders to extract best practices and securely scale up existing efforts for impactful enterprise deployment."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    2016,
+                    2256,
+                    2214
+                ],
+                "angle": 0,
+                "content": "To sustain meaningful progress, a follow-on implementation plan will outline ownership and responsibilities for monitoring, reporting, and evaluation of the execution of this strategy."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    211,
+                    2352,
+                    1983,
+                    2831
+                ],
+                "angle": 0,
+                "content": "The Department's ability to leverage innovative technologies to harness data's full potential will increase our capacity to advance the interests of the American people their safety and economic prosperity."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    196,
+                    3062,
+                    714,
+                    3105
+                ],
+                "angle": 0,
+                "content": "\\(\\ll\\) RETURN TO TABLE OF CONTENTS"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    173,
+                    3148,
+                    555,
+                    3191
+                ],
+                "angle": 0,
+                "content": "U.S. Department of State"
+            },
+            {
+                "block_id": 10,
+                "type": "footer",
+                "bbox": [
+                    1068,
+                    3151,
+                    1445,
+                    3197
+                ],
+                "angle": 0,
+                "content": "Enterprise Data Strategy"
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    2256,
+                    3144,
+                    2374,
+                    3187
+                ],
+                "angle": 0,
+                "content": "Page 7"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    1134,
+                    891,
+                    1456,
+                    1184
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    698,
+                    1237,
+                    1843,
+                    1349
+                ],
+                "angle": 0,
+                "content": "STRATEGIC DRIVERS"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    1137,
+                    1395,
+                    1397,
+                    1527
+                ],
+                "angle": 0,
+                "content": "for a"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    527,
+                    1544,
+                    2032,
+                    1719
+                ],
+                "angle": 0,
+                "content": "DATA-CENTRIC"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    912,
+                    1808,
+                    1644,
+                    1910
+                ],
+                "angle": 0,
+                "content": "DEPARTMENT"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    216,
+                    594,
+                    1713,
+                    976
+                ],
+                "angle": 0,
+                "content": "This is not only an opportunity, but a requirement for the United States to maintain its diplomatic edge on the global stage."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    209,
+                    1108,
+                    1239,
+                    1485
+                ],
+                "angle": 0,
+                "content": "Changing global realities drive the need for Data Informed Diplomacy. As new actors and trends produce a rapidly evolving global landscape, the demand for data-driven insights from our workforce increases to keep pace with shifting mission needs. Additionally, technological innovation has created the opportunity to equip our workforce with the right data when they need it."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    219,
+                    1524,
+                    805,
+                    1570
+                ],
+                "angle": 0,
+                "content": "Evolving Global Landscape"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    209,
+                    1574,
+                    1224,
+                    2445
+                ],
+                "angle": 0,
+                "content": "The rapidly evolving global landscape accelerates the pace of international events and requires increasingly nuanced diplomatic action. The Department must consider and coordinate with diverse state and non-state actors with their own interests, relationships, and data. Additionally, the digital age represents a tremendous opportunity to share information and connect across historical divides. Yet, adversaries increasingly weaponize technology through misinformation, cyber attacks, and digital surveillance to spread techno-authoritarianism and promote anti-democratic agendas. To counter these trends, our diplomacy must be multi-faceted, encompassing a wide range of issues, such as human rights, economic initiatives, and security assistance. U.S. diplomacy must be cross-functional, nuanced, and fast, delivering results for its people at the pace of global events."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    219,
+                    2484,
+                    930,
+                    2534
+                ],
+                "angle": 0,
+                "content": "Demand for Data-Driven Insights"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    209,
+                    2534,
+                    1244,
+                    2768
+                ],
+                "angle": 0,
+                "content": "Across the Department, stakeholders are demanding more data analysis to help achieve their policy and management goals. These demands span internal operational effectiveness and critical diplomatic engagement. Senior Department officials"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    1108,
+                    2307,
+                    1851
+                ],
+                "angle": 0,
+                "content": "and executive leadership from partner agencies increasingly seek insights to inform evidence-based diplomatic, security, economic, and human rights policy decisions. At the working level, the workforce demonstrates a broad and increased interest in producing and consuming data, as exhibited by the nearly 900 dashboards for over 45,000 users hosted by the Department in just one of its data visualization platforms. The Department must support this growing appetite for data analysis and visualization by strengthening enabling capabilities, including data analytics training, data management, governance, scientific and data integrity, storage, and data sharing to facilitate the cultural and organizational shifts needed to adopt data informed decision-making."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1290,
+                    1890,
+                    1843,
+                    1937
+                ],
+                "angle": 0,
+                "content": "Technological Innovation"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    1937,
+                    2307,
+                    2722
+                ],
+                "angle": 0,
+                "content": "Rapid technological innovation enables the Department's workforce to expand data informed insights. Emerging technologies such as 5G, sensor technology, cloud-based storage, connected and autonomous vehicles, and many others dramatically increase the volume and types of public and private data produced around the globe. Likewise, new data collection, management, analytic, geospatial, and visualization tools, along with emerging artificial intelligence (AI) and machine learning (ML) techniques, present exciting opportunities for the Department to capitalize on its vast data resources. The Department will need to balance these new, innovative capabilities with privacy, civil liberties, and security. This is not only an opportunity, but a requirement for the United States to maintain its diplomatic edge on the global stage."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    198,
+                    3055,
+                    714,
+                    3102
+                ],
+                "angle": 0,
+                "content": "<RETURN TO TABLE OF CONTENTS"
+            },
+            {
+                "block_id": 10,
+                "type": "footer",
+                "bbox": [
+                    173,
+                    3141,
+                    555,
+                    3184
+                ],
+                "angle": 0,
+                "content": "U.S. Department of State"
+            },
+            {
+                "block_id": 11,
+                "type": "footer",
+                "bbox": [
+                    1068,
+                    3151,
+                    1443,
+                    3197
+                ],
+                "angle": 0,
+                "content": "Enterprise Data Strategy"
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    2259,
+                    3151,
+                    2374,
+                    3194
+                ],
+                "angle": 0,
+                "content": "Page 9"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    1127,
+                    887,
+                    1456,
+                    1184
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    515,
+                    1306,
+                    2032,
+                    1494
+                ],
+                "angle": 0,
+                "content": "DATA VISION"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    726,
+                    1574,
+                    1828,
+                    1669
+                ],
+                "angle": 0,
+                "content": "U.S. DEPARTMENT of STATE"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    515,
+                    1775,
+                    2042,
+                    2646
+                ],
+                "angle": 0,
+                "content": "Data is a critical instrument of diplomacy, the Department's global workforce is empowered with the skills and tools to derive actionable mission insights from data, and its data assets are securely shared and effectively managed."
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    0,
+                    0,
+                    2550,
+                    646
+                ],
+                "angle": 0,
+                "content": "\\( \\left( {0 < x}\\right) t + x < p - 1 < 1. \\)"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    293,
+                    755,
+                    1499,
+                    894
+                ],
+                "angle": 0,
+                "content": "Goals and Objectives"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    288,
+                    966,
+                    935,
+                    1019
+                ],
+                "angle": 0,
+                "content": "FROM VISION TO ACTION"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1023,
+                    2246,
+                    1353
+                ],
+                "angle": 0,
+                "content": "To facilitate actionable progress to enhance the Department's data capabilities, four Goals serve as foundational targets to guide how the Department will reach its Vision. Each Goal seeks to build on and scale identified opportunities for improvement to create meaningful impact for the Department and ensure efficient implementation timelines. The thirteen specific Objectives represent actions that the Department needs to take to reach its Goals. These bold yet achievable steps will help drive action toward the Department's Vision over the next three years."
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    283,
+                    1458,
+                    459,
+                    1778
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    507,
+                    1458,
+                    1012,
+                    1501
+                ],
+                "angle": 0,
+                "content": "1. CULTIVATE DATA CULTURE"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    504,
+                    1511,
+                    1366,
+                    1706
+                ],
+                "angle": 0,
+                "content": "Recruit, train, and incentivize a workforce and workplace where data is routinely sought, valued, and fluently utilized for decision-making at all levels and geographies."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1522,
+                    1458,
+                    1769,
+                    1501
+                ],
+                "angle": 0,
+                "content": "OBJECTIVES"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1524,
+                    1511,
+                    1996,
+                    1554
+                ],
+                "angle": 0,
+                "content": "1.1 Strengthen Data Fluency"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1527,
+                    1564,
+                    2045,
+                    1600
+                ],
+                "angle": 0,
+                "content": "1.2 Enhance Data Collaboration"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1527,
+                    1613,
+                    1894,
+                    1650
+                ],
+                "angle": 0,
+                "content": "1.3 Hire for the Future"
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    1524,
+                    1511,
+                    2045,
+                    1650
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    293,
+                    1824,
+                    459,
+                    2135
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    504,
+                    1818,
+                    1361,
+                    1861
+                ],
+                "angle": 0,
+                "content": "2. ACCELERATE DECISIONS THROUGH ANALYTICS"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    504,
+                    1871,
+                    1435,
+                    2062
+                ],
+                "angle": 0,
+                "content": "Empower the Department's global workforce to utilize data by providing easy access to the Department's data assets, modern analytics tools, and customer service to enable their use."
+            },
+            {
+                "block_id": 15,
+                "type": "title",
+                "bbox": [
+                    1524,
+                    1818,
+                    1769,
+                    1857
+                ],
+                "angle": 0,
+                "content": "OBJECTIVES"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1524,
+                    1871,
+                    1991,
+                    1910
+                ],
+                "angle": 0,
+                "content": "2.1 Deliver Analytic Products"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1527,
+                    1920,
+                    2073,
+                    1963
+                ],
+                "angle": 0,
+                "content": "2.2 Provide Modern Analytic Tools"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1527,
+                    1973,
+                    2205,
+                    2013
+                ],
+                "angle": 0,
+                "content": "2.3 Pilot and Scale AI and ML Applications"
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    1524,
+                    1871,
+                    2205,
+                    2013
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "image",
+                "bbox": [
+                    293,
+                    2191,
+                    459,
+                    2501
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 21,
+                "type": "title",
+                "bbox": [
+                    504,
+                    2184,
+                    1412,
+                    2224
+                ],
+                "angle": 0,
+                "content": "3. ESTABLISH MISSION-DRIVEN DATA MANAGEMENT"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    504,
+                    2237,
+                    1343,
+                    2382
+                ],
+                "angle": 0,
+                "content": "Implement technology solutions to effectively create, collect, store, protect, and share data across the Department, the interagency, and with the public."
+            },
+            {
+                "block_id": 23,
+                "type": "title",
+                "bbox": [
+                    1524,
+                    2191,
+                    1769,
+                    2230
+                ],
+                "angle": 0,
+                "content": "OBJECTIVES"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    1524,
+                    2240,
+                    1955,
+                    2283
+                ],
+                "angle": 0,
+                "content": "3.1 Enable Access to Data"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    1527,
+                    2293,
+                    1989,
+                    2333
+                ],
+                "angle": 0,
+                "content": "3.2 Define Data Architecture"
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    1527,
+                    2343,
+                    2210,
+                    2382
+                ],
+                "angle": 0,
+                "content": "3.3 Define and Implement Data Standards"
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    1527,
+                    2392,
+                    2093,
+                    2435
+                ],
+                "angle": 0,
+                "content": "3.4 Establish Data Quality Program"
+            },
+            {
+                "block_id": 28,
+                "type": "list",
+                "bbox": [
+                    1524,
+                    2240,
+                    2210,
+                    2435
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 29,
+                "type": "image",
+                "bbox": [
+                    293,
+                    2550,
+                    459,
+                    2861
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 30,
+                "type": "title",
+                "bbox": [
+                    489,
+                    2544,
+                    1290,
+                    2587
+                ],
+                "angle": 0,
+                "content": "4. ENHANCE ENTERPRISE DATA GOVERNANCE"
+            },
+            {
+                "block_id": 31,
+                "type": "text",
+                "bbox": [
+                    487,
+                    2597,
+                    1280,
+                    2788
+                ],
+                "angle": 0,
+                "content": "Enable oversight and coordination of Department data through effective stewardship, policies, process controls, and investment decisions that appropriately value data."
+            },
+            {
+                "block_id": 32,
+                "type": "title",
+                "bbox": [
+                    1524,
+                    2544,
+                    1769,
+                    2583
+                ],
+                "angle": 0,
+                "content": "OBJECTIVES"
+            },
+            {
+                "block_id": 33,
+                "type": "text",
+                "bbox": [
+                    1524,
+                    2597,
+                    2295,
+                    2640
+                ],
+                "angle": 0,
+                "content": "4.1 Institute Data Governance Operating Model"
+            },
+            {
+                "block_id": 34,
+                "type": "text",
+                "bbox": [
+                    1527,
+                    2646,
+                    1927,
+                    2686
+                ],
+                "angle": 0,
+                "content": "4.2 Develop Data Policy"
+            },
+            {
+                "block_id": 35,
+                "type": "text",
+                "bbox": [
+                    1524,
+                    2696,
+                    2259,
+                    2788
+                ],
+                "angle": 0,
+                "content": "4.3 Measure the Organizational Value of Data and Analytics"
+            },
+            {
+                "block_id": 36,
+                "type": "list",
+                "bbox": [
+                    1524,
+                    2597,
+                    2295,
+                    2788
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 37,
+                "type": "text",
+                "bbox": [
+                    198,
+                    2973,
+                    793,
+                    3016
+                ],
+                "angle": 0,
+                "content": "<RETURN TO TABLE OF CONTENTS"
+            },
+            {
+                "block_id": 38,
+                "type": "footer",
+                "bbox": [
+                    173,
+                    3144,
+                    555,
+                    3187
+                ],
+                "angle": 0,
+                "content": "U.S. Department of State"
+            },
+            {
+                "block_id": 39,
+                "type": "footer",
+                "bbox": [
+                    1068,
+                    3154,
+                    1443,
+                    3197
+                ],
+                "angle": 0,
+                "content": "Enterprise Data Strategy"
+            },
+            {
+                "block_id": 40,
+                "type": "page_number",
+                "bbox": [
+                    2238,
+                    3158,
+                    2368,
+                    3201
+                ],
+                "angle": 0,
+                "content": "Page 11"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    219,
+                    297,
+                    895,
+                    471
+                ],
+                "angle": 0,
+                "content": "GOAL 1:"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    219,
+                    485,
+                    1532,
+                    587
+                ],
+                "angle": 0,
+                "content": "CULTIVATE DATA CULTURE"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    303,
+                    891,
+                    591,
+                    943
+                ],
+                "angle": 0,
+                "content": "IMPERATIVE"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    303,
+                    970,
+                    724,
+                    1128
+                ],
+                "angle": 0,
+                "content": "The Department's workforce does not have the data skills needed for each role in the future."
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    803,
+                    1016,
+                    925,
+                    1125
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    991,
+                    891,
+                    1226,
+                    943
+                ],
+                "angle": 0,
+                "content": "SOLUTION"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    991,
+                    970,
+                    1433,
+                    1240
+                ],
+                "angle": 0,
+                "content": "Recruit, train, and incentivize a workforce and workplace where data is routinely sought, valued, and fluently utilized for decision-making at all levels and geographies."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1683,
+                    887,
+                    2014,
+                    976
+                ],
+                "angle": 0,
+                "content": "IMPACT"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1677,
+                    983,
+                    2182,
+                    1191
+                ],
+                "angle": 0,
+                "content": "Increased data fluency empowers employees to pair data skills with mission expertise to advance American diplomacy and operational efficiency."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    214,
+                    1531,
+                    1073,
+                    1580
+                ],
+                "angle": 0,
+                "content": "Objective 1.1: Strengthen Data Fluency"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    209,
+                    1584,
+                    1226,
+                    2283
+                ],
+                "angle": 0,
+                "content": "To prepare its workforce for an increasingly data-driven world, the Department will invest in data fluency initiatives to enhance data and analytic skills at all levels and across the enterprise. Currently, the Department's workforce has various levels of knowledge, skills, and abilities for using data to complete tasks and make decisions. Going forward, roles will require greater data fluency than currently available. This Objective will encompass training courses and support materials tailored to needs for exploring, understanding, and interpreting data, as well as identifying new ways to stimulate the creative and impactful uses of data to advance diplomacy."
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    214,
+                    2356,
+                    1144,
+                    2405
+                ],
+                "angle": 0,
+                "content": "Objective 1.2: Enhance Data Collaboration"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    214,
+                    2409,
+                    1198,
+                    2706
+                ],
+                "angle": 0,
+                "content": "The Department will create channels to share institutional data and knowledge across the enterprise and incentivize cross-bureau data collaboration. While the global workforce has deep expertise in the mission and operations of the Department, they do not have access to forums"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    1531,
+                    2284,
+                    1834
+                ],
+                "angle": 0,
+                "content": "to learn from the Department's data experts and identify the datasets they need. To enable data collaboration, the Department will scale secure forums and channels to pair proficiency in mission-critical knowledge domains with data practices to extract new benefits from the Department's data."
+            },
+            {
+                "block_id": 14,
+                "type": "title",
+                "bbox": [
+                    1290,
+                    1894,
+                    2017,
+                    1943
+                ],
+                "angle": 0,
+                "content": "Objective 1.3: Hire for the Future"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    1947,
+                    2305,
+                    2597
+                ],
+                "angle": 0,
+                "content": "The Department will evolve its hiring practices to include requisite data skills. Data skillsets must be an integral component for a wider range of key positions. If data skills gaps are left unaddressed, the Department's hiring will be unable to keep pace with evolving data needs. As a complement to the Data Fluency efforts focused on upskilling the existing workforce (Objective 1.1), the Department will institute requirements for the data skills needed in specific roles by updating job postings and position descriptions and creating a new series of data science positions to meet identified data skills capabilities."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    216,
+                    3012,
+                    736,
+                    3055
+                ],
+                "angle": 0,
+                "content": "\\(\\ll\\) RETURN TO TABLE OF CONTENTS"
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    173,
+                    3148,
+                    555,
+                    3191
+                ],
+                "angle": 0,
+                "content": "U.S. Department of State"
+            },
+            {
+                "block_id": 18,
+                "type": "footer",
+                "bbox": [
+                    1068,
+                    3151,
+                    1443,
+                    3197
+                ],
+                "angle": 0,
+                "content": "Enterprise Data Strategy"
+            },
+            {
+                "block_id": 19,
+                "type": "page_number",
+                "bbox": [
+                    2238,
+                    3151,
+                    2374,
+                    3194
+                ],
+                "angle": 0,
+                "content": "Page 12"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    219,
+                    297,
+                    892,
+                    471
+                ],
+                "angle": 0,
+                "content": "GOAL 2:"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    216,
+                    485,
+                    1466,
+                    683
+                ],
+                "angle": 0,
+                "content": "ACCELERATE DECISIONS THROUGH ANALYTICS"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    306,
+                    891,
+                    589,
+                    943
+                ],
+                "angle": 0,
+                "content": "IMPERATIVE"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    303,
+                    970,
+                    711,
+                    1204
+                ],
+                "angle": 0,
+                "content": "The Department's global workforce lacks tools for conducting advanced analytics and creating products to derive insights."
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    803,
+                    1016,
+                    925,
+                    1125
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    994,
+                    891,
+                    1224,
+                    943
+                ],
+                "angle": 0,
+                "content": "SOLUTION"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    991,
+                    970,
+                    1438,
+                    1277
+                ],
+                "angle": 0,
+                "content": "Empower the Department's global workforce to utilize data by providing easy access to the Department's data assets, modern analytics tools, and customer service to enable their use."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1683,
+                    887,
+                    2014,
+                    976
+                ],
+                "angle": 0,
+                "content": "IMPACT"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1677,
+                    983,
+                    2172,
+                    1188
+                ],
+                "angle": 0,
+                "content": "Providing the workforce with data tools and analysis enables evidence-based decision-making across mission and operational activities."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    214,
+                    1531,
+                    1081,
+                    1580
+                ],
+                "angle": 0,
+                "content": "Objective 2.1: Deliver Analytic Products"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    211,
+                    1584,
+                    1241,
+                    2428
+                ],
+                "angle": 0,
+                "content": "The Department will expand the ability of the workforce to better use widely available enterprise analytics resources. While the proliferation of analytics products has benefitted individual bureaus, offices, and posts, potential users in other parts of the enterprise lose valuable time searching them out or building redundant ones. To bring products to potential users, the Department will market existing analyses, dashboards, and other data products, while establishing user feedback mechanisms to enable continuous improvement and identification of new products that can drive mission-centric decisions. In cases where multiple stakeholders have similar analytic needs to meet mission requirements, the Department will encourage joint development of products to break down silos and maximize return on investment."
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    214,
+                    2494,
+                    1188,
+                    2544
+                ],
+                "angle": 0,
+                "content": "Objective 2.2: Provide Modern Analytic Tools"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    211,
+                    2547,
+                    1244,
+                    2993
+                ],
+                "angle": 0,
+                "content": "The Department will expand the secure use of modern analytic tools, such as visualization software, geospatial data capabilities, cloud platforms and programming languages, to derive new types of insights from its data. Skilled data users must have appropriate analytic tools for their business needs. A more integrated approach to providing the workforce with the right tools, will enhance opportunities to extract value from data."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    1531,
+                    2312,
+                    1831
+                ],
+                "angle": 0,
+                "content": "To better support users, the Department will facilitate access to enterprise analytic tools, streamline approval and licensing processes for new tools, and define responsibilities for the training needed to accelerate their use for mission-driven analysis."
+            },
+            {
+                "block_id": 14,
+                "type": "title",
+                "bbox": [
+                    1290,
+                    1894,
+                    1603,
+                    1940
+                ],
+                "angle": 0,
+                "content": "Objective 2.3:"
+            },
+            {
+                "block_id": 15,
+                "type": "title",
+                "bbox": [
+                    1290,
+                    1943,
+                    2134,
+                    1993
+                ],
+                "angle": 0,
+                "content": "Pilot and Scale AI and ML Applications"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    1996,
+                    2302,
+                    2692
+                ],
+                "angle": 0,
+                "content": "The Department will explore equipping its workforce with AI and ML capabilities to inform foreign policy decisions and increase operational efficiency. The Department must establish policies and processes that ensure AI and ML capabilities are applied ethically, protect privacy, reduce bias, promote transparency, and align to legislative and executive requirements. (Footnote 1) The Department will also catalog ongoing AI and ML initiatives and capitalize on these successes by harnessing interagency partners' accomplishments to complement the Department's mission set, piloting new use cases, scaling existing capabilities, and sharing expertise across the Department."
+            },
+            {
+                "block_id": 17,
+                "type": "title",
+                "bbox": [
+                    1290,
+                    2739,
+                    1435,
+                    2775
+                ],
+                "angle": 0,
+                "content": "Footnote:"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    2778,
+                    2302,
+                    2966
+                ],
+                "angle": 0,
+                "content": "Relevant executive mandates include but are not limited to: Executive Order 13859 on Maintaining American Leadership in AI (Released 11 February 2019), Executive Order on Promoting the Use of Trustworthy Artificial Intelligence in the Federal Government (Released 3 December 2020), and Executive Order 14028: Improving the Nation's Cybersecurity."
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    216,
+                    3019,
+                    734,
+                    3059
+                ],
+                "angle": 0,
+                "content": "<RETURN TO TABLE OF CONTENTS"
+            },
+            {
+                "block_id": 20,
+                "type": "footer",
+                "bbox": [
+                    173,
+                    3148,
+                    555,
+                    3191
+                ],
+                "angle": 0,
+                "content": "U.S. Department of State"
+            },
+            {
+                "block_id": 21,
+                "type": "footer",
+                "bbox": [
+                    1068,
+                    3154,
+                    1443,
+                    3197
+                ],
+                "angle": 0,
+                "content": "Enterprise Data Strategy"
+            },
+            {
+                "block_id": 22,
+                "type": "page_number",
+                "bbox": [
+                    2238,
+                    3151,
+                    2371,
+                    3194
+                ],
+                "angle": 0,
+                "content": "Page 13"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    221,
+                    250,
+                    892,
+                    425
+                ],
+                "angle": 0,
+                "content": "GOAL 3:"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    221,
+                    438,
+                    1685,
+                    541
+                ],
+                "angle": 0,
+                "content": "ESTABLISH MISSION-DRIVEN"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    221,
+                    541,
+                    1254,
+                    636
+                ],
+                "angle": 0,
+                "content": "DATA MANAGEMENT"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    303,
+                    844,
+                    591,
+                    897
+                ],
+                "angle": 0,
+                "content": "IMPERATIVE"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    303,
+                    924,
+                    749,
+                    1122
+                ],
+                "angle": 0,
+                "content": "The Department does not have the technologies needed to enable effective management and oversight of its data."
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    803,
+                    970,
+                    925,
+                    1082
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    991,
+                    844,
+                    1226,
+                    897
+                ],
+                "angle": 0,
+                "content": "SOLUTION"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    991,
+                    924,
+                    1410,
+                    1230
+                ],
+                "angle": 0,
+                "content": "Implement a common technical approach to effectively create, collect, store, protect, and share data across the Department, the interagency, and with the public."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1683,
+                    844,
+                    2014,
+                    933
+                ],
+                "angle": 0,
+                "content": "IMPACT"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1677,
+                    937,
+                    2218,
+                    1227
+                ],
+                "angle": 0,
+                "content": "Mission-driven data management improves the depth, breadth, and quality of analysis possible with the Department's data, while making more efficient use of the resources needed for maintenance throughout its lifecycle."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    214,
+                    1478,
+                    1020,
+                    1524
+                ],
+                "angle": 0,
+                "content": "Objective 3.1: Enable Access to Data"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    211,
+                    1527,
+                    1236,
+                    1986
+                ],
+                "angle": 0,
+                "content": "The Department will establish simple, streamlined, and secure access to authoritative internal and external datasets for Department users across the globe. Presently, the Department employs a federated approach to data management, and this landscape at times prevents bureaus, offices, and posts from accessing potentially useful data assets or from knowing they exist. Recognizing the need for an enhanced cybersecurity posture and requirement to ensure security of classified and sensitive data"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    214,
+                    1993,
+                    1218,
+                    2046
+                ],
+                "angle": 0,
+                "content": "- such as Personally Identifiable Information (PII)"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    216,
+                    2046,
+                    1213,
+                    2273
+                ],
+                "angle": 0,
+                "content": "- the Department will develop a secure common platform for select datasets with integrated records management, transparent data lineage, and clearly identifiable systems of record to maintain the integrity of shared data."
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    214,
+                    1993,
+                    1218,
+                    2273
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "title",
+                "bbox": [
+                    214,
+                    2303,
+                    1073,
+                    2349
+                ],
+                "angle": 0,
+                "content": "Objective 3.2: Define Data Architecture"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    211,
+                    2349,
+                    1249,
+                    2808
+                ],
+                "angle": 0,
+                "content": "The Department will design data architecture to reinforce data integration, standardization, security, and quality across the enterprise. It will leverage existing IT modernization efforts and partnerships with the IT Executive Council (ITEC), The Bureau of Information Resource Management (IRM), and other bureau IT organizations to ensure these required data capabilities have been implemented to enable data sharing, data management, and faster reporting times."
+            },
+            {
+                "block_id": 17,
+                "type": "title",
+                "bbox": [
+                    211,
+                    2851,
+                    1127,
+                    2943
+                ],
+                "angle": 0,
+                "content": "Objective 3.3: Define and Implement Data Standards"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    214,
+                    2946,
+                    1152,
+                    2996
+                ],
+                "angle": 0,
+                "content": "The Department will define and implement data"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    1478,
+                    2340,
+                    2079
+                ],
+                "angle": 0,
+                "content": "standards, such as web services, data discovery, and metadata, that are broadly understood and used to describe, ingest, record, and format data. An enterprise approach to data standards is needed, as current approaches are bespoke to specific data products and are not applied uniformly nor broadly understood. By drawing upon established Department and international standards and adapting them for the enterprise, data owners, stewards, and users will gain clarity on their roles in applying standards to data. The standards will enable greater discovery, utility, security, and efficacy of the Department's data."
+            },
+            {
+                "block_id": 20,
+                "type": "title",
+                "bbox": [
+                    1290,
+                    2118,
+                    2287,
+                    2168
+                ],
+                "angle": 0,
+                "content": "Objective 3.4: Establish Data Quality Program"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    2168,
+                    2335,
+                    2946
+                ],
+                "angle": 0,
+                "content": "The Department will deploy the framework, tools, and processes necessary for upholding the highest levels of scientific and data integrity and improving data quality to enable the development of trustworthy and accurate data that can be readily blended, analyzed, reported, and shared across the enterprise and with the public. Decision-making must be based on reliable data, yet with limited guidance on data entry and associated review processes, the Department's data quality is inconsistent. To reinforce data integrity and continually enhance its data, the Department's Data Quality Program will promote systematic measurement and evaluation of data quality characteristics, such as accuracy and timeliness. This program will also support necessary process improvement efforts for data entry."
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    196,
+                    3055,
+                    714,
+                    3095
+                ],
+                "angle": 0,
+                "content": "<RETURN TO TABLE OF CONTENTS"
+            },
+            {
+                "block_id": 23,
+                "type": "footer",
+                "bbox": [
+                    170,
+                    3144,
+                    553,
+                    3187
+                ],
+                "angle": 0,
+                "content": "U.S. Department of State"
+            },
+            {
+                "block_id": 24,
+                "type": "footer",
+                "bbox": [
+                    1068,
+                    3154,
+                    1443,
+                    3197
+                ],
+                "angle": 0,
+                "content": "Enterprise Data Strategy"
+            },
+            {
+                "block_id": 25,
+                "type": "page_number",
+                "bbox": [
+                    2238,
+                    3151,
+                    2371,
+                    3194
+                ],
+                "angle": 0,
+                "content": "Page 14"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    221,
+                    293,
+                    1410,
+                    699
+                ],
+                "angle": 0,
+                "content": "GOAL 4: ENHANCE ENTERPRISE DATA GOVERNANCE"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    303,
+                    891,
+                    591,
+                    943
+                ],
+                "angle": 0,
+                "content": "IMPERATIVE"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    300,
+                    970,
+                    754,
+                    1204
+                ],
+                "angle": 0,
+                "content": "The Department lacks comprehensive policies and procedures to provide management and oversight of data across the enterprise."
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    803,
+                    1016,
+                    925,
+                    1125
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    991,
+                    891,
+                    1229,
+                    943
+                ],
+                "angle": 0,
+                "content": "SOLUTION"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    991,
+                    970,
+                    1435,
+                    1277
+                ],
+                "angle": 0,
+                "content": "Enable management oversight and coordination of DoS data through effective stewardship, policies, process controls, and investment decisions that appropriately value data."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    1683,
+                    887,
+                    2017,
+                    976
+                ],
+                "angle": 0,
+                "content": "IMPACT"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1677,
+                    983,
+                    2162,
+                    1316
+                ],
+                "angle": 0,
+                "content": "Consistent data governance throughout the Department advances the ability of Bureau and Offices to more easily manage, share, and use the Department's data, while reducing the time and resources required to do so."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    214,
+                    1531,
+                    1106,
+                    1630
+                ],
+                "angle": 0,
+                "content": "Objective 4.1: Institute Data Governance Operating Model"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    211,
+                    1630,
+                    1241,
+                    2484
+                ],
+                "angle": 0,
+                "content": "The Department will codify and operationalize the guidance and support provided to data governance functions. Across the enterprise, this guidance will enable bureaus, offices, and posts to implement collective, comprehensive, and efficient oversight over the Department's data, while applying industry-leading practices to maximize return on investment. To accommodate diverse levels of data maturity and needs for data governance, the Department must tailor an enterprise data governance operating model that accounts for these differences. It must likewise establish processes for collaboration between bureaus, offices, posts, and the Enterprise Data Council to create and enforce data standards and policies, while supporting nimble working groups dedicated to addressing the Department's most pressing data challenges."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    214,
+                    2557,
+                    971,
+                    2607
+                ],
+                "angle": 0,
+                "content": "Objective 4.2: Develop Data Policy"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    211,
+                    2607,
+                    1218,
+                    2910
+                ],
+                "angle": 0,
+                "content": "The Department will collaboratively establish and systematically refine its data policies to reflect regulatory requirements and industry leading practices. As federal guidance around data evolves to provide more clarity on the actions agencies must take to improve data capabilities, strengthen"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    1531,
+                    2330,
+                    2184
+                ],
+                "angle": 0,
+                "content": "cybersecurity, enhance transparency, and provide accountability to the U.S. taxpayer, the Department must continually re-align its internal policies for compliance. Likewise, industry leading data practices and data governance tools must inform decisions around how the Department governs and manages its data. The Department will establish a methodology to update its policies that ensures continuous compliance with federal legislation such as the Geospatial Data Act, the Open Government Data Act, the Foreign Aid Transparency and Accountability Act, and the Foundations for Evidence-Based Policymaking Act of 2018."
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    1287,
+                    2244,
+                    2221,
+                    2343
+                ],
+                "angle": 0,
+                "content": "Objective 4.3: Measure the Organizational Value of Data and Analytics"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1285,
+                    2346,
+                    2323,
+                    2900
+                ],
+                "angle": 0,
+                "content": "The Department will systematically assess the value of data and analytics initiatives, from creation and analysis to mission and operational decisions. As the volume of data and enabling tools continues to grow, it will be incumbent upon all stakeholders to ensure data and analytics initiatives are targeted to effectively and efficiently support the Department's mission. And as the those targeted endeavors drive successful Department priorities, they will promote a virtuous cycle of increased data and analytics use in other critical decision-making areas."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    216,
+                    3062,
+                    736,
+                    3105
+                ],
+                "angle": 0,
+                "content": "\\(\\ll\\) RETURN TO TABLE OF CONTENTS"
+            },
+            {
+                "block_id": 16,
+                "type": "footer",
+                "bbox": [
+                    173,
+                    3141,
+                    555,
+                    3184
+                ],
+                "angle": 0,
+                "content": "U.S. Department of State"
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    1068,
+                    3154,
+                    1445,
+                    3197
+                ],
+                "angle": 0,
+                "content": "Enterprise Data Strategy"
+            },
+            {
+                "block_id": 18,
+                "type": "page_number",
+                "bbox": [
+                    2238,
+                    3144,
+                    2374,
+                    3187
+                ],
+                "angle": 0,
+                "content": "Page 15"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    216,
+                    455,
+                    1275,
+                    597
+                ],
+                "angle": 0,
+                "content": "Guiding Principles"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    211,
+                    613,
+                    2136,
+                    818
+                ],
+                "angle": 0,
+                "content": "The 'SAGES' Guiding Principles support the overall data strategy by providing a clear value framework for prioritizing implementation activities and addressing challenges that arise. These Guiding Principles were informed and validated by stakeholders across the Department."
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    374,
+                    851,
+                    742,
+                    1277
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    275,
+                    1320,
+                    844,
+                    1782
+                ],
+                "angle": 0,
+                "content": "Data is appropriately shared across the Department through collective stewardship to enable analysis across the enterprise and enhance its value. Effectively shared data empowers the workforce to derive its own insights from cross-cutting data and reduces duplicate purchases of datasets."
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1093,
+                    851,
+                    1456,
+                    1277
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    984,
+                    1320,
+                    1558,
+                    1699
+                ],
+                "angle": 0,
+                "content": "Data is broadly understood and applied to inform evidence-based decisions at all levels and missions across the globe. Decisions that factor in end user needs will enable the workforce to blend their expertise with data insights more easily."
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1805,
+                    851,
+                    2170,
+                    1277
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1695,
+                    1320,
+                    2264,
+                    1782
+                ],
+                "angle": 0,
+                "content": "Effective oversight and management of data enables the Department's applications through improved data quality, simplified use, and investment decisions prioritized by mission impact. Clearly managed and accurate data builds trust and reduces the reporting burden on the end user."
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    734,
+                    1887,
+                    1091,
+                    2313
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    629,
+                    2346,
+                    1203,
+                    2976
+                ],
+                "angle": 0,
+                "content": "Data is responsibly collected, stored, and utilized to provide accountability to the U.S. taxpayer and uphold the highest levels of scientific and data integrity. Implementing leading industry standards in ethical data capabilities minimizes bias, fulfills the Department's obligations to the U.S. people, and models the importance of incorporating democratic values in technology on the world stage."
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1450,
+                    1887,
+                    1813,
+                    2313
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1348,
+                    2346,
+                    1899,
+                    2851
+                ],
+                "angle": 0,
+                "content": "Data is safeguarded through industry leading security practices at each classification level to protect U.S. national interests at home and abroad. As malicious actors seek to gain unlawful access to sensitive data, decisions that advance security will remain paramount to protecting national security and privacy."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    198,
+                    3062,
+                    714,
+                    3105
+                ],
+                "angle": 0,
+                "content": "<RETURN TO TABLE OF CONTENTS"
+            },
+            {
+                "block_id": 13,
+                "type": "footer",
+                "bbox": [
+                    173,
+                    3148,
+                    555,
+                    3191
+                ],
+                "angle": 0,
+                "content": "U.S. Department of State"
+            },
+            {
+                "block_id": 14,
+                "type": "footer",
+                "bbox": [
+                    1068,
+                    3151,
+                    1443,
+                    3197
+                ],
+                "angle": 0,
+                "content": "Enterprise Data Strategy"
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    2238,
+                    3144,
+                    2371,
+                    3187
+                ],
+                "angle": 0,
+                "content": "Page 16"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    1127,
+                    706,
+                    1463,
+                    1003
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    823,
+                    1049,
+                    1723,
+                    1184
+                ],
+                "angle": 0,
+                "content": "Moving Forward"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1250,
+                    1239,
+                    2204
+                ],
+                "angle": 0,
+                "content": "Building data capabilities throughout the Department requires a broad organizational effort and alignment to both create and sustain the changes outlined in this strategy. As the coordinating and advisory body for the Department's data, the Enterprise Data Council (EDC), chaired by the Chief Data Officer (CDO) and comprised of representatives from across the Department including the Evaluation Officers and Statistical Official, will oversee the implementation of this Strategy and regularly report progress to the Deputy Secretary of State for Management and Resources (D-MR). The EDC, M/SS, and the Department's Center for Analytics (CfA) will support the continuous stakeholder engagement crucial to embedding positive change at all levels of the organization."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2250,
+                    1234,
+                    2550
+                ],
+                "angle": 0,
+                "content": "To execute this strategy, the CfA and designated EDC Liaisons representing bureaus and offices across the Department will develop an implementation plan. This implementation plan will include a portfolio of sequenced activities that"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    1250,
+                    2233,
+                    1851
+                ],
+                "angle": 0,
+                "content": "balance quick wins to build momentum with longer-term efforts to enact lasting organizational change. Assessments of the impact, feasibility, and key dependencies of each Objective will inform the timeline to complete the portfolio of activities. Similarly, the plan will leverage and enhance established efforts across the Department to meet its Goals and Objectives and create new data capabilities where needed to reach the desired end-state."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1287,
+                    1904,
+                    2236,
+                    2455
+                ],
+                "angle": 0,
+                "content": "The Department will use milestones and performance metrics in the implementation plan which will remain an internal and deliberative Department document, to regularly review and monitor its progress toward meeting the Goals outlined in this strategy. Upon successful completion of its first-ever data strategy, the Department will evaluate the progress made and use that to inform future iterations of the data strategy or similar strategic plans."
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    331,
+                    3092,
+                    838,
+                    3135
+                ],
+                "angle": 0,
+                "content": "\\(\\ll\\) RETURN TO TABLE OF CONTENTS"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    1035,
+                    1191,
+                    1512,
+                    1673
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    920,
+                    1765,
+                    1626,
+                    1983
+                ],
+                "angle": 0,
+                "content": "M|Strategy &Solutions"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    966,
+                    2079,
+                    1287,
+                    2250
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1305,
+                    2082,
+                    1578,
+                    2257
+                ],
+                "angle": 0,
+                "content": "center for analytics"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1035,
+                    2346,
+                    1512,
+                    2623
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    956,
+                    2745,
+                    1593,
+                    2821
+                ],
+                "angle": 0,
+                "content": "CfA@state.gov"
+            }
+        ]
+    }
+]

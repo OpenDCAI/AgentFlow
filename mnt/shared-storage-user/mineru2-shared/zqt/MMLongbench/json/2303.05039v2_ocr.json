@@ -1,0 +1,2262 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "aside_text",
+                "bbox": [
+                    58,
+                    891,
+                    147,
+                    2333
+                ],
+                "angle": 270,
+                "content": "arXiv:2303.05039v2 [cs.IR] 21 Mar 2023"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    298,
+                    333,
+                    2249,
+                    491
+                ],
+                "angle": 0,
+                "content": "Improving Recommendation Systems with User Personality Inferred from Product Reviews"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    726,
+                    521,
+                    1022,
+                    580
+                ],
+                "angle": 0,
+                "content": "Xinyuan Lu\\(^{1,2}\\)"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1522,
+                    524,
+                    1815,
+                    574
+                ],
+                "angle": 0,
+                "content": "Min-Yen Kan²"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    459,
+                    584,
+                    2091,
+                    640
+                ],
+                "angle": 0,
+                "content": "\\(^{1}\\)Integrative Sciences and Engineering Programme (ISEP), NUS Graduate School"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    586,
+                    643,
+                    1963,
+                    699
+                ],
+                "angle": 0,
+                "content": "\\(^{2}\\)School of Computing, National University of Singapore, Singapore"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    619,
+                    702,
+                    1096,
+                    752
+                ],
+                "angle": 0,
+                "content": "luxinyuan@u.nus.edu"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1399,
+                    706,
+                    1932,
+                    755
+                ],
+                "angle": 0,
+                "content": "kanmy@comp.nus.edu.sg"
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    214,
+                    785,
+                    469,
+                    831
+                ],
+                "angle": 0,
+                "content": "ABSTRACT"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    209,
+                    848,
+                    1231,
+                    1257
+                ],
+                "angle": 0,
+                "content": "Personality is a psychological factor that reflects people's preferences, which in turn influences their decision-making. We hypothesize that accurate modeling of users' personalities improves recommendation systems' performance. However, acquiring such personality profiles is both sensitive and expensive. We address this problem by introducing a novel method to automatically extract personality profiles from public product review text. We then design and assess three context-aware recommendation architectures that leverage the profiles to test our hypothesis."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    209,
+                    1260,
+                    1231,
+                    1577
+                ],
+                "angle": 0,
+                "content": "Experiments on our two newly contributed personality datasets - Amazon-beauty and Amazon-music - validate our hypothesis, showing performance boosts of \\(3 - 28\\%\\). Our analysis uncovers that varying personality types contribute differently to recommendation performance: open and extroverted personalities are most helpful in music recommendation, while a conscientious personality is most helpful in beauty product recommendation."
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    214,
+                    1617,
+                    563,
+                    1663
+                ],
+                "angle": 0,
+                "content": "CCS CONCEPTS"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    211,
+                    1679,
+                    1231,
+                    1772
+                ],
+                "angle": 0,
+                "content": "- Information systems \\(\\rightarrow\\) Recommender systems; - Applied computing \\(\\rightarrow\\) Psychology."
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    214,
+                    1811,
+                    484,
+                    1857
+                ],
+                "angle": 0,
+                "content": "KEYWORDS"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    211,
+                    1874,
+                    1226,
+                    1920
+                ],
+                "angle": 0,
+                "content": "Recommendation Systems, Psychology, Personality, Review Texts"
+            },
+            {
+                "block_id": 15,
+                "type": "title",
+                "bbox": [
+                    214,
+                    1937,
+                    589,
+                    1973
+                ],
+                "angle": 0,
+                "content": "ACM Reference Format:"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    209,
+                    1976,
+                    1231,
+                    2346
+                ],
+                "angle": 0,
+                "content": "Xinyuan Lu<sup>1,2</sup> Min-Yen Kan<sup>2</sup>, <sup>1</sup>Integrative Sciences and Engineering Programme (ISEP), NUS Graduate School, <sup>2</sup>School of Computing, National University of Singapore, Singapore, luxinyuan@u.nus.edu. kanmy@comp.nus.edu.sg, . 2023. Improving Recommendation Systems with User Personality Inferred from Product Reviews. In Workshop on Interactive Recommender Systems of the 16th ACM International Conference on Web Search and Data Mining (IRS@WSDM'23), February 27-March 3, 2023, Singapore. ACM, New York, NY, USA, 9 pages. https://doi.org/XXXXXX.XXXXXX"
+            },
+            {
+                "block_id": 17,
+                "type": "title",
+                "bbox": [
+                    214,
+                    2392,
+                    655,
+                    2438
+                ],
+                "angle": 0,
+                "content": "1 INTRODUCTION"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    211,
+                    2455,
+                    1229,
+                    2547
+                ],
+                "angle": 0,
+                "content": "Online recommendation systems are algorithms that help users to find their favorite items. In recommendation systems, the user's"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    209,
+                    2574,
+                    1231,
+                    2814
+                ],
+                "angle": 0,
+                "content": "Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from permissions@acm.org."
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    216,
+                    2818,
+                    867,
+                    2851
+                ],
+                "angle": 0,
+                "content": "IRS@WSDM '23, February 27-March 3, 2023, Singapore"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    216,
+                    2854,
+                    777,
+                    2884
+                ],
+                "angle": 0,
+                "content": "© 2023 Association for Computing Machinery."
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    216,
+                    2887,
+                    780,
+                    2917
+                ],
+                "angle": 0,
+                "content": "ACM ISBN 978-1-4503-XXXX-X/18/06...$15.00"
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    219,
+                    2920,
+                    678,
+                    2956
+                ],
+                "angle": 0,
+                "content": "https://doi.org/XXXXXXXXX.XXXXXXXXXX"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    788,
+                    2335,
+                    1013
+                ],
+                "angle": 0,
+                "content": "profile is important as people with different ages, educational backgrounds exhibit different preferences. Besides static attributes such as gender, the user's psychological factors, especially personality, can be viewed as a user's dynamic profile are also vital in recommendations."
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    1019,
+                    2333,
+                    1428
+                ],
+                "angle": 0,
+                "content": "People with similar personalities are more likely to have similar interests and preferences [23]. Therefore, accurate modeling of the user's personality plays a vital role in recommendation systems. For example, in movie recommendation, an outgoing person may favour watching comedic movies over romantic ones [23]. Other studies [11] have shown that in music recommendation, a user's degree of openness strongly determines their preference for energetic music genres. These examples show that personality traits can influence users' preferences."
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    1432,
+                    2333,
+                    1795
+                ],
+                "angle": 0,
+                "content": "While we can see that personality traits motivate users' preferences, there are challenges that need to be solved before one can utilize the traits in the recommendation. First, collecting personality data is time-consuming. The current best practice for collecting personality data requires conducting a user study via an ethically-cleared questionnaire with informed consent. Subsequent training of assessors is also needed. The entire collection process can take months [19] and also be an expensive process in terms of effort."
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    1795,
+                    2335,
+                    2250
+                ],
+                "angle": 0,
+                "content": "Second, processing personality data raises sensitivity and privacy concerns. If handled incorrectly, such data can be misused by users intentionally, resulting in a violation of privacy protection policies and biased performance of the recommendation systems. For example, a scandal emerged when a Facebook app illegally collected 87 million users' personality information to manipulate their voting choices in the U.S. presidential election in March 2018 [9]. Such risks make the balance between collecting and utilizing users' personality information challenging. This issue has stalled progress in this emerging field of research."
+            },
+            {
+                "block_id": 28,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    2250,
+                    2371,
+                    2616
+                ],
+                "angle": 0,
+                "content": "Due to the problem above, the third challenge is a lack of personality-grounded datasets in the existing work. One notable exception is the website myPersonality<sup>1</sup>, which contained personality data and the likes of Facebook users. However, in 2018, myPersonality's founders decided to discontinue the project as \"complying with various regulations [had] become too burdensome\". To the best of our knowledge, there are thus few datasets suitable for testing the effect of personality factors in recommendation systems research."
+            },
+            {
+                "block_id": 29,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    2620,
+                    2333,
+                    2894
+                ],
+                "angle": 0,
+                "content": "In this study, we explore methods to overcome these challenges discussed above and contribute to personality-based recommendation research. We identify a new source for inferring a user's personality traits: user-generated content, specifically e-commerce review texts. Studies show that review texts can reflect a user's personality since individuals manifest their personality through"
+            },
+            {
+                "block_id": 30,
+                "type": "page_footnote",
+                "bbox": [
+                    1313,
+                    2917,
+                    2045,
+                    2956
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup>https://sites.google.com/michalkosinski.com/mypersonality"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    214,
+                    250,
+                    897,
+                    290
+                ],
+                "angle": 0,
+                "content": "IRS@WSDM '23, February 27-March 3, 2023, Singapore"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2180,
+                    250,
+                    2328,
+                    287
+                ],
+                "angle": 0,
+                "content": "Lu and Kan"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    209,
+                    353,
+                    1229,
+                    719
+                ],
+                "angle": 0,
+                "content": "their choice of words [17]. For example, when showing their dislikes on the same shampoo, an agreeable person may comment \"I bought this shampoo for my husband. The smell is not good,\" while a neurotic and aggressive person might comment \"Arrived opened and leaking all over the box. Tried shampoo but didn't help at all. Still so itchy!!\". In addition, review text is easy to obtain and made publicly available by users in full disclosure on online commercial websites, which helps to solve both time and privacy issues."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    209,
+                    719,
+                    1231,
+                    1537
+                ],
+                "angle": 0,
+                "content": "In our experiments, we explore the possibility of automatically inferring users' personality traits from their review texts and then use this information to help recommendations. We do this by leveraging an Application Programming Interface (API) to automatically analyze the user's personality. There already exist deployed, production-level APIs for automatic personality detection, such as IBM Personality Insights², Humantic AI³, and Receptiviti⁴ that purport to yield personality profiles. In our work here, we use the Receptiviti API, because it is a widely-validated and widely-used psychology-based language analysis platform for understanding human emotion, personality, motivation, and psychology from language. Receptiviti's API outputs scores for the commonly-used OCEAN personality model: five values, one for each of the five personality aspects of Openness, Conscientiousness, Extroversion, Agreeableness, and Neuroticism (each corresponding to one letter of “OCEAN”). Finally, this inferred personality is fed as input to a recommendation system, to test whether it can improve recommendation performance."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    209,
+                    1541,
+                    1231,
+                    2042
+                ],
+                "angle": 0,
+                "content": "To conduct our study, we first construct two new datasets extending from an existing Amazon review dataset, in the beauty and music domains. We first extract the user reviews that are between 30 to 80 words. Afterward, we concatenate all the valid review texts of each user and input their concatenation to the Receptiviti API to output each user's inferred personality scores. As a quality check, we evaluate the accuracy of personality detection, by plotting the personality distribution for each dataset. We observe the users with extremely high/low personality scores and find that these are reliable indicators of personality, and use the such confidently labeled output as ground truth (silver data)."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    209,
+                    2046,
+                    1231,
+                    2547
+                ],
+                "angle": 0,
+                "content": "We incorporate these personality scores into the recommendation process and investigate their effect on current neural-based recommendation systems. We observe consistent improvements on the performance of such recommendation systems. When we consider different personality groups, we find that extroversion and agreeableness benefit the recommendation performances across all the domains. However, we lack an in-depth understanding of how these personalities affect recommendations and users' behavior. This points to future directions in utilizing other auxiliary information to infer users' personality traits, e.g., users' browsing histories. In summary, our contributions are:"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    280,
+                    2574,
+                    1231,
+                    2712
+                ],
+                "angle": 0,
+                "content": "- We construct two new datasets in the music and beauty domains that combine users' public product reviews alongside automatically inferred personality scores. This directly"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1412,
+                    353,
+                    2330,
+                    488
+                ],
+                "angle": 0,
+                "content": "addresses the lack of personality-based datasets for recommendation, while avoiding privacy issues by using public data."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1382,
+                    491,
+                    2330,
+                    627
+                ],
+                "angle": 0,
+                "content": "- We conduct empirical experiments over these datasets, finding that leveraging personality information indeed improves the recommendation performance, from \\(3\\%\\) to \\(28\\%\\)."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1382,
+                    627,
+                    2333,
+                    808
+                ],
+                "angle": 0,
+                "content": "- We analyze the influence of personality traits in these domains and find the personality traits of extroversion and agreeableness improve the recommendation performance across all domains."
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    1382,
+                    491,
+                    2333,
+                    808
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    1313,
+                    858,
+                    1762,
+                    900
+                ],
+                "angle": 0,
+                "content": "2 RELATED WORK"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    917,
+                    2333,
+                    1283
+                ],
+                "angle": 0,
+                "content": "The current study investigates how to extract personality traits from texts and how personality traits can be utilized in recommendation systems. Therefore, the review below focuses on the literature that discusses personality detection and personality-based recommendation systems. We first give an introduction of the OCEAN personality models (Section 2.1) before reviewing two topics related to our work: personality detection (Section 2.2) and personality-based recommendation systems (Section 2.3)."
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    1313,
+                    1326,
+                    1823,
+                    1376
+                ],
+                "angle": 0,
+                "content": "2.1 The OCEAN Model"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    1389,
+                    2330,
+                    1706
+                ],
+                "angle": 0,
+                "content": "Personality involves a pattern of behavior that is not likely to change over a short period of time [1]. It can be detected either explicitly by a questionnaire or implicitly by observing user behaviors [12]. The most commonly-used model describing personality traits is the OCEAN model [12], which we use to model a user's personality traits. The five fundamental personality dimensions defined by OCEAN are:"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1359,
+                    1722,
+                    2330,
+                    1907
+                ],
+                "angle": 0,
+                "content": "(1) Openness to Experience (O), which describes the breadth and depth of people's life, including the originality and complexity of their experiences. Individuals with high openness tend to be knowledgeable, analytical, and more investigative."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1359,
+                    1907,
+                    2333,
+                    2042
+                ],
+                "angle": 0,
+                "content": "(2) Conscientiousness (C) This trait involves how individuals control, regulate and direct their impulses. For example, highly conscientious people are usually cautious."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1359,
+                    2042,
+                    2333,
+                    2178
+                ],
+                "angle": 0,
+                "content": "(3) Extroversion (E) Extroversion indicates how much people are in touch with the outside world. Extroverts are more willing to talk to others about their thoughts."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1359,
+                    2181,
+                    2333,
+                    2362
+                ],
+                "angle": 0,
+                "content": "(4) Agreeableness (A) This trait reflects individual differences and social harmony in cooperation. Highly agreeable people are more willing to share tasks than to complete tasks independently."
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1359,
+                    2366,
+                    2333,
+                    2501
+                ],
+                "angle": 0,
+                "content": "(5) Neuroticism (N) This refers to the tendency of experiencing negative emotions. People with high neuroticism are often in a bad mood, therefore they prefer to respond emotionally."
+            },
+            {
+                "block_id": 20,
+                "type": "list",
+                "bbox": [
+                    1359,
+                    1722,
+                    2333,
+                    2501
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 21,
+                "type": "title",
+                "bbox": [
+                    1313,
+                    2547,
+                    1876,
+                    2597
+                ],
+                "angle": 0,
+                "content": "2.2 Personality Detection"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    2607,
+                    2330,
+                    2745
+                ],
+                "angle": 0,
+                "content": "There are two common ways to measure a person's personality traits using a personality model: personality assessment questionnaires and automatic personality detection."
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    2775,
+                    2333,
+                    2960
+                ],
+                "angle": 0,
+                "content": "2.2.1 Personality Assessment Questionnaires. Self-reporting personality questionnaires are commonly used to reveal personality differences among individuals. Responses to questions usually take the form of a five-point Likert scale (strongly agree, agree, disagree,"
+            },
+            {
+                "block_id": 24,
+                "type": "page_footnote",
+                "bbox": [
+                    209,
+                    2844,
+                    810,
+                    2884
+                ],
+                "angle": 0,
+                "content": "\\(^{2}\\)https://cloud.ibm.com/docs/personality-insights"
+            },
+            {
+                "block_id": 25,
+                "type": "page_footnote",
+                "bbox": [
+                    216,
+                    2884,
+                    474,
+                    2917
+                ],
+                "angle": 0,
+                "content": "<sup>3</sup>https://humantic.ai/"
+            },
+            {
+                "block_id": 26,
+                "type": "page_footnote",
+                "bbox": [
+                    219,
+                    2920,
+                    578,
+                    2956
+                ],
+                "angle": 0,
+                "content": "<sup>4</sup>https://www.receptiviti.com/"
+            },
+            {
+                "block_id": 27,
+                "type": "list",
+                "bbox": [
+                    209,
+                    2844,
+                    810,
+                    2956
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    216,
+                    250,
+                    1315,
+                    290
+                ],
+                "angle": 0,
+                "content": "Improving Recommendation Systems with User Personality Inferred from Product Reviews"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1649,
+                    250,
+                    2330,
+                    290
+                ],
+                "angle": 0,
+                "content": "IRS@WSDM '23, February 27-March 3, 2023, Singapore"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    209,
+                    353,
+                    1229,
+                    676
+                ],
+                "angle": 0,
+                "content": "and strongly disagree). Such personality inventories differ with respect to the number and content of their questions. Common long questionnaires include the NEO Five-Factor Inventory (60 items) [2], NEO-Personality-Inventory Revised (240 items) [6], and the BigFive Inventory (BFI, 44 items) [18]. Practitioners prefer using shorter instruments, such as the BFI-10 and Ten-Item Personality Inventory (TIPI) [7, 20], as they are time-saving and easier to fill out."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    209,
+                    679,
+                    1229,
+                    1128
+                ],
+                "angle": 0,
+                "content": "However, using questionnaires for self-report has two major drawbacks. First, questions that assess personality are often quite subjective such as \"Do you easily get nervous?\" Answers for such questions are easily affected by a self-bias [16] or reference-group effects [24]. For example, an introverted engineer might think he is an extrovert if he/she is working with a group of individuals that may be more introverted. Consequently, the results of questionnaires are often hard to reproduce. Second, assessing a personality by questionnaires can be inconvenient, as the subjects are necessary to participate in the studies."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    209,
+                    1158,
+                    1229,
+                    1841
+                ],
+                "angle": 0,
+                "content": "2.2.2 Automatic Personality Detection. To make personality detection more convenient and reproducible, practitioners prefer automated personality detection, which infers a personality type based on user data. Such methods are less accurate than personality questionnaires — as it relies on the input user data manifesting personality traits — but has the advantage of not requiring inputs to be answers to questionnaires. For example, social media posts that exhibit opinions and viewpoints are a prime source of text data useful for personality detection. Individuals have different language use behaviors that reveal personality traits [10]. Automatic, text-based personality detection infer users' personalities by analyzing users' word choice (lexical selection) and sentence structure (grammatical selection). Such technology has been sufficiently proven, making them commonplace and deployed at scale in production, and available as a service through cloud-based application APIs."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    209,
+                    1844,
+                    1231,
+                    2438
+                ],
+                "angle": 0,
+                "content": "We study whether knowing users' personality information can lead to better recommendations, and also, how users' personality information be best modeled in recommendation systems to improve performance. While large-scale recommendation datasets exist, they universally lack users' personality information. It is infeasible to ask to obtain this information via questionnaires since the identity of users is usually confidential. Therefore, we utilize automatic personality detection to infer personality from product reviews written by users. Product reviews are ideal: they are widely available on online commercial websites, they often demonstrate personality traits, and they are public (the texts are meant to be read by others). Hence, they can serve as a good source for automatically detecting personality in an economic but accurate way."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    214,
+                    2475,
+                    1073,
+                    2580
+                ],
+                "angle": 0,
+                "content": "2.3 Personality-based Recommendation Systems"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    209,
+                    2590,
+                    1231,
+                    2960
+                ],
+                "angle": 0,
+                "content": "Since personality traits are characteristics that do not change sharply over time and do not depend on a certain context or stimulus, they are more easily used to create personalized recommendation systems. Earlier work by Winoto and Tang [21] [4] focused on extending Matrix Factorization by adding a personality latent factor. Their model used implicit feedback data, such as user-item interactions, beyond just ratings. They only considered the OCEAN scores as one attribute, so the effects that are attributable just to personality are"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    353,
+                    2333,
+                    580
+                ],
+                "angle": 0,
+                "content": "not clear. Besides, personality traits have been used to determine a neighborhood of similar users by calculating personality similarity. Thus, for example, Asabere et al. [3] proposed a recommendation system for attendees of conferences that integrates personality traits and social bonds of attendees."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    584,
+                    2333,
+                    808
+                ],
+                "angle": 0,
+                "content": "In their work, user similarity was equated as personality similarity, calculated by Pearson's correlation between two users' OCEAN scores. They demonstrated that the system accuracy improves with a larger user base, due to the higher likelihood of finding other users with similar personalities (high correlation)."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    811,
+                    2333,
+                    1452
+                ],
+                "angle": 0,
+                "content": "Researchers have also associated user personality scores with items. Yang and Huang [23] attributed items (here, computer games) with a personality that is an average of its users. This latent representation can then be used to recommend items to users with a similar personality as that of the other users of that item. This may make sense when certain items are used primarily by certain personality types (as in computer games) but are less compelling for items that may be used by many personality types. Lastly, in social media recommendations, Wu et al. [22] proposed an approach for recommending interest groups by integrating personality. The personality-based similarity was defined as the Euclidean distance between two users' personality scores. However, it combines the personality signal linearly in the recommendation process, which we feel may be limiting."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    1452,
+                    2333,
+                    1999
+                ],
+                "angle": 0,
+                "content": "In summary, compared with other context attributes (e.g., purchase history), personality information helps to capture the users' potential interests rather than recommending a similar purchased item. However, the previous works used the OCEAN personality as a linear similar score which lacks the capability of capturing more nuanced information latent in personality scores. Different from the methods above, we propose two novel ways of adding personality features into the recommendation system: 1) taking the most salient personality trait as a learnable vector and 2) calculating a user's personality embedding as a weighted sum of a user's OCEAN personality features, which is a learnable embedding within the recommendation system."
+            },
+            {
+                "block_id": 12,
+                "type": "title",
+                "bbox": [
+                    1313,
+                    2039,
+                    1973,
+                    2085
+                ],
+                "angle": 0,
+                "content": "3 DATASET CONSTRUCTION"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    2098,
+                    2333,
+                    2603
+                ],
+                "angle": 0,
+                "content": "We construct two new datasets, as extensions of the existing, well-known Amazon review dataset. We first automatically infer users' personality traits from users' review texts as review texts can reflect the personality through word usage. They are also publicly-available text on online commercial websites, allowing researchers to have legal access to textual data where experimentation can be replicated. Based upon the parent Amazon review dataset, we construct two new domain-specific datasets: an Amazon-beauty and an Amazon-music dataset. These contain Amazon reviews of products in the beauty and music domains, alongside their posting users' inferred personality scores."
+            },
+            {
+                "block_id": 14,
+                "type": "title",
+                "bbox": [
+                    1310,
+                    2643,
+                    1675,
+                    2689
+                ],
+                "angle": 0,
+                "content": "3.1 Data Source"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    2702,
+                    2333,
+                    2887
+                ],
+                "angle": 0,
+                "content": "The Amazon dataset [15] is widely used for training and evaluating recommendation systems. It contains a large number of item descriptions, ratings, and product reviews collected from the Amazon online commercial website. The Amazon dataset is divided"
+            },
+            {
+                "block_id": 16,
+                "type": "page_footnote",
+                "bbox": [
+                    1313,
+                    2917,
+                    1881,
+                    2956
+                ],
+                "angle": 0,
+                "content": "<sup>5</sup>https://nijianmo.github.io/amazon/index.html"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    214,
+                    250,
+                    897,
+                    290
+                ],
+                "angle": 0,
+                "content": "IRS@WSDM '23, February 27-March 3, 2023, Singapore"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2180,
+                    250,
+                    2328,
+                    287
+                ],
+                "angle": 0,
+                "content": "Lu and Kan"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    209,
+                    356,
+                    1231,
+                    993
+                ],
+                "angle": 0,
+                "content": "according to the domain. In our study, we choose two domains: beauty and music. We construct datasets separately for these two domains since we want to study whether personality has different influences on users' behaviours for different domains. Studies have shown that people with different personalities prefer different kinds of music [11]. For example, people with a high degree of openness like to listen to rock music, while neurotic people like jazz. Therefore, we choose music as one of the domains to be studied. In order to study the role of personality in different domains, we randomly select beauty for comparison. Table 1 shows a sample of the original Amazon dataset, which contains the user (reviewerID, reviewerName), the product's Amazon Standard Identification Number (asin), the review text for the product (reviewText), and the overall rating given to the product (overall)."
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    219,
+                    1046,
+                    1213,
+                    1481
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>reviewerID</td><td>A2SUAM1J3GNN38</td></tr><tr><td>asin</td><td>0000013714</td></tr><tr><td>reviewerName</td><td>J.McDonald</td></tr><tr><td>vote</td><td>5</td></tr><tr><td>style</td><td>Format:Hardcover</td></tr><tr><td>reviewText</td><td>I bought this for my husband who plays the piano. He is having a wonderful time playing these old hymns. The music is at times hard to read because we think the book was published for singing from more than playing form. Greate purchase though!</td></tr><tr><td>overall</td><td>5.0</td></tr></table>",
+                "caption": "Table 1: An example of Receptiviti score for a specific, anonymized user."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    214,
+                    1762,
+                    772,
+                    1808
+                ],
+                "angle": 0,
+                "content": "3.2 Dataset Construction"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    209,
+                    1821,
+                    1231,
+                    2141
+                ],
+                "angle": 0,
+                "content": "Since we do not know the personality for each user in the Amazon dataset, we need to infer them. We first retrieve each user's review texts and then use the Receptiviti API<sup>6</sup>, a computational language psychology platform for understanding human behavior, to infer a personality. The API can take a long piece of human-written text (more than 300 words), and output a faceted personality score with 35 factors, including OCEAN scores."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    209,
+                    2145,
+                    1231,
+                    2554
+                ],
+                "angle": 0,
+                "content": "For each user that wrote reviews in either of the two domains, we collect all his/her review texts and concatenate them together into a single document. Afterward, we send the concatenated text to Receptiviti to infer a personality. We select the personality scores corresponding to the five-dimensional personality traits defined in the OCEAN model [12] (Table 2). Each personality score is normalized to a range from 1 to 100. The higher the score, the more overt the personality trait. Note that each of the five OCEAN scores is independent of the other."
+            },
+            {
+                "block_id": 8,
+                "type": "table",
+                "bbox": [
+                    316,
+                    2607,
+                    1114,
+                    2696
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>User ID</td><td>AGR</td><td>CON</td><td>NEU</td><td>EXT</td><td>OPEN</td></tr><tr><td>A2GBIFL43U1LKJ</td><td>54.05</td><td>34.87</td><td>25.96</td><td>54.39</td><td>42.71</td></tr></table>",
+                "caption": "Table 2: An example of Receptiviti score for a specific, anonymized user."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    214,
+                    2913,
+                    581,
+                    2956
+                ],
+                "angle": 0,
+                "content": "\\(^{6}\\)https://www.receptiviti.com/"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    356,
+                    2335,
+                    818
+                ],
+                "angle": 0,
+                "content": "To improve the personality prediction process, we only analyze the personality traits for active users who bought many products and wrote a sufficient number of product reviews. To be specific, we select users that 1) wrote product reviews for at least 10 different items they purchased, and where 2) each product review contains between 30 to 80 words. Table 3 shows the statistics after the filtration. For example, using these criteria, 1,791 active users are selected for the Amazon-music dataset. Each user in the Amazon-music dataset has an average of 990.48 review words over all of his/her reviews, averaging 51.01 words for each review."
+            },
+            {
+                "block_id": 12,
+                "type": "title",
+                "bbox": [
+                    1310,
+                    851,
+                    1779,
+                    897
+                ],
+                "angle": 0,
+                "content": "3.3 Dataset Statistics"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    910,
+                    2333,
+                    1323
+                ],
+                "angle": 0,
+                "content": "Aside from our constructed Amazon-beauty and Amazon-music dataset, we also include an existing dataset *Personality* 2018 in our study. *Personality* 2018<sup>7</sup> [14] is a version of the MovieLens dataset that includes each user's personality information obtained through questionnaires. It contains 21,776 movies, 339,000 ratings, and 678 users with the OCEAN personality questionnaire scores from 1 to 7. This dataset is included to study the difference between questionnaire-based personality trait scores with our review-based automatic personality trait detection scores."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    1323,
+                    2333,
+                    1689
+                ],
+                "angle": 0,
+                "content": "Table 3 shows the final statistics of the datasets used in our study. We can observe that the Amazon-beauty / Amazon-music dataset has the largest / smallest percentage of interactions. The Personality2018 dataset contains the largest number of items and the smallest number of users. We can see that these datasets differ in domains, number of users, items, and interactions, which facilitates the study of personality-based recommendation across a wide spectrum of settings."
+            },
+            {
+                "block_id": 15,
+                "type": "table",
+                "bbox": [
+                    1326,
+                    1732,
+                    2371,
+                    2036
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Dataset</td><td>Amazon-beauty</td><td>Amazon-music</td><td>Personality’18</td></tr><tr><td># of items</td><td>85</td><td>8,895</td><td>21,776</td></tr><tr><td># of users</td><td>991</td><td>1,791</td><td>678</td></tr><tr><td># of ratings</td><td>5,269</td><td>28,399</td><td>339,000</td></tr><tr><td># of interactions</td><td>6.26%</td><td>0.18%</td><td>2.30%</td></tr><tr><td>Avg. words/user</td><td>990.48</td><td>466.43</td><td>-</td></tr><tr><td>Avg. words/review</td><td>51.01</td><td>51.18</td><td>-</td></tr></table>",
+                "caption": "Table 3: Statistics of the three datasets used in our study."
+            },
+            {
+                "block_id": 17,
+                "type": "title",
+                "bbox": [
+                    1310,
+                    2277,
+                    1621,
+                    2319
+                ],
+                "angle": 0,
+                "content": "4 METHODS"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    2336,
+                    2333,
+                    2659
+                ],
+                "angle": 0,
+                "content": "Based on our constructed dataset, we conduct experiments to study whether the recommendation system can benefit from incorporating personality traits. We choose the Neural Collaborative Filtering (NCF) [8] as the foundation model of our study because it is the fundamental neural-based model for the recommendation. Specifically, we design a personality-enhanced version of NCF [8] to compare with the vanilla NCF, alongside several other baselines."
+            },
+            {
+                "block_id": 19,
+                "type": "title",
+                "bbox": [
+                    1310,
+                    2696,
+                    2182,
+                    2748
+                ],
+                "angle": 0,
+                "content": "4.1 Neural Collaborative Filtering (NCF)"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    2758,
+                    2333,
+                    2894
+                ],
+                "angle": 0,
+                "content": "NCF [8] is the first deep-learning-based recommendation algorithm. Different from traditional collaborative filtering algorithms, the model encodes the user and item into latent vectors and then"
+            },
+            {
+                "block_id": 21,
+                "type": "page_footnote",
+                "bbox": [
+                    1313,
+                    2913,
+                    1915,
+                    2960
+                ],
+                "angle": 0,
+                "content": "<sup>7</sup>https://groupens.org/datasets/personality-2018/"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    214,
+                    250,
+                    1315,
+                    290
+                ],
+                "angle": 0,
+                "content": "Improving Recommendation Systems with User Personality Inferred from Product Reviews"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1649,
+                    250,
+                    2330,
+                    290
+                ],
+                "angle": 0,
+                "content": "IRS@WSDM '23, February 27-March 3, 2023, Singapore"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    209,
+                    353,
+                    1229,
+                    541
+                ],
+                "angle": 0,
+                "content": "projects them through a Multi-layer Perceptron (MLP) to predict a probability score, representing the probability that a user would buy a target item. In our implementation, we use a 4-layer MLP and a 16-dimensional user and item embedding."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    214,
+                    587,
+                    884,
+                    640
+                ],
+                "angle": 0,
+                "content": "4.2 Personality-enhanced NCF"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    209,
+                    650,
+                    1231,
+                    1059
+                ],
+                "angle": 0,
+                "content": "We then propose three different ways to incorporate the personality information into the NCF model, as shown in Fig. 1. We first design \\(NCF +\\) Most salient Personality model by adding the most salient personality trait as input into NCF. We also design \\(NCF +\\) Soft-labeled Personality and \\(NCF +\\) Hard-coded Personality to incorporate all the five personality traits of OCEAN. The difference between the two latter versions is that the personality vector in \\(NCF +\\) Soft-labeled Personality is learnable, while in \\(NCF +\\) Hard-coded Personality, the vector is predetermined and fixed."
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    260,
+                    1158,
+                    1295,
+                    1752
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 1: The overall structure of our model. In this example, the user's OCEAN score is \\(\\{30,70,50,30,20\\}\\). The NCF + Most salient personality selects the personality with the highest score, i.e., conscientiousness as the personality embedding vector. NCF + Soft-labeled personality takes all five OCEAN scores as a personality embedding matrix. NCF + Hard-coded personality predetermines and fixes the personality vector as \\(\\{0.3,0.7,0.5,0.3,0.2\\}\\)"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    209,
+                    2270,
+                    1231,
+                    2501
+                ],
+                "angle": 0,
+                "content": "1. NCF + Most Salient Personality. In this model, we introduce a 4-dimensional personality vector for each of the five types of personalities, which are learned during training. We treat the most salient personality as the user's personality label and concatenate the corresponding personality vector with the user's latent vector."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    209,
+                    2501,
+                    1231,
+                    2818
+                ],
+                "angle": 0,
+                "content": "2. NCF + Soft-labeled Personality. In this model, we make full use of all five personality trait scores. We first apply a Softmax function to map the personality scores into a probability distribution of personality. Afterward, the probability distribution is used as the weight to calculate the weighted sum of the five personality vectors. The output vector is then concatenated with the user's latent vector as the input of the MLP."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    209,
+                    2821,
+                    1231,
+                    2960
+                ],
+                "angle": 0,
+                "content": "3. NCF + Hard-coded Personality. This model also considers all the user's five personality traits information. However, instead of introducing learnable personality vectors, we directly scale each"
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    209,
+                    2270,
+                    1231,
+                    2960
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    353,
+                    2335,
+                    541
+                ],
+                "angle": 0,
+                "content": "personality score to sum to a unit value (here, 100) to get a hard-coded 5-dimensional vector to represent the user's personality information. This vector is concatenated with the user's latent vector, but is fixed during training."
+            },
+            {
+                "block_id": 12,
+                "type": "title",
+                "bbox": [
+                    1313,
+                    574,
+                    1716,
+                    620
+                ],
+                "angle": 0,
+                "content": "5 EXPERIMENTS"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    636,
+                    2335,
+                    1003
+                ],
+                "angle": 0,
+                "content": "We evaluate our proposed method on our three datasets by answering the following four research questions. We first evaluate whether we can accurately detect personality from texts (RQ1, Section 5.1). Afterward, we analyze the distribution of personality in review texts (RQ2, Section 5.2). Then, we explore whether adding personality information can improve recommendation performance (RQ3, Section 5.3). Finally, we analyze the influence of personality information on different domains (RQ4, Section 5.4)."
+            },
+            {
+                "block_id": 14,
+                "type": "title",
+                "bbox": [
+                    1310,
+                    1042,
+                    2302,
+                    1148
+                ],
+                "angle": 0,
+                "content": "5.1 Can we accurately detect personality from texts? (RQ1)"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    1158,
+                    2333,
+                    2161
+                ],
+                "angle": 0,
+                "content": "To evaluate whether we can accurately detect personality traits from texts, we analyze the personality scores inferred by the Receptiviti API for each user. Since there are over 2,500 users in total in our two constructed datasets, it is time-consuming to manually evaluate them all. As a compromise, we choose to manually examine the users that receive extremely high scores for certain personality traits. We believe those examples are more easily evaluated by humans. Specifically, for each personality trait, we select the users that receive the top 10 highest scores on this type. We analyze both the Amazon-beauty and the Amazon-music datasets, resulting in a total of 100 samples. These samples are evaluated by two graduate students. Both were trained with a detailed explanation of the OCEAN personality model. We ask them to choose whether the sampled review texts accurately match their inferred personality, choosing between three options of yes, no, or not sure. We then calculate the accuracy of the samples and the inter-annotator agreement between the two annotators using Cohen's Kappa [5]. We find that the inferred personality matches with the review text in \\(81\\%\\) of the Amazon-beauty samples, and \\(79\\%\\) of the samples from Amazon-music. The average Cohen's Kappa is 0.70. We take this to indicate that the Receptiviti API can indeed infer users' personality traits from review texts with generally high accuracy."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    2164,
+                    2333,
+                    2663
+                ],
+                "angle": 0,
+                "content": "Table 4 shows examples of review texts with their inferred personality scores. We observe that people with different personalities have different language habits. For example, extroverts tend to use the words \"love\" and exclamation marks because they are characterized by a strong tendency to express their affection. People who are agreeable are usually bought items for other people, e.g., \"my kids\" and \"my wife\", perhaps due to their inclusiveness. Conscientious people usually talk about their own experience and feelings before recommending the items to others, e.g., \"I have had this shower gel once before\" or \"Don't just take my word for it\". This is perhaps because they are usually cautious."
+            },
+            {
+                "block_id": 17,
+                "type": "title",
+                "bbox": [
+                    1310,
+                    2702,
+                    2111,
+                    2811
+                ],
+                "angle": 0,
+                "content": "5.2 What is the distribution of users' personalities? (RQ2)"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    2818,
+                    2335,
+                    2960
+                ],
+                "angle": 0,
+                "content": "We further analyze the personality distribution for all users by plotting the score histograms for each personality trait in the Amazon-beauty dataset and the Amazon-music dataset in Fig. 2."
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    214,
+                    250,
+                    900,
+                    290
+                ],
+                "angle": 0,
+                "content": "IRS@WSDM '23, February 27-March 3, 2023, Singapore"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2180,
+                    250,
+                    2328,
+                    287
+                ],
+                "angle": 0,
+                "content": "Lu and Kan"
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    219,
+                    343,
+                    2328,
+                    1788
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Personality label</td><td>Personality Score</td><td>Review Texts</td></tr><tr><td>Openness</td><td>63.07</td><td>Near perfect exfoliating gloves my only complaint is a matter of preference rather than product defect.\nI prefer the harder surface area to use on round areas of the body or potentially harder like the feet, elbows, etc.</td></tr><tr><td>Openness</td><td>62.62</td><td>Azur is always my favorite in the Thymes collection because of its clean, fresh scent.\nI like that my skin feels moisturized when using this product in the shower.</td></tr><tr><td>Conscientiousness</td><td>75.38</td><td>I have had this shower gel once before, and it&#x27;s amazing. Hard to find, too.\nOne of The Body Shop&#x27;s best scents, and it&#x27;s usually only available seasonally!\nwish they sold it in bigger bottles, but I was happy to find it.</td></tr><tr><td>Conscientiousness</td><td>71.02</td><td>Don&#x27;t just take my word for it, you must try it.\nA dear friend got me this from Italy 12 years ago and has been using it since, very hard to find it in the US.\nThis shower cream will transform your shower experience.</td></tr><tr><td>Extroversion</td><td>75.06</td><td>Love this shampoo! Recommended by a friend! The color really lasts!!!</td></tr><tr><td>Extroversion</td><td>72.90</td><td>Looked all over to find where to purchase this product and we are very happy to be able to finally find it.\nThe PRELL Conditioner is by far the best you can buy. We love it!!</td></tr><tr><td>Agreeableness</td><td>80.06</td><td>Great product - my wife loves it</td></tr><tr><td>Agreeableness</td><td>78.18</td><td>Great deal and leaves my kids smelling awesome!\nI bought a box of them years ago and we still have some left!!! Great deal and leaves my kids smelling awesome!</td></tr><tr><td>Neuroticism</td><td>67.81</td><td>Too expensive for such poor quality.\nThere was no improvement and I am starting to think my scalp is worse off than it was before I started using this product.\nI do agree with other reviews that it feels watered.</td></tr><tr><td>Neuroticism</td><td>62.28</td><td>Nope. It smells like artificial bananas, and this smell does linger.\nIt&#x27;s pure liquid, there is no thickness to it at all, it&#x27;s like pouring banana water on your head that lathers.\nIt does not help with an itchy scalp either.</td></tr></table>",
+                "caption": "Table 4: The data sample of extreme personality cases to the annotators. Each data sample contains the user's personality labels, personality scores, and review texts."
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    232,
+                    2009,
+                    2346,
+                    2663
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 2: Distribution of personality traits in Amazon-beauty and Amazon-music datasets. The x-axis represents the score for each trait; the y-axis represents the number of users. The red line represents the median for each trait."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    209,
+                    2874,
+                    1231,
+                    2970
+                ],
+                "angle": 0,
+                "content": "We observe a similar trend in both domains: agreeable people have the highest median score, and neurotic people have the lowest"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1313,
+                    2874,
+                    2333,
+                    2927
+                ],
+                "angle": 0,
+                "content": "median score. A possible reason is that neurotic people are more"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    214,
+                    250,
+                    1315,
+                    290
+                ],
+                "angle": 0,
+                "content": "Improving Recommendation Systems with User Personality Inferred from Product Reviews"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1649,
+                    250,
+                    2330,
+                    290
+                ],
+                "angle": 0,
+                "content": "IRS@WSDM '23, February 27-March 3, 2023, Singapore"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    209,
+                    353,
+                    1229,
+                    580
+                ],
+                "angle": 0,
+                "content": "introverted and are less likely to publish their opinions publicly, while agreeable people are more willing to share their thoughts. Another observation is that the personalities of each dataset are generally bell-curved. This indicates that each personality trait is normally distributed."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    209,
+                    584,
+                    1229,
+                    854
+                ],
+                "angle": 0,
+                "content": "We also examine the difference in personality distributions between the two domains. In the Amazon-music dataset, the average scores of extroversion and openness are higher than those in the Amazon-beauty dataset. This indicates that the personality characteristics of extroverts and open people are more obvious in the music domain than in the beauty domain."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    209,
+                    858,
+                    1231,
+                    1359
+                ],
+                "angle": 0,
+                "content": "From the above figures, we draw the following conclusions. First, the personality traits of users are not evenly distributed. There are more instances of people with certain personality traits (e.g., agreeableness) than others (e.g., neuroticism). A possible reason is that people with certain personalities are more willing to write product reviews. 2) The distributions for the two domains are generally the same, with higher agreeable scores and lower neurotic scores. However, there is a slight difference. For example, the scores of extroverts in music are generally higher than that in the beauty domain. This could be explained by the possibility that people who are passionate about music may be more emotional."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    214,
+                    1428,
+                    1160,
+                    1534
+                ],
+                "angle": 0,
+                "content": "5.3 Does incorporating personality improve recommendation performance? (RQ3)"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    209,
+                    1541,
+                    1231,
+                    1722
+                ],
+                "angle": 0,
+                "content": "Next, we want to explore whether adding the induced user personality benefits the recommendation quality. To this end, we compare the personality-enhanced NCF with the following two baseline models that do not utilize personality information."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    209,
+                    1725,
+                    1231,
+                    1861
+                ],
+                "angle": 0,
+                "content": "1. NCF with random personality (NCF + Random). We randomly assign each user with a random personality label, regardless of his/her original, inferred personality scores."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    209,
+                    1864,
+                    1231,
+                    2181
+                ],
+                "angle": 0,
+                "content": "2. NCF with same personality (NCF + Same). We assign each user to a single personality trait. To be specific, we assume every user is \"open\" and assign the corresponding personality vector to NCF. Although the personality vector does not provide any additional signal to the model in this case, it can serve as a placeholder to keep the network structure identical to the personality-enhanced model, resulting in a fair comparison."
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    209,
+                    1725,
+                    1231,
+                    2181
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    209,
+                    2181,
+                    1231,
+                    2362
+                ],
+                "angle": 0,
+                "content": "Evaluation Metrics. We use two metrics to measure the performance of our proposed recommendation models: Hit Rate (HR) @ K and Normalized Discounted Cumulative Gain (NDCG) @ K (K = 3, 5, 10). Larger HR and NDCG demonstrate better accuracy."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    209,
+                    2366,
+                    1231,
+                    2960
+                ],
+                "angle": 0,
+                "content": "Experiment Results. Table 5 shows the experimental results in the Amazon-beauty and the Amazon-music, and Personality2018 datasets, respectively. In Amazon-beauty and Amazon-music, we find that the three personality-enhanced NCF models outperform the two baseline models, in terms of both NDCG and HR. Especially, the first three rows show that the NCF with the most salient personality label outperforms NCF with the same or random personality label. This indicates that adding personality information into NCF improves recommendation performance. From the last three rows, we further find that NCF + Soft-labeled/Hard-coded outperforms NCF + Most salient personality in terms of NDCG. This shows that utilizing all five personality traits is better than using the most salient personality trait in NCF."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    356,
+                    2333,
+                    811
+                ],
+                "angle": 0,
+                "content": "In the *Personality* 2018 dataset, the trend in the *Amazon-beauty* and *Amazon-music* also holds for it. For example, the NCF + Soft-labeled model outperforms the other models, showing that adding personality information improves performance. However, the improvement in the *Personality* 2018 is less obvious than that in the *Amazon-beauty* dataset. We hypothesize the reason might be due to the difference in the sizes of the datasets. Since *Amazon-beauty* is a small dataset, adding personality information may better help to address the data sparsity problem, therefore exhibiting a better performance gain."
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    1310,
+                    881,
+                    2325,
+                    1039
+                ],
+                "angle": 0,
+                "content": "5.4 How does personality information improve the performance of recommendation system? (RQ4)"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    1046,
+                    2333,
+                    1320
+                ],
+                "angle": 0,
+                "content": "To gain a better understanding of the improvement brought by incorporating personality, we separately evaluate the HR and NDCG for the five personality traits, as shown in Table 6. “+” represents the NCF+Soft-labeled model (with personality information), and “-” represents the NCF+Same model (without personality information). We make two major observations."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    1323,
+                    2333,
+                    1640
+                ],
+                "angle": 0,
+                "content": "First, the improvement brought by adding personality is prominent for the Amazon-beauty dataset, over all five personality traits. In particular, the trait of conscientiousness (CON) has the highest gain in terms of both HR \\((+21\\%)\\) and NDCG \\((+57\\%)\\). However, in the Amazon-music dataset, openness \\((+27\\%)\\), agreeableness \\((+10\\%)\\), extroversion \\((+5\\%)\\) improve while neuroticism \\((-18\\%)\\) and conscientiousness \\((-12\\%)\\) decreases."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    1643,
+                    2333,
+                    2098
+                ],
+                "angle": 0,
+                "content": "Second, for the *Personality*2018 dataset, the improvement brought by adding personality is not obvious: only conscientiousness, extroversion, and agreeableness have shown minor performance gain. From the above breakdown analysis, we find that adding personality information can benefit certain personality traits better than others. However, the personality trait that improves the most differs greatly across the three datasets. This indicates that although improvements are observed in terms of empirical results, the mechanism of how personality influences the recommendation still deserves more in-depth investigation."
+            },
+            {
+                "block_id": 17,
+                "type": "title",
+                "bbox": [
+                    1310,
+                    2164,
+                    1670,
+                    2211
+                ],
+                "angle": 0,
+                "content": "6 DISCUSSION"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    2227,
+                    2333,
+                    2547
+                ],
+                "angle": 0,
+                "content": "In this work, we make a preliminary attempt to explore how to automatically infer users' personality traits from product reviews and how the inferred traits can benefit the state-of-the-art automated recommendation processes. Although we observe that recommendation performance is indeed boosted by incorporating personality information, we believe there are several limitations. In the following, we discuss these limitations with potential future directions."
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    2547,
+                    2333,
+                    2960
+                ],
+                "angle": 0,
+                "content": "First, we believe capturing personality from the review texts may lead to selective bias. Introverts are less likely to share their thoughts online while extroverts are more likely to share experiences. This results in an imbalanced personality distribution in our collected data. As shown in the analysis in RQ2 (Section 5.2), extroversion is the most common personality trait of users in our datasets. To address this, in future works, we could utilize other context information to infer users' personalities such as a user's purchase history. Such user behaviours can also reflect personality;"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    216,
+                    250,
+                    897,
+                    290
+                ],
+                "angle": 0,
+                "content": "IRS@WSDM '23, February 27-March 3, 2023, Singapore"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2180,
+                    250,
+                    2328,
+                    287
+                ],
+                "angle": 0,
+                "content": "Lu and Kan"
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    214,
+                    343,
+                    2328,
+                    617
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Algorithms</td><td colspan=\"6\">Amazon-beauty</td><td colspan=\"6\">Amazon-music</td><td colspan=\"6\">Personality2018</td></tr><tr><td>Rating</td><td>H@3</td><td>H@5</td><td>H@10</td><td>N@3</td><td>N@5</td><td>N@10</td><td>H@3</td><td>H@5</td><td>H@10</td><td>N@3</td><td>N@5</td><td>N@10</td><td>H@3</td><td>H@5</td><td>H@10</td><td>N@3</td><td>N@5</td><td>N@10</td></tr><tr><td>NCF+Random</td><td>0.923</td><td>0.965</td><td>0.975</td><td>0.675</td><td>0.605</td><td>0.660</td><td>0.159</td><td>0.224</td><td>0.339</td><td>0.117</td><td>0.143</td><td>0.171</td><td>0.510</td><td>0.628</td><td>0.777</td><td>0.406</td><td>0.454</td><td>0.504</td></tr><tr><td>NCF+Same</td><td>0.918</td><td>0.967</td><td>0.975</td><td>0.683</td><td>0.630</td><td>0.662</td><td>0.160</td><td>0.224</td><td>0.340</td><td>0.122</td><td>0.149</td><td>0.167</td><td>0.511</td><td>0.622</td><td>0.777</td><td>0.403</td><td>0.454</td><td>0.502</td></tr><tr><td>NCF+Most-Salient</td><td>0.939</td><td>0.969</td><td>0.977</td><td>0.714</td><td>0.676</td><td>0.707</td><td>0.156</td><td>0.226</td><td>0.343</td><td>0.164</td><td>0.145</td><td>0.174</td><td>0.516</td><td>0.631</td><td>0.795</td><td>0.415</td><td>0.463</td><td>0.511</td></tr><tr><td>NCF+Soft-labeled</td><td>0.936</td><td>0.965</td><td>0.973</td><td>0.810</td><td>0.867</td><td>0.831</td><td>0.156</td><td>0.225</td><td>0.348</td><td>0.113</td><td>0.141</td><td>0.175</td><td>0.528</td><td>0.656</td><td>0.805</td><td>0.421</td><td>0.471</td><td>0.511</td></tr><tr><td>NCF+Hard-Coded</td><td>0.948</td><td>0.961</td><td>0.977</td><td>0.849</td><td>0.826</td><td>0.848</td><td>0.175</td><td>0.232</td><td>0.345</td><td>0.147</td><td>0.160</td><td>0.189</td><td>0.503</td><td>0.622</td><td>0.758</td><td>0.398</td><td>0.447</td><td>0.498</td></tr></table>",
+                "caption": "Table 5: Hit Rate(H) and NDCG(N) @K in the Amazon-beauty, Amazon-music, and Personality 2018 datasets. The best performance is bolded."
+            },
+            {
+                "block_id": 4,
+                "type": "table",
+                "bbox": [
+                    214,
+                    755,
+                    1269,
+                    1290
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\">Trait</td><td></td><td colspan=\"2\">Amazon-beauty</td><td colspan=\"2\">Amazon-music</td><td colspan=\"2\">Personality2018</td></tr><tr><td></td><td>HR</td><td>NDCG</td><td>HR</td><td>NDCG</td><td>HR</td><td>NDCG</td></tr><tr><td rowspan=\"2\">OPEN</td><td>+</td><td>0.833</td><td>0.729</td><td>0.330</td><td>0.205</td><td>0.535</td><td>0.420</td></tr><tr><td>-</td><td>0.750</td><td>0.545</td><td>0.313</td><td>0.161</td><td>0.547</td><td>0.422</td></tr><tr><td rowspan=\"2\">CON</td><td>+</td><td>0.883</td><td>0.769</td><td>0.228</td><td>0.132</td><td>0.475</td><td>0.358</td></tr><tr><td>-</td><td>0.727</td><td>0.490</td><td>0.279</td><td>0.150</td><td>0.441</td><td>0.361</td></tr><tr><td rowspan=\"2\">EXT</td><td>+</td><td>0.970</td><td>0.882</td><td>0.319</td><td>0.181</td><td>0.611</td><td>0.412</td></tr><tr><td>-</td><td>0.872</td><td>0.600</td><td>0.317</td><td>0.169</td><td>0.556</td><td>0.411</td></tr><tr><td rowspan=\"2\">AGR</td><td>+</td><td>0.968</td><td>0.878</td><td>0.332</td><td>0.198</td><td>0.621</td><td>0.512</td></tr><tr><td>-</td><td>0.864</td><td>0.593</td><td>0.308</td><td>0.185</td><td>0.552</td><td>0.430</td></tr><tr><td rowspan=\"2\">NEU</td><td>+</td><td>0.933</td><td>0.835</td><td>0.397</td><td>0.230</td><td>0.489</td><td>0.390</td></tr><tr><td>-</td><td>0.833</td><td>0.536</td><td>0.397</td><td>0.254</td><td>0.511</td><td>0.415</td></tr></table>"
+            },
+            {
+                "block_id": 5,
+                "type": "table_footnote",
+                "bbox": [
+                    209,
+                    1293,
+                    1236,
+                    1567
+                ],
+                "angle": 0,
+                "content": "Table 6: HR and NDCG results group by 5 personality traits in Amazon-beauty, Amazon-music, and Personality2018 datasets. “+” represents the NCF+Soft-labeled model (with personality information), and “-” represents the NCF+Same model (without personality information).The best performance is in bold."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    209,
+                    1722,
+                    1226,
+                    1815
+                ],
+                "angle": 0,
+                "content": "for example, open people are more likely to follow popular trends which can be reflected in their purchase history."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    209,
+                    1815,
+                    1231,
+                    2686
+                ],
+                "angle": 0,
+                "content": "Second, we only conduct experiments on a single basic model, NCF, which may loss of generalization. More advanced models graph recommendation models can be used in the future. Third, we conduct empirical experiments on whether personality information benefits recommendation. However, more in-depth investigation is necessary on how personality affects recommendation and users' behavior. In the future, we could conduct a user study to find the causal relationship between personality and recommendation. To be specific, we can develop different marketing strategies for users with different personalities. By observing the effects of different strategies on users' behavior, we can gain a better understanding of how personality affects recommendation. Fourth, we find that the openness, conscientiousness and neuroticism features do not have a noticeable impact on the recommendation performance. A possible reason is that OCEAN only contains five types of personality, which might be insufficient to provide enough useful signals to recommendations. A possible solution is to use a more fine-grained personality model than OCEAN; e.g., the MBTI personality model which has a richer, 16-facet personality profile."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    209,
+                    2686,
+                    1231,
+                    2960
+                ],
+                "angle": 0,
+                "content": "Last, the five personalities are encoded independently of each other in our model. But there is a correlation between these personality traits in real life; e.g., a majority of extroverts are also open. In the future, we can make use of the relationship between personalities, perhaps by defining a hierarchical structure of personality traits and employing graph-based neural networks to encode them."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1310,
+                    762,
+                    2185,
+                    811
+                ],
+                "angle": 0,
+                "content": "7 CONCLUSION AND FUTURE WORKS"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    825,
+                    2333,
+                    1557
+                ],
+                "angle": 0,
+                "content": "In this work, we explore a new way of automatically extracting personality information from review texts and applying it to recommendation systems. We first construct two new datasets based on the Amazon dataset in the beauty and music domains and include OCEAN personality scores automatically inferred by the Receptiviti API, a commercial service. We then analyze the accuracy of using texts to obtain personality profiles and output personality score distributions. To explore the effectiveness of using personality in current recommendation systems, we conduct a few experiments with the standard neural collaborative filtering (NCF) recommendation algorithm and our variants, finding that incorporating personality information improves recommendation performance by \\(3\\%\\) to \\(28\\%\\). In terms of the relationship between personality and domain, we find that openness, extroversion, and agreeableness are helpful in music recommendation, while conscientiousness is most helpful in the beauty recommendation."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    1557,
+                    2333,
+                    1923
+                ],
+                "angle": 0,
+                "content": "In the future, more advanced models graph recommendation models can be used in the experiments. In addition, collecting more information beyond review texts (e.g., purchase history, browsing history) is a potential direction. Moreover, except for the accuracy-based performance, it is possible to improve the fairness by using the OCEAN model [13]. To explore the inner relationship between personality and recommendation systems, doing a user study is also a possible way to further validate the findings."
+            },
+            {
+                "block_id": 12,
+                "type": "title",
+                "bbox": [
+                    1313,
+                    1966,
+                    1823,
+                    2013
+                ],
+                "angle": 0,
+                "content": "ACKNOWLEDGEMENT"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    2029,
+                    2328,
+                    2121
+                ],
+                "angle": 0,
+                "content": "We sincerely appreciate Dr. Liangming Pan's efforts in his help in proofreading this work."
+            },
+            {
+                "block_id": 14,
+                "type": "title",
+                "bbox": [
+                    1313,
+                    2164,
+                    1616,
+                    2211
+                ],
+                "angle": 0,
+                "content": "REFERENCES"
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1331,
+                    2220,
+                    2330,
+                    2290
+                ],
+                "angle": 0,
+                "content": "[1] G.W. Allport. 1961. Pattern and Growth in Personality. Holt, Rinehart and Winston. https://books.google.com.sg/books?id=GVRAAAAAIAAJ"
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1331,
+                    2290,
+                    2333,
+                    2422
+                ],
+                "angle": 0,
+                "content": "[2] Anton Aluja, Oscar Garcia, Jerome Rossier, and Luis F. Garcia. 2005. Comparison of the NEO-FFI, the NEO-FFI-R and an alternative short version of the NEO-PI-R (NEO-60) in Swiss and Spanish samples. *Personality and Individual Differences* 38, 3 (2005), 591–604. https://doi.org/10.1016/j.paid.2004.05.014"
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1331,
+                    2422,
+                    2333,
+                    2517
+                ],
+                "angle": 0,
+                "content": "[3] Nana Yaw Asabere, Amevi Acakpovi, and Mathias Bennet Michael. 2018. Improving Socially-Aware Recommendation Accuracy Through Personality. IEEE Trans. Affect. Comput. 9, 3 (2018), 351-361. https://doi.org/10.1109/TAFFC.2017.2695605"
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1331,
+                    2517,
+                    2330,
+                    2620
+                ],
+                "angle": 0,
+                "content": "[4] Deger Ayata, Yusuf Yaslan, and Mustafa E Kamasak. 2018. Emotion based music recommendation system using wearable physiological sensors. IEEE transactions on consumer electronics 64, 2 (2018), 196-203."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1331,
+                    2620,
+                    2330,
+                    2686
+                ],
+                "angle": 0,
+                "content": "[5] J. Cohen. 1968. Weighted kappa: nominal scale agreement with provision for scaled disagreement or partial credit. Psychological bulletin 70 4 (1968), 213-20."
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    1331,
+                    2686,
+                    2330,
+                    2755
+                ],
+                "angle": 0,
+                "content": "[6] Paul T Costa Jr and Robert R McCrae. 2008. The Revised Neo Personality Inventory (neo-pi-r). Sage Publications, Inc."
+            },
+            {
+                "block_id": 21,
+                "type": "ref_text",
+                "bbox": [
+                    1331,
+                    2755,
+                    2330,
+                    2851
+                ],
+                "angle": 0,
+                "content": "[7] Samuel D Gosling, Peter J Rentfrow, and William B Swann Jr. 2003. A very brief measure of the Big-Five personality domains. Journal of Research in personality 37, 6 (2003), 504-528."
+            },
+            {
+                "block_id": 22,
+                "type": "ref_text",
+                "bbox": [
+                    1331,
+                    2851,
+                    2330,
+                    2953
+                ],
+                "angle": 0,
+                "content": "[8] Xiangnan He, Lizi Liao, Hanwang Zhang, Liqiang Nie, Xia Hu, and Tat-Seng Chua. 2017. Neural Collaborative Filtering. In Proceedings of the 26th International Conference on World Wide Web, WWW 2017, Perth, Australia, April 3-7, 2017, Rick"
+            },
+            {
+                "block_id": 23,
+                "type": "list",
+                "bbox": [
+                    1331,
+                    2220,
+                    2333,
+                    2953
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    216,
+                    250,
+                    1315,
+                    290
+                ],
+                "angle": 0,
+                "content": "Improving Recommendation Systems with User Personality Inferred from Product Reviews"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1649,
+                    250,
+                    2328,
+                    290
+                ],
+                "angle": 0,
+                "content": "IRS@WSDM '23, February 27-March 3, 2023, Singapore"
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    283,
+                    363,
+                    1229,
+                    429
+                ],
+                "angle": 0,
+                "content": "Barrett, Rick Cummings, Eugene Agichtein, and Evgeniy Gabrilovich (Eds.). ACM, 173-182. https://doi.org/10.1145/3038912.3052569"
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    234,
+                    429,
+                    1231,
+                    561
+                ],
+                "angle": 0,
+                "content": "[9] Joanne Hinds, Emma J. Williams, and Adam N. Joinson. 2020. \"It wouldn't happen to me\": Privacy concerns and perspectives following the Cambridge Analytica scandal. Int. J. Hum. Comput. Stud. 143 (2020), 102498. https://doi.org/10.1016/j.ijhcs.2020.102498"
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    224,
+                    561,
+                    1229,
+                    627
+                ],
+                "angle": 0,
+                "content": "[10] Jacob B Hirsh and Jordan B Peterson. 2009. Personality and language use in self-narratives. Journal of research in personality 43, 3 (2009), 524-527."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    224,
+                    627,
+                    1229,
+                    795
+                ],
+                "angle": 0,
+                "content": "[11] Mahesh Babu Mariappan, Myunghoon Suk, and Balakrishnan Prabhakaran. 2012. FaceFetch: A User Emotion Driven Multimedia Content Recommendation System Based on Facial Expression Recognition. In 2012 IEEE International Symposium on Multimedia, ISM 2012, Irvine, CA, USA, December 10-12, 2012. IEEE Computer Society, 84-87. https://doi.org/10.1109/ISM.2012.24"
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    221,
+                    795,
+                    1229,
+                    861
+                ],
+                "angle": 0,
+                "content": "[12] Robert R McCrae and Oliver P John. 1992. An introduction to the five-factor model and its applications. Journal of personality 60, 2 (1992), 175-215."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    221,
+                    861,
+                    1229,
+                    960
+                ],
+                "angle": 0,
+                "content": "[13] Alessandro B Melchiorre, Eva Zangerle, and Markus Schedl. 2020. Personality bias of music recommendation algorithms. In Fourteenth ACM conference on recommender systems. 533-538."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    221,
+                    960,
+                    1229,
+                    1062
+                ],
+                "angle": 0,
+                "content": "[14] Tien T. Nguyen, F. Maxwell Harper, Loren Terveen, and Joseph A. Konstan. 2018. User Personality and User Satisfaction with Recommender Systems. Inf. Syst. Frontiers 20, 6 (2018), 1173-1189. https://doi.org/10.1007/s10796-017-9782-y"
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    221,
+                    1062,
+                    1229,
+                    1293
+                ],
+                "angle": 0,
+                "content": "[15] Jianmo Ni, Jiacheng Li, and Julian J. McAuley. 2019. Justifying Recommendations using Distantly-Labeled Reviews and Fine-Grained Aspects. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing, EMNLP-IJCNLP 2019, Hong Kong, China, November 3-7, 2019, Kentaro Inui, Jing Jiang, Vincent Ng, and Xiaojun Wan (Eds.). Association for Computational Linguistics, 188-197. https://doi.org/10.18653/v1/D19-1018"
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    221,
+                    1293,
+                    1229,
+                    1392
+                ],
+                "angle": 0,
+                "content": "[16] Cynthia A. Pedregon, Roberta L. Farley, Allison Davis, James M. Wood, and Russell D. Clark. 2012. Social desirability, personality questionnaires, and the \"better than average\" effect. *Personality and Individual Differences* 52, 2 (2012),"
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    221,
+                    363,
+                    1231,
+                    1392
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1379,
+                    363,
+                    1999,
+                    396
+                ],
+                "angle": 0,
+                "content": "213-217. https://doi.org/10.1016/j.paid.2011.10.022"
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1320,
+                    396,
+                    2330,
+                    495
+                ],
+                "angle": 0,
+                "content": "[17] James W Pennebaker and Laura A King. 1999. Linguistic styles: language use as an individual difference. Journal of personality and social psychology 77, 6 (1999), 1296."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1320,
+                    495,
+                    2328,
+                    597
+                ],
+                "angle": 0,
+                "content": "[18] Beatrice Rammstedt and Oliver P John. 2007. Measuring personality in one minute or less: A 10-item short version of the Big Five Inventory in English and German. Journal of research in Personality 41, 1 (2007), 203-212."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1323,
+                    597,
+                    2330,
+                    795
+                ],
+                "angle": 0,
+                "content": "[19] Sanja Stajner and Seren Yenikent. 2020. A Survey of Automatic Personality Detection from Texts. In Proceedings of the 28th International Conference on Computational Linguistics, COLING 2020, Barcelona, Spain (Online), December 8-13, 2020, Donia Scott, Núria Bel, and Chengqing Zong (Eds.). International Committee on Computational Linguistics, 6284-6295. https://doi.org/10.18653/v1/2020.coling-main.553"
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1323,
+                    795,
+                    2330,
+                    894
+                ],
+                "angle": 0,
+                "content": "[20] Ewa Topolewska, Ewa Skimina, WłODZIMIERZ Strus, Jan Cieciuch, and Tomasz Rowinski. 2014. The short IPIP-BFM-20 questionnaire for measuring the Big Five. Roczniki Psychologiczne 17, 2 (2014), 385–402."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1323,
+                    894,
+                    2330,
+                    990
+                ],
+                "angle": 0,
+                "content": "[21] Pinata Winoto and Tiffany Ya Tang. 2010. The role of user mood in movie recommendations. Expert Syst. Appl. 37, 8 (2010), 6086-6092. https://doi.org/10.1016/j.eswa.2010.02.117"
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1323,
+                    993,
+                    2330,
+                    1092
+                ],
+                "angle": 0,
+                "content": "[22] Wen Wu, Li Chen, and Yu Zhao. 2018. Personalizing recommendation diversity based on user personality. User Model. User Adapt. Interact. 28, 3 (2018), 237-276. https://doi.org/10.1007/s11257-018-9205-x"
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1323,
+                    1092,
+                    2330,
+                    1194
+                ],
+                "angle": 0,
+                "content": "[23] Hsin-Chang Yang and Zi-Rui Huang. 2019. Mining personality traits from social messages for game recommender systems. Knowl. Based Syst. 165 (2019), 157-168. https://doi.org/10.1016/j.knosys.2018.11.025"
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    1323,
+                    1194,
+                    2330,
+                    1359
+                ],
+                "angle": 0,
+                "content": "[24] Wu Youyou, David Stillwell, H. Andrew Schwartz, and Michal Kosinski. 2017. Birds of a Feather Do Flock Together: Behavior-Based Personality-Assessment Method Reveals Personality Similarity Among Couples and Friends. Psychological Science 28, 3 (2017), 276-284. https://doi.org/10.1177/0956797616678187 arXiv:https://doi.org/10.1177/0956797616678187 PMID: 28059682."
+            },
+            {
+                "block_id": 21,
+                "type": "list",
+                "bbox": [
+                    1320,
+                    363,
+                    2330,
+                    1359
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    }
+]

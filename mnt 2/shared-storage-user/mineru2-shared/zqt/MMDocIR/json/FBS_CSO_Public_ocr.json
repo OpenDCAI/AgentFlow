@@ -1,0 +1,1837 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    193,
+                    323,
+                    561,
+                    686
+                ],
+                "angle": 0,
+                "content": "DEPARTMENT OF STATE UNITED STATES OF AMERICA"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    594,
+                    429,
+                    1450,
+                    508
+                ],
+                "angle": 0,
+                "content": "Functional Bureau Strategy"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    525,
+                    1712,
+                    2103,
+                    1782
+                ],
+                "angle": 0,
+                "content": "BUREAU OF CONFLICT AND STABILIZATION OPERATIONS"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1050,
+                    2442,
+                    1501,
+                    2491
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    859,
+                    3088
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1053,
+                    151,
+                    1494,
+                    207
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    341,
+                    422,
+                    849,
+                    491
+                ],
+                "angle": 0,
+                "content": "Table of Contents"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    339,
+                    554,
+                    2254,
+                    617
+                ],
+                "angle": 0,
+                "content": "1. Executive Statement and Mission Statement 1"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    344,
+                    640,
+                    2251,
+                    699
+                ],
+                "angle": 0,
+                "content": "2. Bureau Strategic Framework 3"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    344,
+                    729,
+                    2254,
+                    788
+                ],
+                "angle": 0,
+                "content": "3. Bureau Goals and Objectives 5"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    341,
+                    818,
+                    2254,
+                    874
+                ],
+                "angle": 0,
+                "content": "4. Bureau Cross-Cutting Management Objectives 16"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    339,
+                    554,
+                    2254,
+                    874
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    859,
+                    3088
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1058,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 1 of 17"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    364,
+                    306,
+                    1685,
+                    376
+                ],
+                "angle": 0,
+                "content": "1. Executive Statement and Mission Statement"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    448,
+                    2249,
+                    970
+                ],
+                "angle": 0,
+                "content": "The mission of the Bureau of Conflict and Stabilization Operations (CSO) is to anticipate, prevent, and respond to conflict that undermines U.S. national interests. This mission supports Administration priorities articulated in the Interim National Security Strategic Guidance (INSSG), including protecting the security of the American people, expanding economic prosperity and opportunity, defending democratic values, reinvigorating alliances and partnerships, leading in international institutions, and elevating diplomacy as our country's tool of first resort."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1052,
+                    2254,
+                    1758
+                ],
+                "angle": 0,
+                "content": "Conflict has become more complex, protracted, and virulent across the globe. In addition to traditional state-led fighting, it involves a range of hybrid and non-state armed groups, and regional and international actors exploiting fragile states, which are often fertile ground for strategic competition, terrorist groups, organized crime, and a host of sub- and non-state actors seeking to advance their equities. China and Russia capitalize on fragile states by gaining strategic access and exploiting weakness to shape future political outcomes against U.S. interests. Regional actors also use fragile states to advance their interests by instigating political instability through proxies and hybrid threats."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1844,
+                    2221,
+                    2267
+                ],
+                "angle": 0,
+                "content": "The negative impact of conflict has only been compounded by the COVID-19 pandemic since the spring of 2020. Moreover, future health crises and climate change will continue to exacerbate global security and stability challenges. These challenges pose threats to democracy and good governance in evolving, interconnected ways that rarely respect national boundaries."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2362,
+                    2249,
+                    2976
+                ],
+                "angle": 0,
+                "content": "CSO takes a strategic, collaborative approach to conflict prevention and stabilization. The bureau prioritizes U.S. national security interests by judiciously applying U.S. taxpayer dollars to realize effective, measurable outcomes. This approach supports recent whole-of-government initiatives such as the U.S. Strategy to Prevent Conflict and Promote Stability (2020); the Global Fragility Act (2019); the Elie Wiesel Genocide and Atrocities Prevention Act (2018); the Stabilization Assistance Review (2018); and the U.S. National Strategy on Women, Peace, and Security (2019)."
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    288,
+                    3029,
+                    844,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1058,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    211
+                ],
+                "angle": 0,
+                "content": "Page 2 of 17"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    300,
+                    2254,
+                    1468
+                ],
+                "angle": 0,
+                "content": "Effectively addressing this complex range of conflict related threats to U.S. national interests requires an agile team, innovative employment of technology, and highly coordinated, targeted assistance. CSO deploys stabilization advisors and harnesses data analytics to inform and execute U.S. policy, strategy, and programs on conflict prevention and stabilization. CSO's expertise focuses on three lines of effort that address different components of the conflict cycle: strategic prevention, conflict resolution, and security sector stabilization. These efforts include programs that: provide early warning for violent conflict and potential atrocities; offer technical support to peace process negotiations; encourage defections, de-radicalization, and re-integration of ex-combatants; inform Department efforts to engage and influence hybrid and non-state armed groups; and prevent the recruitment and radicalization of potential terrorists. CSO ensures that its programs are rigorously monitored and evaluated using evidence-based measures of effectiveness. In doing so, CSO plays a critical role in shaping how the Department effectively prevents and mitigates conflict."
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    849,
+                    3088
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1058,
+                    151,
+                    1496,
+                    207
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2261,
+                    211
+                ],
+                "angle": 0,
+                "content": "Page 3 of 17"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    362,
+                    306,
+                    1252,
+                    376
+                ],
+                "angle": 0,
+                "content": "2. Bureau Strategic Framework"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    478,
+                    2254,
+                    656
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 1: Advance U.S. policy priorities to prevent and resolve violence and conflict, promote stability, and address fragility in regions of U.S. national priority."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    362,
+                    722,
+                    2159,
+                    874
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.1: Implement policy initiatives related to state fragility, conflict prevention and resolution, atrocity prevention, and stabilization."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    362,
+                    910,
+                    2241,
+                    1148
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.2: Strengthen strategic prevention, conflict resolution, and security sector stabilization efforts through targeted programs clearly linked to U.S. policy objectives."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1188,
+                    2231,
+                    1428
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.3: Increase coordination on conflict prevention, conflict resolution, and stabilization programs, policies, and resources, by building, leading, and expanding coalitions of stakeholders."
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    362,
+                    722,
+                    2241,
+                    1428
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1514,
+                    2198,
+                    1798
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 2: Harness data analytics and technical expertise to anticipate and address root causes of violence, conflict, and instability, promote conflict resolution, and enable agile foreign policy decision-making."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1867,
+                    2244,
+                    2207
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.1: Increase Department and interagency use of data analytics in foreign policy decision-making, conflict prevention, conflict resolution, and stabilization, including through use of CSO’s Instability Monitoring and Analysis Platform’s (IMAP) forecasting, tracking, and analytic products."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    362,
+                    2237,
+                    2231,
+                    2478
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.2: Improve U.S. engagement in local and national peace processes, negotiations, and peace process implementation by increasing CSO's permanent capacity for practice-based technical expertise and advanced data analytics."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    362,
+                    2514,
+                    2210,
+                    2758
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.3: Strengthen the Department's ability to address the threats and opportunities hybrid and non-state armed groups (H/NSAG) pose to fragile states and regional stability, through analysis, and policy advocacy."
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    362,
+                    1867,
+                    2244,
+                    2758
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3029,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            },
+            {
+                "block_id": 14,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1058,
+                    151,
+                    1496,
+                    207
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 4 of 17"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    303,
+                    2198,
+                    584
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 3: Enhance the efficiency and effectiveness of stabilization-related diplomatic and programmatic interventions through the increased use of deployed stabilization advisors."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    362,
+                    656,
+                    2119,
+                    891
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.1: Build strategic partnerships within the Department and the interagency by deploying stabilization advisors to key missions and Geographic Combatant Commands."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    362,
+                    937,
+                    2154,
+                    1079
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.2: Increase the bureau's rapid deployment capability to provide timely assistance to emerging conflict prevention and stabilization challenges."
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    362,
+                    656,
+                    2154,
+                    1079
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1171,
+                    2154,
+                    1557
+                ],
+                "angle": 0,
+                "content": "Bureau Cross-Cutting Management Objective 1: Maximize organizational effectiveness and enhance CSO’s competitiveness as a bureau of choice for employees and new recruits by recruiting, retaining, and developing a diverse, high-performing workforce."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1650,
+                    2198,
+                    1927
+                ],
+                "angle": 0,
+                "content": "Bureau Cross-Cutting Management Objective 2: Meet the growing demand for CSO’s advanced analytics, technical expertise, and programs by hiring necessary, qualified staff and enhancing technological capabilities."
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3029,
+                    844,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1058,
+                    151,
+                    1496,
+                    207
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    211
+                ],
+                "angle": 0,
+                "content": "Page 5 of 17"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    364,
+                    306,
+                    1252,
+                    376
+                ],
+                "angle": 0,
+                "content": "3. Bureau Goals and Objectives"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    478,
+                    2254,
+                    650
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 1: Advance U.S. policy priorities to prevent and resolve violence and conflict, promote stability, and address fragility in regions of U.S. national priority."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    739,
+                    2259,
+                    2448
+                ],
+                "angle": 0,
+                "content": "- Bureau Goal 1 Description: CSO plays an important role in advancing U.S. foreign policy related to conflict prevention, conflict resolution, atrocity prevention and stabilization for the Department and the interagency, in line with the Interim National Security Strategic Guidance (p. 9) to meet challenges from states, non-state actors, and other threats. Policy initiatives and legislative mandates include: the U.S. Strategy to Prevent Conflict and Promote Stability to implement Global Fragility Act of 2019 (GFA); the Stabilization Assistance Review (SAR); the White House-led interagency Atrocity Prevention Task Force (APTF) to advance the Elie Wiesel Genocide and Atrocities Prevention Act of 2018; the U.S. Women, Peace, and Security Strategy; Executive Order 14020 “Advancing Gender Equity and Equality”; the Presidential Memorandum on Advancing the Human Rights of Lesbian, Gay, Bisexual, Transgender, Queer, and Intersex Persons Around the World”; the International Religious Freedom Act (1998); and the Convention on the Rights of Persons with Disabilities. CSO advances its policy priorities through strategic planning and interagency coordination, targeted programming, and bilateral and multilateral engagement. Moreover, and where practicable, CSO pursues public diplomacy as a means to sway expert and public opinion as well as develop broader awareness of its priorities, operations, and successes. These efforts are aligned with draft JSP Strategic Objectives 1.1 (Health), 1.3 (Humanitarian Leadership) and 1.4 (Peace and Security)."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3088
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1058,
+                    151,
+                    1496,
+                    207
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    211
+                ],
+                "angle": 0,
+                "content": "Page 6 of 17"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    303,
+                    2238,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 1.1: Implement policy initiatives related to state fragility, conflict prevention and resolution, atrocity prevention, and stabilization."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    521,
+                    2249,
+                    1686
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.1 Justification and Linkages: Preventing and mitigating violent conflict remains a challenge that requires institutional reform and policy change, as mandated in recent legislation and called for by the Interim National Security Strategic Guidance to \"make smart and disciplined choices regarding our national defense\" (p. 14). CSO is at the forefront in pursuing these changes, helping lead the Department's and interagency implementation of the U.S. Strategy to Prevent Conflict and Promote Stability and the SAR, in line with the peace and security outcomes outlined in Strategic Objective 1.4 of the draft JSP. CSO continues to serve as the Secretariat for the White House-led Atrocity Prevention Task Force and plays a critical role in advancing the safety and meaningful participation of women in efforts to prevent conflict and promote stability, directly affecting the equity and inclusion outcomes called for by Strategic Objective 3.2 of the draft JSP. Engagement with partners, public messaging, and external audience-focused opportunities are essential to accomplishing this goal."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1712,
+                    2218,
+                    2785
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.1 Risk Considerations: Implementing the U.S. Strategy to Prevent Conflict and Promote Stability and the SAR will require coordinated action among Department and interagency stakeholders. These coordination challenges are exacerbated by COVID-19 related travel and other relevant restrictions. Additionally, country-level implementation of the SAR remains limited due to significant staffing, access, and mobility challenges. U.S. government atrocity prevention efforts continue to be inhibited by decisions to prioritize other factors in bilateral relationships and give high-level attention to atrocity risks in response to crisis. Perceptions that the U.S. government is not doing enough to prevent and respond to atrocities, conflict, and fragility could negatively impact perceptions of CSO. If status quo continues without adopting conflict-sensitive gender analyses and meaningful consultations with local women and girls, efforts will also be less effective and sustainable."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    849,
+                    3088
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1058,
+                    151,
+                    1496,
+                    207
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    211
+                ],
+                "angle": 0,
+                "content": "Page 7 of 17"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    303,
+                    2231,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 1.2: Strengthen strategic prevention, conflict resolution, and security sector stabilization efforts through targeted programs clearly linked to U.S. policy objectives."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    521,
+                    2249,
+                    2135
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.2 Justification and Linkages: Programs provide critical, complementary support to diplomatic efforts to build the resilience and stability outlined in U.S. policy priorities, ensuring \"diplomacy, development, and economic statecraft [are] the leading instruments of American foreign policy\" as called for by the Interim National Security Strategies Guidance (p.14). CSO conducts targeted analyses, provides strategic advice and real-time diagnostics, and builds networks that contribute to diplomatic efforts. It also designs, implements, monitors, and evaluates programs with a prevention or stabilization focus for regional and functional bureaus. These programs address the challenges surrounding paramilitary, militia, and non-state armed actors in conflict environments, as these actors are frequently part of the \"locally legitimate authorities\" that must be incorporated into peace negotiations, defections, and reintegration efforts. Programmatic support for peace agreement implementation, including promoting the inclusion of women in peace processes, provides essential information to hold parties accountable and bring about more durable peace. Public diplomacy and media engagement amplify programmatic successes and help develop partners' capabilities. Together, these capabilities allow CSO to support senior decision-makers and diplomats efforts to achieve peace and security outcomes outlined in Strategic Objective 1.4 of the draft JSP."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    2171,
+                    2244,
+                    2785
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.2 Risk Considerations: Without targeted programs, malign actors have increased space to leverage and exploit resources, fuel and instigate extremism, and undermine U.S. government prevention and stabilization efforts. Without effective messaging, CSO may not receive adequate support from key constituencies for addressing conflict and stabilization issues. If CSO programs are unable to address issues surrounding armed actors, support peace processes, or provide early warning of atrocities, the Department’s effectiveness will be limited."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    849,
+                    3088
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1058,
+                    151,
+                    1496,
+                    207
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2261,
+                    211
+                ],
+                "angle": 0,
+                "content": "Page 8 of 17"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2254,
+                    544
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 1.3: Increase coordination on conflict prevention, conflict resolution, and stabilization programs, policies, and resources, by building, leading, and expanding coalitions of stakeholders."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    610,
+                    2254,
+                    2326
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.3 Justification and Linkages: Coordination on conflict-affected countries is critical to an effective U.S. and international response; ineffective coordination often leads to on the ground failures. Therefore, CSO improves Department, interagency, and international coordination by leading on key policy, diplomatic, and messaging initiatives; convening key actors on priority policy issues; engaging with diverse stakeholders including through coordination with women leaders and women's civil society organizations; and informing policy, diplomacy and programming through technical expertise and data analytics. CSO's leadership on coordination helps to \"reinvigorate and modernize our alliances and partnerships around the world,\" (Interim National Security Strategic Guidance, p. 10) and enables the United States to regain its \"position of leadership in international institutions\" (Interim National Security Strategic Guidance, p. 11). Specifically, CSO's Conflict Prevention and Stabilization Forum and Stabilization Leaders Forum, represent key domestic and international partnerships that enhance strategic collaboration and coordination with key partners. CSO also leads the U.S. government's participation in the seven-member International Atrocity Prevention Working Group and works with a variety of other domestic and international partners to enhance coordinated approaches and investment in conflict-affected areas, building on the partnership themes emphasized in Strategic Objective 1.4 of the draft JSP."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    362,
+                    2356,
+                    2256,
+                    2880
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.3 Risk Considerations: Absence of robust coordination with key partners risks duplication of efforts, and policy and programming gaps that may exacerbate factors driving instability and undermine U.S. government conflict prevention and stabilization interventions. Ineffective messaging strategies can contribute to a wider—but incorrect—perception of American inactivity or ambivalence. A degraded environment may result in increased openings for malign outside influence."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    849,
+                    3088
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1058,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 9 of 17"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    306,
+                    2198,
+                    587
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 2: Harness data analytics and technical expertise to anticipate and address root causes of violence, conflict, and instability, promote conflict resolution, and enable agile foreign policy decision-making."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    676,
+                    2246,
+                    1831
+                ],
+                "angle": 0,
+                "content": "- Bureau Goal 2 Description: The State Department requires expert analysis to anticipate, identify, and inform policy approaches to, and programmatic interventions in, conflict-affected countries and regions. CSO's unique capabilities in data analytics and technical expertise in conflict issues (negotiations, peace processes, electoral violence, and security sector stabilization) inform, assist, and improve Department responses to conflict. CSO's data-driven analysis forecasts global conflict trends, identifies causes of state fragility, violence, and potential atrocities, and provides a nuanced understanding of sub-national conflict, as envisioned in draft JSP Strategic Objective 1.4 relating to increasing peace and security. Matching internal expertise and gap analysis with emerging technologies helps CSO ensure the Department retains a technological and analytical edge that guards against malign action and shapes every aspect of our national interest abroad (Interim National Security Strategic Guidance, pp. 8)."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 10 of 17"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    303,
+                    2172,
+                    640
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 2.1: Increase Department and interagency use of data analytics in foreign policy decision-making, conflict prevention, conflict resolution, WPS implementation, and stabilization, including through use of CSO's Instability Monitoring and Analysis Platform's (IMAP) forecasting, tracking, and analytic products."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    702,
+                    2256,
+                    1956
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.1 Justification and Linkages: Effective diplomacy must be rooted in data-driven analysis. Drawing from the information-rich open-source environment, CSO's data collection and analytical capabilities, including IMAP, provide the Department with regular access to updated global, regional, national, and subnational conflict trends that are critical to conflict prevention and stabilization efforts, as called for in draft JSP Strategic Objective 1.4. Its products include early warning assessments of potential atrocities and violent conflict across the globe, deep-dive analyses of fragility, instability, and conflict, and interactive conflict story maps. IMAP supports efforts to upgrade our diplomatic capabilities by making more efficient use of limited resources through interactive tools and synthesizing multi-domain information to support diplomacy. IMAP connects CSO's data-analytics to the needs of the Department and interagency, to related activities such as the Global Engagement Center GEC-IQ data analytics platform, and to efforts such as data.state, a Departmental hub for data and analytics products."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1986,
+                    2241,
+                    2511
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.1 Risk Considerations: Without technological and analytical infrastructure, CSO cannot deliver timely products that help the Department make agile foreign policy decisions. It would also result in missed opportunities to anticipate, prevent, and respond to conflict. Failure to diagnose conflict dynamics through data-driven policy and programmatic interventions increases the likelihood efforts will fail and/or exacerbate instability."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 11 of 17"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2195,
+                    544
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 2.2: Improve U.S. engagement in local and national peace processes, negotiations, and peace process implementation by increasing CSO's permanent capacity for practice-based technical expertise and advanced data analytics."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    613,
+                    2244,
+                    2039
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.2 Justification and Linkages: U.S. leadership is required to find and implement durable solutions to conflicts that threaten U.S. national security interests and the interests of the American people. Investing in permanent negotiations support capacity promotes the Interim National Security Strategic Guidance by: “elevating diplomacy as our tool of first resort” for national defense (p. 14); supporting negotiated outcomes that support stability and democracy; and promoting outcomes more favorable for the U.S. and our partners and allies. In-house advice, analysis, and technical support are essential for U.S. Special Envoys, Special Representatives, regional bureaus, and U.S. missions to represent and achieve U.S. interests in negotiations. CSO provides unique expertise in and analytics on peace processes and negotiations. Our engagement improves U.S. strategic planning and diplomatic engagement through technical support on peace processes, data analytics, ceasefire monitoring, the meaningful inclusion of women in peace negotiations and implementation of peace agreements, and support for peace accord implementation at national and local levels, thus supporting peace and security outcomes articulated in draft JSP Strategic Objective 1.4."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    362,
+                    2079,
+                    2244,
+                    2775
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.2 Risk Considerations: Data shows that global conflict is on the rise. Failure to invest in U.S. capabilities to resolve conflicts will lead to increased threats to U.S. interests at home and abroad. CSO's unique capabilities in peace process and negotiations support offer targeted expertise to increase the effectiveness of U.S. engagement in complex negotiations. Failure to effectively engage in negotiations will decrease U.S. influence abroad, open doors for adversaries, threaten U.S. citizens abroad, and impact U.S. economic interests, particularly in emerging markets."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 12 of 17"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2221,
+                    547
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 2.3: Strengthen the Department's ability to address the threats and opportunities hybrid and non-state armed groups (H/NSAG) pose to fragile states and regional stability, through analysis and policy advocacy."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    613,
+                    2249,
+                    1857
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.3 Justification and Linkages: As H/NSAGs become increasingly prevalent in fragile states, the Department's approach to engaging and influencing those groups must adapt to support the need outlined in the Interim National Security Strategy (p. 9) to meet challenges \"from violent and criminal non-state actors and extremists.\" Legacy models of state-to-state engagement do not adequately address the challenges and opportunities these groups pose. CSO primarily contributes in two domains: 1) providing data-driven analysis of H/NSAG networks, attributes, trends, threats, and opportunities, and 2) advocating for and advising on policy refinements that reduce barriers impeding effective engagement with and influence of H/NSAGs. This research and advocacy will include exploration of the roles that women can play in supporting H/NSAGs and in facilitating their demobilization. Combined with targeted programming, these efforts will help enable a more unified, effective Department approach to addressing the impacts of non-state actors in line with the peace and security outcomes outlined in draft JSP Strategic Objective 1.4."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1897,
+                    2228,
+                    2422
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.3 Risk Considerations: A failure to strengthen the Department's ability to effectively engage and influence H/NSAGs risks perpetuating outdated approaches to conflict, fragility, and stabilization that do not reflect the current threat environment. Maintaining the dominant paradigm of state-to-state engagement when non-state actors play a growing important role in national and regional security dynamics increases the likelihood of another Afghanistan-like scenario."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 13 of 17"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    303,
+                    2198,
+                    584
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 3: Enhance the efficiency and effectiveness of stabilization-related diplomatic and programmatic interventions through the increased use of deployed stabilization advisors."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    676,
+                    2228,
+                    1838
+                ],
+                "angle": 0,
+                "content": "- Bureau Goal 3 Description: CSO deploys stabilization advisors to posts and Geographic Combatant Commands (GCCs) to help prevent violent conflict and promote stability in conflict-prone regions. Their responsibilities align with the Bureau's three lines of effort: strategic prevention, conflict resolution, and security sector stabilization. At posts, stabilization advisors oversee targeted programs; support diplomatic engagements and deep-dive analyses; provide early warning for violent conflict and potential atrocities; give technical support to peace process negotiations; support the defection, de-radicalization, and reintegration of ex-combatants; and prevent the recruitment and radicalization of vulnerable populations to terrorism. At GCCs, stabilization advisors' activities integrate stabilization policies, practices, and principles, including those of the WPS, into planning documents for the command, and for identified prevention or stabilization countries. They also support the exercising or execution of these plans."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1058,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 14 of 17"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    303,
+                    2254,
+                    537
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 3.1: Increase access to stabilization expertise and reinforce stabilization work within the Department and across the Interagency by deploying stabilization advisors to key missions and Geographic Combatant Commands."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    613,
+                    2254,
+                    1956
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.1 Justification and Linkages: The Department needs the right expertise, focus, and coordination capabilities to be present in the field, where decisions are being made in real time, in order to effectively confront the rapidly evolving challenges the United States faces. CSO Stabilization advisors, partnering with Interagency and International partners in the field, provide more flexible and creative response options to prevent conflict and promote stabilization without resorting to military force, ensuring diplomacy is a “tool of first resort.” This supports draft JSP Strategic Objective 1.4, and the Interim National Security Strategic Guidance (INSSG) which call for “lead[ing] with our full diplomatic, economic, health, and developmental toolkit...to avoid overreliance on the U.S. military to carry out tasks and missions better suited to others.” CSO stabilization advisors embedded in GCCs serve on cross-functional, multidisciplinary, joint, and operational planning teams, providing stabilization expertise to the development of GCC plans and orders, because of the critical role DoD often plays in enabling access to dangerous areas, as well as performing critical stabilization tasks before, during, and after conflict."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1989,
+                    2254,
+                    2511
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.1 Risk Considerations: Absent the necessary conflict expertise and bandwidth to coordinate on the ground, we risk perpetuating the siloed, uncoordinated, and under-informed approaches to conflict prevention and stabilization that plagued U.S. efforts in places such as Iraq and Afghanistan. Placing embedded advisors at GCCs and on the ground in key missions creates new opportunities to advance CSO's mandate to lead, inform, and coordinate interagency stabilization efforts."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 15 of 17"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    288,
+                    300,
+                    2154,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 3.2: Increase the bureau's rapid deployment capability to provide timely assistance to emerging conflict prevention and stabilization challenges."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    521,
+                    2256,
+                    1956
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.2 Justification and Linkages: Posts are typically understaffed and under-resourced when confronted with emerging conflicts and crises, severely hampering their ability to mount and lead an effective, coordinated response with local and international partners. While supporting longer term foreign service assignments to key countries to provide continuity of personnel on major initiatives such as U.S. Strategy to Prevent Conflict and Promote Stability implementation plans, CSO must develop and maintain the capability to rapidly deploy, assess, and implement stabilization efforts, in coordination with Chiefs of Mission, in conflict affected countries and regions in line with draft JSP Strategic Objective 1.4, which emphasizes DoS and USAID roles in leading an integrated U.S. government response to address conflict and fragility by elevating prevention, addressing political drivers of fragility, and supporting locally driven solutions to instability. The JSP further emphasizes the requirement to lead with diplomatic engagement, supported by building the core capacities of key partners and stakeholders to prevent, mitigate, and respond to conflict and insecurity. CSO must be able to rapidly deploy stabilization advisors to the right place at the right time to facilitate this required diplomatic engagement."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1989,
+                    2249,
+                    2692
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.2 Risk Considerations: Failure to surge knowledgeable, prepared staff to posts during critical conflict prevention and mitigation windows when posts are typically over-burdened and understaffed can result in missed opportunities, increased violence, increased resource requirements in the long run, and increased security threats to the American people. Deployed staff must have the right skillsets and specialized training to ensure they are able to effectively support posts in difficult, often high-threat environments, and with a variety of interagency, civil-military, host nation, and international partners."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1484,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2261,
+                    211
+                ],
+                "angle": 0,
+                "content": "Page 16 of 17"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    362,
+                    306,
+                    1736,
+                    376
+                ],
+                "angle": 0,
+                "content": "4. Bureau Cross-Cutting Management Objectives"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    288,
+                    478,
+                    1981,
+                    544
+                ],
+                "angle": 0,
+                "content": "Bureau Cross-Cutting Management Objective 1: Maximize organizational"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    580,
+                    2246,
+                    732
+                ],
+                "angle": 0,
+                "content": "effectiveness and enhance CSO’s competitiveness as a bureau of choice for employees and new recruits by recruiting, retaining, and developing a diverse, high-performing workforce."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    364,
+                    798,
+                    2246,
+                    1683
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Objective 1 Justification and Linkages: Studies show conclusively that diverse teams, with a range of talents, perspectives, and backgrounds perform better and solve problems more effectively than homogeneous ones. A well-led workforce; with diversity of sexual orientation, race, gender, and disability status; that maintains strong relationships with key counterparts, ensures high performance, leadership, engagement, and accountability to execute CSO's mission as required by JSP Strategic Objective 4.1, as well as in furtherance of Executive Order 13985 “Advancing Racial Equity and Support for Underserved Communities Through the Federal Government,” Executive Order 14020 “Gender Equity and Equality,” and the Americans with Disabilities Act (2008)."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1719,
+                    2231,
+                    2059
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Objective 1 Risk Considerations: Failure to recruit and retain a diverse, high-performing workforce would reduce the ability of CSO to support the mission of the Department and fulfil our duty to maintain relationships through diplomacy and statecraft as required by the INSSG (p. 11)."
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    362,
+                    798,
+                    2246,
+                    2059
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3088
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 17 of 17"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    306,
+                    2210,
+                    584
+                ],
+                "angle": 0,
+                "content": "Bureau Cross-Cutting Management Objective 2: Meet the growing demand for CSO’s advanced analytics, technical expertise, and programs by hiring necessary, qualified staff and enhancing technological capabilities."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    656,
+                    2254,
+                    1722
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Objective 2 Justification and Linkages: CSO provides a critical multi-organizational data access portal through IMAP, streamlining evidence and research-driven decision making for strategic, thematic, and programmatic levels, as dictated in SO 4.2 of the JSP. CSO's leading role in the implementation of the U.S. Strategy to Prevent Conflict and Promote Stability, along with other policy and legislative initiatives, has created additional need for staff to provide expertise to the field, as well as to build the bilateral and multilateral relationships necessary to enable burden-sharing and amplification of U.S. programming, as called for repeatedly in the draft JSP Strategic Objective 1.4. CSO is committed to broadening data access and enhancing training for its conflict analysts and partners, so that analytics and data are seen as vital inputs to the Department's decision-making process."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1758,
+                    2228,
+                    2732
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Objective 2 Risk Considerations: Without budget growth to accommodate staffing for program development and partnership-building, CSO cannot effectively support the JSP SO 1.4 requirement to prevent, deter, and resolve conflicts and address international security challenges. A lack of funding/resources would seriously hinder CSO's access to cutting-edge analytic tools, and limit its ability to provide rapid statistical, geospatial, and programmatic support to support diplomacy. The effective use of data and analytics is vital for timely analysis of conflict prevention and stabilization dynamics, including formation, implementation, and monitoring of 10-year stabilization plans under the Strategy. Without additional funding, the ability to support field efforts in CSOs three lines of effort will be eroded and weakened."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    }
+]

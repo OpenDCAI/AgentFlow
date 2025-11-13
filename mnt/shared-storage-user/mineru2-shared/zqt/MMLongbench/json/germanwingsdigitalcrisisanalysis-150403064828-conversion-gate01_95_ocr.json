@@ -1,0 +1,3447 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    0,
+                    0,
+                    1574,
+                    1798
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    1683,
+                    424,
+                    3052,
+                    612
+                ],
+                "angle": 0,
+                "content": "GERMANWINGS 9525: THE FIRST 6 HOURS"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    1686,
+                    651,
+                    3062,
+                    756
+                ],
+                "angle": 0,
+                "content": "DIGITAL CRISIS ANALYSIS"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1686,
+                    871,
+                    2038,
+                    930
+                ],
+                "angle": 0,
+                "content": "25-03-2015"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1686,
+                    952,
+                    2915,
+                    1016
+                ],
+                "angle": 0,
+                "content": "BRENDAN HODGSON + AHMED ALSHARIQI"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    2473,
+                    1681,
+                    3024,
+                    1728
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    2620,
+                    1742,
+                    2880,
+                    1767
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    179,
+                    115,
+                    1584,
+                    203
+                ],
+                "angle": 0,
+                "content": "GERMANWINGS 4U9525 ~ QUICK FACTS"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2560,
+                    66,
+                    3129,
+                    118
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2707,
+                    129,
+                    2976,
+                    154
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    188,
+                    430,
+                    1414,
+                    504
+                ],
+                "angle": 0,
+                "content": "- Date of incident: 24th of March 2015"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    188,
+                    586,
+                    1174,
+                    667
+                ],
+                "angle": 0,
+                "content": "Flight: Germanwings 4u9525"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    188,
+                    739,
+                    1600,
+                    815
+                ],
+                "angle": 0,
+                "content": "- Location of crash: Massif des Trois-Eveches"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    188,
+                    900,
+                    1376,
+                    977
+                ],
+                "angle": 0,
+                "content": "Time of crash: 10:45 CET (Estimate)"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    188,
+                    1054,
+                    729,
+                    1126
+                ],
+                "angle": 0,
+                "content": "- Fatalities: 150"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    188,
+                    1211,
+                    918,
+                    1278
+                ],
+                "angle": 0,
+                "content": "Aircraft: Airbus A320"
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    188,
+                    430,
+                    1600,
+                    1278
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    2304,
+                    367,
+                    3129,
+                    945
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    2304,
+                    975,
+                    3129,
+                    1566
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    179,
+                    115,
+                    1590,
+                    203
+                ],
+                "angle": 0,
+                "content": "GERMANWINGS 4U9525 ~ QUICK FACTS"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    66,
+                    3129,
+                    118
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2707,
+                    127,
+                    2976,
+                    156
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    185,
+                    435,
+                    1107,
+                    532
+                ],
+                "angle": 0,
+                "content": "+ Analysis Parameters:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    339,
+                    590,
+                    1788,
+                    761
+                ],
+                "angle": 0,
+                "content": "+ First 6 hours following crash - 24-May-2015 (approx. 11:00 - 17:00 CET)"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    339,
+                    815,
+                    2179,
+                    975
+                ],
+                "angle": 0,
+                "content": "+ Supplemented by 24 hour refresh - 11AM CET - 25-May- 2015"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    339,
+                    1042,
+                    2054,
+                    1207
+                ],
+                "angle": 0,
+                "content": "+ Timesteps included in this document are estimates only."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    339,
+                    1263,
+                    2073,
+                    1436
+                ],
+                "angle": 0,
+                "content": "+ NOTE: this analysis is not intended as a critique of the response efforts of any involved party"
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    339,
+                    590,
+                    2179,
+                    1436
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    2348,
+                    403,
+                    3132,
+                    1485
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    66,
+                    3123,
+                    118
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2707,
+                    129,
+                    2976,
+                    154
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    179,
+                    115,
+                    1225,
+                    201
+                ],
+                "angle": 0,
+                "content": "KEY FINDINGS/CONCLUSIONS"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    179,
+                    277,
+                    2723,
+                    568
+                ],
+                "angle": 0,
+                "content": "As seen during previous incidents, including the Costa Concordia incident (2012), the Asiana Airlines crash at SFO (2013), and more recent aviation disasters, the role of social platforms as back-ups to a company's corporate site has become increasingly important. The catastrophic failure of the Germanwings website in the initial hours continues to reinforce the importance of having social platforms in place and an impetus to consider and review existing infrastructure."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    179,
+                    619,
+                    2710,
+                    738
+                ],
+                "angle": 0,
+                "content": "However, unlike Asiana Airlines, where citizen-generated visuals largely drove the media agenda during the first hours, the immediate lack of visuals transformed this quickly into a media-driven story."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    179,
+                    786,
+                    2694,
+                    963
+                ],
+                "angle": 0,
+                "content": "+ The actions taken by three of the key players - Germanwings, Lufthansa and Airbus - to quickly adapt the visual appearance of their website and their social platforms highlights the importance of having clear protocols in place for coordinated brand management in times of catastrophic crisis."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    179,
+                    1015,
+                    2755,
+                    1249
+                ],
+                "angle": 0,
+                "content": "+ The decision by parent company Lufthansa not to adapt/update its corporate website (or oversight in doing so) in the early hours of the crisis highlights a dilemma facing brands associated with, yet separate from, the affected brand. It suggests the question: Was it Lufthansa's responsibility as the parent company to support or reflect the public mood in the early hours of the crisis?"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    179,
+                    1299,
+                    2723,
+                    1474
+                ],
+                "angle": 0,
+                "content": "+ The increasing integration of social \"outputs\" into real-time media stories e.g. tweets or Instagram images etc. further highlights the importance of these channels as opportunities to insert corporate messages into the unfolding narrative."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    179,
+                    1526,
+                    2304,
+                    1585
+                ],
+                "angle": 0,
+                "content": "+ As always, visuals remain a powerful accelerator for social amplification in times of crisis."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    179,
+                    1636,
+                    2745,
+                    1755
+                ],
+                "angle": 0,
+                "content": "+ Click the links for additional analysis of previous incidents: Costa Concordia, Asiana Airlines 214, US Airways 1549 or visit http://www.slideshare.net/Brendan"
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    179,
+                    277,
+                    2755,
+                    1755
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1289,
+                    561,
+                    1907,
+                    684
+                ],
+                "angle": 0,
+                "content": "ANALYSIS"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1196,
+                    941,
+                    2003,
+                    1022
+                ],
+                "angle": 0,
+                "content": "BRENDAN HODGSON"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1232,
+                    1051,
+                    1968,
+                    1137
+                ],
+                "angle": 0,
+                "content": "AHMED ALSHARIQI"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    179,
+                    118,
+                    1072,
+                    189
+                ],
+                "angle": 0,
+                "content": "GERMANWINGS ACTIVITY"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    68,
+                    3123,
+                    117
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2710,
+                    131,
+                    2972,
+                    154
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    185,
+                    358,
+                    1340,
+                    437
+                ],
+                "angle": 0,
+                "content": "+ Within the first 60 minutes:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    345,
+                    453,
+                    1753,
+                    576
+                ],
+                "angle": 0,
+                "content": "+ Germanwings issues first tweet acknowledging incident & issues update to Facebook"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    345,
+                    633,
+                    1798,
+                    759
+                ],
+                "angle": 0,
+                "content": "+ At the same time, Germanwings website crashes - remains inaccessible for approx. 2 hours"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    345,
+                    819,
+                    1798,
+                    934
+                ],
+                "angle": 0,
+                "content": "+ No change to brand colours/logo on social platforms at this time"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    345,
+                    453,
+                    1798,
+                    934
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    2176,
+                    338,
+                    2352,
+                    392
+                ],
+                "angle": 0,
+                "content": "(Twitter)"
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    2169,
+                    401,
+                    3116,
+                    1130
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    201,
+                    1080,
+                    707,
+                    1134
+                ],
+                "angle": 0,
+                "content": "(Germanwings.com site)"
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    518,
+                    1225,
+                    550,
+                    1265
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    518,
+                    1294,
+                    691,
+                    1310
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    518,
+                    1346,
+                    547,
+                    1360
+                ],
+                "angle": 0,
+                "content": "#"
+            },
+            {
+                "block_id": 14,
+                "type": "image",
+                "bbox": [
+                    1580,
+                    936,
+                    2425,
+                    1751
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    2444,
+                    1675,
+                    2681,
+                    1729
+                ],
+                "angle": 0,
+                "content": "(Facebook)"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    179,
+                    117,
+                    1235,
+                    203
+                ],
+                "angle": 0,
+                "content": "LUFTHANSA/AIRBUS ACTIVITY"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    66,
+                    3129,
+                    118
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2707,
+                    129,
+                    2976,
+                    154
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    297,
+                    437,
+                    1344,
+                    522
+                ],
+                "angle": 0,
+                "content": "Within the first 90 minutes:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    345,
+                    550,
+                    1859,
+                    736
+                ],
+                "angle": 0,
+                "content": "+ Within 90 minutes of the crash, Airbus and Germanwings parent company Lufthansa publish first acknowledgements of the incident via Twitter accounts"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    816,
+                    828,
+                    1219,
+                    885
+                ],
+                "angle": 0,
+                "content": "(Lufthansa Twitter)"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    812,
+                    900,
+                    2003,
+                    1733
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    2112,
+                    828,
+                    2428,
+                    882
+                ],
+                "angle": 0,
+                "content": "(Airbus Twitter)"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    2083,
+                    892,
+                    3040,
+                    1733
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    179,
+                    117,
+                    1225,
+                    192
+                ],
+                "angle": 0,
+                "content": "BRAND CRISIS MODIFICATION"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    66,
+                    3129,
+                    118
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2707,
+                    129,
+                    2976,
+                    154
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    185,
+                    435,
+                    1395,
+                    522
+                ],
+                "angle": 0,
+                "content": "+ Within the first 120 minutes:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    339,
+                    550,
+                    1708,
+                    667
+                ],
+                "angle": 0,
+                "content": "+ Germanwings recoloured its logo on both its Twitter and Facebook accounts to black and white."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    339,
+                    691,
+                    1708,
+                    811
+                ],
+                "angle": 0,
+                "content": "+ Parent company Lufthansa follows within a similar timeframe with its social platforms"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    339,
+                    550,
+                    1708,
+                    811
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1852,
+                    403,
+                    3148,
+                    1123
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(Germanwings Facebook)"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1280,
+                    1641,
+                    1744,
+                    1693
+                ],
+                "angle": 0,
+                "content": "(Lufthansa Facebook)"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1852,
+                    1155,
+                    3152,
+                    1710
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    179,
+                    118,
+                    1072,
+                    192
+                ],
+                "angle": 0,
+                "content": "GERMANWINGS ACTIVITY"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    68,
+                    3123,
+                    117
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2710,
+                    131,
+                    2972,
+                    154
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    188,
+                    439,
+                    1395,
+                    522
+                ],
+                "angle": 0,
+                "content": "+ Within the first 180 minutes:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    348,
+                    552,
+                    1344,
+                    608
+                ],
+                "angle": 0,
+                "content": "+ Germanwings site remains inaccessible"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    348,
+                    628,
+                    1408,
+                    813
+                ],
+                "angle": 0,
+                "content": "+ Within the first hour, Twitter and Facebook become only available points of digital contact with Germanwings"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    348,
+                    552,
+                    1408,
+                    813
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1513,
+                    338,
+                    2025,
+                    392
+                ],
+                "angle": 0,
+                "content": "(Germanwings.com site)"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1510,
+                    397,
+                    3104,
+                    1767
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    179,
+                    118,
+                    1072,
+                    189
+                ],
+                "angle": 0,
+                "content": "GERMANWINGS ACTIVITY"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    68,
+                    3123,
+                    117
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2710,
+                    131,
+                    2972,
+                    154
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    188,
+                    439,
+                    1395,
+                    522
+                ],
+                "angle": 0,
+                "content": "+ Within the first 180 minutes:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    345,
+                    552,
+                    1456,
+                    667
+                ],
+                "angle": 0,
+                "content": "+ Germanwings appears to be struggling to re-activate its website."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    345,
+                    693,
+                    1356,
+                    939
+                ],
+                "angle": 0,
+                "content": "+ At one point, the original site with full marketing content appears on the site - contradicting its more sombre social platforms"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    345,
+                    552,
+                    1456,
+                    939
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1635,
+                    410,
+                    3126,
+                    1773
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(Germanwings.com site)"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    2400,
+                    1693,
+                    2873,
+                    1751
+                ],
+                "angle": 0,
+                "content": "(Germanwings Twitter)"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    179,
+                    117,
+                    1235,
+                    203
+                ],
+                "angle": 0,
+                "content": "LUFTHANSA/AIRBUS ACTIVITY"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    68,
+                    3123,
+                    117
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2707,
+                    129,
+                    2972,
+                    154
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    185,
+                    435,
+                    1395,
+                    522
+                ],
+                "angle": 0,
+                "content": "+ Within the first 180 minutes:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    345,
+                    550,
+                    1500,
+                    667
+                ],
+                "angle": 0,
+                "content": "+ Airbus wipes brand/marketing images from its corporate website"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    345,
+                    693,
+                    1497,
+                    876
+                ],
+                "angle": 0,
+                "content": "+ In contrast to its social activity, Germanwings parent company Lufthansa makes no changes to its corporate website during this period."
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    345,
+                    550,
+                    1500,
+                    876
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1596,
+                    338,
+                    1952,
+                    392
+                ],
+                "angle": 0,
+                "content": "(Airbus.com site)"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1564,
+                    401,
+                    3136,
+                    1756
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    179,
+                    118,
+                    1072,
+                    189
+                ],
+                "angle": 0,
+                "content": "GERMANWINGS ACTIVITY"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    68,
+                    3123,
+                    117
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2710,
+                    131,
+                    2972,
+                    154
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    188,
+                    439,
+                    1200,
+                    520
+                ],
+                "angle": 0,
+                "content": "+ Within the first 4 hours:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    348,
+                    552,
+                    1292,
+                    608
+                ],
+                "angle": 0,
+                "content": "+ Germanwings.com begins to stabilize"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    348,
+                    628,
+                    1587,
+                    745
+                ],
+                "angle": 0,
+                "content": "+ By the fifth hour following the incident, the current crisis site is in place"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    348,
+                    552,
+                    1587,
+                    745
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1705,
+                    338,
+                    2291,
+                    392
+                ],
+                "angle": 0,
+                "content": "(Germanwings.com Hour 3)"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1760,
+                    477,
+                    2992,
+                    610
+                ],
+                "angle": 0,
+                "content": "Die aktuellen Medienberichte sind uns seit kurzem bereits Notch liegen uns dazu keine geschicherten eigenen Informationen vor. Sobald bestätigte Einzelheiten verfügbar sind, informieren wir die Medien unverzüglich. Wir verstehen in dieser Situation auf unsere standig actuaisierte Internetseite www.germanwings.com."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1760,
+                    729,
+                    3001,
+                    831
+                ],
+                "angle": 0,
+                "content": "We have recently become aware of media reports speculating on an incident though we still do not have any own confirmed information. As soon as definite information is available, we shall inform the media immediately. Please monitor our website www germanwings.com for periodic updates."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    256,
+                    961,
+                    1094,
+                    1015
+                ],
+                "angle": 0,
+                "content": "(Germanwings.com updates Hour 12+)"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    275,
+                    1033,
+                    531,
+                    1067
+                ],
+                "angle": 0,
+                "content": "Current information"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    278,
+                    1078,
+                    1174,
+                    1112
+                ],
+                "angle": 0,
+                "content": "There are 2 new messages. Recent information - Terminal change at London Heathrow Airport (LHR) +"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    278,
+                    1177,
+                    675,
+                    1213
+                ],
+                "angle": 0,
+                "content": "Current Information: Flight 4U9S25"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    278,
+                    1213,
+                    419,
+                    1234
+                ],
+                "angle": 0,
+                "content": "2014年2月1日"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    275,
+                    1249,
+                    1593,
+                    1330
+                ],
+                "angle": 0,
+                "content": "24th March, 12:30 p.m. Following the tragic accident on Tuesday, Germanwings reports occasional flight disruptions within its route network. This is due to crew members who decided not to operate aircraft today following the reports on the accident of a Germanwings aircraft with 144 passengers and six crew members onboard. \"We understand their decision\", says Thomas Winkelmann, Management Spokesperson of Germanwings. Some flight had to be cancelled."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    275,
+                    1418,
+                    1648,
+                    1548
+                ],
+                "angle": 0,
+                "content": "24th March, 130 p.m. The must confirm to our deepest regret that Germanwings Flight 4U 9525 from Barcelona to Dusseldorf has suffered an accident over the French Alps. The flight was being operated with an Airbus A320 aircraft and was carrying 144 passengers and six crew members. Luftharma and Germanwings have established a telephone hotline. The numbers 0800-014-8604 (UK) and +1-467-362-0032 (worldwide) are available to all the families of the passengers involved for care and assistance. Everyone at Luftharma and Lufthansa is deeply shocked and saddened by these events. Our thoughts and prayers are with the families and friends of the passengers and crew members. Germanwings is conducting a full investigation."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    278,
+                    1616,
+                    851,
+                    1654
+                ],
+                "angle": 0,
+                "content": "Terminal change at London Heathrow Airport (LHR)"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    281,
+                    1654,
+                    448,
+                    1675
+                ],
+                "angle": 0,
+                "content": "Categre 1917年2008年"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1529,
+                    1589,
+                    1648,
+                    1620
+                ],
+                "angle": 0,
+                "content": "back to top +"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    1705,
+                    961,
+                    2336,
+                    1013
+                ],
+                "angle": 0,
+                "content": "(Germanwings.com Hour 4.5)"
+            },
+            {
+                "block_id": 21,
+                "type": "image",
+                "bbox": [
+                    1712,
+                    1026,
+                    3040,
+                    1684
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    182,
+                    118,
+                    940,
+                    192
+                ],
+                "angle": 0,
+                "content": "LUFTHANSA ACTIVITY"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    68,
+                    3123,
+                    118
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2707,
+                    129,
+                    2976,
+                    154
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    185,
+                    439,
+                    1203,
+                    522
+                ],
+                "angle": 0,
+                "content": "+ Within the first 4 hours:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    345,
+                    550,
+                    1523,
+                    673
+                ],
+                "angle": 0,
+                "content": "+ Lufthansa updates corporate home page with a statement on the incident \\(\\sim\\) no system failures"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    345,
+                    693,
+                    1449,
+                    750
+                ],
+                "angle": 0,
+                "content": "+ Statements are updated throughout the day"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    345,
+                    766,
+                    1712,
+                    887
+                ],
+                "angle": 0,
+                "content": "+ Within 24 hours the corporate site resumes activity with a clear banner to information on the incident"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    345,
+                    550,
+                    1712,
+                    887
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    371,
+                    1026,
+                    1721,
+                    1778
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(Lufthansa.com Hour 3)"
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    1792,
+                    320,
+                    3046,
+                    948
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(Lufthansa.com Hour 4.5)"
+            },
+            {
+                "block_id": 13,
+                "type": "image",
+                "bbox": [
+                    1792,
+                    1029,
+                    3046,
+                    1778
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    179,
+                    118,
+                    777,
+                    189
+                ],
+                "angle": 0,
+                "content": "AIRBUS ACTIVITY"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    68,
+                    3123,
+                    117
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2710,
+                    131,
+                    2972,
+                    154
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    188,
+                    439,
+                    1200,
+                    520
+                ],
+                "angle": 0,
+                "content": "+ Within the first 4 hours:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    345,
+                    552,
+                    1478,
+                    669
+                ],
+                "angle": 0,
+                "content": "+ Airbus.com incorporates a pop-up notification acknowledging the incident."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    345,
+                    693,
+                    1731,
+                    808
+                ],
+                "angle": 0,
+                "content": "+ The pop-up is adapted through the course of the day and within 5 hours links to Airbus' statement on the incident."
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    345,
+                    552,
+                    1731,
+                    808
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1907,
+                    403,
+                    3081,
+                    977
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(Airbus.com Hour 5+)"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    748,
+                    1085,
+                    1875,
+                    1681
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(Airbus.com Hour 3)"
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    1907,
+                    1085,
+                    3081,
+                    1681
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    179,
+                    118,
+                    832,
+                    192
+                ],
+                "angle": 0,
+                "content": "AIRPORT ACTIVITY"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    68,
+                    3123,
+                    118
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2707,
+                    129,
+                    2976,
+                    156
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    179,
+                    432,
+                    1494,
+                    680
+                ],
+                "angle": 0,
+                "content": "+ It is unclear if Dusseldorf airport experienced a failure, was intentionally disabled or immediately moved to its dark site. However the site remains in a minimal state 24 hours later."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    179,
+                    700,
+                    1510,
+                    891
+                ],
+                "angle": 0,
+                "content": "+ Barcelona's El Prat airport made only minor modifications intended to point visitors to specific media and local authorities responsible for the crisis."
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    179,
+                    432,
+                    1510,
+                    891
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1622,
+                    430,
+                    2019,
+                    556
+                ],
+                "angle": 0,
+                "content": "seldorf DUS Airport"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1769,
+                    711,
+                    2185,
+                    763
+                ],
+                "angle": 0,
+                "content": "Aktuelle Informationen"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1766,
+                    795,
+                    3091,
+                    896
+                ],
+                "angle": 0,
+                "content": "Der Internetauftritt des Dusseldorfer Flughafens ist derzeit nicht verfügbar. Flugunfall: Betro Hotline 0800-7766350 wenden. Des Weiteren hat das Auswärte Amt eine Krisenhotline ein"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1769,
+                    901,
+                    2054,
+                    948
+                ],
+                "angle": 0,
+                "content": "Angehöige wende"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    780,
+                    950,
+                    2054,
+                    1760
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    2118,
+                    928,
+                    2384,
+                    984
+                ],
+                "angle": 0,
+                "content": "Dusseldorf DUS Airport"
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    2092,
+                    1049,
+                    2236,
+                    1173
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    2249,
+                    1051,
+                    2473,
+                    1078
+                ],
+                "angle": 0,
+                "content": "Aktuaria Informationen"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    2249,
+                    1090,
+                    2819,
+                    1116
+                ],
+                "angle": 0,
+                "content": "Der intermetagatttn den Dmndodtor Flugraes hnt derzrt nicht verfogost."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    2249,
+                    1123,
+                    2752,
+                    1148
+                ],
+                "angle": 0,
+                "content": "Fugurtb. Fursangelhige zunder folgeinde Hulines ergewertet"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    2249,
+                    1153,
+                    2508,
+                    1177
+                ],
+                "angle": 0,
+                "content": "Gemming:0600-135577"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    2249,
+                    1184,
+                    2508,
+                    1207
+                ],
+                "angle": 0,
+                "content": "Aunatagaa Aa 50002000"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    2249,
+                    1215,
+                    2528,
+                    1240
+                ],
+                "angle": 0,
+                "content": "Coedort Aipot 000-776330"
+            },
+            {
+                "block_id": 19,
+                "type": "title",
+                "bbox": [
+                    2249,
+                    1261,
+                    2460,
+                    1288
+                ],
+                "angle": 0,
+                "content": "Important Information"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    2249,
+                    1299,
+                    2697,
+                    1323
+                ],
+                "angle": 0,
+                "content": "The website of Donsdorf Airport is currently not available"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    2249,
+                    1332,
+                    2835,
+                    1355
+                ],
+                "angle": 0,
+                "content": "As a result, The following statements have been set up for concerned persons"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    2249,
+                    1362,
+                    2553,
+                    1386
+                ],
+                "angle": 0,
+                "content": "Gemnngs+900011308577"
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    2249,
+                    1395,
+                    2656,
+                    1416
+                ],
+                "angle": 0,
+                "content": "Department of Foreign Affairs -43 0100-2000 3000"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    2249,
+                    1425,
+                    2572,
+                    1447
+                ],
+                "angle": 0,
+                "content": "CunneHoffAigc+4910067832"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    179,
+                    117,
+                    1580,
+                    194
+                ],
+                "angle": 0,
+                "content": "CORPORATE ACTIVITY BY THE NUMBERS"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    66,
+                    3129,
+                    118
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2707,
+                    129,
+                    2976,
+                    156
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    185,
+                    435,
+                    1260,
+                    532
+                ],
+                "angle": 0,
+                "content": "+ During the first 24 hours:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    339,
+                    550,
+                    1619,
+                    738
+                ],
+                "angle": 0,
+                "content": "+ Germanwings focuses the majority of its digital activity on Twitter - posting in both English (10) and German (14)"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    339,
+                    754,
+                    1561,
+                    874
+                ],
+                "angle": 0,
+                "content": "+ Germanwings and Lufthansa both see significant spikes in followers on Twitter due to the crash."
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    339,
+                    550,
+                    1619,
+                    874
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "table",
+                "bbox": [
+                    1673,
+                    415,
+                    3062,
+                    802
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Company</td><td>Tweets</td></tr><tr><td>Germanwings</td><td>24</td></tr><tr><td>Lufthansa</td><td>12</td></tr><tr><td>Airbus</td><td>5</td></tr></table>"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1235,
+                    919,
+                    1772,
+                    1758
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    1855,
+                    923,
+                    2425,
+                    1758
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    2524,
+                    921,
+                    3049,
+                    1760
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    179,
+                    117,
+                    1580,
+                    194
+                ],
+                "angle": 0,
+                "content": "CORPORATE ACTIVITY BY THE NUMBERS"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    68,
+                    3129,
+                    117
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2707,
+                    129,
+                    2976,
+                    154
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    188,
+                    439,
+                    1001,
+                    532
+                ],
+                "angle": 0,
+                "content": "+ Financial impacts:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    339,
+                    550,
+                    1776,
+                    797
+                ],
+                "angle": 0,
+                "content": "+ Almost immediately following the first reports of the incident, the share prices of both Lufthansa and Airbus fell significantly - however, trading stabilised within \\(\\sim 2\\) hours after the crash."
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1926,
+                    401,
+                    3113,
+                    1054
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1926,
+                    1094,
+                    3113,
+                    1746
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    179,
+                    117,
+                    1715,
+                    198
+                ],
+                "angle": 0,
+                "content": "MEDIA/SOCIALACTIVITYBYTHENUMBERS"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    66,
+                    3129,
+                    118
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2707,
+                    129,
+                    2976,
+                    154
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    185,
+                    439,
+                    672,
+                    520
+                ],
+                "angle": 0,
+                "content": "+ TWITTER:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    345,
+                    547,
+                    1836,
+                    720
+                ],
+                "angle": 0,
+                "content": "+ One of the first tweets to be posted around the incident came from Flightradar, a widely trusted and used website for tracking flights globally."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    345,
+                    736,
+                    1753,
+                    842
+                ],
+                "angle": 0,
+                "content": "+ Within the first 90 minutes the tweet was retweeted more than 2,000 times."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    345,
+                    864,
+                    1776,
+                    975
+                ],
+                "angle": 0,
+                "content": "+ Within the first 60 minutes, #Germanwings had become the top trending topic on Twitter"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    345,
+                    995,
+                    1721,
+                    1108
+                ],
+                "angle": 0,
+                "content": "+ Within the first 60 minutes, according to Sysomos, more than 60,000 Tweets were posted referencing #Germanwings"
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    345,
+                    547,
+                    1836,
+                    1108
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    1318,
+                    1238,
+                    2118,
+                    1764
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    2188,
+                    334,
+                    3046,
+                    995
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    2198,
+                    1040,
+                    3030,
+                    1762
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    179,
+                    117,
+                    1721,
+                    203
+                ],
+                "angle": 0,
+                "content": "MEDIA/SOCIALACTIVITYBYTHENUMBERS"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    66,
+                    3129,
+                    118
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2707,
+                    129,
+                    2976,
+                    154
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    179,
+                    432,
+                    1388,
+                    622
+                ],
+                "angle": 0,
+                "content": "+ Within six hours of the incident, the number of tweets referencing #Germanwings had reached nearly 500,000 globally."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    179,
+                    712,
+                    1388,
+                    909
+                ],
+                "angle": 0,
+                "content": "+ Amid the many expressions of condolences and sharing of news, tweets soon moved toward capturing images of the region of the crash."
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    179,
+                    432,
+                    1388,
+                    909
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    441,
+                    1004,
+                    1430,
+                    1762
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1478,
+                    401,
+                    3200,
+                    1396
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 19,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    66,
+                    3123,
+                    118
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2707,
+                    129,
+                    2976,
+                    154
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    179,
+                    118,
+                    1116,
+                    192
+                ],
+                "angle": 0,
+                "content": "TRENDS AND BEHAVIOURS"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    185,
+                    313,
+                    1110,
+                    622
+                ],
+                "angle": 0,
+                "content": "+ Due to the initial remoteness of the incident and lack of immediate visuals, fake images and videos began to appear online in increasing numbers."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    185,
+                    707,
+                    1113,
+                    955
+                ],
+                "angle": 0,
+                "content": "+ Questions had also arisen due to various early Twitter reports around whether a distress call had actually been made by the pilots."
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    185,
+                    313,
+                    1113,
+                    955
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1177,
+                    307,
+                    1270,
+                    387
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1276,
+                    320,
+                    1408,
+                    352
+                ],
+                "angle": 0,
+                "content": "Storyful"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1292,
+                    358,
+                    1372,
+                    381
+                ],
+                "angle": 0,
+                "content": "(1)"
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    1811,
+                    316,
+                    1849,
+                    356
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1878,
+                    327,
+                    1977,
+                    356
+                ],
+                "angle": 0,
+                "content": "Following"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1187,
+                    405,
+                    1993,
+                    552
+                ],
+                "angle": 0,
+                "content": "This photo being shared as A320 crash site actually shows an incident in Turkey in 2007 #dailydebunk"
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    1190,
+                    604,
+                    1996,
+                    1141
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    2182,
+                    295,
+                    2905,
+                    338
+                ],
+                "angle": 0,
+                "content": "Fake Germanwings pictures circulate online"
+            },
+            {
+                "block_id": 14,
+                "type": "image",
+                "bbox": [
+                    2227,
+                    358,
+                    2316,
+                    448
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    2361,
+                    358,
+                    2492,
+                    383
+                ],
+                "angle": 0,
+                "content": "BBC Trading"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    2358,
+                    385,
+                    2582,
+                    408
+                ],
+                "angle": 0,
+                "content": "What's popular and why"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    2185,
+                    469,
+                    2345,
+                    498
+                ],
+                "angle": 0,
+                "content": "4 minutes ago"
+            },
+            {
+                "block_id": 18,
+                "type": "image",
+                "bbox": [
+                    3001,
+                    462,
+                    3104,
+                    500
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 19,
+                "type": "image",
+                "bbox": [
+                    2182,
+                    567,
+                    3107,
+                    1116
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    2195,
+                    1135,
+                    2780,
+                    1173
+                ],
+                "angle": 0,
+                "content": "Airbus plane crashes in Southern France: Reuters"
+            },
+            {
+                "block_id": 21,
+                "type": "title",
+                "bbox": [
+                    1756,
+                    1256,
+                    2425,
+                    1314
+                ],
+                "angle": 0,
+                "content": "Uncertainty over distress call"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    1753,
+                    1350,
+                    3001,
+                    1522
+                ],
+                "angle": 0,
+                "content": "On the question of whether a distress call was made from the aircraft, the spokesman says the airline has received contradictory reports."
+            },
+            {
+                "block_id": 23,
+                "type": "image",
+                "bbox": [
+                    1756,
+                    1562,
+                    1833,
+                    1614
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    1839,
+                    1569,
+                    3043,
+                    1738
+                ],
+                "angle": 0,
+                "content": "We have contradictory information about that ourselves, from the air traffic controllers, and we are uncertain as to whether a distress call was issued at all."
+            }
+        ]
+    },
+    {
+        "page_id": 20,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    179,
+                    118,
+                    1120,
+                    192
+                ],
+                "angle": 0,
+                "content": "TRENDS AND BEHAVIOURS"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2560,
+                    66,
+                    3129,
+                    118
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2707,
+                    129,
+                    2976,
+                    154
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    179,
+                    349,
+                    1696,
+                    727
+                ],
+                "angle": 0,
+                "content": "+ As with other recent crises or major news events, the evolution of the live news feed (using tools such as Storify) by media has seen an increased reliance and use of \\(3^{\\text{rd}}\\) party and eye-witness tweets to supplement reporting - allowing them to provide a variety of comments and reactions by decision-makers, executives, witnesses, experts etc."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    179,
+                    820,
+                    1696,
+                    1076
+                ],
+                "angle": 0,
+                "content": "+ The implications which have emerged over time - but which must be carefully balanced and applied - are the importance of social channels to drive media coverage and presence within breaking news stories."
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    179,
+                    349,
+                    1696,
+                    1076
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    1875,
+                    333,
+                    2435,
+                    455
+                ],
+                "angle": 0,
+                "content": "theguardian"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1875,
+                    505,
+                    3020,
+                    590
+                ],
+                "angle": 0,
+                "content": "1d ago Aviation Journalist John Walton reports that the the last words from 11-39 the cockpit were: \"Emergency, emergency.\""
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    2041,
+                    649,
+                    2150,
+                    752
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    2160,
+                    662,
+                    2352,
+                    694
+                ],
+                "angle": 0,
+                "content": "John Walton"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    2160,
+                    702,
+                    2294,
+                    738
+                ],
+                "angle": 0,
+                "content": "@thatjohn"
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    2844,
+                    655,
+                    2963,
+                    689
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    2044,
+                    766,
+                    2886,
+                    903
+                ],
+                "angle": 0,
+                "content": "1047 call: DGAC source says pilots called «urgence, urgency» (\"emergency, emergency\"), as opposed to a mayday call or 7700 squawk. #4U9525"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    2048,
+                    910,
+                    2304,
+                    943
+                ],
+                "angle": 0,
+                "content": "12:33 PM - 24 Mar 2015"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    2048,
+                    977,
+                    2336,
+                    1008
+                ],
+                "angle": 0,
+                "content": "112 RETWEETS 14 FAVOURS"
+            },
+            {
+                "block_id": 15,
+                "type": "image",
+                "bbox": [
+                    2816,
+                    973,
+                    2972,
+                    1009
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "image",
+                "bbox": [
+                    2028,
+                    1058,
+                    2172,
+                    1094
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "image",
+                "bbox": [
+                    2172,
+                    1060,
+                    2176,
+                    1089
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 18,
+                "type": "image",
+                "bbox": [
+                    1855,
+                    1249,
+                    2118,
+                    1332
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 19,
+                "type": "image",
+                "bbox": [
+                    1897,
+                    1377,
+                    1980,
+                    1452
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    1894,
+                    1465,
+                    2988,
+                    1578
+                ],
+                "angle": 0,
+                "content": "Germanwings tweeted. \"We have recently become aware of media reports speculating on an incident though we still do not have any own confirmed information. As soon as definite information is available, we shall inform the media immediately.\""
+            }
+        ]
+    },
+    {
+        "page_id": 21,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    179,
+                    118,
+                    1120,
+                    192
+                ],
+                "angle": 0,
+                "content": "TRENDS AND BEHAVIOURS"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    68,
+                    3123,
+                    118
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2707,
+                    129,
+                    2976,
+                    154
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    182,
+                    432,
+                    1472,
+                    613
+                ],
+                "angle": 0,
+                "content": "+ Within 90 minutes - and despite lack of immediate information - political leaders were quick to react and provide comment on the incident."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    182,
+                    700,
+                    1331,
+                    820
+                ],
+                "angle": 0,
+                "content": "+ Francois Hollande was the first of the world's political leaders to comment on the incident."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    182,
+                    916,
+                    1491,
+                    1234
+                ],
+                "angle": 0,
+                "content": "+ While the French Civil Aviation Authorities have been active through non-digital channels from the outset (e.g. statement to the media), their social media presence was limited in the first hours. A first tweet came almost \\(\\sim 6\\) hours after the crash. (17:31 CET)"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    182,
+                    432,
+                    1491,
+                    1234
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1686,
+                    403,
+                    3200,
+                    1040
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1686,
+                    1099,
+                    3200,
+                    1746
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 22,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    179,
+                    118,
+                    1120,
+                    192
+                ],
+                "angle": 0,
+                "content": "TRENDS AND BEHAVIOURS"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2556,
+                    68,
+                    3123,
+                    117
+                ],
+                "angle": 0,
+                "content": "HILL+KNOWLTON"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2710,
+                    131,
+                    2972,
+                    154
+                ],
+                "angle": 0,
+                "content": "STRATEGIES"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    188,
+                    432,
+                    1670,
+                    619
+                ],
+                "angle": 0,
+                "content": "Not until the first helicopters had identified and reached the crash site did the story become significantly more visual - providing new momentum for social amplification."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    188,
+                    712,
+                    1641,
+                    835
+                ],
+                "angle": 0,
+                "content": "+ Equally powerful, however, have been the emerging images related to the loss of the German exchange students."
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    188,
+                    432,
+                    1670,
+                    835
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    268,
+                    914,
+                    1043,
+                    1353
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    828,
+                    1195,
+                    1606,
+                    1641
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1843,
+                    401,
+                    3180,
+                    1175
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    1833,
+                    1249,
+                    2214,
+                    1800
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    2256,
+                    1251,
+                    2956,
+                    1798
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    }
+]

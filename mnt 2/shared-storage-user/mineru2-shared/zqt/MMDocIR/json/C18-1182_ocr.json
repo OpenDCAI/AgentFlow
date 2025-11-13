@@ -1,0 +1,2730 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    334,
+                    284,
+                    2153,
+                    424
+                ],
+                "angle": 0,
+                "content": "A Survey on Recent Advances in Named Entity Recognition from Deep Learning models"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    687,
+                    512,
+                    967,
+                    564
+                ],
+                "angle": 0,
+                "content": "Vikas Yadav"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    605,
+                    575,
+                    1051,
+                    627
+                ],
+                "angle": 0,
+                "content": "University of Arizona"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    463,
+                    634,
+                    1190,
+                    684
+                ],
+                "angle": 0,
+                "content": "vikasy@email.arizona.edu"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1486,
+                    512,
+                    1826,
+                    564
+                ],
+                "angle": 0,
+                "content": "Steven Bethard"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1436,
+                    575,
+                    1880,
+                    627
+                ],
+                "angle": 0,
+                "content": "University of Arizona"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1277,
+                    634,
+                    2036,
+                    684
+                ],
+                "angle": 0,
+                "content": "bethard@email.arizona.edu"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1141,
+                    862,
+                    1344,
+                    915
+                ],
+                "angle": 0,
+                "content": "Abstract"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    354,
+                    954,
+                    2128,
+                    1403
+                ],
+                "angle": 0,
+                "content": "Named Entity Recognition (NER) is a key component in NLP systems for question answering, information retrieval, relation extraction, etc. NER systems have been studied and developed widely for decades, but accurate systems using deep neural networks (NN) have only been introduced in the last few years. We present a comprehensive survey of deep neural network architectures for NER, and contrast them with previous approaches to NER based on feature engineering and other supervised or semi-supervised learning algorithms. Our results highlight the improvements achieved by neural networks, and show how incorporating some of the lessons learned from past work on feature-based NER systems can yield further improvements."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    290,
+                    1452,
+                    650,
+                    1504
+                ],
+                "angle": 0,
+                "content": "1 Introduction"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1543,
+                    2193,
+                    1824
+                ],
+                "angle": 0,
+                "content": "Named entity recognition is the task of identifying named entities like person, location, organization, drug, time, clinical procedure, biological protein, etc. in text. NER systems are often used as the first step in question answering, information retrieval, co-reference resolution, topic modeling, etc. Thus it is important to highlight recent advances in named entity recognition, especially recent neural NER architectures which have achieved state of the art performance with minimal feature engineering."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1827,
+                    2193,
+                    2392
+                ],
+                "angle": 0,
+                "content": "The first NER task was organized by Grishman and Sundheim (1996) in the Sixth Message Understanding Conference. Since then, there have been numerous NER tasks (Tjong Kim Sang and De Meulder, 2003; Tjong Kim Sang, 2002; Piskorski et al., 2017; Segura Bedmar et al., 2013; Bossy et al., 2013; Uzuner et al., 2011). Early NER systems were based on handcrafted rules, lexicons, orthographic features and ontologies. These systems were followed by NER systems based on feature-engineering and machine learning (Nadeau and Sekine, 2007). Starting with Collobert et al. (2011), neural network NER systems with minimal feature engineering have become popular. Such models are appealing because they typically do not require domain specific resources like lexicons or ontologies, and are thus poised to be more domain independent. Various neural architectures have been proposed, mostly based on some form of recurrent neural networks (RNN) over characters, sub-words and/or word embeddings."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2395,
+                    2195,
+                    3076
+                ],
+                "angle": 0,
+                "content": "We present a comprehensive survey of recent advances in named entity recognition. We describe knowledge-based and feature-engineered NER systems that combine in-domain knowledge, gazetteers, orthographic and other features with supervised or semi-supervised learning. We contrast these systems with neural network architectures for NER based on minimal feature engineering, and compare amongst the neural models with different representations of words and sub-word units. We show in Table 1 and Table 2 and discuss in Section 7 how neural NER systems have improved performance over past works including supervised, semi-supervised, and knowledge based NER systems. For example, NN models on news corpora improved the previous state-of-the-art by \\(1.59\\%\\) in Spanish, \\(2.34\\%\\) in German, \\(0.36\\%\\) in English, and \\(0.14\\%\\), in Dutch, without any external resources or feature engineering. We provide resources, including links to shared tasks on NER, and links to the code for each category of NER system. To the best of our knowledge, this is the first survey focusing on neural architectures for NER, and comparing to previous feature-based systems."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    287,
+                    3101,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "This work is licenced under a Creative Commons Attribution 4.0 International License. License details: http://creativecommons.org/licenses/by/4.0/"
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    1190,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2145"
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    491,
+                    3301,
+                    1982,
+                    3395
+                ],
+                "angle": 0,
+                "content": "Proceedings of the 27th International Conference on Computational Linguistics, pages 2145-2158 Santa Fe, New Mexico, USA, August 20-26, 2018."
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    266,
+                    2190,
+                    550
+                ],
+                "angle": 0,
+                "content": "We first discuss previous summary research on NER in section 2. Then we explain our selection criterion and methodology for selecting which systems to review in section 3. We highlight standard, past and recent NER datasets (from shared tasks and other research) in section 4 and evaluation metrics in section 5. We then describe NER systems in section 6 categorized into knowledge-based (section 6.1), bootstrapped (section 6.2), feature-engineered (section 6.3) and neural networks (section 6.4)."
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    287,
+                    596,
+                    734,
+                    655
+                ],
+                "angle": 0,
+                "content": "2 Previous surveys"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    282,
+                    694,
+                    2195,
+                    1143
+                ],
+                "angle": 0,
+                "content": "The first comprehensive NER survey was Nadeau and Sekine (2007), which covered a variety of supervised, semi-supervised and unsupervised NER systems, highlighted common features used by NER systems during that time, and explained NER evaluation metrics that are still in use today. Sharnagat (2014) presented a more recent NER survey that also included supervised, semi-supervised, and unsupervised NER systems, and included a few introductory neural network NER systems. There have also been surveys focused on NER systems for specific domains and languages, including biomedical NER, (Leaman and Gonzalez, 2008), Chinese clinical NER (Lei et al., 2013), Arabic NER (Shaalan, 2014; Etaiwi et al., 2017), and NER for Indian languages (Patil et al., 2016)."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1147,
+                    2193,
+                    1434
+                ],
+                "angle": 0,
+                "content": "The existing surveys primarily cover feature-engineered machine learning models (including supervised, semi-supervised, and unsupervised systems), and mostly focus on a single language or a single domain. There is not yet, to our knowledge, a comprehensive survey of modern neural network NER systems, nor is there a survey that compares feature engineered and neural network systems in both multi-lingual (CoNLL 2002 and CoNLL 2003) and multi-domain (e.g., news and medical) settings."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1480,
+                    659,
+                    1536
+                ],
+                "angle": 0,
+                "content": "3 Methodology"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    282,
+                    1578,
+                    2193,
+                    2139
+                ],
+                "angle": 0,
+                "content": "To identify articles for this survey, we searched Google, Google Scholar, and Semantic Scholar. Our query terms included named entity recognition, neural architectures for named entity recognition, neural network based named entity recognition models, deep learning models for named entity recognition, etc. We sorted the papers returned from each query by citation count and read at least the top three, considering a paper for our survey if it either introduced a neural architecture for named entity recognition, or represented a top-performing model on an NER dataset. We included an article presenting a neural architecture only if it was the first article to introduce the architecture; otherwise, we traced citations back until we found the original source of the architecture. We followed the same approach for feature-engineering NER systems. We also included articles that implemented these systems for different languages or domain. In total, 154 articles were reviewed and 83 articles were selected for the survey."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2192,
+                    664,
+                    2245
+                ],
+                "angle": 0,
+                "content": "4 NER datasets"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2287,
+                    2190,
+                    2567
+                ],
+                "angle": 0,
+                "content": "Since the first shared task on NER (Grishman and Sundheim, 1996)<sup>1</sup>, many shared tasks and datasets for NER have been created. CoNLL 2002 (Tjong Kim Sang, 2002)<sup>2</sup> and CoNLL 2003 (Tjong Kim Sang and De Meulder, 2003)<sup>3</sup> were created from newswire articles in four different languages (Spanish, Dutch, English, and German) and focused on 4 entities - PER (person), LOC (location), ORG (organization) and MISC (miscellaneous including all other types of entities)."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2574,
+                    2193,
+                    2967
+                ],
+                "angle": 0,
+                "content": "NER shared tasks have also been organized for a variety of other languages, including Indian languages (Rajeev Sangal and Singh, 2008), Arabic (Shaalan, 2014), German (Benikova et al., 2014), and slavic languages (Piskorski et al., 2017). The named entity types vary widely by source of dataset and language. For example, Rajeev Sangal and Singh (2008)'s southeast Asian language data has named entity types person, designation, temporal expressions, abbreviations, object number, brand, etc. Benikova et al. (2014)'s data, which is based on German wikipedia and online news, has named entity types similar to that of CoNLL 2002 and 2003: PERson, ORGanization, LOCation and OTHER. The shared task \\( {}^{4} \\) or-"
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    342,
+                    3006,
+                    1644,
+                    3051
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup>Shared task: https://www-nlpir.nist.gov/related_projects/muc/"
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    344,
+                    3055,
+                    1592,
+                    3094
+                ],
+                "angle": 0,
+                "content": "\\( {}^{2} \\) Shared task: https://www/clips.uantwerpen.be/conll2002/ner/"
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    347,
+                    3097,
+                    1592,
+                    3143
+                ],
+                "angle": 0,
+                "content": "<sup>3</sup>Shared task: https://www/clips.uantwerpen.be/conll2003/ner/"
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    347,
+                    3146,
+                    1550,
+                    3185
+                ],
+                "angle": 0,
+                "content": "<sup>4</sup>Shared task: http://bsnlp.cs.helsinki.fi/shared_task.html"
+            },
+            {
+                "block_id": 13,
+                "type": "list",
+                "bbox": [
+                    342,
+                    3006,
+                    1644,
+                    3185
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3234,
+                    1292,
+                    3276
+                ],
+                "angle": 0,
+                "content": "2146"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    282,
+                    263,
+                    2188,
+                    375
+                ],
+                "angle": 0,
+                "content": "ganized by Piskorski et al. (2017) covering 7 slavic languages (Croatian, Czech, Polish, Russian, Slovak, Slovene, Ukrainian) also has person, location, organization and miscellaneous as named entity types."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    282,
+                    378,
+                    2193,
+                    1048
+                ],
+                "angle": 0,
+                "content": "In the biomedical domain, Kim et al. (2004) organized a BioNER task on MedLine abstracts, focusing on protien, DNA, RNA and cell attribute entity types. Uzuner et al. (2007) presented a clinical note de-identification task that required NER to locate personal patient data phrases to be anonymized. The 2010 I2B2 NER task\\(^{5}\\) (Uzuner et al., 2011), which considered clinical data, focused on clinical problem, test and treatment entity types. Segura Bedmar et al. (2013) organized a Drug NER shared task\\(^{6}\\) as part of SemEval 2013 Task 9, which focused on drug, brand, group and drug_n (unapproved or new drugs) entity types. (Krallinger et al., 2015) introduced the similar CHEMDNER task\\(^{7}\\) focusing more on chemical and drug entities like trivial, systematic, abbreviation, formula, family, identifier, etc. Biology and microbiology NER datasets\\(^{8}\\) (Hirschman et al., 2005; Bossy et al., 2013; Delèger et al., 2016) have been collected from PubMed and biology websites, and focus mostly on bacteria, habitat and geolocation entities. In biomedical NER systems, segmentation of clinical and drug entities is considered to be a difficult task because of complex orthographic structures of named entities (Liu et al., 2015)."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    282,
+                    1055,
+                    2193,
+                    1280
+                ],
+                "angle": 0,
+                "content": "NER tasks have also been organized on social media data, e.g., Twitter, where the performance of classic NER systems degrades due to issues like variability in orthography and presence of grammatically incomplete sentences (Baldwin et al., 2015). Entity types on Twitter are also more variable (person, company, facility, band, sportsteam, movie, TV show, etc.) as they are based on user behavior on Twitter."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    282,
+                    1283,
+                    2188,
+                    1561
+                ],
+                "angle": 0,
+                "content": "Though most named entity annotations are flat, some datasets include more complex structures. Ohta et al. (2002) constructed a dataset of nested named entities, where one named entity can contain another. Strassel et al. (2003) highlighted both entity and entity head phrases. And discontinuous entities are common in chemical and clinical NER datasets (Krallinger et al., 2015). Eltyeb and Salim (2014) presented an survey of various NER systems developed for such NER datasets with a focus on chemical NER."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1603,
+                    885,
+                    1655
+                ],
+                "angle": 0,
+                "content": "5 NER evaluation metrics"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    282,
+                    1694,
+                    2193,
+                    2031
+                ],
+                "angle": 0,
+                "content": "Grishman and Sundheim (1996) scored NER performance based on type, whether the predicted label was correct regardless of entity boundaries, and text, whether the predicted entity boundaries were correct regardless of the label. For each score category, precision was defined as the number of entities a system predicted correctly divided by the number that the system predicted, recall was defined as the number of entities a system predicted correctly divided by the number that were identified by the human annotators, and (micro) F-score was defined as the harmonic mean of precision and recall from both type and text."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2038,
+                    2188,
+                    2259
+                ],
+                "angle": 0,
+                "content": "The exact match metrics introduced by CoNLL (Tjong Kim Sang and De Meulder, 2003; Tjong Kim Sang, 2002) considers a prediction to be correct only when the predicted label for the complete entity is matched to exactly the same words as the gold label of that entity. CoNLL also used (micro) F-score, taking the harmonic mean of the exact match precision and recall."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2262,
+                    2188,
+                    2595
+                ],
+                "angle": 0,
+                "content": "The relaxed F1 and strict F1 metrics have been used in many NER shared tasks (Segura Bedmar et al., 2013; Krallinger et al., 2015; Bossy et al., 2013; Delèger et al., 2016). Relaxed F1 considers a prediction to be correct as long as part of the named entity is identified correctly. Strict F1 requires the character offsets of a prediction and the human annotation to match exactly. In these data, unlike CoNLL, word offsets are not given, so relaxed F1 is intended to allow comparison despite different systems having different word boundaries due to different segmentation techniques (Liu et al., 2015)."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    285,
+                    2641,
+                    657,
+                    2697
+                ],
+                "angle": 0,
+                "content": "6 NER systems"
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    285,
+                    2732,
+                    910,
+                    2785
+                ],
+                "angle": 0,
+                "content": "6.1 Knowledge-based systems"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2806,
+                    2193,
+                    2974
+                ],
+                "angle": 0,
+                "content": "Knowledge-based NER systems do not require annotated training data as they rely on lexicon resources and domain specific knowledge. These work well when the lexicon is exhaustive, but fail, for example, on every example of the drug_n class in the DrugNER dataset (Segura Bedmar et al., 2013), since drug_n"
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    342,
+                    3002,
+                    1354,
+                    3051
+                ],
+                "angle": 0,
+                "content": "\\(^{5}\\)Shared task: https://www.i2b2.org/NLP/Relations/"
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    339,
+                    3051,
+                    1798,
+                    3094
+                ],
+                "angle": 0,
+                "content": "\\(^{6}\\)Shared task: https://www.cs.york.ac.uk/semeval-2013/task9/index.html"
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    339,
+                    3094,
+                    1488,
+                    3143
+                ],
+                "angle": 0,
+                "content": "Similar datasets can be found here: http://www.biocreative.org"
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    339,
+                    3143,
+                    1352,
+                    3188
+                ],
+                "angle": 0,
+                "content": "<sup>8</sup>Shared task: http://2016.bionlp-st.org/tasks/bb2"
+            },
+            {
+                "block_id": 15,
+                "type": "list",
+                "bbox": [
+                    339,
+                    3002,
+                    1798,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    1190,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2147"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    282,
+                    266,
+                    2190,
+                    550
+                ],
+                "angle": 0,
+                "content": "is defined as unapproved or new drugs, which are by definition not in the DrugBank dictionaries (Knox et al., 2010). Precision is generally high for knowledge-based NER systems because of the lexicons, but recall is often low due to domain and language-specific rules and incomplete dictionaries. Another drawback of knowledge based NER systems is the need of domain experts for constructing and maintaining the knowledge resources."
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    287,
+                    596,
+                    1188,
+                    648
+                ],
+                "angle": 0,
+                "content": "6.2 Unsupervised and bootstrapped systems"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    282,
+                    673,
+                    2195,
+                    1178
+                ],
+                "angle": 0,
+                "content": "Some of the earliest systems required very minimal training data. Collins and Singer (1999) used only labeled seeds, and 7 features including orthography (e.g., capitalization), context of the entity, words contained within named entities, etc. for classifying and extracting named entities. Etzioni et al. (2005) proposed an unsupervised system to improve the recall of NER systems applying 8 generic pattern extractors to open web text, e.g., \\( NP \\) is a \\( <class1> \\), \\( NP1 \\) such as \\( NPList2 \\). Nadeau et al. (2006) presented an unsupervised system for gazetteer building and named entity ambiguity resolution based on Etzioni et al. (2005) and Collins and Singer (1999) that combined an extracted gazetteer with commonly available gazetteers to achieve F-scores of \\( 88\\% \\), \\( 61\\% \\), and \\( 59\\% \\) on MUC-7 (Chinchor and Robinson, 1997) location, person, and organization entities, respectively."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    282,
+                    1185,
+                    2195,
+                    1469
+                ],
+                "angle": 0,
+                "content": "Zhang and Elhadad (2013) used shallow syntactic knowledge and inverse document frequency (IDF) for an unsupervised NER system on biology (Kim et al., 2004) and medical (Uzuner et al., 2011) data, achieving \\(53.8\\%\\) and \\(69.5\\%\\) accuracy, respectively. Their model uses seeds to discover text having potential named entities, detects noun phrases and filters any with low IDF values, and feeds the filtered list to a classifier (Alfonseca and Manandhar, 2002) to predict named entity tags."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    285,
+                    1515,
+                    1163,
+                    1568
+                ],
+                "angle": 0,
+                "content": "6.3 Feature-engineered supervised systems"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    282,
+                    1596,
+                    2193,
+                    1813
+                ],
+                "angle": 0,
+                "content": "Supervised machine learning models learn to make predictions by training on example inputs and their expected outputs, and can be used to replace human curated rules. Hidden Markov Models (HMM), Support Vector Machines (SVM), Conditional Random Fields (CRF), and decision trees were common machine learning systems for NER."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    282,
+                    1824,
+                    2193,
+                    2101
+                ],
+                "angle": 0,
+                "content": "Zhou and Su (2002) used HMM (Rabiner and Juang, 1986; Bikel et al., 1997) an NER system on MUC-6 and MUC-7 data, achieving \\(96.6\\%\\) and \\(94.1\\%\\) F score, respectively. They included 11 orthographic features (1 numeral, 2 numeral, 4 numeral, all caps, numerals and alphabets, contains underscore or not, etc.) a list of trigger words for the named entities (e.g., 36 trigger words and affixes, like river, for the location entity class), and a list of words (10000 for the person entity class) from various gazetteers."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2108,
+                    2190,
+                    2329
+                ],
+                "angle": 0,
+                "content": "Malouf (2002) compared the HMM with Maximum Entropy (ME) by adding multiple features. Their best model included capitalization, whether a word was the first in a sentence, whether a word had appeared before with a known last name, and 13281 first names collected from various dictionaries. The model achieved \\(73.66\\%\\), \\(68.08\\%\\) Fscore on Spanish and Dutch CoNLL 2002 dataset respectively."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2336,
+                    2190,
+                    2616
+                ],
+                "angle": 0,
+                "content": "The winner of CoNLL 2002 (Carreras et al., 2002) used binary AdaBoost classifiers, a boosting algorithm that combines small fixed-depth decision trees (Schapire, 2013). They used features like capitalization, trigger words, previous tag prediction, bag of words, gazetteers, etc. to represent simple binary relations and these relations were used in conjunction with previously predicted labels. They achieved \\(81.39\\%\\) and \\(77.05\\%\\) F scores on the Spanish and Dutch CoNLL 2002 datasets, respectively."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2623,
+                    2190,
+                    2901
+                ],
+                "angle": 0,
+                "content": "Li et al. (2005) implemented a SVM model on the CoNLL 2003 dataset and CMU seminar documents. They experimented with multiple window sizes, features (orthographic, prefixes suffixes, labels, etc.) from neighboring words, weighting neighboring word features according to their position, and class weights to balance positive and negative class. They used two SVM classifiers, one for detecting named entity starts and one for detecting ends. They achieved \\(88.3\\%\\) F score on the English CoNLL 2003 data."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2908,
+                    2190,
+                    3073
+                ],
+                "angle": 0,
+                "content": "On the MUC6 data, Takeuchi and Collier (2002) used part-of-speech (POS) tags, orthographic features, a window of 3 words to the left and to the right of the central word, and tags of the last 3 words as features to the SVM. The final tag was decided by the voting of multiple one-vs-one SVM outputs."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    285,
+                    3080,
+                    2193,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Ando and Zhang (2005a) implemented structural learning (Ando and Zhang, 2005b) to divide the main task into many auxiliary tasks, for example, predicting labels by looking just at the context and masking"
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3234,
+                    1292,
+                    3276
+                ],
+                "angle": 0,
+                "content": "2148"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    305,
+                    263,
+                    625,
+                    645
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    637,
+                    263,
+                    2044,
+                    652
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 1: Word level NN architecture for NER"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    820,
+                    2193,
+                    933
+                ],
+                "angle": 0,
+                "content": "the current word. The best classifier for each auxiliary task was selected based on its confidence. This model had achieved \\(89.31\\%\\) and \\(75.27\\%\\) F score on English and German, respectively."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    936,
+                    2195,
+                    1220
+                ],
+                "angle": 0,
+                "content": "Agerri and Rigau (2016) developed a semi-supervised system by presenting NER classifiers with features including orthography, character n-grams, lexicons, prefixes, suffixes, bigrams, trigrams, and unsupervised cluster features from the Brown corpus, Clark corpus and k-means clustering of open text using word embeddings (Mikolov et al., 2013). They achieved near state of the art performance on CoNLL datasets: \\(84.16\\%\\), \\(85.04\\%\\), \\(91.36\\%\\), \\(76.42\\%\\) on Spanish, Dutch, English, and German, respectively."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1220,
+                    2193,
+                    1504
+                ],
+                "angle": 0,
+                "content": "In DrugNER (Segura Bedmar et al., 2013), Liu et al. (2015) achieved state-of-the-art results by using a CRF with features like lexicon resources from Food and Drug Administration (FDA), DrugBank, Jochem (Hettne et al., 2009) and word embeddings (trained on a MedLine corpus). For the same task, Rocktäschel et al. (2013) used a CRF with features constructed from dictionaries (e.g., Jochem (Hettne et al., 2009)), ontologies (ChEBI ontologies), prefixes-suffixes from chemical entities, etc."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1554,
+                    1218,
+                    1610
+                ],
+                "angle": 0,
+                "content": "6.4 Feature-inferring neural network systems"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1631,
+                    2193,
+                    2080
+                ],
+                "angle": 0,
+                "content": "Collobert and Weston (2008) proposed one of the first neural network architectures for NER, with feature vectors constructed from orthographic features (e.g., capitalization of the first character), dictionaries and lexicons. Later work replaced these manually constructed feature vectors with word embeddings (Collobert et al., 2011), which are representations of words in \\( n \\)-dimensional space, typically learned over large collections of unlabeled data through an unsupervised process such as the skip-gram model (Mikolov et al., 2013). Studies have shown the importance of such pre-trained word embeddings for neural network based NER systems (Habibi et al., 2017), and similarly for pre-trained character embeddings in character-based languages like Chinese (Li et al., 2015; Yin et al., 2016)."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2087,
+                    2193,
+                    2255
+                ],
+                "angle": 0,
+                "content": "Modern neural architectures for NER can be broadly classified into categories depending upon their representation of the words in a sentence. For example, representations may be based on words, characters, other sub-word units or any combination of these."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2297,
+                    917,
+                    2350
+                ],
+                "angle": 0,
+                "content": "6.4.1 Word level architectures"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2371,
+                    2193,
+                    2483
+                ],
+                "angle": 0,
+                "content": "In this architecture, the words of a sentence are given as input to Recurrent Neural Networks (RNN) and each word is represented by its word embedding, as shown in Figure 1."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2487,
+                    2193,
+                    2711
+                ],
+                "angle": 0,
+                "content": "The first word-level NN model was proposed by Collobert et al. (2011)<sup>10</sup>. The architecture was similar to the one shown in Figure 1, but a convolution layer was used instead of the Bi-LSTM layer and the output of the convolution layer was given to a CRF layer for the final prediction. The authors achieved \\(89.59\\%\\) F1 score on English CoNLL 2003 dataset by including gazetteers and SENNA embeddings."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2715,
+                    2195,
+                    3055
+                ],
+                "angle": 0,
+                "content": "Huang et al. (2015) presented a word LSTM model (Figure 1) and showed that adding a CRF layer to the top of the word LSTM improved performance, achieving \\(84.26\\%\\) F1 score on English CoNLL 2003 dataset. Similar systems were applied to other domains: DrugNER by Chalapathy et al. (2016) achieving \\(85.19\\%\\) F1 score (under an unofficial evaluation) on MedLine test data (Segura Bedmar et al., 2013), and medical NER by Xu et al. (2017) achieving \\(80.22\\%\\) F1 on disease NER corpus using this architecture. In similar tasks, Plank et al. (2016) implemented the same model for multilingual POS tagging."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    337,
+                    3094,
+                    1374,
+                    3143
+                ],
+                "angle": 0,
+                "content": "\\(^{9}\\)Code: https://github.com/ixa-ehu/ixa-pipe-nerc"
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    337,
+                    3143,
+                    1230,
+                    3188
+                ],
+                "angle": 0,
+                "content": "\\(^{10}\\)Code: https://ronan.collobert.com/senna/"
+            },
+            {
+                "block_id": 15,
+                "type": "list",
+                "bbox": [
+                    337,
+                    3094,
+                    1374,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1295,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2149"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    305,
+                    263,
+                    2158,
+                    648
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 2: Character level NN architecture for NER"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    820,
+                    2198,
+                    1045
+                ],
+                "angle": 0,
+                "content": "With slight variations, Yan et al. (2016) implemented word level feed forward NN, bi-directional LSTM (bi-LSTM) and window bi-LSTM for NER of English, German and Arabic. They also highlighted the performance improvement after adding various features like CRF, case, POS, word embeddings and achieved \\(88.91\\%\\) F1 score on English and \\(76.12\\%\\) on German."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1090,
+                    1007,
+                    1140
+                ],
+                "angle": 0,
+                "content": "6.4.2 Character level architectures"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    282,
+                    1164,
+                    2193,
+                    1445
+                ],
+                "angle": 0,
+                "content": "In this model, a sentence is taken to be a sequence of characters. This sequence is passed through an RNN, predicting labels for each character (Figure 2). Character labels transformed into word labels via post processing. The potential of character NER neural models was first highlighted by Kim et al. (2016) using highway networks over convolution neural networks (CNN) on character sequences of words and then using another layer of LSTM + softmax for the final predictions."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    282,
+                    1448,
+                    2193,
+                    1620
+                ],
+                "angle": 0,
+                "content": "This model was implemented by Pham and Le-Hong (2017) for Vietnamese NER and achieved \\(80.23\\%\\) F-score on Nguyen et al. (2016)'s Vietnamese test data. Character models were also used in various other languages like Chinese (Dong et al., 2016) where it has achieved near state of the art performance."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1624,
+                    2193,
+                    2017
+                ],
+                "angle": 0,
+                "content": "Kuru et al. (2016) proposed CharNER \\(^{11}\\) which implemented the character RNN model for NER on 7 different languages. In this character model, tag prediction over characters were converted to word tags using Viterbi decoder(Forney, 1973) achieving \\(82.18\\%\\) on Spanish, \\(79.36\\%\\) on Dutch, \\(84.52\\%\\) on English and \\(70.12\\%\\) on German CoNLL datasets. They also achieved 78.72 on Arabic, 72.19 on Czech and 91.30 on Turkish. Ling et al. (2015) proposed word representation using RNN (Bi-LSTM) over characters of the word and achieved state of the art results on POS task using this representation in multiple languages including \\(97.78\\%\\) accuracy on English PTB(Marcus et al., 1993)."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2024,
+                    2193,
+                    2308
+                ],
+                "angle": 0,
+                "content": "Gillick et al. (2015) implemented sequence to sequence model (Byte to Span- BTS) using encoder decoder architecture over sequence of characters of words in a window of 60 characters. Each character was encoded in bytes and BTS achieved high performance on CoNLL 2002 and 2003 dataset without any feature engineering. BTS achieved \\(82.95\\%\\), \\(82.84\\%\\), \\(86.50\\%\\), \\(76.22\\%\\) Fscore on Spanish, Dutch, English and German CoNLL datasets respectively."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2350,
+                    1141,
+                    2402
+                ],
+                "angle": 0,
+                "content": "6.4.3 Character+Word level architectures"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2424,
+                    2193,
+                    2760
+                ],
+                "angle": 0,
+                "content": "Systems combining word context and the characters of a word have proved to be strong NER systems that need little domain specific knowledge or resources. There are two base models in this category. The first type of model represents words as a combination of a word embedding and a convolution over the characters of the word, follows this with a Bi-LSTM layer over the word representations of a sentence, and finally uses a softmax or CRF layer over the Bi-LSTM to generate labels. The architecture diagram for this model is same as Figure 3 but with the character Bi-LSTM replaced with a \\(\\mathbf{CNN}^{12}\\)."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2767,
+                    2193,
+                    2936
+                ],
+                "angle": 0,
+                "content": "Ma and Hovy (2016) implemented this model to achieve \\(91.21\\%\\) F1 score on the CoNLL 2003 English dataset and \\(97.55\\%\\) POS-tagging accuracy on the WSJ portion of PTB (Marcus et al., 1993). They also showed lower performance by this model for out of vocabulary words."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2939,
+                    2193,
+                    3051
+                ],
+                "angle": 0,
+                "content": "Chiu and Nichols (2015) achieved \\(91.62\\%\\) F1 score on the CoNLL 2003 English dataset and \\(86.28\\%\\) F score on Onto notes 5.0 dataset (Pradhan et al., 2013) by adding lexicons and capitalization features to"
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    332,
+                    3094,
+                    1371,
+                    3143
+                ],
+                "angle": 0,
+                "content": "\\(^{11}\\)Code: https://github.com/ozanarkancan/char-ner"
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    334,
+                    3143,
+                    1456,
+                    3188
+                ],
+                "angle": 0,
+                "content": "\\(^{12}\\)Code: https://github.com/LopezGG/NN_NER_tensorFlow"
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    332,
+                    3094,
+                    1456,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1295,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2150"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    305,
+                    263,
+                    625,
+                    915
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    637,
+                    263,
+                    2158,
+                    919
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 3: Word+character level NN architecture for NER"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    282,
+                    1083,
+                    2193,
+                    1192
+                ],
+                "angle": 0,
+                "content": "this model. Lexicon feature were encoded in the form or B(init), I(inside) or E(end) PER, LOC, ORG and MISC depending upon the match from the dictionary."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1199,
+                    2193,
+                    1304
+                ],
+                "angle": 0,
+                "content": "This model has also been utilized for NER in languages like Japanese where Misawa et al. (2017) showed that this architecture outperformed other neural architectures on the organization entity class."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    282,
+                    1315,
+                    2195,
+                    1596
+                ],
+                "angle": 0,
+                "content": "Limsopatham and Collier (2016) implemented a character+word level NER model for Twitter NER (Baldwin et al., 2015) by concatenating a CNN over characters, a CNN over orthographic features of characters, a word embedding, and a word orthographic feature embedding. This concatenated representation is passed through another Bi-LSTM layer and the output is given to CRF for predicting. This model achieved \\(65.89\\%\\) F score on segmentation alone and \\(52.41\\%\\) F score on segmentation and categorization."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    282,
+                    1599,
+                    2193,
+                    1824
+                ],
+                "angle": 0,
+                "content": "Santos and Guimaraes (2015) implemented a model with a CNN over the characters of word, concatenated with word embeddings of the central word and its neighbors, fed to a feed forward network, and followed by the Viterbi algorithm to predict labels for each word. The model achieved \\(82.21\\%\\) F score on Spanish CoNLL 2002 data and \\(71.23\\%\\) F score on Portuguese NER data (Santos and Cardoso, 2007)."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    282,
+                    1827,
+                    2193,
+                    2104
+                ],
+                "angle": 0,
+                "content": "The second type of model concatenates word embeddings with LSTMs (sometimes bi-directional) over the characters of a word, passing this representation through another sentence-level Bi-LSTM, and predicting the final tags using a final softmax or CRF layer (Figure 3). Lample et al. (2016)<sup>13</sup> introduced this architecture and achieved \\(85.75\\%\\), \\(81.74\\%\\), \\(90.94\\%\\), \\(78.76\\%\\) Fscores on Spanish, Dutch, English and German NER dataset respectively from CoNLL 2002 and 2003."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2111,
+                    2195,
+                    2336
+                ],
+                "angle": 0,
+                "content": "Dernoncourt et al. (2017) implemented this model in the NeuroNER toolkit\\(^{14}\\) with the main goal of providing easy usability and allowing easy plotting of real time performance and learning statistics of the model. The BRAT annotation tool\\(^{15}\\) is also integrated with NeuroNER to ease the development of NN NER models in new domains. NeuroNER achieved \\(90.50\\%\\) F score on the English CoNLL 2003 data."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2339,
+                    2193,
+                    2508
+                ],
+                "angle": 0,
+                "content": "Habibi et al. (2017) implemented the model for various biomedical NER tasks and achieved higher performance than the majority of other participants. For example, they achieved 83.71 F-score on the CHEMDNER data (Krallinger et al., 2015)."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2511,
+                    2193,
+                    2736
+                ],
+                "angle": 0,
+                "content": "Bharadwaj et al. (2016)\\(^{16}\\) utilized phonemes (from Epitran) for NER in addition to characters and words. They also utilize attention knowledge over sequence of characters in word which is concatenated with the word embedding and character representation of word. This model achieved state of the art performance (85.81% F score) on Spanish CoNLL 2002 dataset."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2743,
+                    2193,
+                    2964
+                ],
+                "angle": 0,
+                "content": "A slightly improved system focusing on multi-task and multi-lingual joint learning was proposed by Yang et al. (2016) where word representation given by GRU (Gated Recurrent Unit) cell over characters plus word embedding was passed through another RNN layer and the output was given to CRF models trained for different tasks like POS, chunking and NER. Yang et al. (2017) further proposed transfer"
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    332,
+                    3002,
+                    1210,
+                    3051
+                ],
+                "angle": 0,
+                "content": "\\(^{13}\\)Code: https://github.com/glample/tagger"
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    334,
+                    3051,
+                    900,
+                    3094
+                ],
+                "angle": 0,
+                "content": "\\(^{14}\\)Code: http://neuroner.com"
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    334,
+                    3097,
+                    984,
+                    3143
+                ],
+                "angle": 0,
+                "content": "\\(^{15}\\)Code: http://brat.nlplab.org/"
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    334,
+                    3143,
+                    1230,
+                    3188
+                ],
+                "angle": 0,
+                "content": "\\(^{16}\\)Code: https://github.com/dmort27/epitran"
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    332,
+                    3002,
+                    1230,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1287,
+                    3276
+                ],
+                "angle": 0,
+                "content": "2151"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    300,
+                    263,
+                    2168,
+                    922
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 4: Word+character+affix level NN architecture for NER"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1076,
+                    2193,
+                    1192
+                ],
+                "angle": 0,
+                "content": "learning for multi-task and multi-learning, and showed small improvements on CoNLL 2002 and 2003 NER data, achieving \\(85.77\\%\\), \\(85.19\\%\\), \\(91.26\\%\\) F scores on Spanish, Dutch and English, respectively."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1224,
+                    1066,
+                    1273
+                ],
+                "angle": 0,
+                "content": "6.4.4 Character + Word + affix model"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1287,
+                    2195,
+                    1964
+                ],
+                "angle": 0,
+                "content": "Yadav et al. (2018) implemented a model that augments the character+word NN architecture with one of the most successful features from feature-engineing approaches: affixes. Affix features were used in early NER systems for CoNLL 2002 (Tjong Kim Sang, 2002; Cucerzan and Yarowsky, 2002) and 2003 (Tjong Kim Sang and De Meulder, 2003) and for biomedical NER (Saha et al., 2009), but had not been used in neural NER systems. They extended the Lample et al. (2016) character+word model to learn affix embeddings\\(^{17}\\) alongside the word embeddings and character RNNs (Figure 4). They considered all n-gram prefixes and suffixes of words in the training corpus, and selected only those whose frequency was above a threshold, \\( T \\). Their word+character+affix model achieved \\( 87.26\\% \\), \\( 87.54\\% \\), \\( 90.86\\% \\), \\( 79.01\\% \\) on Spanish, Dutch, English and German CoNLL datasets respectively. Yadav et al. (2018) also showed that affix embeddings capture complementary information to that captured by RNNs over the characters of a word, that selecting only high frequency (realistic) affixes was important, and that embedding affixes was better than simply expanding the other embeddings to reach a similar number of hyper-parameters."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2006,
+                    607,
+                    2059
+                ],
+                "angle": 0,
+                "content": "7 Discussion"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2094,
+                    2193,
+                    2318
+                ],
+                "angle": 0,
+                "content": "Table 1 shows the results of all the different categories of systems discussed in section 6 on the CoNLL 2002 and 2003 datasets. The table also indicates, for each model, whether it makes use of external knowledge like a dictionary or gazetteer. Table 2 presents a similar analysis on the DrugNER dataset from SemEval 2013 task 9 (Segura Bedmar et al., 2013)."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2322,
+                    2195,
+                    2880
+                ],
+                "angle": 0,
+                "content": "Our first finding from the survey is that feature-inferring NN systems outperform feature-engineered systems, despite the latter's access to domain specific rules, knowledge, features, and lexicons. For example, the best feature-engineered system for Spanish, Agerri and Rigau (2016), is \\(1.59\\%\\) below the best feature-inferring neural network system, (Lample et al., 2016), and \\(1.65\\%\\) below the best neural network system that incorporates lexical resources (Bharadwaj et al., 2016). Similarly, the best feature-engineered system for German, Agerri and Rigau (2016), is \\(2.34\\%\\) below the best feature-inferring neural network system, Lample et al. (2016). The differences are smaller for Dutch and English, but in neither case is the best feature-engineered model better than the best neural network model. In DrugNER, the word+character NN model outperforms the feature engineered system by \\(8.90\\%\\) on MedLine test data and \\(3.50\\%\\) on the overall dataset."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2887,
+                    2193,
+                    3111
+                ],
+                "angle": 0,
+                "content": "Our next finding is that word+character hybrid models are generally better than both word-based and character-based models. For example, the best hybrid NN model for English, Chiu and Nichols (2015), is \\(0.52\\%\\) better than the best word-based model, Huang et al. (2015), and \\(5.12\\%\\) better than the best character-based model, (Kuru et al., 2016). Similarly, the best hybrid NN model for German, Lample et"
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    329,
+                    3136,
+                    1458,
+                    3188
+                ],
+                "angle": 0,
+                "content": "\\(^{17}\\)Code: https://github.com/vikas95/Pref_Suff_Span_NN"
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2152"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    364,
+                    256,
+                    2128,
+                    1701
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Feature-engineered machine learning systems</td><td>Dict</td><td>SP</td><td>DU</td><td>EN</td><td>GE</td></tr><tr><td>Carreras et al. (2002) binary AdaBoost classifiers</td><td>Yes</td><td>81.39</td><td>77.05</td><td>-</td><td>-</td></tr><tr><td>Malouf (2002) - Maximum Entropy (ME) + features</td><td>Yes</td><td>73.66</td><td>68.08</td><td>-</td><td>-</td></tr><tr><td>Li et al. (2005) SVM with class weights</td><td>Yes</td><td>-</td><td>-</td><td>88.3</td><td>-</td></tr><tr><td>Passos et al. (2014) CRF</td><td>Yes</td><td>-</td><td>-</td><td>90.90</td><td>-</td></tr><tr><td>Ando and Zhang (2005a) Semi-supervised state of the art</td><td>No</td><td>-</td><td>-</td><td>89.31</td><td>75.27</td></tr><tr><td>Agerri and Rigau (2016)</td><td>Yes</td><td>84.16</td><td>85.04</td><td>91.36</td><td>76.42</td></tr><tr><td colspan=\"6\">Feature-inferning neural network word models</td></tr><tr><td>Collobert et al. (2011) Vanilla NN +SLL / Conv-CRF</td><td>No</td><td>-</td><td>-</td><td>81.47</td><td>-</td></tr><tr><td>Huang et al. (2015) Bi-LSTM+CRF</td><td>No</td><td>-</td><td>-</td><td>84.26</td><td>-</td></tr><tr><td>Yan et al. (2016) Win-BiLSTM (English), FF (German) (Many fets)</td><td>Yes</td><td>-</td><td>-</td><td>88.91</td><td>76.12</td></tr><tr><td>Collobert et al. (2011) Conv-CRF (SENNA+Gazetteer)</td><td>Yes</td><td>-</td><td>-</td><td>89.59</td><td>-</td></tr><tr><td>Huang et al. (2015) Bi-LSTM+CRF+ (SENNA+Gazetteer)</td><td>Yes</td><td>-</td><td>-</td><td>90.10</td><td>-</td></tr><tr><td colspan=\"6\">Feature-inferning neural network character models</td></tr><tr><td>Gillick et al. (2015) - BTS</td><td>No</td><td>82.95</td><td>82.84</td><td>86.50</td><td>76.22</td></tr><tr><td>Kuru et al. (2016) CharNER</td><td>No</td><td>82.18</td><td>79.36</td><td>84.52</td><td>70.12</td></tr><tr><td colspan=\"6\">Feature-inferning neural network word + character models</td></tr><tr><td>Yang et al. (2017)</td><td>Yes</td><td>85.77</td><td>85.19</td><td>91.26</td><td>-</td></tr><tr><td>Luo (2015)</td><td>Yes</td><td>-</td><td>-</td><td>91.20</td><td>-</td></tr><tr><td>Chiu and Nichols (2015)</td><td>Yes</td><td>-</td><td>-</td><td>91.62</td><td>-</td></tr><tr><td>Ma and Hovy (2016)</td><td>No</td><td>-</td><td>-</td><td>91.21</td><td>-</td></tr><tr><td>Santos and Guimaraes (2015)</td><td>No</td><td>82.21</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Lample et al. (2016)</td><td>No</td><td>85.75</td><td>81.74</td><td>90.94</td><td>78.76</td></tr><tr><td>Bharadwaj et al. (2016)</td><td>Yes</td><td>85.81</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Dernoncourt et al. (2017)</td><td>No</td><td>-</td><td>-</td><td>90.5</td><td>-</td></tr><tr><td colspan=\"6\">Feature-inferning neural network word + character + affix models</td></tr><tr><td>Re-implementation of Lample et al. (2016) (100 Epochs)</td><td>No</td><td>85.34</td><td>85.27</td><td>90.24</td><td>78.44</td></tr><tr><td>Yadav et al. (2018)(100 Epochs)</td><td>No</td><td>86.92</td><td>87.50</td><td>90.69</td><td>78.56</td></tr><tr><td>Yadav et al. (2018) (150 Epochs)</td><td>No</td><td>87.26</td><td>87.54</td><td>90.86</td><td>79.01</td></tr></table>",
+                "caption": "Table 1: Comparison of NER systemsin four languages: CoNLL 2002 Spanish (SP), CoNLL 2002 Dutch (DU), CoNLL 2003 English (EN), and CoNLL 2003 German (GE). Dict indicates whether or not the approach makes use of dictionary lookups. Best performance in each category is highlighted in bold."
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    297,
+                    1950,
+                    2193,
+                    2616
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\"></td><td rowspan=\"2\">Dict</td><td colspan=\"3\">MedLine (80.10%)</td><td colspan=\"3\">DrugBank (19.90%)</td><td colspan=\"3\">Complete dataset</td></tr><tr><td>P</td><td>R</td><td>F1</td><td>P</td><td>R</td><td>F1</td><td>P</td><td>R</td><td>F1</td></tr><tr><td colspan=\"11\">Feature-engineered machine learning systems</td></tr><tr><td>Rocktäschel et al. (2013)</td><td>Yes</td><td>60.70</td><td>55.80</td><td>58.10</td><td>88.10</td><td>87.50</td><td>87.80</td><td>73.40</td><td>69.80</td><td>71.50</td></tr><tr><td>Liu et al. (2015) (baseline)</td><td>No</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>78.41</td><td>67.78</td><td>72.71</td></tr><tr><td>Liu et al. (2015) (MED. emb.)</td><td>No</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>82.70</td><td>69.68</td><td>75.63</td></tr><tr><td>Liu et al. (2015) (state of the art)</td><td>Yes</td><td>78.77</td><td>60.21</td><td>68.25</td><td>90.60</td><td>88.82</td><td>89.70</td><td>84.75</td><td>72.89</td><td>78.37</td></tr><tr><td colspan=\"11\">NN word model</td></tr><tr><td>Chalapathy et al. (2016) (relaxed performance)</td><td>No</td><td>52.93</td><td>52.57</td><td>52.75</td><td>87.07</td><td>83.39</td><td>85.19</td><td>-</td><td>-</td><td>-</td></tr><tr><td colspan=\"11\">NN word + character model</td></tr><tr><td>Yadav et al. (2018)</td><td>No</td><td>73</td><td>62</td><td>67</td><td>87</td><td>86</td><td>87</td><td>79</td><td>72</td><td>75</td></tr><tr><td colspan=\"11\">NN word + character + affix model</td></tr><tr><td>Yadav et al. (2018)</td><td>No</td><td>74</td><td>64</td><td>69</td><td>89</td><td>86</td><td>87</td><td>81</td><td>74</td><td>77</td></tr></table>",
+                "caption": "Table 2: DrugNER results on the MedLine and DrugBank test data (80.10% and 19.90% of the test data, respectively). The Yadav et al. (2018) experiments report no decimal places because they were run after the end of shared task, and the official evaluation script outputs no decimal places."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2904,
+                    2190,
+                    3073
+                ],
+                "angle": 0,
+                "content": "al. (2016), is \\(2.64\\%\\) better than the best word-based model, Yan et al. (2016), and \\(2.54\\%\\) better than the best character-based model, (Kuru et al., 2016). In DrugNER, the word+character hybrid model is better than the word model by \\(14.25\\%\\) on MedLine test data and \\(1.81\\%\\) on DrugBank test data."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    3080,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Our final finding is that there is still interesting progress to be made by incorporating key features of past feature-engineered models into modern NN architectures. Yadav et al. (2018)'s simple extension"
+            },
+            {
+                "block_id": 6,
+                "type": "page_number",
+                "bbox": [
+                    1190,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2153"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    266,
+                    2195,
+                    382
+                ],
+                "angle": 0,
+                "content": "of Lample et al. (2016) to incorporate affix features yields a very strong new model, achieving a new state-of-the-art in Spanish, Dutch, and German, and performing within \\(1\\%\\) of the best model for English."
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    287,
+                    420,
+                    620,
+                    473
+                ],
+                "angle": 0,
+                "content": "8 Conclusion"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    512,
+                    2195,
+                    852
+                ],
+                "angle": 0,
+                "content": "Our survey of models for named entity recognition, covering both classic feature-engineered machine learning models, and modern feature-inferring neural network models has yielded several important insights. Neural network models generally outperform feature-engineered models, character+word hybrid neural networks generally outperform other representational choices, and further improvements are available by applying past insights to current neural network models, as shown by the state-of-the-art performance of our proposed affix-based extension of character+word hybrid models."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    290,
+                    943,
+                    535,
+                    996
+                ],
+                "angle": 0,
+                "content": "References"
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1024,
+                    2193,
+                    1126
+                ],
+                "angle": 0,
+                "content": "Rodrigo Agerri and German Rigau. 2016. Robust multilingual named entity recognition with shallow semi-supervised features. Artificial Intelligence, 238:63-82."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1157,
+                    2193,
+                    1301
+                ],
+                "angle": 0,
+                "content": "Enrique Alfonseca and Suresh Manandhar. 2002. An unsupervised method for general named entity recognition and automated concept discovery. In Proceedings of the 1st international conference on general WordNet, Mysore, India, pages 34-43."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1336,
+                    2195,
+                    1434
+                ],
+                "angle": 0,
+                "content": "Rie Kubota Ando and Tong Zhang. 2005a. A framework for learning predictive structures from multiple tasks and unlabeled data. Journal of Machine Learning Research, 6(Nov):1817-1853."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1466,
+                    2195,
+                    1561
+                ],
+                "angle": 0,
+                "content": "Rie Kubota Ando and Tong Zhang. 2005b. A framework for learning predictive structures from multiple tasks and unlabeled data. Journal of Machine Learning Research, 6(Nov):1817-1853."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1596,
+                    2195,
+                    1743
+                ],
+                "angle": 0,
+                "content": "Timothy Baldwin, Marie-Catherine de Marneffe, Bo Han, Young-Bum Kim, Alan Ritter, and Wei Xu. 2015. Shared tasks of the 2015 workshop on noisy user-generated text: Twitter lexical normalization and named entity recognition. In Proceedings of the Workshop on Noisy User-generated Text, pages 126-135."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1775,
+                    2195,
+                    1873
+                ],
+                "angle": 0,
+                "content": "Darina Benikova, Chris Biemann, and Marc Reznicek. 2014. Nosta-d named entity annotation for german: Guidelines and dataset. In LREC, pages 2524-2531."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1904,
+                    2195,
+                    2003
+                ],
+                "angle": 0,
+                "content": "Akash Bharadwaj, David R. Mortensen, Chris Dyer, and Carlos de Juan Carbonell. 2016. Phonologically aware neural model for named entity recognition in low resource transfer settings. In EMNLP."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2034,
+                    2195,
+                    2181
+                ],
+                "angle": 0,
+                "content": "Daniel M Bikel, Scott Miller, Richard Schwartz, and Ralph Weischedel. 1997. Nymble: a high-performance learning name-finder. In Proceedings of the fifth conference on Applied natural language processing, pages 194-201. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2213,
+                    2195,
+                    2357
+                ],
+                "angle": 0,
+                "content": "Robert Bossy, Wiktoria Golik, Zorana Ratkovic, Philippe Bessières, and Claire Nédellec. 2013. Bionlp shared task 2013—an overview of the bacteria biotope task. In Proceedings of the BioNLP Shared Task 2013 Workshop, pages 161-169."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2388,
+                    2195,
+                    2490
+                ],
+                "angle": 0,
+                "content": "Xavier Carreras, Lluis Márquez, and Lluis Padró. 2002. Named entity extraction using adaboost, proceedings of the 6th conference on natural language learning. August, 31:1-4."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2522,
+                    2195,
+                    2620
+                ],
+                "angle": 0,
+                "content": "Raghavendra Chalapathy, Ehsan Zare Borzeshi, and Massimo Piccardi. 2016. An investigation of recurrent neural architectures for drug name recognition. arXiv preprint arXiv:1609.07585."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2652,
+                    2195,
+                    2750
+                ],
+                "angle": 0,
+                "content": "Nancy Chinchor and Patricia Robinson. 1997. Muc-7 named entity task definition. In Proceedings of the 7th Conference on Message Understanding, volume 29."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2781,
+                    2195,
+                    2880
+                ],
+                "angle": 0,
+                "content": "Jason PC Chiu and Eric Nichols. 2015. Named entity recognition with bidirectional lstm-cnns. arXiv preprint arXiv:1511.08308."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2915,
+                    2195,
+                    3016
+                ],
+                "angle": 0,
+                "content": "Michael Collins and Yoram Singer. 1999. Unsupervised models for named entity classification. In 1999 Joint SIGDAT Conference on Empirical Methods in Natural Language Processing and Very Large Corpora."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    3048,
+                    2195,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Ronan Collobert and Jason Weston. 2008. A unified architecture for natural language processing: Deep neural networks with multitask learning. In Proceedings of the 25th international conference on Machine learning, pages 160-167. ACM."
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    290,
+                    1024,
+                    2195,
+                    3192
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3234,
+                    1292,
+                    3276
+                ],
+                "angle": 0,
+                "content": "2154"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    270,
+                    2195,
+                    406
+                ],
+                "angle": 0,
+                "content": "Ronan Collobert, Jason Weston, Léon Bottou, Michael Karlen, Koray Kavukcuoglu, and Pavel Kuksa. 2011. Natural language processing (almost) from scratch. Journal of Machine Learning Research, 12(Aug):2493-2537."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    442,
+                    2195,
+                    582
+                ],
+                "angle": 0,
+                "content": "Silviu Cucerzan and David Yarowsky. 2002. Language independent ner using a unified model of internal and contextual evidence. In Proceedings of the 6th conference on Natural language learning-Volume 20, pages 1-4. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    613,
+                    2195,
+                    754
+                ],
+                "angle": 0,
+                "content": "Louise Deléger, Robert Bossy, Estelle Chaix, Mouhamadou Ba, Arnaud Ferrè, Philippe Bessieres, and Claire Nédellec. 2016. Overview of the bacteria biotope task at bionlp shared task 2016. In Proceedings of the 4th BioNLP Shared Task Workshop, pages 12-22."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    785,
+                    2193,
+                    884
+                ],
+                "angle": 0,
+                "content": "Franck Dernoncourt, Ji Young Lee, and Peter Szolovits. 2017. Neuroner: an easy-to-use program for named-entity recognition based on neural networks. arXiv preprint arXiv:1705.05487."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    912,
+                    2195,
+                    1055
+                ],
+                "angle": 0,
+                "content": "Chuanhai Dong, Jiajun Zhang, Chengqing Zong, Masanori Hattori, and Hui Di. 2016. Character-based LSTM with radical-level features for chinese named entity recognition. In Natural Language Understanding and Intelligent Applications, pages 239-250. Springer."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1087,
+                    2193,
+                    1182
+                ],
+                "angle": 0,
+                "content": "Safaa Eltyeb and Naomi Salim. 2014. Chemical named entities recognition: a review on approaches and applications. Journal of cheminformatics, 6(1):17."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1213,
+                    2193,
+                    1308
+                ],
+                "angle": 0,
+                "content": "Wael Etaiwi, Arafat Awajan, and Dima Suleiman. 2017. Statistical arabic name entity recognition approaches: A survey. Procedia Computer Science, 113:57-64."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1340,
+                    2195,
+                    1480
+                ],
+                "angle": 0,
+                "content": "Oren Etzioni, Michael Cafarella, Doug Downey, Ana-Maria Popescu, Tal Shaked, Stephen Soderland, Daniel S Weld, and Alexander Yates. 2005. Unsupervised named-entity extraction from the web: An experimental study. Artificial intelligence, 165(1):91-134."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1511,
+                    1771,
+                    1564
+                ],
+                "angle": 0,
+                "content": "G David Forney. 1973. The viterbi algorithm. Proceedings of the IEEE, 61(3):268-278."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1596,
+                    2193,
+                    1687
+                ],
+                "angle": 0,
+                "content": "Dan Gillick, Cliff Brunk, Oriol Vinyals, and Amarnag Subramanya. 2015. Multilingual language processing from bytes. arXiv preprint arXiv:1512.00103."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1722,
+                    2195,
+                    1817
+                ],
+                "angle": 0,
+                "content": "Ralph Grishman and Beth Sundheim. 1996. Message understanding conference-6: A brief history. In *COLING* 1996 Volume 1: The 16th International Conference on Computational Linguistics, volume 1."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1848,
+                    2193,
+                    1943
+                ],
+                "angle": 0,
+                "content": "Maryam Habibi, Leon Weber, Mariana Neves, David Luis Wiegandt, and Ulf Leser. 2017. Deep learning with word embeddings improves biomedical named entity recognition. *Bioinformatics*, 33(14):i37-i48."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1975,
+                    2195,
+                    2115
+                ],
+                "angle": 0,
+                "content": "Kristina M Hettne, Rob H Stierum, Martijn J Schuemie, Peter JM Hendriksen, Bob JA Schijvenaars, Erik M van Mulligen, Jos Kleinjans, and Jan A Kors. 2009. A dictionary to identify small molecules and drugs in free text. Bioinformatics, 25(22):2983-2991."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2150,
+                    2193,
+                    2245
+                ],
+                "angle": 0,
+                "content": "Lynette Hirschman, Alexander Yeh, Christian Blaschke, and Alfonso Valencia. 2005. Overview of biocreative: critical assessment of information extraction for biology."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2276,
+                    2193,
+                    2367
+                ],
+                "angle": 0,
+                "content": "Zhiheng Huang, Wei Xu, and Kai Yu. 2015. Bidirectional LSTM- crf models for sequence tagging. arXiv preprint arXiv:1508.01991."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2402,
+                    2195,
+                    2546
+                ],
+                "angle": 0,
+                "content": "Jin-Dong Kim, Tomoko Ohta, Yoshimasa Tsuruoka, Yuka Tateisi, and Nigel Collier. 2004. Introduction to the bio-entity recognition task at jnlpba. In Proceedings of the international joint workshop on natural language processing in biomedicine and its applications, pages 70-75. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2574,
+                    2193,
+                    2673
+                ],
+                "angle": 0,
+                "content": "Yoon Kim, Yacine Jernite, David Sontag, and Alexander M Rush. 2016. Character-aware neural language models. In AAAI, pages 2741-2749."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2701,
+                    2195,
+                    2841
+                ],
+                "angle": 0,
+                "content": "Craig Knox, Vivian Law, Timothy Jewison, Philip Liu, Son Ly, Alex Frolkis, Allison Pon, Kelly Banco, Christine Mak, Vanessa Neveu, et al. 2010. Drugbank 3.0: a comprehensive resource for omics research on drugs. Nucleic acids research, 39(suppl_1):D1035-D1041."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2876,
+                    2195,
+                    3016
+                ],
+                "angle": 0,
+                "content": "Martin Krallinger, Obdulia Rabal, Florian Leitner, Miguel Vazquez, David Salgado, Zhiyong Lu, Robert Leaman, Yanan Lu, Donghong Ji, Daniel M Lowe, et al. 2015. The chemdner corpus of chemicals and drugs and its annotation principles. Journal of cheminformatics, 7(S1):S2."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    3048,
+                    2195,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Onur Kuru, Ozan Arkan Can, and Deniz Yuret. 2016. Charner: Character-level named entity recognition. In Proceedings of COLING 2016, the 26th International Conference on Computational Linguistics: Technical Papers, pages 911-921."
+            },
+            {
+                "block_id": 20,
+                "type": "list",
+                "bbox": [
+                    290,
+                    270,
+                    2195,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 21,
+                "type": "page_number",
+                "bbox": [
+                    1190,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2155"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    270,
+                    2195,
+                    368
+                ],
+                "angle": 0,
+                "content": "Guillaume Lample, Miguel Ballesteros, Sandeep Subramanian, Kazuya Kawakami, and Chris Dyer. 2016. Neural architectures for named entity recognition. arXiv preprint arXiv:1603.01360."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    399,
+                    2193,
+                    498
+                ],
+                "angle": 0,
+                "content": "Robert Leaman and Graciela Gonzalez. 2008. Banner: an executable survey of advances in biomedical named entity recognition. In Biocomputing 2008, pages 652-663. World Scientific."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    529,
+                    2195,
+                    666
+                ],
+                "angle": 0,
+                "content": "Jianbo Lei, Buzhou Tang, Xueqin Lu, Kaihua Gao, Min Jiang, and Hua Xu. 2013. A comprehensive study of named entity recognition in chinese clinical text. Journal of the American Medical Informatics Association, 21(5):808-814."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    701,
+                    2195,
+                    803
+                ],
+                "angle": 0,
+                "content": "Yaoyong Li, Kalina Bontcheva, and Hamish Cunningham. 2005. SVM based learning system for information extraction. In Deterministic and statistical methods in machine learning, pages 319-339. Springer."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    834,
+                    2195,
+                    929
+                ],
+                "angle": 0,
+                "content": "Yanran Li, Wenjie Li, Fei Sun, and Sujian Li. 2015. Component-enhanced chinese character embeddings. arXiv preprint arXiv:1508.06669."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    961,
+                    2195,
+                    1059
+                ],
+                "angle": 0,
+                "content": "Nut Limsopatham and Nigel Henry Collier. 2016. Bidirectional LSTM for named entity recognition in twitter messages."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1090,
+                    2195,
+                    1234
+                ],
+                "angle": 0,
+                "content": "Wang Ling, Tiago Luís, Luís Marujo, Ramón Fernandez Astudillo, Silvio Amir, Chris Dyer, Alan W Black, and Isabel Trancoso. 2015. Finding function in form: Compositional character models for open vocabulary word representation. arXiv preprint arXiv:1508.02096."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1269,
+                    2195,
+                    1410
+                ],
+                "angle": 0,
+                "content": "Shengyu Liu, Buzhou Tang, Qingcai Chen, and Xiaolong Wang. 2015. Effects of semantic features on machine learning-based drug name recognition systems: word embeddings vs. manually constructed dictionaries. Information, 6(4):848-865."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1445,
+                    1498,
+                    1497
+                ],
+                "angle": 0,
+                "content": "2015. Joint Named Entity Recognition and Disambiguation, September."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1529,
+                    2195,
+                    1620
+                ],
+                "angle": 0,
+                "content": "Xuezhe Ma and Eduard Hovy. 2016. End-to-end sequence labeling via bi-directional LSTM-cnns-crf. arXiv preprint arXiv:1603.01354."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1655,
+                    2195,
+                    1757
+                ],
+                "angle": 0,
+                "content": "Robert Malouf. 2002. Markov models for language-independent named entity recognition, proceedings of the 6th conference on natural language learning. August, 31:1-4."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1785,
+                    2195,
+                    1883
+                ],
+                "angle": 0,
+                "content": "Mitchell P Marcus, Mary Ann Marcinkiewicz, and Beatrice Santorini. 1993. Building a large annotated corpus of english: The penn treebank. Computational linguistics, 19(2):313-330."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1915,
+                    2195,
+                    2013
+                ],
+                "angle": 0,
+                "content": "Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. 2013. Efficient estimation of word representations in vector space. arXiv preprint arXiv:1301.3781."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2045,
+                    2195,
+                    2188
+                ],
+                "angle": 0,
+                "content": "Shotaro Misawa, Motoki Taniguchi, Yasuhide Miura, and Tomoko Ohkuma. 2017. Character-based bidirectional LSTM-crf with words and characters for japanese named entity recognition. In Proceedings of the First Workshop on Subword and Character Level Models in NLP, pages 97-102."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2220,
+                    2195,
+                    2318
+                ],
+                "angle": 0,
+                "content": "David Nadeau and Satoshi Sekine. 2007. A survey of named entity recognition and classification. *Lingvisticae Investigationes*, 30(1):3-26."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2353,
+                    2195,
+                    2494
+                ],
+                "angle": 0,
+                "content": "David Nadeau, Peter D Turney, and Stan Matwin. 2006. Unsupervised named-entity recognition: Generating gazetteers and resolving ambiguity. In Conference of the Canadian Society for Computational Studies of Intelligence, pages 266-277. Springer."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2529,
+                    2195,
+                    2627
+                ],
+                "angle": 0,
+                "content": "TS Nguyen, LM Nguyen, and XC Tran. 2016. Vietnamese named entity recognition at vlsp 2016 evaluation campaign. In Proceedings of The Fourth International Workshop on Vietnamese Language and Speech Processing."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2659,
+                    2195,
+                    2799
+                ],
+                "angle": 0,
+                "content": "Tomoko Ohta, Yuka Tateisi, and Jin-Dong Kim. 2002. The genia corpus: An annotated research abstract corpus in molecular biology domain. In Proceedings of the second international conference on Human Language Technology Research, pages 82-86. Morgan Kaufmann Publishers Inc."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2834,
+                    2195,
+                    2932
+                ],
+                "angle": 0,
+                "content": "Alexandre Passos, Vineet Kumar, and Andrew McCallum. 2014. Lexicon infused phrase embeddings for named entity resolution. arXiv preprint arXiv:1404.5367."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2964,
+                    2195,
+                    3062
+                ],
+                "angle": 0,
+                "content": "Nita Patil, Ajay S Patil, and BV Pawar. 2016. Survey of named entity recognition systems with respect to indian and foreign languages. International Journal of Computer Applications, 134(16)."
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    3094,
+                    2195,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Thai-Hoang Pham and Phuong Le-Hong. 2017. End-to-end recurrent neural network models for Vietnamese named entity recognition: Word-level vs. character-level. arXiv preprint arXiv:1705.04044."
+            },
+            {
+                "block_id": 21,
+                "type": "list",
+                "bbox": [
+                    292,
+                    270,
+                    2195,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 22,
+                "type": "page_number",
+                "bbox": [
+                    1190,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2156"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    266,
+                    2195,
+                    456
+                ],
+                "angle": 0,
+                "content": "Jakub Piskorski, Lidia Pivovarova, Jan Šnajder, Josef Steinberger, Roman Yangarber, et al. 2017. The first crosslingual challenge on recognition, normalization and matching of named entities in slavic languages. In Proceedings of the 6th Workshop on Balto-Slavic Natural Language Processing. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    487,
+                    2195,
+                    589
+                ],
+                "angle": 0,
+                "content": "Barbara Plank, Anders Søgaard, and Yoav Goldberg. 2016. Multilingual part-of-speech tagging with bidirectional long short-term memory models and auxiliary loss. arXiv preprint arXiv:1604.05529."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    617,
+                    2195,
+                    761
+                ],
+                "angle": 0,
+                "content": "Sameer Pradhan, Alessandro Moschitti, Nianwen Xue, Hwee Tou Ng, Anders Björkelund, Olga Uryupina, Yuchen Zhang, and Zhi Zhong. 2013. Towards robust linguistic analysis using onthonotes. In Proceedings of the Seventeenth Conference on Computational Natural Language Learning, pages 143-152."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    792,
+                    2195,
+                    845
+                ],
+                "angle": 0,
+                "content": "Lawrence Rabiner and B Juang. 1986. An introduction to hidden markov models. *iiee assp magazine*, 3(1):4-16."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    877,
+                    2195,
+                    1020
+                ],
+                "angle": 0,
+                "content": "Dipti Misra Sharma Rajeev Sangal and Anil Kumar Singh, editors. 2008. Proceedings of the IJCNLP-08 Workshop on Named Entity Recognition for South and South East Asian Languages. Asian Federation of Natural Language Processing, Hyderabad, India, January."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1052,
+                    2195,
+                    1192
+                ],
+                "angle": 0,
+                "content": "Tim Roktaschel, Torsten Huber, Michael Weidlich, and Ulf Leser. 2013. Wbi-ner: The impact of domain-specific features on the performance of identifying and classifying mentions of drugs. In SemEval@ NAACL-HLT, pages 356-363."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1227,
+                    2195,
+                    1371
+                ],
+                "angle": 0,
+                "content": "Sujan Kumar Saha, Sudeshna Sarkar, and Pabitra Mitra. 2009. Feature selection techniques for maximum entropy based biomedical named entity recognition. Journal of Biomedical Informatics, 42(5):905 - 911. Biomedical Natural Language Processing."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1403,
+                    2195,
+                    1501
+                ],
+                "angle": 0,
+                "content": "Diana Santos and Nuno Cardoso. 2007. Reconhecimento de entidades Mentionadas em portugues: Documentação e actas do harem, a primaira avaliação conjunta na区内."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1529,
+                    2195,
+                    1631
+                ],
+                "angle": 0,
+                "content": "Cicero Nogueira dos Santos and Victor Guimaraes. 2015. Boosting named entity recognition with neural character embeddings. arXiv preprint arXiv:1505.05008."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1662,
+                    1888,
+                    1715
+                ],
+                "angle": 0,
+                "content": "Robert E Schapire. 2013. Explaining adaboost. In Empirical inference, pages 37-52. Springer."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1746,
+                    2195,
+                    1845
+                ],
+                "angle": 0,
+                "content": "Isabel Segura Bedmar, Paloma Martínez, and María Herrero Zazo. 2013. Semeval-2013 task 9: Extraction of drug-drug interactions from biomedical texts (ddiextraction 2013). Association for Computational Linguistics."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1873,
+                    2195,
+                    1971
+                ],
+                "angle": 0,
+                "content": "Khaled Shaalan. 2014. A survey of arabic named entity recognition and classification. Computational Linguistics, 40(2):469-510."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2003,
+                    2183,
+                    2059
+                ],
+                "angle": 0,
+                "content": "Rahul Sharnagat. 2014. Named entity recognition: A literature survey. Center For Indian Language Technology."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2087,
+                    2195,
+                    2231
+                ],
+                "angle": 0,
+                "content": "Stephanie Strassel, Alexis Mitchell, and Shudong Huang. 2003. Multilingual resources for entity extraction. In Proceedings of the ACL 2003 workshop on Multilingual and mixed-language named entity recognition-Volume 15, pages 49-56. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2262,
+                    2195,
+                    2406
+                ],
+                "angle": 0,
+                "content": "Koichi Takeuchi and Nigel Collier. 2002. Use of support vector machines in extended named entity recognition. In proceedings of the 6th conference on Natural language learning-Volume 20, pages 1-7. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2438,
+                    2195,
+                    2581
+                ],
+                "angle": 0,
+                "content": "Erik F Tjong Kim Sang and Fien De Meulder. 2003. Introduction to the conll-2003 shared task: Language-independent named entity recognition. In Proceedings of the seventh conference on Natural language learning at HLT-NAACL 2003-Volume 4, pages 142-147. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2613,
+                    2195,
+                    2711
+                ],
+                "angle": 0,
+                "content": "Erik F Tjong Kim Sang. 2002. Introduction to the conll-2002 shared task: language-independent named entity recognition, proceedings of the 6th conference on natural language learning. August, 31:1-4."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2743,
+                    2195,
+                    2841
+                ],
+                "angle": 0,
+                "content": "Özlem Uzuner, Yuan Luo, and Peter Szolovits. 2007. Evaluating the state-of-the-art in automatic de-identification. Journal of the American Medical Informatics Association, 14(5):550-563."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2869,
+                    2195,
+                    3009
+                ],
+                "angle": 0,
+                "content": "Özlem Uzuner, Brett R South, Shuying Shen, and Scott L DuVall. 2011. 2010 i2b2/va challenge on concepts, assertions, and relations in clinical text. Journal of the American Medical Informatics Association, 18(5):552-556."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    3044,
+                    2195,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Kai Xu, Zhanfan Zhou, Tianyong Hao, and Wenyin Liu. 2017. A bidirectional LSTM and conditional random fields approach to medical named entity recognition. In International Conference on Advanced Intelligent Systems and Informatics, pages 355-365. Springer."
+            },
+            {
+                "block_id": 20,
+                "type": "list",
+                "bbox": [
+                    290,
+                    266,
+                    2195,
+                    3192
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 21,
+                "type": "page_number",
+                "bbox": [
+                    1190,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2157"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    266,
+                    2195,
+                    410
+                ],
+                "angle": 0,
+                "content": "Vikas Yadav, Rebecca Sharp, and Steven Bethard. 2018. Deep affix features improve neural named entity recognizers. In Proceedings of the Seventh Joint Conference on Lexical and Computational Semantics, pages 167-172."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    442,
+                    2195,
+                    543
+                ],
+                "angle": 0,
+                "content": "Shao Yan, Christian Hardmeier, and Joakim Nivre. 2016. Multilingual named entity recognition using hybrid neural networks. In *The Sixth Swedish Language Technology Conference (SLTC)*."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    571,
+                    2195,
+                    673
+                ],
+                "angle": 0,
+                "content": "Zhilin Yang, Ruslan Salakhutdinov, and William Cohen. 2016. Multi-task cross-lingual sequence tagging from scratch. arXiv preprint arXiv:1603.06270."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    698,
+                    2195,
+                    799
+                ],
+                "angle": 0,
+                "content": "Zhilin Yang, Ruslan Salakhutdinov, and William W Cohen. 2017. Transfer learning for sequence tagging with hierarchical recurrent networks. arXiv preprint arXiv:1703.06345."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    827,
+                    2195,
+                    929
+                ],
+                "angle": 0,
+                "content": "Rongchao Yin, Quan Wang, Peng Li, Rui Li, and Bin Wang. 2016. Multi-granularity chinese word embedding. In Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing, pages 981-986."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    954,
+                    2195,
+                    1059
+                ],
+                "angle": 0,
+                "content": "Shaodian Zhang and Noémie Elhadad. 2013. Unsupervised biomedical named entity recognition: Experiments with clinical and biological texts. Journal of biomedical informatics, 46(6):1088-1098."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1083,
+                    2195,
+                    1231
+                ],
+                "angle": 0,
+                "content": "GuoDong Zhou and Jian Su. 2002. Named entity recognition using an hmm-based chunk tagger. In proceedings of the 40th Annual Meeting on Association for Computational Linguistics, pages 473-480. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    290,
+                    266,
+                    2195,
+                    1231
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "page_number",
+                "bbox": [
+                    1190,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2158"
+            }
+        ]
+    }
+]

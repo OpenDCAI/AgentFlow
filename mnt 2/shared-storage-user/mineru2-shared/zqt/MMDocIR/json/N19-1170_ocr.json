@@ -1,0 +1,3634 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    568,
+                    284,
+                    1922,
+                    431
+                ],
+                "angle": 0,
+                "content": "What makes a good conversation? How controllable attributes affect human judgments"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    536,
+                    721,
+                    708
+                ],
+                "angle": 0,
+                "content": "Abigail See*  \nStanford University  \nabisee@stanford.edu"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    759,
+                    536,
+                    1228,
+                    708
+                ],
+                "angle": 0,
+                "content": "Stephen Roller  \nFacebook AI Research  \nroller@fb.com"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1260,
+                    536,
+                    1726,
+                    708
+                ],
+                "angle": 0,
+                "content": "Douwe Kiela  \nFacebook AI Research  \ndkiela@fb.com"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1756,
+                    536,
+                    2222,
+                    708
+                ],
+                "angle": 0,
+                "content": "Jason Weston  \nFacebook AI Research  \njase@fb.com"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    654,
+                    929,
+                    853,
+                    982
+                ],
+                "angle": 0,
+                "content": "Abstract"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    354,
+                    1027,
+                    1146,
+                    2125
+                ],
+                "angle": 0,
+                "content": "A good conversation requires balance – between simplicity and detail; staying on topic and changing it; asking questions and answering them. Although dialogue agents are commonly evaluated via human judgments of overall quality, the relationship between quality and these individual factors is less well-studied. In this work, we examine two controllable neural text generation methods, conditional training and weighted decoding, in order to control four important attributes for chitchat dialogue: repetition, specificity, response-relatedness and question-asking. We conduct a large-scale human evaluation to measure the effect of these control parameters on multi-turn interactive conversations on the PersonaChat task. We provide a detailed analysis of their relationship to high-level aspects of conversation, and show that by controlling combinations of these variables our models obtain clear improvements in human quality judgments."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2174,
+                    650,
+                    2227
+                ],
+                "angle": 0,
+                "content": "1 Introduction"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2266,
+                    1215,
+                    2880
+                ],
+                "angle": 0,
+                "content": "Neural generation models for dialogue, despite their ubiquity in current research, are still poorly understood. Well known problems, such as the genericness and repetitiveness of responses (Serban et al., 2016a), remain without a de facto solution. Strikingly, the factors that determine human judgments of overall conversation quality are almost entirely unexplored. Most works have been limited to the next utterance prediction problem, whereas a multi-turn evaluation is necessary to evaluate the quality of a full conversation."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2887,
+                    1215,
+                    3115
+                ],
+                "angle": 0,
+                "content": "In this work we both (i) conduct a large-scale study to identify the fine-grained factors governing human judgments of full conversations, and (ii) develop models that apply our findings in practice,"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1275,
+                    919,
+                    2195,
+                    1445
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 1: We manipulate four low-level attributes and measure their effect on human judgments of individual conversational aspects, as well as overall quality."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1722,
+                    2195,
+                    2395
+                ],
+                "angle": 0,
+                "content": "leading to state-of-the-art performance. Specifically, we identify and study eight aspects of conversation that can be measured by human judgments, while varying four types of low-level attributes that can be algorithmically controlled in neural models; see Figure 1. To control the low-level model attributes, we consider two simple but general algorithms: conditional training, in which the neural model is conditioned on additional control features, and weighted decoding, in which control features are added to the decoding scoring function at test time only."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2402,
+                    2198,
+                    3192
+                ],
+                "angle": 0,
+                "content": "One major result of our findings is that existing work has ignored the importance of conversational flow, as standard models (i) repeat or contradict previous statements, (ii) fail to balance specificity with genericness, and (iii) fail to balance asking questions with other dialogue acts. Conducting experiments on the PersonaChat task (Zhang et al., 2018b), we obtain significantly higher engagingness scores than the baseline by optimizing control of repetition, specificity and question-asking over multiple turns. Using these findings, our best model matches the performance of the winning entry in the recent NeurIPS ConvAI2 competition (Dinan et al., 2019), which was trained on much"
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    359,
+                    3139,
+                    1205,
+                    3188
+                ],
+                "angle": 0,
+                "content": "\\(^{*}\\)A.S. completed most of this work at Facebook (FAIR)."
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1295,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1702"
+            },
+            {
+                "block_id": 16,
+                "type": "footer",
+                "bbox": [
+                    833,
+                    3301,
+                    1642,
+                    3346
+                ],
+                "angle": 0,
+                "content": "Proceedings of NAACL-HLT 2019, pages 1702-1723"
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    491,
+                    3350,
+                    1982,
+                    3399
+                ],
+                "angle": 0,
+                "content": "Minneapolis, Minnesota, June 2 - June 7, 2019. ©2019 Association for Computational Linguistics"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    287,
+                    266,
+                    1210,
+                    487
+                ],
+                "angle": 0,
+                "content": "more data but had no control (see Section 8.1). Our code, pretrained models, and full chatlogs, are available at https://parl.ai/projects/controllable Dialogue."
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    287,
+                    543,
+                    677,
+                    596
+                ],
+                "angle": 0,
+                "content": "2 Related Work"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    641,
+                    1210,
+                    1143
+                ],
+                "angle": 0,
+                "content": "Dialogue Dialogue evaluation is relatively well understood in goal-oriented tasks, where automated approaches can be coded by measuring task completion (Bordes et al., 2017; El Asri et al., 2017; Hastie, 2012; Henderson et al., 2014; Wen et al., 2017). Task success combined with dialogue cost can be linked to human judgments like user satisfaction via the PARADISE framework (Walker et al., 1997)."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1154,
+                    1210,
+                    1827
+                ],
+                "angle": 0,
+                "content": "However in chitchat tasks, which we study in this work, automatic metrics and their relation to human ratings are less well-understood. While word-overlap metrics are effective for question-answering and machine translation, for dialogue they have little to no correlation with human judgments (Liu et al., 2016; Novikova et al., 2017) – this is due to the open-ended nature of dialogue. There are more recent attempts to find better automatic approaches, such as adversarial evaluation (Li et al., 2017b) and learning a scoring model (Lowe et al., 2017), but their value is still unclear."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1834,
+                    1210,
+                    2511
+                ],
+                "angle": 0,
+                "content": "Nevertheless, a number of studies only use automatic metrics, with no human study at all (Lowe et al., 2015; Parthasarathi and Pineau, 2018; Serban et al., 2016b). Other works do use human evaluations (Dinan et al., 2018; Li et al., 2016a,b; Venkatesh et al., 2017; Vinyals and Le, 2015; Zhang et al., 2018b), typically reporting just one type of judgment (either quality or appropriateness) via a Likert scale or pairwise comparison. Most of those works only consider single turn evaluations, often with a shortened dialogue history, rather than full multi-turn dialogue."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2518,
+                    1210,
+                    3192
+                ],
+                "angle": 0,
+                "content": "A more comprehensive evaluation strategy has been studied within the scope of the Alexa prize (Venkatesh et al., 2017; Guo et al., 2018) by combining multiple automatic metrics designed to capture various conversational aspects (engagement, coherence, domain coverage, conversational depth and topical diversity). Though these aspects have some similarity to the aspects studied here, we also focus on lower-level aspects (e.g. avoiding repetition, fluency), to understand how they correspond to both our controllable attributes, and to overall quality judgments."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    266,
+                    2193,
+                    1389
+                ],
+                "angle": 0,
+                "content": "Controllable neural text generation Researchers have proposed several approaches to control aspects of RNN-based natural language generation such as sentiment, length, speaker style and tense (Fan et al., 2018; Ficler and Goldberg, 2017; Ghazvininejad et al., 2017; Hu et al., 2017; Kikuchi et al., 2016; Peng et al., 2018; Wang et al., 2017). In particular, several works use control to tackle the same common sequence-to-sequence problems we address here (particularly genericness and unrelated output), in the context of single-turn response generation (Baheti et al., 2018; Li et al., 2016a, 2017a; Shen et al., 2017; Xing et al., 2017; Zhang et al., 2018a; Zhou et al., 2017). By contrast, we focus on developing controls for, and human evaluation of, multi-turn interactive dialogue – this includes a new method (described in Section 5) to control attributes at the dialogue level rather than the utterance level."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1399,
+                    2193,
+                    2185
+                ],
+                "angle": 0,
+                "content": "In this work, we require a control method that is both general-purpose (one technique to simultaneously control many attributes) and easily tunable (the control setting is adjustable after training). Given these constraints, we study two control methods: conditional training (variants of which have been described by Fan et al. (2018); Kikuchi et al. (2016); Peng et al. (2018)) and weighted decoding (described by Ghazvininejad et al. (2017) as a general technique, and by Baheti et al. (2018) to control response-relatedness). To our knowledge, this work is the first to systematically compare the effectiveness of two general-purpose control methods across several attributes."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2245,
+                    1900,
+                    2301
+                ],
+                "angle": 0,
+                "content": "3 The PersonaChat dataset"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2346,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "PersonaChat (Zhang et al., 2018b) is a chitchat dialogue task involving two participants (two humans or a human and a bot). Each participant is given a persona – a short collection of personal traits such as I'm left handed or My favorite season is spring – and are instructed to get to know each other by chatting naturally using their designated personas, for 6–8 turns. The training set contains 8939 conversations and 955 personas, collected via crowdworkers, plus 1000 conversations and 100 personas for validation, and a similar number in the hidden test set. The PersonaChat task was the subject of the NeurIPS 2018 ConvAI2 Challenge (Dinan et al., 2019), in which competitors were first evaluated with respect to automatic met-"
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1703"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    287,
+                    263,
+                    1215,
+                    484
+                ],
+                "angle": 0,
+                "content": "rics (perplexity, hits@1 and F1 score), and then with respect to human judgment via the question \"How much did you enjoy talking to this user?\" on a scale of 1-4."
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    287,
+                    533,
+                    702,
+                    585
+                ],
+                "angle": 0,
+                "content": "4 Baseline model"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    620,
+                    1213,
+                    1122
+                ],
+                "angle": 0,
+                "content": "Our baseline model is a 2-layer LSTM sequence-to-sequence model with attention. On any dialogue turn, the input \\( x \\) to the encoder is the entire dialogue history (separated using unique speaker-identifying tokens), with the model's own persona prepped. Conditioned on this input sequence \\( x \\), the decoder generates a response \\( y \\). Except when stated otherwise, all our models decode using beam search with beam size 20."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1129,
+                    1215,
+                    1750
+                ],
+                "angle": 0,
+                "content": "We initialized the word embedding matrix with 300-dimensional GloVe embeddings (Pennington et al., 2014). Using the ParlAI framework (Miller et al., 2017), we pretrained the model on a dataset of 2.5 million Twitter message-response pairs, then fine-tuned it on PersonaChat. On the PersonaChat validation set, the baseline model has a perplexity of 26.83 and F1 of 17.02, which would have placed us 4th out of 26 models in the ConvAI2 competition (Dinan et al., 2019). We attempt to improve over this baseline using control."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1792,
+                    1173,
+                    1848
+                ],
+                "angle": 0,
+                "content": "5 Controllable text generation methods"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1883,
+                    1215,
+                    2220
+                ],
+                "angle": 0,
+                "content": "Suppose we have a sequence-to-sequence model which gives \\( P(y|x) = \\Pi_t P(y_t|x, y_1, \\ldots, y_{t-1}) \\), the conditional probability of a response \\( y \\) (the model's next utterance) given input \\( x \\) (the context, which in our case includes the model's own persona and the dialogue history)."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2224,
+                    1215,
+                    3069
+                ],
+                "angle": 0,
+                "content": "Contrary to most previous work, which controls at the sentence level, we wish to control attributes of the output \\( y \\) at the dialogue level – meaning that a single control setting is used for a whole dialogue. For example, to control question-asking, we provide a control setting at the beginning of each dialogue (e.g. 20% questions or 70% questions) rather than providing a control setting for each utterance (e.g. is a question or isn't a question). With this approach, the sequence-to-sequence model is able to choose what value the controlled attribute should take for any particular utterance, but we are able to choose the overall distribution. We find that this approach works well – for example, the sequence-to-sequence model is"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    266,
+                    2190,
+                    487
+                ],
+                "angle": 0,
+                "content": "generally good at detecting when to ask a question. In particular, this is easier than the alternative: developing a separate process to decide, for each utterance, whether to ask a question."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    491,
+                    2193,
+                    715
+                ],
+                "angle": 0,
+                "content": "In this section, we describe the two methods - which we call Conditional Training (CT) and Weighted Decoding (WD) - that we use to control attributes of the output \\( y \\) at the dialogue level."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    750,
+                    1900,
+                    803
+                ],
+                "angle": 0,
+                "content": "5.1 Conditional Training (CT)"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    820,
+                    2193,
+                    1382
+                ],
+                "angle": 0,
+                "content": "Conditional Training (Fan et al., 2018; Kikuchi et al., 2016; Peng et al., 2018) is a method to learn a sequence-to-sequence model \\( P(y|x,z) \\), where \\( z \\) is a discrete control variable. If the control attribute is naturally continuous (for example in our work, repetitiveness, specificity and response-relatedness), we use \\( z \\) to represent bucketed ranges. For a binary attribute like question-asking, \\( z \\) represents an overall probability (as explained in Section 5)."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1385,
+                    2193,
+                    2515
+                ],
+                "angle": 0,
+                "content": "To train a CT model, we first automatically annotate every \\((x,y)\\) pair in the training set with the attribute we wish to control (for example, whether \\(y\\) contains a question mark). During training, for each example we determine the corresponding \\(z\\) value (for continuous attributes, this simply means sorting into the correct bucket; for question-asking, see Section 6.4). Next, the control variable \\(z\\) is represented via an embedding (each of the possible values of \\(z\\) has its own embedding). For all our experiments, the embedding is of length 10; this was determined via hyperparameter tuning. There are several possible ways to condition the sequence-to-sequence model on \\(z\\) - for example, append \\(z\\) to the end of the input sequence, or use \\(z\\) as the START symbol for the decoder. We find it most effective to concatenate \\(z\\) to the decoder's input on every step.2 Lastly, the CT model learns to produce \\(y = y_{1},\\ldots ,y_{T}\\) by optimizing the cross-entropy loss:"
+            },
+            {
+                "block_id": 12,
+                "type": "equation",
+                "bbox": [
+                    1302,
+                    2532,
+                    2155,
+                    2683
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathrm {l o s s} _ {\\mathrm {C T}} = - \\frac {1}{T} \\sum_ {t = 1} ^ {T} \\log P (y _ {t} | x, z, y _ {1}, \\dots , y _ {t - 1})\n\\]"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2697,
+                    2193,
+                    3037
+                ],
+                "angle": 0,
+                "content": "Our CT models are initialized with the parameters from the baseline sequence-to-sequence model \\( P(y|x) \\) (the new decoder parameters are initialized with small random values), then fine-tuned to optimize \\( \\text{loss}_{\\text{CT}} \\) on the PersonaChat training set, until convergence of \\( \\text{loss}_{\\text{CT}} \\) on the validation set."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    1265,
+                    3055,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "2To build a CT model \\(P(y|x,z_1,\\ldots ,z_n)\\) conditioned on multiple controls \\(\\{z_{1},\\dots ,z_{n}\\}\\), we can simply concatenate multiple control embeddings to the decoder inputs."
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    287,
+                    3097,
+                    1215,
+                    3188
+                ],
+                "angle": 0,
+                "content": "The Twitter dataset is provided in ParlAI; details can be found here: https://parl.ai/docs/tasks.html"
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1704"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    287,
+                    263,
+                    903,
+                    319
+                ],
+                "angle": 0,
+                "content": "5.2 Weighted Decoding (WD)"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    340,
+                    1210,
+                    785
+                ],
+                "angle": 0,
+                "content": "Weighted Decoding (Ghazvininejad et al., 2017) is a decoding method that increases or decreases the probability of words with certain features. The technique is applied only at test time, requiring no change to the training method. A limitation of WD is that the controllable attribute must be defined at the word-level; any desired utterance-level attribute must be redefined via word-level features."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    287,
+                    792,
+                    1210,
+                    1017
+                ],
+                "angle": 0,
+                "content": "In weighted decoding, on the \\(t^{th}\\) step of decoding, a partial hypothesis \\(y_{< t} = y_1,\\ldots ,y_{t - 1}\\) is expanded by computing the score for each possible next word \\(w\\) in the vocabulary:"
+            },
+            {
+                "block_id": 3,
+                "type": "equation",
+                "bbox": [
+                    300,
+                    1069,
+                    1200,
+                    1255
+                ],
+                "angle": 0,
+                "content": "\\[\n\\begin{array}{l} \\mathbf {s c o r e} (w, y _ {<   t}; x) = \\mathbf {s c o r e} (y _ {<   t}; x) \\\\ + \\log P _ {\\mathrm {R N N}} (w | y _ {<   t}, x) + \\sum_ {i} w _ {i} * f _ {i} (w; y _ {<   t}, x). \\\\ \\end{array}\n\\]"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1297,
+                    1213,
+                    1743
+                ],
+                "angle": 0,
+                "content": "Here, \\(\\log P_{\\mathrm{RNN}}(w|y_{< t},x)\\) is the log-probability of the word \\(w\\) calculated by the RNN, \\(\\mathrm{score}(y_{< t};x)\\) is the accumulated score of the already-generated words in the hypothesis \\(y_{< t}\\), and \\(f_{i}(w;y_{< t},x)\\) are decoding features with associated weights \\(w_{i}\\). There can be multiple features \\(f_{i}\\) (to control multiple attributes), and the weights \\(w_{i}\\) are hyperparameters to be chosen."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1754,
+                    1213,
+                    2315
+                ],
+                "angle": 0,
+                "content": "A decoding feature \\( f_{i}(w; y_{<t}, x) \\) assigns a real value to the word \\( w \\), in the context of the text generated so far \\( y_{<t} \\) and the context \\( x \\). The feature can be continuous (e.g. the unigram probability of \\( w \\)), discrete (e.g. the length of \\( w \\) in characters), or binary (e.g. whether \\( w \\) starts with the same letter as the last word in \\( y_{<t} \\)). A positive weight \\( w_{i} \\) increases the probability of words \\( w \\) that score highly with respect to \\( f_{i} \\); a negative weight decreases their probability."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2318,
+                    1213,
+                    2543
+                ],
+                "angle": 0,
+                "content": "Note that weighted decoding and conditional training can be applied simultaneously (i.e. train a CT model then apply WD at test time) – a strategy we use in our experiments."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2592,
+                    1163,
+                    2648
+                ],
+                "angle": 0,
+                "content": "6 Controlling conversational attributes"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2683,
+                    1213,
+                    3188
+                ],
+                "angle": 0,
+                "content": "In this section, we describe how we use conditional training and weighted decoding to control four attributes: repetition, specificity, response-relatedness and question-asking. We evaluate the effectiveness of both control methods via automatic metrics (i.e., measuring how well the attribute was controlled), and use our findings to select control methods and control settings to be explored further via human evaluation (Section 8)."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    263,
+                    1587,
+                    319
+                ],
+                "angle": 0,
+                "content": "6.1 Repetition"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    336,
+                    2193,
+                    617
+                ],
+                "angle": 0,
+                "content": "Our baseline model exhibits three types of repetition, which we call external repetition (self-repetition across utterances), internal repetition (self-repetition within utterances), and partner repetition (repeating the conversational partner)."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    620,
+                    2193,
+                    1410
+                ],
+                "angle": 0,
+                "content": "To control repetition with weighted decoding, we define five \\( n \\)-gram based decoding features (see Appendix D). Three of these features (extrep/bigram, intrep/bigram and partnerrep/bigram) identify repeating bigrams for the three repetition types. The other two features (extrep_unigram and intrep_unigram) identify repeating content words. By applying a negative weight to these features, we can reduce repetition. In particular, if the weight is \\( -\\infty \\), our method is equivalent to \\( n \\)-gram blocking as described by Kulikov et al. (2018). We observe that repetition control is very important, thus all further control experiments include repetition control."
+            },
+            {
+                "block_id": 12,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    1448,
+                    1585,
+                    1501
+                ],
+                "angle": 0,
+                "content": "6.2 Specificity"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1518,
+                    2193,
+                    1803
+                ],
+                "angle": 0,
+                "content": "Like many sequence-to-sequence models using beam search decoding, our baseline frequently asks generic questions such as What music do you like? and gives dull, unspecific responses, such as I like all kinds of music."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1803,
+                    2193,
+                    2196
+                ],
+                "angle": 0,
+                "content": "We control specificity using Normalized Inverse Document Frequency (NIDF) as a measure of word rareness. The Inverse Document Frequency of a word \\( w \\) is \\( \\mathrm{IDF}(w) = \\log(R / c_w) \\) where \\( R \\) is the number of responses in the dataset, and \\( c_w \\) is the number of those responses that contain \\( w \\). Normalized IDF (which ranges from 0 to 1) is"
+            },
+            {
+                "block_id": 15,
+                "type": "equation",
+                "bbox": [
+                    1424,
+                    2234,
+                    2193,
+                    2346
+                ],
+                "angle": 0,
+                "content": "\\[\n\\operatorname {N I D F} (w) = \\frac {\\operatorname {I D F} (w) - \\operatorname* {m i n} _ {-} \\operatorname {i d f}}{\\operatorname* {m a x} _ {-} \\operatorname {i d f} - \\operatorname * {m i n} _ {-} \\operatorname {i d f}} \\tag {1}\n\\]"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2381,
+                    2190,
+                    2774
+                ],
+                "angle": 0,
+                "content": "where minidf and maxidf are the minimum and maximum IDFs, taken over all words in the vocabulary. To control specificity with weighted decoding, we use NIDF as a decoding feature. As shown in Table 1, this method produces reasonable outputs when the feature weight is within a certain range, but at the extremes the outputs are"
+            },
+            {
+                "block_id": 17,
+                "type": "page_footnote",
+                "bbox": [
+                    1262,
+                    2802,
+                    2190,
+                    3101
+                ],
+                "angle": 0,
+                "content": "3We also tried controlling repetition with conditional training, defining \\( z \\) as the (bucketed) maximum ROUGE-L precision between the response \\( y \\) and the bot's previous utterances. However, this method was unsuccessful because there are not enough repetitive examples in the training data for the model to learn the control. Experimenting with data augmentation to solve this problem is an area for future work."
+            },
+            {
+                "block_id": 18,
+                "type": "page_footnote",
+                "bbox": [
+                    1265,
+                    3101,
+                    2190,
+                    3188
+                ],
+                "angle": 0,
+                "content": "4Note that our NIDF specificity features are similar to the NIRF and NIWF features used by Zhang et al. (2018a)."
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    1262,
+                    2802,
+                    2190,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1705"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    320,
+                    364,
+                    1190,
+                    1041
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Wt</td><td>NIDF</td><td>Weighted Decoding Response</td></tr><tr><td>-5.0</td><td>0.6%</td><td>Oh..............</td></tr><tr><td>0.0</td><td>17.1%</td><td>That sounds like a lot of fun!</td></tr><tr><td>3.0</td><td>18.3%</td><td>That sounds like a lot of fun. How long have you been studying?</td></tr><tr><td>7.0</td><td>38.5%</td><td>I majored in practising my spiritual full time philosophy test</td></tr><tr><td>10.0</td><td>71.9%</td><td>Oh wow! Merna jean isa paino yi hao hui bu acara sya gila [...]</td></tr><tr><td>z</td><td>NIDF</td><td>Conditional Training Response</td></tr><tr><td>0</td><td>16.8%</td><td>Sounds like you are a great person!</td></tr><tr><td>2</td><td>18.3%</td><td>So you are a law student?</td></tr><tr><td>4</td><td>18.4%</td><td>That sounds like a lot of fun</td></tr><tr><td>6</td><td>22.8%</td><td>That sounds like a rewarding job!</td></tr><tr><td>8</td><td>24.4%</td><td>That sounds like a rewarding career!</td></tr></table>",
+                "caption": "Input: Yes, I'm studying law at the moment Baseline Response: That sounds like a lot of fun!"
+            },
+            {
+                "block_id": 2,
+                "type": "table_footnote",
+                "bbox": [
+                    285,
+                    1098,
+                    1215,
+                    1403
+                ],
+                "angle": 0,
+                "content": "Table 1: Middle: Example of controlling specificity (NIDF) via weighted decoding. At the extremes, the model produces only the most rare or the most common tokens. Bottom: Example of controlling specificity via conditional training. This gives a narrower NIDF range, but all the responses are appropriate."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1490,
+                    1213,
+                    1603
+                ],
+                "angle": 0,
+                "content": "nonsensical. The boundary for nonsensical output differs from example to example."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1603,
+                    1213,
+                    1999
+                ],
+                "angle": 0,
+                "content": "To control specificity with conditional training, we define the specificity of an utterance \\( y \\) to be the mean NIDF of the words in \\( y \\). Thus our control variable \\( z \\) is mean NIDF (discretized into 10 equal-sized buckets). As shown in Table 1, this method gives outputs with a narrower NIDF range, but overall produces less nonsensical outputs."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2045,
+                    821,
+                    2097
+                ],
+                "angle": 0,
+                "content": "6.3 Response-relatedness"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2118,
+                    1213,
+                    2511
+                ],
+                "angle": 0,
+                "content": "In conversation, it's generally desirable to produce a response that is related to the partner's last utterance; for example if the partner says My grandfather died last month, it is appropriate to say I'm so sorry. Were you close to your grandfather? However, our baseline model frequently responds with unrelated utterances like Do you have any pets?"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2515,
+                    1213,
+                    2627
+                ],
+                "angle": 0,
+                "content": "To control response-relatedness with weighted decoding, we use the decoding feature resp_rel:"
+            },
+            {
+                "block_id": 8,
+                "type": "equation",
+                "bbox": [
+                    297,
+                    2680,
+                    1200,
+                    2806
+                ],
+                "angle": 0,
+                "content": "\\[\n\\begin{array}{r l} \\text {r e s p - r e l} (w; y _ {<   t}, x) = & \\\\ & \\qquad \\cos_ {\\text {s i m}} (\\text {w o r d - e m b} (w), \\text {s e n t - e m b} (\\ell)) \\end{array}\n\\]"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2852,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "where \\( \\text{word\\_emb}(w) \\) is the GloVe embedding for the word \\( w \\), \\( \\text{sent\\_emb}(\\ell) \\) is the sentence embedding for the partner's last utterance \\( \\ell \\) (note \\( \\ell \\) is part of the context \\( x \\)), and \\( \\cos\\_sim \\) is the cosine similarity between the two. In particular, the sentence embedding \\( \\text{sent\\_emb}(s) \\) for an utterance \\( s \\) is a"
+            },
+            {
+                "block_id": 11,
+                "type": "table",
+                "bbox": [
+                    1282,
+                    368,
+                    2200,
+                    691
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Wt</td><td>Sim</td><td>Weighted Decoding Response</td></tr><tr><td>-10.0</td><td>-0.05</td><td>I am a musician.</td></tr><tr><td>0.0</td><td>-0.02</td><td>I do, when I am not playing the piano.</td></tr><tr><td>5.0</td><td>0.40</td><td>I do, usually at starbucks.</td></tr><tr><td>8.0</td><td>0.59</td><td>Not usually, especially when you drink latte.</td></tr><tr><td>11.0</td><td>0.72</td><td>Not often, usually with drinks, \nespresso, latte, tea, etc.</td></tr></table>",
+                "caption": "Input: Do you go get coffee often  \nBaseline Response: I do, when I am not playing the piano."
+            },
+            {
+                "block_id": 12,
+                "type": "table_footnote",
+                "bbox": [
+                    1265,
+                    747,
+                    2193,
+                    999
+                ],
+                "angle": 0,
+                "content": "Table 2: Example of controlling response-relatedness (cosine similarity to input) via weighted decoding. Positive weights (e.g. 5.0) can yield more on-topic responses, but higher weights (e.g. 11.0) can result in nonsensical lists of topically related words."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1090,
+                    2193,
+                    1655
+                ],
+                "angle": 0,
+                "content": "weighted average of the GloVe embeddings of the words in \\(s\\), with the first principal component projected out; for full details, see Arora et al. (2017). This method of controlling response-relatedness is similar to that described in (Baheti et al., 2018). We find that weighted decoding is effective to control the semantic relatedness of the model's response to the partner's last utterance (see Table 2). As before, we find that extreme weights lead to nonsensical output."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1659,
+                    2193,
+                    2164
+                ],
+                "angle": 0,
+                "content": "To control response-relatedness with conditional training, we try defining the control variable \\( z \\) to be \\( \\cos_{\\text{sim}}(\\text{sent\\_emb}(y), \\text{sent\\_emb}(\\ell)) \\), the overall cosine similarity between the partner's last utterance \\( \\ell \\) and the model's response \\( y \\) (again, we discretize \\( z \\)). However, we find this method ineffective – the CT model learns only a very weak connection between \\( z \\) and the semantic relatedness of the output (see Section 7 for more details)."
+            },
+            {
+                "block_id": 15,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2213,
+                    1706,
+                    2266
+                ],
+                "angle": 0,
+                "content": "6.4 Question-asking"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2287,
+                    2190,
+                    2511
+                ],
+                "angle": 0,
+                "content": "Considerate chitchat requires a reciprocal asking and answering of questions – asking too few or too many can appear self-centered or nosy. We control question-asking in order to study these trade-offs."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2515,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "To control question-asking with weighted decoding, we use the binary decoding feature is_qn_word(w), which is equal to 1 if and only if the word \\( w \\) is in a pre-defined list of interrogative words (how, what, when, where, which, who, whom, whose, why, ?). We find this is a somewhat effective method to encourage or discourage questions, but with unintended side-effects: a negative weight can discourage valid non-question utterances that happen to contain interrogative words (such as I'm learning how to knit) and a positive weight can result in degenerate utterances (such as"
+            },
+            {
+                "block_id": 18,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1706"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    302,
+                    277,
+                    1195,
+                    841
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 2: Controlling question-asking via conditional training. Exact numbers can be found in Appendix F."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    290,
+                    1094,
+                    1014,
+                    1147
+                ],
+                "angle": 0,
+                "content": "What???? or Who? When? How?)."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1157,
+                    1215,
+                    1943
+                ],
+                "angle": 0,
+                "content": "For conditional training, we regard an utterance \\( y \\) as containing a question if and only if \\( y \\) contains a question mark. We train our CT model on a control variable \\( z \\) with 11 possible values: \\( \\{0, \\dots, 10\\} \\). As discussed in Section 5, we wish to control question-asking at the distributional, dialogue level, rather than at the binary, utterance level. Thus the setting \\( z = i \\) means that the model should produce, on average, utterances containing “?” with probability \\( i / 10 \\). During training we randomly assign examples to buckets such that each bucket \\( i \\) is trained on examples with the correct proportion of questions \\( (i / 10) \\), and all buckets have the same amount of training examples."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1950,
+                    1215,
+                    3195
+                ],
+                "angle": 0,
+                "content": "We find that conditional training is effective to control question-asking – as shown in Figure 2, by increasing \\( z \\) from 0 to 10, we obtain a range of question-asking rates from \\( 1.40\\% \\) to \\( 97.72\\% \\). However, when we introduce repetition control, question-asking is reduced – in particular, the \\( z = 10 \\) setting (which should produce \\( 100\\% \\) questions) now only produces \\( 79.67\\% \\) questions. The primary problem is the weighted decoding feature extrep/bigram, which discourages bigrams that have appeared in previous utterances – this prevents the model from producing bigrams that commonly occur in many questions, such as do you and what is. To fix this, we introduce an extra setting \\( z = 10 \\) (boost), in which we do not use the feature extrep/bigram for weighted decoding during beam search, but we do use it to rerank the candidates after beam search. This setting, which allows the model to produce necessary question-asking bigrams, yields a \\( 99.54\\% \\) question-asking rate, at the cost of slightly increased external bigram repetition (see Appendix F)."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    266,
+                    2195,
+                    827
+                ],
+                "angle": 0,
+                "content": "For controlling question-asking, conditional training is preferable to weighted decoding for two reasons. Firstly, it allows us to achieve (close to) \\(0\\%\\) questions, \\(100\\%\\) questions, or anything in between, without introducing the risk of degenerate output. Secondly, presence-of-a-question-mark captures the true attribute of interest (question-asking) more exactly and directly than presence of interrogative words. For these reasons, only the CT method is considered in the human evaluation."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    873,
+                    2034,
+                    933
+                ],
+                "angle": 0,
+                "content": "7 Comparison of control methods"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    964,
+                    2190,
+                    1129
+                ],
+                "angle": 0,
+                "content": "The previous section shows that conditional training and weighted decoding are both useful techniques, with different strengths and weaknesses."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1136,
+                    2193,
+                    1754
+                ],
+                "angle": 0,
+                "content": "The primary disadvantage of conditional training is that it sometimes fails to learn the connection between the control variable \\( z \\) and the target output \\( y \\). In practice, we find the model can learn simple attributes of the output (such as the presence of ‘?’, and overall genericness), but not relationships between the input and output (such as semantic relatedness). By contrast, weighted decoding can force the desired feature to appear in the output by raising the weight arbitrarily high (though this may have unintended side-effects)."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1757,
+                    2193,
+                    2318
+                ],
+                "angle": 0,
+                "content": "The primary disadvantage of weighted decoding is that it risks going off-distribution when the weight is too strong. By contrast, conditional training produces mostly well-formed, indistribution outputs. This highlights the importance of learned control – it is safer to learn to produce output that both satisfies the control variable and is appropriate, than to alter the decoding process to satisfy the control variable, potentially trading off appropriateness in the process."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2322,
+                    2193,
+                    2943
+                ],
+                "angle": 0,
+                "content": "Other considerations include: (1) Convenience: conditional training requires retraining; weighted decoding doesn't, but is slower at test time. (2) Data availability: conditional training requires training examples of the controllable attribute, whereas weighted decoding can control any computable feature without requiring examples. (3) Attribute definition: conditional training can control sentence-level attributes, but they must be discrete. By contrast, weighted decoding requires word-level features, but they can be continuous."
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2988,
+                    1905,
+                    3041
+                ],
+                "angle": 0,
+                "content": "8 Human evaluation results"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    3080,
+                    2190,
+                    3192
+                ],
+                "angle": 0,
+                "content": "In order to study the effect of our controllable attributes, we conduct a large-scale human evalua-"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1707"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    266,
+                    1210,
+                    375
+                ],
+                "angle": 0,
+                "content": "tion of 28 model configurations (see Appendix E), plus human-human conversations for comparison."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    413,
+                    1215,
+                    1255
+                ],
+                "angle": 0,
+                "content": "Approach In our evaluation, a crowdworker chats with a model (or in the human-human case, another crowdworker) for six conversational turns, then answers eight multiple-choice questions which each capture different aspects of conversational quality: avoiding repetition, interestingness, making sense, fluency, listening, inquisitiveness, humanness and engagingness. The eight questions are Likert questions on a 1-4 scale, where higher is better.5 To match the ConvAI2 Challenge, we also add a persona retrieval question, in which the crowdworker is asked to select which of two possible personas was the model's persona. For full details of the evaluation design, see Appendix B."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1262,
+                    1215,
+                    1708
+                ],
+                "angle": 0,
+                "content": "Our evaluation is the same as the ConvAI2 Challenge evaluation, but more detailed - ConvAI2 includes only engagingness and persona retrieval. As in the ConvAI2 challenge, each of our 28 model configurations was evaluated by over 100 crowdworkers, and the results were adjusted for annotator variance via a Bayesian calibration (Kulikov et al., 2018)."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1715,
+                    1215,
+                    2108
+                ],
+                "angle": 0,
+                "content": "In designing our evaluation, we aimed to capture the four aspects we expected to directly improve via control (avoiding repetition, interestingness, listening, inquisitiveness), two important error classes we thought would be affected by our controls (fluency, making sense), and two overall quality measures (engagingness, humanness)."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    285,
+                    2150,
+                    677,
+                    2206
+                ],
+                "angle": 0,
+                "content": "8.1 Main findings"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2224,
+                    1215,
+                    2448
+                ],
+                "angle": 0,
+                "content": "In this section we summarize the main findings of our human evaluation – whose full results can be found in Appendices G and H, with sample conversations in Appendix C."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2455,
+                    1215,
+                    2564
+                ],
+                "angle": 0,
+                "content": "As Figure 3 shows, controlling for repetition, specificity and question-asking all lead to large"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    266,
+                    2195,
+                    603
+                ],
+                "angle": 0,
+                "content": "engagingness improvements over the greedy and beam-search baseline models. In particular, we find that controlling for multi-turn (self) repetition is important and should be incorporated alongside other attribute control methods. We found no improvement by controlling response-relatedness."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    606,
+                    2195,
+                    1168
+                ],
+                "angle": 0,
+                "content": "To better understand these overall engagingness improvements, we consider the full set of human judgments, shown in Figure 4. We find that reducing repetition leads to improvements across all our aspects of conversational quality. Increasing specificity shows improvements in interestingness and listening ability over the repetition-controlled baseline, while increasing question-asking shows improvements in inquisitiveness and interestingness over the repetition-controlled baseline."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1171,
+                    2195,
+                    1960
+                ],
+                "angle": 0,
+                "content": "Our most engaging model, which controls both repetition and question-asking - marked 'Question (CT)' in Figure 3 (left) - matches the engagingness of the winning entry in the ConvAI2 competition, as both models achieve a raw score<sup>7</sup> of 3.1 (Dinan et al., 2019). However, the ConvAI2 winner, Lost in Conversation, was trained on approximately \\(12 \\times\\) as much data as our model. Lost in Conversation is based on the OpenAI GPT Language Model (Radford et al., 2018), which is pretrained on the BookCorpus (Zhu et al., 2015), which contains approximately 985 million words, whereas our model is pretrained on the Twitter dataset (approximately 79 million words)."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1964,
+                    2193,
+                    2129
+                ],
+                "angle": 0,
+                "content": "Altogether, our evaluation clearly shows that controlling low-level attributes over multiple turns leads to improved overall quality."
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2174,
+                    1964,
+                    2224
+                ],
+                "angle": 0,
+                "content": "8.2 Effect of controlled attributes"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2248,
+                    2193,
+                    2866
+                ],
+                "angle": 0,
+                "content": "Repetition (WD) We observe that self-repetition across utterances (external repetition) is by far the most severe form of repetition in our beam search baseline model. We evaluate several settings of the extrep/bigram weighted decoding feature, and find that an aggressive repetition-reduction setting (reducing bigram repetition rate to below gold data levels) is rated best. We also find that blocking repeated content words improves the avoiding repetition score. See Appendices E, F and G for full details."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2873,
+                    2193,
+                    2985
+                ],
+                "angle": 0,
+                "content": "As shown in Figure 3 (left) and Figure 4, our repetition-controlled model improves hugely"
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    1265,
+                    3016,
+                    2193,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Although the same Bayesian calibration method was applied both in our study and in the ConvAI2 competition, calibrated scores are not comparable across the two; thus we compare raw scores (viewable in Table 7)."
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2595,
+                    1210,
+                    2767
+                ],
+                "angle": 0,
+                "content": "\\(^{5}\\)Exceptions: Avoiding repetition is a 1-3 scale, as we found this gave clearer instructions. Inquisitiveness has an optimal score of 3; 1 and 2 represent too little question-asking, and 4 represents too much."
+            },
+            {
+                "block_id": 16,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2767,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "There are three other minor differences between our evaluation and ConvAI2's: (1) We fix capitalization and spacing before showing the chatbot's utterances to crowdworkers, while ConvAI2 show the raw lowercase tokenized form. We found the latter interferes with fluency evaluation. (2) We conduct 6 dialogue turns, while ConvAI2 conducts 4-6. This was necessary to evaluate repetitiveness. (3) We use (publicly-available) validation set personas, while ConvAI2 uses (hidden) test set personas. This enables us to release our evaluation chatlogs."
+            },
+            {
+                "block_id": 17,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2595,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 18,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3234,
+                    1292,
+                    3276
+                ],
+                "angle": 0,
+                "content": "1708"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    292,
+                    259,
+                    898,
+                    677
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    925,
+                    273,
+                    1553,
+                    659
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    1563,
+                    284,
+                    2188,
+                    659
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 3: Calibrated human judgments of engagingness for the baselines and best controlled models (left); for different specificity control settings (middle); and for different question-asking control settings (right)."
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    297,
+                    838,
+                    2175,
+                    1192
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 4: Calibrated human judgments of conversational aspects for the baselines and best controlled models. Note: In Figure 3 and here, the Specificity and Question controlled models both include Repetition control, but Question control doesn't include Specificity control, or vice versa."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1476,
+                    1215,
+                    2153
+                ],
+                "angle": 0,
+                "content": "over the beam search baseline in all metrics, and achieves close-to-human scores on all metrics except humanness. This striking result demonstrates that repetition is by far the biggest limiting quality factor for naive sequence-to-sequence dialogue agents. The result also emphasizes the importance of multi-turn dialogue evaluation to detect the problem. We refer to this model as the repetition-controlled baseline, and use it as a basis for all remaining experiments (i.e., we control specificity, response-relatedness and question-asking on top of these repetition-control settings)."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2231,
+                    1215,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Specificity (WD, CT) For our weighted decoding models, the extreme settings (very generic and very specific) score poorly in engagingness due to the frequent presence of degenerate output - see Figure 3 (middle). We find that the weight \\( = 4 \\) setting (which is more specific than the repetition-controlled baseline and about as specific as the gold data) maximizes engagingness. As shown in Figure 3 (left) and Figure 4, this more-specific model is rated more interesting, engaging, and a better listener than the repetition-controlled baseline, but at the cost of reduced fluency and making sense. Our CT model with \\( z = 7 \\) (which has a similar NIDF level as WD with weight \\( = 4 \\)) shows similar results, but the improvements are smaller. For further discussion on the interestingness of our specificity models, see Section 8.3."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1476,
+                    2195,
+                    2546
+                ],
+                "angle": 0,
+                "content": "Response-relatedness (WD) We evaluated several control settings (weight \\(= -10, 5, 10, 13\\)) and found that none scored better than weight \\(= 0\\) (no response-relatedness control); see Appendix H. This is surprising – prior to running the human evaluation, we annotated 100 examples ourselves to determine the best control settings. While we identified a more responsive setting (weight \\(= 5\\)) as less likely than the uncontrolled model to ignore the user, crowdworkers rated it as a slightly worse listener than the uncontrolled model. One explanation for this discrepancy is that the more responsive model takes more risks, using more rare words (0.197 NIDF, up from 0.178), and thus receives a lower makes-sense score (3.41, down from 3.70). We hypothesize that, compared to us, the crowdworkers are less tolerant of slightly nonsensical output, and more tolerant of generic unrelated utterances."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2627,
+                    2200,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Question-asking (CT) As shown in Figure 3 (right), a question-asking rate of \\(65.7\\%\\) (\\(z = 7\\)) maximizes engagingness. This setting, which asks more questions than both the repetition-controlled baseline (\\(50.0\\%\\)) and the human-produced gold data (\\(28.8\\%\\)), brings us closest to human-level engagingness - see Figure 3 (left). Although we find that a rate of approximately \\(65.7\\%\\) question-asking is the most engaging, a lower level (\\(48.9\\%\\), or \\(z = 4\\)) is rated the best listener. Lastly, we find"
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1709"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    409,
+                    256,
+                    2076,
+                    480
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Model</td><td>Win%</td><td>Top 3 reasons for preferring model</td></tr><tr><td>Specificity WD (weight = 6)</td><td>84.1%</td><td>More information; Better flow; More descriptive</td></tr><tr><td>Specificity WD (weight = 4)</td><td>75.5%</td><td>More information; They describe their life in more detail; Funny</td></tr><tr><td>Specificity CT (z = 7)</td><td>56.2%</td><td>More information; Better flow; Seems more interested</td></tr></table>",
+                "caption": "Table 3: A/B tests comparing various specificity-controlled models to the repetition-controlled baseline on interestingness. We find all comparisons are significant (\\(p < .05\\); binomial test)."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    726,
+                    1215,
+                    1119
+                ],
+                "angle": 0,
+                "content": "that although asking too many questions is less engaging, most crowdworkers will not directly criticize a chatbot that asks questions on every turn – only \\(11.9\\%\\) of crowdworkers judged the \\(z = 10\\) (boost) setting, which asks \\(99.5\\%\\) questions, as asking too many questions.\\(^{8}\\) For full details of these scores, see Appendix F and H."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1122,
+                    1215,
+                    1354
+                ],
+                "angle": 0,
+                "content": "For time and budget reasons, we did not evaluate any models controlling both question-asking and specificity. However, we expect it is possible to obtain further improvements by doing so."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1392,
+                    950,
+                    1445
+                ],
+                "angle": 0,
+                "content": "8.3 A/B tests for interestingness"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1462,
+                    1215,
+                    2367
+                ],
+                "angle": 0,
+                "content": "Though our more-specific models yielded significant improvements in engagingness, we were surprised that they did not yield clearer improvements in interestingness. To investigate further, we conducted an A/B interestingness evaluation of three specificity-controlled models, compared to the repetition-controlled baseline. Crowdworkers were shown two conversations (from the main human evaluation) and asked to choose which model was more interesting (see Figure 7 for details). We collected 500 samples per comparison, plus 200 additional human vs repetition-controlled baseline samples, which were used to filter for quality control. After discarding low-quality crowdworkers, we have roughly 300 evaluations per comparison, with an average Cohen's \\(\\kappa = 0.6\\)."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2371,
+                    1215,
+                    2988
+                ],
+                "angle": 0,
+                "content": "As shown in Table 3, all three models were rated significantly more interesting than the repetition-controlled baseline. This convincingly shows that producing utterances with more rare words is a valid strategy to improve interestingness. We have two explanations for why these interestingness differences did not materialize in our main evaluation. Firstly, interestingness is a particularly subjective metric (unlike more tangible metrics such as avoiding repetition and making sense) – this makes it hard to calibrate across crowdworkers."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    726,
+                    2195,
+                    1122
+                ],
+                "angle": 0,
+                "content": "Secondly, we suspect that in our original evaluation, the crowdworkers may have evaluated the interestingness of the task rather than the chatbot. This could account for why subtle increases in conversational ability did not result in higher interestingness ratings – the PersonaChat task itself has a natural interestingness limit."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1157,
+                    1597,
+                    1210
+                ],
+                "angle": 0,
+                "content": "9 Conclusion"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1245,
+                    2195,
+                    2546
+                ],
+                "angle": 0,
+                "content": "What makes a good conversation? Through our evaluation, we showed that a good conversation is about balance - controlling for the right level of repetition, specificity and question-asking is important for overall quality. We also found that conversational aspects such as interestingness, listening, and inquisitiveness are all important - though optimizing these can introduce a trade-off against certain types of errors (such as repetitive, disfluent, or nonsensical output). Secondly, multiturn evaluation is essential to study what makes a good conversation - multiple turns are required to reveal issues such as repetition, consistency, and question-asking frequency. Lastly, what do we mean by 'good'? Although humanness and engag ingness are both commonly used as overall quality metrics, the two are very different. While our models achieved close-to-human scores on engag ingness, they failed to get close on humanness - showing that a chatbot need not be human-like to be enjoyable. This striking result also demonstrates the importance of measuring more than one quality metric when evaluating dialogue agents."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2571,
+                    2195,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Outlook Our work shows that neural generative systems have systemic problems when applied to open-ended dialogue, some of which (e.g. repetition) are only observable in the multi-turn setting. Furthermore, control of low-level attributes offers a practical way to correct these problems, yielding large improvements to overall quality – in our case, comparable to systems trained on much more data. Future work includes optimizing control settings automatically, and building more convincingly human-like chatbots."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    3013,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Though this conclusion may hold true for the PersonaChat task – a synthetic chatting task that instructs participants to get to know each other – in real-life social conversations, incessant question-asking may be less tolerated."
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1710"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    292,
+                    263,
+                    535,
+                    315
+                ],
+                "angle": 0,
+                "content": "References"
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    361,
+                    1210,
+                    638
+                ],
+                "angle": 0,
+                "content": "Sanjeev Arora, Yingyu Liang, and Tengyu Ma. 2017. A simple but tough-to-beat baseline for sentence embeddings. In Proceedings of the International Conference on Learning Representations (ICLR)."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    666,
+                    1210,
+                    1062
+                ],
+                "angle": 0,
+                "content": "Ashutosh Baheti, Alan Ritter, Jiwei Li, and Bill Dolan. 2018. Generating more interesting responses in neural conversation models with distributional constraints. In Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, pages 3970-3980. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1087,
+                    1210,
+                    1311
+                ],
+                "angle": 0,
+                "content": "Antoine Bordes, Y-Lan Boureau, and Jason Weston. 2017. Learning end-to-end goal-oriented dialog. In Proceedings of the International Conference on Learning Representations (ICLR)."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1340,
+                    1210,
+                    1673
+                ],
+                "angle": 0,
+                "content": "Emily Dinan, Varvara Logacheva, Valentin Malykh, Alexander Miller, Kurt Shuster, Jack Urbanek, Douwe Kiela, Arthur Szlam, Iulian Serban, Ryan Lowe, et al. 2019. The second conversational intelligence challenge (convai2). arXiv preprint arXiv:1902.00098."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1701,
+                    1210,
+                    1978
+                ],
+                "angle": 0,
+                "content": "Emily Dinan, Stephen Roller, Kurt Shuster, Angela Fan, Michael Auli, and Jason Weston. 2018. Wizard of Wikipedia: Knowledge-powered conversational agents. arXiv preprint arXiv:1811.01241."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2010,
+                    1210,
+                    2518
+                ],
+                "angle": 0,
+                "content": "Layla El Asri, Hannes Schulz, Shikhar Sharma, Jeremie Zumer, Justin Harris, Emery Fine, Rahul Mehrotra, and Kaheer Suleman. 2017. Frames: a corpus for adding memory to goal-oriented dialogue systems. In Proceedings of the 18th Annual SIGDIAL Meeting on Discourse and Dialogue, pages 207-219, Saarbrücken, Germany. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2546,
+                    1210,
+                    2876
+                ],
+                "angle": 0,
+                "content": "Angela Fan, David Grangier, and Michael Auli. 2018. Controllable abstractive summarization. In Proceedings of the 2nd Workshop on Neural Machine Translation and Generation, pages 45-54. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2908,
+                    1210,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Jessica Ficler and Yoav Goldberg. 2017. Controlling linguistic style aspects in neural language generation. In Proceedings of the Workshop on Stylistic Variation, pages 94-104. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    292,
+                    361,
+                    1210,
+                    3192
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    263,
+                    2195,
+                    547
+                ],
+                "angle": 0,
+                "content": "Marjan Ghazvininejad, Xing Shi, Jay Priyadarshi, and Kevin Knight. 2017. Hafez: an interactive poetry generation system. In Proceedings of ACL 2017, System Demonstrations, pages 43-48. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    564,
+                    2195,
+                    901
+                ],
+                "angle": 0,
+                "content": "Fenfei Guo, Angeliki Metallinou, Chandra Khatri, Anirudh Raju, Anu Venkatesh, and Ashwin Ram. 2018. Topic-based evaluation for conversational bots. Advances in Neural Information Processing Systems, Conversational AI Workshop."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    922,
+                    2193,
+                    1087
+                ],
+                "angle": 0,
+                "content": "Helen Hastie. 2012. Metrics and evaluation of spoken dialogue systems, pages 131-150. Springer."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1108,
+                    2193,
+                    1441
+                ],
+                "angle": 0,
+                "content": "Matthew Henderson, Blaise Thomson, and Jason D Williams. 2014. The second dialog state tracking challenge. In Proceedings of the 15th Annual Meeting of the Special Interest Group on Discourse and Dialogue (SIGDIAL), pages 263-272."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1466,
+                    2193,
+                    1743
+                ],
+                "angle": 0,
+                "content": "Zhiting Hu, Zichao Yang, Xiaodan Liang, Ruslan Salakhutdinov, and Eric P Xing. 2017. Toward controlled generation of text. In Thirty-fourth International Conference on Machine Learning."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1764,
+                    2193,
+                    2157
+                ],
+                "angle": 0,
+                "content": "Yuta Kikuchi, Graham Neubig, Ryohei Sasano, Hiroya Takamura, and Manabu Okumura. 2016. Controlling output length in neural encoder-decoders. In Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing, pages 1328-1338. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2178,
+                    2193,
+                    2402
+                ],
+                "angle": 0,
+                "content": "Ilya Kulikov, Alexander H Miller, Kyunghyun Cho, and Jason Weston. 2018. Importance of a search strategy in neural dialogue modelling. arXiv preprint arXiv:1811.00907."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2420,
+                    2193,
+                    2873
+                ],
+                "angle": 0,
+                "content": "Jiwei Li, Michel Galley, Chris Brockett, Jianfeng Gao, and Bill Dolan. 2016a. A diversity-promoting objective function for neural conversation models. In Proceedings of the 2016 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, pages 110-119. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2890,
+                    2193,
+                    3058
+                ],
+                "angle": 0,
+                "content": "Jiwei Li, Will Monroe, and Dan Jurafsky. 2017a. Learning to decode for future success. arXiv preprint arXiv:1701.06549."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    3080,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Jiwei Li, Will Monroe, Alan Ritter, Dan Jurafsky, Michel Galley, and Jianfeng Gao. 2016b. Deep"
+            },
+            {
+                "block_id": 20,
+                "type": "list",
+                "bbox": [
+                    1272,
+                    263,
+                    2195,
+                    3192
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 21,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1290,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1711"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    334,
+                    266,
+                    1210,
+                    547
+                ],
+                "angle": 0,
+                "content": "reinforcement learning for dialogue generation. In Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing, pages 1192-1202, Austin, Texas. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    561,
+                    1210,
+                    785
+                ],
+                "angle": 0,
+                "content": "Jiwei Li, Will Monroe, Tianlin Shi, Sébastien Jean, Alan Ritter, and Dan Jurafsky. 2017b. Adversarial learning for neural dialogue generation. arXiv preprint arXiv:1701.06547."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    799,
+                    1210,
+                    1140
+                ],
+                "angle": 0,
+                "content": "Chia-Wei Liu, Ryan Lowe, Iulian Serban, Mike Noseworthy, Laurent Charlin, and Joelle Pineau. 2016. How not to evaluate your dialogue system: An empirical study of unsupervised evaluation metrics for dialogue response generation. pages 2122-2132."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1157,
+                    1210,
+                    1662
+                ],
+                "angle": 0,
+                "content": "Ryan Lowe, Michael Noseworthy, Iulian Vlad Serban, Nicolas Angelard-Gontier, Yoshua Bengio, and Joelle Pineau. 2017. Towards an automatic turing test: Learning to evaluate dialogue responses. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 1116-1126. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1680,
+                    1210,
+                    2129
+                ],
+                "angle": 0,
+                "content": "Ryan Lowe, Nissan Pow, Iulian Serban, and Joelle Pineau. 2015. The Ubuntu dialogue corpus: A large dataset for research in unstructured multiturn dialogue systems. In Proceedings of the 16th Annual Meeting of the Special Interest Group on Discourse and Dialogue, pages 285-294, Prague, Czech Republic. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2146,
+                    1210,
+                    2652
+                ],
+                "angle": 0,
+                "content": "Alexander Miller, Will Feng, Dhruv Batra, Antoine Bordes, Adam Fisch, Jiasen Lu, Devi Parikh, and Jason Weston. 2017. *ParlAI: A dialog research software platform*. In *Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing: System Demonstrations*, pages 79–84, Copenhagen, Denmark. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2669,
+                    1210,
+                    3006
+                ],
+                "angle": 0,
+                "content": "Jekaterina Novikova, Ondrej Dušek, Amanda Cercas Curry, and Verena Rieser. 2017. Why we need new evaluation metrics for nlg. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, pages 2241-2252."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    3023,
+                    1210,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Prasanna Parthasarathi and Joelle Pineau. 2018. Extending neural generative conversational model using external knowledge sources. In"
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    292,
+                    266,
+                    1210,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    1319,
+                    266,
+                    2188,
+                    487
+                ],
+                "angle": 0,
+                "content": "Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, pages 690-695, Brussels, Belgium. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    1275,
+                    512,
+                    2195,
+                    785
+                ],
+                "angle": 0,
+                "content": "Nanyun Peng, Marjan Ghazvininejad, Jonathan May, and Kevin Knight. 2018. Towards controllable story generation. In Proceedings of the First Workshop on Storytelling, pages 43-49. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    810,
+                    2193,
+                    1206
+                ],
+                "angle": 0,
+                "content": "Jeffrey Pennington, Richard Socher, and Christopher Manning. 2014. GloVe: Global vectors for word representation. In Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP), pages 1532-1543, Doha, Qatar. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1275,
+                    1227,
+                    2188,
+                    1399
+                ],
+                "angle": 0,
+                "content": "Alec Radford, Karthik Narasimhan, Tim Salimans, and Ilya Sutskever. 2018. Improving language understanding by generative pre-training."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1275,
+                    1417,
+                    2188,
+                    1754
+                ],
+                "angle": 0,
+                "content": "Iulian Vlad Serban, Ryan Lowe, Laurent Charlin, and Joelle Pineau. 2016a. Generative deep neural networks for dialogue: A short review. Advances in Neural Information Processing Systems workshop on Learning Methods for Dialogue."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1275,
+                    1778,
+                    2188,
+                    2059
+                ],
+                "angle": 0,
+                "content": "Iulian Vlad Serban, Alessandro Sordoni, Yoshua Bengio, Aaron C Courville, and Joelle Pineau. 2016b. Building end-to-end dialogue systems using generative hierarchical neural network models. In AAAI, volume 16, pages 3776-3784."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1275,
+                    2080,
+                    2188,
+                    2529
+                ],
+                "angle": 0,
+                "content": "Xiaoyu Shen, Hui Su, Yanran Li, Wenjie Li, Shuzi Niu, Yang Zhao, Akiko Aizawa, and Guoping Long. 2017. A conditional variational framework for dialog generation. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers), pages 504-509. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1275,
+                    2550,
+                    2188,
+                    2946
+                ],
+                "angle": 0,
+                "content": "Anu Venkatesh, Chandra Khatri, Ashwin Ram, Fenfei Guo, Raefer Gabriel, Ashish Nagar, Rohit Prasad, Ming Cheng, Behnam Hedayatnia, Angeliki Metallinou, et al. 2017. On evaluating and comparing conversational agents. Advances in Neural Information Processing Systems, Conversational AI Workshop."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2967,
+                    2188,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Oriol Vinyals and Quoc Le. 2015. A neural conversational model. In Proceedings of the 31st International Conference on Machine Learning, Deep Learning Workshop, Lille, France."
+            },
+            {
+                "block_id": 18,
+                "type": "list",
+                "bbox": [
+                    1272,
+                    266,
+                    2195,
+                    3192
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 19,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3276
+                ],
+                "angle": 0,
+                "content": "1712"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    263,
+                    1215,
+                    659
+                ],
+                "angle": 0,
+                "content": "Marilyn A. Walker, Diane J. Litman, Candace A. Kamm, and Alicia Abella. 1997. PARADISE: A framework for evaluating spoken dialogue agents. In Proceedings of the 35th Annual Meeting of the Association for Computational Linguistics, pages 271-280, Madrid, Spain. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    673,
+                    1215,
+                    1066
+                ],
+                "angle": 0,
+                "content": "Di Wang, Nebojsa Jojic, Chris Brockett, and Eric Nyberg. 2017. Steering output style and topic in neural response generation. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, pages 2140-2150. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1083,
+                    1215,
+                    1589
+                ],
+                "angle": 0,
+                "content": "Tsung-Hsien Wen, David Vandyke, Nikola Mrkšić, Milica Gasic, Lina M. Rojas Barahona, Pei-Hao Su, Stefan Ultes, and Steve Young. 2017. A network-based end-to-end trainable task-oriented dialogue system. In Proceedings of the 15th Conference of the European Chapter of the Association for Computational Linguistics: Volume 1, Long Papers, pages 438-449. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1606,
+                    1215,
+                    1831
+                ],
+                "angle": 0,
+                "content": "Chen Xing, Wei Wu, Yu Wu, Jie Liu, Yalou Huang, Ming Zhou, and Wei-Ying Ma. 2017. Topic aware neural response generation. In AAAI, volume 17, pages 3351-3357."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1848,
+                    1215,
+                    2297
+                ],
+                "angle": 0,
+                "content": "Ruqing Zhang, Jiafeng Guo, Yixing Fan, Yanyan Lan, Jun Xu, and Xueqi Cheng. 2018a. Learning to control the specificity in neural response generation. In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 1108-1117, Melbourne, Australia. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2315,
+                    1218,
+                    2764
+                ],
+                "angle": 0,
+                "content": "Saizheng Zhang, Emily Dinan, Jack Urbanek, Arthur Szlam, Douwe Kiela, and Jason Weston. 2018b. Personalizing dialogue agents: I have a dog, do you have pets too? In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 2204-2213, Melbourne, Australia. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2781,
+                    1215,
+                    3006
+                ],
+                "angle": 0,
+                "content": "Ganbin Zhou, Ping Luo, Rongyu Cao, Fen Lin, Bo Chen, and Qing He. 2017. Mechanism-aware neural machine for dialogue response generation. In AAAI, pages 3400-3407."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    3023,
+                    1215,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Yukun Zhu, Ryan Kiros, Rich Zemel, Ruslan Salakhutdinov, Raquel Urtasun, Antonio Torralba, and Sanja Fidler. 2015. Aligning books"
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    292,
+                    263,
+                    1218,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1314,
+                    263,
+                    2195,
+                    491
+                ],
+                "angle": 0,
+                "content": "and movies: Towards story-like visual explanations by watching movies and reading books. In Proceedings of the IEEE international conference on computer vision, pages 19-27."
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1713"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    290,
+                    249,
+                    1059,
+                    333
+                ],
+                "angle": 0,
+                "content": "Supplementary Material"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    287,
+                    399,
+                    1292,
+                    456
+                ],
+                "angle": 0,
+                "content": "A Screenshot of human evaluation interface"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    332,
+                    529,
+                    682,
+                    585
+                ],
+                "angle": 0,
+                "content": "Task Description"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    329,
+                    624,
+                    1714,
+                    663
+                ],
+                "angle": 0,
+                "content": "In this task, you will chat with another user playing the part of a given character.. For example, your given character could be:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    329,
+                    691,
+                    2009,
+                    726
+                ],
+                "angle": 0,
+                "content": "I am a vegetarian. I like swimming. My father used to work for Ford. My favorite band is Maroon5. I got a new job last month, which is about advertising design."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    329,
+                    757,
+                    2151,
+                    792
+                ],
+                "angle": 0,
+                "content": "Chat with the other user naturally and try to get to know each other, i.e. both ask questions and answer questions of your chat partner while sticking to your given character."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    329,
+                    824,
+                    2131,
+                    894
+                ],
+                "angle": 0,
+                "content": "If you complete the task, you will receive $0.90. It may take up to 48 hours to review the HITs, so please allow that much time to pass before payment. After completion, you may be assigned a qualification that prevents you from working on more if you have completed enough of these HITs."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    329,
+                    922,
+                    1376,
+                    961
+                ],
+                "angle": 0,
+                "content": "After a given number of turns, you may be asked a few questions in order to evaluate your partner."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    329,
+                    989,
+                    1773,
+                    1027
+                ],
+                "angle": 0,
+                "content": "If your partner answers poorly, change topic. Do not linger on their poor response. Instead, mention this during the evaluation section."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    332,
+                    1069,
+                    783,
+                    1105
+                ],
+                "angle": 0,
+                "content": "Close Window/Timeout/Return HIT"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    329,
+                    1115,
+                    1830,
+                    1150
+                ],
+                "angle": 0,
+                "content": "Once the conversation has started, close window/timeout or return HIT during the chat will result in HIT EXPIRED to you and NO reward paid."
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    332,
+                    1192,
+                    555,
+                    1227
+                ],
+                "angle": 0,
+                "content": "Important Notice"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    329,
+                    1241,
+                    1726,
+                    1273
+                ],
+                "angle": 0,
+                "content": "1. Be aware the conversations you have will be made public, so act as you would e.g. on a public social network like Twitter."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    332,
+                    1273,
+                    1123,
+                    1304
+                ],
+                "angle": 0,
+                "content": "2. Please do not send long messages: messages cannot exceed 30 words."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    329,
+                    1304,
+                    1540,
+                    1336
+                ],
+                "angle": 0,
+                "content": "3. Please do not reference the task or MTurk itself during the conversation, but speak naturally to the other person."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    329,
+                    1343,
+                    2123,
+                    1403
+                ],
+                "angle": 0,
+                "content": "4. Please do not send any message that could make others uncomfortable, including any level of discrimination, racism, sexism and offensive religious/politics comments, otherwise the submission will be rejected."
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    329,
+                    1241,
+                    2123,
+                    1403
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    329,
+                    1434,
+                    992,
+                    1473
+                ],
+                "angle": 0,
+                "content": "Note: the user you are chatting with may be a human or a bot."
+            },
+            {
+                "block_id": 18,
+                "type": "image_caption",
+                "bbox": [
+                    860,
+                    1561,
+                    1622,
+                    1613
+                ],
+                "angle": 0,
+                "content": "Figure 5: Screenshot of the Task Description"
+            },
+            {
+                "block_id": 19,
+                "type": "title",
+                "bbox": [
+                    320,
+                    1739,
+                    563,
+                    1799
+                ],
+                "angle": 0,
+                "content": "Live Chat"
+            },
+            {
+                "block_id": 20,
+                "type": "title",
+                "bbox": [
+                    320,
+                    1932,
+                    667,
+                    1985
+                ],
+                "angle": 0,
+                "content": "Task Description"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    317,
+                    2020,
+                    905,
+                    2111
+                ],
+                "angle": 0,
+                "content": "In this task, you will chat with another user playing the part of a given character.. For example, your given character could be:"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    317,
+                    2136,
+                    895,
+                    2227
+                ],
+                "angle": 0,
+                "content": "I am a vegetarian. I like swimming. My father used to work for Ford. My favorite band is Maroon5. I got a new job last month, which is about advertising design."
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    317,
+                    2252,
+                    895,
+                    2287
+                ],
+                "angle": 0,
+                "content": "Chat with the other user naturally and try to get to know each"
+            },
+            {
+                "block_id": 24,
+                "type": "title",
+                "bbox": [
+                    317,
+                    2350,
+                    632,
+                    2385
+                ],
+                "angle": 0,
+                "content": "Your assigned character is:"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    317,
+                    2417,
+                    585,
+                    2452
+                ],
+                "angle": 0,
+                "content": "i also study languages."
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    317,
+                    2455,
+                    724,
+                    2483
+                ],
+                "angle": 0,
+                "content": "my favorite spanish word is trabajo."
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    317,
+                    2483,
+                    729,
+                    2515
+                ],
+                "angle": 0,
+                "content": "my next language to study is french."
+            },
+            {
+                "block_id": 28,
+                "type": "text",
+                "bbox": [
+                    317,
+                    2518,
+                    895,
+                    2585
+                ],
+                "angle": 0,
+                "content": "one of the languages that i am currently studying is.   \nspanish."
+            },
+            {
+                "block_id": 29,
+                "type": "text",
+                "bbox": [
+                    977,
+                    1739,
+                    1364,
+                    1775
+                ],
+                "angle": 0,
+                "content": "PERSON_2: I love coffee and coffee"
+            },
+            {
+                "block_id": 30,
+                "type": "text",
+                "bbox": [
+                    975,
+                    1953,
+                    1339,
+                    1989
+                ],
+                "angle": 0,
+                "content": "PERSON_2: Yeah I like coffee too"
+            },
+            {
+                "block_id": 31,
+                "type": "text",
+                "bbox": [
+                    977,
+                    2167,
+                    1409,
+                    2206
+                ],
+                "angle": 0,
+                "content": "PERSON_2: I do not but I do love coffee"
+            },
+            {
+                "block_id": 32,
+                "type": "text",
+                "bbox": [
+                    977,
+                    2381,
+                    1483,
+                    2417
+                ],
+                "angle": 0,
+                "content": "PERSON_2: I like blue but I like the color yellow"
+            },
+            {
+                "block_id": 33,
+                "type": "text",
+                "bbox": [
+                    992,
+                    2560,
+                    1200,
+                    2592
+                ],
+                "angle": 0,
+                "content": "Please enter here..."
+            },
+            {
+                "block_id": 34,
+                "type": "text",
+                "bbox": [
+                    1582,
+                    1845,
+                    2138,
+                    1883
+                ],
+                "angle": 0,
+                "content": "PERSON_1: oh yes, coffee is great. buzz buzz buzz!"
+            },
+            {
+                "block_id": 35,
+                "type": "text",
+                "bbox": [
+                    1592,
+                    2059,
+                    2138,
+                    2097
+                ],
+                "angle": 0,
+                "content": "PERSON_1: do you speak french? i want to learn it"
+            },
+            {
+                "block_id": 36,
+                "type": "text",
+                "bbox": [
+                    1689,
+                    2276,
+                    2136,
+                    2311
+                ],
+                "angle": 0,
+                "content": "PERSON_1: do you have a favorite color?"
+            },
+            {
+                "block_id": 37,
+                "type": "text",
+                "bbox": [
+                    2019,
+                    2560,
+                    2086,
+                    2592
+                ],
+                "angle": 0,
+                "content": "Send"
+            },
+            {
+                "block_id": 38,
+                "type": "image_caption",
+                "bbox": [
+                    553,
+                    2701,
+                    1925,
+                    2757
+                ],
+                "angle": 0,
+                "content": "Figure 6: Screenshot of the chat UI, talking with the beam search baseline model."
+            },
+            {
+                "block_id": 39,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1714"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    290,
+                    687,
+                    2200,
+                    2606
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 7: Screenshot of the A/B test UI, comparing a human-human conversation (left) and a Repetition-controlled baseline model (right)."
+            },
+            {
+                "block_id": 2,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1715"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    290,
+                    263,
+                    1233,
+                    322
+                ],
+                "angle": 0,
+                "content": "B Human evaluation questionnaire design"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    287,
+                    350,
+                    2193,
+                    410
+                ],
+                "angle": 0,
+                "content": "Here are the questions and multiple-choice options used in the human evaluation, in the order presented:"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    339,
+                    456,
+                    1538,
+                    512
+                ],
+                "angle": 0,
+                "content": "[Engagingness] How much did you enjoy talking to this user?"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    342,
+                    515,
+                    1101,
+                    564
+                ],
+                "angle": 0,
+                "content": "- Not at all \n- A little \n- Somewhat \n- A lot"
+            },
+            {
+                "block_id": 4,
+                "type": "list",
+                "bbox": [
+                    339,
+                    456,
+                    1538,
+                    564
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    339,
+                    624,
+                    1788,
+                    680
+                ],
+                "angle": 0,
+                "content": "[Interestingness] How interesting or boring did you find this conversation?"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    342,
+                    687,
+                    1612,
+                    740
+                ],
+                "angle": 0,
+                "content": "- Very boring • A little boring • A little interesting • Very interesting"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    339,
+                    624,
+                    1788,
+                    740
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    339,
+                    796,
+                    1587,
+                    852
+                ],
+                "angle": 0,
+                "content": "[Inquisitiveness] How much did the user try to get to know you?"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    342,
+                    855,
+                    1302,
+                    905
+                ],
+                "angle": 0,
+                "content": "- Didn't ask about me at all\n- Asked about me some"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    342,
+                    912,
+                    1481,
+                    964
+                ],
+                "angle": 0,
+                "content": "- Asked about me a good amount - Asked about me too much"
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    342,
+                    855,
+                    1481,
+                    964
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    339,
+                    1024,
+                    1796,
+                    1076
+                ],
+                "angle": 0,
+                "content": "[Listening] How much did the user seem to pay attention to what you said?"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    342,
+                    1080,
+                    1416,
+                    1133
+                ],
+                "angle": 0,
+                "content": "- Always ignored what I said\n- Mostly ignored what I said"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    342,
+                    1136,
+                    1729,
+                    1189
+                ],
+                "angle": 0,
+                "content": "- Mostly paid attention to what I said \n- Always paid attention to what I said"
+            },
+            {
+                "block_id": 15,
+                "type": "list",
+                "bbox": [
+                    342,
+                    1080,
+                    1729,
+                    1189
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    339,
+                    1248,
+                    1344,
+                    1301
+                ],
+                "angle": 0,
+                "content": "[Avoiding Repetition] How repetitive was this user?"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    342,
+                    1304,
+                    1739,
+                    1361
+                ],
+                "angle": 0,
+                "content": "- Repeated themselves over and over\n- Sometimes said the same thing twice"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    342,
+                    1364,
+                    893,
+                    1417
+                ],
+                "angle": 0,
+                "content": "- Always said something new"
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    342,
+                    1304,
+                    1739,
+                    1417
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    339,
+                    1473,
+                    1379,
+                    1529
+                ],
+                "angle": 0,
+                "content": "[Fluency] How naturally did this user speak English?"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    342,
+                    1532,
+                    1590,
+                    1585
+                ],
+                "angle": 0,
+                "content": "- Very unnatural \n- Mostly unnatural \n- Mostly natural \n- Very natural"
+            },
+            {
+                "block_id": 22,
+                "type": "list",
+                "bbox": [
+                    339,
+                    1473,
+                    1590,
+                    1585
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    339,
+                    1641,
+                    1952,
+                    1697
+                ],
+                "angle": 0,
+                "content": "[Making sense] How often did this user say something which did NOT make sense?"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    342,
+                    1701,
+                    1453,
+                    1750
+                ],
+                "angle": 0,
+                "content": "- Never made any sense\n- Most responses didn’t make sense"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    342,
+                    1757,
+                    1617,
+                    1813
+                ],
+                "angle": 0,
+                "content": "- Some responses didn't make sense - Everything made perfect sense"
+            },
+            {
+                "block_id": 26,
+                "type": "list",
+                "bbox": [
+                    342,
+                    1701,
+                    1617,
+                    1813
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    339,
+                    1869,
+                    1456,
+                    1922
+                ],
+                "angle": 0,
+                "content": "[Humanness] Do you think this user is a bot or a human?"
+            },
+            {
+                "block_id": 28,
+                "type": "text",
+                "bbox": [
+                    342,
+                    1925,
+                    1746,
+                    1982
+                ],
+                "angle": 0,
+                "content": "- Definitely a bot \n- Probably a bot \n- Probably a human \n- Definitely a human"
+            },
+            {
+                "block_id": 29,
+                "type": "text",
+                "bbox": [
+                    339,
+                    2038,
+                    2146,
+                    2143
+                ],
+                "angle": 0,
+                "content": "[Persona retrieval] Which prompt (character) do you think the other user was given for this conversation?"
+            },
+            {
+                "block_id": 30,
+                "type": "text",
+                "bbox": [
+                    339,
+                    2153,
+                    1262,
+                    2210
+                ],
+                "angle": 0,
+                "content": "Respondent chooses one of two provided personas"
+            },
+            {
+                "block_id": 31,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1716"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    290,
+                    263,
+                    1389,
+                    319
+                ],
+                "angle": 0,
+                "content": "C Example conversations from human evaluation"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    320,
+                    392,
+                    1255,
+                    1168
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(a)"
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    1295,
+                    392,
+                    2230,
+                    1168
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(b)"
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    320,
+                    1329,
+                    1255,
+                    2132
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(c)"
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1295,
+                    1287,
+                    2230,
+                    2132
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(d)"
+            },
+            {
+                "block_id": 9,
+                "type": "image_caption",
+                "bbox": [
+                    287,
+                    2238,
+                    2195,
+                    2343
+                ],
+                "angle": 0,
+                "content": "Figure 8: Example conversation with (a) Baseline (b) Repetition-controlled baseline (c) Question-controlled CT \\((z = 7)\\), (d) Specificity-controlled WD (weight \\(= 4\\))."
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1717"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    287,
+                    263,
+                    1168,
+                    319
+                ],
+                "angle": 0,
+                "content": "D Repetition-control decoding features"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    401,
+                    389,
+                    2084,
+                    1076
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Feature</td><td>Condition</td></tr><tr><td>extrep/bigram(w,y&lt;t,x)</td><td>Adding w to the hypothesis y&lt;t would create a 2-gram that appears in a previous utterance by the model</td></tr><tr><td>extrep_unigram(w,y&lt;t,x)</td><td>w is a non-stopword and \nw appears in a previous utterance by the model</td></tr><tr><td>intrep/bigram(w,y&lt;t,x)</td><td>Adding w to the hypothesis y&lt;t would create a 2-gram that appears earlier in the hypothesis y&lt;t</td></tr><tr><td>intrep_unigram(w,y&lt;t,x)</td><td>w is a non-stopword and \nw appears earlier in the hypothesis y&lt;t</td></tr><tr><td>partnerrepBIGram(w,y&lt;t,x)</td><td>Adding w to the hypothesis y&lt;t would create a 2-gram that appears in a previous utterance by the partner</td></tr></table>",
+                "caption": "Table 4: We define five binary features for controlling different types of repetition via weighted decoding (see Section 5.2). Each feature depends on the word \\( w \\), the partial hypothesis \\( y_{<t} \\), and the context \\( x \\) (which includes the model's own persona and the dialogue history). Each of these features is equal to 1 if and only if the condition on the right is true; otherwise 0."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1718"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    307,
+                    389,
+                    2180,
+                    1834
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"3\"></td><td colspan=\"5\">Repetition</td><td rowspan=\"2\">Specificity</td><td rowspan=\"2\">Response-rel</td><td rowspan=\"2\">Questions</td></tr><tr><td colspan=\"2\">External</td><td colspan=\"2\">Internal</td><td>Partner Rep.</td></tr><tr><td>Bigram</td><td>Unigram</td><td>Bigram</td><td>Unigram</td><td>Bigram</td><td>NIDF</td><td>Cos sim</td><td>Has ‘?’</td></tr><tr><td colspan=\"9\">Baselines</td></tr><tr><td colspan=\"9\">Greedy Search</td></tr><tr><td colspan=\"9\">Beam Search (beam size 20)</td></tr><tr><td colspan=\"9\">Repetition control (WD)</td></tr><tr><td>Extrep bigram WD -0.5</td><td>wt -0.5</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Extrep bigram WD -1.25</td><td>wt -1.25</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Extrep bigram WD -3.5</td><td>wt -3.5</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Extrep bigram WD -inf</td><td>wt -∞</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Repetition-controlled baseline</td><td>wt -3.5</td><td>wt -∞</td><td></td><td>wt -∞</td><td></td><td></td><td></td><td></td></tr><tr><td colspan=\"9\">Question control (CT)</td></tr><tr><td>Question-controlled CT 0</td><td>wt -3.5</td><td>wt -∞</td><td></td><td>wt -∞</td><td></td><td></td><td></td><td>z = 0</td></tr><tr><td>Question-controlled CT 1</td><td>wt -3.5</td><td>wt -∞</td><td></td><td>wt -∞</td><td></td><td></td><td></td><td>z = 1</td></tr><tr><td>Question-controlled CT 4</td><td>wt -3.5</td><td>wt -∞</td><td></td><td>wt -∞</td><td></td><td></td><td></td><td>z = 4</td></tr><tr><td>Question-controlled CT 7</td><td>wt -3.5</td><td>wt -∞</td><td></td><td>wt -∞</td><td></td><td></td><td></td><td>z = 7</td></tr><tr><td>Question-controlled CT 10</td><td>wt -3.5</td><td>wt -∞</td><td></td><td>wt -∞</td><td></td><td></td><td></td><td>z = 10</td></tr><tr><td>Question-controlled CT 10 (boost)</td><td>wt 0 *</td><td>wt -∞</td><td></td><td>wt -∞</td><td></td><td></td><td></td><td>z = 10</td></tr><tr><td colspan=\"9\">Specificity control (CT)</td></tr><tr><td>Specificity-controlled CT 0</td><td>wt -3.5</td><td>wt -∞</td><td></td><td>wt -∞</td><td></td><td>z = 0</td><td></td><td></td></tr><tr><td>Specificity-controlled CT 2</td><td>wt -3.5</td><td>wt -∞</td><td></td><td>wt -∞</td><td></td><td>z = 2</td><td></td><td></td></tr><tr><td>Specificity-controlled CT 4</td><td>wt -3.5</td><td>wt -∞</td><td></td><td>wt -∞</td><td></td><td>z = 4</td><td></td><td></td></tr><tr><td>Specificity-controlled CT 7</td><td>wt -3.5</td><td>wt -∞</td><td></td><td>wt -∞</td><td></td><td>z = 7</td><td></td><td></td></tr><tr><td>Specificity-controlled CT 9</td><td>wt -3.5</td><td>wt -∞</td><td></td><td>wt -∞</td><td></td><td>z = 9</td><td></td><td></td></tr><tr><td colspan=\"9\">Specificity control (WD)</td></tr><tr><td>Specificity-controlled WD -10</td><td>wt -3.5</td><td>wt -∞</td><td></td><td>wt -∞</td><td></td><td>wt -10</td><td></td><td></td></tr><tr><td>Specificity-controlled WD -4</td><td>wt -3.5</td><td>wt -∞</td><td></td><td>wt -∞</td><td></td><td>wt -4</td><td></td><td></td></tr><tr><td>Specificity-controlled WD 4</td><td>wt -3.5</td><td>wt -∞</td><td></td><td>wt -∞</td><td></td><td>wt 4</td><td></td><td></td></tr><tr><td>Specificity-controlled WD 6</td><td>wt -3.5</td><td>wt -∞</td><td></td><td>wt -∞</td><td></td><td>wt 6</td><td></td><td></td></tr><tr><td>Specificity-controlled WD 8</td><td>wt -3.5</td><td>wt -∞</td><td></td><td>wt -∞</td><td></td><td>wt 8</td><td></td><td></td></tr><tr><td colspan=\"9\">Response-related control (WD) **</td></tr><tr><td>Response-related controlled WD -10</td><td>wt -3.5</td><td>wt -∞</td><td>wt -∞</td><td>wt -∞</td><td>wt -∞</td><td></td><td>wt -10</td><td></td></tr><tr><td>Response-related controlled WD 0</td><td>wt -3.5</td><td>wt -∞</td><td>wt -∞</td><td>wt -∞</td><td>wt -∞</td><td></td><td>wt 0</td><td></td></tr><tr><td>Response-related controlled WD 5</td><td>wt -3.5</td><td>wt -∞</td><td>wt -∞</td><td>wt -∞</td><td>wt -∞</td><td></td><td>wt 5</td><td></td></tr><tr><td>Response-related controlled WD 10</td><td>wt -3.5</td><td>wt -∞</td><td>wt -∞</td><td>wt -∞</td><td>wt -∞</td><td></td><td>wt 10</td><td></td></tr><tr><td>Response-related controlled WD 13</td><td>wt -3.5</td><td>wt -∞</td><td>wt -∞</td><td>wt -∞</td><td>wt -∞</td><td></td><td>wt 13</td><td></td></tr></table>",
+                "caption": "Table 5: Control settings for all configurations that were human-evaluated. 'wt' means the weight used for a weighted decoding feature and \\( z = \\) means the setting (i.e. bucket) for the control variable in conditional training."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2024,
+                    2193,
+                    2118
+                ],
+                "angle": 0,
+                "content": "* In the setting Question-controlled CT 10 (boost), the feature extrep/bigram is not used for weighted decoding during beam search, but it is used to rerank the candidates after beam search. See Section 6.4 for details."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2171,
+                    2193,
+                    2469
+                ],
+                "angle": 0,
+                "content": "** Note that the Response-related controlled models additionally introduce repetition controls to block internal bigram repetition and partner bigram repetition. This was necessary to prevent the model from parroting the partner's last utterance. In Table 8, we find that just adding these extra repetition controls (here called Response-related controlled WD 0, i.e. increased repetition control but no response-relatedness control) outperforms our canonical Repetition-controlled baseline. However, given that we discovered this later, our specificity and question controlled models are built on top of the canonical Repetition-controlled baseline."
+            },
+            {
+                "block_id": 5,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1719"
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    307,
+                    389,
+                    2180,
+                    1876
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"3\"></td><td colspan=\"5\">Repetition</td><td rowspan=\"2\">Specificity</td><td rowspan=\"2\">Response-rel</td><td rowspan=\"2\">Questions</td></tr><tr><td colspan=\"2\">External</td><td colspan=\"2\">Internal</td><td>Partner Rep.</td></tr><tr><td>Bigram</td><td>Unigram</td><td>Bigram</td><td>Unigram</td><td>Bigram</td><td>NIDF</td><td>Cos sim</td><td>Has ‘?’</td></tr><tr><td colspan=\"9\">Gold data and baselines</td></tr><tr><td>Gold Data</td><td>4.65%</td><td>9.62%</td><td>0.38%</td><td>0.97%</td><td>5.10%</td><td>0.2119</td><td>0.1691</td><td>28.80%</td></tr><tr><td>Greedy Search</td><td>35.88%</td><td>36.31%</td><td>8.08%</td><td>10.59%</td><td>12.20%</td><td>0.1688</td><td>0.1850</td><td>6.46%</td></tr><tr><td>Beam Search (beam size 20)</td><td>46.85%</td><td>44.15%</td><td>0.32%</td><td>0.61%</td><td>12.90%</td><td>0.1662</td><td>0.0957</td><td>80.87%</td></tr><tr><td colspan=\"9\">Repetition control (WD)</td></tr><tr><td>Extrep bigram WD -0.5</td><td>19.70%</td><td>16.85%</td><td>0.26%</td><td>0.62%</td><td>11.93%</td><td>0.1730</td><td>0.1348</td><td>73.04%</td></tr><tr><td>Extrep bigram WD -1.25</td><td>4.62%</td><td>4.79%</td><td>0.40%</td><td>0.89%</td><td>10.61%</td><td>0.1763</td><td>0.1504</td><td>61.22%</td></tr><tr><td>Extrep bigram WD -3.5</td><td>0.75%</td><td>4.61%</td><td>0.47%</td><td>0.94%</td><td>9.89%</td><td>0.1771</td><td>0.1681</td><td>48.89%</td></tr><tr><td>Extrep bigram WD -inf</td><td>0.00%</td><td>4.74%</td><td>0.51%</td><td>1.05%</td><td>9.56%</td><td>0.1780</td><td>0.1711</td><td>45.98%</td></tr><tr><td>Repetition-controlled baseline</td><td>0.73%</td><td>0.00%</td><td>0.17%</td><td>0.00%</td><td>9.55%</td><td>0.1766</td><td>0.1676</td><td>49.98%</td></tr><tr><td colspan=\"9\">Question control (CT)</td></tr><tr><td>Question-controlled CT 0</td><td>0.06%</td><td>0.00%</td><td>0.19%</td><td>0.00%</td><td>9.20%</td><td>0.1871</td><td>0.1753</td><td>2.01%</td></tr><tr><td>Question-controlled CT 1</td><td>0.09%</td><td>0.00%</td><td>0.19%</td><td>0.00%</td><td>8.66%</td><td>0.1844</td><td>0.1722</td><td>17.33%</td></tr><tr><td>Question-controlled CT 4</td><td>0.40%</td><td>0.00%</td><td>0.25%</td><td>0.00%</td><td>8.53%</td><td>0.1794</td><td>0.1713</td><td>48.88%</td></tr><tr><td>Question-controlled CT 7</td><td>0.80%</td><td>0.00%</td><td>0.17%</td><td>0.00%</td><td>8.48%</td><td>0.1771</td><td>0.1724</td><td>65.65%</td></tr><tr><td>Question-controlled CT 10</td><td>1.27%</td><td>0.00%</td><td>0.16%</td><td>0.00%</td><td>8.48%</td><td>0.1761</td><td>0.1728</td><td>79.67%</td></tr><tr><td>Question-controlled CT 10 (boost)*</td><td>7.64%</td><td>0.00%</td><td>0.03%</td><td>0.00%</td><td>10.76%</td><td>0.1701</td><td>0.1651</td><td>99.54%</td></tr><tr><td colspan=\"9\">Specificity control (CT)</td></tr><tr><td>Specificity-controlled CT 0</td><td>0.60%</td><td>0.00%</td><td>0.20%</td><td>0.00%</td><td>9.05%</td><td>0.1478</td><td>0.1522</td><td>48.75%</td></tr><tr><td>Specificity-controlled CT 2</td><td>0.28%</td><td>0.00%</td><td>0.10%</td><td>0.00%</td><td>8.37%</td><td>0.1772</td><td>0.1833</td><td>50.57%</td></tr><tr><td>Specificity-controlled CT 4</td><td>0.12%</td><td>0.00%</td><td>0.08%</td><td>0.00%</td><td>7.90%</td><td>0.1921</td><td>0.1877</td><td>29.46%</td></tr><tr><td>Specificity-controlled CT 7</td><td>0.02%</td><td>0.00%</td><td>0.14%</td><td>0.00%</td><td>8.17%</td><td>0.2156</td><td>0.1955</td><td>16.51%</td></tr><tr><td>Specificity-controlled CT 9</td><td>0.01%</td><td>0.00%</td><td>0.11%</td><td>0.00%</td><td>8.01%</td><td>0.2462</td><td>0.1990</td><td>8.50%</td></tr><tr><td colspan=\"9\">Specificity control (WD)</td></tr><tr><td>Specificity-controlled WD -10</td><td>0.14%</td><td>0.00%</td><td>10.59%</td><td>0.00%</td><td>8.70%</td><td>0.1107</td><td>0.0994</td><td>33.55%</td></tr><tr><td>Specificity-controlled WD -4</td><td>0.65%</td><td>0.00%</td><td>1.98%</td><td>0.00%</td><td>9.95%</td><td>0.1501</td><td>0.1398</td><td>44.92%</td></tr><tr><td>Specificity-controlled WD 4</td><td>0.15%</td><td>0.00%</td><td>0.19%</td><td>0.00%</td><td>7.54%</td><td>0.2121</td><td>0.1972</td><td>45.53%</td></tr><tr><td>Specificity-controlled WD 6</td><td>0.07%</td><td>0.00%</td><td>0.13%</td><td>0.00%</td><td>6.50%</td><td>0.2546</td><td>0.2040</td><td>39.37%</td></tr><tr><td>Specificity-controlled WD 8</td><td>0.01%</td><td>0.00%</td><td>0.10%</td><td>0.00%</td><td>3.40%</td><td>0.4035</td><td>0.1436</td><td>26.68%</td></tr><tr><td colspan=\"9\">Response-related control (WD)</td></tr><tr><td>Response-related controlled WD -10</td><td>0.13%</td><td>0.00%</td><td>0.00%</td><td>0.00%</td><td>0.00%</td><td>0.1914</td><td>-0.0921</td><td>25.71%</td></tr><tr><td>Response-related controlled WD 0</td><td>0.24%</td><td>0.00%</td><td>0.00%</td><td>0.00%</td><td>0.00%</td><td>0.1785</td><td>0.1414</td><td>44.55%</td></tr><tr><td>Response-related controlled WD 5</td><td>0.15%</td><td>0.00%</td><td>0.00%</td><td>0.00%</td><td>0.00%</td><td>0.1973</td><td>0.4360</td><td>39.78%</td></tr><tr><td>Response-related controlled WD 10</td><td>0.05%</td><td>0.00%</td><td>0.00%</td><td>0.00%</td><td>0.00%</td><td>0.2535</td><td>0.6653</td><td>27.56%</td></tr><tr><td>Response-related controlled WD 13</td><td>0.02%</td><td>0.00%</td><td>0.00%</td><td>0.00%</td><td>0.00%</td><td>0.2999</td><td>0.7251</td><td>20.47%</td></tr></table>",
+                "caption": "Table 6: Automatic metrics (computed over validation set) for all model configurations that were human-evaluated."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1720"
+            }
+        ]
+    },
+    {
+        "page_id": 19,
+        "ocr_results": [
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    300,
+                    389,
+                    2193,
+                    1701
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Model</td><td>Avoiding Rep.</td><td>Engage</td><td>Fluency</td><td>Humanness</td><td>Inquisitive</td><td>Interesting</td><td>Listening</td><td>Make Sense</td><td>Persona</td></tr><tr><td colspan=\"10\">Human and baselines</td></tr><tr><td>Human</td><td>2.90 ± 0.39</td><td>3.31 ± 0.90</td><td>3.66 ± 0.71</td><td>3.40 ± 0.80</td><td>2.63 ± 0.63</td><td>3.23 ± 0.83</td><td>3.64 ± 0.63</td><td>3.84 ± 0.52</td><td>0.92 ± 0.27</td></tr><tr><td>Greedy Search</td><td>2.16 ± 0.72</td><td>2.31 ± 1.08</td><td>3.20 ± 0.81</td><td>1.78 ± 0.90</td><td>2.00 ± 0.81</td><td>2.36 ± 0.98</td><td>2.78 ± 0.84</td><td>3.33 ± 0.75</td><td>0.87 ± 0.34</td></tr><tr><td>Beam Search (beam size 20)</td><td>2.14 ± 0.72</td><td>2.35 ± 1.01</td><td>3.23 ± 0.93</td><td>1.81 ± 0.87</td><td>2.50 ± 0.72</td><td>2.35 ± 0.98</td><td>2.63 ± 0.85</td><td>3.40 ± 0.77</td><td>0.77 ± 0.42</td></tr><tr><td colspan=\"10\">Repetition control (WD)</td></tr><tr><td>Extrap bigram WD -0.5</td><td>2.66 ± 0.56</td><td>2.56 ± 0.92</td><td>3.57 ± 0.64</td><td>2.19 ± 0.94</td><td>2.67 ± 0.62</td><td>2.61 ± 0.87</td><td>3.08 ± 0.78</td><td>3.60 ± 0.57</td><td>0.75 ± 0.43</td></tr><tr><td>Extrap bigram WD -1.25</td><td>2.84 ± 0.39</td><td>2.91 ± 0.90</td><td>3.59 ± 0.64</td><td>2.32 ± 0.98</td><td>2.63 ± 0.60</td><td>2.86 ± 0.89</td><td>3.21 ± 0.71</td><td>3.64 ± 0.62</td><td>0.72 ± 0.45</td></tr><tr><td>Extrap bigram WD -3.5</td><td>2.90 ± 0.30</td><td>2.95 ± 0.86</td><td>3.73 ± 0.50</td><td>2.45 ± 1.03</td><td>2.55 ± 0.61</td><td>2.88 ± 0.80</td><td>3.27 ± 0.79</td><td>3.68 ± 0.49</td><td>0.80 ± 0.40</td></tr><tr><td>Extrap bigram WD -inf</td><td>2.82 ± 0.43</td><td>2.96 ± 0.86</td><td>3.64 ± 0.58</td><td>2.40 ± 0.96</td><td>2.65 ± 0.69</td><td>2.86 ± 0.82</td><td>3.31 ± 0.69</td><td>3.66 ± 0.59</td><td>0.91 ± 0.29</td></tr><tr><td>Repetition-controlled baseline</td><td>2.89 ± 0.39</td><td>2.89 ± 0.89</td><td>3.66 ± 0.56</td><td>2.50 ± 0.99</td><td>2.70 ± 0.64</td><td>2.96 ± 0.92</td><td>3.25 ± 0.71</td><td>3.68 ± 0.54</td><td>0.87 ± 0.34</td></tr><tr><td colspan=\"10\">Question control (CT)</td></tr><tr><td>Question-controlled CT 0</td><td>2.95 ± 0.25</td><td>2.92 ± 0.90</td><td>3.70 ± 0.54</td><td>2.49 ± 0.97</td><td>2.48 ± 0.72</td><td>2.85 ± 0.93</td><td>3.29 ± 0.69</td><td>3.56 ± 0.66</td><td>0.86 ± 0.35</td></tr><tr><td>Question-controlled CT 1</td><td>2.88 ± 0.33</td><td>2.94 ± 0.93</td><td>3.59 ± 0.66</td><td>2.47 ± 0.95</td><td>2.52 ± 0.69</td><td>2.85 ± 0.90</td><td>3.32 ± 0.73</td><td>3.63 ± 0.55</td><td>0.85 ± 0.36</td></tr><tr><td>Question-controlled CT 4</td><td>2.88 ± 0.38</td><td>2.88 ± 0.94</td><td>3.59 ± 0.73</td><td>2.42 ± 1.07</td><td>2.55 ± 0.66</td><td>2.82 ± 0.85</td><td>3.37 ± 0.74</td><td>3.63 ± 0.59</td><td>0.84 ± 0.37</td></tr><tr><td>Question-controlled CT 7</td><td>2.88 ± 0.37</td><td>3.07 ± 0.90</td><td>3.67 ± 0.54</td><td>2.42 ± 0.98</td><td>2.75 ± 0.58</td><td>2.97 ± 0.84</td><td>3.23 ± 0.76</td><td>3.53 ± 0.76</td><td>0.80 ± 0.40</td></tr><tr><td>Question-controlled CT 10</td><td>2.74 ± 0.46</td><td>2.90 ± 0.93</td><td>3.70 ± 0.50</td><td>2.43 ± 1.04</td><td>2.71 ± 0.57</td><td>2.72 ± 0.88</td><td>3.12 ± 0.73</td><td>3.59 ± 0.66</td><td>0.79 ± 0.41</td></tr><tr><td>Question-controlled CT 10 (boost)</td><td>2.76 ± 0.49</td><td>2.84 ± 0.94</td><td>3.60 ± 0.64</td><td>2.26 ± 0.97</td><td>2.94 ± 0.57</td><td>2.83 ± 0.94</td><td>3.18 ± 0.80</td><td>3.52 ± 0.67</td><td>0.72 ± 0.45</td></tr><tr><td colspan=\"10\">Specificity control (CT)</td></tr><tr><td>Specificity-controlled CT 0</td><td>2.83 ± 0.40</td><td>2.96 ± 0.93</td><td>3.62 ± 0.58</td><td>2.42 ± 0.99</td><td>2.60 ± 0.56</td><td>2.86 ± 0.89</td><td>3.29 ± 0.70</td><td>3.66 ± 0.60</td><td>0.72 ± 0.45</td></tr><tr><td>Specificity-controlled CT 2</td><td>2.90 ± 0.36</td><td>2.78 ± 1.00</td><td>3.60 ± 0.64</td><td>2.37 ± 0.93</td><td>2.66 ± 0.66</td><td>2.80 ± 0.96</td><td>3.14 ± 0.77</td><td>3.50 ± 0.63</td><td>0.81 ± 0.39</td></tr><tr><td>Specificity-controlled CT 4</td><td>2.92 ± 0.27</td><td>2.81 ± 0.88</td><td>3.65 ± 0.59</td><td>2.34 ± 1.02</td><td>2.57 ± 0.62</td><td>2.80 ± 0.78</td><td>3.25 ± 0.78</td><td>3.50 ± 0.66</td><td>0.86 ± 0.35</td></tr><tr><td>Specificity-controlled CT 7</td><td>2.89 ± 0.32</td><td>3.00 ± 0.94</td><td>3.64 ± 0.67</td><td>2.53 ± 1.03</td><td>2.56 ± 0.66</td><td>2.90 ± 0.90</td><td>3.34 ± 0.70</td><td>3.59 ± 0.60</td><td>0.82 ± 0.39</td></tr><tr><td>Specificity-controlled CT 9</td><td>2.90 ± 0.35</td><td>2.83 ± 0.87</td><td>3.61 ± 0.62</td><td>2.40 ± 0.97</td><td>2.31 ± 0.74</td><td>2.84 ± 0.83</td><td>3.07 ± 0.81</td><td>3.58 ± 0.56</td><td>0.88 ± 0.32</td></tr><tr><td colspan=\"10\">Specificity control (WD)</td></tr><tr><td>Specificity-controlled WD -10</td><td>2.85 ± 0.43</td><td>2.43 ± 0.99</td><td>3.34 ± 0.83</td><td>2.15 ± 0.91</td><td>2.31 ± 0.69</td><td>2.38 ± 0.94</td><td>3.03 ± 0.75</td><td>3.33 ± 0.70</td><td>0.71 ± 0.45</td></tr><tr><td>Specificity-controlled WD -4</td><td>2.90 ± 0.30</td><td>2.78 ± 0.95</td><td>3.55 ± 0.63</td><td>2.41 ± 0.92</td><td>2.52 ± 0.66</td><td>2.64 ± 0.93</td><td>3.28 ± 0.73</td><td>3.56 ± 0.62</td><td>0.82 ± 0.38</td></tr><tr><td>Specificity-controlled WD 4</td><td>2.95 ± 0.21</td><td>2.99 ± 0.86</td><td>3.65 ± 0.55</td><td>2.49 ± 0.90</td><td>2.65 ± 0.55</td><td>3.00 ± 0.78</td><td>3.37 ± 0.59</td><td>3.63 ± 0.50</td><td>0.93 ± 0.25</td></tr><tr><td>Specificity-controlled WD 6</td><td>2.93 ± 0.26</td><td>2.96 ± 0.90</td><td>3.52 ± 0.76</td><td>2.41 ± 1.04</td><td>2.58 ± 0.66</td><td>3.06 ± 0.80</td><td>3.24 ± 0.76</td><td>3.50 ± 0.66</td><td>0.93 ± 0.26</td></tr><tr><td>Specificity-controlled WD 8</td><td>2.78 ± 0.52</td><td>2.40 ± 1.23</td><td>2.67 ± 1.25</td><td>1.86 ± 0.97</td><td>2.03 ± 0.87</td><td>2.55 ± 1.14</td><td>2.61 ± 1.05</td><td>2.91 ± 0.91</td><td>0.92 ± 0.28</td></tr><tr><td colspan=\"10\">Response-related control (WD)</td></tr><tr><td>Response-related controlled WD -10</td><td>2.86 ± 0.44</td><td>2.48 ± 0.98</td><td>3.42 ± 0.74</td><td>2.02 ± 0.93</td><td>2.38 ± 0.75</td><td>2.53 ± 0.94</td><td>2.84 ± 0.80</td><td>3.14 ± 0.75</td><td>0.91 ± 0.29</td></tr><tr><td>Response-related controlled WD 0</td><td>2.96 ± 0.23</td><td>3.01 ± 0.90</td><td>3.72 ± 0.54</td><td>2.73 ± 1.00</td><td>2.56 ± 0.67</td><td>2.92 ± 0.84</td><td>3.37 ± 0.72</td><td>3.73 ± 0.52</td><td>0.82 ± 0.38</td></tr><tr><td>Response-related controlled WD 5</td><td>2.90 ± 0.33</td><td>2.88 ± 0.90</td><td>3.51 ± 0.63</td><td>2.41 ± 1.01</td><td>2.53 ± 0.65</td><td>2.85 ± 0.90</td><td>3.27 ± 0.73</td><td>3.49 ± 0.63</td><td>0.82 ± 0.39</td></tr><tr><td>Response-related controlled WD 10</td><td>2.78 ± 0.43</td><td>2.39 ± 1.04</td><td>3.06 ± 0.90</td><td>1.97 ± 0.99</td><td>2.22 ± 0.67</td><td>2.57 ± 1.01</td><td>3.03 ± 0.76</td><td>3.16 ± 0.63</td><td>0.75 ± 0.43</td></tr><tr><td>Response-related controlled WD 13</td><td>2.71 ± 0.57</td><td>2.10 ± 1.13</td><td>2.54 ± 1.12</td><td>1.81 ± 1.07</td><td>2.14 ± 0.84</td><td>2.33 ± 1.06</td><td>2.69 ± 0.83</td><td>2.70 ± 0.88</td><td>0.62 ± 0.49</td></tr></table>",
+                "caption": "Table 7: Raw scores (mean ± std.) for all models and human evaluation metrics."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1834,
+                    2193,
+                    1985
+                ],
+                "angle": 0,
+                "content": "The first eight columns are Likert metrics on a 1-4 scale (except Avoiding Repetition, which is a 1-3 scale), where higher is better (except Inquisitiveness, which has an optimal score of 3). The last column, Persona Retrieval, is on a scale from 0 to 1 where higher is better."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2034,
+                    1394,
+                    2083
+                ],
+                "angle": 0,
+                "content": "The maximum of each column (excluding Human row) is in bold."
+            },
+            {
+                "block_id": 5,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1287,
+                    3276
+                ],
+                "angle": 0,
+                "content": "1721"
+            }
+        ]
+    },
+    {
+        "page_id": 20,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    300,
+                    754,
+                    2183,
+                    2188
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Model</td><td>Avoiding Rep.</td><td>Engage</td><td>Fluency</td><td>Humanness</td><td>Inquisitive</td><td>Interesting</td><td>Listening</td><td>Make Sense</td></tr><tr><td colspan=\"9\">Human and baselines</td></tr><tr><td>* Human</td><td>2.79 ± 0.12</td><td>3.04 ± 0.11</td><td>3.36 ± 0.12</td><td>3.35 ± 0.11</td><td>2.44 ± 0.12</td><td>2.92 ± 0.11</td><td>3.32 ± 0.13</td><td>3.68 ± 0.11</td></tr><tr><td>* Greedy Search</td><td>2.08 ± 0.10</td><td>2.24 ± 0.11</td><td>3.03 ± 0.10</td><td>1.75 ± 0.12</td><td>1.95 ± 0.10</td><td>2.29 ± 0.13</td><td>2.62 ± 0.10</td><td>3.23 ± 0.10</td></tr><tr><td>* Beam Search (beam size 20)</td><td>2.08 ± 0.11</td><td>2.29 ± 0.11</td><td>3.09 ± 0.13</td><td>1.71 ± 0.13</td><td>2.42 ± 0.11</td><td>2.29 ± 0.14</td><td>2.47 ± 0.12</td><td>3.35 ± 0.13</td></tr><tr><td colspan=\"9\">Repetition control (WD)</td></tr><tr><td>Extrap bigram WD -0.5</td><td>2.62 ± 0.10</td><td>2.54 ± 0.12</td><td>3.35 ± 0.12</td><td>2.13 ± 0.11</td><td>2.63 ± 0.11</td><td>2.56 ± 0.11</td><td>2.93 ± 0.11</td><td>3.48 ± 0.11</td></tr><tr><td>Extrap bigram WD -1.25</td><td>2.78 ± 0.09</td><td>2.82 ± 0.13</td><td>3.40 ± 0.12</td><td>2.27 ± 0.12</td><td>2.54 ± 0.09</td><td>2.76 ± 0.10</td><td>3.05 ± 0.11</td><td>3.53 ± 0.14</td></tr><tr><td>Extrap bigram WD -3.5</td><td>2.83 ± 0.11</td><td>2.93 ± 0.10</td><td>3.56 ± 0.10</td><td>2.43 ± 0.11</td><td>2.47 ± 0.11</td><td>2.83 ± 0.10</td><td>3.14 ± 0.10</td><td>3.62 ± 0.12</td></tr><tr><td>Extrap bigram WD -inf</td><td>2.74 ± 0.11</td><td>2.87 ± 0.14</td><td>3.49 ± 0.12</td><td>2.32 ± 0.13</td><td>2.56 ± 0.11</td><td>2.75 ± 0.12</td><td>3.13 ± 0.12</td><td>3.59 ± 0.12</td></tr><tr><td>* Repetition-controlled baseline</td><td>2.86 ± 0.12</td><td>2.82 ± 0.12</td><td>3.53 ± 0.10</td><td>2.40 ± 0.11</td><td>2.62 ± 0.13</td><td>2.84 ± 0.12</td><td>3.10 ± 0.11</td><td>3.58 ± 0.14</td></tr><tr><td colspan=\"9\">Question control (CT)</td></tr><tr><td>Question-controlled CT 0</td><td>2.87 ± 0.12</td><td>2.84 ± 0.13</td><td>3.51 ± 0.10</td><td>2.46 ± 0.11</td><td>2.36 ± 0.09</td><td>2.76 ± 0.09</td><td>3.10 ± 0.10</td><td>3.49 ± 0.12</td></tr><tr><td>Question-controlled CT 1</td><td>2.82 ± 0.11</td><td>2.88 ± 0.11</td><td>3.42 ± 0.10</td><td>2.46 ± 0.12</td><td>2.47 ± 0.11</td><td>2.79 ± 0.13</td><td>3.14 ± 0.11</td><td>3.55 ± 0.10</td></tr><tr><td>Question-controlled CT 4</td><td>2.78 ± 0.12</td><td>2.88 ± 0.10</td><td>3.47 ± 0.11</td><td>2.40 ± 0.09</td><td>2.53 ± 0.13</td><td>2.83 ± 0.13</td><td>3.24 ± 0.11</td><td>3.59 ± 0.10</td></tr><tr><td>* Question-controlled CT 7</td><td>2.81 ± 0.10</td><td>2.99 ± 0.11</td><td>3.54 ± 0.09</td><td>2.35 ± 0.11</td><td>2.66 ± 0.12</td><td>2.92 ± 0.12</td><td>3.11 ± 0.10</td><td>3.47 ± 0.10</td></tr><tr><td>Question-controlled CT 10</td><td>2.67 ± 0.13</td><td>2.87 ± 0.11</td><td>3.52 ± 0.12</td><td>2.35 ± 0.12</td><td>2.63 ± 0.12</td><td>2.66 ± 0.10</td><td>2.94 ± 0.11</td><td>3.53 ± 0.12</td></tr><tr><td>Question-controlled CT 10 (boost)</td><td>2.68 ± 0.12</td><td>2.74 ± 0.09</td><td>3.42 ± 0.12</td><td>2.19 ± 0.13</td><td>2.79 ± 0.11</td><td>2.74 ± 0.11</td><td>3.00 ± 0.12</td><td>3.45 ± 0.13</td></tr><tr><td colspan=\"9\">Specificity control (CT)</td></tr><tr><td>Specificity-controlled CT 0</td><td>2.79 ± 0.10</td><td>2.93 ± 0.09</td><td>3.44 ± 0.12</td><td>2.38 ± 0.11</td><td>2.56 ± 0.12</td><td>2.84 ± 0.12</td><td>3.12 ± 0.13</td><td>3.61 ± 0.11</td></tr><tr><td>Specificity-controlled CT 2</td><td>2.78 ± 0.12</td><td>2.74 ± 0.11</td><td>3.39 ± 0.13</td><td>2.31 ± 0.13</td><td>2.56 ± 0.13</td><td>2.74 ± 0.12</td><td>2.99 ± 0.11</td><td>3.47 ± 0.10</td></tr><tr><td>Specificity-controlled CT 4</td><td>2.82 ± 0.10</td><td>2.80 ± 0.13</td><td>3.44 ± 0.14</td><td>2.32 ± 0.13</td><td>2.51 ± 0.12</td><td>2.78 ± 0.15</td><td>3.09 ± 0.13</td><td>3.46 ± 0.13</td></tr><tr><td>Specificity-controlled CT 7</td><td>2.81 ± 0.12</td><td>2.91 ± 0.13</td><td>3.43 ± 0.11</td><td>2.45 ± 0.10</td><td>2.49 ± 0.11</td><td>2.81 ± 0.12</td><td>3.15 ± 0.12</td><td>3.55 ± 0.11</td></tr><tr><td>Specificity-controlled CT 9</td><td>2.80 ± 0.13</td><td>2.78 ± 0.10</td><td>3.41 ± 0.12</td><td>2.35 ± 0.13</td><td>2.28 ± 0.11</td><td>2.79 ± 0.11</td><td>2.91 ± 0.11</td><td>3.51 ± 0.12</td></tr><tr><td colspan=\"9\">Specificity control (WD)</td></tr><tr><td>Specificity-controlled WD -10</td><td>2.76 ± 0.11</td><td>2.41 ± 0.12</td><td>3.19 ± 0.12</td><td>2.15 ± 0.11</td><td>2.28 ± 0.13</td><td>2.35 ± 0.12</td><td>2.89 ± 0.11</td><td>3.28 ± 0.12</td></tr><tr><td>Specificity-controlled WD -4</td><td>2.83 ± 0.10</td><td>2.76 ± 0.12</td><td>3.37 ± 0.10</td><td>2.36 ± 0.11</td><td>2.46 ± 0.11</td><td>2.62 ± 0.12</td><td>3.14 ± 0.09</td><td>3.52 ± 0.11</td></tr><tr><td>* Specificity-controlled WD 4</td><td>2.84 ± 0.10</td><td>2.96 ± 0.12</td><td>3.45 ± 0.13</td><td>2.44 ± 0.12</td><td>2.56 ± 0.09</td><td>2.94 ± 0.11</td><td>3.20 ± 0.10</td><td>3.54 ± 0.11</td></tr><tr><td>Specificity-controlled WD 6</td><td>2.81 ± 0.09</td><td>2.91 ± 0.10</td><td>3.34 ± 0.09</td><td>2.31 ± 0.11</td><td>2.53 ± 0.12</td><td>2.93 ± 0.12</td><td>3.09 ± 0.10</td><td>3.41 ± 0.12</td></tr><tr><td>Specificity-controlled WD 8</td><td>2.70 ± 0.11</td><td>2.39 ± 0.12</td><td>2.54 ± 0.12</td><td>1.80 ± 0.13</td><td>2.00 ± 0.10</td><td>2.49 ± 0.12</td><td>2.47 ± 0.10</td><td>2.87 ± 0.11</td></tr><tr><td colspan=\"9\">Response-related control (WD)</td></tr><tr><td>Response-related controlled WD -10</td><td>2.77 ± 0.12</td><td>2.45 ± 0.12</td><td>3.26 ± 0.11</td><td>1.96 ± 0.10</td><td>2.31 ± 0.12</td><td>2.47 ± 0.12</td><td>2.73 ± 0.11</td><td>3.12 ± 0.12</td></tr><tr><td>Response-related controlled WD 0</td><td>2.87 ± 0.12</td><td>2.97 ± 0.11</td><td>3.55 ± 0.09</td><td>2.62 ± 0.11</td><td>2.48 ± 0.10</td><td>2.88 ± 0.12</td><td>3.21 ± 0.09</td><td>3.70 ± 0.10</td></tr><tr><td>Response-related controlled WD 5</td><td>2.79 ± 0.10</td><td>2.83 ± 0.09</td><td>3.35 ± 0.12</td><td>2.40 ± 0.12</td><td>2.51 ± 0.13</td><td>2.80 ± 0.13</td><td>3.13 ± 0.12</td><td>3.41 ± 0.12</td></tr><tr><td>Response-related controlled WD 10</td><td>2.74 ± 0.11</td><td>2.42 ± 0.12</td><td>2.93 ± 0.11</td><td>1.95 ± 0.12</td><td>2.20 ± 0.12</td><td>2.56 ± 0.12</td><td>2.90 ± 0.12</td><td>3.12 ± 0.10</td></tr><tr><td>Response-related controlled WD 13</td><td>2.63 ± 0.12</td><td>2.06 ± 0.11</td><td>2.40 ± 0.09</td><td>1.74 ± 0.11</td><td>2.07 ± 0.11</td><td>2.25 ± 0.12</td><td>2.49 ± 0.14</td><td>2.63 ± 0.10</td></tr></table>",
+                "caption": "Table 8: Calibrated scores (mean ± std.) for all models and human evaluation metrics."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2322,
+                    2195,
+                    2473
+                ],
+                "angle": 0,
+                "content": "The first eight columns are Likert metrics on a 1-4 scale (except Avoiding Repetition, which is a 1-3 scale), where higher is better (except Inquisitiveness, which has an optimal score of 3). The last column, Persona Retrieval, is on a scale from 0 to 1 where higher is better."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2518,
+                    1399,
+                    2571
+                ],
+                "angle": 0,
+                "content": "The maximum of each column (excluding Human row) is in bold."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2616,
+                    1630,
+                    2669
+                ],
+                "angle": 0,
+                "content": "Rows marked with * are the six models included in Figure 3 (left) and Figure 4."
+            },
+            {
+                "block_id": 5,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1722"
+            }
+        ]
+    },
+    {
+        "page_id": 21,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    290,
+                    263,
+                    1558,
+                    319
+                ],
+                "angle": 0,
+                "content": "H Plots of human evaluation results for all configurations"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    369,
+                    382,
+                    2123,
+                    2880
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 9: Calibrated human evaluation scores for all models. This is the same data as in Table 8."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    3041,
+                    2195,
+                    3143
+                ],
+                "angle": 0,
+                "content": "Note: 'Repetition-controlled baseline+' in the rightmost column is 'Response-related controlled WD 0' in Table 8. See Table 5 for explanation."
+            },
+            {
+                "block_id": 4,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3234,
+                    1292,
+                    3276
+                ],
+                "angle": 0,
+                "content": "1723"
+            }
+        ]
+    }
+]

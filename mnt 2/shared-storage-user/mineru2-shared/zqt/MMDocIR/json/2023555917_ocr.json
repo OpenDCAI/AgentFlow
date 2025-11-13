@@ -1,0 +1,1247 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    293,
+                    303,
+                    520,
+                    488
+                ],
+                "angle": 0,
+                "content": "LAW"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    290,
+                    491,
+                    726,
+                    666
+                ],
+                "angle": 0,
+                "content": "LIBRARY"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    293,
+                    669,
+                    724,
+                    712
+                ],
+                "angle": 0,
+                "content": "LIBRARY OF CONGRESS"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    420,
+                    1270,
+                    2098,
+                    1663
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1122,
+                    1722,
+                    1420,
+                    1801
+                ],
+                "angle": 0,
+                "content": "April 2021"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1025,
+                    2636,
+                    1522,
+                    2689
+                ],
+                "angle": 0,
+                "content": "LL File No. 2021-020106"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1065,
+                    2696,
+                    1481,
+                    2742
+                ],
+                "angle": 0,
+                "content": "LRA-D-PUB-002624"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    645,
+                    3039,
+                    1904,
+                    3095
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress, Global Legal Research Directorate"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    757,
+                    3095,
+                    1792,
+                    3151
+                ],
+                "angle": 0,
+                "content": "(202) 707-5080 \\(\\cdot\\) law@loc.gov \\(\\cdot\\) http://www.law.gov"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    578,
+                    1455,
+                    1963,
+                    1765
+                ],
+                "angle": 0,
+                "content": "This report is provided for reference purposes only. It does not constitute legal advice and does not represent the official opinion of the United States Government. The information provided reflects research undertaken as of the date of writing. It has not been updated."
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    349,
+                    300,
+                    2946,
+                    390
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1221,
+                    405,
+                    2079,
+                    469
+                ],
+                "angle": 0,
+                "content": "Staff of the Global Legal Research Directorate"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    287,
+                    525,
+                    524,
+                    573
+                ],
+                "angle": 0,
+                "content": "SUMMARY"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    561,
+                    525,
+                    3012,
+                    749
+                ],
+                "angle": 0,
+                "content": "The following table summarizes the majority vote requirements with respect to the passage of legislation in the legislatures of 74 jurisdictions around the world. The jurisdictions were selected on the basis of those identified as being either \"full\" (23) or \"flawed\" (52) democracies in the Economist Intelligence Unit's Democracy Index 2020 report (excluding the United States). The jurisdictions are listed in alphabetical order."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    561,
+                    798,
+                    1874,
+                    854
+                ],
+                "angle": 0,
+                "content": "The majority vote requirements are divided into three broad types:"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    564,
+                    910,
+                    3003,
+                    1127
+                ],
+                "angle": 0,
+                "content": "Majority of votes cast, reflecting what is frequently referred to as a \"simple majority,\" being a requirement that at least half plus one (or \"more than half\") of the votes cast be in favor of the passage of a legislative proposal (sometimes also referred to as a majority of the \"members present\" or those \"present and voting\"). Some jurisdictions may refer to, for example, \"an absolute majority of members present.\""
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    564,
+                    1152,
+                    3003,
+                    1318
+                ],
+                "angle": 0,
+                "content": "Majority of all members, being at least half plus one of the total number of members of the legislature or a particular chamber or house of the legislative body, whether present or not. The term \"absolute majority\" is sometimes used to refer to this type of majority."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    564,
+                    1343,
+                    2999,
+                    1453
+                ],
+                "angle": 0,
+                "content": "- Supermajority requirements, being requirements for more than an absolute or simple majority of votes or members. This is also sometimes referred to as a “qualified majority” or a “special majority.”"
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    564,
+                    910,
+                    3003,
+                    1453
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    557,
+                    1507,
+                    3009,
+                    1787
+                ],
+                "angle": 0,
+                "content": "The table does not generally reflect matters such as quorum requirements or other structural or procedural arrangements that may impact on the passage of legislation; requirements for work of legislative committees; or voting requirements for the adoption of non-legislative matters such as confirmation of government appointees, motions of no confidence, and the like. Furthermore, with respect to constitutional amendments, while voting requirements in the legislature are included, countries often require various additional procedures that are not reflected in the table."
+            },
+            {
+                "block_id": 10,
+                "type": "table",
+                "bbox": [
+                    290,
+                    1884,
+                    3006,
+                    2241
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td>Albania</td><td>No</td><td>Yes</td><td>Three-fifths majority of members required for laws on elections, citizenship, public functions, and major codes.</td><td>Constitution of the Republic of Albania arts. 78, 81, https://perma.cc/C7BU-28RR.</td></tr></table>"
+            },
+            {
+                "block_id": 11,
+                "type": "footer",
+                "bbox": [
+                    287,
+                    2346,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    2970,
+                    2351,
+                    3003,
+                    2391
+                ],
+                "angle": 0,
+                "content": "1"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    874,
+                    147,
+                    2418,
+                    211
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    283,
+                    290,
+                    3012,
+                    2256
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td>Argentina</td><td>Yes</td><td>Yes, for laws on the internal regulation of each house of Congress, laws modifying the electoral system, laws on co-participation of the federal and provincial governments on taxation and spending, and for approval of certain international treaties.</td><td>Two-thirds majority of members required to amend the Constitution, to override a presidential veto, and to approve certain international treaties.</td><td>Constitution of the Argentine Nation arts. 30, 75, 77, 79, 83, https://perma.cc/TSF7-9KHU.</td></tr><tr><td>Armenia</td><td>Yes</td><td>Yes for declaring amnesty, state of emergency, and martial law.</td><td>None</td><td>Constitution of Armenia art. 103.</td></tr><tr><td>Australia</td><td>Yes</td><td>Yes for constitutional amendments and in a joint sitting where there is further disagreement between houses on a bill following double dissolution.</td><td>None</td><td>Constitution of Australia ss 23, 40, 57 &amp; 128, https://perma.cc/V6BY-LBPR.</td></tr><tr><td>Austria</td><td>Yes</td><td>No</td><td>Two-thirds majority of votes cast in the National Council required for the adoption of laws containing provisions with constitutional status; for bills agreeing to conclude treaties on certain EU matters; for bills amending the Rules of Procedure of the National Council and the Information Rules Act; for certain bills related to the education system; and for bills</td><td>Federal Constitution Law art. 14, para. 10; art. 14a, para. 8; art. 31; art. 37, para. 1; art. 23i, paras. 1, 3, 4; art. 23j, para. 1; art. 44, para. 1; art. 50, para. 4, https://perma.cc/U336-YL5P (original), https://perma.cc/P9UP-EPTP (English translation); Law on the Rules of</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    2346,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2970,
+                    2351,
+                    3003,
+                    2391
+                ],
+                "angle": 0,
+                "content": "2"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    874,
+                    147,
+                    2418,
+                    214
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    283,
+                    290,
+                    3012,
+                    2193
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td></td><td></td><td></td><td>changing borders of provinces within the federal territory. Two-thirds majority of votes cast in the Federal Council required for constitutional laws or constitutional provisions restricting the authority of Austrian provinces; for approval of bills adopted by the National Council concerning amendment of the Information Rules Act; and for bills amending the Rules of Procedure of the Federal Council. Two-thirds majority of votes cast in the Federal Council and approval by majority of representatives of at least four provinces needed to approve a bill adopted by the National Council concerning the amendment of composition of the Federal Council or the legislative periods of provincial parliaments.</td><td>Procedure of the National Council § 82 (1975), https://perma.cc/D9SM-6HET (original), https://perma.cc/3AZZ-NXZK (English translation); Rules of Procedure of the Federal Council § 58 (1988), https://perma.cc/9L49-JD4F (original), https://perma.cc/5QTT-C2UH (English translation).</td></tr><tr><td>Botswana</td><td>Yes</td><td>No</td><td>Two-thirds majority of all members required for amendment of some constitutional provisions.</td><td>Botswana Constitution §§ 74, 89, 94, https://perma.cc/7TYH-8HBG.</td></tr><tr><td>Brazil</td><td>Yes</td><td>Yes for laws that complement the Constitution.</td><td>Three-fifths majority of all members required for constitutional amendments.</td><td>Constitution of the Federative Republic of Brazil arts. 47, 60(§ 2), 69, https://perma.cc/K75X-QL8A.</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    2346,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2970,
+                    2351,
+                    2999,
+                    2394
+                ],
+                "angle": 0,
+                "content": "3"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    874,
+                    147,
+                    2418,
+                    214
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    283,
+                    290,
+                    3012,
+                    2203
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td>Bulgaria</td><td>Yes</td><td>Yes for bills returned by the President for further debate.</td><td>Three-fourths majority vote in three separate ballots required for constitutional amendments; two-thirds majority vote required for ratification of treaties transferring constitutional powers to the EU.</td><td>Constitution of Bulgaria arts. 81, 85, 101, 156, https://perma.cc/YXV8-8JSX.</td></tr><tr><td>Cabo Verde</td><td>Yes</td><td>Yes for overriding a presidential veto.</td><td>Two-thirds majority of all deputies required for constitutional bills; two-thirds majority of deputies present required for laws on certain other topics (e.g., acquisition and loss of nationality, organization of courts).</td><td>Constitution of the Republic of Cape Verde arts. 136(2), 159(4), 160, 175, https://perma.cc/7UDZ-BKNC.</td></tr><tr><td>Canada</td><td>Yes</td><td>No</td><td>None. Canada&#x27;s Constitution has several amendment formulas; general procedure on matters listed under section 42 of Constitution Act, 1982, requires resolutions of Senate and House of Commons and resolutions of “the legislative assemblies of at least two-thirds of the provinces that have, in the aggregate, according to the then latest general census, at least fifty per cent of the population of all the provinces.”</td><td>Constitution Acts, 1867 to 1982 §§ 36, 49, Part V, § 38(1), https://perma.cc/SSP2-PKZW.</td></tr><tr><td>Colombia</td><td>Yes</td><td>Yes, for organic laws, laws implementing fundamental constitutional rights, laws on public services, and laws on constitutional reform.</td><td>Two-thirds majority required for laws superseding decrees issued by the Executive during a state of war and for laws granting amnesty or pardons.</td><td>Political Constitution of Colombia arts. 146, 150, 151, 153, 212, 365, 375, 376, 378, https://perma.cc/U4XU-7TYR.</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    2346,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2970,
+                    2351,
+                    3003,
+                    2391
+                ],
+                "angle": 0,
+                "content": "4"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    874,
+                    147,
+                    2418,
+                    214
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    283,
+                    290,
+                    3012,
+                    2136
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td>Costa Rica</td><td>Yes</td><td>No</td><td>Two-thirds majority of all members required for the approval of international treaties that grant certain competencies to a community legal system to achieve regional and common objectives; to suspend certain individual rights and guarantees contained in the Constitution; and to approve laws that regulate the form, requirements, and other conditions that bills of popular initiative must meet. Two-thirds majority of all members present required for suspending certain rights and guarantees when decreed by the President during a recess of the Legislative Assembly and there is a lack of quorum to meet.</td><td>Political Constitution of the Republic of Costa Rica arts. 119, 121, 123, 124, 140, https://perma.cc/D9KC-WYLA.</td></tr><tr><td>Croatia</td><td>Yes</td><td>Yes, for laws addressing human rights and fundamental freedoms; the electoral system; the national budget; the structure, authority, and operating procedures of state bodies; and the structure and authority of local and regional self-government.</td><td>Two-thirds majority of members required for constitutional amendments; laws on the rights of national minorities, the deployment of troops, and changing borders; and ratifying international treaties.</td><td>Constitution of the Republic of Croatia arts. 82, 83, https://perma.cc/RT9Q-MMPJ.</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    2343,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2970,
+                    2348,
+                    3003,
+                    2391
+                ],
+                "angle": 0,
+                "content": "5"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    874,
+                    147,
+                    2418,
+                    214
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    283,
+                    290,
+                    3012,
+                    2193
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td>Cyprus (Republic of)</td><td>Yes, for all ordinary legislation. (Technically, laws amending electoral laws, laws concerning town halls, and laws imposing taxes require simple majority of deputies elected by Greek and Turkish communities, respectively, who participated in vote, however, Turkish deputies are not elected since 1963 events, so this requirement)</td><td>Yes, for decision to dissolve House of Representatives. (Technically, absolute majority needs to include at least one-third of members elected by Turkish community, however, Turkish deputies are not elected since 1963 events, so this requirement is not observed.)</td><td>Two-thirds majority of all members required to change number of deputies in House of Representatives and to pass other constitutional amendments. (Technically, two-thirds of deputies elected by Greek and Turkish communities, respectively, are required for both types of legislation, however, Turkish deputies are not elected since 1963 events, so this requirement is not observed.) Three-quarters of all members required to indict president or vice-president of Republic of Cyprus for treason.</td><td>Constitution of Republic of Cyprus arts. 45(2), 62(1), 67(1), 78(1)-(2), 182(3), https://perma.cc/UQ6F-Y6AK.</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    2346,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2970,
+                    2351,
+                    3003,
+                    2394
+                ],
+                "angle": 0,
+                "content": "6"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    874,
+                    147,
+                    2418,
+                    211
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    283,
+                    290,
+                    3012,
+                    2256
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td></td><td>is not observed.)</td><td></td><td></td><td></td></tr><tr><td>Denmark</td><td>Yes</td><td>No</td><td>Five-sixths majority or a national referendum required for legislation and issues pertaining to sovereignty.</td><td>Constitutional Act of Denmark §§ 20, 41, 88, https://perma.cc/LLZ3-CVHF; Parliamentary Rules of Procedure § 33, https://perma.cc/6MSW-GCR4.</td></tr><tr><td>Estonia</td><td>Yes</td><td>Yes, for passage and amendment of certain acts listed in the Constitution, including acts concerning citizenship, elections, national minorities, the state budget, the national bank, and court organization.</td><td>None</td><td>Constitution of the Republic of Estonia arts. 73, 104, https://perma.cc/8AXT-QZCR.</td></tr><tr><td>France</td><td>Yes</td><td>No</td><td>Three-fifths majority of votes cast required for constitutional amendments.</td><td>Rules of the National Assembly art. 68, https://perma.cc/9YGK-8RD6; Rules of the Senate art. 52, https://perma.cc/Q7R6-YW62; Constitution art. 89, https://perma.cc/VQP6-8TW4.</td></tr><tr><td>Germany</td><td>Yes</td><td>Yes, for Federal laws establishing autonomous federal higher authorities, new federal corporations and institutions under public law</td><td>Two-thirds majority required both in Bundestag and Bundesrat for constitutional amendments and for changes to EU treaties that amend or supplement the Basic Law. Two-thirds majority of the Bundestag</td><td>Basic Law for the Federal Republic of Germany art. 23, para. 1, sentence 3; art. 29, para. 7, sentence 2; art. 42, para. 2; art. 87, para. 3, sentence 2; art. 79, para. 2,</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    2346,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2970,
+                    2351,
+                    3003,
+                    2391
+                ],
+                "angle": 0,
+                "content": "7"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    874,
+                    147,
+                    2418,
+                    211
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    283,
+                    290,
+                    3012,
+                    2256
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td></td><td></td><td>procedural laws to change the territory of one of the German states, and for the Bundestag (parliament) to override an objection that the Bundesrat (Federal Council) adopted by a majority of the votes.</td><td>required to override an objection that the Bundesrat adopted by a two-thirds majority.</td><td>https://perma.cc/4JK9-TYXG (original), https://perma.cc/6FCR-JZZP (English translation).</td></tr><tr><td>Greece</td><td>Yes</td><td>Yes, for overturning a presidential veto, for requiring the President to hold a public referendum on issues of national importance, for legislation changing the boundaries of the country, for legislation consenting to foreign military forces to operate in or pass through Greek territory, and for legislation limiting the exercise of national sovereignty.</td><td>A two-thirds majority is required for changes to electoral laws in order to make them effective for the immediately following elections. A three-fifths majority of all members is required for certain votes on amending the Constitution, to call a referendum on non-fiscal bills that regulate important social matters, and to ratify international treaties or agreements that vest certain authority in international organizations.</td><td>Constitution of Greece arts. 27(1), 27(2), 28(2), 28(3), 42(2), 44(2), 54(1), 67 &amp; 110(2)-(4), https://perma.cc/GUM8-V6KD.</td></tr><tr><td>Hungary</td><td>Yes</td><td>No</td><td>Two-thirds majority of all members required to adopt and amend the Constitution, to ratify international treaties transferring domestic power to international organizations, and to adoption and amendment of specified “cardinal acts,” including, for example, those on citizenship, religious communities, national minorities,</td><td>Fundamental Law of Hungary arts. E(4), G(1), T(4), VII(5), XXIX(3), XXXI, 5(6), 5(7), 24(9), https://perma.cc/5BPQ-HZMQ.</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    2343,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2970,
+                    2351,
+                    3003,
+                    2391
+                ],
+                "angle": 0,
+                "content": "8"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    874,
+                    147,
+                    2418,
+                    211
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    283,
+                    290,
+                    3012,
+                    2203
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td></td><td></td><td></td><td>military service, and the Constitutional Court.</td><td></td></tr><tr><td>Iceland</td><td>Yes</td><td>No</td><td>Two-thirds majority required for provisions related to electoral district boundaries and the methods of allocating seats in Parliament. Constitutional amendments require two votes with an election to Parliament in between.</td><td>Icelandic Constitution arts. 31, 79, https://perma.cc/TZS8-DUD2; Standing Orders of the Althingi art. 73, https://perma.cc/K49M-4SNS.</td></tr><tr><td>India</td><td>Yes</td><td>Yes for most constitutional amendments.</td><td>Most constitutional amendment bills must be “passed in each House by a majority of the total membership of that House and by a majority of not less than two-thirds of the members of that House present and voting.”</td><td>Constitution of India arts. 100, 368(2), https://perma.cc/C9M4-HDGJ.</td></tr><tr><td>Indonesia</td><td>Yes</td><td>Yes for constitutional amendments.</td><td>None</td><td>Constitution of Indonesia arts. 2(3), 37(4), https://perma.cc/3E79-593T.</td></tr><tr><td>Ireland</td><td>Yes</td><td>No</td><td>None</td><td>Constitution of Ireland arts. 12, 15(11), https://perma.cc/P9TJ-F62K.</td></tr><tr><td>Israel</td><td>Yes</td><td>Yes for changes to electoral system.</td><td>Two-thirds majority of all members required for extending Knesset term and for emergency legislation affecting Knesset election and authorities.</td><td>Basic Law: the Knesset, §§ 4, 7A (2-3), 9A, 25, 42A(c), 44-46, https://perma.cc/CSC4-4HY3.</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    2343,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2970,
+                    2348,
+                    3003,
+                    2391
+                ],
+                "angle": 0,
+                "content": "9"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    874,
+                    147,
+                    2418,
+                    214
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    283,
+                    290,
+                    3012,
+                    2091
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td>Italy</td><td>Yes</td><td>Yes, for certain laws related to autonomous provinces and for constitutional amendments.</td><td>Two-thirds majority required for laws on amnesty and pardon, and for overcoming the submission to popular referenda of laws amending the Constitution.</td><td>Constitution of the Italian Republic arts. 64, 79, 116, 138, https://perma.cc/TYV3-2YFG (in Italian), https://perma.cc/3Y5G-RC9P (unofficial English translation).</td></tr><tr><td>Jamaica</td><td>Yes</td><td>No</td><td>Two-thirds or three-fifths majority of all members of either house, as relevant, for constitutional amendments.</td><td>Constitution of Jamaica §§ 49, 53-54, https://perma.cc/CK6N-5SBK.</td></tr><tr><td>Japan</td><td>Yes</td><td>No</td><td>Two-thirds or more of members of House of Representatives (HR) present when House of Councillors made decision different from that of HR.</td><td>Constitution of Japan arts. 59, 96, https://perma.cc/3Y8U-CL9S.</td></tr><tr><td>Latvia</td><td>Yes</td><td>No</td><td>Two-thirds majority required for constitutional amendments and to ratify treaties transferring a part of state competencies to international organizations.</td><td>Constitution of the Republic of Latvia arts. 24, 68, 76, https://perma.cc/EU7V-6XVL.</td></tr><tr><td>Lesotho</td><td>Yes</td><td>Yes, for constitutional amendments.</td><td>Two-thirds majority of all members of National Assembly required for bills relating to the national seal, national anthem, and national flag.</td><td>Constitution of Lesotho §§ 3, 75, 85, https://perma.cc/GL3T-W7Q5.</td></tr><tr><td>Lithuania</td><td>Yes</td><td>Yes for votes to adopt constitutional laws.</td><td>Three-fifths majority required to amend constitutional laws.</td><td>Constitution of the Republic of Lithuania art. 69, https://perma.cc/69KP-SKF8.</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    2343,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2950,
+                    2348,
+                    3003,
+                    2391
+                ],
+                "angle": 0,
+                "content": "10"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    874,
+                    147,
+                    2418,
+                    214
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    283,
+                    290,
+                    3012,
+                    2256
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td>Luxembourg</td><td>Yes</td><td>No</td><td>Two-thirds majority of members required for constitutional amendments.</td><td>Constitution of the Grand Duchy of Luxembourg arts. 62, 114, https://perma.cc/W8PQ-AJSS.</td></tr><tr><td>Malaysia</td><td>Yes</td><td>No</td><td>Two-thirds majority of all members required for constitutional amendments; two-thirds majority of members voting required for laws that change the status of Malay reservations.</td><td>Federal Constitution of Malaysia arts. 62(3), 89(1) &amp; (8), 159(3), https://perma.cc/YQ2G-QZFJ.</td></tr><tr><td>Malta</td><td>Yes</td><td>Yes for bills that alter specified provisions of the Constitution.</td><td>Two-thirds majority of all members required for certain constitutional amendments.</td><td>Constitution of Malta arts. 66, 71, https://perma.cc/G38P-CHS6.</td></tr><tr><td>Mauritius</td><td>Yes</td><td>No</td><td>Three-quarters majority of members of National Assembly (NA) required for bills on terrorism or drug-related crimes; bills to “amend or to repeal the provisions of any law with regard to the keeping of a custody record and video recording in respect of the detention of any person for a drug offence”; bills to amend or repeal an act relating to eminent domain that had been adopted with support of three-quarters of NA members; and bills that amend certain parts of Constitution. Two-thirds majority of NA members required for amendment of some constitutional provisions.</td><td>Mauritius Constitution §§ 5, 8, 47, 53, https://perma.cc/JV5DN3C5.</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    2346,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2950,
+                    2351,
+                    2999,
+                    2394
+                ],
+                "angle": 0,
+                "content": "11"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    874,
+                    147,
+                    2418,
+                    214
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    283,
+                    290,
+                    3012,
+                    2256
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td>Mexico</td><td>Yes</td><td>No</td><td>Two-thirds majority of members present required to override a presidential veto and to pass constitutional amendments.</td><td>Political Constitution of the United Mexican States arts. 72 (C-F), 135, https://perma.cc/6KX5-H4AL.</td></tr><tr><td>Mongolia</td><td>Yes</td><td>No</td><td>Two-thirds majority required to override a presidential veto.</td><td>Constitution of Mongolia arts. 27, 33, 61, https://perma.cc/KCG9-AAPX.</td></tr><tr><td>Namibia</td><td>Yes</td><td>No</td><td>Two-thirds majority of National Assembly (NA) required for bills related to the national coat of arms, national anthem, and national seal; presidential veto override; and reaffirming certain bills against which objections are raised by two-thirds majority of National Council (NC). Two-thirds majority of all members of NA and NC required for constitutional amendments.</td><td>Constitution of Namibia §§ 2, 56, 67, 75, 77, https://perma.cc/B6WP-MT8P.</td></tr><tr><td>Netherlands</td><td>Yes</td><td>No</td><td>Two-thirds majority of the votes cast required for constitutional amendments, provisions of treaties that conflict with the Constitution, bills to appoint a successor to the Dutch throne, bills concerning payments and tax exemption for members of the royal house, bills on remuneration to members of parliament.</td><td>Constitution of the Kingdom of the Netherlands art. 30, para. 2; art. 40, para. 3; art. 63; art. 67, para. 2; art. 91, para. 3; art. 137, paras. 4, 5; art. 138, para. 2, https://perma.cc/X3PC-NFK5 (original), https://perma.cc/8D3F-MV3T (English translation).</td></tr><tr><td>Norway</td><td>Yes</td><td>No</td><td>Two-thirds majority required for constitutional amendments,</td><td>Constitution of the Kingdom of Norway §§ 49, 57, 73, 121,</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    2346,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2950,
+                    2348,
+                    3003,
+                    2391
+                ],
+                "angle": 0,
+                "content": "12"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    874,
+                    147,
+                    2422,
+                    214
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    283,
+                    290,
+                    3012,
+                    2256
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td></td><td></td><td></td><td>following a national election to Parliament.</td><td>https://perma.cc/A3UX-YS33; Rules of Procedure of the Storting §§ 43, 61, https://perma.cc/2U2N-UM3P.</td></tr><tr><td>Panama</td><td>Yes</td><td>Yes, for several specific laws, including issuing or amending national codes, approving or disapproving treaties negotiated by the executive branch, approving the government budget, and establishing taxes.</td><td>Two-thirds majority of all members required to override a presidential veto.</td><td>Political Constitution of the Republic of Panama arts. 159, 164, 165, 166, 170, 171, 313, https://perma.cc/S333-36CQ.</td></tr><tr><td>Papua New Guinea</td><td>Yes</td><td>Yes to amend certain sections of the Constitution and certain Organic Laws.</td><td>Two-thirds majority of all members required to amend certain sections of the Constitution and certain Organic Laws. Three-quarters majority of all members required to amend certain sections of the Constitution.</td><td>Constitution of Papua New Guinea ss 14, 17, 114, https://perma.cc/AC8U-4VC4.</td></tr><tr><td>Paraguay</td><td>Yes</td><td>Yes, to reject objections from the other house of Congress, override a presidential veto, declare a state of emergency, and approve constitutional amendments.</td><td>None</td><td>Constitution of the Republic of Paraguay arts. 185, 206, 207.2, 208, 209, 288, 290, https://perma.cc/WC8Q-GLLM.</td></tr><tr><td>Perú</td><td>Yes</td><td>Yes, for laws on constitutional reform subject to referendum, organic laws, and</td><td>Two-thirds majority of members required for laws on constitutional reform not subject to referendum, special tax treatment for certain</td><td>Regulations of Congress art. 52, https://perma.cc/WE6H-T79U; Political Constitution of Peru arts. 57, 79, 80, 106,</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    2346,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2950,
+                    2348,
+                    3003,
+                    2391
+                ],
+                "angle": 0,
+                "content": "13"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    874,
+                    147,
+                    2418,
+                    214
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    283,
+                    290,
+                    3012,
+                    2203
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td></td><td></td><td>international treaties related to constitutional provisions.</td><td>zones of the country, and certain budgetary measures.</td><td>and 206, https://perma.cc/7NHU-PCSK.</td></tr><tr><td>Philippines</td><td>Yes</td><td>Yes for laws granting tax exemptions.</td><td>Two-thirds majority required to declare war and to override a presidential veto.</td><td>Constitution of the Republic of the Philippines arts. VI, §§ 23-1, 27, 28-4, https://perma.cc/JRS6-RTB9.</td></tr><tr><td>Poland</td><td>Yes</td><td>No</td><td>Three-fifths majority required to override a presidential veto; two-thirds majority required to ratify treaties transferring a part of state competencies to international organizations.</td><td>Constitution of the Republic of Poland arts. 90, 120, 122, https://perma.cc/8B39-9AFP.</td></tr><tr><td>Portugal</td><td>Yes</td><td>Yes for organic laws and for overriding a presidential veto of an ordinary bill.</td><td>Two-thirds majority of deputies present required to override a presidential veto of an organic law and or of a law on specified topics; two-thirds majority of deputies present required for passage of laws on specified topics; two-thirds majority of all deputies required for constitutional amendments.</td><td>Constitution of the Portuguese Republic arts. 136, 168(5), 168(6), 255, 286(1), https://perma.cc/5P3S-RUCE;Procedural Rules of the Assembly of the Republic art. 92(1), https://perma.cc/6HCP-KC4K.</td></tr><tr><td>Romania</td><td>Yes</td><td>Yes for approval of organic laws.</td><td>Two-thirds majority required to ratify treaties transferring a part of state competencies to international organizations.</td><td>Constitution of Romania arts. 67, 76, 148, https://perma.cc/PK4W-BUHS.</td></tr><tr><td>Serbia</td><td>Yes</td><td>Yes for laws on constitutional issues, rights of national minorities, and public debt.</td><td>None</td><td>Constitution of Serbia art. 105, https://perma.cc/MZ67-R6JT.</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    2343,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2950,
+                    2348,
+                    3003,
+                    2391
+                ],
+                "angle": 0,
+                "content": "14"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    874,
+                    147,
+                    2422,
+                    214
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    283,
+                    290,
+                    3012,
+                    2256
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Singapore</td><td>Yes</td><td>No</td><td>Two-thirds of total number of members of Parliament required to pass constitutional amendments.</td><td>Constitution of Republic of Singapore arts. 5(2), 57(1), https://perma.cc/L4K4-E2KH.</td></tr><tr><td>Slovakia</td><td>Yes</td><td>Yes to override a presidential veto and to ratify international treaties.</td><td>Three-fifths majority required for amending Constitution or adopting a constitutional law.</td><td>Constitution of the Slovak Republic art. 84, https://perma.cc/6A6S-23DW.</td></tr><tr><td>Slovenia</td><td>Yes</td><td>No</td><td>Two-thirds majority required for constitutional amendments; ratification of treaties transferring a part of state competencies to international organizations; and adoption of laws on elections, organization of defense, integrity of the national territory, and budget.</td><td>Constitution of the Republic of Slovenia arts. 3(A), 86, 98, 124, 148, 169, https://perma.cc/CWB6-UT8G.</td></tr><tr><td>South Africa</td><td>Yes (in National Assembly (NA))</td><td>No</td><td>Two-thirds majority of all members of NA required for constitutional amendments and for overriding National Council of Provinces&#x27; objection to parts of an ordinary bill that affects counties initiated in NA.</td><td>Constitution of the Republic of South Africa §§ 53, 74, 76, https://perma.cc/9E6C-DUNR.</td></tr><tr><td>Spain</td><td>Yes</td><td>Yes, for adoption of internal regulations of each chamber of Parliament, treaties, and amendment or repeal of organic laws.</td><td>Two-thirds majority required for limited constitutional reform.</td><td>Spanish Constitution arts. 66.1, 79, 72, 74, 94.1, 81, 99, 102, 113, 167, 168, https://perma.cc/F8NZ-3FYG.</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    2343,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2950,
+                    2348,
+                    3003,
+                    2391
+                ],
+                "angle": 0,
+                "content": "15"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    874,
+                    147,
+                    2418,
+                    214
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    283,
+                    290,
+                    3012,
+                    2233
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td>Sri Lanka</td><td>Yes</td><td>No</td><td>Under Sri Lanka&#x27;s Constitution, constitutional amendment bills become law “if the number of votes cast in favour thereof amounts to not less than two-thirds of the whole number of Members (including those not present).” If Supreme Court finds bill or any provision within it inconsistent with Constitution, article 84 allows “special majority” procedure of two-thirds vote of whole number of members to pass bills that are inconsistent with Constitution.</td><td>Constitution of Democratic Socialist Republic of Sri Lanka arts. 72(1), 82(5), 84(2), 121, 123, https://perma.cc/3AA5-H2B3.</td></tr><tr><td>Suriname</td><td>Yes</td><td>No</td><td>Two-thirds majority of votes cast required for constitutional amendments; amendments to certain provisions of the Electoral Act; and bills related to the organization of the People&#x27;s Assembly or to holding of plebiscite.</td><td>Constitution of the Republic of Suriname art. 60; art. 71, para. 2; art. 83, paras. 2, 3; art. 181, para. 2, https://perma.cc/WV6P-4WQN (original), https://perma.cc/94FQ-D8ZC (English translation).</td></tr><tr><td>Sweden</td><td>Yes</td><td>No</td><td>Constitutional amendments require two votes adopted by a five-sixths majority with a national election to Parliament in between.</td><td>Instrument of Government, 3 kap. 2 §, 8 kap 14 §, https://perma.cc/K7NN-462R; Riksdag Act, 6 kap. 3 &amp; 4 §§, https://perma.cc/K7M5-2M3J (in Swedish), https://perma.cc/W3RB-</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    2343,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2950,
+                    2348,
+                    3003,
+                    2391
+                ],
+                "angle": 0,
+                "content": "16"
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    874,
+                    147,
+                    2418,
+                    214
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    283,
+                    290,
+                    3012,
+                    2256
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td></td><td></td><td></td><td></td><td>2X5Y (unofficial English translation).</td></tr><tr><td>Switzerland</td><td>Yes, in both chambers. In addition, certain laws are subject to a referendum of the Swiss people and the Swiss cantons (states), which require a majority vote.</td><td>Yes, for provisions on subsidies, guarantee credits, or spending ceilings that involve new expenditures over certain amounts, and for increases in overall expenditures.</td><td>None</td><td>Federal Constitution of the Swiss Confederation art. 142; art. 159, paras. 2, 3, https://perma.cc/78V2-HZVR (original), https://perma.cc/C3U8-BBEF (English translation).</td></tr><tr><td>Taiwan</td><td>Yes</td><td>No</td><td>Three-fourths majority of members present at meeting attended by three-fourths of total members of Legislative Yuan required to pass constitutional amendments or alteration of Republic of China&#x27;s territory, followed by referendum.</td><td>Law Governing Legislative Yuan&#x27;s Power art. 6, https://perma.cc/4C65-82HA; Additional Articles of Constitution of Republic of China arts. 4, 12, https://perma.cc/WJ5BF7TB (in Chinese), https://perma.cc/V8SN-AFKP (English translation).</td></tr><tr><td>Timor Leste</td><td>Yes</td><td>Yes for overriding a presidential veto of regular bills.</td><td>Two-thirds majority of members present required to override a presidential veto of bills on certain matters; two-thirds majority of all members required to approve a referendum and constitutional reviews and amendments.</td><td>Constitution of the Democratic Republic of East Timor arts. 66(2), 88(2), 95, 155(1),</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    2343,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2950,
+                    2348,
+                    3003,
+                    2391
+                ],
+                "angle": 0,
+                "content": "17"
+            }
+        ]
+    },
+    {
+        "page_id": 19,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    874,
+                    147,
+                    2418,
+                    214
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    283,
+                    290,
+                    3012,
+                    2246
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td></td><td></td><td></td><td></td><td>https://perma.cc/7SC8-F7CM.</td></tr><tr><td>Trinidad and Tobago</td><td>Yes</td><td>No</td><td>Two-thirds majority of all members of each house required for certain constitutional amendments, and for extension of state of emergency; three-fourths majority of all members of the House and two-thirds of the Senate required to amend certain constitutional provisions, including those on the electoral system.</td><td>Constitution of the Republic of Trinidad and Tobago §§ 10, 36, 54, 59, https://perma.cc/GN8L-7B7G.</td></tr><tr><td>Tunisia</td><td>Yes</td><td>Yes for passing organic laws.</td><td>None</td><td>Constitution of the Tunisian Republic art. 64, https://perma.cc/A5YX-UHG3.</td></tr><tr><td>United Kingdom</td><td>Yes</td><td>No</td><td>None</td><td>Erskine May, Parliamentary Practice: Putting of Question at Close of Debate, ¶ 20.60, https://perma.cc/JJE5-8BFM.</td></tr><tr><td>Uruguay</td><td>Yes</td><td>Yes, for laws on participation of the State in commercial or industrial activities, the Central Bank, public higher education institutions, expropriation, taxation referenda, the civil service, voting, public debt, war, international treaties, prohibitions for Members of Congress, the commercial</td><td>Two-thirds majority of members required for laws on elections, political parties, creation of public entities, and constitutional reform. Three-fifths majority required for laws allowing private capital in government-owned companies, to override a presidential veto, and appointment of board members of public companies.</td><td>Regulations of the House of Representatives art. 92, https://perma.cc/9TMD-9BV5; Constitution of the Oriental Republic of Uruguay arts. 60, 77.2, 77.7, 77.12, 79, 85.6, 85.7, 87, 126, 138, 174, 185, 187, 188, 189, 192, 196, 199, 203, 231, 271, 298, 301, 304, 331.d,</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    2346,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2953,
+                    2351,
+                    3003,
+                    2394
+                ],
+                "angle": 0,
+                "content": "18"
+            }
+        ]
+    },
+    {
+        "page_id": 20,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    874,
+                    147,
+                    2418,
+                    211
+                ],
+                "angle": 0,
+                "content": "Majority Vote Requirements for Passage of Legislation in Selected Jurisdictions"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    290,
+                    290,
+                    3006,
+                    596
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Majority of Votes Cast</td><td>Majority of All Members</td><td>Supermajority Requirements</td><td>Citation</td></tr><tr><td></td><td></td><td>domain of the State, and the Cabinet of the Executive Power.</td><td></td><td>https://perma.cc/48TN-MG7V.</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    2346,
+                    871,
+                    2404
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2950,
+                    2348,
+                    3003,
+                    2391
+                ],
+                "angle": 0,
+                "content": "19"
+            }
+        ]
+    }
+]

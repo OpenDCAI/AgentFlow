@@ -1,0 +1,5686 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    860,
+                    97,
+                    2297,
+                    1321
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    652,
+                    1438,
+                    2508,
+                    1581
+                ],
+                "angle": 0,
+                "content": "Nepal Media Landscape 2014"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    684,
+                    1617,
+                    2486,
+                    1706
+                ],
+                "angle": 0,
+                "content": "National Opinion Survey Wave-III September 2014"
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    140,
+                    1858,
+                    393,
+                    2105
+                ],
+                "angle": 0,
+                "content": "#"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    406,
+                    1928,
+                    915,
+                    2032
+                ],
+                "angle": 0,
+                "content": "Internews"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    2064,
+                    1849,
+                    2240,
+                    2089
+                ],
+                "angle": 0,
+                "content": "#"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    2275,
+                    1894,
+                    3046,
+                    2043
+                ],
+                "angle": 0,
+                "content": "Interdisciplinary analysts"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    320,
+                    290,
+                    2873,
+                    378
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    320,
+                    385,
+                    2873,
+                    475
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    320,
+                    480,
+                    2873,
+                    571
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    320,
+                    575,
+                    2873,
+                    668
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    320,
+                    673,
+                    2873,
+                    761
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    320,
+                    765,
+                    2873,
+                    858
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    320,
+                    863,
+                    2873,
+                    956
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    320,
+                    960,
+                    2873,
+                    1053
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    320,
+                    1058,
+                    2873,
+                    1171
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    320,
+                    1176,
+                    2873,
+                    1268
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    320,
+                    1273,
+                    2873,
+                    1364
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    320,
+                    1368,
+                    2873,
+                    1459
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    320,
+                    1463,
+                    2873,
+                    1554
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    320,
+                    1559,
+                    2873,
+                    1651
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    320,
+                    1656,
+                    2873,
+                    1749
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    320,
+                    1753,
+                    2873,
+                    1844
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    320,
+                    1849,
+                    2873,
+                    1962
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    320,
+                    1966,
+                    2873,
+                    2059
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    320,
+                    2064,
+                    2873,
+                    2157
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    320,
+                    290,
+                    2873,
+                    2157
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1075,
+                    410,
+                    1766,
+                    466
+                ],
+                "angle": 0,
+                "content": "National Media Landscape 2014"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1075,
+                    475,
+                    1977,
+                    532
+                ],
+                "angle": 0,
+                "content": "Nepal Opinion Survey Wave-III September 2014"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1072,
+                    600,
+                    2096,
+                    781
+                ],
+                "angle": 0,
+                "content": "National media survey is a part of Nepal Opinion Survey conducted by Internews and IDA in September 2013, February 2014 and September 2014."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    1075,
+                    842,
+                    1180,
+                    888
+                ],
+                "angle": 0,
+                "content": "IDA"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1072,
+                    904,
+                    2025,
+                    960
+                ],
+                "angle": 0,
+                "content": "Dr. Sudhindra Sharma Team Leader and Sociologist"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1072,
+                    967,
+                    1830,
+                    1017
+                ],
+                "angle": 0,
+                "content": "Mr. Pawan Kumar Sen Senior Statistician"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1072,
+                    1026,
+                    1769,
+                    1085
+                ],
+                "angle": 0,
+                "content": "Mr. Hiranjya Baral, Field Coordinator"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1075,
+                    1155,
+                    1305,
+                    1203
+                ],
+                "angle": 0,
+                "content": "Internews"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1072,
+                    1216,
+                    2105,
+                    1273
+                ],
+                "angle": 0,
+                "content": "Mr. David Dougherty- National Opinion Polls Specialist"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1072,
+                    1280,
+                    1843,
+                    1334
+                ],
+                "angle": 0,
+                "content": "Mr. Oren Murphy Regional Director, Asia"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1072,
+                    1343,
+                    1804,
+                    1395
+                ],
+                "angle": 0,
+                "content": "Ms. Dorothy Dai, Program Officer, Asia"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1072,
+                    1404,
+                    1888,
+                    1459
+                ],
+                "angle": 0,
+                "content": "Mr. Madhu Acharya, Project Director Nepal"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1072,
+                    1466,
+                    1897,
+                    1522
+                ],
+                "angle": 0,
+                "content": "Mr. Bhumiraj Chapagain, Media Coordinator"
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    1075,
+                    1592,
+                    1670,
+                    1647
+                ],
+                "angle": 0,
+                "content": "Antenna Foundation Nepal"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1075,
+                    1654,
+                    1884,
+                    1710
+                ],
+                "angle": 0,
+                "content": "National Democratic Institute, Nepal"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1075,
+                    1776,
+                    1462,
+                    1826
+                ],
+                "angle": 0,
+                "content": "© Internews 2014"
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    1580,
+                    2145,
+                    1612,
+                    2191
+                ],
+                "angle": 0,
+                "content": "3"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    124,
+                    131,
+                    688,
+                    222
+                ],
+                "angle": 0,
+                "content": "TABLE OF CONTENT"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    118,
+                    512,
+                    2124,
+                    611
+                ],
+                "angle": 0,
+                "content": "INTERNEWS IN NEPAL 05"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    118,
+                    632,
+                    2124,
+                    722
+                ],
+                "angle": 0,
+                "content": "ABOUT US 06"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    118,
+                    743,
+                    2124,
+                    840
+                ],
+                "angle": 0,
+                "content": "WHAT WE DO 07"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    118,
+                    858,
+                    2124,
+                    956
+                ],
+                "angle": 0,
+                "content": "OUR APPROACH 08"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    118,
+                    972,
+                    857,
+                    1069
+                ],
+                "angle": 0,
+                "content": "RESEARCH METHODOLOGY"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    118,
+                    1083,
+                    2124,
+                    1180
+                ],
+                "angle": 0,
+                "content": "ATIONWIDE OPINION SURVEY WAVE I. II & III 09"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    118,
+                    1196,
+                    2124,
+                    1296
+                ],
+                "angle": 0,
+                "content": "DEMOGRAPHICS 10"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    118,
+                    1312,
+                    2124,
+                    1411
+                ],
+                "angle": 0,
+                "content": "NEPAL MEDIA LANDSCAPE FEBRUARY 2014 13"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    118,
+                    1425,
+                    2124,
+                    1525
+                ],
+                "angle": 0,
+                "content": "NEPAL MEDIA LANDSCAPE SEPTEMBER 2013 35"
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    118,
+                    512,
+                    2124,
+                    1525
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    131,
+                    1577,
+                    2124,
+                    2127
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    2211,
+                    131,
+                    3062,
+                    2127
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    1574,
+                    2141,
+                    1612,
+                    2191
+                ],
+                "angle": 0,
+                "content": "4"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    124,
+                    131,
+                    748,
+                    222
+                ],
+                "angle": 0,
+                "content": "INTERNEWS IN NEPAL"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    121,
+                    514,
+                    1475,
+                    682
+                ],
+                "angle": 0,
+                "content": "Strengthening Political Parties, Electoral, and Legislative Process Program (SPELP)/ Consortium for Elections and Political Process Strengthening (CEPPS) program USAID/NDI"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    124,
+                    745,
+                    339,
+                    799
+                ],
+                "angle": 0,
+                "content": "2011-2015"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    118,
+                    1040,
+                    1574,
+                    1429
+                ],
+                "angle": 0,
+                "content": "Internews actively engaged with media and citizens in Nepal to create platform for discussion on election-related themes. Its engagement was focused on providing Nepalese media community with more data, including graphical summaries about what citizens think about key socio-political issues. The project also helped Nepali media better understand election-related issues and strengthen the ability of radio to facilitate debates on the opinion poll results, ultimately increasing citizen participation in the electoral process."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    118,
+                    1477,
+                    1568,
+                    1697
+                ],
+                "angle": 0,
+                "content": "Internews in collaboration with National Democratic Institute (NDI), worked with Antenna Foundation Nepal (AFN), Interdisciplinary Analysts (IDA), Freedom Forum and other local media partners in Nepal between January 2011 and February 2015."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    118,
+                    1749,
+                    1574,
+                    2082
+                ],
+                "angle": 0,
+                "content": "During the project period Internews and its local partner Antenna Foundation Nepal trained over 200 Nepali journalists in key investigative journalism skills and data journalism tools to report on electoral reporting and political parties. Antenna produced 300 episodes of radio programs focusing on citizen's awareness on elections as well as field-based discussions on national opinion poll results."
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1596,
+                    131,
+                    2998,
+                    981
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1606,
+                    1040,
+                    3008,
+                    1368
+                ],
+                "angle": 0,
+                "content": "Internews and IDA carried out 3 waves of National Opinion Polls with total of 10 thousand samples across the country on key socio-political issues, constituent assembly, political parties, local governance and media consumption behaviors. Freedom Forum another local partner operated community of practice website www.nepalelectionchannel.org to aggregate election and political parties related news in Nepal."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1606,
+                    1423,
+                    2998,
+                    1647
+                ],
+                "angle": 0,
+                "content": "Other successful Internews engagement includes first ever National Radio Conference after 2006 in partnership with major radio organizations in Nepal, publication Data journalism handbook in Nepali language and developed online training toolkit on Investigative Journalism skills."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1606,
+                    1699,
+                    2976,
+                    1864
+                ],
+                "angle": 0,
+                "content": "Data visualization and Infographics compiled in this handbook are part of National Opinion Poll series covering Nepal's latest media consumption behavior and media landscaping."
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    1580,
+                    2143,
+                    1612,
+                    2193
+                ],
+                "angle": 0,
+                "content": "6"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    124,
+                    133,
+                    425,
+                    219
+                ],
+                "angle": 0,
+                "content": "ABOUT US"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    131,
+                    305,
+                    1904,
+                    983
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    124,
+                    1042,
+                    1027,
+                    1314
+                ],
+                "angle": 0,
+                "content": "Internews is an international non-profit organization whose mission is to empower local media worldwide to give people the news and information they need, the ability to connect and the means to make their voices heard."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    124,
+                    1425,
+                    1020,
+                    1921
+                ],
+                "angle": 0,
+                "content": "Internews provides communities the resources to produce local news and information with integrity and independence. With global expertise and reach, Internews trains both media professionals and citizen journalists, introduces innovative media solutions, increases coverage of vital issues and helps establish policies needed for open access to information. Intermews programs create platforms for"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1068,
+                    1042,
+                    1891,
+                    1151
+                ],
+                "angle": 0,
+                "content": "dialogue and enable informed debate, which bring about social and economic progress."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1065,
+                    1205,
+                    1872,
+                    1418
+                ],
+                "angle": 0,
+                "content": "Internews' commitment to research and evaluation creates effective and sustainable programs, even in the most challenging environments."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1065,
+                    1479,
+                    1977,
+                    1860
+                ],
+                "angle": 0,
+                "content": "Internews operates internationally, with administrative centers in California, Washington DC, and London, as well as regional hubs in Bangkok and Nairobi. Formed in 1982, Internews has worked in more than 90 countries, and currently has offices in Africa, Asia, Europe, the Middle East, Latin America and North America."
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    2035,
+                    131,
+                    3062,
+                    2127
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "page_number",
+                "bbox": [
+                    1577,
+                    2145,
+                    1606,
+                    2191
+                ],
+                "angle": 0,
+                "content": "6"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    124,
+                    131,
+                    534,
+                    215
+                ],
+                "angle": 0,
+                "content": "WHAT WE DO"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    118,
+                    337,
+                    1155,
+                    734
+                ],
+                "angle": 0,
+                "content": "At Internews, we work to ensure that the free flow of trusted information empowers people to make informed decisions about their lives and their futures."
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    256,
+                    951,
+                    448,
+                    1137
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    240,
+                    1178,
+                    463,
+                    1332
+                ],
+                "angle": 0,
+                "content": "Expand information access"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    720,
+                    956,
+                    905,
+                    1139
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    704,
+                    1178,
+                    927,
+                    1389
+                ],
+                "angle": 0,
+                "content": "Improve Quality News and Information"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    256,
+                    1484,
+                    444,
+                    1670
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    240,
+                    1706,
+                    463,
+                    1928
+                ],
+                "angle": 0,
+                "content": "Support Media and Information Stability"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    720,
+                    1484,
+                    905,
+                    1670
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    697,
+                    1706,
+                    934,
+                    1860
+                ],
+                "angle": 0,
+                "content": "Strengthen the enabling Environment"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1216,
+                    131,
+                    3062,
+                    2123
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    1580,
+                    2143,
+                    1612,
+                    2191
+                ],
+                "angle": 0,
+                "content": "7"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    124,
+                    131,
+                    572,
+                    215
+                ],
+                "angle": 0,
+                "content": "OUR APPROACH"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    121,
+                    301,
+                    2156,
+                    358
+                ],
+                "angle": 0,
+                "content": "We partner with local organizations to support strong, independent media and a free, open and safe Internet."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    121,
+                    491,
+                    662,
+                    763
+                ],
+                "angle": 0,
+                "content": "We believe that information is a information is a for personal, social and global well-being - as fundamental as food and water."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    713,
+                    491,
+                    1270,
+                    824
+                ],
+                "angle": 0,
+                "content": "We work where information flows are restricted and with marginalized and disadvantaged groups who live with poverty, deprivation and illtracy."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1312,
+                    491,
+                    1878,
+                    704
+                ],
+                "angle": 0,
+                "content": "We act where there is opportunity to build healthier and more robust information environments"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1907,
+                    491,
+                    2435,
+                    704
+                ],
+                "angle": 0,
+                "content": "We support innovation and emerging ideas that fit local needs and address gaps where markets fail."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    2499,
+                    491,
+                    3065,
+                    822
+                ],
+                "angle": 0,
+                "content": "We partner with local organizations to develop quality content and ensure people get the right information, at the right time, from sources they trust."
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    131,
+                    861,
+                    3062,
+                    2127
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "page_number",
+                "bbox": [
+                    1574,
+                    2143,
+                    1612,
+                    2193
+                ],
+                "angle": 0,
+                "content": "8"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    118,
+                    124,
+                    992,
+                    450
+                ],
+                "angle": 0,
+                "content": "RESEARCH METHODOLOGY NATIONWIDE OPINION SURVEY WAVE I. II & III"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    121,
+                    496,
+                    911,
+                    661
+                ],
+                "angle": 0,
+                "content": "Internews subcontracted Interdisciplinary Analysts (IDA) to undertake three public opinion surveys in 2013 and 2014."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    118,
+                    695,
+                    1017,
+                    1957
+                ],
+                "angle": 0,
+                "content": "All of the respondents were aged 18 or above. Multistage sampling technique was employed to determine the sample units representing the national population in the country. In the first stage, a number of districts of Nepal's 75 districts were selected using stratified random sampling to represent the 16 distinct regions defined by Nepal's five development regions and three ecological zones, along with the Kathmandu Valley. In the second stage, simple random sampling technique was used to select proportional numbers of village development committees (VDCs) and municipalities from the sampled districts. In the third stage, wards from the sampled VDCs were selected based on simple random sampling. In the fourth stage, the right-hand rule was employed to select households in each sampled ward. Finally in the fifth stage, a respondent from each household was selected using Kish grid table i.e., a table of random numbers, to ensure that each eligible member in a selected household has an equal chance of being selected."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    121,
+                    1994,
+                    1030,
+                    2111
+                ],
+                "angle": 0,
+                "content": "The margin of error was \\(+/- 1.8\\) percent at a 95 percent confidence level at the national level for"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1075,
+                    124,
+                    2972,
+                    233
+                ],
+                "angle": 0,
+                "content": "wave I and II and \\(+ / - 1.5\\) percent at a 95 percent confidence level at the national level for wave III. The survey does not claim the same level of precision at either the regional or the district levels."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1075,
+                    280,
+                    3068,
+                    614
+                ],
+                "angle": 0,
+                "content": "Experienced field personnel comprising of supervisors and interviewers administered the survey. Prior to their deployment in the field, training was conducted to orient them on the objectives of the survey, their expected roles and responsibilities, survey research methodology and field operation plan, sampling design, survey questionnaires, and things that the field team should consider while undertaking the fieldwork, such as manners and etiquette. In addition, mock test was conducted among enumerators so as to familiarize them with survey questionnaire."
+            },
+            {
+                "block_id": 6,
+                "type": "table",
+                "bbox": [
+                    1084,
+                    657,
+                    3078,
+                    1314
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>Wave I</td><td>Wave II</td><td>Wave III</td></tr><tr><td>Sample size</td><td>3,004</td><td>3,000</td><td>4,021</td></tr><tr><td>Error margin</td><td>+/- 1.8</td><td>+/- 1.8</td><td>+/- 1.5</td></tr><tr><td>Number of districts sampled</td><td>31</td><td>31</td><td>44</td></tr><tr><td>No of fieldwork personnel</td><td>52</td><td>50</td><td>72</td></tr><tr><td>Pre-test date(s)</td><td>Sept. 11, 2013</td><td>Jan. 27, 2014</td><td>Aug. 7 &amp; 8, 2014</td></tr><tr><td>Training dates</td><td>Sep. 15 &amp; 16, 2013</td><td>Jan. 29 &amp; 30, 2014</td><td>Aug. 22 to 26, 2014</td></tr><tr><td>Duration of the fieldwork</td><td>Sep 18. to Oct. 8, 2013</td><td>Feb. 2 to 24, 2014</td><td>Aug. 29 to Sep. 29, 2014</td></tr><tr><td>Survey administration format</td><td>Hard copy</td><td>Hard copy</td><td>Tablet using REMO</td></tr><tr><td>Short hand for survey</td><td>Sep-13</td><td>Feb-14</td><td>Sep-14</td></tr></table>"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1075,
+                    1373,
+                    3049,
+                    1921
+                ],
+                "angle": 0,
+                "content": "For Wave III of the national opinion polls, 72 experienced field personnel comprising of 24 supervisors and 48 interviewers administered the survey. Prior to their deployment in the field, four-day training was conducted to orient them on the objectives of the survey, their expected roles and responsibilities, survey research methodology and field operation plan, sampling design, survey questionnaires, and things that the field team should consider while undertaking the fieldwork, such as manners and etiquette. In addition, mock test was conducted among enumerators so as to familiarize them with survey questionnaire. The training included practising with Tablet-based questionnaire. The questionnaire was designed as an \"app\" through software known as \"Remo\". The field personnel were instructed to conduct the interview in Tablet using Remo. Fieldworkers were deployed on August 29, 2014 and the fieldwork ended on September 29, 2014."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1075,
+                    1962,
+                    3017,
+                    2127
+                ],
+                "angle": 0,
+                "content": "While for single response questions, the total percentage adds up to 100, the total exceeds 100 percent for questions that require two or more responses. The total percentage figure reflects the total of respondents rather than the total of responses."
+            },
+            {
+                "block_id": 9,
+                "type": "page_number",
+                "bbox": [
+                    1580,
+                    2145,
+                    1616,
+                    2193
+                ],
+                "angle": 0,
+                "content": "9"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    121,
+                    111,
+                    560,
+                    203
+                ],
+                "angle": 0,
+                "content": "DEMOGRAPHICS"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    579,
+                    106,
+                    1027,
+                    201
+                ],
+                "angle": 0,
+                "content": "Table I: Sample composition by caste/ethnic group"
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    131,
+                    290,
+                    1036,
+                    2130
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Caste/ethnicity</td><td>Population %</td><td>Sep. 2014</td></tr><tr><td>Chhetri</td><td>16.6</td><td>15.3</td></tr><tr><td>Bahun</td><td>12.1</td><td>13.2</td></tr><tr><td>Magar</td><td>7.1</td><td>7.5</td></tr><tr><td>Tharu</td><td>6.6</td><td>7.7</td></tr><tr><td>Tamang</td><td>5.8</td><td>6</td></tr><tr><td>Newar</td><td>4.9</td><td>5.3</td></tr><tr><td>Kami</td><td>4.8</td><td>4.6</td></tr><tr><td>Muslim</td><td>4.3</td><td>4.3</td></tr><tr><td>Yadav</td><td>3.9</td><td>4.7</td></tr><tr><td>Rai</td><td>2.3</td><td>2</td></tr><tr><td>Gurung</td><td>1.9</td><td>2.1</td></tr><tr><td>Dami/Pariyar</td><td>1.7</td><td>2</td></tr><tr><td>Thakuri</td><td>1.6</td><td>1.8</td></tr><tr><td>Limbu</td><td>1.4</td><td>1.4</td></tr><tr><td>Sarki/Mijar</td><td>1.4</td><td>0.9</td></tr><tr><td>Teli</td><td>1.3</td><td>1.9</td></tr><tr><td>Chamar</td><td>1.2</td><td>1.5</td></tr><tr><td>Koiri</td><td>1.1</td><td>2.5</td></tr><tr><td>Sanyasi</td><td>0.8</td><td>0.4</td></tr><tr><td>Kurmi</td><td>0.8</td><td>0.1</td></tr><tr><td>Dhanuk</td><td>0.8</td><td>0.5</td></tr><tr><td>Musahar</td><td>0.8</td><td>1</td></tr><tr><td>Dusahad/Pasawan</td><td>0.7</td><td>0.6</td></tr><tr><td>Mallaha</td><td>0.6</td><td>0.3</td></tr><tr><td>Kewat</td><td>0.5</td><td>0.4</td></tr><tr><td>Terai Bramhin</td><td>0.5</td><td>0.9</td></tr><tr><td>Baniya</td><td>0.5</td><td>0.8</td></tr><tr><td>Sherpa</td><td>0.4</td><td>0.2</td></tr><tr><td>Gharti/Bhujel</td><td>0.4</td><td>0.3</td></tr><tr><td>Kalwaar</td><td>0.4</td><td>0.3</td></tr></table>"
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    1094,
+                    108,
+                    2003,
+                    2130
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Kumal</td><td>0.4</td><td>0.7</td></tr><tr><td>Kanu</td><td>0.4</td><td>0.6</td></tr><tr><td>Hajam</td><td>0.4</td><td>0.3</td></tr><tr><td>Rajbanshi</td><td>0.4</td><td>0.7</td></tr><tr><td>Dhobi</td><td>0.4</td><td>0.4</td></tr><tr><td>Halwai</td><td>0.3</td><td>0.1</td></tr><tr><td>Majhi</td><td>0.3</td><td>0.3</td></tr><tr><td>Sudi</td><td>0.3</td><td>0.5</td></tr><tr><td>Lohar</td><td>0.3</td><td>0.2</td></tr><tr><td>Tatma</td><td>0.3</td><td>0.1</td></tr><tr><td>Khatwe</td><td>0.3</td><td>0.5</td></tr><tr><td>Sonar</td><td>0.2</td><td>0.3</td></tr><tr><td>Kumhar</td><td>0.2</td><td>0</td></tr><tr><td>Bantar/Sardar</td><td>0.2</td><td>0.3</td></tr><tr><td>Kahar</td><td>0.2</td><td>0.2</td></tr><tr><td>Sunuwar</td><td>0.2</td><td>0.9</td></tr><tr><td>Nuniya</td><td>0.2</td><td>0.4</td></tr><tr><td>Sunar</td><td>0.2</td><td>0</td></tr><tr><td>Satar</td><td>0.2</td><td>0</td></tr><tr><td>Marwadi</td><td>0.2</td><td>0</td></tr><tr><td>Kayastha</td><td>0.2</td><td>0.1</td></tr><tr><td>Rajput</td><td>0.2</td><td>0.1</td></tr><tr><td>Jhangar</td><td>0.1</td><td>0.2</td></tr><tr><td>Gangai</td><td>0.1</td><td>0.1</td></tr><tr><td>Lodha</td><td>0.1</td><td>0</td></tr><tr><td>Badahi</td><td>0.1</td><td>0.1</td></tr><tr><td>Bhote</td><td>0.1</td><td>0</td></tr><tr><td>Badai</td><td>0.1</td><td>0</td></tr><tr><td>Bhedihar</td><td>0.1</td><td>0</td></tr><tr><td>Dhimal</td><td>0.1</td><td>0.1</td></tr><tr><td>Tajpuria</td><td>0.1</td><td>0</td></tr><tr><td>Mali</td><td>0.1</td><td>0</td></tr><tr><td>Others</td><td>6.6</td><td>1.9</td></tr><tr><td>Total</td><td>100</td><td>100</td></tr></table>"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    2057,
+                    124,
+                    3068,
+                    342
+                ],
+                "angle": 0,
+                "content": "These eight broad caste/ethnic groups were further collapsed into two broad categories i.e., categories by origin: Non-Madhesi and Madhesi to facilitate further comparison analysis."
+            },
+            {
+                "block_id": 5,
+                "type": "table",
+                "bbox": [
+                    2316,
+                    355,
+                    2883,
+                    611
+                ],
+                "angle": 0,
+                "content": "<table><tr><td colspan=\"2\">Sep. 2014</td></tr><tr><td>Non-Madhesi</td><td>64.7</td></tr><tr><td>Madhesi</td><td>35.3</td></tr><tr><td>Total</td><td>100</td></tr></table>",
+                "caption": "Table 3: Caste/ethnicity of the respondents by origin."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    2057,
+                    725,
+                    3040,
+                    833
+                ],
+                "angle": 0,
+                "content": "The table below shows the religious composition of the sample of the three waves."
+            },
+            {
+                "block_id": 8,
+                "type": "table",
+                "bbox": [
+                    2246,
+                    847,
+                    2950,
+                    1413
+                ],
+                "angle": 0,
+                "content": "<table><tr><td colspan=\"3\">Population (%) Sep. 2014</td></tr><tr><td>Hinduism</td><td>81.3</td><td>84.9</td></tr><tr><td>Buddhism</td><td>9</td><td>8.2</td></tr><tr><td>Islam</td><td>4.4</td><td>4.3</td></tr><tr><td>Christianity</td><td>1.4</td><td>1.2</td></tr><tr><td>Kirat</td><td>3.1</td><td>1.4</td></tr><tr><td>Atheist</td><td>0</td><td>0.1</td></tr><tr><td>Others</td><td>0.8</td><td>0</td></tr><tr><td>Total</td><td>100</td><td>100</td></tr></table>",
+                "caption": "Table 4: Sample composition by religion"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    2057,
+                    1525,
+                    3068,
+                    1796
+                ],
+                "angle": 0,
+                "content": "The association of sample by rural and urban settlement of all three waves reflects the actual national figure of 2011 census. Out of total respondents interviewed in three surveys, 83 percent were from rural and 17 percent from urban areas."
+            },
+            {
+                "block_id": 11,
+                "type": "table",
+                "bbox": [
+                    2246,
+                    1812,
+                    2947,
+                    2071
+                ],
+                "angle": 0,
+                "content": "<table><tr><td colspan=\"3\">Population (%) Sep-14</td></tr><tr><td>Rural</td><td>83</td><td>83</td></tr><tr><td>Urban</td><td>17</td><td>17</td></tr><tr><td>Total</td><td>100</td><td>100</td></tr></table>",
+                "caption": "Table 5: Sample composition by settlement pattern"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    1571,
+                    2143,
+                    1612,
+                    2191
+                ],
+                "angle": 0,
+                "content": "10"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    243,
+                    124,
+                    1091,
+                    450
+                ],
+                "angle": 0,
+                "content": "The association of sample by rural and urban settlement of all three waves reflects the actual national figure of 2011 census. Out of total respondents interviewed in three surveys, 83 percent were from rural and 17 percent from urban areas."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    246,
+                    484,
+                    1068,
+                    648
+                ],
+                "angle": 0,
+                "content": "The table below shows the percentage of men and women as per the census of 2011 and the sample for each of the three waves."
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    352,
+                    663,
+                    1024,
+                    901
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>Population (%)</td><td>Sep-14</td></tr><tr><td>Female</td><td>50.1</td><td>49.8</td></tr><tr><td>Male</td><td>49.9</td><td>50.2</td></tr><tr><td>Total</td><td>100</td><td>100</td></tr></table>",
+                "caption": "Table 6: Sample composition by sex"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    243,
+                    994,
+                    1123,
+                    1273
+                ],
+                "angle": 0,
+                "content": "The composition of the sample in terms of ecological and development regions directly matches that of the general populations in all three waves. The following table indicate the sample distribution of geographic composition."
+            },
+            {
+                "block_id": 5,
+                "type": "table",
+                "bbox": [
+                    326,
+                    1287,
+                    1046,
+                    1577
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>Population (%)</td><td>Sep-14</td></tr><tr><td>Mountain</td><td>6.7</td><td>6.7</td></tr><tr><td>Hill</td><td>43</td><td>43.1</td></tr><tr><td>Tarai</td><td>50.2</td><td>50.2</td></tr><tr><td>Total</td><td>100</td><td>100</td></tr></table>",
+                "caption": "Table 9: Sample composition by ecological region"
+            },
+            {
+                "block_id": 7,
+                "type": "table",
+                "bbox": [
+                    304,
+                    1663,
+                    1068,
+                    2066
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>Population (%)</td><td>Sep-14</td></tr><tr><td>Eastern</td><td>21.9</td><td>21.9</td></tr><tr><td>Central</td><td>36.4</td><td>36.5</td></tr><tr><td>Western</td><td>18.6</td><td>18.7</td></tr><tr><td>Mid-Western</td><td>13.3</td><td>13.3</td></tr><tr><td>Far-Western</td><td>9.6</td><td>9.6</td></tr><tr><td>Total</td><td>100</td><td>100</td></tr></table>",
+                "caption": "Table 10: Sample composition by development region"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1232,
+                    360,
+                    2121,
+                    686
+                ],
+                "angle": 0,
+                "content": "An overpowering majority of respondents, over 80 percent, were married and one-tenth was unmarried and around 5 percent widow in these three surveys. The disaggregation of the sample by marital status of the respondents is obtainable in the table below."
+            },
+            {
+                "block_id": 10,
+                "type": "table",
+                "bbox": [
+                    1491,
+                    702,
+                    1910,
+                    1198
+                ],
+                "angle": 0,
+                "content": "<table><tr><td colspan=\"2\">Sep-14</td></tr><tr><td>Married</td><td>86.5</td></tr><tr><td>Unmarried</td><td>8.1</td></tr><tr><td>Widow/widower</td><td>4.9</td></tr><tr><td>Divorced</td><td>0.1</td></tr><tr><td>Separated</td><td>0.3</td></tr><tr><td>Declined</td><td>0</td></tr><tr><td>Total</td><td>100</td></tr></table>"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1235,
+                    1221,
+                    2147,
+                    1445
+                ],
+                "angle": 0,
+                "content": "Table 8:Sample composition by marital status The various age groups have been collapsed into four broad age-groups. The age composition of the sample is presented below."
+            },
+            {
+                "block_id": 12,
+                "type": "table",
+                "bbox": [
+                    1513,
+                    1461,
+                    1891,
+                    1830
+                ],
+                "angle": 0,
+                "content": "<table><tr><td colspan=\"2\">Sep-14</td></tr><tr><td>18-25</td><td>19.5</td></tr><tr><td>26-35</td><td>27</td></tr><tr><td>36-45</td><td>21.6</td></tr><tr><td>Above 45</td><td>31.9</td></tr><tr><td>Total</td><td>100</td></tr></table>",
+                "caption": "Table 8: Sample composition by age groups"
+            },
+            {
+                "block_id": 14,
+                "type": "table",
+                "bbox": [
+                    2320,
+                    537,
+                    2940,
+                    949
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>Sep-13</td><td>Feb-14</td><td>Sep-14</td></tr><tr><td>Yes</td><td>29.9</td><td>30.3</td><td>35.2</td></tr><tr><td>No</td><td>69</td><td>69.7</td><td>64.7</td></tr><tr><td>Declined</td><td>0.2</td><td>0</td><td>0.1</td></tr><tr><td>DK/CS</td><td>0.9</td><td>0</td><td>0</td></tr><tr><td>Total</td><td>100</td><td>100</td><td>100</td></tr></table>",
+                "caption": "Table II: Whether or not a family member is outside the country"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    2278,
+                    1128,
+                    2979,
+                    1244
+                ],
+                "angle": 0,
+                "content": "Between 91 and 94 percent reported having a citizenship certificate."
+            },
+            {
+                "block_id": 17,
+                "type": "table",
+                "bbox": [
+                    2348,
+                    1275,
+                    2908,
+                    1592
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>Feb-14</td><td>Sep-14</td></tr><tr><td>Yes</td><td>91.4</td><td>93.7</td></tr><tr><td>No</td><td>8.4</td><td>6.3</td></tr><tr><td>DK/CS</td><td>0.2</td><td>0</td></tr><tr><td>Total</td><td>100</td><td>100</td></tr></table>",
+                "caption": "Table 12: Whether or not people have citizenship certificate"
+            },
+            {
+                "block_id": 19,
+                "type": "page_number",
+                "bbox": [
+                    1577,
+                    2141,
+                    1616,
+                    2191
+                ],
+                "angle": 0,
+                "content": "11"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    204,
+                    373,
+                    3001,
+                    1978
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "NEPAL"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1571,
+                    2141,
+                    1616,
+                    2195
+                ],
+                "angle": 0,
+                "content": "12"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    886,
+                    1078,
+                    2390,
+                    1398
+                ],
+                "angle": 0,
+                "content": "Nepal Media Landscape February 2014"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    163,
+                    124,
+                    1305,
+                    333
+                ],
+                "angle": 0,
+                "content": "WHICH OF THESE DO YOU HAVE WORKING IN YOUR HOUSEHOLD?"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    166,
+                    394,
+                    963,
+                    469
+                ],
+                "angle": 0,
+                "content": "BASE: 4.021 MULTIPLE RESPONSE"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    131,
+                    564,
+                    1510,
+                    1382
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    131,
+                    1395,
+                    1510,
+                    1844
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1507,
+                    235,
+                    3046,
+                    2127
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "page_number",
+                "bbox": [
+                    1571,
+                    2143,
+                    1616,
+                    2193
+                ],
+                "angle": 0,
+                "content": "14"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    172,
+                    117,
+                    1772,
+                    432
+                ],
+                "angle": 0,
+                "content": "WHICH OF THESE HAVE REGULAR ACCESS TO (AT LEAST ONCE A WEEK) IN YOUR COMMUNITY, OUTSIDE OF YOUR HOUSEHOLD?"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    172,
+                    516,
+                    976,
+                    595
+                ],
+                "angle": 0,
+                "content": "BASE:4.021 MULTIPLE RESPONSE"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    118,
+                    609,
+                    2902,
+                    1887
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1574,
+                    2141,
+                    1622,
+                    2193
+                ],
+                "angle": 0,
+                "content": "15"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    179,
+                    135,
+                    1600,
+                    369
+                ],
+                "angle": 0,
+                "content": "IN THE PAST SIX MONTHS. HOW OFTEN DID YOU LISTEN TO THE RADIO?"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    185,
+                    421,
+                    438,
+                    493
+                ],
+                "angle": 0,
+                "content": "BASE=4.021"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    131,
+                    530,
+                    844,
+                    1867
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    979,
+                    104,
+                    3049,
+                    1361
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    988,
+                    1429,
+                    2140,
+                    2039
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    2147,
+                    1429,
+                    2928,
+                    2039
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "page_number",
+                "bbox": [
+                    1571,
+                    2143,
+                    1616,
+                    2193
+                ],
+                "angle": 0,
+                "content": "16"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    275,
+                    185,
+                    1244,
+                    412
+                ],
+                "angle": 0,
+                "content": "WHY DON'T YOU LISTEN TO THE RADIO?"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1366,
+                    185,
+                    1657,
+                    267
+                ],
+                "angle": 0,
+                "content": "BASE=1.865"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1363,
+                    299,
+                    2460,
+                    378
+                ],
+                "angle": 0,
+                "content": "PERCENTAGE BASED ON MULTIPLE RESPONSE"
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    275,
+                    564,
+                    2851,
+                    1722
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>I DO NOT HAVE A RADIO</td><td>79%</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>I DO NOT HAVE TIME</td><td>10%</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>PROGRAM IN RADIO ARE \nNOT INTERESTING</td><td>8%</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>MY RADIO IS DAMAGED</td><td>6%</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>I CANNOT AFFORD RADIO</td><td>5%</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>I DONT GO TO PLACES WHERE \nTHEY PLAY THE RADIO</td><td>1%</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>"
+            },
+            {
+                "block_id": 4,
+                "type": "page_number",
+                "bbox": [
+                    1571,
+                    2141,
+                    1625,
+                    2193
+                ],
+                "angle": 0,
+                "content": "17"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    150,
+                    179,
+                    1203,
+                    407
+                ],
+                "angle": 0,
+                "content": "ON WHAT DEVICE DO YOU LISTEN TO THE RADIO?"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    156,
+                    473,
+                    1001,
+                    559
+                ],
+                "angle": 0,
+                "content": "BASE=2.144.MULTIPLERESPONSE"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    160,
+                    661,
+                    1312,
+                    1722
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "RURAL"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1484,
+                    403,
+                    2259,
+                    1144
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "URBAN"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    2300,
+                    426,
+                    3014,
+                    1144
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "MALE"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1676,
+                    1346,
+                    2262,
+                    1944
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "FEMALE"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    2326,
+                    1330,
+                    3036,
+                    2016
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    1571,
+                    2143,
+                    1616,
+                    2193
+                ],
+                "angle": 0,
+                "content": "18"
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    204,
+                    179,
+                    1187,
+                    274
+                ],
+                "angle": 0,
+                "content": "WHAT TYPES OF PROGRAM"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    204,
+                    308,
+                    1558,
+                    403
+                ],
+                "angle": 0,
+                "content": "DO YOU LIKE THE MOST IN THE RADIO"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    204,
+                    500,
+                    476,
+                    559
+                ],
+                "angle": 0,
+                "content": "BASE=1862"
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    256,
+                    559,
+                    2982,
+                    2052
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "page_number",
+                "bbox": [
+                    1577,
+                    2143,
+                    1619,
+                    2193
+                ],
+                "angle": 0,
+                "content": "19"
+            }
+        ]
+    },
+    {
+        "page_id": 19,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    192,
+                    167,
+                    924,
+                    584
+                ],
+                "angle": 0,
+                "content": "IN THE PAST WEEK.  \nWHICH PROGRAMS  \nDID YOU LISTEN TO  \nON THE RADIO?"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    198,
+                    634,
+                    448,
+                    711
+                ],
+                "angle": 0,
+                "content": "BASE=1852"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    700,
+                    235,
+                    3040,
+                    2118
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1564,
+                    2143,
+                    1616,
+                    2193
+                ],
+                "angle": 0,
+                "content": "20"
+            }
+        ]
+    },
+    {
+        "page_id": 20,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    182,
+                    160,
+                    1680,
+                    369
+                ],
+                "angle": 0,
+                "content": "WHICH TIME OF THE DAY DO YOU LISTEN TO THE RADIO FOR NEWS?"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    185,
+                    426,
+                    979,
+                    498
+                ],
+                "angle": 0,
+                "content": "BASE = 1958. MULTIPLE RESPONSES"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    179,
+                    722,
+                    438,
+                    974
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "6%"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    201,
+                    1035,
+                    409,
+                    1071
+                ],
+                "angle": 0,
+                "content": "MIDNIGHT - 3AM"
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    492,
+                    729,
+                    736,
+                    974
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "30%"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    537,
+                    1035,
+                    681,
+                    1069
+                ],
+                "angle": 0,
+                "content": "BAM-BAM"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    796,
+                    527,
+                    1331,
+                    1060
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "36%"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    905,
+                    1205,
+                    1216,
+                    1278
+                ],
+                "angle": 0,
+                "content": "6AM - 9AM"
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    1392,
+                    727,
+                    1638,
+                    972
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "10%"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1433,
+                    1035,
+                    1593,
+                    1069
+                ],
+                "angle": 0,
+                "content": "BAM-NODN"
+            },
+            {
+                "block_id": 14,
+                "type": "image",
+                "bbox": [
+                    188,
+                    1370,
+                    435,
+                    1615
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "11%"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    230,
+                    1681,
+                    390,
+                    1719
+                ],
+                "angle": 0,
+                "content": "NOON-3PM"
+            },
+            {
+                "block_id": 17,
+                "type": "image",
+                "bbox": [
+                    496,
+                    1370,
+                    739,
+                    1613
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "11%"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    540,
+                    1681,
+                    684,
+                    1719
+                ],
+                "angle": 0,
+                "content": "3PM-6PM"
+            },
+            {
+                "block_id": 20,
+                "type": "image",
+                "bbox": [
+                    796,
+                    1300,
+                    1331,
+                    1830
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "57%"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    908,
+                    1987,
+                    1212,
+                    2064
+                ],
+                "angle": 0,
+                "content": "6PM - 9PM"
+            },
+            {
+                "block_id": 23,
+                "type": "image",
+                "bbox": [
+                    1392,
+                    1370,
+                    1638,
+                    1615
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "6%"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    1411,
+                    1681,
+                    1612,
+                    1719
+                ],
+                "angle": 0,
+                "content": "GPM-MIDNIGHT"
+            },
+            {
+                "block_id": 26,
+                "type": "image",
+                "bbox": [
+                    1772,
+                    215,
+                    2227,
+                    430
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "MOUNTAIN"
+            },
+            {
+                "block_id": 28,
+                "type": "image",
+                "bbox": [
+                    2326,
+                    190,
+                    2611,
+                    473
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 29,
+                "type": "text",
+                "bbox": [
+                    2326,
+                    498,
+                    2601,
+                    568
+                ],
+                "angle": 0,
+                "content": "6AM - 9AM"
+            },
+            {
+                "block_id": 30,
+                "type": "image",
+                "bbox": [
+                    2668,
+                    188,
+                    2947,
+                    457
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 31,
+                "type": "text",
+                "bbox": [
+                    2684,
+                    498,
+                    2950,
+                    568
+                ],
+                "angle": 0,
+                "content": "6PM - 9PM"
+            },
+            {
+                "block_id": 32,
+                "type": "image",
+                "bbox": [
+                    1779,
+                    761,
+                    2259,
+                    922
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "HILL"
+            },
+            {
+                "block_id": 34,
+                "type": "image",
+                "bbox": [
+                    2326,
+                    709,
+                    2611,
+                    992
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 35,
+                "type": "text",
+                "bbox": [
+                    2326,
+                    1017,
+                    2601,
+                    1085
+                ],
+                "angle": 0,
+                "content": "6AM - 9AM"
+            },
+            {
+                "block_id": 36,
+                "type": "image",
+                "bbox": [
+                    2668,
+                    706,
+                    2947,
+                    972
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 37,
+                "type": "text",
+                "bbox": [
+                    2684,
+                    1017,
+                    2950,
+                    1085
+                ],
+                "angle": 0,
+                "content": "6PM - 9PM"
+            },
+            {
+                "block_id": 38,
+                "type": "image",
+                "bbox": [
+                    1744,
+                    1200,
+                    2243,
+                    1466
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "TERAI"
+            },
+            {
+                "block_id": 40,
+                "type": "image",
+                "bbox": [
+                    2326,
+                    1205,
+                    2611,
+                    1486
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 41,
+                "type": "text",
+                "bbox": [
+                    2326,
+                    1504,
+                    2601,
+                    1574
+                ],
+                "angle": 0,
+                "content": "6AM - 9AM"
+            },
+            {
+                "block_id": 42,
+                "type": "image",
+                "bbox": [
+                    2668,
+                    1205,
+                    2947,
+                    1475
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 43,
+                "type": "text",
+                "bbox": [
+                    2684,
+                    1513,
+                    2950,
+                    1583
+                ],
+                "angle": 0,
+                "content": "6PM - 9PM"
+            },
+            {
+                "block_id": 44,
+                "type": "page_number",
+                "bbox": [
+                    1571,
+                    2143,
+                    1619,
+                    2193
+                ],
+                "angle": 0,
+                "content": "21"
+            }
+        ]
+    },
+    {
+        "page_id": 21,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    150,
+                    145,
+                    1344,
+                    484
+                ],
+                "angle": 0,
+                "content": "IN THE PAST SIX MONTHS, HOW OFTEN DID YOU WATCH THE NEPALI TV CHANNEL?"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    160,
+                    552,
+                    460,
+                    629
+                ],
+                "angle": 0,
+                "content": "BASE=4.021"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    476,
+                    614,
+                    1113,
+                    1166
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    240,
+                    1223,
+                    739,
+                    1588
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    883,
+                    1230,
+                    1398,
+                    1586
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    284,
+                    1629,
+                    374,
+                    1710
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    502,
+                    1629,
+                    582,
+                    1710
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    758,
+                    1629,
+                    844,
+                    1710
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1011,
+                    1629,
+                    1094,
+                    1710
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    1267,
+                    1629,
+                    1347,
+                    1710
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1738,
+                    393,
+                    1799
+                ],
+                "angle": 0,
+                "content": "NEVER"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    419,
+                    1738,
+                    649,
+                    1799
+                ],
+                "angle": 0,
+                "content": "FEWTIMES"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    678,
+                    1738,
+                    908,
+                    1799
+                ],
+                "angle": 0,
+                "content": "FEWTIMES"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    937,
+                    1738,
+                    1155,
+                    1799
+                ],
+                "angle": 0,
+                "content": "EVERY DAY"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1184,
+                    1738,
+                    1424,
+                    1799
+                ],
+                "angle": 0,
+                "content": "DONT KNOW"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    284,
+                    1810,
+                    627,
+                    1873
+                ],
+                "angle": 0,
+                "content": "A MONTH"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    716,
+                    1810,
+                    880,
+                    1873
+                ],
+                "angle": 0,
+                "content": "A WEEK"
+            },
+            {
+                "block_id": 17,
+                "type": "image",
+                "bbox": [
+                    1609,
+                    169,
+                    2236,
+                    541
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 18,
+                "type": "title",
+                "bbox": [
+                    2262,
+                    335,
+                    2582,
+                    471
+                ],
+                "angle": 0,
+                "content": "URBAN"
+            },
+            {
+                "block_id": 19,
+                "type": "image",
+                "bbox": [
+                    1609,
+                    586,
+                    2323,
+                    1031
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    2348,
+                    586,
+                    2745,
+                    663
+                ],
+                "angle": 0,
+                "content": "43% EVERY DAY"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    2352,
+                    675,
+                    2988,
+                    752
+                ],
+                "angle": 0,
+                "content": "21% FEW TIMES A WEEK"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    2358,
+                    765,
+                    3017,
+                    842
+                ],
+                "angle": 0,
+                "content": "6% FEW TIMES A MONTH"
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    2345,
+                    856,
+                    2624,
+                    935
+                ],
+                "angle": 0,
+                "content": "30% NEVER"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    2374,
+                    944,
+                    2633,
+                    1021
+                ],
+                "angle": 0,
+                "content": "1% DK/CS"
+            },
+            {
+                "block_id": 25,
+                "type": "image",
+                "bbox": [
+                    1603,
+                    1094,
+                    2240,
+                    1522
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 26,
+                "type": "title",
+                "bbox": [
+                    2268,
+                    1321,
+                    2579,
+                    1454
+                ],
+                "angle": 0,
+                "content": "RURAL"
+            },
+            {
+                "block_id": 27,
+                "type": "image",
+                "bbox": [
+                    1609,
+                    1563,
+                    2323,
+                    2003
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 28,
+                "type": "text",
+                "bbox": [
+                    2358,
+                    1563,
+                    2745,
+                    1640
+                ],
+                "angle": 0,
+                "content": "19% EVERY DAY"
+            },
+            {
+                "block_id": 29,
+                "type": "text",
+                "bbox": [
+                    2371,
+                    1651,
+                    2988,
+                    1728
+                ],
+                "angle": 0,
+                "content": "11% FEW TIMES A WEEK"
+            },
+            {
+                "block_id": 30,
+                "type": "text",
+                "bbox": [
+                    2371,
+                    1742,
+                    3017,
+                    1819
+                ],
+                "angle": 0,
+                "content": "6% FEW TIMES A MONTH"
+            },
+            {
+                "block_id": 31,
+                "type": "text",
+                "bbox": [
+                    2352,
+                    1835,
+                    2624,
+                    1912
+                ],
+                "angle": 0,
+                "content": "64% NEVER"
+            },
+            {
+                "block_id": 32,
+                "type": "text",
+                "bbox": [
+                    2387,
+                    1921,
+                    2633,
+                    1996
+                ],
+                "angle": 0,
+                "content": "1% DK/CS"
+            },
+            {
+                "block_id": 33,
+                "type": "page_number",
+                "bbox": [
+                    1564,
+                    2143,
+                    1616,
+                    2195
+                ],
+                "angle": 0,
+                "content": "22"
+            }
+        ]
+    },
+    {
+        "page_id": 22,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    188,
+                    135,
+                    1571,
+                    242
+                ],
+                "angle": 0,
+                "content": "POPULARITY OF TELEVISION PROGRAM"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    131,
+                    296,
+                    1548,
+                    1491
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    764,
+                    1529,
+                    3065,
+                    2089
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    1571,
+                    97,
+                    3062,
+                    2125
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "page_number",
+                "bbox": [
+                    1571,
+                    2143,
+                    1625,
+                    2193
+                ],
+                "angle": 0,
+                "content": "23"
+            }
+        ]
+    },
+    {
+        "page_id": 23,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    208,
+                    163,
+                    1241,
+                    287
+                ],
+                "angle": 0,
+                "content": "WHICH TIME OF THE DAY"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    208,
+                    305,
+                    1504,
+                    416
+                ],
+                "angle": 0,
+                "content": "DO YOU WATCH TV FOR NEWS?"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    214,
+                    484,
+                    496,
+                    564
+                ],
+                "angle": 0,
+                "content": "BASE=1353"
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    169,
+                    518,
+                    1904,
+                    1951
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    2003,
+                    104,
+                    3052,
+                    1074
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    2003,
+                    1112,
+                    3052,
+                    2123
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "page_number",
+                "bbox": [
+                    1564,
+                    2141,
+                    1619,
+                    2195
+                ],
+                "angle": 0,
+                "content": "24"
+            }
+        ]
+    },
+    {
+        "page_id": 24,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    195,
+                    167,
+                    963,
+                    421
+                ],
+                "angle": 0,
+                "content": "DO YOU SUBSCRIBE ANY NEWSPAPER?"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    198,
+                    484,
+                    512,
+                    568
+                ],
+                "angle": 0,
+                "content": "BASE=4.021"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    188,
+                    661,
+                    1449,
+                    1880
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    1596,
+                    215,
+                    2297,
+                    1241
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    2358,
+                    215,
+                    3049,
+                    1230
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1568,
+                    1395,
+                    3062,
+                    1991
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "page_number",
+                "bbox": [
+                    1568,
+                    2141,
+                    1625,
+                    2195
+                ],
+                "angle": 0,
+                "content": "26"
+            }
+        ]
+    },
+    {
+        "page_id": 25,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    204,
+                    179,
+                    828,
+                    283
+                ],
+                "angle": 0,
+                "content": "DO YOU OWN A"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    204,
+                    294,
+                    1606,
+                    512
+                ],
+                "angle": 0,
+                "content": "COMPUTER OR LAPTOP OR TABLET (IN FUNCTIONING ORDER)?"
+            },
+            {
+                "block_id": 2,
+                "type": "image_caption",
+                "bbox": [
+                    1897,
+                    165,
+                    2185,
+                    283
+                ],
+                "angle": 0,
+                "content": "RURAL"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    204,
+                    584,
+                    512,
+                    663
+                ],
+                "angle": 0,
+                "content": "BASE=4.021"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    188,
+                    557,
+                    1683,
+                    2039
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1702,
+                    358,
+                    2249,
+                    727
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1740,
+                    763,
+                    2201,
+                    1966
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "URBAN"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    2377,
+                    358,
+                    3027,
+                    727
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    2512,
+                    1021,
+                    2972,
+                    1966
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    1564,
+                    2143,
+                    1616,
+                    2195
+                ],
+                "angle": 0,
+                "content": "26"
+            }
+        ]
+    },
+    {
+        "page_id": 26,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    195,
+                    179,
+                    1344,
+                    294
+                ],
+                "angle": 0,
+                "content": "DO YOU USE THE INTERNET?"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    201,
+                    358,
+                    508,
+                    444
+                ],
+                "angle": 0,
+                "content": "BASE=4.021"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    124,
+                    446,
+                    1017,
+                    1921
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1030,
+                    643,
+                    1196,
+                    827
+                ],
+                "angle": 0,
+                "content": "Yes! 12%"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1027,
+                    1133,
+                    1270,
+                    1445
+                ],
+                "angle": 0,
+                "content": "No. 83%"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    1286,
+                    1538,
+                    1577,
+                    1617
+                ],
+                "angle": 0,
+                "content": "EDUCATION"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1068,
+                    1728,
+                    1267,
+                    1794
+                ],
+                "angle": 0,
+                "content": "LITERATE"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1120,
+                    1935,
+                    1187,
+                    2019
+                ],
+                "angle": 0,
+                "content": "1%"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1331,
+                    1728,
+                    1516,
+                    1794
+                ],
+                "angle": 0,
+                "content": "PRIMARY"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1369,
+                    1935,
+                    1443,
+                    2019
+                ],
+                "angle": 0,
+                "content": "3%"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1584,
+                    1665,
+                    1731,
+                    1792
+                ],
+                "angle": 0,
+                "content": "LOWER SEC"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1603,
+                    1907,
+                    1680,
+                    1989
+                ],
+                "angle": 0,
+                "content": "1%"
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    1852,
+                    188,
+                    2195,
+                    459
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1868,
+                    471,
+                    2163,
+                    595
+                ],
+                "angle": 0,
+                "content": "RURAL"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1584,
+                    675,
+                    1715,
+                    865
+                ],
+                "angle": 0,
+                "content": "No. 85%"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1721,
+                    768,
+                    2060,
+                    967
+                ],
+                "angle": 0,
+                "content": "Yes! 10%"
+            },
+            {
+                "block_id": 16,
+                "type": "image",
+                "bbox": [
+                    2307,
+                    188,
+                    2784,
+                    459
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    2428,
+                    471,
+                    2729,
+                    595
+                ],
+                "angle": 0,
+                "content": "URBAN"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    2713,
+                    498,
+                    3020,
+                    992
+                ],
+                "angle": 0,
+                "content": "Yes! 23%"
+            },
+            {
+                "block_id": 19,
+                "type": "image",
+                "bbox": [
+                    1836,
+                    1017,
+                    2323,
+                    1617
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "image",
+                "bbox": [
+                    2336,
+                    1017,
+                    2883,
+                    1382
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 21,
+                "type": "image",
+                "bbox": [
+                    2355,
+                    1429,
+                    2483,
+                    1615
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    1852,
+                    1728,
+                    1939,
+                    1792
+                ],
+                "angle": 0,
+                "content": "SEC"
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    1846,
+                    1910,
+                    1926,
+                    1989
+                ],
+                "angle": 0,
+                "content": "17%"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    2099,
+                    1728,
+                    2176,
+                    1792
+                ],
+                "angle": 0,
+                "content": "SLC"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    2073,
+                    1912,
+                    2169,
+                    1994
+                ],
+                "angle": 0,
+                "content": "48%"
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    2307,
+                    1728,
+                    2425,
+                    1792
+                ],
+                "angle": 0,
+                "content": "INTER"
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    2310,
+                    1919,
+                    2406,
+                    1996
+                ],
+                "angle": 0,
+                "content": "49%"
+            },
+            {
+                "block_id": 28,
+                "type": "text",
+                "bbox": [
+                    2521,
+                    1728,
+                    2720,
+                    1792
+                ],
+                "angle": 0,
+                "content": "BACHELOR"
+            },
+            {
+                "block_id": 29,
+                "type": "text",
+                "bbox": [
+                    2553,
+                    1839,
+                    2652,
+                    1919
+                ],
+                "angle": 0,
+                "content": "70%"
+            },
+            {
+                "block_id": 30,
+                "type": "text",
+                "bbox": [
+                    2784,
+                    1665,
+                    2998,
+                    1792
+                ],
+                "angle": 0,
+                "content": "MASTER& ABOVE"
+            },
+            {
+                "block_id": 31,
+                "type": "text",
+                "bbox": [
+                    2819,
+                    1839,
+                    2918,
+                    1919
+                ],
+                "angle": 0,
+                "content": "73%"
+            },
+            {
+                "block_id": 32,
+                "type": "page_number",
+                "bbox": [
+                    1568,
+                    2141,
+                    1625,
+                    2195
+                ],
+                "angle": 0,
+                "content": "27"
+            }
+        ]
+    },
+    {
+        "page_id": 27,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    160,
+                    179,
+                    1814,
+                    303
+                ],
+                "angle": 0,
+                "content": "HOW DO YOU ACCESS THE INTERNET?"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    166,
+                    373,
+                    460,
+                    457
+                ],
+                "angle": 0,
+                "content": "BASE=493"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    790,
+                    532,
+                    1516,
+                    1264
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1132,
+                    1418,
+                    2390,
+                    1534
+                ],
+                "angle": 0,
+                "content": "9% ON MY OFFICE COMPUTER/LAPTOP"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1139,
+                    1561,
+                    1664,
+                    1674
+                ],
+                "angle": 0,
+                "content": "10% IN A CYBER"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1136,
+                    1704,
+                    2371,
+                    1817
+                ],
+                "angle": 0,
+                "content": "24% ON MY HOME COMPUTER/LAPTOP"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1136,
+                    1844,
+                    1996,
+                    1955
+                ],
+                "angle": 0,
+                "content": "88% ON MY MOBILE PHONE"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    1132,
+                    1418,
+                    2390,
+                    1955
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "page_number",
+                "bbox": [
+                    1564,
+                    2141,
+                    1619,
+                    2195
+                ],
+                "angle": 0,
+                "content": "28"
+            }
+        ]
+    },
+    {
+        "page_id": 28,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    204,
+                    140,
+                    1823,
+                    256
+                ],
+                "angle": 0,
+                "content": "WHAT DO YOU USE THE INTERNET FOR?"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    214,
+                    326,
+                    518,
+                    403
+                ],
+                "angle": 0,
+                "content": "BASE=4.021"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1756,
+                    643,
+                    2006,
+                    829
+                ],
+                "angle": 0,
+                "content": "92%"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    2150,
+                    716,
+                    3036,
+                    781
+                ],
+                "angle": 0,
+                "content": "SOCIAL MEDIA (FACEBOOK, TWITTER, ETC)"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    412,
+                    1019,
+                    499,
+                    1386
+                ],
+                "angle": 0,
+                "content": "NET"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    588,
+                    983,
+                    940,
+                    1520
+                ],
+                "angle": 0,
+                "content": "M"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1161,
+                    1128,
+                    1264,
+                    1210
+                ],
+                "angle": 0,
+                "content": "26%"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1308,
+                    1151,
+                    1446,
+                    1216
+                ],
+                "angle": 0,
+                "content": "NEWS"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1491,
+                    1021,
+                    2640,
+                    1092
+                ],
+                "angle": 0,
+                "content": "COMMUNICATION WITH FRIENDS/FAMILY (SKYPE ETC)"
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    1171,
+                    1500,
+                    1267,
+                    1568
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1276,
+                    1500,
+                    1331,
+                    1561
+                ],
+                "angle": 0,
+                "content": "5%"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1344,
+                    1327,
+                    1446,
+                    1395
+                ],
+                "angle": 0,
+                "content": "WORK"
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    1177,
+                    1477,
+                    1267,
+                    1568
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1273,
+                    1500,
+                    1331,
+                    1561
+                ],
+                "angle": 0,
+                "content": "5%"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1363,
+                    1500,
+                    2368,
+                    1572
+                ],
+                "angle": 0,
+                "content": "PERSONAL RESEARCH (INCLUDING JOB SEARCH)"
+            },
+            {
+                "block_id": 15,
+                "type": "image",
+                "bbox": [
+                    1171,
+                    1681,
+                    1238,
+                    1744
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1235,
+                    1683,
+                    1273,
+                    1744
+                ],
+                "angle": 0,
+                "content": "\\( \\therefore m = \\frac{3}{11} \\)"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1312,
+                    1683,
+                    2115,
+                    1753
+                ],
+                "angle": 0,
+                "content": "EDUCATION (SCHOOL COLLEGE WORK)"
+            },
+            {
+                "block_id": 18,
+                "type": "page_number",
+                "bbox": [
+                    1568,
+                    2143,
+                    1625,
+                    2193
+                ],
+                "angle": 0,
+                "content": "29"
+            }
+        ]
+    },
+    {
+        "page_id": 29,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    195,
+                    163,
+                    825,
+                    403
+                ],
+                "angle": 0,
+                "content": "DO YOU OWN A MOBILE PHONE?"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    204,
+                    466,
+                    480,
+                    550
+                ],
+                "angle": 0,
+                "content": "BASE=4021"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    188,
+                    611,
+                    780,
+                    1781
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    1286,
+                    131,
+                    2569,
+                    231
+                ],
+                "angle": 0,
+                "content": "IS YOUR MOBILE PHONE A SMART PHONE?"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1820,
+                    244,
+                    2035,
+                    305
+                ],
+                "angle": 0,
+                "content": "BASE=2876"
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    960,
+                    206,
+                    1196,
+                    675
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    2774,
+                    169,
+                    3011,
+                    706
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1228,
+                    328,
+                    2700,
+                    577
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1145,
+                    876,
+                    1990,
+                    1384
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "RURAL"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    2070,
+                    876,
+                    2924,
+                    1379
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "URBAN"
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    1164,
+                    1511,
+                    2051,
+                    2105
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "image",
+                "bbox": [
+                    2124,
+                    1518,
+                    3004,
+                    2109
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    1564,
+                    2143,
+                    1616,
+                    2195
+                ],
+                "angle": 0,
+                "content": "30"
+            }
+        ]
+    },
+    {
+        "page_id": 30,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    188,
+                    163,
+                    1715,
+                    271
+                ],
+                "angle": 0,
+                "content": "HOW TRUST WORTHY ARE THESE MEDIA?"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    192,
+                    337,
+                    985,
+                    405
+                ],
+                "angle": 0,
+                "content": "BASE = 1958, MULTIPLE RESPONSES"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    131,
+                    435,
+                    1382,
+                    1355
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1804,
+                    172,
+                    1904,
+                    580
+                ],
+                "angle": 0,
+                "content": "N"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1920,
+                    156,
+                    3014,
+                    1395
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    883,
+                    1427,
+                    3040,
+                    2125
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "page_number",
+                "bbox": [
+                    1574,
+                    2143,
+                    1619,
+                    2193
+                ],
+                "angle": 0,
+                "content": "31"
+            }
+        ]
+    },
+    {
+        "page_id": 31,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    131,
+                    99,
+                    3062,
+                    2127
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1568,
+                    2143,
+                    1619,
+                    2195
+                ],
+                "angle": 0,
+                "content": "32"
+            }
+        ]
+    },
+    {
+        "page_id": 32,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    198,
+                    176,
+                    1968,
+                    571
+                ],
+                "angle": 0,
+                "content": "WHAT IS THE MOST IMPORTANT TOPIC YOU WOULD LIKE TO LISTEN/WATCH/READ ON THE RADIO/TV/ NEWSPAPERS??"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    137,
+                    582,
+                    3062,
+                    2127
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "page_number",
+                "bbox": [
+                    1571,
+                    2143,
+                    1625,
+                    2193
+                ],
+                "angle": 0,
+                "content": "33"
+            }
+        ]
+    },
+    {
+        "page_id": 33,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    748,
+                    1069,
+                    2252,
+                    1409
+                ],
+                "angle": 0,
+                "content": "Nepal Media Landscape September 2013"
+            }
+        ]
+    },
+    {
+        "page_id": 34,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    646,
+                    246,
+                    2051,
+                    598
+                ],
+                "angle": 0,
+                "content": "What is your favorite radio program?"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1776,
+                    521,
+                    1952,
+                    568
+                ],
+                "angle": 0,
+                "content": "Base 2319"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    774,
+                    947,
+                    2035,
+                    1166
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    713,
+                    1302,
+                    1033,
+                    1622
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1097,
+                    1302,
+                    1404,
+                    1620
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1446,
+                    1305,
+                    1744,
+                    1622
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1801,
+                    1287,
+                    2108,
+                    1599
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1244,
+                    1638,
+                    1564,
+                    1948
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    2185,
+                    922,
+                    2499,
+                    1903
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "page_number",
+                "bbox": [
+                    1571,
+                    2143,
+                    1622,
+                    2193
+                ],
+                "angle": 0,
+                "content": "36"
+            }
+        ]
+    },
+    {
+        "page_id": 35,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    998,
+                    358,
+                    2198,
+                    516
+                ],
+                "angle": 0,
+                "content": "Access to Radio"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    400,
+                    1058,
+                    940,
+                    1912
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "46%"
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1043,
+                    1058,
+                    1577,
+                    1912
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "24%"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1667,
+                    1067,
+                    2201,
+                    1921
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "8%"
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    2323,
+                    1051,
+                    2864,
+                    1912
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "23%"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    1568,
+                    2143,
+                    1616,
+                    2193
+                ],
+                "angle": 0,
+                "content": "36"
+            }
+        ]
+    },
+    {
+        "page_id": 36,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    780,
+                    362,
+                    2419,
+                    539
+                ],
+                "angle": 0,
+                "content": "Access to Newspaper"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    252,
+                    1076,
+                    844,
+                    1522
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Everyday"
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    371,
+                    1565,
+                    742,
+                    1885
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "9%"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    956,
+                    1083,
+                    1542,
+                    1518
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Few times a week"
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1068,
+                    1565,
+                    1440,
+                    1883
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "11%"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1657,
+                    1083,
+                    2240,
+                    1518
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Few times a month"
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    1756,
+                    1565,
+                    2137,
+                    1883
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "10%"
+            },
+            {
+                "block_id": 14,
+                "type": "image",
+                "bbox": [
+                    2358,
+                    1080,
+                    2934,
+                    1518
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Never"
+            },
+            {
+                "block_id": 15,
+                "type": "image",
+                "bbox": [
+                    2451,
+                    1565,
+                    2835,
+                    1883
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "70%"
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    1568,
+                    2143,
+                    1625,
+                    2193
+                ],
+                "angle": 0,
+                "content": "37"
+            }
+        ]
+    },
+    {
+        "page_id": 37,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    876,
+                    362,
+                    2316,
+                    521
+                ],
+                "angle": 0,
+                "content": "Access to Television"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    249,
+                    906,
+                    870,
+                    1921
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "32%"
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    979,
+                    908,
+                    1593,
+                    1921
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "15%"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1683,
+                    910,
+                    2297,
+                    1921
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "8%"
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    2332,
+                    908,
+                    2940,
+                    1921
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "23%"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    1564,
+                    2143,
+                    1616,
+                    2193
+                ],
+                "angle": 0,
+                "content": "38"
+            }
+        ]
+    },
+    {
+        "page_id": 38,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    927,
+                    308,
+                    2265,
+                    457
+                ],
+                "angle": 0,
+                "content": "Access to Internet"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    326,
+                    901,
+                    720,
+                    1003
+                ],
+                "angle": 0,
+                "content": "Everyday"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    195,
+                    1119,
+                    819,
+                    1552
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    310,
+                    1592,
+                    694,
+                    1921
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "7%"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    1001,
+                    849,
+                    1417,
+                    1051
+                ],
+                "angle": 0,
+                "content": "Few times a week"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    921,
+                    1121,
+                    1545,
+                    1549
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1040,
+                    1595,
+                    1424,
+                    1921
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "7%"
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1747,
+                    856,
+                    2160,
+                    1060
+                ],
+                "angle": 0,
+                "content": "Few times a month"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1648,
+                    1121,
+                    2268,
+                    1549
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    1763,
+                    1595,
+                    2150,
+                    1921
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "4%"
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    2502,
+                    901,
+                    2758,
+                    992
+                ],
+                "angle": 0,
+                "content": "Never"
+            },
+            {
+                "block_id": 14,
+                "type": "image",
+                "bbox": [
+                    2332,
+                    1121,
+                    2960,
+                    1549
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "image",
+                "bbox": [
+                    2457,
+                    1595,
+                    2838,
+                    1921
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "82%"
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    1571,
+                    2143,
+                    1622,
+                    2193
+                ],
+                "angle": 0,
+                "content": "39"
+            }
+        ]
+    },
+    {
+        "page_id": 39,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    624,
+                    348,
+                    2614,
+                    525
+                ],
+                "angle": 0,
+                "content": "Access to Media Everyday"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    400,
+                    750,
+                    1059,
+                    1751
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "46%"
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    1212,
+                    897,
+                    1632,
+                    1359
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1232,
+                    1418,
+                    1612,
+                    1744
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "32%"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1884,
+                    1151,
+                    2067,
+                    1296
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1792,
+                    1423,
+                    2166,
+                    1744
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "9%"
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    2416,
+                    1212,
+                    2572,
+                    1325
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    2329,
+                    1423,
+                    2710,
+                    1744
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "7%"
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    1564,
+                    2143,
+                    1616,
+                    2193
+                ],
+                "angle": 0,
+                "content": "40"
+            }
+        ]
+    },
+    {
+        "page_id": 40,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    278,
+                    358,
+                    2841,
+                    523
+                ],
+                "angle": 0,
+                "content": "Access to Media few times a week"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    316,
+                    924,
+                    739,
+                    1325
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    326,
+                    1423,
+                    755,
+                    1785
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "24%"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1107,
+                    1105,
+                    1356,
+                    1366
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1040,
+                    1436,
+                    1456,
+                    1785
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "15%"
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1811,
+                    1171,
+                    2073,
+                    1368
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1740,
+                    1441,
+                    2153,
+                    1785
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "11%"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    2544,
+                    1241,
+                    2726,
+                    1368
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    2441,
+                    1441,
+                    2860,
+                    1785
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "7%"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    1571,
+                    2141,
+                    1625,
+                    2195
+                ],
+                "angle": 0,
+                "content": "41"
+            }
+        ]
+    },
+    {
+        "page_id": 41,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    259,
+                    358,
+                    2921,
+                    521
+                ],
+                "angle": 0,
+                "content": "Access to Media few times a month"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    419,
+                    876,
+                    656,
+                    1110
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    284,
+                    1234,
+                    790,
+                    1670
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "8%"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1081,
+                    890,
+                    1315,
+                    1144
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    953,
+                    1248,
+                    1446,
+                    1663
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "8%"
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1750,
+                    861,
+                    2044,
+                    1089
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1648,
+                    1253,
+                    2147,
+                    1663
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "10%"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    2515,
+                    1019,
+                    2668,
+                    1128
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    2339,
+                    1253,
+                    2835,
+                    1663
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "4%"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    1568,
+                    2143,
+                    1619,
+                    2193
+                ],
+                "angle": 0,
+                "content": "42"
+            }
+        ]
+    },
+    {
+        "page_id": 42,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    736,
+                    362,
+                    2457,
+                    516
+                ],
+                "angle": 0,
+                "content": "NeverAccessedMedia"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    419,
+                    949,
+                    774,
+                    1287
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    412,
+                    1429,
+                    800,
+                    1760
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "23%"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    886,
+                    949,
+                    1190,
+                    1287
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    848,
+                    1441,
+                    1228,
+                    1760
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "23%"
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1382,
+                    763,
+                    2777,
+                    1427
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1449,
+                    1447,
+                    1836,
+                    1774
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "70%"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    2233,
+                    1452,
+                    2614,
+                    1776
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "82%"
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    1571,
+                    2143,
+                    1625,
+                    2193
+                ],
+                "angle": 0,
+                "content": "43"
+            }
+        ]
+    },
+    {
+        "page_id": 43,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    822,
+                    1010,
+                    1065,
+                    1237
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    1091,
+                    1078,
+                    1596,
+                    1166
+                ],
+                "angle": 0,
+                "content": "Internews"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1632,
+                    1017,
+                    2227,
+                    1053
+                ],
+                "angle": 0,
+                "content": "INTERNEWS | Local Voices. Global Change."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1632,
+                    1069,
+                    2000,
+                    1108
+                ],
+                "angle": 0,
+                "content": "Web:www.internenews.org"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1632,
+                    1123,
+                    1926,
+                    1160
+                ],
+                "angle": 0,
+                "content": "Twitter @internetews"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1632,
+                    1178,
+                    2140,
+                    1212
+                ],
+                "angle": 0,
+                "content": "Facebook: facebook.com/internews"
+            }
+        ]
+    }
+]

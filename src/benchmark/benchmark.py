@@ -366,9 +366,12 @@ Did the model give an answer equivalent to the labeled answer? Please respond wi
         os.environ["OPENAI_API_KEY"] = "sk-YJkQxboKmL0IBC1M0zOzZbVaVZifM5QvN4mLAtSLZ1V4yEDX"
         os.environ["OPENAI_API_URL"] = "http://123.129.219.111:3000/v1/"
         client = openai.OpenAI(
-                api_key=os.getenv("OPENAI_API_KEY"),
-                base_url=os.environ.get("OPENAI_API_URL", os.environ.get("OPENAI_API_BASE", ""))
-            )
+            api_key=os.getenv("OPENAI_API_KEY"),
+            base_url=os.environ.get("OPENAI_API_URL")
+            or os.environ.get("OPENAI_API_BASE")
+            or os.environ.get("OPENAI_BASE_URL")
+            or ""
+        )
         
         response = client.chat.completions.create(
             model="gpt-4.1-2025-04-14",

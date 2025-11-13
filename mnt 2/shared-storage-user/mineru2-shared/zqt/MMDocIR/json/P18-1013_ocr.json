@@ -1,0 +1,2004 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    424,
+                    280,
+                    2066,
+                    424
+                ],
+                "angle": 0,
+                "content": "A Unified Model for Extractive and Abstractive Summarization using Inconsistency Loss"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    339,
+                    512,
+                    2158,
+                    578
+                ],
+                "angle": 0,
+                "content": "Wan-Ting Hsu\\(^{1}\\), Chieh-Kai Lin\\(^{1}\\), Ming-Ying Lee\\(^{1}\\), Kerui Min\\(^{2}\\), Jing Tang\\(^{2}\\), Min Sun\\(^{1}\\)"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    736,
+                    578,
+                    1761,
+                    634
+                ],
+                "angle": 0,
+                "content": "\\(^{1}\\) National Tsing Hua University, \\(^{2}\\) Cheetah Mobile"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    476,
+                    638,
+                    2009,
+                    694
+                ],
+                "angle": 0,
+                "content": "{hsuwanting, axk51013, masony103}@gapp.nthu.edu.tw,"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    476,
+                    698,
+                    2024,
+                    750
+                ],
+                "angle": 0,
+                "content": "{minkerui, tangjing}@cmcm.com, sunmin@ee.nthu.edu.tw"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    652,
+                    929,
+                    850,
+                    978
+                ],
+                "angle": 0,
+                "content": "Abstract"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    354,
+                    1034,
+                    1143,
+                    2329
+                ],
+                "angle": 0,
+                "content": "We propose a unified model combining the strength of extractive and abstractive summarization. On the one hand, a simple extractive model can obtain sentence-level attention with high ROUGE scores but less readable. On the other hand, a more complicated abstractive model can obtain word-level dynamic attention to generate a more readable paragraph. In our model, sentence-level attention is used to modulate the word-level attention such that words in less attended sentences are less likely to be generated. Moreover, a novel inconsistency loss function is introduced to penalize the inconsistency between two levels of attentions. By end-to-end training our model with the inconsistency loss and original losses of extractive and abstractive models, we achieve state-of-the-art ROUGE scores while being the most informative and readable summarization on the CNN/Daily Mail dataset in a solid human evaluation."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    290,
+                    2420,
+                    650,
+                    2473
+                ],
+                "angle": 0,
+                "content": "1 Introduction"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2515,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Text summarization is the task of automatically condensing a piece of text to a shorter version while maintaining the important points. The ability to condense text information can aid many applications such as creating news digests, presenting search results, and generating reports. There are mainly two types of approaches: extractive and abstractive. Extractive approaches assemble summaries directly from the source text typically selecting one whole sentence at a time. In contrast, abstractive approaches can generate novel words and phrases not copied from the source text."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1295,
+                    940,
+                    2208,
+                    1308
+                ],
+                "angle": 0,
+                "content": "Original Article: McDonald's says.... The company says it expects the new 'Artisan Grilled Chicken' to be in its more than 14,300 U.S. stores by the end of next week, in products including a new sandwich, as well as existing sandwiches, wraps and salads. It says the biggest change is the removal of sodium phosphates, which it said was used to keep the chicken moist, in favor of vegetable starch. The new recipe also does not use maltodextrin, which McDonald's said is generally used as a sugar to increase browning or as a carrier for seasoning. Jessica Foust, director of culinary innovation at McDonald's, said the changes were made because customers said they want 'simple, clean ingredients' they are familiar with.... And Panera Bread has said it plans to purge artificial colors, flavors and preservatives from its food by 2016...."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1295,
+                    1329,
+                    2208,
+                    1599
+                ],
+                "angle": 0,
+                "content": "Extractive Approach: The company says it expects the new 'Artisan Grilled Chicken' to be in its more than 14,300 U.S. stores by the end of next week, in products including a new sandwich, as well as existing sandwiches, wraps and salads. It says the biggest change is the removal of sodium phosphates, which it said was used to keep the chicken moist, in favor of vegetable starch. The new recipe also does not use maltodextrin, which McDonald's said is generally used as a sugar to increase browning or as a carrier for seasoning."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1295,
+                    1620,
+                    2205,
+                    1792
+                ],
+                "angle": 0,
+                "content": "Abstractive Approach: McDonald's says it expects the new 'Artisan Grilled Chicken' to be in its more than 14,300 U.S. stores by the end of next week. The company says the changes were made because customers said they want 'simple, clean ingredients' they are familiar with. McDonald's said it plans to purge artificial colors, flavors and preservatives from its food by 2016."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1295,
+                    1810,
+                    2205,
+                    2017
+                ],
+                "angle": 0,
+                "content": "Unified Approach: McDonald's says it expects the new 'Artisan Grilled Chicken' to be in its more than 14,300 U.S. stores by the end of next week, in products including a new sandwich, as well as existing sandwiches, wraps and salads. It says the biggest change is the removal of sodium phosphates. The new recipe also does not use maltodextrin, which McDonald's said is generally used as a sugar to increase browning or as a carrier for seasoning."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2038,
+                    2195,
+                    2602
+                ],
+                "angle": 0,
+                "content": "Figure 1: Comparison of extractive, abstractive, and our unified summaries on a news article. The extractive model picks most important but incoherent or not concise (see blue bold font) sentences. The abstractive summary is readable, concise but still loses or mistakes some facts (see red italics font). The final summary rewritten from fragments (see underline font) has the advantages from both extractive (importance) and abstractive advantage (coherence (see green bold font))."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2683,
+                    2190,
+                    2792
+                ],
+                "angle": 0,
+                "content": "Hence, abstractive summaries can be more coherent and concise than extractive summaries."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2799,
+                    2195,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Extractive approaches are typically simpler. They output the probability of each sentence to be selected into the summary. Many earlier works on summarization (Cheng and Lapata, 2016; Nallapati et al., 2016a, 2017; Narayan et al., 2017; Yasunaga et al., 2017) focus on extractive summarization. Among them, Nallapati et al."
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3230,
+                    1282,
+                    3279
+                ],
+                "angle": 0,
+                "content": "132"
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    327,
+                    3301,
+                    2143,
+                    3399
+                ],
+                "angle": 0,
+                "content": "Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Long Papers), pages 132-141 Melbourne, Australia, July 15 - 20, 2018. ©2018 Association for Computational Linguistics"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    263,
+                    1223,
+                    1501
+                ],
+                "angle": 0,
+                "content": "(2017) have achieved high ROUGE scores. On the other hand, abstractive approaches (Nallapati et al., 2016b; See et al., 2017; Paulus et al., 2017; Fan et al., 2017; Liu et al., 2017) typically involve sophisticated mechanism in order to paraphrase, generate unseen words in the source text, or even incorporate external knowledge. Neural networks (Nallapati et al., 2017; See et al., 2017) based on the attentional encoder-decoder model (Bahdanau et al., 2014) were able to generate abstractive summaries with high ROUGE scores but suffer from inaccurately reproducing factual details and an inability to deal with out-of-vocabulary (OOV) words. Recently, See et al. (2017) propose a pointer-generator model which has the abilities to copy words from source text as well as generate unseen words. Despite recent progress in abstractive summarization, extractive approaches (Nallapati et al., 2017; Yasunaga et al., 2017) and lead-3 baseline (i.e., selecting the first 3 sentences) still achieve strong performance in ROUGE scores."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1508,
+                    1220,
+                    3030
+                ],
+                "angle": 0,
+                "content": "We propose to explicitly take advantage of the strength of state-of-the-art extractive and abstractive summarization and introduced the following unified model. Firstly, we treat the probability output of each sentence from the extractive model (Nallapati et al., 2017) as sentence-level attention. Then, we modulate the word-level dynamic attention from the abstractive model (See et al., 2017) with sentence-level attention such that words in less attended sentences are less likely to be generated. In this way, extractive summarization mostly benefits abstractive summarization by mitigating spurious word-level attention. Secondly, we introduce a novel inconsistency loss function to encourage the consistency between two levels of attentions. The loss function can be computed without additional human annotation and has shown to ensure our unified model to be mutually beneficial to both extractive and abstractive summarization. On CNN/Daily Mail dataset, our unified model achieves state-of-the-art ROUGE scores and outperforms a strong extractive baseline (i.e., lead-3). Finally, to ensure the quality of our unified model, we conduct a solid human evaluation and confirm that our method significantly outperforms recent state-of-the-art methods in informativity and readability."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    332,
+                    3037,
+                    1173,
+                    3087
+                ],
+                "angle": 0,
+                "content": "To summarize, our contributions are twofold:"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    337,
+                    3136,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "- We propose a unified model combining"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1354,
+                    266,
+                    2195,
+                    431
+                ],
+                "angle": 0,
+                "content": "sentence-level and word-level attentions to take advantage of both extractive and abstractive summarization approaches."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1319,
+                    470,
+                    2200,
+                    971
+                ],
+                "angle": 0,
+                "content": "- We propose a novel inconsistency loss function to ensure our unified model to be mutually beneficial to both extractive and abstractive summarization. The unified model with inconsistency loss achieves the best ROUGE scores on CNN/Daily Mail dataset and outperforms recent state-of-the-art methods in informativity and readability on human evaluation."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1013,
+                    1659,
+                    1069
+                ],
+                "angle": 0,
+                "content": "2 Related Work"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1101,
+                    2195,
+                    1434
+                ],
+                "angle": 0,
+                "content": "Text summarization has been widely studied in recent years. We first introduce the related works of neural-network-based extractive and abstractive summarization. Finally, we introduce a few related works with hierarchical attention mechanism."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1441,
+                    2198,
+                    2343
+                ],
+                "angle": 0,
+                "content": "Extractive summarization. Kägebäck et al. (2014) and Yin and Pei (2015) use neural networks to map sentences into vectors and select sentences based on those vectors. Cheng and Lapata (2016), Nallapati et al. (2016a) and Nallapati et al. (2017) use recurrent neural networks to read the article and get the representations of the sentences and article to select sentences. Narayan et al. (2017) utilize side information (i.e., image captions and titles) to help the sentence classifier choose sentences. Yasunaga et al. (2017) combine recurrent neural networks with graph convolutional networks to compute the salience (or importance) of each sentence. While some extractive summarization methods obtain high ROUGE scores, they all suffer from low readability."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2346,
+                    2198,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Abstractive summarization. Rush et al. (2015) first bring up the abstractive summarization task and use attention-based encoder to read the input text and generate the summary. Based on them, Miao and Blunsom (2016) use a variational auto-encoder and Nallapati et al. (2016b) use a more powerful sequence-to-sequence model. Besides, Nallapati et al. (2016b) create a new article-level summarization dataset called CNN/Daily Mail by adapting DeepMind question-answering dataset (Hermann et al., 2015). Ranzato et al. (2015) change the traditional training method to directly optimize evaluation metrics (e.g., BLEU and ROUGE). Gu et al. (2016), See et al. (2017) and Paulus et al. (2017) combine pointer networks"
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3234,
+                    1282,
+                    3279
+                ],
+                "angle": 0,
+                "content": "133"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    305,
+                    263,
+                    1173,
+                    305
+                ],
+                "angle": 0,
+                "content": "Sentence Attention (transparent bars) and Word Attention (solid bars)"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1622,
+                    266,
+                    1935,
+                    301
+                ],
+                "angle": 0,
+                "content": "Updated Word Attention"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    317,
+                    308,
+                    2188,
+                    670
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 2: Our unified model combines the word-level and sentence-level attentions. Inconsistency occurs when word attention is high but sentence attention is low (see red arrow)."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    880,
+                    1213,
+                    1606
+                ],
+                "angle": 0,
+                "content": "(Vinyals et al., 2015) into their models to deal with out-of-vocabulary (OOV) words. Chen et al. (2016) and See et al. (2017) restrain their models from attending to the same word to decrease repeated phrases in the generated summary. Paulus et al. (2017) use policy gradient on summarization and state out the fact that high ROUGE scores might still lead to low human evaluation scores. Fan et al. (2017) apply convolutional sequence-to-sequence model and design several new tasks for summarization. Liu et al. (2017) achieve high readability score on human evaluation using generative adversarial networks."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1617,
+                    1213,
+                    2290
+                ],
+                "angle": 0,
+                "content": "Hierarchical attention. Attention mechanism was first proposed by Bahdanau et al. (2014). Yang et al. (2016) proposed a hierarchical attention mechanism for document classification. We adopt the method of combining sentence-level and word-level attention in Nallapati et al. (2016b). However, their sentence attention is dynamic, which means it will be different for each generated word. Whereas our sentence attention is fixed for all generated words. Inspired by the high performance of extractive summarization, we propose to use fixed sentence attention."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2301,
+                    1213,
+                    2687
+                ],
+                "angle": 0,
+                "content": "Our model combines state-of-the-art extractive model (Nallapati et al., 2017) and abstractive model (See et al., 2017) by combining sentence-level attention from the former and word-level attention from the latter. Furthermore, we design an inconsistency loss to enhance the cooperation between the extractive and abstractive models."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2750,
+                    781,
+                    2802
+                ],
+                "angle": 0,
+                "content": "3 Our Unified Model"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2848,
+                    1213,
+                    3125
+                ],
+                "angle": 0,
+                "content": "We propose a unified model to combine the strength of both state-of-the-art extractor (Nallapati et al., 2017) and abstracter (See et al., 2017). Before going into details of our model, we first define the tasks of the extractor and abstracter."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    287,
+                    3136,
+                    1210,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Problem definition. The input of both extrac"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    880,
+                    2195,
+                    1782
+                ],
+                "angle": 0,
+                "content": "tor and abstracter is a sequence of words \\(\\mathbf{w} = [w_{1}, w_{2}, \\ldots, w_{m}, \\ldots]\\), where \\(m\\) is the word index. The sequence of words also forms a sequence of sentences \\(\\mathbf{s} = [s_{1}, s_{2}, \\ldots, s_{n}, \\ldots]\\), where \\(n\\) is the sentence index. The \\(m^{th}\\) word is mapped into the \\(n(m)^{th}\\) sentence, where \\(n(\\cdot)\\) is the mapping function. The output of the extractor is the sentence-level attention \\(\\beta = [\\beta_{1}, \\beta_{2}, \\ldots, \\beta_{n}, \\ldots]\\), where \\(\\beta_{n}\\) is the probability of the \\(n^{th}\\) sentence being extracted into the summary. On the other hand, our attention-based abstractor computes word-level attention \\(\\alpha^{t} = [\\alpha_{1}^{t}, \\alpha_{2}^{t}, \\ldots, \\alpha_{m}^{t}, \\ldots]\\) dynamically while generating the \\(t^{th}\\) word in the summary. The output of the abstracter is the summary text \\(\\mathbf{y} = [y^{1}, y^{2}, \\ldots, y^{t}, \\ldots]\\), where \\(y^{t}\\) is \\(t^{th}\\) word in the summary."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1785,
+                    2193,
+                    2231
+                ],
+                "angle": 0,
+                "content": "In the following, we introduce the mechanism to combine sentence-level and word-level attention in Sec. 3.1. Next, we define the novel inconsistency loss that ensures extractor and abstracter to be mutually beneficial in Sec. 3.2. We also give the details of our extractor in Sec. 3.3 and our abstracter in Sec. 3.4. Finally, our training procedure is described in Sec. 3.5."
+            },
+            {
+                "block_id": 12,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    2287,
+                    1818,
+                    2339
+                ],
+                "angle": 0,
+                "content": "3.1 Combining Attentions"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2364,
+                    2193,
+                    2746
+                ],
+                "angle": 0,
+                "content": "Pieces of evidence (e.g., Vaswani et al. (2017)) show that attention mechanism is very important for NLP tasks. Hence, we propose to explicitly combine the sentence-level \\(\\beta_{n}\\) and word-level \\(\\alpha_{m}^{t}\\) attentions by simple scalar multiplication and renormalization. The updated word attention \\(\\hat{\\alpha}_{m}^{t}\\) is"
+            },
+            {
+                "block_id": 14,
+                "type": "equation",
+                "bbox": [
+                    1491,
+                    2743,
+                    2190,
+                    2873
+                ],
+                "angle": 0,
+                "content": "\\[\n\\hat {\\alpha} _ {m} ^ {t} = \\frac {\\alpha_ {m} ^ {t} \\times \\beta_ {n (m)}}{\\sum_ {m} \\alpha_ {m} ^ {t} \\times \\beta_ {n (m)}}. \\qquad (1)\n\\]"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2911,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "The multiplication ensures that only when both word-level \\(\\alpha_{m}^{t}\\) and sentence-level \\(\\beta_{n}\\) attentions are high, the updated word attention \\(\\hat{\\alpha}_{m}^{t}\\) can be high. Since the sentence-level attention \\(\\beta_{n}\\) from the extractor already achieves high ROUGE"
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3230,
+                    1280,
+                    3272
+                ],
+                "angle": 0,
+                "content": "134"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    305,
+                    256,
+                    1193,
+                    708
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 3: Architecture of the extractor. We treat the sigmoid output of each sentence as sentence-level attention \\(\\in [0,1]\\)."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    961,
+                    1215,
+                    1417
+                ],
+                "angle": 0,
+                "content": "scores, \\(\\beta_{n}\\) intuitively modulates the word-level attention \\(\\alpha_{m}^{t}\\) to mitigate spurious word-level attention such that words in less attended sentences are less likely to be generated (see Fig. 2). As highlighted in Sec. 3.4, the word-level attention \\(\\hat{\\alpha}_{m}^{t}\\) significantly affects the decoding process of the abstracter. Hence, an updated word-level attention is our key to improve abstractive summarization."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1476,
+                    774,
+                    1529
+                ],
+                "angle": 0,
+                "content": "3.2 Inconsistency Loss"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1564,
+                    1215,
+                    2125
+                ],
+                "angle": 0,
+                "content": "Instead of only leveraging the complementary nature between sentence-level and word-level attentions, we would like to encourage these two-levels of attentions to be mostly consistent to each other during training as an intrinsic learning target for free (i.e., without additional human annotation). Explicitly, we would like the sentence-level attention to be high when the word-level attention is high. Hence, we design the following inconsistency loss,"
+            },
+            {
+                "block_id": 5,
+                "type": "equation",
+                "bbox": [
+                    302,
+                    2153,
+                    1213,
+                    2308
+                ],
+                "angle": 0,
+                "content": "\\[\nL _ {i n c} = - \\frac {1}{T} \\sum_ {t = 1} ^ {T} \\log \\bigl (\\frac {1}{| \\mathcal {K} |} \\sum_ {m \\in \\mathcal {K}} \\alpha_ {m} ^ {t} \\times \\beta_ {n (m)} \\bigr), (2)\n\\]"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2343,
+                    1215,
+                    3188
+                ],
+                "angle": 0,
+                "content": "where \\(\\kappa\\) is the set of top K attended words and \\(T\\) is the number of words in the summary. This implicitly encourages the distribution of the word-level attentions to be sharp and sentence-level attention to be high. To avoid the degenerated solution for the distribution of word attention to be one-hot and sentence attention to be high, we include the original loss functions for training the extractor (\\(L_{ext}\\) in Sec. 3.3) and abstracter (\\(L_{abs}\\) and \\(L_{cov}\\) in Sec. 3.4). Note that Eq. 1 is the only part that the extractor is interacting with the abstracter. Our proposed inconsistency loss facilitates our end-to-end trained unified model to be mutually beneficial to both the extractor and abstracter."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    263,
+                    1577,
+                    312
+                ],
+                "angle": 0,
+                "content": "3.3 Extractor"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    336,
+                    2193,
+                    785
+                ],
+                "angle": 0,
+                "content": "Our extractor is inspired by Nallapati et al. (2017). The main difference is that our extractor does not need to obtain the final summary. It mainly needs to obtain a short list of important sentences with a high recall to further facilitate the abstractor. We first introduce the network architecture and the loss function. Finally, we define our ground truth important sentences to encourage high recall."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    789,
+                    2193,
+                    1069
+                ],
+                "angle": 0,
+                "content": "Architecture. The model consists of a hierarchical bidirectional GRU which extracts sentence representations and a classification layer for predicting the sentence-level attention \\(\\beta_{n}\\) for each sentence (see Fig. 3)."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1073,
+                    2193,
+                    1182
+                ],
+                "angle": 0,
+                "content": "Extractor loss. The following sigmoid cross entropy loss is used,"
+            },
+            {
+                "block_id": 11,
+                "type": "equation",
+                "bbox": [
+                    1270,
+                    1192,
+                    2247,
+                    1392
+                ],
+                "angle": 0,
+                "content": "\\[\nL _ {e x t} = - \\frac {1}{N} \\sum_ {n = 1} ^ {N} \\left(g _ {n} \\log \\beta_ {n} + (1 - g _ {n}) \\log \\left(1 - \\beta_ {n}\\right)\\right), \\tag {3}\n\\]"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1392,
+                    2193,
+                    1666
+                ],
+                "angle": 0,
+                "content": "where \\( g_{n} \\in \\{0,1\\} \\) is the ground-truth label for the \\( n^{th} \\) sentence and \\( N \\) is the number of sentences. When \\( g_{n} = 1 \\), it indicates that the \\( n^{th} \\) sentence should be attended to facilitate abstractive summarization."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1676,
+                    2195,
+                    2974
+                ],
+                "angle": 0,
+                "content": "Ground-truth label. The goal of our extractor is to extract sentences with high informativity, which means the extracted sentences should contain information that is needed to generate an abstractive summary as much as possible. To obtain the ground-truth labels \\(\\mathbf{g} = \\{g_n\\}_n\\), first, we measure the informativity of each sentence \\(s_n\\) in the article by computing the ROUGE-L recall score (Lin, 2004) between the sentence \\(s_n\\) and the reference abstractive summary \\(\\hat{\\mathbf{y}} = \\{\\hat{y}^t\\}_t\\). Second, we sort the sentences by their informativity and select the sentence in the order of high to low informativity. We add one sentence at a time if the new sentence can increase the informativity of all the selected sentences. Finally, we obtain the ground-truth labels \\(\\mathbf{g}\\) and train our extractor by minimizing Eq. 3. Note that our method is different from Nallapati et al. (2017) who aim to extract a final summary for an article so they use ROUGE F-1 score to select ground-truth sentences; while we focus on high informativity, hence, we use ROUGE recall score to obtain as much information as possible with respect to the reference summary \\(\\hat{\\mathbf{y}}\\)."
+            },
+            {
+                "block_id": 14,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    3006,
+                    1597,
+                    3058
+                ],
+                "angle": 0,
+                "content": "3.4 Abstracter"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    3080,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "The second part of our model is an abstracter that reads the article; then, generate a summary"
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3230,
+                    1280,
+                    3279
+                ],
+                "angle": 0,
+                "content": "135"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    315,
+                    259,
+                    1190,
+                    663
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 4: Decoding mechanism in the abstracter. In the decoder step \\( t \\), our updated word attention \\( \\hat{\\alpha}^t \\) is used to generate context vector \\( h^*(\\hat{\\alpha}^t) \\). Hence, it updates the final word distribution \\( \\mathbf{P}^{final} \\)."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1031,
+                    1213,
+                    1252
+                ],
+                "angle": 0,
+                "content": "word-by-word. We use the pointer-generator network proposed by See et al. (2017) and combine it with the extractor by combining sentence-level and word-level attentions (Sec. 3.1)."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1255,
+                    1213,
+                    1989
+                ],
+                "angle": 0,
+                "content": "Pointer-generator network. The pointer-generator network (See et al., 2017) is a specially designed sequence-to-sequence attentional model that can generate the summary by copying words in the article or generating words from a fixed vocabulary at the same time. The model contains a bidirectional LSTM which serves as an encoder to encode the input words w and a unidirectional LSTM which serves as a decoder to generate the summary y. For details of the network architecture, please refer to See et al. (2017). In the following, we describe how the updated word attention \\(\\hat{\\alpha}^t\\) affects the decoding process."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1992,
+                    1215,
+                    2438
+                ],
+                "angle": 0,
+                "content": "Notations. We first define some notations. \\( h_m^e \\) is the encoder hidden state for the \\( m^{th} \\) word. \\( h_t^d \\) is the decoder hidden state in step \\( t \\). \\( h^*(\\hat{\\alpha}^t) = \\sum_{m}^{M} \\hat{\\alpha}_m^t \\times h_m^e \\) is the context vector which is a function of the updated word attention \\( \\hat{\\alpha}^t \\). \\( \\mathbf{P}^{vocab}(h^*(\\hat{\\alpha}^t)) \\) is the probability distribution over the fixed vocabulary before applying the copying mechanism."
+            },
+            {
+                "block_id": 5,
+                "type": "equation",
+                "bbox": [
+                    310,
+                    2455,
+                    1210,
+                    2595
+                ],
+                "angle": 0,
+                "content": "\\[\n\\begin{array}{l} \\mathbf {P} ^ {\\text {v o c a b}} \\left(h ^ {*} \\left(\\hat {\\boldsymbol {\\alpha}} ^ {t}\\right)\\right) \\tag {4} \\\\ = \\mathrm {s o f t m a x} \\big (W _ {2} \\big (W _ {1} [ h _ {t} ^ {d}, h ^ {*} (\\hat {\\boldsymbol {\\alpha}} ^ {t}) ] + b _ {1} \\big) + b _ {2} \\big), \\\\ \\end{array}\n\\]"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2623,
+                    1210,
+                    2960
+                ],
+                "angle": 0,
+                "content": "where \\(W_{1}, W_{2}, b_{1}\\) and \\(b_{2}\\) are learnable parameters. \\(\\mathbf{P}^{vocab} = \\{P_w^{vocab}\\}_w\\) where \\(P_w^{vocab}(h^*(\\hat{\\alpha}^t))\\) is the probability of word \\(w\\) being decoded. \\(p^{gen}(h^*(\\hat{\\alpha}^t)) \\in [0,1]\\) is the generating probability (see Eq.8 in See et al. (2017)) and \\(1 - p^{gen}(h^*(\\hat{\\alpha}^t))\\) is the copying probability."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2964,
+                    1213,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Final word distribution. \\(P_w^{final}(\\hat{\\alpha}^t)\\) is the final probability of word \\(w\\) being decoded (i.e., \\(y^t = w\\)). It is related to the updated word attention \\(\\hat{\\alpha}^t\\) as follows (see Fig. 4),"
+            },
+            {
+                "block_id": 8,
+                "type": "equation",
+                "bbox": [
+                    1270,
+                    252,
+                    2205,
+                    445
+                ],
+                "angle": 0,
+                "content": "\\[\n\\begin{array}{l} P _ {w} ^ {f i n a l} (\\hat {\\boldsymbol {\\alpha}} ^ {t}) = p ^ {g e n} (h ^ {*} (\\hat {\\boldsymbol {\\alpha}} ^ {t})) P _ {w} ^ {v o c a b} (h ^ {*} (\\hat {\\boldsymbol {\\alpha}} ^ {t})) (5) \\\\ { + } { ( 1 - p ^ { g e n } ( h ^ { * } ( \\hat { \\boldsymbol { \\alpha } } ^ { t } ) ) ) \\sum _ { m : w _ { m } = w } \\hat { \\alpha } _ { m } ^ { t } . } \\\\ \\end{array}\n\\]"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    466,
+                    2193,
+                    869
+                ],
+                "angle": 0,
+                "content": "Note that \\(\\mathbf{P}^{final} = \\{P_w^{final}\\}_w\\) is the probability distribution over the fixed vocabulary and out-of-vocabulary (OOV) words. Hence, OOV words can be decoded. Most importantly, it is clear from Eq. 5 that \\(P_w^{final}(\\hat{\\alpha}^t)\\) is a function of the updated word attention \\(\\hat{\\alpha}^t\\). Finally, we train the abstracter to minimize the negative log-likelihood:"
+            },
+            {
+                "block_id": 10,
+                "type": "equation",
+                "bbox": [
+                    1424,
+                    877,
+                    2190,
+                    1020
+                ],
+                "angle": 0,
+                "content": "\\[\nL _ {a b s} = - \\frac {1}{T} \\sum_ {t = 1} ^ {T} \\log P _ {\\hat {y} ^ {t}} ^ {f i n a l} (\\hat {\\boldsymbol {\\alpha}} ^ {t}), \\tag {6}\n\\]"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1038,
+                    2190,
+                    1147
+                ],
+                "angle": 0,
+                "content": "where \\(\\hat{y}^t\\) is the \\(t^{th}\\) token in the reference abstractive summary."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1157,
+                    2193,
+                    1768
+                ],
+                "angle": 0,
+                "content": "Coverage mechanism. We also apply coverage mechanism (See et al., 2017) to prevent the abstracter from repeatedly attending to the same place. In each decoder step \\( t \\), we calculate the coverage vector \\( \\mathbf{c}^t = \\sum_{t' = 0}^{t - 1} \\hat{\\alpha}^{t'} \\) which indicates so far how much attention has been paid to every input word. The coverage vector \\( \\mathbf{c}^t \\) will be used to calculate word attention \\( \\hat{\\alpha}^t \\) (see Eq.11 in See et al. (2017)). Moreover, coverage loss \\( L_{cov} \\) is calculated to directly penalize the repetition in updated word attention \\( \\hat{\\alpha}^t \\):"
+            },
+            {
+                "block_id": 13,
+                "type": "equation",
+                "bbox": [
+                    1406,
+                    1782,
+                    2190,
+                    1932
+                ],
+                "angle": 0,
+                "content": "\\[\nL _ {c o v} = \\frac {1}{T} \\sum_ {t = 1} ^ {T} \\sum_ {m = 1} ^ {M} \\min (\\hat {\\boldsymbol {\\alpha}} _ {m} ^ {t}, \\mathbf {c} _ {m} ^ {t}). \\qquad (7)\n\\]"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1950,
+                    2193,
+                    2118
+                ],
+                "angle": 0,
+                "content": "The objective function for training the abstracter with coverage mechanism is the weighted sum of negative log-likelihood and coverage loss."
+            },
+            {
+                "block_id": 15,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2157,
+                    1771,
+                    2213
+                ],
+                "angle": 0,
+                "content": "3.5 Training Procedure"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2234,
+                    2193,
+                    2683
+                ],
+                "angle": 0,
+                "content": "We first pre-train the extractor by minimizing \\( L_{ext} \\) in Eq. 3 and the abstracter by minimizing \\( L_{abs} \\) and \\( L_{cov} \\) in Eq. 6 and Eq. 7, respectively. When pre-training, the abstracter takes ground-truth extracted sentences (i.e., sentences with \\( g_{n} = 1 \\)) as input. To combine the extractor and abstracter, we proposed two training settings: (1) two-stages training and (2) end-to-end training."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2687,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Two-stages training. In this setting, we view the sentence-level attention \\(\\beta\\) from the pre-trained extractor as hard attention. The extractor becomes a classifier to select sentences with high attention (i.e., \\(\\beta_{n} > \\) threshold). We simply combine the extractor and abstracter by feeding the extracted sentences to the abstracter. Note that we finetune the abstracter since the input text becomes extractive summary which is obtained from the extractor."
+            },
+            {
+                "block_id": 18,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3234,
+                    1282,
+                    3279
+                ],
+                "angle": 0,
+                "content": "136"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    263,
+                    1215,
+                    659
+                ],
+                "angle": 0,
+                "content": "End-to-end training. For end-to-end training, the sentence-level attention \\(\\beta\\) is soft attention and will be combined with the word-level attention \\(\\alpha^t\\) as described in Sec. 3.1. We end-to-end train the extractor and abstracter by minimizing four loss functions: \\(L_{ext}\\), \\(L_{abs}\\), \\(L_{cov}\\), as well as \\(L_{inc}\\) in Eq. 2. The final loss is as below:"
+            },
+            {
+                "block_id": 1,
+                "type": "equation",
+                "bbox": [
+                    325,
+                    684,
+                    1210,
+                    792
+                ],
+                "angle": 0,
+                "content": "\\[\nL _ {e 2 e} = \\lambda_ {1} L _ {e x t} + \\lambda_ {2} L _ {a b s} + \\lambda_ {3} L _ {c o v} + \\lambda_ {4} L _ {i n c}, \\tag {8}\n\\]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    796,
+                    1215,
+                    1076
+                ],
+                "angle": 0,
+                "content": "where \\(\\lambda_1, \\lambda_2, \\lambda_3, \\lambda_4\\) are hyper-parameters. In our experiment, we give \\(L_{ext}\\) a bigger weight (e.g., \\(\\lambda_1 = 5\\)) when end-to-end training with \\(L_{inc}\\) since we found that \\(L_{inc}\\) is relatively large such that the extractor tends to ignore \\(L_{ext}\\)."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1122,
+                    650,
+                    1178
+                ],
+                "angle": 0,
+                "content": "4 Experiments"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1210,
+                    1213,
+                    1326
+                ],
+                "angle": 0,
+                "content": "We introduce the dataset and implementation details of our method evaluated in our experiments."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1364,
+                    550,
+                    1413
+                ],
+                "angle": 0,
+                "content": "4.1 Dataset"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1438,
+                    1215,
+                    2227
+                ],
+                "angle": 0,
+                "content": "We evaluate our models on the CNN/Daily Mail dataset (Hermann et al., 2015; Nallapati et al., 2016b; See et al., 2017) which contains news stories in CNN and Daily Mail websites. Each article in this dataset is paired with one human-written multi-sentence summary. This dataset has two versions: anonymized and non-anonymized. The former contains the news stories with all the named entities replaced by special tokens (e.g., @entity2); while the latter contains the raw text of each news story. We follow See et al. (2017) and obtain the non-anonymized version of this dataset which has 287,113 training pairs, 13,368 validation pairs and 11,490 test pairs."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2273,
+                    860,
+                    2322
+                ],
+                "angle": 0,
+                "content": "4.2 Implementation Details"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2343,
+                    1215,
+                    2901
+                ],
+                "angle": 0,
+                "content": "We train our extractor and abstracter with 128-dimension word embeddings and set the vocabulary size to \\(50\\mathrm{k}\\) for both source and target text. We follow Nallapati et al. (2017) and See et al. (2017) and set the hidden dimension to 200 and 256 for the extractor and abstracter, respectively. We use Adagrad optimizer (Duchi et al., 2011) and apply early stopping based on the validation set. In the testing phase, we limit the length of the summary to 120."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2911,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Pre-training. We use learning rate 0.15 when pretraining the extractor and abstracter. For the extractor, we limit both the maximum number of sentences per article and the maximum number of tokens per sentence to 50 and train the model"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    263,
+                    2195,
+                    771
+                ],
+                "angle": 0,
+                "content": "for \\(27\\mathrm{k}\\) iterations with the batch size of 64. For the abstracter, it takes ground-truth extracted sentences (i.e., sentences with \\(g_{n} = 1\\)) as input. We limit the length of the source text to 400 and the length of the summary to 100 and use the batch size of 16. We train the abstracter without coverage mechanism for \\(88\\mathrm{k}\\) iterations and continue training for \\(1\\mathrm{k}\\) iterations with coverage mechanism \\((L_{abs}: L_{cov} = 1:1)\\)."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    775,
+                    2193,
+                    1052
+                ],
+                "angle": 0,
+                "content": "Two-stages training. The abstracter takes extracted sentences with \\(\\beta_{n} > 0.5\\), where \\(\\beta\\) is obtained from the pre-trained extractor, as input during two-stages training. We finetune the abstracter for \\(10k\\) iterations."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1059,
+                    2193,
+                    1564
+                ],
+                "angle": 0,
+                "content": "End-to-end training. During end-to-end training, we will minimize four loss functions (Eq. 8) with \\(\\lambda_{1} = 5\\) and \\(\\lambda_{2} = \\lambda_{3} = \\lambda_{4} = 1\\). We set K to 3 for computing \\(L_{inc}\\). Due to the limitation of the memory, we reduce the batch size to 8 and thus use a smaller learning rate 0.01 for stability. The abstracter here reads the whole article. Hence, we increase the maximum length of source text to 600. We end-to-end train the model for 50k iterations."
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1617,
+                    1513,
+                    1666
+                ],
+                "angle": 0,
+                "content": "5 Results"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1711,
+                    2193,
+                    2273
+                ],
+                "angle": 0,
+                "content": "Our unified model not only generates an abstractive summary but also extracts the important sentences in an article. Our goal is that both of the two types of outputs can help people to read and understand an article faster. Hence, in this section, we evaluate the results of our extractor in Sec. 5.1 and unified model in Sec. 5.2. Furthermore, in Sec. 5.3, we perform human evaluation and show that our model can provide a better abstractive summary than other baselines."
+            },
+            {
+                "block_id": 15,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2322,
+                    1979,
+                    2371
+                ],
+                "angle": 0,
+                "content": "5.1 Results of Extracted Sentences"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2399,
+                    2193,
+                    3016
+                ],
+                "angle": 0,
+                "content": "To evaluate whether our extractor obtains enough information for the abstracter, we use full-length ROUGE recall scores<sup>1</sup> between the extracted sentences and reference abstractive summary. High ROUGE recall scores can be obtained if the extracted sentences include more words or sequences overlapping with the reference abstractive summary. For each article, we select sentences with the sentence probabilities \\(\\beta\\) greater than 0.5. We show the results of the ground-truth sentence labels (Sec. 3.3) and our models on the"
+            },
+            {
+                "block_id": 17,
+                "type": "page_footnote",
+                "bbox": [
+                    1265,
+                    3058,
+                    2190,
+                    3146
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup>All our ROUGE scores are reported by the official ROUGE script. We use the pyrouge package."
+            },
+            {
+                "block_id": 18,
+                "type": "page_footnote",
+                "bbox": [
+                    1265,
+                    3146,
+                    2155,
+                    3192
+                ],
+                "angle": 0,
+                "content": "https://pypi.org/project/pyrouge/0.1.3/"
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    1265,
+                    3058,
+                    2190,
+                    3192
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3230,
+                    1280,
+                    3279
+                ],
+                "angle": 0,
+                "content": "137"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    553,
+                    252,
+                    1935,
+                    564
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Method</td><td>ROUGE-1</td><td>ROUGE-2</td><td>ROUGE-L</td></tr><tr><td>pre-trained</td><td>73.50</td><td>35.55</td><td>68.57</td></tr><tr><td>end2end w/o inconsistency loss</td><td>72.97</td><td>35.11</td><td>67.99</td></tr><tr><td>end2end w/ inconsistency loss</td><td>78.40</td><td>39.45</td><td>73.83</td></tr><tr><td>ground-truth labels</td><td>89.23</td><td>49.36</td><td>85.46</td></tr></table>",
+                "caption": "Table 1: ROUGE recall scores of the extracted sentences. pre-trained indicates the extractor trained on the ground-truth labels. end2end indicates the extractor after end-to-end training with the abstracter. Note that ground-truth labels show the upper-bound performance since the reference summary to calculate ROUGE-recall is abstractive. All our ROUGE scores have a \\(95\\%\\) confidence interval with at most \\(\\pm 0.33\\)."
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    496,
+                    908,
+                    1992,
+                    1438
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Method</td><td>ROUGE-1</td><td>ROUGE-2</td><td>ROUGE-L</td></tr><tr><td>HierAttn (Nallapati et al., 2016b)*</td><td>32.75</td><td>12.21</td><td>29.01</td></tr><tr><td>DeepRL (Paulus et al., 2017)*</td><td>39.87</td><td>15.82</td><td>36.90</td></tr><tr><td>pointer-generator (See et al., 2017)</td><td>39.53</td><td>17.28</td><td>36.38</td></tr><tr><td>GAN (Liu et al., 2017)</td><td>39.92</td><td>17.65</td><td>36.71</td></tr><tr><td>two-stage (ours)</td><td>39.97</td><td>17.43</td><td>36.34</td></tr><tr><td>end2end w/o inconsistency loss (ours)</td><td>40.19</td><td>17.67</td><td>36.68</td></tr><tr><td>end2end w/ inconsistency loss (ours)</td><td>40.68</td><td>17.97</td><td>37.13</td></tr><tr><td>lead-3 (See et al., 2017)</td><td>40.34</td><td>17.70</td><td>36.57</td></tr></table>",
+                "caption": "Table 2: ROUGE F-1 scores of the generated abstractive summaries on the CNN/Daily Mail test set. Our two-stages model outperforms pointer-generator model on ROUGE-1 and ROUGE-2. In addition, our model trained end-to-end with inconsistency loss exceeds the lead-3 baseline. All our ROUGE scores have a \\(95\\%\\) confidence interval with at most \\(\\pm 0.24\\). “*” indicates the model is trained and evaluated on the anonymized dataset and thus is not strictly comparable with ours."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1831,
+                    1215,
+                    2224
+                ],
+                "angle": 0,
+                "content": "test set of the CNN/Daily Mail dataset in Table 1. Note that the ground-truth extracted sentences can't get ROUGE recall scores of 100 because reference summary is abstractive and may contain some words and sequences that are not in the article. Our extractor performs the best when end-to-end trained with inconsistency loss."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2269,
+                    1143,
+                    2322
+                ],
+                "angle": 0,
+                "content": "5.2 Results of Abstractive Summarization"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2343,
+                    1215,
+                    3195
+                ],
+                "angle": 0,
+                "content": "We use full-length ROUGE-1, ROUGE-2 and ROUGE-L F-1 scores to evaluate the generated summaries. We compare our models (two-stage and end-to-end) with state-of-the-art abstractive summarization models (Nallapati et al., 2016b; Paulus et al., 2017; See et al., 2017; Liu et al., 2017) and a strong lead-3 baseline which directly uses the first three article sentences as the summary. Due to the writing style of news articles, the most important information is often written at the beginning of an article which makes lead-3 a strong baseline. The results of ROUGE F-1 scores are shown in Table 2. We prove that with help of the extractor, our unified model can outperform pointer-generator (the third row in Table 2)"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1831,
+                    2195,
+                    2220
+                ],
+                "angle": 0,
+                "content": "even with two-stages training (the fifth row in Table 2). After end-to-end training without inconsistency loss, our method already achieves better ROUGE scores by cooperating with each other. Moreover, our model end-to-end trained with inconsistency loss achieves state-of-the-art ROUGE scores and exceeds lead-3 baseline."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2227,
+                    2193,
+                    2736
+                ],
+                "angle": 0,
+                "content": "In order to quantify the effect of inconsistency loss, we design a metric - inconsistency rate \\( R_{inc} \\) - to measure the inconsistency for each generated summary. For each decoder step \\( t \\), if the word with maximum attention belongs to a sentence with low attention (i.e., \\( \\beta_{n(\\mathrm{argmax}(\\alpha^t))} < \\mathrm{mean}(\\beta) \\)), we define this step as an inconsistent step \\( t_{inc} \\). The inconsistency rate \\( R_{inc} \\) is then defined as the percentage of the inconsistent steps in the summary."
+            },
+            {
+                "block_id": 9,
+                "type": "equation",
+                "bbox": [
+                    1528,
+                    2774,
+                    2193,
+                    2883
+                ],
+                "angle": 0,
+                "content": "\\[\nR _ {i n c} = \\frac {\\operatorname {C o u n t} \\left(t _ {i n c}\\right)}{T}, \\tag {9}\n\\]"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2911,
+                    2195,
+                    3195
+                ],
+                "angle": 0,
+                "content": "where \\(T\\) is the length of the summary. The average inconsistency rates on test set are shown in Table 4. Our inconsistency loss significantly decreases \\(R_{inc}\\) from about \\(20\\%\\) to \\(4\\%\\). An example of inconsistency improvement is shown in Fig. 5."
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3234,
+                    1280,
+                    3279
+                ],
+                "angle": 0,
+                "content": "138"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    493,
+                    252,
+                    1992,
+                    610
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Method</td><td>informativity</td><td>conciseness</td><td>readability</td></tr><tr><td>DeepRL (Paulus et al., 2017)</td><td>3.23</td><td>2.97</td><td>2.85</td></tr><tr><td>pointer-generator (See et al., 2017)</td><td>3.18</td><td>3.36</td><td>3.47</td></tr><tr><td>GAN (Liu et al., 2017)</td><td>3.22</td><td>3.52</td><td>3.51</td></tr><tr><td>Ours</td><td>3.58</td><td>3.40</td><td>3.70</td></tr><tr><td>reference</td><td>3.43</td><td>3.61</td><td>3.62</td></tr></table>",
+                "caption": "Table 3: Comparing human evaluation results with state-of-the-art methods."
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    468,
+                    771,
+                    1037,
+                    954
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Method</td><td>avg. Rinc</td></tr><tr><td>w/o incon. loss</td><td>0.198</td></tr><tr><td>w/ incon. loss</td><td>0.042</td></tr></table>",
+                "caption": "Table 4: Inconsistency rate of our end-to-end trained model with and without inconsistency loss."
+            },
+            {
+                "block_id": 4,
+                "type": "table",
+                "bbox": [
+                    297,
+                    1143,
+                    1208,
+                    1876
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Without inconsistency loss:\nIf that was a tornado, it was one monster of one. Luckily, so far it looks like no one was hurt. With tornadoes touching down near Dallas on Sunday, Ryan Shepard snapped a photo of a black cloud formation reaching down to the ground. He said it was a tornado. It wouldn&#x27;t be an exaggeration to say it looked half a mile wide. More like a mile, said Jamie Moore, head of emergency management in Johnson County, Texas. It could have been one the National Weather Service warned about in a tweet as severe thunderstorms drenched the area, causing street flooding. (...)</td></tr><tr><td>With inconsistency loss:\nIf that was a tornado, it was one monster of one. Luckily, so far it looks like no one was hurt. With tornadoes touching down near Dallas on Sunday, Ryan Shepard snapped a photo of a black cloud formation reaching down to the ground. He said it was a tornado. It wouldn&#x27;t be an exaggeration to say it looked half a mile wide. More like a mile, said Jamie Moore, head of emergency management in Johnson County, Texas. It could have been one the National Weather Service warned about in a tweet as severe thunderstorms drenched the area, causing street flooding. (...)</td></tr></table>"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1904,
+                    1215,
+                    2297
+                ],
+                "angle": 0,
+                "content": "Figure 5: Visualizing the consistency between sentence and word attentions on the original article. We highlight word (bold font) and sentence (underline font) attentions. We compare our methods trained with and without inconsistency loss. Inconsistent fragments (see red bold font) occur when trained without the inconsistency loss."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2388,
+                    776,
+                    2438
+                ],
+                "angle": 0,
+                "content": "5.3 Human Evaluation"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2466,
+                    1215,
+                    2974
+                ],
+                "angle": 0,
+                "content": "We perform human evaluation on Amazon Mechanical Turk (MTurk)<sup>2</sup> to evaluate the informativity, conciseness and readability of the summaries. We compare our best model (end2end with inconsistency loss) with pointer-generator (See et al., 2017), generative adversarial network (Liu et al., 2017) and deep reinforcement model (Paulus et al., 2017). For these three models, we use the test set outputs provided by the authors<sup>3</sup>."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    778,
+                    2195,
+                    1115
+                ],
+                "angle": 0,
+                "content": "We randomly pick 100 examples in the test set. All generated summaries are re-capitalized and de-tokenized. Since Paulus et al. (2017) trained their model on anonymized data, we also recover the anonymized entities and numbers of their outputs."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1133,
+                    2195,
+                    1866
+                ],
+                "angle": 0,
+                "content": "We show the article and 6 summaries (reference summary, 4 generated summaries and a random summary) to each human evaluator. The random summary is a reference summary randomly picked from other articles and is used as a trap. We show the instructions of three different aspects as: (1) Informativity: how well does the summary capture the important parts of the article? (2) Conciseness: is the summary clear enough to explain everything without being redundant? (3) Readability: how well-written (fluent and grammatical) the summary is? The user interface of our human evaluation is shown in the supplementary material."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1880,
+                    2193,
+                    2666
+                ],
+                "angle": 0,
+                "content": "We ask the human evaluator to evaluate each summary by scoring the three aspects with 1 to 5 score (higher the better). We reject all the evaluations that score the informativity of the random summary as 3, 4 and 5. By using this trap mechanism, we can ensure a much better quality of our human evaluation. For each example, we first ask 5 human evaluators to evaluate. However, for those articles that are too long, which are always skipped by the evaluators, it is hard to collect 5 reliable evaluations. Hence, we collect at least 3 evaluations for every example. For each summary, we average the scores over different human evaluators."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2683,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "The results are shown in Table 3. The reference summaries get the best score on conciseness since the recent abstractive models tend to copy sentences from the input articles. However, our model learns well to select important information and form complete sentences so we even get slightly better scores on informativity and readability than the reference summaries. We show a typical example of our model comparing with other state-of-"
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    342,
+                    3013,
+                    858,
+                    3058
+                ],
+                "angle": 0,
+                "content": "\\(^{2}\\)https://www.mturk.com/"
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    349,
+                    3062,
+                    950,
+                    3101
+                ],
+                "angle": 0,
+                "content": "3https://github.com/abisee/"
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    3104,
+                    1210,
+                    3146
+                ],
+                "angle": 0,
+                "content": "pointer-generator and https://likicode.com"
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    3146,
+                    1123,
+                    3188
+                ],
+                "angle": 0,
+                "content": "for the first two. For DeepRL, we asked through email."
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    295,
+                    3013,
+                    1210,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3234,
+                    1280,
+                    3276
+                ],
+                "angle": 0,
+                "content": "139"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    292,
+                    256,
+                    2195,
+                    1403
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Original article (truncated):A chameleon balances carefully on a branch, waiting calmly for its prey... except that if you look closely, you will see that this picture is not all that it seems. For the &#x27;creature&#x27; poised to pounce is not a colourful species of lizard but something altogether more human. Featuring two carefully painted female models, it is a clever piece of sculpture designed to create an amazing illusion. It is the work of Italian artist Johannes Stoetter. Scroll down for video. Can you see us?Italian artist Johannes Stoetter has painted two naked women to look like a chameleon. The 37-year-old has previously transformed his models into frogs and parrots but this may be his most intricate and impressive piece to date. Stoetter daubed water-based body paint on the naked models to create the multicoloured effect, then intertwined them to form the shape of a chameleon. To complete the deception, the models rested on a bench painted to match their skin and held the green branch in the air beneath them. Stoetter can take weeks to plan one of his pieces and hours to paint it. Speaking about The Chameleon, he said: &#x27;I worked about four days to design the motif bigger and paint it with colours. The body painting took me about six hours with the help of an assistant. I covered the hair with natural clay to make the heads look bald.&#x27; Camouflage job: A few finishing touches are applied to the two naked models to complete the transformation. &#x27;There are different difficulties on different levels as in every work, but I think that my passion and love to my work is so big, that I figure out a way to deal with difficulties. My main inspirations are nature, my personal life-philosophy, every-day-life and people themselves.&#x27; However, the finished result existed only briefly before the models were able to get up and wash the paint off with just a video and some photographs to record it. (...)</td></tr><tr><td>Reference summary:Johannes Stoetter&#x27;s artwork features two carefully painted female models. The 37-year-old has previously transformed models into frogs and parrots. Daubed water-based body paint on naked models to create the effect. Completing the deception, models rested on bench painted to match skin.</td></tr><tr><td>DeepRL:Italian artist Johannes Stoetter has painted female models to look like a chameleon. The 37-year-old has previously transformed his models into frogs and parrots but this may be the work of Italian artist. He has painted nude models and it is a clever piece of sculpture designed to create an amazing illusion. It is work of artist Johannes Stoetter.</td></tr><tr><td>GAN:Italian artist Johannes Stoetter has painted two naked women to look like a chameleon. The 37-year-old has previously transformed his models into frogs and parrots but this may be his most intricate and impressive piece to date.</td></tr><tr><td>Pointer-generator:Italian artist Johannes Stoetter has painted two naked women to look like a chameleon. It is the work of Italian artist Johannes Stoetter. Stoetter daubed water-based body paint on the naked models to create the multicoloured effect, then intertwined them to form the shape of a chameleon.</td></tr><tr><td>Our unified model (with inconsistency loss):Johannes Stoetter has painted two naked women to look like a chameleon. The 37-year-old has previously transformed his models into frogs and parrots. Stoetter daubed water-based body paint on the naked models to create the multicoloured effect, then intertwined them to form the shape of a chameleon.</td></tr></table>",
+                "caption": "Figure 6: Typical Comparison. Our model attended at the most important information (blue bold font) matching well with the reference summary; while other state-of-the-art methods generate repeated or less important information (red italic font)."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1673,
+                    1213,
+                    1901
+                ],
+                "angle": 0,
+                "content": "the-art methods in Fig. 6. More examples (5 using CNN/Daily Mail news articles and 3 using nonnews articles as inputs) are provided in the supplementary material."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1943,
+                    617,
+                    1999
+                ],
+                "angle": 0,
+                "content": "6 Conclusion"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2038,
+                    1215,
+                    2711
+                ],
+                "angle": 0,
+                "content": "We propose a unified model combining the strength of extractive and abstractive summarization. Most importantly, a novel inconsistency loss function is introduced to penalize the inconsistency between two levels of attentions. The inconsistency loss enables extractive and abstractive summarization to be mutually beneficial. By end-to-end training of our model, we achieve the best ROUGE-recall and ROUGE while being the most informative and readable summarization on the CNN/Daily Mail dataset in a solid human evaluation."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2760,
+                    694,
+                    2820
+                ],
+                "angle": 0,
+                "content": "Acknowledgments"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2852,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "We thank the support from Cheetah Mobile, National Taiwan University, and MOST 107-2634-F-007-007, 106-3114-E-007-004, 107-2633-E-002-001. We thank Yun-Zhu Song for assistance with useful survey and experiment on the task of abstractive summarization."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1272,
+                    1669,
+                    1515,
+                    1725
+                ],
+                "angle": 0,
+                "content": "References"
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    1746,
+                    2193,
+                    1982
+                ],
+                "angle": 0,
+                "content": "Dzmitry Bahdanau, Kyunghyun Cho, and Yoshua Bengio. 2014. Neural machine translation by jointly learning to align and translate. In Proceedings of the 2015 International Conference on Learning Representations."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    2006,
+                    2195,
+                    2245
+                ],
+                "angle": 0,
+                "content": "Qian Chen, Xiaodan Zhu, Zhenhua Ling, Si Wei, and Hui Jiang. 2016. Distraction-based neural networks for modeling documents. In Proceedings of the Twenty-Fifth International Joint Conference on Artificial Intelligence (IJCAI-16)."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    2266,
+                    2193,
+                    2501
+                ],
+                "angle": 0,
+                "content": "Jianpeng Cheng and Mirella Lapata. 2016. Neural summarization by extracting sentences and words. In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), volume 1, pages 484-494."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    2525,
+                    2195,
+                    2715
+                ],
+                "angle": 0,
+                "content": "John Duchi, Elad Hazan, and Yoram Singer. 2011. Adaptive subgradient methods for online learning and stochastic optimization. Journal of Machine Learning Research, 12(Jul):2121-2159."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    2743,
+                    2195,
+                    2887
+                ],
+                "angle": 0,
+                "content": "Angela Fan, David Grangier, and Michael Auli. 2017. Controllable abstractive summarization. arXiv preprint arXiv:1711.05217."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    2911,
+                    2200,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Jiatao Gu, Zhengdong Lu, Hang Li, and Victor OK Li. 2016. Incorporating copying mechanism in sequence-to-sequence learning. In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), volume 1, pages 1631-1640."
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    1270,
+                    1746,
+                    2200,
+                    3195
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3234,
+                    1282,
+                    3279
+                ],
+                "angle": 0,
+                "content": "140"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    270,
+                    1210,
+                    540
+                ],
+                "angle": 0,
+                "content": "Karl Moritz Hermann, Tomas Kocisky, Edward Grefenstette, Lasse Espeholt, Will Kay, Mustafa Suleyman, and Phil Blunsom. 2015. Teaching machines to read and comprehend. In Advances in Neural Information Processing Systems, pages 1693-1701."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    592,
+                    1210,
+                    869
+                ],
+                "angle": 0,
+                "content": "Mikael Kägebäck, Olof Mogren, Nina Tahmasebi, and Devdatt Dubhashi. 2014. Extractive summarization using continuous vector space models. In Proceedings of the 2nd Workshop on Continuous Vector Space Models and their Compositionality (CVSC), pages 31-39."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    915,
+                    1210,
+                    1052
+                ],
+                "angle": 0,
+                "content": "Chin-Yew Lin. 2004. Rouge: A package for automatic evaluation of summaries. Text Summarization Branches Out."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    1101,
+                    1210,
+                    1333
+                ],
+                "angle": 0,
+                "content": "Linqing Liu, Yao Lu, Min Yang, Qiang Qu, Jia Zhu, and Hongyan Li. 2017. Generative adversarial network for abstractive text summarization. In Proceedings of the 2018 Association for the Advancement of Artificial Intelligence."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    1378,
+                    1210,
+                    1610
+                ],
+                "angle": 0,
+                "content": "Yishu Miao and Phil Blunsom. 2016. Language as a latent variable: Discrete generative models for sentence compression. In Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing, pages 319-328."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    1655,
+                    1210,
+                    1929
+                ],
+                "angle": 0,
+                "content": "Ramesh Nallapati, Feifei Zhai, and Bowen Zhou. 2017. Summarrunner: A recurrent neural network based sequence model for extractive summarization of documents. In Proceedings of the 2017 Association for the Advancement of Artificial Intelligence, pages 3075-3081."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    1982,
+                    1210,
+                    2160
+                ],
+                "angle": 0,
+                "content": "Ramesh Nallapati, Bowen Zhou, and Mingbo Ma. 2016a. Classify or select: Neural architectures for extractive document summarization. arXiv preprint arXiv:1611.04244."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    2217,
+                    1210,
+                    2490
+                ],
+                "angle": 0,
+                "content": "Ramesh Nallapati, Bowen Zhou, Cicero dos Santos, Caglar Gulcehre, and Bing Xiang. 2016b. Abstractive text summarization using sequence-to-sequence rnns and beyond. In Proceedings of The 20th SIGNLL Conference on Computational Natural Language Learning, pages 280-290."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    2539,
+                    1210,
+                    2718
+                ],
+                "angle": 0,
+                "content": "Shashi Narayan, Nikos Papasarantopoulos, Mirella Lapata, and Shay B Cohen. 2017. Neural extractive summarization with side information. arXiv preprint arXiv:1704.04530."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    2771,
+                    1210,
+                    2957
+                ],
+                "angle": 0,
+                "content": "Romain Paulus, Caiming Xiong, and Richard Socher. 2017. A deep reinforced model for abstractive summarization. In Proceedings of the 2018 International Conference on Learning Representations."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    3002,
+                    1210,
+                    3185
+                ],
+                "angle": 0,
+                "content": "Marc'Aurelio Ranzato, Sumit Chopra, Michael Auli, and Wojciech Zaremba. 2015. Sequence level training with recurrent neural networks. arXiv preprint arXiv:1511.06732."
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    295,
+                    270,
+                    1210,
+                    3185
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1277,
+                    270,
+                    2188,
+                    501
+                ],
+                "angle": 0,
+                "content": "Alexander M Rush, Sumit Chopra, and Jason Weston. 2015. A neural attention model for abstractive sentence summarization. In Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing, pages 379-389."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1277,
+                    536,
+                    2188,
+                    810
+                ],
+                "angle": 0,
+                "content": "Abigail See, Peter J Liu, and Christopher D Manning. 2017. Get to the point: Summarization with pointer-generator networks. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), volume 1, pages 1073-1083."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1277,
+                    845,
+                    2188,
+                    1076
+                ],
+                "angle": 0,
+                "content": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Lukasz Kaiser, and Illia Polosukhin. 2017. Attention is all you need. In Advances in Neural Information Processing Systems, pages 6000-6010."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1277,
+                    1112,
+                    2188,
+                    1252
+                ],
+                "angle": 0,
+                "content": "Oriol Vinyals, Meire Fortunato, and Navdeep Jaitly. 2015. Pointer networks. In Advances in Neural Information Processing Systems, pages 2692-2700."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1287,
+                    2188,
+                    1606
+                ],
+                "angle": 0,
+                "content": "Zichao Yang, Diyi Yang, Chris Dyer, Xiaodong He, Alex Smola, and Eduard Hovy. 2016. Hierarchical attention networks for document classification. In Proceedings of the 2016 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, pages 1480-1489."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1641,
+                    2188,
+                    1918
+                ],
+                "angle": 0,
+                "content": "Michihiro Yasunaga, Rui Zhang, Kshitijh Meelu, Ayush Parek, Krishnan Srinivasan, and Dragomir Radev. 2017. Graph-based neural multi-document summarization. In Proceedings of the 21st Conference on Computational Natural Language Learning (CoNLL 2017), pages 452-462."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1277,
+                    1953,
+                    2188,
+                    2181
+                ],
+                "angle": 0,
+                "content": "Wenpeng Yin and Yulong Pei. 2015. Optimizing sentence modeling and selection for document summarization. In Proceedings of the 24th International Joint Conference on Artificial Intelligence, pages 1383-1389. AAAI Press."
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    1272,
+                    270,
+                    2188,
+                    2181
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "page_number",
+                "bbox": [
+                    1208,
+                    3234,
+                    1275,
+                    3276
+                ],
+                "angle": 0,
+                "content": "141"
+            }
+        ]
+    }
+]

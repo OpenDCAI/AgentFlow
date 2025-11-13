@@ -1,0 +1,2941 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    293,
+                    313,
+                    520,
+                    491
+                ],
+                "angle": 0,
+                "content": "LAW"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    290,
+                    495,
+                    726,
+                    669
+                ],
+                "angle": 0,
+                "content": "LIBRARY"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    293,
+                    673,
+                    721,
+                    712
+                ],
+                "angle": 0,
+                "content": "LIBRARY OF CONGRESS"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    596,
+                    1296,
+                    2032,
+                    1419
+                ],
+                "angle": 0,
+                "content": "Turkey: Presidential Decrees"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1083,
+                    1485,
+                    1461,
+                    1560
+                ],
+                "angle": 0,
+                "content": "January 2022"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1025,
+                    2676,
+                    1522,
+                    2729
+                ],
+                "angle": 0,
+                "content": "LL File No. 2021-020288"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1065,
+                    2735,
+                    1476,
+                    2781
+                ],
+                "angle": 0,
+                "content": "LRA-D-PUB-002571"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    645,
+                    3039,
+                    1904,
+                    3095
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress, Global Legal Research Directorate"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    459,
+                    3095,
+                    2083,
+                    3151
+                ],
+                "angle": 0,
+                "content": "(202) 707-5080 (phone) • (866) 550-0442 (fax) • law@loc.gov • http://www.law.gov"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    583,
+                    1455,
+                    1963,
+                    1765
+                ],
+                "angle": 0,
+                "content": "This report is provided for reference purposes only. It does not constitute legal advice and does not represent the official opinion of the United States Government. The information provided reflects research undertaken as of the date of writing. It has not been updated."
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    290,
+                    303,
+                    563,
+                    372
+                ],
+                "angle": 0,
+                "content": "Contents"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    290,
+                    491,
+                    2256,
+                    554
+                ],
+                "angle": 0,
+                "content": "I. The Presidential Decree 1"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    293,
+                    607,
+                    2254,
+                    666
+                ],
+                "angle": 0,
+                "content": "II. The Legal Nature of CBKs. 2"
+            },
+            {
+                "block_id": 3,
+                "type": "list",
+                "bbox": [
+                    290,
+                    491,
+                    2256,
+                    666
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    722,
+                    2254,
+                    782
+                ],
+                "angle": 0,
+                "content": "A. Scope of the President's Power to Issue CBKs 2"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    364,
+                    834,
+                    2256,
+                    897
+                ],
+                "angle": 0,
+                "content": "B. CBKs Within the Hierarchy of Norms 3"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    364,
+                    950,
+                    2256,
+                    1006
+                ],
+                "angle": 0,
+                "content": "C. Limits on the Power to Issue CBKs: Article 104/17 of the Constitution............ 3"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1062,
+                    2256,
+                    1125
+                ],
+                "angle": 0,
+                "content": "D. Does an Exclusive Regulatory Area for CBKs Exist? 10"
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    364,
+                    722,
+                    2256,
+                    1125
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1178,
+                    2254,
+                    1237
+                ],
+                "angle": 0,
+                "content": "III. Judicial Review of CBKs 11"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1290,
+                    2254,
+                    1349
+                ],
+                "angle": 0,
+                "content": "IV. Recent Controversial Uses of the CBK 13"
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    290,
+                    1178,
+                    2254,
+                    1349
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    803,
+                    297,
+                    1744,
+                    386
+                ],
+                "angle": 0,
+                "content": "Turkey: Presidential Decrees"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1055,
+                    405,
+                    1489,
+                    521
+                ],
+                "angle": 0,
+                "content": "Kayahan Cantekin  \nForeign Law Specialist"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    293,
+                    640,
+                    2254,
+                    1181
+                ],
+                "angle": 0,
+                "content": "SUMMARY This report aims to provide a brief overview of the Turkish presidential decree (CBK), a regulatory act that the president of the republic can issue without prior authorization or delegation from the legislature. The power to issue CBKs was granted to the president by constitutional amendments adopted in 2017. Being novel to Turkish constitutional law tradition, the power has since been a focal point of interest in legal scholarship and a matter of controversy in practice. This report explores in light of recent scholarship and Constitutional Court decisions what we know and do not know regarding the scope and limits of the president's power to issue CBKs. Finally, the report examines a recent controversy that arose from the use of a CBK to authorize the president to withdraw from international treaties."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    298,
+                    1296,
+                    902,
+                    1353
+                ],
+                "angle": 0,
+                "content": "I. The Presidential Decree"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    295,
+                    1419,
+                    2256,
+                    2046
+                ],
+                "angle": 0,
+                "content": "The presidential decree (Cumhurbaşkanlıriage Kararnamesi, or CBK as abbreviated in Turkish practice and literature) was introduced into the Turkish legal system by constitutional amendments adopted by the 2017 constitutional referendum. Before the constitutional referendum, the executive branch, including the office of the president of the republic, did not have direct regulatory authority—that is, all regulatory acts of the executive would have to be derived from a delegatory act by the legislature, or in the case of regulations, they had to be limited to the implementation of a law.[1] The constitutional amendments abolished the council of ministers and transferred its authority to make delegated legislation to the president, which under the new system constitutes a unitary executive.[2] By authorizing the president to issue CBKs without receiving prior authorization by the legislature, the new system also grants the president direct regulatory authority, albeit with a limited scope.[3]"
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2230,
+                    2254,
+                    2775
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup> This principle is termed the \"legality of administration\" in Turkish constitutional law. Before the 2017 constitutional amendments, two exceptions to the principle existed: the Council of Ministers could adopt \"extraordinary decrees with the force of law\" (EDWFL) in times of emergency without prior authorization from the legislature, and the president of the republic (who was the head of the state and not head of the government under the prior system) could adopt a presidential decree regulating the organization the president's office and its secretariat without needing any delegation of authority. EDWFLs had to be submitted for the consent of the legislature within a month of adoption. Halit Yilmaz, Cumhurbaşkanlıriage Kararnamelerinin Konu Bakimindan Yetki Sinirlanı, 78 Istanbul Hukuk Mecmuası 228, 229 (2020). See also Ali D. Ulusoy, Cumhurbaşkanlıriage Kararnameleri: Varoluşsal, Yapsal ve Hukuksal Bir Degerlendirme, 37(2) Anayasa Yargırı 31, 35 (2020) (comparing the Turkish system with the French and U.S. approaches to the direct regulatory authority of the executive branch)."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2801,
+                    816,
+                    2847
+                ],
+                "angle": 0,
+                "content": "2 Yilmaz, supra note 1, at 228."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2874,
+                    2164,
+                    2973
+                ],
+                "angle": 0,
+                "content": "<sup>3</sup> Osman Can, Cumhurbaşkanlı Kararnamelerin Hukuki Rejimi Anayasa Mahkemesi Yakkırmı, 37(1) Anayasa Yarıdağ 133, 140 (2020)."
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    295,
+                    3095,
+                    867,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 9,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3102,
+                    2249,
+                    3138
+                ],
+                "angle": 0,
+                "content": "1"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    989,
+                    151,
+                    1555,
+                    198
+                ],
+                "angle": 0,
+                "content": "Turkey: Presidential Decrees"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2261,
+                    765
+                ],
+                "angle": 0,
+                "content": "Since the adoption of the amendments, the presidents' new power of issuing presidential decrees has become one of the focal points of legal scholarship and commentary reflecting on the changes in the constitutional order. For some time, the presidential decree appeared to have defied clear categorization owing to characteristics it contains that are unprecedented in Turkish constitutional and administrative law and to the peculiar drafting of the relevant constitutional amendments that establish it. Recently, following the rulings of the Constitutional Court in several cases, a new wave of commentaries has been published, somewhat clarifying and better positioning the presidential decree in Turkish constitutional law theory."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    288,
+                    815,
+                    981,
+                    874
+                ],
+                "angle": 0,
+                "content": "II. The Legal Nature of CBKs"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    288,
+                    930,
+                    1323,
+                    983
+                ],
+                "angle": 0,
+                "content": "A. Scope of the President's Power to Issue CBKs"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1039,
+                    2256,
+                    1214
+                ],
+                "angle": 0,
+                "content": "Presidential decrees need not be based on an authorizing law passed by the legislature. This property of the CBK distinguishes it from the other regulatory acts that the executive and the administration may issue."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1270,
+                    2256,
+                    1501
+                ],
+                "angle": 0,
+                "content": "Article 104/17 of the Constitution gives the president general authority to issue CBKs \"that are related to the executive power.\"⁴ CBKs issued under article 104/17 must be related to the president's use of the executive power, but they are undelegated regulatory acts that are authorized by the Constitution."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1554,
+                    2256,
+                    2128
+                ],
+                "angle": 0,
+                "content": "In addition to the general authority to issue CBKs provided in article 104/17, the Constitution authorizes the president to issue CBKs in relation to four specific uses of presidential authority (\"subject-matters\" in Turkish constitutional literature).5 While the Constitution does not provide a special name for CBKs that are issued in relation to these four subject-matters, in the legal literature they are typically called \"CBKs with constitutionally determined subject-matters.\" This report will refer to this type of CBKs as \"special CBKs\" or \"SCBKs,\" although this taxonomy is not favored in the literature due to various doctrinal reasons not relevant to this report. When a distinction is sought between SCBKs and other CBKs authorized under the general rule of article 104/17, the term \"general CBKs\" or \"GCBKs\" will be used to refer to the latter type. The acronym CBK will be used to refer simultaneously to the both types."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2181,
+                    2256,
+                    2471
+                ],
+                "angle": 0,
+                "content": "The president may issue SCBKs concerning the following subject-matters: establishing the rules and procedures governing the appointment of high-level (executive) public servants;<sup>6</sup> the establishment, abolition, and regulation of duties, authority, and organization of ministries;<sup>7</sup> regulation of the operation of the State Supervisory Council and the duties and personal benefits of its members;<sup>8</sup> and regulation of the organization and duties of the general secretary of the"
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2577,
+                    2195,
+                    2676
+                ],
+                "angle": 0,
+                "content": "4 Const. art. 104/9 (official translation published by the Grand National Assembly of Turkey, Department of Laws and Resolutions, May 2019), https://perma.cc/PW3T-KHEY."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2699,
+                    969,
+                    2748
+                ],
+                "angle": 0,
+                "content": "5 Id. arts. 104/9; 106/11; 108/4; 118/6."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2775,
+                    563,
+                    2821
+                ],
+                "angle": 0,
+                "content": "\\(^{6}\\) Id. art. 104/9."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2851,
+                    578,
+                    2897
+                ],
+                "angle": 0,
+                "content": "7Id.art.106/11."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2923,
+                    563,
+                    2973
+                ],
+                "angle": 0,
+                "content": "\\(^{8}\\) Id. art. 108/4."
+            },
+            {
+                "block_id": 13,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2577,
+                    2195,
+                    2973
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "2"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    989,
+                    151,
+                    1555,
+                    204
+                ],
+                "angle": 0,
+                "content": "Turkey: Presidential Decrees"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    471
+                ],
+                "angle": 0,
+                "content": "National Security Council.<sup>9</sup> As explained below, the Constitutional Court has held that both SCBKs and GCBKs are subject to the general limitations provided in article 104/17 of the Constitution."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    288,
+                    528,
+                    1160,
+                    587
+                ],
+                "angle": 0,
+                "content": "B. CBKs Within the Hierarchy of Norms"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    293,
+                    633,
+                    2261,
+                    1501
+                ],
+                "angle": 0,
+                "content": "In light of the recent jurisprudence of the Constitutional Court interpreting the limits of the president's power to issue CBKs as provided in article 104/17 of the Constitution, which will be discussed below in part C, prior debates in the literature over the exact relationship within the hierarchy of norms between laws enacted by legislation and by CBKs appear to have been settled.[10] Previously, analogies were made by some scholars between CBKs and \" decrees with the force of law\" that the Council of Ministers could issue under the pre-2017 system.[11] The use of such analogies led to analyses suggesting that at least within a theoretical exclusive regulatory area granted to CBKs by the Constitution, CBKs could be considered equal to laws enacted by the legislature.[12] On the other hand, the method used by recent Constitutional Court decisions reviewing CBKs and the Court's application of the article 104/17 limitations (which include the principles of preclusion and supersession of CBKs by statutes enacted by the legislature) has been interpreted as an important indication that CBKs that are not issued during and related to circumstances necessitating a state of emergency[13] are lower in the hierarchy of norms than legislative statutes, thus putting them between laws and ordinary regulatory administrative acts (regulations).[14]"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    283,
+                    1547,
+                    1815,
+                    1607
+                ],
+                "angle": 0,
+                "content": "C. Limits on the Power to Issue CBKs: Article 104/17 of the Constitution"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1659,
+                    2259,
+                    1890
+                ],
+                "angle": 0,
+                "content": "The Constitutional Court has held that SCBKs are subject to the general limitations on GCBKs provided by article 104/17 of the Constitution, in addition to being subject to the scope of the subject-matter provided in the specific provisions authorizing SCBKs.[15] Thus, the Constitutional Court will review all CBKs considering the article 104/17 limitations.[16]"
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2009,
+                    563,
+                    2062
+                ],
+                "angle": 0,
+                "content": "9 Id. art. 118/6."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2082,
+                    2019,
+                    2187
+                ],
+                "angle": 0,
+                "content": "<sup>10</sup> Can, supra note 3, at 185. Compare, e.g., Abdullah Sezer, Normlar Hiyerarşisi ve Cumhurbaşkanlı Kararnameleri-Çok Boyutlu Normlar Piramidi Yaklası, 36(1) Anayasa Yargusi, 353, 377 (2019)."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2207,
+                    2221,
+                    2362
+                ],
+                "angle": 0,
+                "content": "<sup>11</sup>The Decree with the Force of Law (DWFL) is a now obsolete type of legislation that the Council of Ministers was able to issue before the 2017 constitutional amendments. DWFLs were in many respects equal in the hierarchy of norms to laws enacted by the legislature."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2382,
+                    2249,
+                    2534
+                ],
+                "angle": 0,
+                "content": "12 For an overview of the debate, see Abdurrahman Eren, Anayasa Mahkemesinin Kanun Hukmunde Kararnamelere Ilişkin İctihadi Doğrultusunda Cumhuriçkanlı Kararnamelerinin Değerlendirilmesi, 36(1) Anayasa Yargısı 3, 21 (2019)."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2554,
+                    2200,
+                    2755
+                ],
+                "angle": 0,
+                "content": "<sup>13</sup> Article 119(6) of the Constitution explicitly provides that CBKs that are issued during a state of emergency and are related to the circumstances that have necessitated the declaration of a state of emergency have “the force of law,” thus treating in the hierarchy of norms these CBKs as equivalent to laws enacted by the legislature."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2775,
+                    1550,
+                    2831
+                ],
+                "angle": 0,
+                "content": "14 See Can, supra note 3, at 172, 185; see also Ulusoy, supra note 1, at 50."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2851,
+                    775,
+                    2904
+                ],
+                "angle": 0,
+                "content": "15 Can, supra note 3, at 183."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2927,
+                    385,
+                    2970
+                ],
+                "angle": 0,
+                "content": "16 Id."
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2009,
+                    2249,
+                    2970
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3154
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    2218,
+                    3098,
+                    2251,
+                    3141
+                ],
+                "angle": 0,
+                "content": "3"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    989,
+                    151,
+                    1555,
+                    204
+                ],
+                "angle": 0,
+                "content": "Turkey: Presidential Decrees"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    288,
+                    300,
+                    1405,
+                    356
+                ],
+                "angle": 0,
+                "content": "Article 104/17 of the Constitution provides as follows:"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    433,
+                    412,
+                    2108,
+                    933
+                ],
+                "angle": 0,
+                "content": "[1] The President of the Republic may issue presidential decrees on matters regarding executive power. [2] The fundamental rights, individual rights and duties included in the first and second chapters, and the political rights and duties listed in the fourth chapter of the second part of the Constitution shall not be regulated by a presidential decree. [3] No presidential decree shall be issued on matters that are stipulated in the Constitution to be regulated exclusively by law. [4] No presidential decree shall be issued on matters explicitly regulated by law. [5] In the case of a discrepancy between provisions of the presidential decrees and the laws, the provisions of the laws shall prevail. [6] A presidential decree shall become null and void if the Grand National Assembly of Turkey enacts a law on the same matter.[17]"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    986,
+                    2254,
+                    1329
+                ],
+                "angle": 0,
+                "content": "Note that \"law\" refers to statutory law enacted by the legislature. From the text of the constitutional provision, there appear to be six limitations to the president's general authority to issue CBKs. The relevance of these limitations to the authority granted to the president to regulate the additional four subject-matters has become a subject of intense debate among scholars, and the question appears to have been only partially answered by the Constitutional Court's recent decisions."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1386,
+                    2254,
+                    1791
+                ],
+                "angle": 0,
+                "content": "The six limitations encapsulated in article 104/17 will be referred to as, respectively, (1) the subject-matter clause (\"matters regarding executive power\"); (2) the catalog-of-rights exclusion clause; (3) the statute-exclusivity clause; (4) the statute-preemption clause; (5) the statute-superiority clause; and (6) the statute-supersession clause. All these clauses, with the possible exception of the catalogue-of-rights exception and the statute- supersession clause, have become targets of intense criticism as being unclear and inconsistent with established constitutional principles."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1841,
+                    2254,
+                    1956
+                ],
+                "angle": 0,
+                "content": "The limitations of article 104 are \"cumulative and not alternative\"; thus, a CBK must abide by all the limitations to be constitutional.[18]"
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    288,
+                    2009,
+                    1392,
+                    2069
+                ],
+                "angle": 0,
+                "content": "1. Subject-Matter Limitations: The Subject-Matter Clause"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2125,
+                    2256,
+                    2412
+                ],
+                "angle": 0,
+                "content": "The subject-matter clause provides that CBKs may be issued only in relation to matters regarding \"executive power,\" or, in other words, the powers of the executive branch.[19] Neither the text of the Constitution nor any legislation provides a clear definition of what matters are \"related to executive power\"; therefore, case-law of the Constitutional Court and the Council of State will provide the ultimate guidance in interpreting this term in relation to CBKs on a case-by-case basis."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2577,
+                    663,
+                    2633
+                ],
+                "angle": 0,
+                "content": "17 Const. art. 104/17."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2649,
+                    2236,
+                    2904
+                ],
+                "angle": 0,
+                "content": "<sup>18</sup> Kemal Güzler, Cumhurbaşkanın Uluslararasi Sözleşmeleri Feshetme Yetkisi Var Mı? Istanbul Sözleşmesinin Feshi Hakkinda 3718 Saylı Cumhurbaşkanı Kararı Üzerine Eleşiriler), anayasa.gen.tr, n.4 (Mar. 20, 2021), https://perma.cc/WV9X-66PE; Volkan Aslan, İstanbul Sözleşmesi'nin Türkiye Cumhuriyeti Bakimindan Feshedilmesi Hakkinda Kararin 1982 Anayasasi Bakimindan Degerlendirilmesi, Lexpera Blog (Mar. 29, 2021) (citing Güzler, supra), https://perma.cc/U7MU-F8SC."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2923,
+                    599,
+                    2973
+                ],
+                "angle": 0,
+                "content": "19 Const. art. 148."
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    288,
+                    2577,
+                    2236,
+                    2973
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "4"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    989,
+                    151,
+                    1555,
+                    204
+                ],
+                "angle": 0,
+                "content": "Turkey: Presidential Decrees"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    293,
+                    297,
+                    2254,
+                    1376
+                ],
+                "angle": 0,
+                "content": "To date, the Constitutional Court has stricken down only one CBK on the grounds that it was not related to the powers of the executive branch. In that case, the Constitutional Court held that a CBK that added four newly formed government agencies to the lists annexed to the Law on Public Finance Management (a law enacted by the legislature that provides the principles governing the preparation of the state's central budget and lists the government agencies to be funded by the central budget or their special budgets) violated the subject-matter limitation, despite the fact that the government agencies had been previously established by a CBK and that the Law itself provided that the list in which government agencies created by CBK would be placed would be determined by the same CBK.[20] The court reasoned that while the president could determine by CBK which list of newly formed agencies would be included in the Law, a CBK could not be used to actually amend the text of the Law, since amending laws is related to the powers of the legislative branch and not to those of the executive branch.[21] While the court did not explain whether the fact that the four government agencies had been created by a separate CBK and not by the CBK that added them to the lists of the Law on Public Finance Management (thus not complying with the text of the Law, which requires the listing to be determined in the same CBK that creates the agency) had any impact on its decision, the court's rationale for the decision appears to clearly suggest that the text of a law can never be amended by CBK, meaning that the CBK would fall foul of the subject-matter limitation even if the government agencies had been created in the same CBK."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    293,
+                    1435,
+                    2254,
+                    1782
+                ],
+                "angle": 0,
+                "content": "This precedent of the Constitutional Court notwithstanding, the limitations of the subject-matter clause in cases where a CBK does not seek to directly amend an enacted law remain unclear. Nevertheless, CBKs that directly seek to regulate a matter concerning the judiciary, such as establishing procedural rules for courts, or concerning the legislature, such as enacting and amending statutory law or regulating elections, appear to be clearly outside of the allowable scope of CBKs.[22]"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    298,
+                    1838,
+                    1871,
+                    1894
+                ],
+                "angle": 0,
+                "content": "2. The Excluded Fundamental-Rights Area: The Catalog-of-Rights Exclusion Clause"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    293,
+                    1947,
+                    2254,
+                    2461
+                ],
+                "angle": 0,
+                "content": "Article 104/17 provides \"fundamental rights, individual rights and duties included in the first and second chapters, and the political rights and duties listed in the fourth chapter of the second part of the Constitution shall not be regulated by a presidential decree.\" This provision leaves out a number of social and economic rights and duties included in the catalog of rights from the \"excluded area.\" In this area, which comprises articles 41 to 65, the scope of the CBK is limited by the text of article 104 to \"regulation,\" as distinct from \"limitation\"; thus CBKs that concern social and economic rights in articles 41 to 65 of the Constitution cannot be limited by CBKs, but the manner of the state's protection and facilitation of these \"positive rights\" can be regulated by CBKs to the extent that the CBK's content is limited to the use of executive authority.[23]"
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2600,
+                    2182,
+                    2755
+                ],
+                "angle": 0,
+                "content": "20 Constitutional Court [AYM], E.2018/155, K.2020/27, June 11, 2020, https://perma.cc/7VM8-NJ4V; Kamu Mali Yonetimi ve Kontrol Kanunu, Law No. 5018 (Official Gazette No. 25326, Dec. 24, 2003), supplementary art. 5, https://perma.cc/YUA9-QV8U."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2772,
+                    948,
+                    2824
+                ],
+                "angle": 0,
+                "content": "21 AYM, E.2018/155, K.2020/27, § 23."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2847,
+                    938,
+                    2900
+                ],
+                "angle": 0,
+                "content": "22 But see discussion in part IV infra."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2923,
+                    1234,
+                    2976
+                ],
+                "angle": 0,
+                "content": "23 Eren, supra note 12, at 39; Can, supra note 3, at 144."
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2600,
+                    2182,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "footer",
+                "bbox": [
+                    293,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3095,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "5"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    989,
+                    151,
+                    1555,
+                    204
+                ],
+                "angle": 0,
+                "content": "Turkey: Presidential Decrees"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    653
+                ],
+                "angle": 0,
+                "content": "Under article 119 of the Constitution, the president has the authority to declare a state of emergency in certain cases. The declaration must be approved by the legislature ex post, on the same day (but after) the CBK becomes effective by publication in the Official Gazette.[24] In a state of emergency, the scope of the president's power to issue presidential decrees broadens to allow fundamental rights to be regulated, but not abrogated, by CBKs on matters relevant to the circumstances necessitating the state of emergency."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    285,
+                    699,
+                    1698,
+                    759
+                ],
+                "angle": 0,
+                "content": "3. The Exclusive Regulatory Area for Law: The Statute-Exclusivity Clause"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    808,
+                    2256,
+                    1214
+                ],
+                "angle": 0,
+                "content": "The statute-exclusivity clause of article 104 states that CBKs cannot be issued in areas that are regulated exclusively by statutory law. Thus, the Constitution requires that certain subject-matters be regulated by statutes enacted by the legislature, and CBKs issued in relation to these subject-matters will be null and void. While the text of the constitutional provisions that require a certain subject-matter to be regulated \"by law [enacted by the legislature]\" do not explicitly state that the subject-matter must exclusively be regulated by law, the Constitutional Court interprets these rules as establishing the exclusive authority of the legislature.[25]"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1267,
+                    2256,
+                    1841
+                ],
+                "angle": 0,
+                "content": "In addition to the limited authority given to the legislature to set the limits of the fundamental rights contained in the Constitution's catalog-of-rights by statute,[26] the Constitution gives exclusive power to the legislature to regulate a number of other subject-matters by statutory law, among them the duty and authority of the Supreme Election Board;[27] rules regarding unbecoming conduct and stipends and pensions of members of parliament;[28] supplemental rules and procedures regarding presidential elections;[29] the establishment of administrative organs and their powers;[30] the establishment of local administrations;[31] rules regarding the duties, authority, pay, and benefits of public servants in general public administration;[32] the establishment of universities and their funding;[33] rules and procedures regarding the duties, pay, careers, discipline, et cetera of judges and prosecutors;[34] the establishment and organization of courts and"
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2181,
+                    645,
+                    2234
+                ],
+                "angle": 0,
+                "content": "24 Const. art. 119/6."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2247,
+                    1887,
+                    2310
+                ],
+                "angle": 0,
+                "content": "25 See, e.g., AYM, E.2018/125, K.2020/4, Jan. 22, 2020, § 11, https://perma.cc/6PEA-S6AH."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2329,
+                    578,
+                    2379
+                ],
+                "angle": 0,
+                "content": "26 Const. art. 13."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2402,
+                    558,
+                    2455
+                ],
+                "angle": 0,
+                "content": "27 Id. art. 79/3."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2478,
+                    589,
+                    2527
+                ],
+                "angle": 0,
+                "content": "28Id.arts.82,86."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2550,
+                    576,
+                    2603
+                ],
+                "angle": 0,
+                "content": "29 Id. art. 101/8."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2626,
+                    532,
+                    2676
+                ],
+                "angle": 0,
+                "content": "30 Id. art. 123."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2699,
+                    532,
+                    2748
+                ],
+                "angle": 0,
+                "content": "31 Id. art. 127."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2775,
+                    530,
+                    2821
+                ],
+                "angle": 0,
+                "content": "32 Id. art. 128."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2847,
+                    532,
+                    2897
+                ],
+                "angle": 0,
+                "content": "33 Id. art. 130."
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2923,
+                    532,
+                    2973
+                ],
+                "angle": 0,
+                "content": "34 Id. art. 140."
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2181,
+                    1887,
+                    2973
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3154
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 18,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3102,
+                    2251,
+                    3141
+                ],
+                "angle": 0,
+                "content": "6"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    989,
+                    151,
+                    1555,
+                    204
+                ],
+                "angle": 0,
+                "content": "Turkey: Presidential Decrees"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    300,
+                    2254,
+                    419
+                ],
+                "angle": 0,
+                "content": "their procedural rules;\\(^{35}\\) rules and procedures regarding applications of individuals to the Constitutional Court;\\(^{36}\\) and preparation of the central budget, and developmental plans.\\(^{37}\\)"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    293,
+                    468,
+                    2256,
+                    1270
+                ],
+                "angle": 0,
+                "content": "The Constitutional Court, in three decisions issued in 2020 upholding CBKs that were challenged on various grounds, had the opportunity to assess CBK provisions against the limitations of the statute-exclusivity clause. The first decision found that a CBK may authorize the president to designate an administrative authority to act as the secretary of the Supreme Military Council (SMC).38 The establishment of administrative organs and the determination of their powers are areas that can be exclusively regulated by law under the Constitution,39 and the court in conducting its constitutionality review analyzed whether the designation of the secretary of the SMC constituted a rule determining the powers of an administrative organ, which would fall within the exclusive regulatory area of the legislature (which includes the determination of the cadres and titles of officials according to the precedent of the court40).41 The court rejected this argument, holding that designating an already existing and functioning administrative authority as the acting secretary (presumably implicitly contrasting this situation to the establishment of a permanent secretariat42) did not interfere with the area of regulation exclusively granted to the legislature, and thus did not violate the statute-exclusivity limitation.43"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1323,
+                    2254,
+                    1782
+                ],
+                "angle": 0,
+                "content": "In the second decision, the court found that the CBK may authorize the Ministry of Health to charge a chief physician to act as coordinator between several hospitals.[44] The court found that enabling the temporary assignment of a coordinator chief physician does not relate to duties, authority, pay, and benefits of a public servant providing a service subject to general principles of administration which constitutes a regulatory area exclusively granted to the legislation in the text of the Constitution, but was instead merely a corollary to the Ministry of Health's authority to administer its provincial organization, which was the main subject-matter of the relevant provisions of the CBK.[45]"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1838,
+                    2254,
+                    2009
+                ],
+                "angle": 0,
+                "content": "In its third decision, the court upheld a CBK that authorized the president to determine the pay of members of the Presidential High Advisory Board (PHAB).46 The relevant provision of the CBK was challenged on the grounds that, inter alia, the CBK interfered with the exclusive"
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2105,
+                    581,
+                    2161
+                ],
+                "angle": 0,
+                "content": "35 Id. art. 142/1."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2181,
+                    530,
+                    2227
+                ],
+                "angle": 0,
+                "content": "36 Id. art. 148."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2257,
+                    640,
+                    2306
+                ],
+                "angle": 0,
+                "content": "37 Id. art. 161 et seq."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2329,
+                    838,
+                    2382
+                ],
+                "angle": 0,
+                "content": "38 AYM, E.2018/ 125, K.2020/4."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2402,
+                    642,
+                    2455
+                ],
+                "angle": 0,
+                "content": "39 Const. art. 123(1)."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2478,
+                    1361,
+                    2531
+                ],
+                "angle": 0,
+                "content": "40 See E.2018/125, K.2020/4, § 7 (Arslan, dissenting opinion)."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2554,
+                    471,
+                    2600
+                ],
+                "angle": 0,
+                "content": "41 Id. § 23."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2626,
+                    532,
+                    2676
+                ],
+                "angle": 0,
+                "content": "42 Cf. id. § 30."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2699,
+                    474,
+                    2748
+                ],
+                "angle": 0,
+                "content": "43 Id. § 23."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2775,
+                    1619,
+                    2828
+                ],
+                "angle": 0,
+                "content": "44 AYM, E.2019/31, K.2020/5, Jan. 23, 2020, https://perma.cc/MMS9-3BFE."
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2851,
+                    471,
+                    2897
+                ],
+                "angle": 0,
+                "content": "45 Id. § 33."
+            },
+            {
+                "block_id": 16,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2923,
+                    1632,
+                    2976
+                ],
+                "angle": 0,
+                "content": "46 AYM, E.2019/78, K.2020/6, Jan. 23, 2020, https://perma.cc/G7KW-T6TD."
+            },
+            {
+                "block_id": 17,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2105,
+                    1632,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 18,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 19,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2251,
+                    3138
+                ],
+                "angle": 0,
+                "content": "7"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    989,
+                    151,
+                    1555,
+                    204
+                ],
+                "angle": 0,
+                "content": "Turkey: Presidential Decrees"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2261,
+                    818
+                ],
+                "angle": 0,
+                "content": "regulatory area granted to law in regulating the pay and benefits of public servants performing duties subject to general principles of administration. The court found that because the PHAB was a body within the Office of the Presidency that had solely consulting duties and no executive or enforcement function, and because its members did not possess or use public authority in the performance of their duties and did not have a status-based relationship with the central administration, PHAB members could not be considered public servants subject to the general principles of administration.[47] Thus the court upheld the CBK, holding that the regulation of the pay of PHAB members by a CBK did not interfere with the exclusive regulatory area of the legislature.[48]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    867,
+                    2256,
+                    1214
+                ],
+                "angle": 0,
+                "content": "Although the decisions of the Constitutional Court discussed above did not strike down CBKs on the grounds of interference with the exclusive regulatory area of the legislature, according to Can, the court's adoption of an \"expansive\" interpretation of the statute-exclusivity clause of article 104/17 has the effect of \"dramatically\" limiting the scope of CBKs in a way that \"might be said to contradict the expectations of the political authorities realizing the [2017] constitutional amendments.\"49"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1267,
+                    2254,
+                    1442
+                ],
+                "angle": 0,
+                "content": "In two more recent judgments, the Constitutional Court invalidated provisions of CBKs on the grounds that the CBKs interfered with the exclusive regulatory area of the legislature granted by the Constitution.[50]"
+            },
+            {
+                "block_id": 4,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    1584,
+                    553,
+                    1636
+                ],
+                "angle": 0,
+                "content": "47 Id. §19-20."
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    1659,
+                    471,
+                    1706
+                ],
+                "angle": 0,
+                "content": "48 Id. § 20."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    1735,
+                    833,
+                    1782
+                ],
+                "angle": 0,
+                "content": "49 Can, supra note 3, at 184-85."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    1808,
+                    2249,
+                    3006
+                ],
+                "angle": 0,
+                "content": "50 In AYM, E.2020/71, K.2021/33 (Apr. 29, 2021) (https://perma.cc/ED24-MELE), the Constitutional Court struck down article 1 of CBK No. 65, which created new vacancies for teaching staff in universities, including professorships, associate and assistant professorships, and researcher positions. The court found that establishing new vacancies in universities is a subject-matter that is precluded from regulation by presidential decree under article 104/17 of the Constitution because article 130/9 of the Constitution provides that, among other things, the duties, titles, appointments, promotions, and retirements of teaching staff in higher education must be regulated by law. The court rested its finding on the precedent it had issued holding that the establishment of new vacancies in state agencies necessarily implicates the regulation of the duties and privileges of public servants. AYM, E.2020/71, K.2021/33, at § 19. In AYM, E.2020/58, K.2021/19 (Mar. 18, 2021) (https://perma.cc/48Z6-KRAD), the court invalidated a provision of CBK No. 62 that allowed university faculty members to simultaneously hold the position of member of the Board of the Central Bank of Turkey. The court again grounded its opinion on article 130/9 of the Constitution, finding that allowing higher education teaching staff to hold another position with the associated duties and privileges violates the constitutional rule requiring the duties and privileges of such persons to be determined by law. AYM, E.2020/58, K.2021/19, at § 19. Nevertheless, in another recent decision in which the Constitutional Court upheld the provisions of a CBK granting the Directorate of Strategy and Budget (an agency organized directly under the Presidency and not subordinated to a ministry) the authority to establish an overseas organization, the court rejected the petitioners' argument that article 123 of the Constitution (requiring the establishment of administrative organs and the determination of their powers be exclusively regulated by law) barred the grant of the said authority by CBK. The court's majority engaged into a purposive construction of article 106/11 of the Constitution which provides \"the organizational structure of the ministries, and the establishment of their central and provincial organizations, shall be regulated by presidential decree\", finding that this provision, a fortiori,"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 9,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2251,
+                    3141
+                ],
+                "angle": 0,
+                "content": "8"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    989,
+                    151,
+                    1555,
+                    204
+                ],
+                "angle": 0,
+                "content": "Turkey: Presidential Decrees"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    288,
+                    297,
+                    1280,
+                    356
+                ],
+                "angle": 0,
+                "content": "4. The Limitations of the Statute-Preemption Clause"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    293,
+                    409,
+                    2256,
+                    1095
+                ],
+                "angle": 0,
+                "content": "The statute-preemption clause of article 104/17 provides that if a subject-matter is explicitly regulated by the legislature via law, the president is precluded from issuing a CBK that regulates the same subject-matter, even though the president is competent to issue a CBK on the same subject-matter in the absence of a law regulating the area. Put differently, the legislature may preclude a subject-matter from regulation by CBKs by enacting a law regulating the area. This principle goes further than establishing the superiority of legislative enactments because an enactment by the legislature will preclude the entire subject-matter from being regulated by CBKs, and the president will not have the competence to issue a CBK that regulates the same subject-matter even though a CBK could be issued had the law not been enacted. Accordingly, when reviewing a CBK for preemption, the Constitutional Court considers that a CBK rule is prima facie preempted by law if the provision of the law would be applicable to the relevant subject-matter had the new rule provided by the CBK not existed.[51]"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1151,
+                    2256,
+                    1501
+                ],
+                "angle": 0,
+                "content": "For example, in one of its recent decisions, the Constitutional Court held that a CBK may not allow the president to authorize advance payments to be made to foreign contractors providing services for promoting the history, culture, and touristic value of the country.[52] The reason was that the relevant area was regulated explicitly by a prior law enacted by the legislature.[53] This precluded the president from issuing a CBK touching on the same subject-matter even though the text of the law explicitly states that it does not prejudice CBKs.[54]"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    283,
+                    1547,
+                    1624,
+                    1607
+                ],
+                "angle": 0,
+                "content": "5. The Limitations of the Statute-Superiority and Supersession Clauses"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1659,
+                    2256,
+                    2009
+                ],
+                "angle": 0,
+                "content": "The statute-superiority clause provides that in cases of a conflict between a rule provided by a CBK and a rule provided by a law enacted by the legislature that are equally applicable to a given subject-matter, the rule provided by law will be applicable to its full extent. For instance, in a recent decision, the Constitutional Court invalidated provisions of a CBK that authorized the president to determine the contract terms, salaries, and all other remuneration of contracted personnel (that is, personnel who are not subject to the general rules and salary schedule of public"
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2227,
+                    2221,
+                    2336
+                ],
+                "angle": 0,
+                "content": "also covered agencies that were organized directly under the Presidency but could be organized under a ministry. AYM, E.2018/133, K.2021/70, Oct. 13, 2021, §§ 22-24, https://perma.cc/U6HC-YPCR."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2356,
+                    2210,
+                    2607
+                ],
+                "angle": 0,
+                "content": "51 AYM, E.2019/31, K.2020/5; AYM, E.2019/105, K.2020/30, June 12, 2020, §§ 30 and 58, https://perma.cc/D5DQ-YRUT. The court considers decrees with the force of law that could be issued by the Council of Ministers under the pre-2017 constitutional system as “law” for the purposes of preemption. Id. § 29. There is no indication in the precedents of the court that this presumption does not also apply to the statute-superiority rule."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2626,
+                    818,
+                    2679
+                ],
+                "angle": 0,
+                "content": "52 AYM, E.2019/31, K.2020/5."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2699,
+                    550,
+                    2748
+                ],
+                "angle": 0,
+                "content": "53 Id. §§ 17-20."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2775,
+                    2231,
+                    2979
+                ],
+                "angle": 0,
+                "content": "\\(^{54}\\) Id. § 21; also, on the related general point that laws enacted by the legislature cannot delegate a subject matter to be regulated by a CBK see Volkan Aslan, Cumhurbaşkanlı Kararnamelerinin Kanunlara Uygunluğunun Denetimi ve Çeşitli Hususlarin Kararname ile Düzenlenecegrinin Kanunlarda Belirtilmesi Üzerine, 36(1) Anayasa Yarıdağ 139, 154 (2019)."
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2227,
+                    2231,
+                    2979
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3095,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "9"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    989,
+                    151,
+                    1555,
+                    204
+                ],
+                "angle": 0,
+                "content": "Turkey: Presidential Decrees"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    587
+                ],
+                "angle": 0,
+                "content": "servants under the Law on State Public Servants\\(^{55}\\)) hired by the Presidency of Communication—an agency organized under the Presidency of the Republic—because the matter of salaries of contracted personnel hired by administrative agencies was already regulated by a Decree with the Force of Law,\\(^{56}\\) whereby the president was authorized to determine the salaries of contracted personnel in accordance with a predetermined benchmark.\\(^{57}\\)"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    643,
+                    2256,
+                    1049
+                ],
+                "angle": 0,
+                "content": "An important point here is that while the violation of the statute-preemption rule by a provision of the CBK will result in that provision's unconstitutionality, the existence of a conflict between a rule provided by an enacted statute and a CBK provision will not automatically result in the CBK being unconstitutional, but it will result in the CBK rule being unenforceable to the extent that the conflicting statute is applicable.[58] This point notwithstanding, the interplay of the statutesuperiority rule with the statute-preemption rule appears not to have been explored in detail in the literature, nor has it been treated by the jurisprudence of the Constitutional Court."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1098,
+                    2256,
+                    1329
+                ],
+                "angle": 0,
+                "content": "Finally, the statute-suppression clause states that if the parliament enacts a law in an area that was previously regulated by CBK, the law not only supersedes the CBK, but the CBK becomes null and void. Like the statute-superiority clause, the application of this rule has not been subject to detailed academic or judicial treatment."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1382,
+                    1450,
+                    1438
+                ],
+                "angle": 0,
+                "content": "D. Does an Exclusive Regulatory Area for CBKs Exist?"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1494,
+                    2256,
+                    1956
+                ],
+                "angle": 0,
+                "content": "As explained above, the Constitution provides for four specific subject-matter areas that can be regulated by SCBKs. Many scholars have previously interpreted the texts of the relevant provisions as granting exclusive authority to SCBKs to regulate these subject matters, thus excluding these subject matters from the legislature's general regulatory power.[59] The text of the Constitution appears to support this view somewhat in that it uses affirmative language that can be interpreted as making the regulation of provisions regarding the four special subject matters by SCBKs imperative.[60] Other scholars have rejected this view, mostly on the basis that such an interpretation, where there is no negative wording in the text of the provision expressly"
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2108,
+                    2236,
+                    2214
+                ],
+                "angle": 0,
+                "content": "55 Devlet Memurlari Kanunu, Law No. 657 (Official Gazette No. 12056, July 23, 1965), https://perma.cc/K72EW684."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2234,
+                    2221,
+                    2484
+                ],
+                "angle": 0,
+                "content": "56 375 saylɪ Kanun Hümkmünde Kararname, DWFL No. 375 (Official Gazette No. 20211, June 30, 1989), https://perma.cc/RW5H-N8EK. Decrees with the Force of Law are considered to be equal to laws enacted in the legislature in the hierarchy of norms when there is a conflict, and here the Constitutional Court held that they are to be considered equal to enacted laws also in the context of the statute superiority clause (see supra note 11)."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2504,
+                    1853,
+                    2557
+                ],
+                "angle": 0,
+                "content": "57 AYM, E.2018/134, K.2021/13 (Mar. 3, 2021), §§ 41-54, https://perma.cc/6M6S-GMXT."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2577,
+                    566,
+                    2630
+                ],
+                "angle": 0,
+                "content": "58 Id. at 152-54."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2653,
+                    2182,
+                    2854
+                ],
+                "angle": 0,
+                "content": "59 See, e.g., Eren, supra note 12, at 45; Lokman Yeniay & Gülden Yeniay, Türk Hukukunda Yürtütme Organinin Düzenleme Yetkisi ve Cumhurbaşkanlıriage Kararnamesi, 36(1) Anayasa Yargısı 105, 113 (2019); cf. Murat Azakli, Cumhurbaşkanlıriage Kararnamelerinin Somut Norm Denetimi Yoluyla İncelenmesi, 36(1) Anayasa Yargısı 73, 77-78 (2020)."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2874,
+                    2236,
+                    2979
+                ],
+                "angle": 0,
+                "content": "60 The word used in these provisions is duizenlenir, which gives rise to an ambiguity akin to the use of “shall [be regulated]” in legal English."
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2108,
+                    2236,
+                    2979
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "10"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    989,
+                    151,
+                    1555,
+                    204
+                ],
+                "angle": 0,
+                "content": "Turkey: Presidential Decrees"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2254,
+                    419
+                ],
+                "angle": 0,
+                "content": "precluding regulation by legislative enactment, would limit the general regulatory power of the legislature in a way that is aberrant to Turkish constitutional tradition.[61]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    468,
+                    2256,
+                    877
+                ],
+                "angle": 0,
+                "content": "While the Constitutional Court has not explicitly addressed the question of whether an exclusive regulatory area for SCBKs exist, the fact that the court has found that SCBKs are subject to the general limitations of article \\(104/17^{62}\\) has been interpreted by some scholars as suggesting that the court has rejected the existence of such an exclusive area, because the general limitations provide that the legislature can preempt or supersede a CBK by enacting a law on the same subject matter.[63] Nevertheless, it appears that the matter is not yet doctrinally settled, and further guidance from the Constitutional Court is required."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    927,
+                    2256,
+                    1280
+                ],
+                "angle": 0,
+                "content": "If it is allowed that CBKs have an exclusive regulatory area, the regulatory landscape with relation to the existence of direct regulatory authority will consist of (1) an exclusive regulatory area for law enacted by the legislature, which includes fundamental rights and other subject-matter that is explicitly reserved for enacted statute in the Constitution, (2) the common regulatory area where both enacted law and GCBKs may govern, in accordance with the limitations of article 104/17, and (3) a specific regulatory area for SCBKs.[64]"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1326,
+                    966,
+                    1389
+                ],
+                "angle": 0,
+                "content": "III. Judicial Review of CBKs"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1442,
+                    2256,
+                    1907
+                ],
+                "angle": 0,
+                "content": "While the categorization of CBKs as regulatory administrative acts or legislative acts is a matter of controversy,[65] the Constitution explicitly designates the Constitutional Court as the forum for judicial review of CBKs instead of the Council of State (Supreme Administrative Court of Turkey), which ordinarily reviews regulatory administrative acts as the court of original jurisdiction.[66] When reviewing a CBK, the Constitutional Court first assesses whether the president has the authority to issue a CBK on the given matter—that is, it will look at whether the president's exercise of the power to issue CBKs was within the limits prescribed by article 104 of the Constitution.[67] Only if the exercise of the power passes this hurdle will the court engage into a"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2032,
+                    2162,
+                    2187
+                ],
+                "angle": 0,
+                "content": "For an overview of the debate in the literature on this point, see Can, supra note 3, at 150. For detailed discussions of the issue, see Yilmaz, supra note 1, at 237, and Tolga Şirin, \"İslemeyen Sistemlerin Fonksiyonel Olmayan Yanı\": Cumhurbaşkanlı Kararnamesi, 7(14) Anayasu Hukuku Dergisi 289, 310 (2018)."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2204,
+                    1065,
+                    2260
+                ],
+                "angle": 0,
+                "content": "\\(^{62}\\) See, e.g., AYM, E.2019/31, K.2020/5, § 25."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2280,
+                    2231,
+                    2630
+                ],
+                "angle": 0,
+                "content": "See, e.g., Can, supra note 3, at 180. While Can argues that the court appears to have for the present rejected the possibility of an exclusive regulatory area for SCBKs, he proposes an interpretation that would acknowledge the existence of a quasi-exclusive area for SCBKs in the four subject-matters allocated to them in the Constitution for which the legislature may pass only \"framework laws\" that would not dilute the direct regulatory authority of the president for regulating the details of the subject-matter. Id. at 159. For a discussion of how the concept of an exclusive regulatory area for SCBKs may interoperate with the general limitations of article 104/17 see Yilmaz, supra note 1, at 241."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2649,
+                    765,
+                    2699
+                ],
+                "angle": 0,
+                "content": "64 Can, supra note 3 at 158."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2722,
+                    2009,
+                    2775
+                ],
+                "angle": 0,
+                "content": "For a detailed treatment of the question of categorization of CBKs see Eren, supra note 12, at 17."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2798,
+                    2080,
+                    2900
+                ],
+                "angle": 0,
+                "content": "66 Const. art. 148(1); Danistay Kanunu, Law No. 2575 (Official Gazette No. 17580, Jan. 20, 1982), art. 24, https://perma.cc/GM5A-2SJB."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2920,
+                    2093,
+                    2979
+                ],
+                "angle": 0,
+                "content": "67 The Court calls this step \"subject-matter competence review\" (\"konu bakimindan yetki denetimi\")."
+            },
+            {
+                "block_id": 13,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2032,
+                    2231,
+                    2979
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3154
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    2198,
+                    3095,
+                    2249,
+                    3141
+                ],
+                "angle": 0,
+                "content": "11"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    989,
+                    151,
+                    1555,
+                    204
+                ],
+                "angle": 0,
+                "content": "Turkey: Presidential Decrees"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    288,
+                    300,
+                    2254,
+                    419
+                ],
+                "angle": 0,
+                "content": "\"content review\" and assess whether the CBK violates basic principles of law, fundamental rights, or other constitutional norms.[68]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    468,
+                    2256,
+                    1095
+                ],
+                "angle": 0,
+                "content": "According to Can, the court's threshold test for whether a CBK complies with article 104 can be formulated as follows. The court will first determine whether the CBK regulates exclusively \"matters regarding executive power\". If the court finds that it does, it will look at whether the CBK affects fundamental rights and political rights. If the CBK passes this test, the court will look at whether the decree touches on an area that is exclusively regulated by law, with the exception of the four specific subject matters that the court interprets narrowly. If the CBK falls within these four exceptions, the court will determine whether the CBK is limited to these areas, narrowly construed. If the CBK passes this test, the court will finally look at whether the area that the CBK regulates has otherwise been previously regulated by law, in which case the CBK will be invalidated. A CBK that passes all these tests will be allowed to move forward and be reviewed for its content.[69]"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1155,
+                    2254,
+                    1448
+                ],
+                "angle": 0,
+                "content": "If the CBK passes the threshold constitutional-authority test, the court will engage in a substantive review of the content of the CBK provisions. Here, the court will assess whether the CBK provision violates the basic principles of the \"state of law\" clause of article 2 of the Constitution<sup>70</sup>—namely, that it is related to the public interest, is foreseeable and has the requisite definiteness, is respectful of legal certainty, and is of general applicability.<sup>71</sup> If there are other"
+            },
+            {
+                "block_id": 4,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    1494,
+                    2221,
+                    1597
+                ],
+                "angle": 0,
+                "content": "\\(^{68}\\) Cf. Fatma D. Sevgili-Gençay, Cumhurbaşkanlı Kararnamelerin Yargın Sal Denetimi: Ülk Kararlar - Ülk Özlenimler, 151 TBB Dergisi 1, 20 (2020)."
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    1620,
+                    828,
+                    1676
+                ],
+                "angle": 0,
+                "content": "69 Can, supra note 3 at 183-84."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    1692,
+                    2221,
+                    1940
+                ],
+                "angle": 0,
+                "content": "<sup>70</sup> The concept of hukuk devleti, or the \"state of law(s)\" enshrined in article 2 of the Constitution is analogous to the French état de droit, and to a certain extent the German Rechtsstadt, all of which are frequently compared with the English concept of the \"rule of law.\" Turkish administrative law has historically been influenced by the French tradition. See Esin Örucü, Conseil d'Etat: The French Layer of Turkish Administrative Law, 49 ICLQ 679 (2000)."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    1963,
+                    2249,
+                    3006
+                ],
+                "angle": 0,
+                "content": "<sup>71</sup> See AYM, E.2018/125, K.2020/4, §§ 26-31; AYM, E.2019/31, K.2020/5, §§ 36-43; Sevgili-Gençay, supra note 68, at 20; İsmail Köküşarı, Cumhurbaşkanlıği Kararnamelerinin Konu Bakımindan Yetki Denetimi ile İçerik Yönunden Anayasaya Uygünluk Denetiminin Farklari, 16 ERÜHFD 277, 292 (2021). The Constitutional Court's definitions of the principles of \"definiteness,\" \"foreseeability,\" and \"legal certainty\" in the Turkish legal tradition are interrelated. See, e.g., AYM, E.2019/35, K.2019/53, June 26, 2019, § 15, https://perma.cc/7MWN-UQQW (\"One of the fundamental elements of the state of law is the principle of definiteness. According to this principle, legal rules must be clear, unambiguous, comprehensible, applicable, and objective enough to prevent any hesitancy or reservation on the part of both the individual and the administration; furthermore rules must provide measures against arbitrary actions by public authorities. The principle of definiteness is related to [the concept of] legal certainty and necessitates that an individual is able to grasp from the rule which concrete action or fact leads to which result, and what kind of an intervention the administration is authorized to make as a response. It is only under these circumstances that an individual may foresee the responsibilities he or she is charged with and behave accordingly. The principle of legal certainty requires that individuals are able to trust the state in all its actions and transactions, and necessitates that the state avoids procedures that injure this sense of trust.\") (Translation by author). The Constitutional Court's definitions are generally parallel to those employed by the European Court of Human Rights in jurisprudence concerning what \"lawfulness\" entails under the European Convention on Human Rights (see, e.g., The Sunday Times v. United Kingdom, App. No. 6538/74, 2 EHRR 245 (Ser. A No. 30) (1979) (Eur. Comm'n of H.R.), para. 49, https://perma.cc/YDE7-YG9E (\"[A] norm cannot be regarded as a 'law' unless it is formulated with sufficient precision to enable the citizen to regulate his conduct: he must be able - if need be with appropriate advice - to foresee, to a degree that is reasonable in the circumstances, the consequences which a given action may entail.\"); Korchuganova v."
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    283,
+                    1494,
+                    2249,
+                    3006
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "12"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    989,
+                    151,
+                    1555,
+                    204
+                ],
+                "angle": 0,
+                "content": "Turkey: Presidential Decrees"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    419
+                ],
+                "angle": 0,
+                "content": "constitutional norms that are relevant to the subject matter of the CBK provision in question, the court will also review whether such constitutional rules are violated.[72]"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    288,
+                    471,
+                    1269,
+                    531
+                ],
+                "angle": 0,
+                "content": "IV. Recent Controversial Uses of the CBK"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    587,
+                    2264,
+                    990
+                ],
+                "angle": 0,
+                "content": "On March 20, 2021, President's Decision No. 3718 was published in the Official Gazette, withdrawing Turkey from the Council of Europe Convention on Preventing and Combating Violence Against Women and Domestic Violence (Istanbul Convention), which the country had ratified on February 10, 2012.[73] The decision met with widespread public criticism from opposition parties and other groups in the political opposition; however, it also raised questions among professional organizations and legal scholars on whether the president of the republic had the authority to withdraw the country from an international treaty."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1042,
+                    2266,
+                    1508
+                ],
+                "angle": 0,
+                "content": "A relevant feature of the President's Decision was that it cited article 3(1) of CBK No. 9 as its legal basis.[74] Article 3(1) of CBK No. 9 essentially copies verbatim and replaces the now repealed provisions of Law No. 244, which governed the authority of the now defunct Council of Ministers to ratify, implement, cease implementation, and terminate international treaties, and the procedures for doing so. The CBK provision substitutes the president of the republic for the now obsolete Council of Ministers, reflecting the new constitutional system established after the 2017 constitutional amendments.[75] Like the relevant sections of Law No. 244 before it, article 3(1) of CBK No. 9 concerning the cessation of implementation and the termination of treaties is silent on"
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    1593,
+                    2254,
+                    1993
+                ],
+                "angle": 0,
+                "content": "Russia, App. No. 75039/01, ECHR Judgment of June 8, 2006, para. 47, https://perma.cc/CH95-6WTL (\"[W]here deprivation of liberty is concerned, it is particularly important that the general principle of legal certainty be satisfied. It is therefore essential that the conditions for deprivation of liberty under domestic law be clearly defined and that the law itself be foreseeable in its application, so that it meets the standard of 'lawfulness' set by the Convention, a standard which requires that all law be sufficiently precise to allow the person – if need be, with appropriate advice – to foresee, to a degree that is reasonable in the circumstances, the consequences which a given action may entail\"), cited in James R. Maxeiner, Legal Certainty: A European Alternative to American Legal Indeterminacy, 15 Tul. J. Int'l & Comp. L. 541, 543 (2007)."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2013,
+                    2213,
+                    2161
+                ],
+                "angle": 0,
+                "content": "<sup>72</sup> See AYM, E.2018/126, K.2020/32, June 25, 2020, §§ 45-53 (reviewing the CBK provisions against rules provided in articles 6 and 88 of the Constitution), https://perma.cc/Z7QA-8ZJH; Sevgili-Gençay, supra note 68, at 23."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2184,
+                    2231,
+                    2732
+                ],
+                "angle": 0,
+                "content": "73 President's Decision No. 3718 (Mar. 19. 2021) (Official Gazette No. 31429, Mar. 20, 2021), https://perma.cc/W28V-5GMN; Council of Europe Convention on Preventing and Combating Violence Against Women and Domestic Violence (Istanbul Convention), May 11, 2011 (entry into force Aug. 1, 2014), CETS No. 210, https://perma.cc/9Y66-9QJS. While presidential decrees are direct regulatory acts that do not require delegation of authority, \"president's decisions\" are executive acts that must be based on a regulatory act that is higher in the hierarchy of norms. President's decisions are typically used for issuing individual administrative acts rather than regulatory acts of general applicability; however, a higher norm may authorize the president to issue rules of general applicability via a president's decision. Therefore, a president's decision is not an instrument of the president's direct regulatory authority. For a comparison of president's decisions with presidential decrees, see Şeref İba & Yasin Söyler, Yeni Hüyükem T-systeminde Cumhurbaşkanlı Kararnamesi ile Cumhurbaşkanı Kararının Nitelik Farkı ve Hukuki Sonuçları, 36(1) Anayası 195 (2020)."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2752,
+                    2205,
+                    2904
+                ],
+                "angle": 0,
+                "content": "\\(^{74}\\) Miletlerarası Andlasmaların Onaylanmasın İlşkin Usul ve Esaslar Hakkinda Cumhurbaşkanlı Kararnamesi, Presidential Decree No. 9 (Official Gazette No. 30479, July 15, 2018), https://perma.cc/HN2R-Y82Q."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2923,
+                    1468,
+                    2976
+                ],
+                "angle": 0,
+                "content": "[75] For a comparison of the two provisions see Aslan, supra note 18."
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    283,
+                    1593,
+                    2266,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    872,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "13"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    989,
+                    151,
+                    1555,
+                    204
+                ],
+                "angle": 0,
+                "content": "Turkey: Presidential Decrees"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    990
+                ],
+                "angle": 0,
+                "content": "how this authority will be used, particularly in relation to international treaties that constitutionally require the approval of the legislature before being ratified by the president.[76] The Constitution foresees three types of international treaties and sets forth three procedural rules, respectively: the default procedure requires the legislature to enact a preratification law approving the ratification of the treaty by the president, while two limited categories of international agreements with certain content may be ratified by the executive without requiring a preratification law.[77] The lack of distinction made in article 3(1) of CBK No. 9 (and its predecessor in Law No. 244) between treaties that require preratification laws and those that do not has given rise to the question of whether the president has the authority to unilaterally cease implementation of, or \"terminate\" an international treaty that required a preratification law under the Constitution (that is, withdraw Turkey from the perspective of public international law without obtaining any prior approval or authorization from the legislature).[78] The fact that the"
+            },
+            {
+                "block_id": 2,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    1128,
+                    622,
+                    1181
+                ],
+                "angle": 0,
+                "content": "76 Const. art. 90(1)."
+            },
+            {
+                "block_id": 3,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    1201,
+                    2246,
+                    2135
+                ],
+                "angle": 0,
+                "content": "77 Article 90 of the Constitution sets forth three different ratification procedures that apply according to the type or nature of the treaty in question: Procedure 1: As a default rule, the president may ratify international treaties only after the legislature passes a \"law on the approval of ratification\" (ratification law). Treaties that will result in the amendment of Turkish laws are always subject to this procedure. In this default procedure, the passing of a ratification law is a necessary but not sufficient condition for the ratification of the treaty. The ultimate authority to ratify and promulgate the treaty lies with the president, and the treaty will not become part of Turkish law until the ratification decision of the president is promulgated in the Official Gazette. Procedure 2: International agreements \"regulating economic, commercial or technical relations, and covering a period of no more than one year\" that (1) do not entail any financial commitment by the state, (2) do not interfere with the personal status of individuals or with the property rights of Turkish citizens abroad, and (3) do not result in the amendment of Turkish laws may be ratified and enter into force by promulgation in the Official Gazette by the decision of the president, without requiring the passage of a ratification law. The president must notify the legislature of the adoption of the agreement ratified through this procedure within two months of the promulgation of the agreement. Procedure 3: \"Implementation agreements based on an international treaty,\" and \"economic, commercial, technical, or administrative agreements\" concluded on the basis of an authorization provided by law may be ratified by the president without requiring a ratification law. See Kemal Gözler, Ulluslarasi Andlasmaları Akdetme ve Onaylama Yetkisi (Bir Karaılastırmaili Anayasa Hukuku İncelermesi), 56(2) Ankara Üniversitesi Siyasal Bilgiler Fakultesi Dergisi 71 (2001), https://perma.cc/3XSE-7YG."
+            },
+            {
+                "block_id": 4,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2161,
+                    2249,
+                    3006
+                ],
+                "angle": 0,
+                "content": "[the] presidential decision disregard[s] the principle of parallelism\"), https://perma.cc/9ZZ8-U9QM; Ayşegül Kula, An Unconstitutional Setback: Turkey's Withdrawal from the Istanbul Convention, Verfassungsblog (Mar. 22, 2021), https://perma.cc/HV6U-5538; Başak Çalık, Withdrawal from the Istanbul Convention by Turkey: A Testing Problem for the Council of Europe, EJIL:TALK (Mar. 22, 2021), https://perma.cc/65SF-LN4R. But cf. Tolga Şirin, Üluslararasi Sözleşmelerden Çekilme Usulü ve Başısmalar, Doc. Dr. Tolga Şirin (Mar. 25, 2021) (questioning whether the parallelism principle can be applied straightforwardly where an express procedural rule exists), https://perma.cc/FAN3-V9VU. On the other hand, there appears to be at least some examples of the Council of Ministers unilaterally withdrawing from treaties without an authorizing law passed by the"
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    285,
+                    1128,
+                    2249,
+                    3006
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 7,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "14"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    989,
+                    151,
+                    1555,
+                    204
+                ],
+                "angle": 0,
+                "content": "Turkey: Presidential Decrees"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    288,
+                    300,
+                    2254,
+                    419
+                ],
+                "angle": 0,
+                "content": "Istanbul Convention was a treaty for which a preratification law was enacted (and for which one was required) has made the president's decision and the withdrawal a matter of controversy.[79]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    468,
+                    2256,
+                    1214
+                ],
+                "angle": 0,
+                "content": "Among various arguments put forward by legal scholars against the legality of President Erdoğan's unilateral withdrawal of the country from the Istanbul Convention with a president's decision, one prominent view appears to be that CBK No. 9 itself is unconstitutional, thus rendering the president's decision that was based on it unlawful. Various scholars have argued that ratification and withdrawal from treaties – at least those treaties for which the Constitution requires a preratification law for ratification – cannot be considered a matter “related to executive power” as required by the subject-matter clause of article 104/17 because the legislature plays a significant role in the process, and thus a CBK cannot be issued to regulate the area.[80] This argument was also put forward in an annulment action brought against President's Decision No. 3718 by the Istanbul Bar Association in the Council of State.[81] Nevertheless, the Council of State rejected the argument in a 3-2 decision upholding President's Decision No. 3718, finding that termination of treaties, just like the ratification of treaties, was a matter related to executive power.[82]"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1300,
+                    2187,
+                    1402
+                ],
+                "angle": 0,
+                "content": "legislature, which thus makes the constitutional tradition on the question appear ambiguous. See id.; Aslan, supra note 18 (citing Şirin)."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1419,
+                    2228,
+                    1617
+                ],
+                "angle": 0,
+                "content": "79 For the preratification law on the Istanbul Convention, see Kadınlara Yönelik Şiddet ve Aile ile Şiddetin Önlenmesi ve Bunlarla Mucadeleye İlşkin Avrupa Konseyi Sözleşmesinin Onaylanmasın Uygun Bulunduğuna Dair Kanun, Law No. 6251 (Official Gazette No. 28127, Nov. 29, 2011), https://perma.cc/PXT4-KXD5."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1643,
+                    2236,
+                    1887
+                ],
+                "angle": 0,
+                "content": "80 See Gözler, supra note 18; ARCL, supra note 78; Kula, supra note 78; Çalı, supra note 78. The Constitutional Court had found in a previous annulment action brought against CBK No. 9 that the regulation of the president's authority to ratify international agreements that do not require a preratification rule was \"related to executive power\" and thus could be the subject-matter of a CBK. AYM, E.2018/126, K.2020/32, supra note 72, at § 23."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1913,
+                    2198,
+                    2065
+                ],
+                "angle": 0,
+                "content": "81 Complaint of the Istanbul Bar Association in the Council of State (Mar. 22, 2021), pt. A.5 (arguing inter alia that President's Decision No. 3718 is null and void because the underlying CBK No. 9 is unconstitutional), https://perma.cc/BHT3-KRDV."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2085,
+                    2249,
+                    2979
+                ],
+                "angle": 0,
+                "content": "<sup>82</sup> Council of State, Tenth Chamber, E.2021/1747, unpublished judgment (June 28, 2021), https://perma.cc/4FBB-9R5B. The majority based its finding primarily on the legislative history of Law No. 244 on the Making, Entry into Force, and Publication of International Agreements and the Authorization of the Council of Ministers for the Making of Certain Treaties (repealed), which formerly governed the subject-matter of CBK No. 9. In its opinion, the majority quoted a preparatory commission report that accompanied the development of the bill for Law No. 244 (repealed) that identified the termination of treaties as a “disposition that is within the domain of the executive.” The two judges who did not join the majority opinion wrote dissents in which they argued, inter alia, that since provisions of duly ratified international treaties have the force of law (enacted by the legislature) under article 90 of the Constitution, they could not be terminated by a president's decision on the basis of a presidential decree, and a presidential decree that authorizes the president to issue such a decision would be unconstitutional. The Council of State has jurisdiction to invalidate presidential decisions but not presidential decrees, which can be reviewed only by the Constitutional Court. However, according to article 152 of the Constitution, the Council of State must refer a constitutional claim made against a law or a presidential decree to the Constitutional Court (a procedure called “substantial norm review” – soyut norm denetimi) if the court hearing the case finds the claim serious. Thus, the plaintiff had requested the Council of State to invalidate the president's decision, issue a preliminary injunction to stop the execution of the decision, and refer the constitutionality question concerning CBK No. 9 to the Constitutional Court with the aim of having it invalidated there."
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    283,
+                    1419,
+                    2249,
+                    2979
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "15"
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    989,
+                    151,
+                    1555,
+                    204
+                ],
+                "angle": 0,
+                "content": "Turkey: Presidential Decrees"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2261,
+                    933
+                ],
+                "angle": 0,
+                "content": "Another argument that attacks the constitutionality of CBK No. 9, on which President's Decision No. 3718 is based, is that the CBK cannot be used as a legal basis for withdrawing from a treaty concerning fundamental rights and freedoms. This is because (1) the catalog-of-rights exclusion clause of article 104/17 of the Constitution precludes CBKs from regulating fundamental rights, and thus withdrawing from a treaty concerning fundamental rights cannot be based on a CBK, and (2) because fundamental rights included in the Constitution's catalog-of-rights can be limited only by law enacted by the legislature,[83] the fundamental rights constituting the subject-matter of the Istanbul Convention fall within the exclusive regulatory area that the statute-exclusivity clause of article 104/17 reserves for the legislature, precluding regulation by CBKs. Therefore, a president's decision to withdraw from a treaty like the Istanbul Convention, and thus arguably \"limit\" fundamental rights, cannot be based on a CBK."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    983,
+                    2256,
+                    1438
+                ],
+                "angle": 0,
+                "content": "The question of the merits of these legal arguments notwithstanding, the implications of President Erdoğan's further use of the authority ostensibly granted to him by CBK No. 9 for Turkish foreign policy has already become a matter of dispute: on March 24, 2021, in response to a TV interviewer's question about whether President Erdoğan could withdraw Turkey from the Montreux Convention<sup>84</sup> without legislative preauthorization, the speaker of the Grand National Assembly, Mustafa Şentop, said that it was \"technically possible,\" sparking an intense controversy about the president's power to unilaterally affect the country's most foundational international agreements.<sup>85</sup>"
+            },
+            {
+                "block_id": 3,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2676,
+                    581,
+                    2725
+                ],
+                "angle": 0,
+                "content": "83 Const. art. 13."
+            },
+            {
+                "block_id": 4,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2748,
+                    2236,
+                    2851
+                ],
+                "angle": 0,
+                "content": "84 Convention Regarding the Régime of the Straits (Montreux Convention), Nov. 9, 1936, LNTS vol. 173, p. 213, https://perma.cc/P8YA-SJMM."
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2871,
+                    2236,
+                    2976
+                ],
+                "angle": 0,
+                "content": "85 Montrö Bogazlar Sözleşmesi neden bir kez/DDa gündeme geldi?, BBC News Türkiye (Apr. 5, 2021), https://perma.cc/4626-WX5U."
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2676,
+                    2236,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 8,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2251,
+                    3141
+                ],
+                "angle": 0,
+                "content": "16"
+            }
+        ]
+    }
+]

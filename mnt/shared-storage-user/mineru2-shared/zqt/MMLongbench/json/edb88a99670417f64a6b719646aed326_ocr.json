@@ -1,0 +1,6379 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    2317,
+                    171,
+                    2426,
+                    231
+                ],
+                "angle": 0,
+                "content": "Page"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    295,
+                    424,
+                    2285,
+                    621
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Complaint ID</td><td>Complainant</td><td>Type of Insurance</td><td>Complaint Created Date</td><td>Name of Insured</td></tr><tr><td>Redacted by</td><td>Redacted by</td><td>Fidelity/Surety/Bail</td><td>11-14-2014</td><td>Redacted by</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    293,
+                    757,
+                    1001,
+                    831
+                ],
+                "angle": 0,
+                "content": "Complainant Information"
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    290,
+                    870,
+                    2280,
+                    3140
+                ],
+                "angle": 0,
+                "content": "<table><tr><td colspan=\"3\">Name</td></tr><tr><td>Prefix (eg: Mr, Ms, Mrs)</td><td>Redacted by\nFirst\nNV DOI</td><td>Redacted by\nNV DOI</td></tr><tr><td>Middle</td><td>Last</td><td>Redacted by\nNV DOI</td></tr><tr><td></td><td>Submitting on behalf of\nOrganization/Entity?</td><td>No</td></tr><tr><td>Suffix (eg: Jr, III)</td><td></td><td></td></tr><tr><td colspan=\"3\">Address</td></tr><tr><td>Address</td><td>Redacted by\nNV DOI</td><td></td></tr><tr><td>City</td><td>Las Vegas</td><td></td></tr><tr><td>State</td><td>Nevada</td><td></td></tr><tr><td>Zip Code</td><td>Redacted by:ovince\nNV DOI;</td><td></td></tr><tr><td>Country</td><td>County</td><td></td></tr><tr><td>E-mail Address</td><td>Redacted by\nNV DOI</td><td></td></tr><tr><td>Telephone (Home)</td><td>Redacted by\nNV DOI</td><td></td></tr><tr><td>Telephone (Work)</td><td>Redacted by\nNV DOI</td><td></td></tr><tr><td>Ext.</td><td></td><td></td></tr><tr><td>Telephone (Cell)</td><td>Redacted by\nNV DOI</td><td></td></tr><tr><td>Designate Primary Contact Phone</td><td>Designate Primary Method of\nCell Communication</td><td>Both</td></tr><tr><td>Number</td><td></td><td></td></tr><tr><td colspan=\"3\">Insured Information</td></tr><tr><td>Are you the insured?</td><td>No</td><td></td></tr><tr><td colspan=\"3\">Relationship to Insured/Covered</td></tr><tr><td>Person</td><td>Bail Bondsman</td><td></td></tr><tr><td colspan=\"3\">Name</td></tr><tr><td>Prefix (eg: Mr, Ms, Mrs)</td><td>First</td><td>Redacted by\nNV DOI</td></tr><tr><td>Middle</td><td>Redacted by\nLast</td><td>Redacted by\nNV DOI</td></tr><tr><td>Suffix (eg: Jr, III)</td><td>Organization Name</td><td></td></tr><tr><td colspan=\"3\">Address</td></tr><tr><td>Address</td><td>Redacted by\nNV DOI</td><td></td></tr><tr><td>City</td><td>Las Vegas</td><td></td></tr><tr><td>State</td><td>Nevada</td><td></td></tr></table>"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    2108,
+                    3238,
+                    2267,
+                    3301
+                ],
+                "angle": 0,
+                "content": "0239"
+            },
+            {
+                "block_id": 5,
+                "type": "page_number",
+                "bbox": [
+                    2377,
+                    3298,
+                    2444,
+                    3344
+                ],
+                "angle": 0,
+                "content": "5/4"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    2315,
+                    161,
+                    2449,
+                    221
+                ],
+                "angle": 0,
+                "content": "Page 2"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    288,
+                    308,
+                    2198,
+                    624
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Zip Code</td><td>Redacted by\nNV DOI Province</td><td></td></tr><tr><td>Country</td><td>County</td><td>Redacted by\nNV DOI</td></tr><tr><td>Telephone</td><td>Redacted by\nNV DOI</td><td></td></tr><tr><td>Ext.</td><td>E-mail Address</td><td></td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    293,
+                    656,
+                    812,
+                    729
+                ],
+                "angle": 0,
+                "content": "Complaint Against"
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    290,
+                    740,
+                    2178,
+                    1010
+                ],
+                "angle": 0,
+                "content": "<table><tr><td colspan=\"3\">I am complaining against</td></tr><tr><td>My Insurance Company</td><td>No Agent</td><td>No</td></tr><tr><td>Agency</td><td>Yes Other Party&#x27;s Insurance Company</td><td>No</td></tr><tr><td>Other</td><td>No</td><td></td></tr></table>"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    293,
+                    1059,
+                    735,
+                    1119
+                ],
+                "angle": 0,
+                "content": "Agency Information"
+            },
+            {
+                "block_id": 5,
+                "type": "table",
+                "bbox": [
+                    290,
+                    1129,
+                    2151,
+                    1396
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Agent Prefix</td><td>Agent First</td></tr><tr><td>Agent Middle</td><td>Agent Last</td></tr><tr><td>Agent Suffix</td><td></td></tr><tr><td>Agency Name</td><td>Redacted by DOI</td></tr></table>"
+            },
+            {
+                "block_id": 6,
+                "type": "table",
+                "bbox": [
+                    290,
+                    1410,
+                    2148,
+                    1989
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Street/Apt#</td><td></td><td></td></tr><tr><td>City</td><td>Las Vegas</td><td></td></tr><tr><td>State</td><td>Nevada</td><td></td></tr><tr><td>Zip Code</td><td>89101 Province</td><td></td></tr><tr><td>Country</td><td>County Redacted by DOI</td><td>Clark</td></tr><tr><td>Telephone</td><td></td><td></td></tr><tr><td>Ext</td><td colspan=\"2\">Redacted by DOI</td></tr><tr><td>E-mail Address</td><td></td><td></td></tr></table>"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    293,
+                    2028,
+                    911,
+                    2091
+                ],
+                "angle": 0,
+                "content": "Insurance Information"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2112,
+                    2161,
+                    2231
+                ],
+                "angle": 0,
+                "content": "Does this complaint involve an Purchased Insurance on the Health individual that is medicare eligible? No Care Exchange? No"
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    293,
+                    2277,
+                    432,
+                    2333
+                ],
+                "angle": 0,
+                "content": "Policy"
+            },
+            {
+                "block_id": 10,
+                "type": "table",
+                "bbox": [
+                    290,
+                    2347,
+                    2270,
+                    2561
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Insurance Card ID Number</td><td>Policy Number</td></tr><tr><td>In what state was this policy sold?</td><td></td></tr><tr><td>Type of Insurance</td><td>Fidelity/Surety/Bail</td></tr></table>"
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    293,
+                    2600,
+                    432,
+                    2652
+                ],
+                "angle": 0,
+                "content": "Claim"
+            },
+            {
+                "block_id": 12,
+                "type": "table",
+                "bbox": [
+                    290,
+                    2670,
+                    2270,
+                    2803
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Claim Number</td><td>Date of Loss/Incident</td><td>11-07-2014</td></tr><tr><td>Location of Loss/Incident</td><td></td><td></td></tr></table>"
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    293,
+                    2852,
+                    563,
+                    2912
+                ],
+                "angle": 0,
+                "content": "Other Party"
+            },
+            {
+                "block_id": 14,
+                "type": "title",
+                "bbox": [
+                    293,
+                    2944,
+                    789,
+                    3021
+                ],
+                "angle": 0,
+                "content": "Complaint Details"
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    2106,
+                    3228,
+                    2260,
+                    3287
+                ],
+                "angle": 0,
+                "content": "0240"
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    2367,
+                    3284,
+                    2441,
+                    3333
+                ],
+                "angle": 0,
+                "content": "5/4"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    2312,
+                    175,
+                    2449,
+                    235
+                ],
+                "angle": 0,
+                "content": "Page ."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    290,
+                    350,
+                    663,
+                    407
+                ],
+                "angle": 0,
+                "content": "Type of Problem"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    355,
+                    410,
+                    447,
+                    456
+                ],
+                "angle": 0,
+                "content": "Bail"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    1087,
+                    414,
+                    1803,
+                    473
+                ],
+                "angle": 0,
+                "content": "Other Problem Type Description"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    290,
+                    487,
+                    725,
+                    547
+                ],
+                "angle": 0,
+                "content": "Detail of Complaint"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    352,
+                    547,
+                    668,
+                    614
+                ],
+                "angle": 0,
+                "content": "On 11/07/2014"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    722,
+                    543,
+                    941,
+                    614
+                ],
+                "angle": 0,
+                "content": "Redacted by NY DOI"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    303,
+                    617,
+                    725,
+                    687
+                ],
+                "angle": 0,
+                "content": "Redacted pro bail out ."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    727,
+                    617,
+                    996,
+                    684
+                ],
+                "angle": 0,
+                "content": "Redacted by"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1035,
+                    557,
+                    1907,
+                    621
+                ],
+                "angle": 0,
+                "content": "(co-signer) came into our office (located at"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1927,
+                    550,
+                    2146,
+                    617
+                ],
+                "angle": 0,
+                "content": "Redacted by"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1112,
+                    624,
+                    2225,
+                    680
+                ],
+                "angle": 0,
+                "content": "Defendant) from Clark County Detention Center. Ms."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    317,
+                    684,
+                    2260,
+                    1533
+                ],
+                "angle": 0,
+                "content": " Redacted by was being charged with Domestic Battery (1St), which was a $3,000 bond. So Mr. Redacted by spilled out all of the proper paperwork and paid $500 via credit card. Now when we went down to the Clark County Detention Center to post bond for Ms. Redacted by they told me another bail company had already posted bond for the same person. When I got back to the office, I called the Mr. Redacted by to ask if they have gone somewhere else for the bond or if maybe one of her friends or relatives did. They replied \"NO\" that we where the only ones that they have spoke with and did not want any other bail company to post bond for Ms. Redacted by Well when Ms. Redacted by was released from jail she came straight to our office and asked why did Redacted by bail her out? That she did not know who they were or give them authorization to post her bond. Ms. Redacted by is very upset because now someone from Redacted by keeps calling her and demanding for $500 for the bond, if not they said they would take her back to jail. I contacted Redacted by today and they told me that they had \"No one go into there office to co-sign or pay any money for the bond\". \"That she contacted them from inside the jail and self bonded her self out, all because she is a home owner\". I did not think that was fair to Redacted by"
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1554,
+                    1033,
+                    1722
+                ],
+                "angle": 0,
+                "content": "Describe what you would consider to be a fair resolution to your complaint"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    340,
+                    1740,
+                    2257,
+                    2031
+                ],
+                "angle": 0,
+                "content": "Well to be fair would to let the defendant choose who she wanted to bail threw. Not to be forced to bail threw a bonding company that she did not choose or her family. I don't understand how you can self bail with out a co-signer or paying any money up front. I thought us (Bail Agents) had to follow guidelines so things like this wouldn't happen and so that it would be fair to all the other bail companies out there trying to make money."
+            },
+            {
+                "block_id": 15,
+                "type": "title",
+                "bbox": [
+                    283,
+                    2059,
+                    1155,
+                    2122
+                ],
+                "angle": 0,
+                "content": "Documentation and Declaration"
+            },
+            {
+                "block_id": 16,
+                "type": "title",
+                "bbox": [
+                    283,
+                    2175,
+                    628,
+                    2228
+                ],
+                "angle": 0,
+                "content": "Documentation"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    280,
+                    2245,
+                    1083,
+                    2365
+                ],
+                "angle": 0,
+                "content": "Do you have supporting documents? If so, how will you send them to us?"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1147,
+                    2298,
+                    2056,
+                    2365
+                ],
+                "angle": 0,
+                "content": "Upload Fax Mail None to supply"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2410,
+                    1043,
+                    2466
+                ],
+                "angle": 0,
+                "content": "Declaration/Authorization/Release"
+            },
+            {
+                "block_id": 20,
+                "type": "page_number",
+                "bbox": [
+                    2106,
+                    3235,
+                    2257,
+                    3301
+                ],
+                "angle": 0,
+                "content": "0241"
+            },
+            {
+                "block_id": 21,
+                "type": "footer",
+                "bbox": [
+                    2359,
+                    3294,
+                    2441,
+                    3347
+                ],
+                "angle": 0,
+                "content": "5/4/"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    2315,
+                    171,
+                    2449,
+                    231
+                ],
+                "angle": 0,
+                "content": "Page 4"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    354,
+                    1087,
+                    757
+                ],
+                "angle": 0,
+                "content": "I certify the information provided is true and accurate to the best of my knowledge and belief. I understand a copy of this form and attachments may be forwarded to the insurance company, agent, broker or other party with information about my complaint."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    768,
+                    1087,
+                    1115
+                ],
+                "angle": 0,
+                "content": "I authorize my insurance company to release to the Nevada Division of Insurance any medical and financial or credit (if applicable) information which may be pertinent to the resolution of my complaint.*"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1155,
+                    694,
+                    1376,
+                    761
+                ],
+                "angle": 0,
+                "content": "I Agree"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1155,
+                    1049,
+                    1376,
+                    1115
+                ],
+                "angle": 0,
+                "content": "I Agree"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    290,
+                    1161,
+                    434,
+                    1217
+                ],
+                "angle": 0,
+                "content": "Other"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1277,
+                    2230,
+                    1393
+                ],
+                "angle": 0,
+                "content": "Note: If you check yes, a copy of your complaint will be sent to the respondent, but we will not release information regarding your complaint to anyone else."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1407,
+                    1043,
+                    1575
+                ],
+                "angle": 0,
+                "content": "Do you want your complaint and the information we obtain during our review to be kept confidential?"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1589,
+                    871,
+                    1652
+                ],
+                "angle": 0,
+                "content": "How did you hear about us?"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1152,
+                    1515,
+                    2158,
+                    1579
+                ],
+                "angle": 0,
+                "content": "No Are you represented by an attorney? No"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1155,
+                    1593,
+                    1284,
+                    1645
+                ],
+                "angle": 0,
+                "content": "Other"
+            },
+            {
+                "block_id": 11,
+                "type": "footer",
+                "bbox": [
+                    2108,
+                    3235,
+                    2267,
+                    3301
+                ],
+                "angle": 0,
+                "content": "0242"
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    2374,
+                    3291,
+                    2444,
+                    3337
+                ],
+                "angle": 0,
+                "content": "5/4"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    173,
+                    154,
+                    981,
+                    189
+                ],
+                "angle": 0,
+                "content": "124 101 2014 20.10"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1321,
+                    157,
+                    1798,
+                    189
+                ],
+                "angle": 0,
+                "content": "1"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    2141,
+                    157,
+                    2342,
+                    189
+                ],
+                "angle": 0,
+                "content": "1 NVE"
+            },
+            {
+                "block_id": 3,
+                "type": "header",
+                "bbox": [
+                    1157,
+                    221,
+                    1530,
+                    319
+                ],
+                "angle": 0,
+                "content": "Redacted by 3107"
+            },
+            {
+                "block_id": 4,
+                "type": "header",
+                "bbox": [
+                    218,
+                    340,
+                    526,
+                    642
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    618,
+                    378,
+                    1306,
+                    435
+                ],
+                "angle": 0,
+                "content": "Department of Business and Industry"
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    621,
+                    463,
+                    1969,
+                    561
+                ],
+                "angle": 0,
+                "content": "Nevada Division of Insurance"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    896,
+                    607,
+                    1656,
+                    663
+                ],
+                "angle": 0,
+                "content": "CONSUMER COMPLAINT FORM"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    161,
+                    726,
+                    546,
+                    831
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    586,
+                    740,
+                    1097,
+                    786
+                ],
+                "angle": 0,
+                "content": "1818 E. College Pkwy #103"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    588,
+                    789,
+                    1013,
+                    835
+                ],
+                "angle": 0,
+                "content": "Carson City, NV 89705"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    588,
+                    838,
+                    988,
+                    877
+                ],
+                "angle": 0,
+                "content": "775- 687- 0700 Phone"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    588,
+                    880,
+                    941,
+                    922
+                ],
+                "angle": 0,
+                "content": "775-687-0797 Fax"
+            },
+            {
+                "block_id": 13,
+                "type": "image",
+                "bbox": [
+                    1304,
+                    736,
+                    1391,
+                    803
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1413,
+                    740,
+                    2086,
+                    786
+                ],
+                "angle": 0,
+                "content": "Mall to: 2501 E. Sahara Ave #302"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1609,
+                    789,
+                    2014,
+                    835
+                ],
+                "angle": 0,
+                "content": "Las Vegas, NV 89104"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1609,
+                    838,
+                    2012,
+                    877
+                ],
+                "angle": 0,
+                "content": "702-486-4009 Phone"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1609,
+                    880,
+                    1964,
+                    922
+                ],
+                "angle": 0,
+                "content": "702-486-4007 Fax"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    283,
+                    996,
+                    2297,
+                    1091
+                ],
+                "angle": 0,
+                "content": "Initial this box If you want the Division of Insurance to treat records of your Consumer Complaint as confidential."
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    767,
+                    1094,
+                    1711,
+                    1147
+                ],
+                "angle": 0,
+                "content": "Are you represented by an attorney? Yes No"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    526,
+                    1147,
+                    2029,
+                    1193
+                ],
+                "angle": 0,
+                "content": "If yes, please be advised the Division may not be able to intercede on your behalf."
+            },
+            {
+                "block_id": 22,
+                "type": "image",
+                "bbox": [
+                    171,
+                    1291,
+                    2451,
+                    2010
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Your contact information"
+            },
+            {
+                "block_id": 23,
+                "type": "title",
+                "bbox": [
+                    183,
+                    2066,
+                    707,
+                    2119
+                ],
+                "angle": 0,
+                "content": "Insurance Information"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    183,
+                    2165,
+                    1070,
+                    2207
+                ],
+                "angle": 0,
+                "content": "Insurance company the complaint is against:"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    226,
+                    2207,
+                    1294,
+                    2301
+                ],
+                "angle": 0,
+                "content": "Redacted by DOI"
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    183,
+                    2340,
+                    481,
+                    2407
+                ],
+                "angle": 0,
+                "content": "Type of policy:"
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    695,
+                    2361,
+                    1468,
+                    2407
+                ],
+                "angle": 0,
+                "content": "Group Individual Unknown"
+            },
+            {
+                "block_id": 28,
+                "type": "text",
+                "bbox": [
+                    183,
+                    2452,
+                    370,
+                    2501
+                ],
+                "angle": 0,
+                "content": "Policy No:"
+            },
+            {
+                "block_id": 29,
+                "type": "text",
+                "bbox": [
+                    695,
+                    2452,
+                    1468,
+                    2501
+                ],
+                "angle": 0,
+                "content": "\\( \\frac{1 + u}{1} - \\frac{u}{1} = \\frac{\\left( {1 + u}\\right) u}{1} < \\frac{u}{1} = u \\)"
+            },
+            {
+                "block_id": 30,
+                "type": "text",
+                "bbox": [
+                    183,
+                    2544,
+                    787,
+                    2593
+                ],
+                "angle": 0,
+                "content": "If auto related, License Plate No:"
+            },
+            {
+                "block_id": 31,
+                "type": "text",
+                "bbox": [
+                    1520,
+                    2456,
+                    2178,
+                    2505
+                ],
+                "angle": 0,
+                "content": "Claim No:"
+            },
+            {
+                "block_id": 32,
+                "type": "text",
+                "bbox": [
+                    183,
+                    2635,
+                    807,
+                    2680
+                ],
+                "angle": 0,
+                "content": "Date of Loss/Accident/Incident:"
+            },
+            {
+                "block_id": 33,
+                "type": "text",
+                "bbox": [
+                    183,
+                    2730,
+                    337,
+                    2772
+                ],
+                "angle": 0,
+                "content": "Type of"
+            },
+            {
+                "block_id": 34,
+                "type": "text",
+                "bbox": [
+                    183,
+                    2779,
+                    397,
+                    2821
+                ],
+                "angle": 0,
+                "content": "Insurance:"
+            },
+            {
+                "block_id": 35,
+                "type": "text",
+                "bbox": [
+                    616,
+                    2782,
+                    777,
+                    2821
+                ],
+                "angle": 0,
+                "content": "Auto"
+            },
+            {
+                "block_id": 36,
+                "type": "text",
+                "bbox": [
+                    861,
+                    2782,
+                    1306,
+                    2824
+                ],
+                "angle": 0,
+                "content": "Home/Condo/Renters"
+            },
+            {
+                "block_id": 37,
+                "type": "text",
+                "bbox": [
+                    1391,
+                    2782,
+                    1579,
+                    2824
+                ],
+                "angle": 0,
+                "content": "□ Health"
+            },
+            {
+                "block_id": 38,
+                "type": "text",
+                "bbox": [
+                    1646,
+                    2782,
+                    1783,
+                    2824
+                ],
+                "angle": 0,
+                "content": "Life"
+            },
+            {
+                "block_id": 39,
+                "type": "text",
+                "bbox": [
+                    1865,
+                    2782,
+                    2059,
+                    2824
+                ],
+                "angle": 0,
+                "content": "Dental"
+            },
+            {
+                "block_id": 40,
+                "type": "text",
+                "bbox": [
+                    616,
+                    2838,
+                    971,
+                    2880
+                ],
+                "angle": 0,
+                "content": "Long Term Care"
+            },
+            {
+                "block_id": 41,
+                "type": "text",
+                "bbox": [
+                    1115,
+                    2838,
+                    1482,
+                    2884
+                ],
+                "angle": 0,
+                "content": "Medical Supplemental"
+            },
+            {
+                "block_id": 42,
+                "type": "text",
+                "bbox": [
+                    1550,
+                    2842,
+                    2141,
+                    2884
+                ],
+                "angle": 0,
+                "content": "Ext-Warranty/Service Contract"
+            },
+            {
+                "block_id": 43,
+                "type": "text",
+                "bbox": [
+                    695,
+                    2912,
+                    802,
+                    2961
+                ],
+                "angle": 0,
+                "content": "Other:"
+            },
+            {
+                "block_id": 44,
+                "type": "text",
+                "bbox": [
+                    183,
+                    3014,
+                    576,
+                    3059
+                ],
+                "angle": 0,
+                "content": "Agent/Agency Name:"
+            },
+            {
+                "block_id": 45,
+                "type": "text",
+                "bbox": [
+                    586,
+                    2954,
+                    1917,
+                    3087
+                ],
+                "angle": 0,
+                "content": "Redacted by DOI"
+            },
+            {
+                "block_id": 46,
+                "type": "footer",
+                "bbox": [
+                    178,
+                    3151,
+                    740,
+                    3200
+                ],
+                "angle": 0,
+                "content": "DOI 310 (rev 07/22/2014) Page 1 of 2"
+            },
+            {
+                "block_id": 47,
+                "type": "page_number",
+                "bbox": [
+                    2106,
+                    3242,
+                    2252,
+                    3305
+                ],
+                "angle": 0,
+                "content": "0251"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "aside_text",
+                "bbox": [
+                    173,
+                    154,
+                    2347,
+                    182
+                ],
+                "angle": 0,
+                "content": "141 101 2017 20.10 110 044 1042"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    181,
+                    308,
+                    670,
+                    364
+                ],
+                "angle": 0,
+                "content": "Define your problem"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    181,
+                    403,
+                    675,
+                    449
+                ],
+                "angle": 0,
+                "content": "Please check all that apply:"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    218,
+                    473,
+                    511,
+                    519
+                ],
+                "angle": 0,
+                "content": "Claim denial"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    221,
+                    526,
+                    603,
+                    568
+                ],
+                "angle": 0,
+                "content": "Premium increase"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    221,
+                    575,
+                    722,
+                    614
+                ],
+                "angle": 0,
+                "content": "Cancellation/non-renewal"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    218,
+                    473,
+                    722,
+                    614
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    879,
+                    470,
+                    1480,
+                    515
+                ],
+                "angle": 0,
+                "content": "Unsatisfactory claim settlement"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    879,
+                    522,
+                    1167,
+                    564
+                ],
+                "angle": 0,
+                "content": "claim delay"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    879,
+                    568,
+                    1261,
+                    614
+                ],
+                "angle": 0,
+                "content": "Misrepresentation"
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    879,
+                    470,
+                    1480,
+                    614
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1644,
+                    466,
+                    1977,
+                    512
+                ],
+                "angle": 0,
+                "content": "□ Billing problem"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1644,
+                    519,
+                    2012,
+                    557
+                ],
+                "angle": 0,
+                "content": "Reiusaricip"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1644,
+                    568,
+                    1830,
+                    607
+                ],
+                "angle": 0,
+                "content": "Other:"
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    1644,
+                    466,
+                    2012,
+                    607
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    186,
+                    673,
+                    891,
+                    712
+                ],
+                "angle": 0,
+                "content": "Give a brief explanation of the problem:"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    248,
+                    705,
+                    685,
+                    750
+                ],
+                "angle": 0,
+                "content": "Redacted by DOI"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1010,
+                    708,
+                    1631,
+                    775
+                ],
+                "angle": 0,
+                "content": "Redacted by DOI"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    193,
+                    1996,
+                    539,
+                    2035
+                ],
+                "angle": 0,
+                "content": "Desired resolution:"
+            },
+            {
+                "block_id": 19,
+                "type": "title",
+                "bbox": [
+                    136,
+                    2122,
+                    921,
+                    2200
+                ],
+                "angle": 0,
+                "content": "Redacted by DOI"
+            },
+            {
+                "block_id": 20,
+                "type": "title",
+                "bbox": [
+                    196,
+                    2621,
+                    583,
+                    2663
+                ],
+                "angle": 0,
+                "content": "Release for Information:"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    231,
+                    2691,
+                    2195,
+                    2733
+                ],
+                "angle": 0,
+                "content": "I certify that the information furnished by me in support of this Consumer Complaint is to the best of my knowledge true and correct."
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    231,
+                    2737,
+                    2342,
+                    2842
+                ],
+                "angle": 0,
+                "content": "If this Consumer Complaint Involves medical records or credit information, I hereby authorize my insurer on any other entity with medical information or credit information to provide the information to the Nevada Division of Insurance. Any medical or financial Information released to the Division will be kept confidential."
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    231,
+                    2845,
+                    2292,
+                    2915
+                ],
+                "angle": 0,
+                "content": "I have read and understand this release. I further represent that I am the person filing the Consumer Complaint and that it is my signature below."
+            },
+            {
+                "block_id": 24,
+                "type": "list",
+                "bbox": [
+                    231,
+                    2691,
+                    2342,
+                    2915
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    196,
+                    3003,
+                    387,
+                    3045
+                ],
+                "angle": 0,
+                "content": "Signature:"
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    742,
+                    2954,
+                    963,
+                    3010
+                ],
+                "angle": 0,
+                "content": "Redacted by"
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    772,
+                    3007,
+                    933,
+                    3045
+                ],
+                "angle": 0,
+                "content": "NV.DOL"
+            },
+            {
+                "block_id": 28,
+                "type": "text",
+                "bbox": [
+                    1530,
+                    3003,
+                    1631,
+                    3049
+                ],
+                "angle": 0,
+                "content": "Date:"
+            },
+            {
+                "block_id": 29,
+                "type": "text",
+                "bbox": [
+                    196,
+                    3172,
+                    757,
+                    3214
+                ],
+                "angle": 0,
+                "content": "DOI 310 (rev 07/22/2014) Page 2 of 2"
+            },
+            {
+                "block_id": 30,
+                "type": "page_number",
+                "bbox": [
+                    2106,
+                    3238,
+                    2260,
+                    3301
+                ],
+                "angle": 0,
+                "content": "0252"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    211,
+                    185,
+                    2310,
+                    245
+                ],
+                "angle": 0,
+                "content": "12/16/2014 20:18 775--322-7529 FEDEX OFFICE 3901 PAGE 03"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    253,
+                    417,
+                    710,
+                    480
+                ],
+                "angle": 0,
+                "content": "Define your problem"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    253,
+                    508,
+                    710,
+                    557
+                ],
+                "angle": 0,
+                "content": "Please check all that apply:"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    575,
+                    561,
+                    614
+                ],
+                "angle": 0,
+                "content": "Claim denial"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    621,
+                    648,
+                    656
+                ],
+                "angle": 0,
+                "content": "Premium increase"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    663,
+                    755,
+                    698
+                ],
+                "angle": 0,
+                "content": "Cancellation/non-renewal"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    283,
+                    575,
+                    755,
+                    698
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    904,
+                    575,
+                    1465,
+                    614
+                ],
+                "angle": 0,
+                "content": "Unsatisfactory claim settlement"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    904,
+                    617,
+                    1172,
+                    656
+                ],
+                "angle": 0,
+                "content": "Claim Delay"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    904,
+                    663,
+                    1259,
+                    698
+                ],
+                "angle": 0,
+                "content": "Misrepresentation"
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    904,
+                    575,
+                    1465,
+                    698
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1617,
+                    571,
+                    1925,
+                    610
+                ],
+                "angle": 0,
+                "content": "Bulimg problem"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1617,
+                    617,
+                    1959,
+                    652
+                ],
+                "angle": 0,
+                "content": "Refusal to insure"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1617,
+                    659,
+                    1783,
+                    694
+                ],
+                "angle": 0,
+                "content": "Other"
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    1617,
+                    571,
+                    1959,
+                    694
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    253,
+                    743,
+                    914,
+                    793
+                ],
+                "angle": 0,
+                "content": "Give a brief explanation of the problem."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    514,
+                    1217,
+                    732,
+                    1270
+                ],
+                "angle": 0,
+                "content": "Redacted by"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    541,
+                    1270,
+                    695,
+                    1308
+                ],
+                "angle": 0,
+                "content": "NV DQI"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    253,
+                    1975,
+                    576,
+                    2017
+                ],
+                "angle": 0,
+                "content": "Desired resolution:"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    807,
+                    1972,
+                    1617,
+                    2080
+                ],
+                "angle": 0,
+                "content": "Redacted by DOI"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    253,
+                    2558,
+                    613,
+                    2596
+                ],
+                "angle": 0,
+                "content": "Release for Information:"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2617,
+                    2113,
+                    2656
+                ],
+                "angle": 0,
+                "content": "I certify that the Information furnished by me in support of this Consumer Complaint is to the best of my knowledge true and correct."
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2656,
+                    2248,
+                    2761
+                ],
+                "angle": 0,
+                "content": "If this Consumer Complaint Involves medical records or credit Information, I hereby authorize my insurer on any other entity with medical information or credit Information to provide the information to the Nevada Division of Insurance. Any medical or financial Information released to the Division will be kept confidential."
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2761,
+                    2200,
+                    2824
+                ],
+                "angle": 0,
+                "content": "I have read and understand this release. I further represent that I am the person filling the Consumer Complaint and that it is my signature below."
+            },
+            {
+                "block_id": 24,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2617,
+                    2248,
+                    2824
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    253,
+                    2908,
+                    429,
+                    2947
+                ],
+                "angle": 0,
+                "content": "Signature:"
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    745,
+                    2870,
+                    978,
+                    2919
+                ],
+                "angle": 0,
+                "content": "Redacted by"
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    760,
+                    2919,
+                    933,
+                    2954
+                ],
+                "angle": 0,
+                "content": "NV DOI"
+            },
+            {
+                "block_id": 28,
+                "type": "text",
+                "bbox": [
+                    1492,
+                    2908,
+                    1587,
+                    2951
+                ],
+                "angle": 0,
+                "content": "Date:"
+            },
+            {
+                "block_id": 29,
+                "type": "image",
+                "bbox": [
+                    94,
+                    3010,
+                    2424,
+                    3228
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 30,
+                "type": "text",
+                "bbox": [
+                    2064,
+                    3168,
+                    2250,
+                    3214
+                ],
+                "angle": 0,
+                "content": "edacted by"
+            },
+            {
+                "block_id": 31,
+                "type": "text",
+                "bbox": [
+                    2064,
+                    3214,
+                    2223,
+                    3259
+                ],
+                "angle": 0,
+                "content": "NVDOI"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1331,
+                    154,
+                    1803,
+                    182
+                ],
+                "angle": 0,
+                "content": "#"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2153,
+                    157,
+                    2349,
+                    189
+                ],
+                "angle": 0,
+                "content": "PAGE 14"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    884,
+                    294,
+                    1669,
+                    357
+                ],
+                "angle": 0,
+                "content": "LIMITED POWER OF ATTORNEY"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    290,
+                    438,
+                    2200,
+                    533
+                ],
+                "angle": 0,
+                "content": "KNOW ALL MEN BY THESE PRESENTS, that I, Redacted by NV DOI"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    295,
+                    543,
+                    2190,
+                    638
+                ],
+                "angle": 0,
+                "content": "of Redacted by evada, do hereby NV DOI"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    295,
+                    638,
+                    2230,
+                    719
+                ],
+                "angle": 0,
+                "content": "nominate, constitute, and appoint Redacted by my true and lawful"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    290,
+                    740,
+                    2195,
+                    807
+                ],
+                "angle": 0,
+                "content": "attomey in fact, for me and in my name, place and stead, and for my use and benefit"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    290,
+                    814,
+                    2329,
+                    1333
+                ],
+                "angle": 0,
+                "content": "for the limited purpose of: thandling all my biinaneal mattns, seeuning and suecasing my car from title locn. componi as well as to dnie and /a cell it, and to access and remove my proper byom my otuaage"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1512,
+                    2215,
+                    1870
+                ],
+                "angle": 0,
+                "content": "GIVING AND GRANTING unto my said attorney in fact full power and authority to do and perform the above mentioned act as fully as I might or could do if personally present, with full power of substitution and revocation, hereby ratifying and confirming all that my said attorney in fact shall lawfully do or cause to be done by virtue thereof,"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1884,
+                    2215,
+                    2056
+                ],
+                "angle": 0,
+                "content": "IN WITNESS WHEREOF, I have hereunto signed my name this day of"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1686,
+                    2133,
+                    1907,
+                    2189
+                ],
+                "angle": 0,
+                "content": "Redacted by"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1718,
+                    2189,
+                    1875,
+                    2231
+                ],
+                "angle": 0,
+                "content": "NVDOI"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1636,
+                    2231,
+                    2009,
+                    2284
+                ],
+                "angle": 0,
+                "content": "(Your signature)"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2372,
+                    879,
+                    2435
+                ],
+                "angle": 0,
+                "content": "STATE OF NEVADA"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2442,
+                    943,
+                    2494
+                ],
+                "angle": 0,
+                "content": ")ss."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2494,
+                    884,
+                    2554
+                ],
+                "angle": 0,
+                "content": "COUNTYOF WASHOE )"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    442,
+                    2582,
+                    2205,
+                    2652
+                ],
+                "angle": 0,
+                "content": "This instrument was acknowledged before me on October 2 , 2014"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2656,
+                    705,
+                    2712
+                ],
+                "angle": 0,
+                "content": "Redacted by"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2705,
+                    675,
+                    2747
+                ],
+                "angle": 0,
+                "content": "by NVDOI"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    42,
+                    2838,
+                    1194,
+                    3077
+                ],
+                "angle": 0,
+                "content": "his POA was signed y complaints daughten"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    1333,
+                    2807,
+                    2257,
+                    2922
+                ],
+                "angle": 0,
+                "content": "Redacted by NV-DOI"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    1338,
+                    2919,
+                    2255,
+                    3031
+                ],
+                "angle": 0,
+                "content": "NOTARY PUBLIC, STATE OF NEVADA My Appointment Expires: 12-2-14"
+            },
+            {
+                "block_id": 22,
+                "type": "image",
+                "bbox": [
+                    1410,
+                    3042,
+                    2103,
+                    3259
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 23,
+                "type": "page_number",
+                "bbox": [
+                    2111,
+                    3238,
+                    2267,
+                    3301
+                ],
+                "angle": 0,
+                "content": "0254"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    54,
+                    157,
+                    2449,
+                    614
+                ],
+                "angle": 0,
+                "content": "This is a copy of the documenl /that was given to the copplai nent Redacted by DOI (last name unknown),managenerof Redacted by DOI I have recoudingsof Redacted by DOI"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    357,
+                    614,
+                    2230,
+                    971
+                ],
+                "angle": 0,
+                "content": "That I, the defendant, by these presents do make, constitute and appoint MIKES FAMILY BAIL BONDS my true and lawful attorney for me and in my name, place and stead to act for me in the Court of my charges, the county . the State, in connection with the charges I was hailed out with. Now pending against me in said County , and i s enter such plea as he may feel is proper in connection with the said charge, giving and granting unto my said attorney full power and authority to do and perform all and every act and thing whatsoever requisite and necessary to be done in and about the premises as fully, in all intents and purposes, as I might or could do if personally present, with full power of substitution and revocation, hereby ratifying and confirming all that my said attorney or A his substitute shall lawfully do or cause to be done by virtue hereof."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    365,
+                    996,
+                    1455,
+                    1045
+                ],
+                "angle": 0,
+                "content": "IN Witness WHEREOF. I have hereun to set my hand and seal this"
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    365,
+                    1045,
+                    1622,
+                    1266
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1731,
+                    926,
+                    2354,
+                    1200
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    367,
+                    1284,
+                    1728,
+                    1354
+                ],
+                "angle": 0,
+                "content": "IMPORTANT! American Surety Company accepts and authorizes its representatives to accept only specific forms of collateral as security."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    372,
+                    1357,
+                    1097,
+                    1393
+                ],
+                "angle": 0,
+                "content": "THIS ACCEPTABLE COLLATERAL IS LIMITED TO:"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    516,
+                    1393,
+                    1423,
+                    1428
+                ],
+                "angle": 0,
+                "content": "1. CASH including cashier's checks, money orders, and certified check:"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    514,
+                    1428,
+                    2098,
+                    1459
+                ],
+                "angle": 0,
+                "content": "2. Properly assigned SAVINGS ACCOUNTS represented by passbooks, or properly assigned CERTIFICATES OF DISPOSIT"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    514,
+                    1459,
+                    1095,
+                    1491
+                ],
+                "angle": 0,
+                "content": "3. Properly assigned STOCKS AND BONDS:"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    514,
+                    1491,
+                    2071,
+                    1561
+                ],
+                "angle": 0,
+                "content": "4. REAL ESTATE evidenced by properly executed mortgage, death of trial or confession of judgment in accordance with applicable state law."
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    514,
+                    1393,
+                    2098,
+                    1561
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    367,
+                    1586,
+                    1997,
+                    1624
+                ],
+                "angle": 0,
+                "content": "IMPORTANT! This collateral security receipt and agreement should not be used except in conjunction with acceptable collateral."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    372,
+                    1624,
+                    929,
+                    1659
+                ],
+                "angle": 0,
+                "content": "Representatives are not authorized to accept"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    372,
+                    1659,
+                    1915,
+                    1694
+                ],
+                "angle": 0,
+                "content": "amd American Surety Company is not responsible for any type or form of collateral rather than collateral grammatical above"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    367,
+                    1726,
+                    2188,
+                    1800
+                ],
+                "angle": 0,
+                "content": "TO DEFENDANT AND INDEMNITOR(S): YOU ARE ENTITLED TO A SIGNED RECEIPT FOR COLLATERAL YOU HAVE GIVEN TO THE BONDING"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    370,
+                    1800,
+                    2161,
+                    1870
+                ],
+                "angle": 0,
+                "content": "AGENT TO SECURE AND INDEMNIFY THIS BOND PURSUANT TO THE TERMS OF THIS AGREEMENT. ANY PROPERTY DECEP OR MORTGAGE"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    372,
+                    1870,
+                    2116,
+                    1975
+                ],
+                "angle": 0,
+                "content": "MUST BE TAKEN IN THE NAME OF AMERICAN SURETY COMPANY. BE SURE ALL YOUR COLLATERAL IS ITEMIZED ON YOUR COLLATERAL   \nRECEIPT."
+            },
+            {
+                "block_id": 18,
+                "type": "title",
+                "bbox": [
+                    1120,
+                    1975,
+                    1448,
+                    2017
+                ],
+                "angle": 0,
+                "content": "PROMISSORY NOTE"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    362,
+                    2052,
+                    2190,
+                    2568
+                ],
+                "angle": 0,
+                "content": "On demand after date, for value received, Promise to pay to the order of AMERICAN SURETY COMAPANY or assigns at Mikes Family Bail Bonds, with interest thcron at the rate of \\(0 \\%\\)per cent, per annum from Call Date until fully paid. Interest payable semi-annually. The maker and endorser of this note further agree to waive demand, notice of non-payment and protest; and in case suit shall be brought for the collection hereof, or the same has to be collected upon demand of attorney, to pay reasonable attorney's fees for making such collection. Deferred interest payments to bear interest from maturity at zero per cent, per annum payable semi-annually. It is further agreed and specifically understood that this note shall become Null and Void in the event the said defendant. Shall appear in the proper court at the time or times so directed by the Judge or Judges of competent jurisdiction until the obligations under the appearance bond or bonds posted on behalf of the defendant have been fulfilled and the Surety discharged of all liability thcrunder, otherwise to remain in full force and effect."
+            },
+            {
+                "block_id": 20,
+                "type": "image",
+                "bbox": [
+                    370,
+                    2582,
+                    1507,
+                    2880
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 21,
+                "type": "image",
+                "bbox": [
+                    1679,
+                    2603,
+                    2297,
+                    2894
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    91,
+                    2898,
+                    2399,
+                    3316
+                ],
+                "angle": 0,
+                "content": "The vehicle in question is a 2003 VD01\nVIA GEO, now being held by Auto Title\nloan on Glendale. ATL refuses to\nrelease vehicle to complain\n0255"
+            },
+            {
+                "block_id": 23,
+                "type": "page_number",
+                "bbox": [
+                    2111,
+                    3235,
+                    2267,
+                    3301
+                ],
+                "angle": 0,
+                "content": "0255"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    427,
+                    154,
+                    983,
+                    189
+                ],
+                "angle": 0,
+                "content": "#"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1321,
+                    161,
+                    1798,
+                    192
+                ],
+                "angle": 0,
+                "content": "1LEVAUPLVE 390"
+            },
+            {
+                "block_id": 2,
+                "type": "page_number",
+                "bbox": [
+                    2146,
+                    161,
+                    2347,
+                    200
+                ],
+                "angle": 0,
+                "content": "PAGE 06"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    362,
+                    529,
+                    784,
+                    582
+                ],
+                "angle": 0,
+                "content": "1"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1284,
+                    529,
+                    1453,
+                    568
+                ],
+                "angle": 0,
+                "content": "1."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    365,
+                    659,
+                    529,
+                    705
+                ],
+                "angle": 0,
+                "content": "1. 4"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1276,
+                    652,
+                    1803,
+                    698
+                ],
+                "angle": 0,
+                "content": "中"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    365,
+                    793,
+                    514,
+                    838
+                ],
+                "angle": 0,
+                "content": "Schools"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1276,
+                    786,
+                    1567,
+                    835
+                ],
+                "angle": 0,
+                "content": "Parncis Nua"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    370,
+                    929,
+                    541,
+                    975
+                ],
+                "angle": 0,
+                "content": "Address:"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    370,
+                    1056,
+                    506,
+                    1101
+                ],
+                "angle": 0,
+                "content": "Pino."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    958,
+                    1056,
+                    1286,
+                    1094
+                ],
+                "angle": 0,
+                "content": "#"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    375,
+                    1193,
+                    526,
+                    1231
+                ],
+                "angle": 0,
+                "content": "\\( \\therefore {a}_{1} = 2,{a}_{2} =  - 4 \\)"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    377,
+                    1308,
+                    509,
+                    1350
+                ],
+                "angle": 0,
+                "content": "Phnn"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    929,
+                    1305,
+                    1294,
+                    1350
+                ],
+                "angle": 0,
+                "content": "Brothers or Sisters:"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1798,
+                    1298,
+                    1935,
+                    1343
+                ],
+                "angle": 0,
+                "content": "iho:"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    380,
+                    1445,
+                    548,
+                    1487
+                ],
+                "angle": 0,
+                "content": "Address:"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    380,
+                    1572,
+                    745,
+                    1617
+                ],
+                "angle": 0,
+                "content": "1"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1291,
+                    1561,
+                    1418,
+                    1603
+                ],
+                "angle": 0,
+                "content": "1"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    385,
+                    1701,
+                    551,
+                    1747
+                ],
+                "angle": 0,
+                "content": "A"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    385,
+                    1828,
+                    621,
+                    1877
+                ],
+                "angle": 0,
+                "content": "Best Friend:"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    1597,
+                    1821,
+                    1728,
+                    1863
+                ],
+                "angle": 0,
+                "content": "#"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    387,
+                    1965,
+                    556,
+                    2007
+                ],
+                "angle": 0,
+                "content": "Aduhci."
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    387,
+                    2080,
+                    807,
+                    2129
+                ],
+                "angle": 0,
+                "content": "Defendant's Attainment"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    1599,
+                    2077,
+                    1736,
+                    2122
+                ],
+                "angle": 0,
+                "content": "Phone:"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    389,
+                    2217,
+                    563,
+                    2263
+                ],
+                "angle": 0,
+                "content": "Address:"
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    958,
+                    2308,
+                    1649,
+                    2372
+                ],
+                "angle": 0,
+                "content": "#"
+            },
+            {
+                "block_id": 27,
+                "type": "title",
+                "bbox": [
+                    452,
+                    2610,
+                    1651,
+                    2744
+                ],
+                "angle": 0,
+                "content": "Redacted by DOI"
+            },
+            {
+                "block_id": 28,
+                "type": "text",
+                "bbox": [
+                    52,
+                    3035,
+                    2387,
+                    3316
+                ],
+                "angle": 0,
+                "content": "This document was given to complai nent parpouting to be proofof. Redacted by NVDOJ 0256"
+            },
+            {
+                "block_id": 29,
+                "type": "page_number",
+                "bbox": [
+                    2108,
+                    3242,
+                    2265,
+                    3305
+                ],
+                "angle": 0,
+                "content": "0256"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1766,
+                    157,
+                    2225,
+                    273
+                ],
+                "angle": 0,
+                "content": "Redacted by+44"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    260,
+                    389,
+                    558,
+                    687
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    643,
+                    431,
+                    1304,
+                    484
+                ],
+                "angle": 0,
+                "content": "Department of Business and Industry"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    643,
+                    512,
+                    1937,
+                    610
+                ],
+                "angle": 0,
+                "content": "Nevada Division of Insurance"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    909,
+                    652,
+                    1639,
+                    708
+                ],
+                "angle": 0,
+                "content": "CONSUMER COMPLAINT FORM"
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    320,
+                    771,
+                    407,
+                    842
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    424,
+                    775,
+                    1105,
+                    821
+                ],
+                "angle": 0,
+                "content": "Mail to: 1818 E. College Pkwy #103"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    611,
+                    824,
+                    1020,
+                    866
+                ],
+                "angle": 0,
+                "content": "Carson City, NV 89706"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    611,
+                    870,
+                    998,
+                    912
+                ],
+                "angle": 0,
+                "content": "775-687-0700 Phone"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    611,
+                    915,
+                    951,
+                    954
+                ],
+                "angle": 0,
+                "content": "775-687-0797 Fax"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1299,
+                    775,
+                    1383,
+                    842
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1400,
+                    782,
+                    2046,
+                    828
+                ],
+                "angle": 0,
+                "content": "Mail to: 2501 E. Sahara Ave #302"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1584,
+                    831,
+                    1974,
+                    870
+                ],
+                "angle": 0,
+                "content": "Las Vegas, NV 89104"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1584,
+                    870,
+                    1974,
+                    912
+                ],
+                "angle": 0,
+                "content": "702-486-4009 Phone"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1584,
+                    915,
+                    1927,
+                    957
+                ],
+                "angle": 0,
+                "content": "702-486-4007 Fax"
+            },
+            {
+                "block_id": 15,
+                "type": "image",
+                "bbox": [
+                    320,
+                    1024,
+                    404,
+                    1091
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    412,
+                    1028,
+                    2243,
+                    1115
+                ],
+                "angle": 0,
+                "content": "Initial this box if you want the Division of Insurance to treat records of your Consumer Complaint as confidential."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    782,
+                    1122,
+                    1763,
+                    1172
+                ],
+                "angle": 0,
+                "content": "Are you represented by an attorney? Yes No"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    548,
+                    1172,
+                    1989,
+                    1217
+                ],
+                "angle": 0,
+                "content": "If yes, please be advised the Division may not be able to intercede on your behalf."
+            },
+            {
+                "block_id": 19,
+                "type": "title",
+                "bbox": [
+                    218,
+                    1256,
+                    792,
+                    1305
+                ],
+                "angle": 0,
+                "content": "Your contact information"
+            },
+            {
+                "block_id": 20,
+                "type": "table",
+                "bbox": [
+                    216,
+                    1305,
+                    2317,
+                    1779
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Name:</td><td>Redacted by\nNV DOI</td></tr><tr><td>Address:</td><td>Redacted by\nNVDOI</td></tr><tr><td>City:</td><td>Las Vegas</td></tr><tr><td>Home Phone:</td><td>Work phone:</td></tr><tr><td>Cell Phone</td><td>Redacted by\nNV DOI</td></tr></table>"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    216,
+                    1817,
+                    1644,
+                    1873
+                ],
+                "angle": 0,
+                "content": "Policyholder information (if complaint is against other party's insurance)"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    216,
+                    1922,
+                    1612,
+                    1972
+                ],
+                "angle": 0,
+                "content": "Name of policyholder:"
+            },
+            {
+                "block_id": 23,
+                "type": "title",
+                "bbox": [
+                    216,
+                    2070,
+                    725,
+                    2119
+                ],
+                "angle": 0,
+                "content": "Insurance information"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    216,
+                    2168,
+                    1073,
+                    2217
+                ],
+                "angle": 0,
+                "content": "Insurance company the complaint is against:"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    216,
+                    2365,
+                    506,
+                    2414
+                ],
+                "angle": 0,
+                "content": "Type of policy:"
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    640,
+                    2365,
+                    824,
+                    2414
+                ],
+                "angle": 0,
+                "content": "Group"
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    904,
+                    2365,
+                    1137,
+                    2410
+                ],
+                "angle": 0,
+                "content": "Individual"
+            },
+            {
+                "block_id": 28,
+                "type": "text",
+                "bbox": [
+                    1222,
+                    2365,
+                    1450,
+                    2410
+                ],
+                "angle": 0,
+                "content": "Unknown"
+            },
+            {
+                "block_id": 29,
+                "type": "text",
+                "bbox": [
+                    216,
+                    2456,
+                    1276,
+                    2505
+                ],
+                "angle": 0,
+                "content": "Policy No:"
+            },
+            {
+                "block_id": 30,
+                "type": "text",
+                "bbox": [
+                    1502,
+                    2452,
+                    2131,
+                    2501
+                ],
+                "angle": 0,
+                "content": "Claim No:"
+            },
+            {
+                "block_id": 31,
+                "type": "text",
+                "bbox": [
+                    216,
+                    2544,
+                    1271,
+                    2593
+                ],
+                "angle": 0,
+                "content": "If auto related, License Plate No:"
+            },
+            {
+                "block_id": 32,
+                "type": "text",
+                "bbox": [
+                    216,
+                    2631,
+                    1271,
+                    2680
+                ],
+                "angle": 0,
+                "content": "Date of Loss/Accident/Incident:"
+            },
+            {
+                "block_id": 33,
+                "type": "text",
+                "bbox": [
+                    216,
+                    2722,
+                    372,
+                    2768
+                ],
+                "angle": 0,
+                "content": "Type of"
+            },
+            {
+                "block_id": 34,
+                "type": "text",
+                "bbox": [
+                    216,
+                    2772,
+                    427,
+                    2817
+                ],
+                "angle": 0,
+                "content": "insurance:"
+            },
+            {
+                "block_id": 35,
+                "type": "text",
+                "bbox": [
+                    635,
+                    2768,
+                    794,
+                    2810
+                ],
+                "angle": 0,
+                "content": "□ Auto"
+            },
+            {
+                "block_id": 36,
+                "type": "text",
+                "bbox": [
+                    871,
+                    2768,
+                    1299,
+                    2810
+                ],
+                "angle": 0,
+                "content": "Home/Condo/Renters"
+            },
+            {
+                "block_id": 37,
+                "type": "text",
+                "bbox": [
+                    1378,
+                    2765,
+                    1559,
+                    2810
+                ],
+                "angle": 0,
+                "content": "□ Health"
+            },
+            {
+                "block_id": 38,
+                "type": "text",
+                "bbox": [
+                    1614,
+                    2765,
+                    1756,
+                    2807
+                ],
+                "angle": 0,
+                "content": "Life"
+            },
+            {
+                "block_id": 39,
+                "type": "text",
+                "bbox": [
+                    1833,
+                    2765,
+                    2017,
+                    2803
+                ],
+                "angle": 0,
+                "content": "Dental"
+            },
+            {
+                "block_id": 40,
+                "type": "text",
+                "bbox": [
+                    635,
+                    2824,
+                    794,
+                    2866
+                ],
+                "angle": 0,
+                "content": "Long"
+            },
+            {
+                "block_id": 41,
+                "type": "text",
+                "bbox": [
+                    847,
+                    2824,
+                    1468,
+                    2870
+                ],
+                "angle": 0,
+                "content": "m Care Medical Supplemental"
+            },
+            {
+                "block_id": 42,
+                "type": "text",
+                "bbox": [
+                    1530,
+                    2824,
+                    2094,
+                    2866
+                ],
+                "angle": 0,
+                "content": "Ext. Warranty/Service Contract"
+            },
+            {
+                "block_id": 43,
+                "type": "text",
+                "bbox": [
+                    635,
+                    2908,
+                    817,
+                    2951
+                ],
+                "angle": 0,
+                "content": "Other."
+            },
+            {
+                "block_id": 44,
+                "type": "text",
+                "bbox": [
+                    216,
+                    3003,
+                    598,
+                    3052
+                ],
+                "angle": 0,
+                "content": "Agent/Agency Name:"
+            },
+            {
+                "block_id": 45,
+                "type": "footer",
+                "bbox": [
+                    216,
+                    3140,
+                    757,
+                    3182
+                ],
+                "angle": 0,
+                "content": "DOI 310 (rev 07/22/2014) Page 1 of 2"
+            },
+            {
+                "block_id": 46,
+                "type": "page_number",
+                "bbox": [
+                    2106,
+                    3242,
+                    2262,
+                    3301
+                ],
+                "angle": 0,
+                "content": "0269"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    258,
+                    340,
+                    732,
+                    407
+                ],
+                "angle": 0,
+                "content": "Define your problem"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    258,
+                    428,
+                    732,
+                    480
+                ],
+                "angle": 0,
+                "content": "Please check all that apply:"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    290,
+                    494,
+                    576,
+                    536
+                ],
+                "angle": 0,
+                "content": "Claim denial"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    290,
+                    543,
+                    663,
+                    582
+                ],
+                "angle": 0,
+                "content": "Premium increase"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    290,
+                    589,
+                    777,
+                    628
+                ],
+                "angle": 0,
+                "content": "Cancellation/non-renewal"
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    290,
+                    494,
+                    777,
+                    628
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    921,
+                    494,
+                    1502,
+                    540
+                ],
+                "angle": 0,
+                "content": "Unsatisfactory claim settlement"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    924,
+                    543,
+                    1202,
+                    586
+                ],
+                "angle": 0,
+                "content": "Claim Delay"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    924,
+                    589,
+                    1291,
+                    631
+                ],
+                "angle": 0,
+                "content": "Misrepresentation"
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    921,
+                    494,
+                    1502,
+                    631
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1656,
+                    498,
+                    1977,
+                    543
+                ],
+                "angle": 0,
+                "content": "□ Billing problem"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1659,
+                    547,
+                    2009,
+                    586
+                ],
+                "angle": 0,
+                "content": "Refusal to insure"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1659,
+                    589,
+                    2200,
+                    635
+                ],
+                "angle": 0,
+                "content": "□ Other:"
+            },
+            {
+                "block_id": 13,
+                "type": "list",
+                "bbox": [
+                    1656,
+                    498,
+                    2200,
+                    635
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "title",
+                "bbox": [
+                    255,
+                    677,
+                    938,
+                    726
+                ],
+                "angle": 0,
+                "content": "Give a brief explanation of the problem:"
+            },
+            {
+                "block_id": 15,
+                "type": "image",
+                "bbox": [
+                    154,
+                    729,
+                    2444,
+                    2501
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "title",
+                "bbox": [
+                    258,
+                    2603,
+                    638,
+                    2645
+                ],
+                "angle": 0,
+                "content": "Release for Information:"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2663,
+                    2178,
+                    2701
+                ],
+                "angle": 0,
+                "content": "I certify that the information furnished by me in support of this Consumer Complaint is to the best of my knowledge true and correct."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2705,
+                    2317,
+                    2814
+                ],
+                "angle": 0,
+                "content": "If this Consumer Complaint involves medical records or credit information, I hereby authorize my insurer on any other entity with medical information or credit information to provide the information to the Nevada Division of Insurance. Any medical or financial information released to the Division will be kept confidential."
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2814,
+                    2272,
+                    2887
+                ],
+                "angle": 0,
+                "content": "I have read and understand this release I further represent that I am the person filing the Consumer Complaint and that it is my signature below."
+            },
+            {
+                "block_id": 20,
+                "type": "list",
+                "bbox": [
+                    293,
+                    2663,
+                    2317,
+                    2887
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 21,
+                "type": "title",
+                "bbox": [
+                    258,
+                    2975,
+                    449,
+                    3024
+                ],
+                "angle": 0,
+                "content": "Signature:"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    613,
+                    2891,
+                    837,
+                    2986
+                ],
+                "angle": 0,
+                "content": "Redacted by NV DOI"
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    1540,
+                    2891,
+                    2076,
+                    3010
+                ],
+                "angle": 0,
+                "content": "Date: \\( 1 - 8 \\cdot  {15} \\)"
+            },
+            {
+                "block_id": 24,
+                "type": "footer",
+                "bbox": [
+                    258,
+                    3133,
+                    804,
+                    3179
+                ],
+                "angle": 0,
+                "content": "DOI 310 (rev 07/22/2014) Page 2 of 2"
+            },
+            {
+                "block_id": 25,
+                "type": "page_number",
+                "bbox": [
+                    2106,
+                    3228,
+                    2267,
+                    3298
+                ],
+                "angle": 0,
+                "content": "0270"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    243,
+                    192,
+                    553,
+                    508
+                ],
+                "angle": 0,
+                "content": ""
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    586,
+                    210,
+                    1289,
+                    270
+                ],
+                "angle": 0,
+                "content": "Department of Business and Industry"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    1627,
+                    147,
+                    1877,
+                    263
+                ],
+                "angle": 0,
+                "content": "517"
+            },
+            {
+                "block_id": 3,
+                "type": "header",
+                "bbox": [
+                    586,
+                    298,
+                    1954,
+                    410
+                ],
+                "angle": 0,
+                "content": "Nevada Division of Insurance"
+            },
+            {
+                "block_id": 4,
+                "type": "header",
+                "bbox": [
+                    822,
+                    442,
+                    1721,
+                    512
+                ],
+                "angle": 0,
+                "content": "CONSUMER COMPLAINT FORM"
+            },
+            {
+                "block_id": 5,
+                "type": "header",
+                "bbox": [
+                    2056,
+                    368,
+                    2354,
+                    445
+                ],
+                "angle": 0,
+                "content": "DEC3 204"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    248,
+                    571,
+                    332,
+                    649
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    352,
+                    578,
+                    1073,
+                    631
+                ],
+                "angle": 0,
+                "content": "Mail to: 1818 E. College Pkwy #103"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    548,
+                    631,
+                    1008,
+                    677
+                ],
+                "angle": 0,
+                "content": "Carson City, NV 890706"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    548,
+                    677,
+                    961,
+                    722
+                ],
+                "angle": 0,
+                "content": "775-687-0700 Phone"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    548,
+                    726,
+                    911,
+                    771
+                ],
+                "angle": 0,
+                "content": "775-687-0797 Fax"
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    1269,
+                    582,
+                    1358,
+                    652
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1373,
+                    582,
+                    2061,
+                    638
+                ],
+                "angle": 0,
+                "content": "Mail to: 2501 E. Sahara Ave #302"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1440,
+                    642,
+                    1984,
+                    687
+                ],
+                "angle": 0,
+                "content": "Las Vegas, NV 89104"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1572,
+                    687,
+                    1982,
+                    729
+                ],
+                "angle": 0,
+                "content": "702-486-4009 Phone"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1572,
+                    733,
+                    1935,
+                    778
+                ],
+                "angle": 0,
+                "content": "702-486-4007 Fax"
+            },
+            {
+                "block_id": 16,
+                "type": "image",
+                "bbox": [
+                    245,
+                    863,
+                    332,
+                    933
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    342,
+                    863,
+                    2277,
+                    964
+                ],
+                "angle": 0,
+                "content": "Initial this box if you want the Division of Insurance to treat records of your Consumer Complaint as confidential."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    752,
+                    1066,
+                    1785,
+                    1122
+                ],
+                "angle": 0,
+                "content": "Are you represented by an attorney? Yes No"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    506,
+                    1119,
+                    2026,
+                    1168
+                ],
+                "angle": 0,
+                "content": "If yes, please be advised the Division may not be able to intercede on your behalf."
+            },
+            {
+                "block_id": 20,
+                "type": "title",
+                "bbox": [
+                    136,
+                    1207,
+                    745,
+                    1259
+                ],
+                "angle": 0,
+                "content": "Your contact information"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    136,
+                    1298,
+                    2347,
+                    1368
+                ],
+                "angle": 0,
+                "content": "Name: Redacted by"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    136,
+                    1400,
+                    2059,
+                    1473
+                ],
+                "angle": 0,
+                "content": "Address: Redacted by Apt. #:"
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    136,
+                    1487,
+                    2059,
+                    1589
+                ],
+                "angle": 0,
+                "content": "City: _____ State: _____ Zip: _____"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    136,
+                    1596,
+                    2329,
+                    1666
+                ],
+                "angle": 0,
+                "content": "Home Phone: Redacted by NVDOI"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    136,
+                    1684,
+                    2334,
+                    1786
+                ],
+                "angle": 0,
+                "content": "Cell Phone: Redacted by Email: NVDOJ"
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    136,
+                    1800,
+                    1212,
+                    1859
+                ],
+                "angle": 0,
+                "content": "Policyholder information (if different than above)"
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    136,
+                    1859,
+                    1251,
+                    1961
+                ],
+                "angle": 0,
+                "content": "Redacted by DOI Name of policyholder:"
+            },
+            {
+                "block_id": 28,
+                "type": "title",
+                "bbox": [
+                    136,
+                    2105,
+                    673,
+                    2161
+                ],
+                "angle": 0,
+                "content": "Insurance information"
+            },
+            {
+                "block_id": 29,
+                "type": "text",
+                "bbox": [
+                    136,
+                    2172,
+                    2248,
+                    2270
+                ],
+                "angle": 0,
+                "content": "Insurance Company Redacted by DOI"
+            },
+            {
+                "block_id": 30,
+                "type": "text",
+                "bbox": [
+                    308,
+                    2315,
+                    586,
+                    2375
+                ],
+                "angle": 0,
+                "content": "Type of policy:"
+            },
+            {
+                "block_id": 31,
+                "type": "text",
+                "bbox": [
+                    789,
+                    2312,
+                    1033,
+                    2375
+                ],
+                "angle": 0,
+                "content": "Group"
+            },
+            {
+                "block_id": 32,
+                "type": "text",
+                "bbox": [
+                    1304,
+                    2312,
+                    1609,
+                    2372
+                ],
+                "angle": 0,
+                "content": "Individual"
+            },
+            {
+                "block_id": 33,
+                "type": "text",
+                "bbox": [
+                    1818,
+                    2315,
+                    2116,
+                    2372
+                ],
+                "angle": 0,
+                "content": "Unknown"
+            },
+            {
+                "block_id": 34,
+                "type": "text",
+                "bbox": [
+                    136,
+                    2414,
+                    2248,
+                    2473
+                ],
+                "angle": 0,
+                "content": "Policy No: _____ Claim No: _____"
+            },
+            {
+                "block_id": 35,
+                "type": "text",
+                "bbox": [
+                    136,
+                    2508,
+                    1150,
+                    2565
+                ],
+                "angle": 0,
+                "content": "If DMV related, License Plate No:"
+            },
+            {
+                "block_id": 36,
+                "type": "text",
+                "bbox": [
+                    136,
+                    2596,
+                    1167,
+                    2659
+                ],
+                "angle": 0,
+                "content": "Date of Loss: \\( 3 - {18} - {14} \\) _____"
+            },
+            {
+                "block_id": 37,
+                "type": "text",
+                "bbox": [
+                    211,
+                    2712,
+                    571,
+                    2772
+                ],
+                "angle": 0,
+                "content": "Type of insurance:"
+            },
+            {
+                "block_id": 38,
+                "type": "image",
+                "bbox": [
+                    700,
+                    2712,
+                    755,
+                    2772
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 39,
+                "type": "text",
+                "bbox": [
+                    797,
+                    2715,
+                    891,
+                    2768
+                ],
+                "angle": 0,
+                "content": "Auto"
+            },
+            {
+                "block_id": 40,
+                "type": "image",
+                "bbox": [
+                    961,
+                    2715,
+                    1038,
+                    2768
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 41,
+                "type": "text",
+                "bbox": [
+                    1045,
+                    2715,
+                    1455,
+                    2768
+                ],
+                "angle": 0,
+                "content": "Home/Condo/Renters"
+            },
+            {
+                "block_id": 42,
+                "type": "image",
+                "bbox": [
+                    1582,
+                    2712,
+                    1634,
+                    2765
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 43,
+                "type": "text",
+                "bbox": [
+                    1669,
+                    2715,
+                    1798,
+                    2765
+                ],
+                "angle": 0,
+                "content": "Health"
+            },
+            {
+                "block_id": 44,
+                "type": "image",
+                "bbox": [
+                    1887,
+                    2712,
+                    1935,
+                    2761
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 45,
+                "type": "text",
+                "bbox": [
+                    1969,
+                    2715,
+                    2046,
+                    2761
+                ],
+                "angle": 0,
+                "content": "Life"
+            },
+            {
+                "block_id": 46,
+                "type": "image",
+                "bbox": [
+                    2111,
+                    2715,
+                    2183,
+                    2761
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 47,
+                "type": "text",
+                "bbox": [
+                    2190,
+                    2715,
+                    2320,
+                    2761
+                ],
+                "angle": 0,
+                "content": "Dental"
+            },
+            {
+                "block_id": 48,
+                "type": "image",
+                "bbox": [
+                    238,
+                    2800,
+                    288,
+                    2856
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 49,
+                "type": "text",
+                "bbox": [
+                    409,
+                    2800,
+                    722,
+                    2856
+                ],
+                "angle": 0,
+                "content": "Long Term Care"
+            },
+            {
+                "block_id": 50,
+                "type": "image",
+                "bbox": [
+                    844,
+                    2800,
+                    891,
+                    2856
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 51,
+                "type": "text",
+                "bbox": [
+                    956,
+                    2800,
+                    1376,
+                    2856
+                ],
+                "angle": 0,
+                "content": "Medical Supplemental"
+            },
+            {
+                "block_id": 52,
+                "type": "image",
+                "bbox": [
+                    1557,
+                    2800,
+                    1609,
+                    2856
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 53,
+                "type": "text",
+                "bbox": [
+                    1612,
+                    2800,
+                    2190,
+                    2856
+                ],
+                "angle": 0,
+                "content": "Ext. Warranty/Service Contract"
+            },
+            {
+                "block_id": 54,
+                "type": "image",
+                "bbox": [
+                    238,
+                    2887,
+                    290,
+                    2947
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 55,
+                "type": "text",
+                "bbox": [
+                    330,
+                    2887,
+                    693,
+                    2961
+                ],
+                "angle": 0,
+                "content": "Other: \\( {13}_{c} : 1 \\)"
+            },
+            {
+                "block_id": 56,
+                "type": "text",
+                "bbox": [
+                    136,
+                    2986,
+                    2094,
+                    3056
+                ],
+                "angle": 0,
+                "content": "Agent/Adjuster Name:"
+            },
+            {
+                "block_id": 57,
+                "type": "footer",
+                "bbox": [
+                    134,
+                    3203,
+                    695,
+                    3252
+                ],
+                "angle": 0,
+                "content": "DOI 310 (rev 04/23/2014)Page 1 of 2"
+            },
+            {
+                "block_id": 58,
+                "type": "page_number",
+                "bbox": [
+                    2113,
+                    3228,
+                    2275,
+                    3294
+                ],
+                "angle": 0,
+                "content": "0283"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    201,
+                    221,
+                    700,
+                    284
+                ],
+                "angle": 0,
+                "content": "Define your problem"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    201,
+                    336,
+                    717,
+                    400
+                ],
+                "angle": 0,
+                "content": "Please check all that apply:"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    201,
+                    428,
+                    553,
+                    473
+                ],
+                "angle": 0,
+                "content": "Claim denial"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    879,
+                    442,
+                    1582,
+                    494
+                ],
+                "angle": 0,
+                "content": "Unsatisfactory claim settlement"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1666,
+                    452,
+                    2059,
+                    508
+                ],
+                "angle": 0,
+                "content": "Billing problem"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    201,
+                    480,
+                    660,
+                    533
+                ],
+                "angle": 0,
+                "content": "Premium increase"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    936,
+                    501,
+                    1229,
+                    550
+                ],
+                "angle": 0,
+                "content": "Claim Delay"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1666,
+                    515,
+                    2096,
+                    557
+                ],
+                "angle": 0,
+                "content": "Refusal to insure"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    201,
+                    543,
+                    792,
+                    589
+                ],
+                "angle": 0,
+                "content": "Cancellation/non-renewal"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    991,
+                    557,
+                    1333,
+                    603
+                ],
+                "angle": 0,
+                "content": "Misrepresentation"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1666,
+                    561,
+                    2270,
+                    614
+                ],
+                "angle": 0,
+                "content": "Other: \\( \\{ 1,1,1,2\\} ,\\{ 1,2,3\\} ,\\{ 2,3,4\\} \\)"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    186,
+                    642,
+                    929,
+                    750
+                ],
+                "angle": 0,
+                "content": "Give a brief explanation of the problem. Redacted by DOI"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    168,
+                    757,
+                    2444,
+                    1024
+                ],
+                "angle": 0,
+                "content": "\\( \\frac{1}{2}x - 1 > 3 - \\frac{3}{2}x > \\frac{3}{2}x - 1 > \\frac{3}{2}\\left( {x - 1}\\right) \\)"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    168,
+                    2568,
+                    578,
+                    2617
+                ],
+                "angle": 0,
+                "content": "Release for Information:"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    238,
+                    2645,
+                    2367,
+                    2730
+                ],
+                "angle": 0,
+                "content": "I certify that the information furnished by me in support of this Consumer Complaint is to the best of my knowledge true and correct."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    235,
+                    2737,
+                    2384,
+                    2873
+                ],
+                "angle": 0,
+                "content": "If this Consumer Complaint involves medical records or credit information, I hereby authorize my insurer on any other entity with medical information or credit information to provide the information to the Nevada Division of Insurance. Any medical or financial information released to the Division will be kept confidential."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    235,
+                    2873,
+                    2379,
+                    2954
+                ],
+                "angle": 0,
+                "content": "I have read and understand this release. I further represent that I am the person filing the Consumer Complaint and that it is my signature below."
+            },
+            {
+                "block_id": 17,
+                "type": "list",
+                "bbox": [
+                    235,
+                    2645,
+                    2384,
+                    2954
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    163,
+                    2975,
+                    747,
+                    3101
+                ],
+                "angle": 0,
+                "content": "Redacted by Signature: NVDOI"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1664,
+                    3035,
+                    2270,
+                    3101
+                ],
+                "angle": 0,
+                "content": "Date: 13.31.49"
+            },
+            {
+                "block_id": 20,
+                "type": "footer",
+                "bbox": [
+                    158,
+                    3193,
+                    720,
+                    3242
+                ],
+                "angle": 0,
+                "content": "DOI 310 (rev 04/23/2014)Page 2 of 2"
+            },
+            {
+                "block_id": 21,
+                "type": "page_number",
+                "bbox": [
+                    2108,
+                    3238,
+                    2267,
+                    3301
+                ],
+                "angle": 0,
+                "content": "0284"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    114,
+                    126,
+                    675,
+                    192
+                ],
+                "angle": 0,
+                "content": "Redacted by DOI"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1187,
+                    154,
+                    1450,
+                    326
+                ],
+                "angle": 0,
+                "content": "中"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    1507,
+                    157,
+                    1935,
+                    294
+                ],
+                "angle": 0,
+                "content": "Redacted-by 517 NVDOI"
+            },
+            {
+                "block_id": 3,
+                "type": "header",
+                "bbox": [
+                    1957,
+                    133,
+                    2441,
+                    192
+                ],
+                "angle": 0,
+                "content": "Redacted by DOI"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    792,
+                    403,
+                    1838,
+                    564
+                ],
+                "angle": 0,
+                "content": "APPLICATION FOR RETURN OF: COLLATERAL OR PREMIUM"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    829,
+                    603,
+                    1676,
+                    687
+                ],
+                "angle": 0,
+                "content": "COLLATERAL PREMIUM"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1279,
+                    771,
+                    1850,
+                    849
+                ],
+                "angle": 0,
+                "content": "Date: \\( {10} - 6 - {14} \\)"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    362,
+                    870,
+                    700,
+                    922
+                ],
+                "angle": 0,
+                "content": "INSTRUCTIONS:"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    365,
+                    975,
+                    2255,
+                    1087
+                ],
+                "angle": 0,
+                "content": "1. The information below must be filled out completely by the Premium and/or Collateral depositor only. Your signature must be notarized for return of collateral."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    365,
+                    1087,
+                    2252,
+                    1186
+                ],
+                "angle": 0,
+                "content": "2 A legible clear copy of depositor's Government issued identification must be attached. Drivers license or Matricula Card acceptable."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    365,
+                    1186,
+                    1793,
+                    1242
+                ],
+                "angle": 0,
+                "content": "3 A copy of the Premium Receipt or Collateral Receipt must be attached."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    365,
+                    1242,
+                    1279,
+                    1287
+                ],
+                "angle": 0,
+                "content": "4. All documents must be returned by mail to:"
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    365,
+                    975,
+                    2255,
+                    1287
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    963,
+                    1291,
+                    1589,
+                    1379
+                ],
+                "angle": 0,
+                "content": "Collateral / Premium Department Redacted by DOI"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    966,
+                    1386,
+                    1465,
+                    1431
+                ],
+                "angle": 0,
+                "content": "Las Vegas, Nevada 89101"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    357,
+                    1428,
+                    2250,
+                    1529
+                ],
+                "angle": 0,
+                "content": "5. If your request is returned to you and/or marked “DENIED, BOND NOT YET EXONERATED” do not resubmit within 45 days from date of denial."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    357,
+                    1529,
+                    1706,
+                    1586
+                ],
+                "angle": 0,
+                "content": "6. All refunds are subject to \"Fees Schedule\" deductions if applicable"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    357,
+                    1586,
+                    2210,
+                    1677
+                ],
+                "angle": 0,
+                "content": "7. All refunds take a minimum of 15 days to process and may take up to 30 business days, NOT including holidays."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    357,
+                    1677,
+                    2014,
+                    1740
+                ],
+                "angle": 0,
+                "content": "8. Collateral will be eligible for refund upon receipt of Discharge from the Court ONLY"
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    357,
+                    1428,
+                    2250,
+                    1740
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "image",
+                "bbox": [
+                    312,
+                    1859,
+                    2280,
+                    2308
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 21,
+                "type": "image",
+                "bbox": [
+                    312,
+                    2322,
+                    1060,
+                    2396
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    308,
+                    2445,
+                    2270,
+                    2508
+                ],
+                "angle": 0,
+                "content": "Reason for Denial:"
+            },
+            {
+                "block_id": 23,
+                "type": "image",
+                "bbox": [
+                    109,
+                    2680,
+                    2444,
+                    3312
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    134,
+                    154,
+                    1863,
+                    280
+                ],
+                "angle": 0,
+                "content": "Redacted by DOI Redacted by DOI"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    956,
+                    347,
+                    988,
+                    403
+                ],
+                "angle": 0,
+                "content": "1"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    1937,
+                    196,
+                    2449,
+                    684
+                ],
+                "angle": 0,
+                "content": "1"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    861,
+                    578,
+                    1803,
+                    677
+                ],
+                "angle": 0,
+                "content": "COLLATERAL RECEIPT"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1798,
+                    838,
+                    2404,
+                    894
+                ],
+                "angle": 0,
+                "content": "RECEIPT NO.:Redacted by"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    2203,
+                    898,
+                    2354,
+                    940
+                ],
+                "angle": 0,
+                "content": "NVDOI"
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    226,
+                    971,
+                    1490,
+                    1108
+                ],
+                "angle": 0,
+                "content": "Redacted by DOI"
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    367,
+                    1161,
+                    2223,
+                    1610
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    367,
+                    1610,
+                    2141,
+                    1803
+                ],
+                "angle": 0,
+                "content": "In the amount of 4.15 \\( \\frac{3}{4} \\)"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    357,
+                    1803,
+                    2446,
+                    1940
+                ],
+                "angle": 0,
+                "content": "RcFueke To IT's oricai. DiPo is to 2 onlc we have Rccieiuoi"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    352,
+                    1940,
+                    2310,
+                    2193
+                ],
+                "angle": 0,
+                "content": "Said Collateral is deposited as security for the payment of any sums which may become due to ACME Bail Bonds or its Sureties by the terms of the Bail Bond Agreement executed for said Bond(s) by the said Depositor and Indemnitors, all of the terms which are made a part of this receipt by this reference. Collateral will be returned only to depositor. No collateral will be returned until the Court has furnished written evidence the bond has been exonerated and this receipt is returned"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    345,
+                    2224,
+                    1992,
+                    2294
+                ],
+                "angle": 0,
+                "content": "If collateral taken in connection with this bond, a collateral receipt must be issued."
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    953,
+                    2333,
+                    2094,
+                    2694
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    332,
+                    2824,
+                    742,
+                    2877
+                ],
+                "angle": 0,
+                "content": "Returned Collateral"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1393,
+                    2845,
+                    2156,
+                    2908
+                ],
+                "angle": 0,
+                "content": "Date Returned"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    332,
+                    2933,
+                    1281,
+                    2996
+                ],
+                "angle": 0,
+                "content": "Returned By:"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1331,
+                    2951,
+                    2252,
+                    3017
+                ],
+                "angle": 0,
+                "content": "Received By"
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    57,
+                    3259,
+                    89,
+                    3305
+                ],
+                "angle": 0,
+                "content": "8"
+            },
+            {
+                "block_id": 18,
+                "type": "footer",
+                "bbox": [
+                    573,
+                    3312,
+                    1030,
+                    3354
+                ],
+                "angle": 0,
+                "content": "WlIte-PaYERScOpy-VEIL"
+            },
+            {
+                "block_id": 19,
+                "type": "footer",
+                "bbox": [
+                    2108,
+                    3238,
+                    2265,
+                    3301
+                ],
+                "angle": 0,
+                "content": "0286"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    260,
+                    115,
+                    832,
+                    164
+                ],
+                "angle": 0,
+                "content": "RubiC Access - Lockel List"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    2138,
+                    147,
+                    2377,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 4 of 5"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    653,
+                    284,
+                    1376,
+                    347
+                ],
+                "angle": 0,
+                "content": "CHERYL - COURT CLERK 3: Present"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    658,
+                    347,
+                    1386,
+                    400
+                ],
+                "angle": 0,
+                "content": "PELAS. VRONICA - INTERPRETER:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    658,
+                    400,
+                    1386,
+                    452
+                ],
+                "angle": 0,
+                "content": "Present WEIBSTER LSO. STEPHEN C"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    658,
+                    452,
+                    1383,
+                    501
+                ],
+                "angle": 0,
+                "content": "SENIOR DEPUTY CITY ATTORNEY:"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    658,
+                    501,
+                    1386,
+                    550
+                ],
+                "angle": 0,
+                "content": "Present Prosecutors: CHY ATTORNEY:"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    658,
+                    550,
+                    931,
+                    600
+                ],
+                "angle": 0,
+                "content": "Present Parties:"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    439,
+                    603,
+                    1669,
+                    663
+                ],
+                "angle": 0,
+                "content": "04 03 2014 DEFENDANTS ATTORNEY PRESENT 0.00 0.00"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    765,
+                    670,
+                    983,
+                    719
+                ],
+                "angle": 0,
+                "content": "Aqppeep"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    442,
+                    715,
+                    1669,
+                    775
+                ],
+                "angle": 0,
+                "content": "04 03 2014 BLENCH WARRANI STANDS 0.00 0.00"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    442,
+                    775,
+                    1669,
+                    828
+                ],
+                "angle": 0,
+                "content": "04 03 2014 COURTORDERS: H S1000 PAID 0.00 0.00"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    653,
+                    824,
+                    1415,
+                    877
+                ],
+                "angle": 0,
+                "content": "QUASHB&W&SLTNW COURTDATI"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    442,
+                    877,
+                    1666,
+                    936
+                ],
+                "angle": 0,
+                "content": "04 03 2014 EVENT COMPLI FED The following 0.00 0.00"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    648,
+                    936,
+                    1425,
+                    986
+                ],
+                "angle": 0,
+                "content": "event: MOTIONS scheduled for 04 03 2011"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    648,
+                    986,
+                    1348,
+                    1035
+                ],
+                "angle": 0,
+                "content": "at 8:00 am has been resulted as follows:"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    648,
+                    1035,
+                    1326,
+                    1091
+                ],
+                "angle": 0,
+                "content": "Result: EVENT COMPLETED Judge:"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    648,
+                    1091,
+                    1353,
+                    1136
+                ],
+                "angle": 0,
+                "content": "HOFFEGEN, SHAN Location: NORTH"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    648,
+                    1136,
+                    1294,
+                    1182
+                ],
+                "angle": 0,
+                "content": "LAS VEGAS MINICIPAL COURT"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    648,
+                    1182,
+                    804,
+                    1228
+                ],
+                "angle": 0,
+                "content": "DLPT.2"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    437,
+                    1238,
+                    1659,
+                    1298
+                ],
+                "angle": 0,
+                "content": "04 03 2014 MOTION DNFID 0.00 0.00"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    434,
+                    1301,
+                    1654,
+                    1357
+                ],
+                "angle": 0,
+                "content": "03 27 2014 ARRAIGNMENT AND SENTENCE 0.00 0.00"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    645,
+                    1357,
+                    1237,
+                    1407
+                ],
+                "angle": 0,
+                "content": "HEARINGSCHHDUDIDEvent:"
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    645,
+                    1407,
+                    1363,
+                    1459
+                ],
+                "angle": 0,
+                "content": "MOTIONS D ate: 04 03 2014 Time: 8:00"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    645,
+                    1459,
+                    1373,
+                    1512
+                ],
+                "angle": 0,
+                "content": "am Judge: HOERFGEN, SEAN Location:"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    645,
+                    1512,
+                    1299,
+                    1561
+                ],
+                "angle": 0,
+                "content": "NORTHILAS VEGAS MUNICIPAL."
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    643,
+                    1561,
+                    1239,
+                    1607
+                ],
+                "angle": 0,
+                "content": "COURTI DIPI.2 Result: LVEIN7"
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    640,
+                    1607,
+                    906,
+                    1652
+                ],
+                "angle": 0,
+                "content": "COMPLIETID"
+            },
+            {
+                "block_id": 28,
+                "type": "text",
+                "bbox": [
+                    429,
+                    1659,
+                    1649,
+                    1715
+                ],
+                "angle": 0,
+                "content": "03 27 2014 MOTION TO QUASH NO PIA Attorney . 0.00"
+            },
+            {
+                "block_id": 29,
+                "type": "text",
+                "bbox": [
+                    869,
+                    1712,
+                    1085,
+                    1761
+                ],
+                "angle": 0,
+                "content": "Redacted by"
+            },
+            {
+                "block_id": 30,
+                "type": "text",
+                "bbox": [
+                    427,
+                    1761,
+                    1646,
+                    1828
+                ],
+                "angle": 0,
+                "content": "03 27 2014 CASE REACTIVATID 0.00 0.00"
+            },
+            {
+                "block_id": 31,
+                "type": "text",
+                "bbox": [
+                    427,
+                    1831,
+                    1646,
+                    1887
+                ],
+                "angle": 0,
+                "content": "03 12 2014 WARRANTY PRINTED BW NO PLEA Sent 0.00 0.00"
+            },
+            {
+                "block_id": 32,
+                "type": "text",
+                "bbox": [
+                    633,
+                    1887,
+                    1125,
+                    1933
+                ],
+                "angle": 0,
+                "content": "on:0312201115:14:24.97"
+            },
+            {
+                "block_id": 33,
+                "type": "text",
+                "bbox": [
+                    424,
+                    1940,
+                    1646,
+                    1996
+                ],
+                "angle": 0,
+                "content": "03 12 2014 ALERT ISSUED ACTIVE WARRANTY 0.00 0.00"
+            },
+            {
+                "block_id": 34,
+                "type": "text",
+                "bbox": [
+                    633,
+                    1993,
+                    1333,
+                    2045
+                ],
+                "angle": 0,
+                "content": "Issued on: 03 12 2014 For: NYQOL"
+            },
+            {
+                "block_id": 35,
+                "type": "text",
+                "bbox": [
+                    752,
+                    2038,
+                    961,
+                    2084
+                ],
+                "angle": 0,
+                "content": "Redacted by"
+            },
+            {
+                "block_id": 36,
+                "type": "text",
+                "bbox": [
+                    633,
+                    2084,
+                    926,
+                    2151
+                ],
+                "angle": 0,
+                "content": "Bond type:"
+            },
+            {
+                "block_id": 37,
+                "type": "text",
+                "bbox": [
+                    422,
+                    2158,
+                    1641,
+                    2214
+                ],
+                "angle": 0,
+                "content": "03 12 2014 BENCH WARRANTY ISSUED NOPLEA - 0.00 0.00"
+            },
+            {
+                "block_id": 38,
+                "type": "text",
+                "bbox": [
+                    630,
+                    2210,
+                    1361,
+                    2266
+                ],
+                "angle": 0,
+                "content": "C NOR FUL.I. BAIL. The following event:"
+            },
+            {
+                "block_id": 39,
+                "type": "text",
+                "bbox": [
+                    630,
+                    2266,
+                    1405,
+                    2308
+                ],
+                "angle": 0,
+                "content": "ARRAIGNMENT scheduled for 03 12 2014"
+            },
+            {
+                "block_id": 40,
+                "type": "text",
+                "bbox": [
+                    630,
+                    2312,
+                    1326,
+                    2358
+                ],
+                "angle": 0,
+                "content": "at 8:00 am has been resulted as follows:"
+            },
+            {
+                "block_id": 41,
+                "type": "text",
+                "bbox": [
+                    630,
+                    2358,
+                    1378,
+                    2407
+                ],
+                "angle": 0,
+                "content": "Result: B1NCH WARRANT ISSUED NO"
+            },
+            {
+                "block_id": 42,
+                "type": "text",
+                "bbox": [
+                    630,
+                    2407,
+                    1251,
+                    2459
+                ],
+                "angle": 0,
+                "content": "PIEA-CNORFULLBALLJudge:"
+            },
+            {
+                "block_id": 43,
+                "type": "text",
+                "bbox": [
+                    630,
+                    2459,
+                    1400,
+                    2505
+                ],
+                "angle": 0,
+                "content": "SCHULKE, KURT Location: NORTTLAS"
+            },
+            {
+                "block_id": 44,
+                "type": "text",
+                "bbox": [
+                    630,
+                    2505,
+                    1346,
+                    2554
+                ],
+                "angle": 0,
+                "content": "VEGAS MUNICIPAL COURT DEPT. I"
+            },
+            {
+                "block_id": 45,
+                "type": "text",
+                "bbox": [
+                    414,
+                    2561,
+                    1636,
+                    2617
+                ],
+                "angle": 0,
+                "content": "03 12 2014 PRESIDING JUDGIA AND STAFF 0.00 0.00"
+            },
+            {
+                "block_id": 46,
+                "type": "text",
+                "bbox": [
+                    628,
+                    2617,
+                    1383,
+                    2670
+                ],
+                "angle": 0,
+                "content": "ATTENDING IN-COURT Court Location:"
+            },
+            {
+                "block_id": 47,
+                "type": "text",
+                "bbox": [
+                    628,
+                    2670,
+                    1274,
+                    2719
+                ],
+                "angle": 0,
+                "content": "NORTHLAS VEGAS MUNICIPAL"
+            },
+            {
+                "block_id": 48,
+                "type": "text",
+                "bbox": [
+                    628,
+                    2719,
+                    1237,
+                    2772
+                ],
+                "angle": 0,
+                "content": "COURT DEPT. 2 Check In: Judge"
+            },
+            {
+                "block_id": 49,
+                "type": "text",
+                "bbox": [
+                    628,
+                    2772,
+                    1396,
+                    2821
+                ],
+                "angle": 0,
+                "content": "SCHULKE. KURT Location: NORTH LAS"
+            },
+            {
+                "block_id": 50,
+                "type": "text",
+                "bbox": [
+                    628,
+                    2821,
+                    1343,
+                    2870
+                ],
+                "angle": 0,
+                "content": "VEGAS MUNICIPAL COURT DEPT. 2"
+            },
+            {
+                "block_id": 51,
+                "type": "text",
+                "bbox": [
+                    628,
+                    2870,
+                    1259,
+                    2915
+                ],
+                "angle": 0,
+                "content": "Staff: CURTIS. DAVITA - COURT"
+            },
+            {
+                "block_id": 52,
+                "type": "text",
+                "bbox": [
+                    628,
+                    2919,
+                    1155,
+                    2968
+                ],
+                "angle": 0,
+                "content": "CLERK 3: Present PALOMO."
+            },
+            {
+                "block_id": 53,
+                "type": "text",
+                "bbox": [
+                    625,
+                    2968,
+                    1356,
+                    3021
+                ],
+                "angle": 0,
+                "content": "GUILTERM0 - INTERPRETER: Present"
+            },
+            {
+                "block_id": 54,
+                "type": "text",
+                "bbox": [
+                    625,
+                    3021,
+                    1376,
+                    3070
+                ],
+                "angle": 0,
+                "content": "PHILLIPS. KIMBERLY - DEPUTY CITY"
+            },
+            {
+                "block_id": 55,
+                "type": "text",
+                "bbox": [
+                    625,
+                    3070,
+                    1383,
+                    3119
+                ],
+                "angle": 0,
+                "content": "ATTORNEY: Present WALLER. DAWNA"
+            },
+            {
+                "block_id": 56,
+                "type": "footer",
+                "bbox": [
+                    211,
+                    3245,
+                    1798,
+                    3316
+                ],
+                "angle": 0,
+                "content": "https://www.citvofnorthlasvegas.com/pa en.urd pamw2000.docket lst?747423"
+            },
+            {
+                "block_id": 57,
+                "type": "footer",
+                "bbox": [
+                    2091,
+                    3221,
+                    2245,
+                    3284
+                ],
+                "angle": 0,
+                "content": "0287"
+            },
+            {
+                "block_id": 58,
+                "type": "footer",
+                "bbox": [
+                    2091,
+                    3277,
+                    2315,
+                    3319
+                ],
+                "angle": 0,
+                "content": "9502014"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    221,
+                    129,
+                    787,
+                    175
+                ],
+                "angle": 0,
+                "content": "Public Access - Docket List"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    2091,
+                    154,
+                    2329,
+                    210
+                ],
+                "angle": 0,
+                "content": "Page 5 of 5"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    611,
+                    298,
+                    1361,
+                    410
+                ],
+                "angle": 0,
+                "content": "- COURT C H R K 3: Present Prosecutors: CITY ATTORNEY: Present Parties:"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    402,
+                    414,
+                    1631,
+                    870
+                ],
+                "angle": 0,
+                "content": "02 18 2014 ARRAIGNMENT AND SLENTENCING 0.00 0.00  \nHEARING SCHEDULED The following  \nevent: CITATION APPLARANCE DATE  \nscheduled for 03-26-2014 at 12:00 am has  \nbeen rescheduled as follows: Event:  \nARRAIGNMENT Date: 03-12-2014 Time:  \n8:00 am Judge: HOLEFFGEN, SEAN  \nLocation: NORTH AS VEGAS  \nMUNICIPAL COURT DEPT. 2"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    394,
+                    877,
+                    1624,
+                    1273
+                ],
+                "angle": 0,
+                "content": "02 18 2014 CASE IS RESET WOC The following 0.00 0.00   \nevent: CTAION APPEARANCE DATE   \nscheduled for 03 26 2014 at 12:00 am has been resulted as follows: Result: HEARINGI   \nRESET Judge: NORTH LAS VEGAS   \nMUNICIPAL COURT Location: NORTH   \nLAS VEGAS MUNICIPAL COURT   \nDEPT. I"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    389,
+                    1284,
+                    1617,
+                    1642
+                ],
+                "angle": 0,
+                "content": "01 15 2014 APPEARANCE DATE: SET BY OFFICER 0.00 0.00  \nEvent: CITATION APPEARANCE DATE  \nDate: 03 26 2014 Time: 12:00 am Judge: NORTH L.AS VEGAS MUNICIPAL  \nCOURT Location: NORTH L.AS VEGAS  \nMUNICIPAL, COURT DEPT. I Result: HEARING RESET"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    389,
+                    414,
+                    1631,
+                    1642
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    168,
+                    3270,
+                    1763,
+                    3337
+                ],
+                "angle": 0,
+                "content": "https://www.citvofnorthlasvegas.com/pa/ep.urd/pamw2000.docket lst?747423"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    2076,
+                    3224,
+                    2282,
+                    3340
+                ],
+                "angle": 0,
+                "content": "0288 9/30/2014"
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    389,
+                    666,
+                    489,
+                    891
+                ],
+                "angle": 270,
+                "content": "IOAAN Aq peoeep"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    501,
+                    1912,
+                    1356,
+                    2456
+                ],
+                "angle": 270,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    1435,
+                    2010,
+                    2384,
+                    2459
+                ],
+                "angle": 270,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    1433,
+                    1912,
+                    2384,
+                    2459
+                ],
+                "angle": 270,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1443,
+                    1312,
+                    1485,
+                    1775
+                ],
+                "angle": 270,
+                "content": ""
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1458,
+                    743,
+                    1557,
+                    964
+                ],
+                "angle": 270,
+                "content": "10D AN"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1564,
+                    185,
+                    2404,
+                    1922
+                ],
+                "angle": 270,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "page_number",
+                "bbox": [
+                    2111,
+                    3235,
+                    2267,
+                    3301
+                ],
+                "angle": 0,
+                "content": "0289"
+            }
+        ]
+    },
+    {
+        "page_id": 19,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    280,
+                    196,
+                    1256,
+                    2501
+                ],
+                "angle": 270,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    1266,
+                    196,
+                    2315,
+                    2491
+                ],
+                "angle": 270,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "page_number",
+                "bbox": [
+                    2106,
+                    3238,
+                    2262,
+                    3301
+                ],
+                "angle": 0,
+                "content": "0290"
+            }
+        ]
+    }
+]

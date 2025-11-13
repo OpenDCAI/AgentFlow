@@ -1,0 +1,2352 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    436,
+                    280,
+                    2054,
+                    424
+                ],
+                "angle": 0,
+                "content": "Transferable Multi-Domain State Generator for Task-Oriented Dialogue Systems"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    439,
+                    491,
+                    2059,
+                    613
+                ],
+                "angle": 0,
+                "content": "Chien-Sheng Wu†, Andrea Madotto†, Ehsan Hosseini-Asl‡, Caiming Xiong‡, Richard Socher‡ and Pascale Fung†"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    687,
+                    613,
+                    1811,
+                    673
+                ],
+                "angle": 0,
+                "content": "†The Hong Kong University of Science and Technology"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1034,
+                    673,
+                    1463,
+                    729
+                ],
+                "angle": 0,
+                "content": "\\(\\ddagger\\)Salesforce Research"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    905,
+                    736,
+                    1597,
+                    792
+                ],
+                "angle": 0,
+                "content": "jason.wu@connect.ust.hk"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    654,
+                    929,
+                    850,
+                    978
+                ],
+                "angle": 0,
+                "content": "Abstract"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    354,
+                    1041,
+                    1143,
+                    2332
+                ],
+                "angle": 0,
+                "content": "Over-dependence on domain ontology and lack of knowledge sharing across domains are two practical and yet less studied problems of dialogue state tracking. Existing approaches generally fall short in tracking unknown slot values during inference and often have difficulties in adapting to new domains. In this paper, we propose a TRAnsferable Dialogue statE generator (TRADE) that generates dialogue states from utterances using a copy mechanism, facilitating knowledge transfer when predicting (domain, slot, value) triplets not encountered during training. Our model is composed of an utterance encoder, a slot gate, and a state generator, which are shared across domains. Empirical results demonstrate that TRADE achieves state-of-the-art joint goal accuracy of \\(48.62\\%\\) for the five domains of MultiWOZ, a human-human dialogue dataset. In addition, we show its transferring ability by simulating zero-shot and few-shot dialogue state tracking for unseen domains. TRADE achieves \\(60.58\\%\\) joint goal accuracy in one of the zero-shot domains, and is able to adapt to few-shot cases without forgetting already trained domains."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    290,
+                    2399,
+                    650,
+                    2452
+                ],
+                "angle": 0,
+                "content": "1 Introduction"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2497,
+                    1215,
+                    3062
+                ],
+                "angle": 0,
+                "content": "Dialogue state tracking (DST) is a core component in task-oriented dialogue systems, such as restaurant reservation or ticket booking. The goal of DST is to extract user goals/intentions expressed during conversation and to encode them as a compact set of dialogue states, i.e., a set of slots and their corresponding values. For example, as shown in Fig. 1, (slot, value) pairs such as (price, cheap) and (area, centre) are extracted from the conversation. Accurate DST performance is crucial for"
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    1285,
+                    929,
+                    2183,
+                    1634
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 1: An example of multi-domain dialogue state tracking in a conversation. The solid arrows on the left are the single-turn mapping, and the dot arrows on the right are multi-turn mapping. The state tracker needs to track slot values mentioned by the user for all the slots in all the domains."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2066,
+                    2193,
+                    2231
+                ],
+                "angle": 0,
+                "content": "appropriate dialogue management, where user intention determines the next system action and/or the content to query from the databases."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2234,
+                    2195,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Traditionally, state tracking approaches are based on the assumption that ontology is defined in advance, where all slots and their values are known. Having a predefined ontology can simplify DST into a classification problem and improve performance (Henderson et al., 2014b; Mrksić et al., 2017; Zhong et al., 2018). However, there are two major drawbacks to this approach: 1) A full ontology is hard to obtain in advance (Xu and Hu, 2018). In the industry, databases are usually exposed through an external API only, which is owned and maintained by others. It is not feasible to gain access to enumerate all the possible values for each slot. 2) Even if a full ontology exists, the number of possible slot values could be large and variable. For example, a restaurant name or a train departure time can contain a large number"
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    287,
+                    3101,
+                    1213,
+                    3188
+                ],
+                "angle": 0,
+                "content": "*Work partially done while the first author was an intern at Salesforce Research."
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3230,
+                    1280,
+                    3279
+                ],
+                "angle": 0,
+                "content": "808"
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    439,
+                    3301,
+                    2036,
+                    3395
+                ],
+                "angle": 0,
+                "content": "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics, pages 808-819 Florence, Italy, July 28 - August 2, 2019. ©2019 Association for Computational Linguistics"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    263,
+                    1210,
+                    431
+                ],
+                "angle": 0,
+                "content": "of possible values. Therefore, many of the previous works that are based on neural classification models may not be applicable in real scenario."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    434,
+                    1215,
+                    1729
+                ],
+                "angle": 0,
+                "content": "Budzianowski et al. (2018) recently introduced a multi-domain dialogue dataset (MultiWOZ), which adds new challenges in DST due to its mixed-domain conversations. As shown in Fig. 1, a user can start a conversation by asking to reserve a restaurant, then requests information regarding an attraction nearby, and finally asks to book a taxi. In this case, the DST model has to determine the corresponding domain, slot and value at each turn of dialogue, which contains a large number of combinations in the ontology, i.e., 30 (domain, slot) pairs and over 4,500 possible slot values in total. Another challenge in the multidomain setting comes from the need to perform multi-turn mapping. Single-turn mapping refers to the scenario where the (domain, slot, value) triplet can be inferred from a single turn, while in multi-turn mapping, it should be inferred from multiple turns which happen in different domains. For instance, the (area, centre) pair from the attraction domain in Fig. 1 can be predicted from the area information in the restaurant domain, which is mentioned in the preceding turns."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1732,
+                    1215,
+                    2515
+                ],
+                "angle": 0,
+                "content": "To tackle these challenges, we emphasize that DST models should share tracking knowledge across domains. There are many slots among different domains that share all or some of their values. For example, the area slot can exist in many domains, e.g., restaurant, attraction, and taxi. Moreover, the name slot in the restaurant domain can share the same value with the departure slot in the taxi domain. Additionally, to enable the DST model to track slots in unseen domains, transferring knowledge across multiple domains is imperative. We expect DST models can learn to track some slots in zero-shot domains by learning to track the same slots in other domains."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2525,
+                    1215,
+                    2859
+                ],
+                "angle": 0,
+                "content": "In this paper, we propose a transferable dialogue state generator (TRADE) for multi-domain task-oriented dialogue state tracking. The simplicity of our approach and the boost of the performance is the main advantage of TRADE. Contributions in this work are summarized as<sup>1</sup>:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2901,
+                    1215,
+                    3073
+                ],
+                "angle": 0,
+                "content": "- To overcome the multi-turn mapping problem, TRADE leverages its context-enhanced slot gate and copy mechanism to properly track slot"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1312,
+                    266,
+                    2188,
+                    319
+                ],
+                "angle": 0,
+                "content": "values mentioned anywhere in dialogue history."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1270,
+                    364,
+                    2193,
+                    645
+                ],
+                "angle": 0,
+                "content": "- By sharing its parameters across domains, and without requiring a predefined ontology, TRADE can share knowledge between domains to track unseen slot values, achieving state-of-the-art performance on multi-domain DST."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1270,
+                    687,
+                    2195,
+                    1024
+                ],
+                "angle": 0,
+                "content": "- TRADE enables zero-shot DST by leveraging the domains it has already seen during training. If a few training samples from unseen domains are available, TRADE can adapt to new few-shot domains without forgetting the previous domains."
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    1270,
+                    364,
+                    2195,
+                    1024
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1270,
+                    1115,
+                    1679,
+                    1168
+                ],
+                "angle": 0,
+                "content": "2 TRADE Model"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1206,
+                    2193,
+                    1771
+                ],
+                "angle": 0,
+                "content": "The proposed model in Fig. 2 comprises three components: an utterance encoder, a slot gate, and a state generator. Instead of predicting the probability of every predefined ontology term, our model directly generates slot values. Similar to Johnson et al. (2017) for multilingual neural machine translation, we share all the model parameters, and the state generator starts with a different start-of-sentence token for each (domain, slot) pair."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1775,
+                    2193,
+                    2336
+                ],
+                "angle": 0,
+                "content": "The utterance encoder encodes dialogue utterances into a sequence of fixed-length vectors. To determine whether any of the (domain, slot) pairs are mentioned, the context-enhanced slot gate is used with the state generator. The state generator decodes multiple output tokens for all (domain, slot) pairs independently to predict their corresponding values. The context-enhanced slot gate predicts whether each of the pairs is actually triggered by the dialogue via a three-way classifier."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2339,
+                    2195,
+                    2908
+                ],
+                "angle": 0,
+                "content": "Let us define \\( X = \\{(U_1, R_1), \\ldots, (U_T, R_T)\\} \\) as the set of user utterance and system response pairs in \\( T \\) turns of dialogue, and \\( B = \\{B_1, \\ldots, B_T\\} \\) as the dialogue states for each turn. Each \\( B_t \\) is a tuple (domain: \\( D_n \\), slot: \\( S_m \\), value: \\( Y_j^{\\text{value}} \\)), where \\( D = \\{D_1, \\ldots, D_N\\} \\) are the \\( N \\) different domains, and \\( S = \\{S_1, \\ldots, S_M\\} \\) are the \\( M \\) different slots. Assume that there are \\( J \\) possible (domain, slot) pairs, and \\( Y_j^{\\text{value}} \\) is the true word sequence for \\( j \\)-th (domain, slot) pair."
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2946,
+                    1754,
+                    2999
+                ],
+                "angle": 0,
+                "content": "2.1 Utterance Encoder"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    3023,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Note that the utterance encoder can be any existing encoding model. We use bi-directional gated recurrent units (GRU) (Chung et al., 2014) to"
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    3097,
+                    1210,
+                    3188
+                ],
+                "angle": 0,
+                "content": "The code is released at github.com/ jasonwu0731/trade-dst"
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3230,
+                    1280,
+                    3279
+                ],
+                "angle": 0,
+                "content": "809"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    325,
+                    277,
+                    2153,
+                    1290
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 2: The architecture of the proposed TRADE model, which includes (a) an utterance encoder, (b) a state generator, and (c) a slot gate, all of which are shared among domains. The state generator will decode \\( J \\) times independently for all the possible (domain, slot) pairs. At the first decoding step, state generator will take the \\( j \\)-th (domain, slot) embeddings as input to generate its corresponding slot values and slot gate. The slot gate predicts whether the \\( j \\)-th (domain, slot) pair is triggered by the dialogue."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1673,
+                    1215,
+                    2462
+                ],
+                "angle": 0,
+                "content": "encode the dialogue history. The input to the utterance encoder is denoted as history \\( X_{t} = [U_{t - l},R_{t - l},\\ldots ,U_{t},R_{t}] \\in \\mathbb{R}^{|X_{t}| \\times d_{emb}} \\), which is the concatenation of all words in the dialogue history. \\( l \\) is the number of selected dialogue turns and \\( d_{emb} \\) indicates the embedding size. The encoded dialogue history is represented as \\( H_{t} = [h_{1}^{\\mathrm{enc}},\\dots,h_{|X_{t}|}^{\\mathrm{enc}}] \\in \\mathbb{R}^{|X_{t}| \\times d_{hdd}} \\), where \\( d_{hdd} \\) is the hidden size. As mentioned in Section 1, due to the multi-turn mapping problem, the model should infer the states across a sequence of turns. Therefore, we use the recent dialogue history of length \\( l \\) as the utterance encoder input, rather than the current utterance only."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2497,
+                    717,
+                    2546
+                ],
+                "angle": 0,
+                "content": "2.2 State Generator"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2571,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "To generate slot values using text from the input source, a copy mechanism is required. There are three common ways to perform copying, i.e., index-based copy (Vinyals et al., 2015), hard-gated copy (Gulcehre et al., 2016; Madotto et al., 2018; Wu et al., 2019) and soft-gated copy (See et al., 2017; McCann et al., 2018). The index-based mechanism is not suitable for DST task because the exact word(s) of the true slot value are not always found in the utterance. The hard-gate copy mechanism usually needs additional supervi"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1673,
+                    2195,
+                    1946
+                ],
+                "angle": 0,
+                "content": "sion on the gating function. As such, we employ soft-gated pointer-generator copying to combine a distribution over the vocabulary and a distribution over the dialogue history into a single output distribution."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1964,
+                    2193,
+                    2855
+                ],
+                "angle": 0,
+                "content": "We use a GRU as the decoder of the state generator to predict the value for each (domain, slot) pair, as shown in Fig. 2. The state generator decodes \\( J \\) pairs independently. We simply supply the summed embedding of the domain and slot as the first input to the decoder. At decoding step \\( k \\) for the \\( j \\)-th (domain, slot) pair, the generator GRU takes a word embedding \\( w_{jk} \\) as its input and returns a hidden state \\( h_{jk}^{\\mathrm{dec}} \\). The state generator first maps the hidden state \\( h_{jk}^{\\mathrm{dec}} \\) into the vocabulary space \\( P_{jk}^{\\mathrm{vocab}} \\) using the trainable embedding \\( E \\in \\mathbb{R}^{|V| \\times d_{hdd}} \\), where \\( |V| \\) is the vocabulary size. At the same time, the \\( h_{jk}^{\\mathrm{dec}} \\) is used to compute the history attention \\( P_{jk}^{\\mathrm{history}} \\) over the encoded dialogue history \\( H_t \\):"
+            },
+            {
+                "block_id": 7,
+                "type": "equation",
+                "bbox": [
+                    1344,
+                    2922,
+                    2193,
+                    2999
+                ],
+                "angle": 0,
+                "content": "\\[\nP _ {j k} ^ {\\text {v o c a b}} = \\operatorname {S o f t m a x} \\left(E \\cdot \\left(h _ {j k} ^ {\\text {d e c}}\\right) ^ {\\top}\\right) \\in \\mathbb {R} ^ {| V |}, \\tag {1}\n\\]"
+            },
+            {
+                "block_id": 8,
+                "type": "equation",
+                "bbox": [
+                    1337,
+                    2985,
+                    2076,
+                    3058
+                ],
+                "angle": 0,
+                "content": "\\[\nP _ {j k} ^ {\\mathrm {h i s t o r y}} = \\operatorname {S o f t m a x} (H _ {t} \\cdot (h _ {j k} ^ {\\mathrm {d e c}}) ^ {\\top}) \\in \\mathbb {R} ^ {| X _ {t} |}.\n\\]"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    3132,
+                    2190,
+                    3206
+                ],
+                "angle": 0,
+                "content": "The final output distribution \\(P_{jk}^{\\mathrm{final}}\\) is the weighted-"
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3230,
+                    1280,
+                    3279
+                ],
+                "angle": 0,
+                "content": "810"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    287,
+                    266,
+                    756,
+                    315
+                ],
+                "angle": 0,
+                "content": "sum of two distributions,"
+            },
+            {
+                "block_id": 1,
+                "type": "equation",
+                "bbox": [
+                    406,
+                    357,
+                    1210,
+                    519
+                ],
+                "angle": 0,
+                "content": "\\[\n\\begin{array}{l} P _ {j k} ^ {\\text {f i n a l}} = p _ {j k} ^ {\\text {g e n}} \\times P _ {j k} ^ {\\text {v o c a b}} \\tag {2} \\\\ + \\left(1 - p _ {j k} ^ {\\mathrm {g e n}}\\right) \\times P _ {j k} ^ {\\mathrm {h i s t o r y}} \\in \\mathbb {R} ^ {| V |}. \\\\ \\end{array}\n\\]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    287,
+                    561,
+                    1213,
+                    677
+                ],
+                "angle": 0,
+                "content": "The scalar \\( p_{jk}^{\\mathrm{gen}} \\) is trainable to combine the two distributions, which is computed by"
+            },
+            {
+                "block_id": 3,
+                "type": "equation",
+                "bbox": [
+                    332,
+                    719,
+                    1210,
+                    838
+                ],
+                "angle": 0,
+                "content": "\\[\n\\begin{array}{r} p _ {j k} ^ {\\text {g e n}} = \\operatorname {S i g m o i d} \\left(W _ {1} \\cdot \\left[ h _ {j k} ^ {\\text {d e c}}; w _ {j k}; c _ {j k} \\right]\\right) \\in \\mathbb {R} ^ {1}, \\\\ c _ {j k} = P _ {i k} ^ {\\text {h i s t o r y}} \\cdot H _ {t} \\in \\mathbb {R} ^ {d _ {h d d}} \\end{array} \\tag {3}\n\\]"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    894,
+                    1213,
+                    1115
+                ],
+                "angle": 0,
+                "content": "where \\( W_{1} \\) is a trainable matrix and \\( c_{jk} \\) is the context vector. Note that due to Eq (2), our model is able to generate words even if they are not predefined in the vocabulary."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1164,
+                    585,
+                    1210
+                ],
+                "angle": 0,
+                "content": "2.3 Slot Gate"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1238,
+                    1213,
+                    1687
+                ],
+                "angle": 0,
+                "content": "Unlike single-domain DST problems, where only a few slots that need to be tracked, e.g., four slots in WOZ (Wen et al., 2017), and eight slots in DSTC2 (Henderson et al., 2014a), there are a large number of (domain, slot) pairs in multi-domain DST problems. Therefore, the ability to predict the domain and slot at current turn \\( t \\) becomes more challenging."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1694,
+                    1215,
+                    2371
+                ],
+                "angle": 0,
+                "content": "Our context-enhanced slot gate \\( G \\) is a simple three-way classifier that maps a context vector taken from the encoder hidden states \\( H_{t} \\) to a probability distribution over ptr, none, and dontcare classes. For each (domain, slot) pair, if the slot gate predicts none or dontcare, we ignore the values generated by the decoder and fill the pair as \"not-mentioned\" or \"does not care\". Otherwise, we take the generated words from our state generator as its value. With a linear layer parameterized by \\( W_{g} \\in \\mathbb{R}^{3 \\times d_{hdd}} \\), the slot gate for the \\( j \\)-th (domain, slot) pair is defined as"
+            },
+            {
+                "block_id": 8,
+                "type": "equation",
+                "bbox": [
+                    421,
+                    2413,
+                    1213,
+                    2487
+                ],
+                "angle": 0,
+                "content": "\\[\nG _ {j} = \\operatorname {S o f t m a x} \\left(W _ {g} \\cdot \\left(c _ {j 0}\\right) ^ {\\top}\\right) \\in \\mathbb {R} ^ {3}, \\tag {4}\n\\]"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2532,
+                    1213,
+                    2641
+                ],
+                "angle": 0,
+                "content": "where \\( c_{j0} \\) is the context vector computed in Eq (3) using the first decoder hidden state."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2687,
+                    662,
+                    2739
+                ],
+                "angle": 0,
+                "content": "2.4 Optimization"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2764,
+                    1213,
+                    2995
+                ],
+                "angle": 0,
+                "content": "During training, we optimize for both the slot gate and the state generator. For the former, the cross-entropy loss \\( L_{g} \\) is computed between the predicted slot gate \\( G_{j} \\) and the true one-hot label \\( y_{j}^{\\mathrm{gate}} \\),"
+            },
+            {
+                "block_id": 12,
+                "type": "equation",
+                "bbox": [
+                    458,
+                    3044,
+                    1210,
+                    3199
+                ],
+                "angle": 0,
+                "content": "\\[\nL _ {g} = \\sum_ {j = 1} ^ {J} - \\log \\left(G _ {j} \\cdot \\left(y _ {j} ^ {\\text {g a t e}}\\right) ^ {\\top}\\right). \\tag {5}\n\\]"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    266,
+                    2190,
+                    431
+                ],
+                "angle": 0,
+                "content": "For the latter, another cross-entropy loss \\( L_{v} \\) between \\( P_{jk}^{\\mathrm{final}} \\) and the true words \\( Y_{j}^{\\mathrm{label}} \\) is used. We define \\( L_{v} \\) as"
+            },
+            {
+                "block_id": 14,
+                "type": "equation",
+                "bbox": [
+                    1347,
+                    473,
+                    2190,
+                    638
+                ],
+                "angle": 0,
+                "content": "\\[\nL _ {v} = \\sum_ {j = 1} ^ {J} \\sum_ {k = 1} ^ {| Y _ {j} |} - \\log \\left(P _ {j k} ^ {\\text {f i n a l}} \\cdot \\left(y _ {j k} ^ {\\text {v a l u e}}\\right) ^ {\\top}\\right). \\tag {6}\n\\]"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    680,
+                    2193,
+                    905
+                ],
+                "angle": 0,
+                "content": "\\(L_{v}\\) is the sum of losses from all the (domain, slot) pairs and their decoding time steps. We optimize the weighted-sum of these two loss functions using hyper-parameters \\(\\alpha\\) and \\(\\beta\\),"
+            },
+            {
+                "block_id": 16,
+                "type": "equation",
+                "bbox": [
+                    1565,
+                    957,
+                    2190,
+                    1017
+                ],
+                "angle": 0,
+                "content": "\\[\nL = \\alpha L _ {g} + \\beta L _ {v}. \\tag {7}\n\\]"
+            },
+            {
+                "block_id": 17,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1062,
+                    1803,
+                    1115
+                ],
+                "angle": 0,
+                "content": "3 Unseen Domain DST"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1154,
+                    2193,
+                    1887
+                ],
+                "angle": 0,
+                "content": "In this section, we focus on the ability of TRADE to generalize to an unseen domain by considering zero-shot transferring and few-shot domain expanding. In the zero-shot setting, we assume we have no training data in the new domain, while in the few-shot case, we assume just \\(1\\%\\) of the original training data in the unseen domain is available (around 20 to 30 dialogues). One of the motivations to perform unseen domain DST is because collecting a large-scale task-oriented dataset for a new domain is expensive and time-consuming (Budzianowski et al., 2018), and there are a large amount of domains in realistic scenarios."
+            },
+            {
+                "block_id": 19,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1932,
+                    1672,
+                    1982
+                ],
+                "angle": 0,
+                "content": "3.1 Zero-shot DST"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2006,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Ideally, based on the slots already learned, a DST model is able to directly track those slots that are present in a new domain. For example, if the model is able to track the departure slot in the train domain, then that ability may transfer to the taxi domain, which uses similar slots. Note that generative DST models take the dialogue context/history \\( X \\), the domain \\( D \\), and the slot \\( S \\) as input and then generate the corresponding values \\( Y^{\\text{value}} \\). Let \\( (X, D_{\\text{source}}, S_{\\text{source}}, Y_{\\text{source}}^{\\text{value}}) \\) be the set of samples seen during the training phase and \\( (X, D_{\\text{target}}, S_{\\text{target}}, Y_{\\text{target}}^{\\text{value}}) \\) the samples which the model was not trained to track. A zero-shot DST model should be able to generate the correct values of \\( Y_{\\text{target}}^{\\text{value}} \\) given the context \\( X \\), domain \\( D_{\\text{target}} \\), and slot \\( S_{\\text{target}} \\), without using any training samples. The same context \\( X \\) may appear in both source and target domains but the pairs \\( (D_{\\text{target}}, S_{\\text{target}}) \\) are unseen. This setting is extremely challenging if no slot in \\( S_{\\text{target}} \\) appears in \\( S_{\\text{source}} \\), since the model has never been trained to track such a slot."
+            },
+            {
+                "block_id": 21,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3230,
+                    1277,
+                    3279
+                ],
+                "angle": 0,
+                "content": "811"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    287,
+                    263,
+                    1141,
+                    319
+                ],
+                "angle": 0,
+                "content": "3.2 Expanding DST for Few-shot Domain"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    354,
+                    1215,
+                    1143
+                ],
+                "angle": 0,
+                "content": "In this section, we assume that only a small number of samples from the new domain \\((X, D_{\\text{target}}, S_{\\text{target}}, Y_{\\text{target}}^{\\text{value}})\\) are available, and the purpose is to evaluate the ability of our DST model to transfer its learned knowledge to the new domain without forgetting previously learned domains. There are two advantages to performing few-shot domain expansion: 1) being able to quickly adapt to new domains and obtain decent performance with only a small amount of training data; 2) not requiring retraining with all the data from previously learned domains, since the data may no longer be available and retraining is often very time-consuming."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1154,
+                    1215,
+                    1715
+                ],
+                "angle": 0,
+                "content": "Firstly, we consider a straightforward naive baseline, i.e., fine-tuning with no constraints. Then, we employ two specific continual learning techniques: elastic weight consolidation (EWC) (Kirkpatrick et al., 2017) and gradient episodic memory (GEM) (Lopez-Paz et al., 2017) to fine-tune our model. We define \\(\\Theta_S\\) as the model's parameters trained in the source domain, and \\(\\Theta\\) indicates the current optimized parameters according to the target domain data."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1725,
+                    1220,
+                    2006
+                ],
+                "angle": 0,
+                "content": "EWC uses the diagonal of the Fisher information matrix \\( F \\) as a regularizer for adapting to the target domain data. This matrix is approximated using samples from the source domain. The EWC loss is defined as"
+            },
+            {
+                "block_id": 4,
+                "type": "equation",
+                "bbox": [
+                    325,
+                    2062,
+                    1215,
+                    2196
+                ],
+                "angle": 0,
+                "content": "\\[\nL _ {e w c} (\\Theta) = L (\\Theta) + \\sum_ {i} \\frac {\\lambda}{2} F _ {i} (\\Theta_ {i} - \\Theta_ {S, i}) ^ {2}, (8)\n\\]"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2259,
+                    1218,
+                    2652
+                ],
+                "angle": 0,
+                "content": "where \\(\\lambda\\) is a hyper-parameter. Different from EWC, GEM keeps a small number of samples \\(K\\) from the source domains, and, while the model learns the new target domain, a constraint is applied on the gradient to prevent the loss on the stored samples from increasing. The training process is defined as:"
+            },
+            {
+                "block_id": 6,
+                "type": "equation",
+                "bbox": [
+                    431,
+                    2711,
+                    1210,
+                    2799
+                ],
+                "angle": 0,
+                "content": "\\[\n\\operatorname {M i n i m i z e} _ {\\Theta} L (\\Theta) \\tag {9}\n\\]"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    431,
+                    2785,
+                    1066,
+                    2837
+                ],
+                "angle": 0,
+                "content": "Subject to \\(L(\\Theta, K) \\leq L(\\Theta_S, K)\\),"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2908,
+                    1218,
+                    3192
+                ],
+                "angle": 0,
+                "content": "where \\(L(\\Theta, K)\\) is the loss value of the \\(K\\) stored samples. Lopez-Paz et al. (2017) show how to solve the optimization problem in Eq (9) with quadratic programming if the loss of the stored samples increases."
+            },
+            {
+                "block_id": 9,
+                "type": "table",
+                "bbox": [
+                    1282,
+                    256,
+                    2190,
+                    785
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>Hotel</td><td>Train</td><td>Attraction</td><td>Restaurant</td><td>Taxi</td></tr><tr><td>Slots</td><td>price, type, parking, stay, day, people, area, stars, internet, name</td><td>destination, departure, day, arrive by, leave at, people</td><td>area, name, type</td><td>food, price, area, name, time, day, people</td><td>destination, departure, arrive by, leave by</td></tr><tr><td>Train</td><td>3381</td><td>3103</td><td>2717</td><td>3813</td><td>1654</td></tr><tr><td>Valid</td><td>416</td><td>484</td><td>401</td><td>438</td><td>207</td></tr><tr><td>Test</td><td>394</td><td>494</td><td>395</td><td>437</td><td>195</td></tr></table>",
+                "caption": "Table 1: The dataset information of MultiWOZ. In total, there are 30 (domain, slot) pairs from the selected five domains. The numbers in the last three rows indicate the number of dialogues for train, validation and test sets."
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1171,
+                    1630,
+                    1231
+                ],
+                "angle": 0,
+                "content": "4 Experiments"
+            },
+            {
+                "block_id": 12,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1262,
+                    1535,
+                    1308
+                ],
+                "angle": 0,
+                "content": "4.1 Dataset"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1333,
+                    2195,
+                    2353
+                ],
+                "angle": 0,
+                "content": "Multi-domain Wizard-of-Oz (Budzianowski et al., 2018) (MultiWOZ) is the largest existing human-human conversational corpus spanning over seven domains, containing 8438 multi-turn dialogues, with each dialogue averaging 13.68 turns. Different from existing standard datasets like WOZ (Wen et al., 2017) and DSTC2 (Henderson et al., 2014a), which contain less than 10 slots and only a few hundred values, MultiWOZ has 30 (domain, slot) pairs and over 4,500 possible values. We use the DST labels from the original training, validation and testing dataset. Only five domains (restaurant, hotel, attraction, taxi, train) are used in our experiment because the other two domains (hospital, police) have very few dialogues (10% compared to others) and only appear in the training set. The slots in each domain and the corresponding data size are reported in Table 1."
+            },
+            {
+                "block_id": 14,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    2385,
+                    1704,
+                    2441
+                ],
+                "angle": 0,
+                "content": "4.2 Training Details"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2459,
+                    2195,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Multi-domain Joint Training The model is trained end-to-end using the Adam optimizer (Kingma and Ba, 2015) with a batch size of 32. The learning rate annealing is in the range of [0.001, 0.0001] with a dropout ratio of 0.2. Both \\(\\alpha\\) and \\(\\beta\\) in Eq (7) are set to one. All the embeddings are initialized by concatenating Glove embeddings (Pennington et al., 2014) and character embeddings (Hashimoto et al., 2016), where the dimension is 400 for each vocabulary word. A greedy search decoding strategy is used for our state generator since the generated slot values are usually short in length. In addition, to in-"
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3230,
+                    1282,
+                    3279
+                ],
+                "angle": 0,
+                "content": "812"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    266,
+                    1215,
+                    543
+                ],
+                "angle": 0,
+                "content": "crease model generalization and simulate an out-of-vocabulary setting, a word dropout is utilized with the utterance encoder by randomly masking a small amount of input tokens, similar to Bowman et al. (2016)."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    575,
+                    1215,
+                    1027
+                ],
+                "angle": 0,
+                "content": "Domain Expanding For training, we follow the same procedure as in the joint training section, and we run a small grid search for all the methods using the validation set. For EWC, we set different values of \\(\\lambda\\) for all the domains, and the optimal value is selected using the validation set. Finally, in GEM, we set the memory sizes \\(K\\) to \\(1\\%\\) of the source domains."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1066,
+                    548,
+                    1115
+                ],
+                "angle": 0,
+                "content": "4.3 Results"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1136,
+                    1215,
+                    1701
+                ],
+                "angle": 0,
+                "content": "Two evaluation metrics, joint goal accuracy and slot accuracy, are used to evaluate the performance on multi-domain DST. The joint goal accuracy compares the predicted dialogue states to the ground truth \\( B_{t} \\) at each dialogue turn \\( t \\), and the output is considered correct if and only if all the predicted values exactly match the ground truth values in \\( B_{t} \\). The slot accuracy, on the other hand, individually compares each (domain, slot, value) triplet to its ground truth label."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1732,
+                    1215,
+                    2069
+                ],
+                "angle": 0,
+                "content": "Multi-domain Training We make a comparison with the following existing models: MDBT (Ramadan et al., 2018), GLAD (Zhong et al., 2018), GCE (Nouri and Hosseini-Asl, 2018), and SpanPtr (Xu and Hu, 2018), and we briefly describe these baselines models below:"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2104,
+                    1215,
+                    2445
+                ],
+                "angle": 0,
+                "content": "- MDBT \\(^{2}\\): Multiple bi-LSTMs are used to encode system and user utterances. The semantic similarity between utterances and every predefined ontology term is computed separately. Each ontology term is triggered if the predicted score is greater than a threshold."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2480,
+                    1215,
+                    2876
+                ],
+                "angle": 0,
+                "content": "- GLAD<sup>3</sup>: This model uses self-attentive RNNs to learn a global tracker that shares parameters among slots and a local tracker that tracks each slot. The model takes previous system actions and the current user utterance as input, and computes semantic similarity with predefined ontology terms."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2915,
+                    1213,
+                    3027
+                ],
+                "angle": 0,
+                "content": "- GCE: This is the current state-of-the-art model on the single-domain WOZ dataset (Wen et al.,"
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    290,
+                    2104,
+                    1215,
+                    3027
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "table",
+                "bbox": [
+                    1282,
+                    256,
+                    2188,
+                    722
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\"></td><td colspan=\"2\">MultiWOZ</td><td colspan=\"2\">MultiWOZ\n(Only Restaurant)</td></tr><tr><td>Joint</td><td>Slot</td><td>Joint</td><td>Slot</td></tr><tr><td>MDBT</td><td>15.57</td><td>89.53</td><td>17.98</td><td>54.99</td></tr><tr><td>GLAD</td><td>35.57</td><td>95.44</td><td>53.23</td><td>96.54</td></tr><tr><td>GCE</td><td>36.27</td><td>98.42</td><td>60.93</td><td>95.85</td></tr><tr><td>SpanPtr</td><td>30.28</td><td>93.85</td><td>49.12</td><td>87.89</td></tr><tr><td>TRADE</td><td>48.62</td><td>96.92</td><td>65.35</td><td>93.28</td></tr></table>",
+                "caption": "Table 2: The multi-domain DST evaluation on MultiWOZ and its single restaurant domain. TRADE has the highest joint accuracy, which surpasses current state-of-the-art GCE model."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1309,
+                    1069,
+                    2195,
+                    1182
+                ],
+                "angle": 0,
+                "content": "2017). It is a simplified and speed up version of GLAD without slot-specific RNNs."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1270,
+                    1224,
+                    2193,
+                    1508
+                ],
+                "angle": 0,
+                "content": "- SpanPtr: Most related to our work, this is the first model that applies pointer networks (Vinyals et al., 2015) to the single-domain DST problem, which generates both start and end pointers to perform index-based copying."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1550,
+                    2193,
+                    2115
+                ],
+                "angle": 0,
+                "content": "To have a fair comparison, we modify the original implementation of the MDBT and GLAD models by: 1) adding name, destination, and departure slots for evaluation if they were discarded or replaced by placeholders; and 2) removing the hand-crafted rules of tracking the booking slots such as stay and people slots if there are any; and 3) creating a full ontology for their model to cover all (domain, slot, value) pairs that were not in the original ontology generated by the data provider."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2118,
+                    2193,
+                    3069
+                ],
+                "angle": 0,
+                "content": "As shown in Table 2, TRADE achieves the highest performance, \\(48.62\\%\\) on joint goal accuracy and \\(96.92\\%\\) on slot accuracy, on MultiWOZ. For comparison with the performance on single-domain, the results on the restaurant domain of MultiWOZ are reported as well. The performance difference between SpanPtr and our model mainly comes from the limitation of index-based copying. For examples, if the true label for the price range slot is cheap, the relevant user utterance describing the restaurant may actually be, for example, economical, inexpensive, or cheaply. Note that the MDBT, GLAD, and GCE models each need a predefined domain ontology to perform binary classification for each ontology term, which hinders their DST tracking performance, as mentioned in Section 1."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    3080,
+                    2193,
+                    3195
+                ],
+                "angle": 0,
+                "content": "We visualize the cosine similarity matrix for all possible slot embeddings in Fig. 3. Most of the"
+            },
+            {
+                "block_id": 16,
+                "type": "page_footnote",
+                "bbox": [
+                    287,
+                    3051,
+                    945,
+                    3192
+                ],
+                "angle": 0,
+                "content": "2github.com/osmanio2/multi-domain-belief-tracking3github.com/salesforce/glad"
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3230,
+                    1280,
+                    3279
+                ],
+                "angle": 0,
+                "content": "813"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    300,
+                    252,
+                    2188,
+                    841
+                ],
+                "angle": 0,
+                "content": "<table><tr><td colspan=\"2\">Evaluation on 4 Domains</td><td colspan=\"2\">Joint Slot Except Hotel</td><td colspan=\"2\">Joint Slot Except Train</td><td colspan=\"2\">Joint Slot Except Attraction</td><td colspan=\"2\">Joint Slot Except Restaurant</td><td colspan=\"2\">Joint Slot Except Taxi</td></tr><tr><td colspan=\"2\">Base Model (BM) training on 4 domains</td><td>58.98</td><td>96.75</td><td>55.26</td><td>96.76</td><td>55.02</td><td>97.03</td><td>54.69</td><td>96.64</td><td>49.87</td><td>96.77</td></tr><tr><td rowspan=\"3\">Fine-tuning BM on 1% new domain</td><td>Naive</td><td>36.08</td><td>93.48</td><td>23.25</td><td>90.32</td><td>40.05</td><td>95.54</td><td>32.85</td><td>91.69</td><td>46.10</td><td>96.34</td></tr><tr><td>EWC</td><td>40.82</td><td>94.16</td><td>28.02</td><td>91.49</td><td>45.37</td><td>84.94</td><td>34.45</td><td>92.53</td><td>46.88</td><td>96.44</td></tr><tr><td>GEM</td><td>53.54</td><td>96.27</td><td>50.69</td><td>96.42</td><td>50.51</td><td>96.66</td><td>45.91</td><td>95.58</td><td>46.43</td><td>96.45</td></tr><tr><td colspan=\"2\">Evaluation on New Domain</td><td colspan=\"2\">Hotel</td><td colspan=\"2\">Train</td><td colspan=\"2\">Attraction</td><td colspan=\"2\">Restaurant</td><td colspan=\"2\">Taxi</td></tr><tr><td colspan=\"2\">Training 1% New Domain</td><td>19.53</td><td>77.33</td><td>44.24</td><td>85.66</td><td>35.88</td><td>68.60</td><td>32.72</td><td>82.39</td><td>60.38</td><td>72.82</td></tr><tr><td rowspan=\"3\">Fine-tuning BM on 1% new domain</td><td>Naive</td><td>19.13</td><td>75.22</td><td>59.83</td><td>90.63</td><td>29.39</td><td>60.73</td><td>42.42</td><td>86.82</td><td>63.81</td><td>79.81</td></tr><tr><td>EWC</td><td>19.35</td><td>76.25</td><td>58.10</td><td>90.33</td><td>32.28</td><td>62.43</td><td>40.93</td><td>85.80</td><td>63.61</td><td>79.65</td></tr><tr><td>GEM</td><td>19.73</td><td>77.92</td><td>54.31</td><td>89.55</td><td>34.73</td><td>64.37</td><td>39.24</td><td>86.05</td><td>63.16</td><td>79.27</td></tr></table>",
+                "caption": "Table 3: We run domain expansion experiments by excluding one domain and fine-tuning on that domain. The first row is the base model trained on the four domains. The second row is the results on the four domains after fine-tuning on \\(1\\%\\) new domain data using three different strategies. One can find out that GEM outperforms Naive and EWC fine-tuning in terms of catastrophic forgetting on the four domains. Then, we evaluate the results on new domain for two cases: training from scratch and fine-tuning from the base model. Results show that fine-tuning from the base model usually achieves better results on the new domain compared to training from scratch."
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    387,
+                    1262,
+                    1113,
+                    1946
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 3: Embeddings cosine similarity visualization. The rows and columns are all the possible slots in MultiWOZ. Slots that share similar values or have correlated values learn similar embeddings. For example destination vs. departure (which share similar values) or price range vs. stars exhibit high correlation."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2399,
+                    1215,
+                    3016
+                ],
+                "angle": 0,
+                "content": "slot embeddings are not close to each other, which is expected because the model only depends on these features as start-of-sentence embeddings to distinguish different slots. Note that some slots are relatively close because either the values they track may share similar semantic meanings or the slots are correlated. For example, destination and departure track names of cities, while people and stay track numbers. On the other hand, price range and star in hotel domain are correlated because high-star hotels are usually expensive."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    3080,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Zero-shot We run zero-shot experiments by excluding one domain from the training set. As"
+            },
+            {
+                "block_id": 6,
+                "type": "table",
+                "bbox": [
+                    1371,
+                    1255,
+                    2098,
+                    1596
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\"></td><td colspan=\"2\">Trained Single</td><td colspan=\"2\">Zero-Shot</td></tr><tr><td>Joint</td><td>Slot</td><td>Joint</td><td>Slot</td></tr><tr><td>Hotel</td><td>55.52</td><td>92.66</td><td>13.70</td><td>65.32</td></tr><tr><td>Train</td><td>77.71</td><td>95.30</td><td>22.37</td><td>49.31</td></tr><tr><td>Attraction</td><td>71.64</td><td>88.97</td><td>19.87</td><td>55.53</td></tr><tr><td>Restaurant</td><td>65.35</td><td>93.28</td><td>11.52</td><td>53.43</td></tr><tr><td>Taxi</td><td>76.13</td><td>89.53</td><td>60.58</td><td>73.92</td></tr></table>",
+                "caption": "Table 4: Zero-shot experiments on an unseen domain. In taxi domain, our model achieves \\(60.58\\%\\) joint goal accuracy without training on any samples from taxi domain. Trained Single column is the results achieved by training on \\(100\\%\\) single-domain data as a reference."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2003,
+                    2195,
+                    2627
+                ],
+                "angle": 0,
+                "content": "shown in Table 4, the taxi domain achieves the highest zero-shot performance, \\(60.58\\%\\) on joint goal accuracy, which is close to the result achieved by training on all the taxi domain data \\((76.13\\%)\\). Although performances on the other zero-shot domains are not especially promising, they still achieve around 50 to \\(65\\%\\) slot accuracy without using any in-domain samples. The reason why the zero-shot performance on the taxi domain is high is because all four slots share similar values with the corresponding slots in the train domain."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2683,
+                    2195,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Domain Expanding In this setting, the TRADE model is pre-trained on four domains and a held-out domain is reserved for domain expansion to perform fine-tuning. After fine-tuning on the new domain, we evaluate the performance of TRADE on 1) the four pre-trained domains and 2) the new domain. We experiment with different fine-tuning strategies. The base model row in Table 3 indicates the results evaluated on the four domains us-"
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3230,
+                    1282,
+                    3279
+                ],
+                "angle": 0,
+                "content": "814"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    266,
+                    1210,
+                    712
+                ],
+                "angle": 0,
+                "content": "ing their in-domain training data, and the Training \\(1 \\%\\) New Domain row indicates the results achieved by training from scratch using \\(1 \\%\\) of the new domain data. In general, GEM outperforms naive and EWC fine-tuning in terms of overcoming catastrophic forgetting. We also find that pre-training followed by fine-tuning outperforms training from scratch on the single domain."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    719,
+                    1205,
+                    1168
+                ],
+                "angle": 0,
+                "content": "Fine-tuning TRADE with GEM maintains higher performance on the original four domains. Take the hotel domain as an example, the performance on the four domains after fine-tuning with GEM only drops from \\(58.98\\%\\) to \\(53.54\\%\\) \\((-5.44\\%)\\) on joint accuracy, whereas naive fine-tuning deteriorates the tracking ability, dropping joint goal accuracy to \\(36.08\\%\\) \\((-22.9\\%)\\)."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1175,
+                    1205,
+                    1729
+                ],
+                "angle": 0,
+                "content": "Expanding TRADE from four domains to a new domain achieves better performance than training from scratch on the new domain. This observation underscores the advantages of transfer learning with the proposed TRADE model. For example, our TRADE model achieves \\(59.83\\%\\) joint accuracy after fine-tuning using only \\(1\\%\\) of Train domain data, outperforming the training Train domain from scratch, which achieves \\(44.24\\%\\) using the same amount of new-domain data."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1743,
+                    1205,
+                    2301
+                ],
+                "angle": 0,
+                "content": "Finally, when considering hotel and attraction as new domain, fine-tuning with GEM outperforms the naive fine-tuning approach on the new domain. To elaborate, GEM obtains \\(34.73\\%\\) joint accuracy on the attraction domain, but naive fine-tuning on that domain can only achieve \\(29.39\\%\\). This implies that in some cases learning to keep the tracking ability (learned parameters) of the learned domains helps to achieve better performance for the new domain."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2360,
+                    692,
+                    2417
+                ],
+                "angle": 0,
+                "content": "5 Error Analysis"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2459,
+                    1210,
+                    3188
+                ],
+                "angle": 0,
+                "content": "An error analysis of multi-domain training is shown in Fig. 4. Not surprisingly, name slots in the restaurant, attraction, and hotel domains have the highest error rates, \\(8.50\\%\\), \\(8.17\\%\\), and \\(7.86\\%\\), respectively. It is because this slot usually has a large number of possible values that is hard to recognize. On the other hand, number-related slots such as arrive_by, people, and stay usually have the lowest error rates. We also find that the type slot of hotel domain has a high error rate, even if it is an easy task with only two possible values in the ontology. The reason is that labels of the (hotel, type) pair are sometimes missing in the dataset,"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1290,
+                    263,
+                    2146,
+                    936
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 4: Slots error rate on test set of multi-domain training. The name slot in restaurant domain has the highest error rate, \\(8.50\\%\\), and the arrive_by slot in taxi domain has the lowest error rate, \\(1.33\\%\\)"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1305,
+                    1322,
+                    1709,
+                    1634
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(a) Hotel"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1768,
+                    1322,
+                    2168,
+                    1634
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(b) Restaurant"
+            },
+            {
+                "block_id": 12,
+                "type": "image_caption",
+                "bbox": [
+                    1265,
+                    1732,
+                    2193,
+                    2034
+                ],
+                "angle": 0,
+                "content": "Figure 5: Zero-shot DST error analysis on (a) hotel and (b) restaurant domains. The x-axis represents the number of each slot which has correct non-empty values. In hotel domain, the knowledge to track people, area, price_range, and day slots are successfully transferred from other domains seen in training."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2157,
+                    2190,
+                    2269
+                ],
+                "angle": 0,
+                "content": "which makes our prediction incorrect even if it is supposed to be predicted."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2290,
+                    2193,
+                    3181
+                ],
+                "angle": 0,
+                "content": "In Fig. 5, the zero-shot analysis of two selected domains, hotel and restaurant, which contain more slots to be tracked, are shown. To better understand the behavior of knowledge transferring, here we only consider labels that are not empty, i.e., we ignore data that is labeled as \"none\" because predicting \"none\" is relatively easier for the model. In both hotel and restaurant domains, knowledge about people, area, price_range, and day slots are successfully transferred from the other four domains. For unseen slots that only appear in one domain, it is very hard for our model to track correctly. For example, parking, stars and internet slots are only appeared in hotel domain, and the food slot is unique to the restaurant domain."
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3234,
+                    1280,
+                    3276
+                ],
+                "angle": 0,
+                "content": "815"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    290,
+                    263,
+                    674,
+                    312
+                ],
+                "angle": 0,
+                "content": "6 Related Work"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    364,
+                    1215,
+                    1038
+                ],
+                "angle": 0,
+                "content": "Dialogue State Tracking Traditional dialogue state tracking models combine semantics extracted by language understanding modules to estimate the current dialogue states (Williams and Young, 2007; Thomson and Young, 2010; Wang and Lemon, 2013; Williams, 2014), or to jointly learn speech understanding (Henderson et al., 2014b; Zilka and Jurcicek, 2015; Wen et al., 2017). One drawback is that they rely on hand-crafted features and complex domain-specific lexicons (besides the ontology), and are difficult to extend and scale to new domains."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1048,
+                    1215,
+                    2287
+                ],
+                "angle": 0,
+                "content": "Mrkšić et al. (2017) use distributional representation learning to leverage semantic information from word embeddings to and resolve lexical/morphological ambiguity. However, parameters are not shared across slots. On the other hand, Nouri and Hosseini-Asl (2018) utilizes global modules to share parameters between slots, and Zhong et al. (2018) uses slot-specific local modules to learn slot features, which has proved to successfully improve tracking of rare slot values. Lei et al. (2018) use a Seq2Seq model to generate belief spans and the delexicalized response at the same time. Ren et al. (2018) propose StateNet that generates a dialogue history representation and compares the distances between this representation and value vectors in the candidate set. Xu and Hu (2018) use the index-based pointer network for different slots, and show the ability to point to unknown values. However, many of them require a predefined domain ontology, and the models were only evaluated on single-domain setting (DSTC2)."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2297,
+                    1215,
+                    2967
+                ],
+                "angle": 0,
+                "content": "For multi-domain DST, Rastogi et al. (2017) propose a multi-domain approach using two-layer bi-GRU. Although it does not need an ad-hoc state update mechanism, it relies on delexicalization to extract the features. Ramadan et al. (2018) propose a model to jointly track domain and the dialogue states using multiple bi-LSTM. They utilize semantic similarity between utterances and the ontology terms and allow the information to be shared across domains. For a more general overview, readers may refer to the neural dialogue review paper from Gao et al. (2018)."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    3023,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Zero/Few-Shot and Continual Learning Different components of dialogue systems have previously been used for zero-shot application, e.g.,"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    263,
+                    2195,
+                    1789
+                ],
+                "angle": 0,
+                "content": "intention classifiers (Chen et al., 2016), slotfilling (Bapna et al., 2017), and dialogue policy (Gasic and Young, 2014). For language generation, Johnson et al. (2017) propose single encoder-decoder models for zero-shot machine translation, and Zhao and Eskenazi (2018) propose cross-domain zero-shot dialogue generation using action matching. Moreover, few-shot learning in natural language applications has been applied in semantic parsing (Huang et al., 2018), machine translation (Gu et al., 2018), and text classification (Yu et al., 2018) with meta-learning approaches (Schmidhuber, 1987; Finn et al., 2017). These tasks usually have multiple tasks to perform fast adaptation, instead in our case the number of existing domains are limited. Lastly, several approaches have been proposed for continual learning in the machine learning community (Kirkpatrick et al., 2017; Lopez-Paz et al., 2017; Rusu et al., 2016; Fernando et al., 2017; Lee et al., 2017), especially in image recognition tasks (Aljundi et al., 2017; Rannen et al., 2017). The applications within NLP has been comparatively limited, e.g., Shu et al. (2016, 2017b) for opinion mining, Shu et al. (2017a) for document classification, and Lee (2017) for hybrid code networks (Williams et al., 2017)."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1831,
+                    1597,
+                    1883
+                ],
+                "angle": 0,
+                "content": "7 Conclusion"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1925,
+                    2195,
+                    2830
+                ],
+                "angle": 0,
+                "content": "We introduce a transferable dialogue state generator for multi-domain dialogue state tracking, which learns to track states without any predefined domain ontology. TRADE shares all of its parameters across multiple domains and achieves state-of-the-art joint goal accuracy and slot accuracy on the MultiWOZ dataset for five different domains. Moreover, domain sharing enables TRADE to perform zero-shot DST for unseen domains and to quickly adapt to few-shot domains without forgetting the learned ones. In future work, transferring knowledge from other resources can be applied to further improve zero-shot performance, and collecting a dataset with a large number of domains is able to facilitate the application and study of meta-learning techniques within multi-domain DST."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2876,
+                    1669,
+                    2929
+                ],
+                "angle": 0,
+                "content": "Acknowledgments"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2964,
+                    2195,
+                    3192
+                ],
+                "angle": 0,
+                "content": "This work is partially funded by MRP/055/18 of the Innovation Technology Commission, of the Hong Kong University of Science and Technology (HKUST)."
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3234,
+                    1282,
+                    3279
+                ],
+                "angle": 0,
+                "content": "816"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    292,
+                    263,
+                    535,
+                    315
+                ],
+                "angle": 0,
+                "content": "References"
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    350,
+                    1215,
+                    582
+                ],
+                "angle": 0,
+                "content": "Rahaf Aljundi, Punarjay Chakravarty, and Tinne Tuyte-laars. 2017. Expert gate: Lifelong learning with a network of experts. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 3366-3375."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    627,
+                    1215,
+                    813
+                ],
+                "angle": 0,
+                "content": "Ankur Bapna, Gokhan Tur, Dilek Hakkani-Tur, and Larry Heck. 2017. Towards zero-shot frame semantic parsing for domain scaling. arXiv preprint arXiv:1707.02363."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    862,
+                    1215,
+                    1185
+                ],
+                "angle": 0,
+                "content": "Samuel R. Bowman, Luke Vilnis, Oriol Vinyals, Andrew Dai, Rafal Jozefowicz, and Samy Bengio. 2016. Generating sentences from a continuous space. In Proceedings of The 20th SIGNLL Conference on Computational Natural Language Learning, pages 10-21. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1234,
+                    1215,
+                    1561
+                ],
+                "angle": 0,
+                "content": "Paweł Budzianowski, Tsung-Hsien Wen, Bo-Hsiang Tseng, Iñigo Casanueva, Stefan Ultes, Osman Ramadan, and Milica Gasic. 2018. Multiwoz-a large-scale multi-domain wizard-of-oz dataset for task-oriented dialogue modelling. In Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, pages 5016-5026."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1603,
+                    1215,
+                    1883
+                ],
+                "angle": 0,
+                "content": "Yun-Nung Chen, Dilek Hakkani-Tür, and Xiaodong He. 2016. Zero-shot learning of intent embeddings for expansion by convolutional deep structured semantic models. In 2016 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 6045-6049. IEEE."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1929,
+                    1215,
+                    2118
+                ],
+                "angle": 0,
+                "content": "Junyoung Chung, Caglar Gulcehre, KyungHyun Cho, and Yoshua Bengio. 2014. Empirical evaluation of gated recurrent neural networks on sequence modeling. arXiv preprint arXiv:1412.3555."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2164,
+                    1215,
+                    2395
+                ],
+                "angle": 0,
+                "content": "Chrisantha Fernando, Dylan Banarse, Charles Blundell, Yori Zwols, David Ha, Andrei A Rusu, Alexander Pritzel, and Daan Wierstra. 2017. Pathnet: Evolution channels gradient descent in super neural networks. arXiv preprint arXiv:1701.08734."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2441,
+                    1215,
+                    2676
+                ],
+                "angle": 0,
+                "content": "Chelsea Finn, Pieter Abbeel, and Sergey Levine. 2017. Model-agnostic meta-learning for fast adaptation of deep networks. In Proceedings of the 34th International Conference on Machine Learning-Volume 70, pages 1126-1135. JMLR.org."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2722,
+                    1215,
+                    2957
+                ],
+                "angle": 0,
+                "content": "Jianfeng Gao, Michel Galley, and Lihong Li. 2018. Neural approaches to conversational ai. In The 41st International ACM SIGIR Conference on Research & Development in Information Retrieval, pages 1371-1374. ACM."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    3002,
+                    1215,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Milica Gašić and Steve Young. 2014. Gaussian processes for pomdp-based dialogue manager optimization. IEEE/ACM Transactions on Audio, Speech, and Language Processing, 22(1):28-40."
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    292,
+                    350,
+                    1215,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    270,
+                    2195,
+                    547
+                ],
+                "angle": 0,
+                "content": "Jiatao Gu, Yong Wang, Yun Chen, Victor O. K. Li, and Kyunghyun Cho. 2018. Meta-learning for low-resource neural machine translation. In Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, pages 3622-3631. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    585,
+                    2195,
+                    771
+                ],
+                "angle": 0,
+                "content": "Caglar Gulcehre, Sungjin Ahn, Ramesh Nallapati, Bowen Zhou, and Yoshua Bengio. 2016. Pointing the unknown words. arXiv preprint arXiv:1603.08148."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    813,
+                    2195,
+                    1003
+                ],
+                "angle": 0,
+                "content": "Kazuma Hashimoto, Caiming Xiong, Yoshimasa Tsuruoka, and Richard Socher. 2016. A joint many-task model: Growing a neural network for multiple nlp tasks. arXiv preprint arXiv:1611.01587."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1041,
+                    2195,
+                    1273
+                ],
+                "angle": 0,
+                "content": "Matthew Henderson, Blaise Thomson, and Jason D Williams. 2014a. The second dialog state tracking challenge. In Proceedings of the 15th Annual Meeting of the Special Interest Group on Discourse and Dialogue (SIGDIAL), pages 263-272."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1315,
+                    2195,
+                    1592
+                ],
+                "angle": 0,
+                "content": "Matthew Henderson, Blaise Thomson, and Steve Young. 2014b. Word-based dialog state tracking with recurrent neural networks. In Proceedings of the 15th Annual Meeting of the Special Interest Group on Discourse and Dialogue (SIGDIAL), pages 292-299."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1634,
+                    2195,
+                    2006
+                ],
+                "angle": 0,
+                "content": "Po-Sen Huang, Chenglong Wang, Rishabh Singh, Wen-tau Yih, and Xiaodong He. 2018. Natural language to structured query generation via meta-learning. In Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 2 (Short Papers), pages 732-738. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2045,
+                    2195,
+                    2367
+                ],
+                "angle": 0,
+                "content": "Melvin Johnson, Mike Schuster, Quoc V. Le, Maxim Krikun, Yonghui Wu, Zhifeng Chen, Nikhil Thorat, Fernanda Viégas, Martin Wattenberg, Greg Corrado, Macduff Hughes, and Jeffrey Dean. 2017. Google's multilingual neural machine translation system: Enabling zero-shot translation. Transactions of the Association for Computational Linguistics, 5:339-351."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2409,
+                    2195,
+                    2550
+                ],
+                "angle": 0,
+                "content": "Diederik P Kingma and Jimmy Ba. 2015. Adam: A method for stochastic optimization. International Conference on Learning Representations."
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2592,
+                    2195,
+                    2911
+                ],
+                "angle": 0,
+                "content": "James Kirkpatrick, Razvan Pascanu, Neil Rabinowitz, Joel Veness, Guillaume Desjardins, Andrei A Rusu, Kieran Milan, John Quan, Tiago Ramalho, Agnieszka Grabska-Barwinska, et al. 2017. Overcoming catastrophic forgetting in neural networks. Proceedings of the national academy of sciences, page 201611835."
+            },
+            {
+                "block_id": 21,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2957,
+                    2195,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Sang-Woo Lee, Jin-Hwa Kim, Jaehyun Jun, Jung-Woo Ha, and Byoung-Tak Zhang. 2017. Overcoming catastrophic forgetting by incremental moment matching. In Advances in Neural Information Processing Systems, pages 4652-4662."
+            },
+            {
+                "block_id": 22,
+                "type": "list",
+                "bbox": [
+                    1272,
+                    270,
+                    2195,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 23,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3230,
+                    1280,
+                    3276
+                ],
+                "angle": 0,
+                "content": "817"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    270,
+                    1213,
+                    406
+                ],
+                "angle": 0,
+                "content": "Sungjin Lee. 2017. Toward continual learning for conversational agents. arXiv preprint arXiv:1712.09943."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    434,
+                    1213,
+                    761
+                ],
+                "angle": 0,
+                "content": "Wenqiang Lei, Xisen Jin, Min-Yen Kan, Zhaochun Ren, Xiangnan He, and Dawei Yin. 2018. Sequicity: Simplifying task-oriented dialogue systems with single sequence-to-sequence architectures. In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), volume 1, pages 1437-1447."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    785,
+                    1213,
+                    929
+                ],
+                "angle": 0,
+                "content": "David Lopez-Paz et al. 2017. Gradient episodic memory for continual learning. In Advances in Neural Information Processing Systems, pages 6467-6476."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    954,
+                    1215,
+                    1234
+                ],
+                "angle": 0,
+                "content": "Andrea Madotto, Chien-Sheng Wu, and Pascale Fung. 2018. Mem2seq: Effectively incorporating knowledge bases into end-to-end task-oriented dialog systems. In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), volume 1, pages 1468-1478."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1259,
+                    1213,
+                    1445
+                ],
+                "angle": 0,
+                "content": "Bryan McCann, Nitish Shirish Keskar, Caiming Xiong, and Richard Socher. 2018. The natural language decathlon: Multitask learning as question answering. arXiv preprint arXiv:1806.08730."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1476,
+                    1213,
+                    1848
+                ],
+                "angle": 0,
+                "content": "Nikola Mrkšić, Diarmuid Řéaghdha, Tsung-Hsien Wen, Blaise Thomson, and Steve Young. 2017. Neural belief tracker: Data-driven dialogue state tracking. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 1777-1788, Vancouver, Canada. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1873,
+                    1213,
+                    2108
+                ],
+                "angle": 0,
+                "content": "Elnaz Nouri and Ehsan Hosseini-Asl. 2018. Toward scalable neural dialogue state tracking model. In Advances in neural information processing systems (NeurIPS), 2nd Conversational AI workshop. https://arxiv.org/abs/1812.00899."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2132,
+                    1213,
+                    2367
+                ],
+                "angle": 0,
+                "content": "Jeffrey Pennington, Richard Socher, and Christopher Manning. 2014. Glove: Global vectors for word representation. In Proceedings of the 2014 conference on empirical methods in natural language processing (EMNLP), pages 1532-1543."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2392,
+                    1213,
+                    2711
+                ],
+                "angle": 0,
+                "content": "Osman Ramadan, Paweł Budzianowski, and Milica Gasic. 2018. Large-scale multi-domain belief tracking with knowledge sharing. In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers), pages 432-437. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2743,
+                    1213,
+                    2932
+                ],
+                "angle": 0,
+                "content": "Amal Rannen, Rahaf Aljundi, Matthew B Blaschko, and Tinne Tuytelaars. 2017. Encoder based lifelong learning. In Proceedings of the IEEE International Conference on Computer Vision, pages 1320-1328."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2957,
+                    1213,
+                    3185
+                ],
+                "angle": 0,
+                "content": "Abhinav Rastogi, Dilek Hakkani-Tür, and Larry Heck. 2017. Scalable multi-domain dialogue state tracking. In 2017 IEEE Automatic Speech Recognition and Understanding Workshop (ASRU), pages 561-568. IEEE."
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    292,
+                    270,
+                    1215,
+                    3185
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    270,
+                    2190,
+                    498
+                ],
+                "angle": 0,
+                "content": "Liliang Ren, Kaige Xie, Lu Chen, and Kai Yu. 2018. Towards universal dialogue state tracking. In Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, pages 2780-2786."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    536,
+                    2190,
+                    764
+                ],
+                "angle": 0,
+                "content": "Andrei A Rusu, Neil C Rabinowitz, Guillaume Desjardins, Hubert Soyer, James Kirkpatrick, Koray Kavukcuoglu, Razvan Pascanu, and Raia Hadsell. 2016. Progressive neural networks. arXiv preprint arXiv:1606.04671."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    806,
+                    2190,
+                    992
+                ],
+                "angle": 0,
+                "content": "Jurgen Schmidhuber. 1987. Evolutionary principles in self-referential learning. on learning now to learn: The meta-meta-meta...-hook. Diploma thesis, Technische Universitat Munchen, Germany, 14 May."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1027,
+                    2190,
+                    1304
+                ],
+                "angle": 0,
+                "content": "Abigail See, Peter J Liu, and Christopher D Manning. 2017. Get to the point: Summarization with pointer-generator networks. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), volume 1, pages 1073-1083."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1343,
+                    2190,
+                    1666
+                ],
+                "angle": 0,
+                "content": "Lei Shu, Bing Liu, Hu Xu, and Annice Kim. 2016. Lifelong-rl: Lifelong relaxation labeling for separating entities and aspects in opinion targets. In Proceedings of the Conference on Empirical Methods in Natural Language Processing. Conference on Empirical Methods in Natural Language Processing, volume 2016, page 225. NIH Public Access."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1701,
+                    2190,
+                    1936
+                ],
+                "angle": 0,
+                "content": "Lei Shu, Hu Xu, and Bing Liu. 2017a. Doc: Deep open classification of text documents. In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, pages 2911-2916. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1971,
+                    2190,
+                    2248
+                ],
+                "angle": 0,
+                "content": "Lei Shu, Hu Xu, and Bing Liu. 2017b. Lifelong learning crf for supervised aspect extraction. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers), pages 148-154. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2287,
+                    2190,
+                    2473
+                ],
+                "angle": 0,
+                "content": "Blaise Thomson and Steve Young. 2010. Bayesian update of dialogue state: A pomdp framework for spoken dialogue systems. Computer Speech & Language, 24(4):562-588."
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2508,
+                    2190,
+                    2655
+                ],
+                "angle": 0,
+                "content": "Oriol Vinyals, Meire Fortunato, and Navdeep Jaitly. 2015. Pointer networks. In Advances in Neural Information Processing Systems, pages 2692-2700."
+            },
+            {
+                "block_id": 21,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2687,
+                    2190,
+                    2922
+                ],
+                "angle": 0,
+                "content": "Zhuoran Wang and Oliver Lemon. 2013. A simple and generic belief tracking mechanism for the dialog state tracking challenge: On the believability of observed information. In Proceedings of the SIG-DIAL 2013 Conference, pages 423-432."
+            },
+            {
+                "block_id": 22,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2957,
+                    2190,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Tsung-Hsien Wen, David Vandyke, Nikola Mrksić, Milica Gasic, Lina M. Rojas Barahona, Pei-Hao Su, Stefan Ultes, and Steve Young. 2017. A network-based end-to-end trainable task-oriented dialogue system. In Proceedings of the 15th Conference of"
+            },
+            {
+                "block_id": 23,
+                "type": "list",
+                "bbox": [
+                    1272,
+                    270,
+                    2190,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 24,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3234,
+                    1280,
+                    3276
+                ],
+                "angle": 0,
+                "content": "818"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    334,
+                    270,
+                    1213,
+                    452
+                ],
+                "angle": 0,
+                "content": "the European Chapter of the Association for Computational Linguistics: Volume 1, Long Papers, pages 438-449. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    487,
+                    1215,
+                    726
+                ],
+                "angle": 0,
+                "content": "Jason D Williams. 2014. Web-style ranking and slu combination for dialog state tracking. In Proceedings of the 15th Annual Meeting of the Special Interest Group on Discourse and Dialogue (SIGDIAL), pages 282-291."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    754,
+                    1215,
+                    1080
+                ],
+                "angle": 0,
+                "content": "Jason D Williams, Kavosh Asadi, and Geoffrey Zweig. 2017. Hybrid code networks: practical and efficient end-to-end dialog control with supervised and reinforcement learning. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 665-677. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1112,
+                    1213,
+                    1297
+                ],
+                "angle": 0,
+                "content": "Jason D Williams and Steve Young. 2007. Partially observable markov decision processes for spoken dialog systems. Computer Speech & Language, 21(2):393-422."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1329,
+                    1213,
+                    1561
+                ],
+                "angle": 0,
+                "content": "Chien-Sheng Wu, Richard Socher, and Caiming Xiong. 2019. Global-to-local memory pointer networks for task-oriented dialogue. In Proceedings of the 7th International Conference on Learning Representations."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1596,
+                    1213,
+                    1876
+                ],
+                "angle": 0,
+                "content": "Puyang Xu and Qi Hu. 2018. An end-to-end approach for handling unknown slot values in dialogue state tracking. In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 1448-1457. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1908,
+                    1215,
+                    2322
+                ],
+                "angle": 0,
+                "content": "Mo Yu, Xiaoxiao Guo, Jinfeng Yi, Shiyu Chang, Saloni Potdar, Yu Cheng, Gerald Tesauro, Haoyu Wang, and Bowen Zhou. 2018. Diverse few-shot text classification with multiple metrics. In Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers), pages 1206-1215. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2357,
+                    1213,
+                    2543
+                ],
+                "angle": 0,
+                "content": "Tiancheng Zhao and Maxine Eskenazi. 2018. Zero-shot dialog generation with cross-domain latent actions. In Proceedings of the 19th Annual SIGdial Meeting on Discourse and Dialogue, pages 1-10."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2574,
+                    1213,
+                    2855
+                ],
+                "angle": 0,
+                "content": "Victor Zhong, Caiming Xiong, and Richard Socher. 2018. Global-locally self-attentive encoder for dialogue state tracking. In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 1458–1467. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2887,
+                    1213,
+                    3076
+                ],
+                "angle": 0,
+                "content": "Lukas Zilka and Filip Jurcicek. 2015. Incremental LSTM-based dialog state tracker. In 2015 IEEE Workshop on Automatic Speech Recognition and Understanding (Asru), pages 757-762. IEEE."
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    292,
+                    270,
+                    1215,
+                    3076
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3234,
+                    1280,
+                    3276
+                ],
+                "angle": 0,
+                "content": "819"
+            }
+        ]
+    }
+]

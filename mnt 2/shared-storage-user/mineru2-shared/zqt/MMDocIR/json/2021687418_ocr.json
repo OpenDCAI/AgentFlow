@@ -1,0 +1,2054 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    293,
+                    310,
+                    520,
+                    491
+                ],
+                "angle": 0,
+                "content": "LAW"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    290,
+                    495,
+                    726,
+                    669
+                ],
+                "angle": 0,
+                "content": "LIBRARY"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    293,
+                    673,
+                    721,
+                    716
+                ],
+                "angle": 0,
+                "content": "LIBRARY OF CONGRESS"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    856,
+                    1201,
+                    1777,
+                    1326
+                ],
+                "angle": 0,
+                "content": "Australia: Implied"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    657,
+                    1336,
+                    1978,
+                    1435
+                ],
+                "angle": 0,
+                "content": "Constitutional Freedom of"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    696,
+                    1465,
+                    1940,
+                    1567
+                ],
+                "angle": 0,
+                "content": "Political Communication"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1114,
+                    1653,
+                    1486,
+                    1716
+                ],
+                "angle": 0,
+                "content": "October 2021"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1025,
+                    2669,
+                    1519,
+                    2719
+                ],
+                "angle": 0,
+                "content": "LL File No. 2021-020521"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1065,
+                    2722,
+                    1481,
+                    2772
+                ],
+                "angle": 0,
+                "content": "LRA-D-PUB-002567"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    612,
+                    3039,
+                    1932,
+                    3092
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress, Global Legal Research Directorate"
+            },
+            {
+                "block_id": 10,
+                "type": "footer",
+                "bbox": [
+                    423,
+                    3095,
+                    2126,
+                    3151
+                ],
+                "angle": 0,
+                "content": "(202) 707-5080 (phone) • (866) 550-0442 (fax) • law@loc.gov • http://www.law.gov"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    583,
+                    1455,
+                    1963,
+                    1765
+                ],
+                "angle": 0,
+                "content": "This report is provided for reference purposes only. It does not constitute legal advice and does not represent the official opinion of the United States Government. The information provided reflects research undertaken as of the date of writing. It has not been updated."
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    290,
+                    303,
+                    563,
+                    372
+                ],
+                "angle": 0,
+                "content": "Contents"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    293,
+                    491,
+                    2254,
+                    554
+                ],
+                "angle": 0,
+                "content": "I. Introduction. 1"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    293,
+                    610,
+                    2256,
+                    666
+                ],
+                "angle": 0,
+                "content": "II. Australian Common Law 2"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    290,
+                    722,
+                    2254,
+                    782
+                ],
+                "angle": 0,
+                "content": "III. Individual Rights in Australian Common Law 2"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    290,
+                    834,
+                    2256,
+                    894
+                ],
+                "angle": 0,
+                "content": "IV. Freedom of Speech in Australia 3"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    290,
+                    950,
+                    2256,
+                    1006
+                ],
+                "angle": 0,
+                "content": "V. Freedom of Political Communication 3"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    290,
+                    491,
+                    2256,
+                    1006
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1062,
+                    2254,
+                    1125
+                ],
+                "angle": 0,
+                "content": "A. The Original Test in Lange 6"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1178,
+                    2256,
+                    1237
+                ],
+                "angle": 0,
+                "content": "B. The Plurality Approach in McCloy 7"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1290,
+                    2254,
+                    1353
+                ],
+                "angle": 0,
+                "content": "C. The Approach of Justice Gageler 8"
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    364,
+                    1062,
+                    2256,
+                    1353
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1405,
+                    2254,
+                    1468
+                ],
+                "angle": 0,
+                "content": "VI. Concluding Points 8"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    395,
+                    293,
+                    2159,
+                    465
+                ],
+                "angle": 0,
+                "content": "Australia: Implied Constitutional Freedom of Political Communication"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1088,
+                    495,
+                    1463,
+                    607
+                ],
+                "angle": 0,
+                "content": "Damian Terbiler  \nForeign Law Intern"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    887,
+                    660,
+                    1662,
+                    825
+                ],
+                "angle": 0,
+                "content": "Under the supervision of Kelly Buchanan Chief, Foreign, Comparative, and International Law Division II"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    293,
+                    943,
+                    2261,
+                    1758
+                ],
+                "angle": 0,
+                "content": "SUMMARY While the Australian Constitution does not contain a bill of rights, the High Court of Australia has recognized an implied freedom of political communication that operates as a limitation on the exercise of legislative and executive power. The Court has set out a two-part test to determine whether legislation imposes an unconstitutional burden on this freedom. The second part of the test, which involves considering whether the burden imposed on the freedom is \"reasonably appropriate and adapted to serve a legitimate end\" in a manner consistent with the maintenance of representative and responsible government, has resulted in diverging approaches among the High Court justices. One approach involves the application of a structured proportionality analytical framework, using a \"compatibility test\" to evaluate whether the purpose of the law and the means it adopts are \"legitimate.\" An alternative view is that the standard of review should vary depending on the nature and extent of the burden, with laws that do not pose a significant risk to representative government needing only to be \"rationally related\" to the pursuit of a legitimate end. The law is unsettled and is likely to be discussed further in future cases."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    298,
+                    1874,
+                    650,
+                    1933
+                ],
+                "angle": 0,
+                "content": "I. Introduction"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    293,
+                    1996,
+                    2261,
+                    2564
+                ],
+                "angle": 0,
+                "content": "Although the Australian Constitution does not contain a bill of rights, the High Court of Australia (Australia's highest court) has held that Australia's common law recognizes certain rights and freedoms. This report discusses the origins of the freedom of political communication in Australian law. First, it distinguishes between common law rights held by individuals and freedoms that the High Court has held to arise by implication from the Australian Constitution's text and structure. The former are held by Australian citizens and are not constitutionally entrenched, while the latter restrict the exercise of legislative and executive power. Although Australian cases have recognized a common law right to free speech,<sup>1</sup> political speech only receives constitutional protection through the operation of the freedom of political communication."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    298,
+                    2620,
+                    2261,
+                    2798
+                ],
+                "angle": 0,
+                "content": "After explaining how common law rights evolve through Australian case law, this report traces the origins of the freedom of political communication. It then outlines the competing approaches that justices of the High Court of Australia have taken to analyzing whether an impugned law"
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    298,
+                    2874,
+                    2210,
+                    2970
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup> See Tajjour v New South Wales (2014) 254 CLR 508, 548 (French CJ); [2014] HCA 35, https://perma.cc/W8F9-PAWA."
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    298,
+                    3092,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 9,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3102,
+                    2249,
+                    3138
+                ],
+                "angle": 0,
+                "content": "1"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    581,
+                    151,
+                    1960,
+                    204
+                ],
+                "angle": 0,
+                "content": "Australia: Implied Constitutional Freedom of Political Communication"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    478
+                ],
+                "angle": 0,
+                "content": "infringes upon the freedom of political communication. It concludes by observing that the analytical framework known as \"structured proportionality\" likely will continue to be debated by High Court judges in future cases concerning the freedom of political communication."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    288,
+                    531,
+                    951,
+                    587
+                ],
+                "angle": 0,
+                "content": "II. Australian Common Law"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    643,
+                    2264,
+                    1221
+                ],
+                "angle": 0,
+                "content": "To understand how common law rights evolve through Australian case law, it is necessary to appreciate the singularity of Australia's common law. Australian common law differs from the common law in the United States in that Australia has a unified body of common law.[2] The High Court's 1997 decision in Lange v Australian Broadcasting Authority confirmed that \"[t]here is but one common law in Australia which is declared by this Court as the final court of appeal.\"[3] While in practice state supreme courts sometimes take different approaches to applying identical rules, it is erroneous to think of each state as having its own body of common law, and the High Court will harmonize the common law applied by state supreme courts.[4] State supreme court decisions form part of Australia's unified body of common law, which evolves incrementally over time through the judgments of Australian courts.[5]"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1277,
+                    1456,
+                    1336
+                ],
+                "angle": 0,
+                "content": "III. Individual Rights in Australian Common Law"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1395,
+                    2259,
+                    1686
+                ],
+                "angle": 0,
+                "content": "Australian case law recognizes certain rights that are often referred to as \"common law rights.\"6 To emphasize the point, the former Chief Justice of Australia, Hon. Robert French, described the common law \"as a repository of rights and freedoms.\"7 Indeed, the High Court has recognized several rights that are held by Australian citizens. However, these rights are not protected by the Australian Constitution.8 They can be modified or extinguished by Parliament, subject to the"
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    1788,
+                    2221,
+                    1993
+                ],
+                "angle": 0,
+                "content": "\\( {}^{2} \\) Lange v Australian Broadcasting Authority (1997) 189 CLR 520, 563, https://perma.cc/ A6BJ-9CXV. See also Kable v Director of Public Prosecutions (1996) 189 CLR 51, 139 (Gummow J), https://perma.cc/UT9V-ZKB6. For more discussion on the nature of Australia's common law system, see Leslie Zines, The Common Law in Australia: Its Nature and Constitutional Significance (2004) 32 Fed. L. Rev. 337, https://perma.cc/2ZMS-ZSKQ."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2009,
+                    1456,
+                    2065
+                ],
+                "angle": 0,
+                "content": "3 Lange v Australian Broadcasting Authority (1997) 189 CLR 520, 563."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2085,
+                    2249,
+                    2435
+                ],
+                "angle": 0,
+                "content": "4 See e.g. IMM v The Queen (2016) 257 CLR 300; [2016] HCA 14, https://perma.cc/L8EG-GCWG. In this case, the High Court addressed the different approaches taken by the Supreme Court of New South Wales and the Supreme Court of Victoria to the interpretation of section 137 of the Evidence Act 1995 (Cth). Note that in Farah Constructions v Say-Dee (2007) 230 CLR 89, 151-2; [2007] HCA 22, https://perma.cc/ML5T-3JY8, the High Court said that \"intermediate appellate courts and trial judges in Australia should not depart from decisions in intermediate appellate courts in another jurisdiction on the interpretation of Commonwealth legislation or uniform national legislation unless they are convinced that the interpretation is plainly wrong.\""
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2455,
+                    2205,
+                    2557
+                ],
+                "angle": 0,
+                "content": "See e.g. Hon. Robert French, Speech to the Anglo Australasian Lawyers Society, Sydney: The Common Law and the Protection of Human Rights 2 (Sept. 4, 2009), https://perma.cc/G3TU-TZ6V."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2577,
+                    2152,
+                    2679
+                ],
+                "angle": 0,
+                "content": "See J.J. Doyle, Common Law Rights and Democratic Rights, in 1 Essays on Law and Government: Principles and Values 144, 147 (PD Finn ed., 1995)."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2699,
+                    770,
+                    2755
+                ],
+                "angle": 0,
+                "content": "7 French, supra note 5, at 3."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2775,
+                    2249,
+                    2979
+                ],
+                "angle": 0,
+                "content": "<sup>8</sup> Constitution of Australia, https://perma.cc/9HR6-C3QD. This is a significant difference between the Australian Constitution and the American Constitution. The American Constitution, particularly in the Bill of Rights and later amendments, entrenches certain rights that cannot be extinguished by Congress and the states. The Australian Constitution does not entrench personal rights held by Australians."
+            },
+            {
+                "block_id": 13,
+                "type": "list",
+                "bbox": [
+                    283,
+                    1788,
+                    2249,
+                    2979
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "2"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    581,
+                    151,
+                    1960,
+                    204
+                ],
+                "angle": 0,
+                "content": "Australia: Implied Constitutional Freedom of Political Communication"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    478
+                ],
+                "angle": 0,
+                "content": "limitations placed on Parliament by the Constitution. Some common law rights that have been recognized by Australian courts include the right to access courts and the right to legal representation when accused of a serious crime.[9]"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    288,
+                    528,
+                    1124,
+                    587
+                ],
+                "angle": 0,
+                "content": "IV. Freedom of Speech in Australia"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    643,
+                    2256,
+                    818
+                ],
+                "angle": 0,
+                "content": "The contrast between common law rights and constitutionally protected freedoms is a crucial distinction in Australian law. As explained below, the High Court has interpreted the Australian Constitution to give rise to a freedom to communicate on political matters."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    871,
+                    2256,
+                    1049
+                ],
+                "angle": 0,
+                "content": "The question of whether freedom of speech is, in fact, a common law right in Australia is not easy to answer. In a book on free speech in Australia, Sir Gerard Brennan, the former Chief Justice of Australia, made the following point:"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    433,
+                    1095,
+                    2111,
+                    1257
+                ],
+                "angle": 0,
+                "content": "There is no common law right to free speech which trumps other legal rights but there is a general freedom of speech because of the common law principle that 'everybody is free to do anything, subject only to the provisions of the law.'<sup>10</sup>"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1310,
+                    2256,
+                    1775
+                ],
+                "angle": 0,
+                "content": "Another former Chief Justice, Hon. Robert French, later observed that freedom of speech has \"long enjoyed special recognition at common law.\"11 However, freedom of speech in Australia is a common law right that can be modified or extinguished by Parliament. As Professor Dan Meagher points out, Australian courts deploy an extensive set of statutory interpretation principles to analyze whether a statute abrogates freedom of speech.12 But this report is concerned with a different issue—the extent to which freedom of speech receives constitutional protection in Australian law. As demonstrated below, speech only receives constitutional protection to the extent it is protected by the implied freedom of political communication."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1821,
+                    1224,
+                    1880
+                ],
+                "angle": 0,
+                "content": "V. Freedom of Political Communication"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1937,
+                    2256,
+                    2118
+                ],
+                "angle": 0,
+                "content": "The High Court has recognized as implicit in the text and structure of the Australian Constitution a freedom to communicate on political matters.[13] However, this right is not personal in nature.[14] Rather, the freedom of political communication operates as a structural limitation on the exercise"
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2207,
+                    775,
+                    2257
+                ],
+                "angle": 0,
+                "content": "9 French, supra note 5, at 3."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2280,
+                    2096,
+                    2333
+                ],
+                "angle": 0,
+                "content": "<sup>10</sup> Michael Chesterman, Freedom of Speech in Australian Law: A Delicate Plant vii (2000) (citation omitted)."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2356,
+                    1422,
+                    2409
+                ],
+                "angle": 0,
+                "content": "\\(^{11}\\) Tajjour v New South Wales (2014) 254 CLR 508, 548 (French CJ)."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2432,
+                    2108,
+                    2534
+                ],
+                "angle": 0,
+                "content": "\\(^{12}\\) Dan Meagher, Is There a Common Law 'Right' to Freedom of Speech?, 43 Melbourne U. L. Rev. 269 (2019), https://perma.cc/YE63-N4GX."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2554,
+                    2210,
+                    2805
+                ],
+                "angle": 0,
+                "content": "13 The freedom of political communication was recognized by a unanimous High Court in Lange v Australian Broadcasting Authority (1997) 189 CLR 520. It was also referred to in Australian Capital Television [ACTV] v Commonwealth (1992) 177 CLR 106, 138 (Mason CJ), 150 (Brennan J), 169 (Deane and Toohey JJ), 214 (Gaudron J), and 227 (McHugh J), https://perma.cc/N5LF-N3BC, and in Nationwide News v Willis (1992) 177 CLR 1, 5 (Brennan J), https://perma.cc/YR9V-7JGT."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2824,
+                    2221,
+                    2979
+                ],
+                "angle": 0,
+                "content": "\\(^{14}\\) Lange v Australian Broadcasting Authority (1997) 189 CLR 520, 560. The High Court has restated this point on several occasions. See the explanation given in Unions New South Wales v New South Wales (2013) 252 CLR 530, 554; [2013] HCA 58, https://perma.cc/3DD3-G3ZM."
+            },
+            {
+                "block_id": 15,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2207,
+                    2221,
+                    2979
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    872,
+                    3154
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2256,
+                    3141
+                ],
+                "angle": 0,
+                "content": "3"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    581,
+                    148,
+                    1960,
+                    204
+                ],
+                "angle": 0,
+                "content": "Australia: Implied Constitutional Freedom of Political Communication"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    594
+                ],
+                "angle": 0,
+                "content": "of legislative power by Australian federal and state parliaments and on the exercise of executive power.\\(^{15}\\) In that sense, this right differs from the freedom of speech guaranteed by the First Amendment to the U.S. Constitution. The American right to freedom of speech is personal in nature; it includes the right not to speak,\\(^{16}\\) the right to use offensive words and phrases to convey political messages,\\(^{17}\\) and the right to engage in symbolic speech.\\(^{18}\\)"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    640,
+                    2256,
+                    1049
+                ],
+                "angle": 0,
+                "content": "In Lange, a unanimous judgment of the High Court of Australia reasoned that, because sections 7 and 24 of the Constitution require that members of the federal Parliament are chosen by the people,[19] and section 128 ensures that the Constitution cannot be altered except by a referendum,[20] the Australian Constitution provides for a system of “representative government” in which people in free elections choose their representatives.[21] That system is only effective if Australians exercise a “free and informed choice”[22] at elections, which necessarily requires electors to be free to communicate on politics with their representatives and with one another."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1095,
+                    2256,
+                    1280
+                ],
+                "angle": 0,
+                "content": "Prior to the decision in Lange, judges on the High Court seemed to disagree on whether the freedom emanates from the system of representative government for which the Constitution provides, or from the words \"directly chosen by the people\" contained within sections 7 and 24"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2049,
+                    2244,
+                    2154
+                ],
+                "angle": 0,
+                "content": "15 Lange v Australian Broadcasting Authority (1997) 189 CLR 520, 560-1. The comments of Justice McHugh in Levy v Victoria (1997) 189 CLR 579, 622, https://perma.cc/A2DS-7MN9, explain this point:"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    430,
+                    2174,
+                    2249,
+                    2458
+                ],
+                "angle": 0,
+                "content": "The freedom protected by the Constitution is not, however, a freedom to communicate. It is a freedom from laws that effectively prevent members of the Australian community from communicating with each other about political and government matters relevant to the system of representative and responsible government provided for by the Constitution. Unlike the Constitution of the United States, our Constitution does not create rights of communication. It gives immunity from the operation of laws that inhibit a right or privilege to communicate political and government matters."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2478,
+                    1491,
+                    2534
+                ],
+                "angle": 0,
+                "content": "<sup>16</sup> See West Virginia Board of Education v. Barnette, 319 U.S. 624 (1943)."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2550,
+                    1055,
+                    2607
+                ],
+                "angle": 0,
+                "content": "<sup>17</sup> See Cohen v. California, 403 U.S. 15 (1971)."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2626,
+                    1807,
+                    2679
+                ],
+                "angle": 0,
+                "content": "<sup>18</sup> See Texas v. Johnson, 491 U.S. 397 (1989); United States v. Eichman, 496 U.S. 310 (1990)."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2699,
+                    1499,
+                    2755
+                ],
+                "angle": 0,
+                "content": "19 Lange v Australian Broadcasting Authority (1997) 189 CLR 520, 560-1."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2775,
+                    385,
+                    2821
+                ],
+                "angle": 0,
+                "content": "20 Id."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2851,
+                    385,
+                    2894
+                ],
+                "angle": 0,
+                "content": "21 Id."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2923,
+                    507,
+                    2973
+                ],
+                "angle": 0,
+                "content": "22 Id. at 560."
+            },
+            {
+                "block_id": 13,
+                "type": "list",
+                "bbox": [
+                    288,
+                    2478,
+                    1807,
+                    2973
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3154
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3098,
+                    2256,
+                    3141
+                ],
+                "angle": 0,
+                "content": "4"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    581,
+                    148,
+                    1960,
+                    207
+                ],
+                "angle": 0,
+                "content": "Australia: Implied Constitutional Freedom of Political Communication"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    646
+                ],
+                "angle": 0,
+                "content": "of the Constitution.[23] The Court in Lange favored the latter view.[24] Irrespective of its origin, the existence of the freedom of political communication in Australian constitutional law is widely accepted by High Court justices.[25] The basis for this right was explained by Chief Justice Mason in the 1992 ACTV v Commonwealth decision, in which he emphasized the importance of freedom of communication in representative government, and quoted the former Solicitor General of the United States, Archibald Cox:"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    433,
+                    699,
+                    2108,
+                    907
+                ],
+                "angle": 0,
+                "content": "only by uninhibited publication can the flow of information be secured and the people informed concerning men, measures, and the conduct of government. . . . Only by freedom of speech, of the press, and of association can people build and assert political power, including the power to change the men who govern them.[26]"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    960,
+                    2254,
+                    1079
+                ],
+                "angle": 0,
+                "content": "The plurality in the Court's decisions in Unions New South Wales[27] and McCloy[28] endorsed the above passage."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1313,
+                    2254,
+                    1956
+                ],
+                "angle": 0,
+                "content": "23 In ACTV v Commonwealth (1992) 177 CLR 106, 232, Justice McHugh tied the freedom directly to the text and structure of the Australian Constitution. Rather than considering what was required by the implication of representative government, Justice McHugh looked at sections 7 and 24 of the Australian Constitution, which establish elections for the House of Representatives and the Senate, and argued that these provisions require that \"the people have a constitutional right to convey and receive opinions, arguments and information concerning matter intended or likely to affect voting in an election for the Senate or the House of Representatives.\" There is a subtle difference between this approach and the approach favored by Chief Justice Mason and Justice Gaudron in ACTV. Their Honors each found that the Constitution entrenched representative and responsible government, which in turn gave rise to the freedom of political communication. See ACTV v Commonwealth (1992) 177 CLR 106, 138-140 (Mason CJ), 211-12 (Gaudron J). See also the judgment of Justices Deane and Toohey in Nationwide News v Willis (1992) 177 CLR 1, 72. For more discussion on this point, see Adrienne Stone, The Limits of Constitutional Text and Structure: Standards of Review and the Freedom of Political Communication, 23 Melbourne U. L. Rev. 688 (1999), https://perma.cc/Q3VR-3L3A."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1980,
+                    1507,
+                    2032
+                ],
+                "angle": 0,
+                "content": "24 Lange v Australian Broadcasting Authority (1997) 189 CLR 520, 566-7:"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    433,
+                    2052,
+                    2213,
+                    2244
+                ],
+                "angle": 0,
+                "content": "[T]he Constitution gives effect to the institution of \"representative government\" only to the extent that the text and structure of the Constitution establish it. . . . [T]he relevant question is not, \"What is required by representative and responsible government?\" It is, \"What do the terms and structure of the Constitution prohibit, authorize or require?\""
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2267,
+                    2111,
+                    2369
+                ],
+                "angle": 0,
+                "content": "[25] The one exception to this point is Justice Steward's judgment in the 2021 decision Libertyworks v Commonwealth [2021] HCA 18, https://perma.cc/DEN4-H5W6. At paragraph 249, Justice Steward said:"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    433,
+                    2389,
+                    2236,
+                    2534
+                ],
+                "angle": 0,
+                "content": "it is arguable that the implied freedom does not exist. It may not be sufficiently supported by the text, structure and context of the Constitution and, because of the continued division within this Court about the application of the doctrine of structured proportionality, it is still not yet settled law."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2554,
+                    2236,
+                    2709
+                ],
+                "angle": 0,
+                "content": "Other High Court justices have not endorsed this view in recent freedom of political communication cases. See McCloy v New South Wales (2015) 257 CLR 178, 217; [2015] HCA 34, https://perma.cc/2MNU-DVQV, in which the plurality states that “the constitutional basis for the freedom is well settled.”"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2725,
+                    2103,
+                    2824
+                ],
+                "angle": 0,
+                "content": "26 ACTV v Commonwealth (1992) 177 CLR 106, 139 (Mason CJ), quoting Archibald Cox, The Court and the Constitution 212 (1987)."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2847,
+                    1507,
+                    2900
+                ],
+                "angle": 0,
+                "content": "27 Unions New South Wales v New South Wales (2013) 252 CLR 530, 551."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2923,
+                    1144,
+                    2976
+                ],
+                "angle": 0,
+                "content": "28 McCloy v New South Wales (2015) 257 CLR 178."
+            },
+            {
+                "block_id": 13,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2725,
+                    2103,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "5"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    581,
+                    148,
+                    1960,
+                    207
+                ],
+                "angle": 0,
+                "content": "Australia: Implied Constitutional Freedom of Political Communication"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    290,
+                    300,
+                    935,
+                    359
+                ],
+                "angle": 0,
+                "content": "A. The Original Test in Lange"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    412,
+                    2254,
+                    528
+                ],
+                "angle": 0,
+                "content": "This part of the report explains the test the High Court set out in Lange, and then describes two ways in which that test has been interpreted by current justices on the High Court."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    584,
+                    2256,
+                    755
+                ],
+                "angle": 0,
+                "content": "In Lange, the Court set out a two-part test to determine whether legislation imposes an unconstitutional burden on the freedom of political communication. The two-part test proceeds in the following steps:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    808,
+                    2254,
+                    874
+                ],
+                "angle": 0,
+                "content": "1. Does the legislative provision burden communication on governmental or political matters?[29]"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    924,
+                    2256,
+                    1102
+                ],
+                "angle": 0,
+                "content": "2. If the provision imposes such a burden, it will only be valid if it is \"reasonably appropriate and adapted to serve a legitimate end\"30 in a manner that is consistent with the maintenance of the constitutionally prescribed system of representative and responsible government.31"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    285,
+                    808,
+                    2256,
+                    1102
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1158,
+                    2254,
+                    1389
+                ],
+                "angle": 0,
+                "content": "While application of the first prong has been straightforward, High Court justices have taken diverging approaches to the second element. While the approach of each High Court justice is beyond the scope of this report, it will outline the approaches of the McCloy plurality and of Justice Gageler."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1442,
+                    2254,
+                    1785
+                ],
+                "angle": 0,
+                "content": "The plurality introduces a structured proportionality analytical framework to address the second element of the Lange test, a mode of analysis that had not previously been used in Australian constitutional law. Although the High Court has previously utilized proportionality as a tool for analyzing whether legislative and executive law-making powers have been exceeded,[32] the structured proportionality analysis expounded by the plurality in McCloy was new in the constitutional law context."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    1880,
+                    1468,
+                    1937
+                ],
+                "angle": 0,
+                "content": "29 Lange v Australian Broadcasting Authority (1997) 189 CLR 520, 567."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    1956,
+                    382,
+                    2006
+                ],
+                "angle": 0,
+                "content": "30 Id."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2029,
+                    2221,
+                    2234
+                ],
+                "angle": 0,
+                "content": "31 See Coleman v Power (2004) 220 CLR 1, 51; [2004] HCA 39, https://perma.cc/TX3D-VQ6P; Wotton v Queensland (2012) 246 CLR 1, 15; [2012] HCA 2, https://perma.cc/P2SR-KVBL. See also Hogan v Hinch (2011) 243 CLR 506, 542 (French CJ), 555-556 (Gummow, Hayne, Heydon, Crennan, Kiefel and Bell JJ); [2011] HCA 4, https://perma.cc/XY8G-WKTT."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2253,
+                    2231,
+                    2359
+                ],
+                "angle": 0,
+                "content": "32 See the comment of Chief Justice French in A-G (South Australia) v Adelaide City Corporation (2013) 249 CLR 1, 37; [2013] HCA 3, https://perma.cc/2MVG-59BB:"
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    433,
+                    2376,
+                    2096,
+                    2570
+                ],
+                "angle": 0,
+                "content": "Proportionality is not a legal doctrine. In Australia it designates a class of criteria used to determine the validity or lawfulness of legislative and administrative action by reference to rational relationships between purpose and means, and the interaction of competing legal rules and principles, including qualifications of constitutional guarantees, immunities or freedom."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2590,
+                    2226,
+                    2692
+                ],
+                "angle": 0,
+                "content": "See also the following comment of Chief Justice French in Tajjour (2014) 254 CLR 508, 548, in which His Honor refers to the 1988 case of Davis v Commonwealth (1988) 166 CLR 79:"
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    433,
+                    2712,
+                    2231,
+                    2904
+                ],
+                "angle": 0,
+                "content": "Davis, antedating by four years the Court's discernment of the implied freedom of political communication, suggests that a proportionality test, relevant to the constitutional validity of any purposive legislative power, including an incidental power, may involve consideration of the effect of the purported exercise of that power upon common law rights and freedoms."
+            },
+            {
+                "block_id": 16,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2923,
+                    1336,
+                    2976
+                ],
+                "angle": 0,
+                "content": "See also McCloy v New South Wales (2015) 257 CLR 178, 195."
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    293,
+                    3095,
+                    869,
+                    3154
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 18,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3102,
+                    2251,
+                    3141
+                ],
+                "angle": 0,
+                "content": "6"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    581,
+                    151,
+                    1960,
+                    204
+                ],
+                "angle": 0,
+                "content": "Australia: Implied Constitutional Freedom of Political Communication"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    356,
+                    2254,
+                    528
+                ],
+                "angle": 0,
+                "content": "Justice Gageler's approach serves as a counterpoint to the McCloy plurality; it questions whether structured proportionality is an appropriate analytical tool for evaluating whether legislation infringes upon the freedom of political communication."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    288,
+                    584,
+                    1088,
+                    643
+                ],
+                "angle": 0,
+                "content": "B. The Plurality Approach in McCloy"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    693,
+                    2256,
+                    1036
+                ],
+                "angle": 0,
+                "content": "The plurality's approach to the second question in Lange contains several elements. After answering the first question—whether the law effectively burdens the implied freedom—, the court turns to the second question's first component. That requires the court to undertake a \"compatibility test\" to consider whether the purpose of the law and the means it adopts are \"legitimate.\"33 The law will pass this test if the law is compatible with the maintenance of representative government in that it does not compromise the system's ability to function.34"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1092,
+                    2254,
+                    1270
+                ],
+                "angle": 0,
+                "content": "If the law is compatible with representative government, the court then must undertake a three-step proportionality test.[35] The first step is known as \"suitability,\" which requires the court to determine whether the law has a rational connection to the legitimate purpose.[36]"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1320,
+                    2254,
+                    1554
+                ],
+                "angle": 0,
+                "content": "The second step, known as \"necessity,\" requires the court to determine whether there are any \"obvious\" or \"compelling\" measures which are reasonably practicable and equally effective at achieving the legitimate purpose, but which impose a less onerous restriction on the implied freedom.[37]"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1603,
+                    2254,
+                    1778
+                ],
+                "angle": 0,
+                "content": "The third step is known as \"balancing.\"38 This requires the court to determine whether the importance of the legitimate purpose and the benefits of its achievement outweigh the detriment caused by the restriction of the freedom.39"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1834,
+                    2254,
+                    2009
+                ],
+                "angle": 0,
+                "content": "To sum up the plurality's approach: if the law is compatible with representative government, suitable, necessary and adequate in balance, it will be held valid even though it burdens the implied freedom of political communication."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2382,
+                    1295,
+                    2438
+                ],
+                "angle": 0,
+                "content": "33 McCloy v New South Wales (2015) 257 CLR 178, 193-196."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2461,
+                    379,
+                    2501
+                ],
+                "angle": 0,
+                "content": "34 Id."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2531,
+                    377,
+                    2574
+                ],
+                "angle": 0,
+                "content": "35 Id."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2603,
+                    2070,
+                    2653
+                ],
+                "angle": 0,
+                "content": "36 Id. at 195, 211, 217, 170. See also Unions New South Wales v New South Wales (2013) 252 CLR 530, 557."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2676,
+                    2249,
+                    2828
+                ],
+                "angle": 0,
+                "content": "\\( {}^{37} \\) McCloy v New South Wales (2015) 257 CLR 178, 195. The High Court subsequently emphasized that alternative measures that may be more expansive should not be considered as part of this analysis. Murphy v Electoral Commissioner (2016) 261 CLR 28, 83 (Kiefel J), 100 (Keane J), 110-111 (Nettle J)."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2851,
+                    1292,
+                    2900
+                ],
+                "angle": 0,
+                "content": "38 McCloy v New South Wales (2015) 257 CLR 178, 218-219."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2923,
+                    382,
+                    2966
+                ],
+                "angle": 0,
+                "content": "39 Id."
+            },
+            {
+                "block_id": 15,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2382,
+                    2249,
+                    2966
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3095,
+                    2254,
+                    3138
+                ],
+                "angle": 0,
+                "content": "7"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    581,
+                    148,
+                    1960,
+                    207
+                ],
+                "angle": 0,
+                "content": "Australia: Implied Constitutional Freedom of Political Communication"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    288,
+                    300,
+                    1055,
+                    359
+                ],
+                "angle": 0,
+                "content": "C. The Approach of Justice Gageler"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    409,
+                    2254,
+                    643
+                ],
+                "angle": 0,
+                "content": "Justice Gageler's analysis of the second Lange question also begins with looking at whether the law imposes a meaningful or effective burden on the implied freedom.[40] After this, the court is to determine whether the purpose of the law is legitimate in the sense that it is consistent with the constitutionally prescribed system of representative and responsible government.[41]"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    693,
+                    2256,
+                    1214
+                ],
+                "angle": 0,
+                "content": "The third step of Justice Gageler's test requires the court to determine whether the law pursues its purpose in a manner \"consistent with the preservation of the integrity of the system of representative and responsible government.\"[42] The standard of review that the court applies in this stage should vary depending on the nature and extent of the burden the law imposes on political speech.[43] In Tajjour, Justice Gageler said that this part of the test creates a \"spectrum\"[44] of scrutiny under which the standard of review is more exacting if the degree of risk posed by the law to the system of representative and responsible government increases.[45] Laws that do not pose a significant risk to that system of government need only be \"rationally related\"[46] to the pursuit of a legitimate end."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1263,
+                    828,
+                    1329
+                ],
+                "angle": 0,
+                "content": "VI. Concluding Points"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1379,
+                    2254,
+                    1613
+                ],
+                "angle": 0,
+                "content": "This report explained the difference between the common law right to free speech and the constitutionally implied freedom of political communication. It also demonstrated that the analytical approach of the High Court of Australia to working out whether the freedom of political communication has been infringed by legislation is unsettled."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1663,
+                    2254,
+                    1844
+                ],
+                "angle": 0,
+                "content": "The approach taken by the plurality to step two of the Lange test is noteworthy because it was influenced by proportionality tests that have been developed in Germany, the United Kingdom, Canada, Israel, New Zealand, and the European Union.[47] The appropriateness of structured"
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    1923,
+                    775,
+                    1973
+                ],
+                "angle": 0,
+                "content": "40 Id. at 222-234 (Gageler J)."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    1996,
+                    2205,
+                    2098
+                ],
+                "angle": 0,
+                "content": "41 Id. \"Responsible government\" is described in a quote in Justice Gageler's judgment by Sir Samuel Griffith, one of the drafters of the Australian Constitution:"
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    433,
+                    2121,
+                    2231,
+                    2362
+                ],
+                "angle": 0,
+                "content": "The system called Responsible Government is based on the notion that the head of the State can himself do no wrong, that he does not do any act of State of his own motion, but follows the advice of his ministers, on whom the responsibility for acts done, in order to give effect to their volition, naturally falls.\" (Id. at 224 (quoting Samuel Griffith, Notes on Australian Federation: Its Nature and Probably Effects 17 (1897), as quoted in Quick & Garran, The Annotated Constitution of the Australian Commonwealth 704 (1901)).)"
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2379,
+                    1415,
+                    2438
+                ],
+                "angle": 0,
+                "content": "42 McCloy v New South Wales (2015) 257 CLR 178, 233 (Gageler J)."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2455,
+                    382,
+                    2501
+                ],
+                "angle": 0,
+                "content": "43 Id."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2527,
+                    1405,
+                    2583
+                ],
+                "angle": 0,
+                "content": "44 Tajjour v New South Wales (2014) 254 CLR 508, 545 (Gageler J)."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2603,
+                    382,
+                    2646
+                ],
+                "angle": 0,
+                "content": "45 Id."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2679,
+                    382,
+                    2722
+                ],
+                "angle": 0,
+                "content": "46 Id."
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2752,
+                    2249,
+                    3006
+                ],
+                "angle": 0,
+                "content": "47 Mark Watts, Reasonably Appropriate and Adapted? Assessing Proportionality and \"Spectrum\" of Scrutiny in McCloy v New South Wales, 35 Uni. Queensland L. Rev. 349, 351 (2016), https://perma.cc/SFG3-8DSK. There is an extensive body of academic writing on the extent to which the plurality's structured proportionality analysis draws on judgments from courts in other jurisdictions. See Justice Gageler's judgment in Brown v Tasmania (2017) 261 CLR 328, 376-377; [2017] HCA 43, https://perma.cc/R3EG-JSBS. See also Shipra Chordia,"
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    283,
+                    1923,
+                    2249,
+                    3006
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 18,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2251,
+                    3141
+                ],
+                "angle": 0,
+                "content": "8"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    581,
+                    151,
+                    1958,
+                    204
+                ],
+                "angle": 0,
+                "content": "Australia: Implied Constitutional Freedom of Political Communication"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2261,
+                    702
+                ],
+                "angle": 0,
+                "content": "proportionality for analyzing whether legislation infringes the freedom of political communication was debated by justices on the High Court of Australia this year. In Libertyworks Inc v Commonwealth,[48] the structured proportionality analysis garnered the support of more recently appointed judges, Justice Edelman[49] and Justice Gleeson.[50] However, as Justice Steward pointed out, this approach \"it is still not yet settled law.\"[51] The precedential value of the majority's structured proportionality analysis in McCloy is likely to come under further scrutiny in future freedom of political communication cases in the High Court."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2524,
+                    2249,
+                    2686
+                ],
+                "angle": 0,
+                "content": "Proportionality in Australian Constitutional Law (2020); Adrienne Stone, Proportionality and Its Alternatives, 48 Fed. L. Rev. 123 (2020), https://perma.cc/4P8K-UH5D. Rosalind Dixon, Calibrated Proportionality, 48 Fed. L. Rev. 92 (2020), https://perma.cc/5EB3-ZJNG."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2699,
+                    1175,
+                    2755
+                ],
+                "angle": 0,
+                "content": "48 Libertyworks Inc v Commonwealth [2021] HCA 18."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2772,
+                    747,
+                    2831
+                ],
+                "angle": 0,
+                "content": "49 Id. at [194] (Edelman J)."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2847,
+                    1991,
+                    2907
+                ],
+                "angle": 0,
+                "content": "Given that Justice Gleeson was party to the joint judgment of Kiefel CJ, Keane J, and Gleeson J."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2923,
+                    736,
+                    2976
+                ],
+                "angle": 0,
+                "content": "51 Id. at [249] (Steward J)."
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    288,
+                    2699,
+                    1991,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 9,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "9"
+            }
+        ]
+    }
+]

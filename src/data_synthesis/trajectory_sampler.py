@@ -39,7 +39,10 @@ class GenericTrajectorySampler:
         # Initialize OpenAI client
         self.client = openai.OpenAI(
             api_key=os.environ.get("OPENAI_API_KEY", ""),
-            base_url=os.environ.get("OPENAI_API_URL", os.environ.get("OPENAI_API_BASE", ""))
+            base_url=os.environ.get("OPENAI_API_URL")
+            or os.environ.get("OPENAI_API_BASE")
+            or os.environ.get("OPENAI_BASE_URL")
+            or ""
         )
         
         # Get available tools information

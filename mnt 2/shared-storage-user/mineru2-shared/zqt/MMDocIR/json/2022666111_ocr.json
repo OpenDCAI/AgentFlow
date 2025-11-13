@@ -1,0 +1,4511 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    293,
+                    313,
+                    520,
+                    491
+                ],
+                "angle": 0,
+                "content": "LAW"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    293,
+                    495,
+                    724,
+                    669
+                ],
+                "angle": 0,
+                "content": "LIBRARY"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    293,
+                    673,
+                    721,
+                    712
+                ],
+                "angle": 0,
+                "content": "LIBRARY OF CONGRESS"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    540,
+                    1270,
+                    2022,
+                    1392
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1048,
+                    1461,
+                    1501,
+                    1527
+                ],
+                "angle": 0,
+                "content": "November 2022"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1025,
+                    2715,
+                    1522,
+                    2768
+                ],
+                "angle": 0,
+                "content": "LL File No. 2022-021409"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1060,
+                    2772,
+                    1471,
+                    2821
+                ],
+                "angle": 0,
+                "content": "LRA-D-PUB-002594"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    645,
+                    3042,
+                    1902,
+                    3095
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress, Global Legal Research Directorate"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    459,
+                    3095,
+                    2083,
+                    3151
+                ],
+                "angle": 0,
+                "content": "(202) 707-5080 (phone) • (866) 550-0442 (fax) • law@loc.gov • http://www.law.gov"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    578,
+                    1455,
+                    1963,
+                    1765
+                ],
+                "angle": 0,
+                "content": "This report is provided for reference purposes only. It does not constitute legal advice and does not represent the official opinion of the United States Government. The information provided reflects research undertaken as of the date of writing. It has not been updated."
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    290,
+                    303,
+                    563,
+                    369
+                ],
+                "angle": 0,
+                "content": "Contents"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    293,
+                    495,
+                    2254,
+                    554
+                ],
+                "angle": 0,
+                "content": "I. Introduction 1"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    293,
+                    610,
+                    2254,
+                    666
+                ],
+                "angle": 0,
+                "content": "II. Legislative History 2"
+            },
+            {
+                "block_id": 3,
+                "type": "list",
+                "bbox": [
+                    293,
+                    495,
+                    2254,
+                    666
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    722,
+                    2254,
+                    782
+                ],
+                "angle": 0,
+                "content": "A. First World War 2"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    364,
+                    834,
+                    2256,
+                    894
+                ],
+                "angle": 0,
+                "content": "B. Second World War 3"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    364,
+                    950,
+                    2256,
+                    1006
+                ],
+                "angle": 0,
+                "content": "C. The October Crisis of 1970 4"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1062,
+                    2256,
+                    1125
+                ],
+                "angle": 0,
+                "content": "D. Introduction of the Emergencies Act 5"
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    364,
+                    722,
+                    2256,
+                    1125
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    293,
+                    1178,
+                    2254,
+                    1237
+                ],
+                "angle": 0,
+                "content": "III. Operation of the Emergencies Act 7"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1293,
+                    2254,
+                    1353
+                ],
+                "angle": 0,
+                "content": "A. Types of Emergencies 7"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1405,
+                    2256,
+                    1468
+                ],
+                "angle": 0,
+                "content": "B. Declaring an Emergency 8"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1518,
+                    2256,
+                    1584
+                ],
+                "angle": 0,
+                "content": "C. Emergency Orders and Regulations 9"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1633,
+                    2256,
+                    1696
+                ],
+                "angle": 0,
+                "content": "D. Oversight and Accountability 11"
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    364,
+                    1293,
+                    2256,
+                    1696
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    293,
+                    1749,
+                    2254,
+                    1808
+                ],
+                "angle": 0,
+                "content": "IV. Usage of the Emergencies Act 12"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1861,
+                    2254,
+                    1923
+                ],
+                "angle": 0,
+                "content": "A. Declaration of a Public Order Emergency 13"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1976,
+                    2256,
+                    2039
+                ],
+                "angle": 0,
+                "content": "B. Emergency Regulations 13"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    364,
+                    2088,
+                    2256,
+                    2154
+                ],
+                "angle": 0,
+                "content": "C. Emergency Economic Measures 15"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    364,
+                    2204,
+                    2256,
+                    2263
+                ],
+                "angle": 0,
+                "content": "D. Parliamentary Process 15"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    364,
+                    2316,
+                    2256,
+                    2379
+                ],
+                "angle": 0,
+                "content": "E. Commission of Inquiry 17"
+            },
+            {
+                "block_id": 21,
+                "type": "list",
+                "bbox": [
+                    364,
+                    1861,
+                    2256,
+                    2379
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    785,
+                    303,
+                    1764,
+                    392
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1050,
+                    409,
+                    1501,
+                    524
+                ],
+                "angle": 0,
+                "content": "Michael Chalupovitsch  \nForeign Law Specialist*"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    288,
+                    650,
+                    2261,
+                    1036
+                ],
+                "angle": 0,
+                "content": "SUMMARY This report reviews the history, key provisions, and contemporary use of Canada's Emergencies Act. It outlines the constitutional allocation of emergency powers, and the history of the predecessor statute, the War Measures Act. It explains the reasons for the reform of federal emergency powers and the introduction of the Emergencies Act. It discusses the key provisions of the Emergencies Act, including types of emergencies, permissible orders, and oversight provisions. Finally, it explains the 2022 invocation of the Emergencies Act and subsequent oversight procedures."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1158,
+                    650,
+                    1211
+                ],
+                "angle": 0,
+                "content": "I. Introduction"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1277,
+                    2256,
+                    1508
+                ],
+                "angle": 0,
+                "content": "By virtue of the federal system, most emergency management in Canada is the responsibility of the provincial and territorial governments. Whether it is a natural disaster such as a forest fire, or a public health emergency such as the COVID-19 pandemic, provinces have the primary responsibility for emergency response and coordination."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1560,
+                    2254,
+                    2022
+                ],
+                "angle": 0,
+                "content": "In Ontario, for example, the Emergency Management and Civil Protection Act (EMCPA) allows the Premier of the province to declare a province-wide emergency if “there is an emergency that requires immediate action to prevent, reduce or mitigate a danger of major proportions that could result in serious harm to persons or substantial damage to property.” The emergency powers granted to the provincial cabinet through the EMCPA include among others: establishing emergency shelters, closing businesses, and restricting travel. During the COVID-19 pandemic, the Ontario provincial government, and other provincial governments throughout Canada, relied on such provisions to legally underpin their pandemic response."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2075,
+                    2254,
+                    2593
+                ],
+                "angle": 0,
+                "content": "The federal role in emergency management is usually quite limited. The federal Emergency Management Act (EMA) entrusts the federal Minister of Public Safety with \"exercising leadership relating to emergency management in Canada by coordinating, among government institutions and in cooperation with the provinces and other entities, emergency management activities.\"2 This includes planning for the use of federal resources in an emergency, the provision of financial assistance to provinces and territories in an emergency, assuring the continuity of the Canadian government in an emergency, promoting emergency management standards, and assisting foreign countries in responding to emergencies.3 It also specifically allows for the establishment of joint emergency management plans with the United States in order to coordinate Canada's"
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2653,
+                    1838,
+                    2706
+                ],
+                "angle": 0,
+                "content": "* This report was drafted with the assistance of foreign law intern, Bridget Allen-O'Neil."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2725,
+                    1940,
+                    2824
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup> Emergency Management and Civil Protection Act, R.S.O. 1990, c. E-19 (Can.), section 7.0.1(3) https://perma.cc/RGY9-C85X."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2847,
+                    1955,
+                    2900
+                ],
+                "angle": 0,
+                "content": "Emergency Management Act, S.C. 2007, c. 15 (Can), section 3, https://perma.cc/79QY-7BUR."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2923,
+                    446,
+                    2970
+                ],
+                "angle": 0,
+                "content": "3 Id. s. 4."
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2653,
+                    1955,
+                    2970
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3098,
+                    2251,
+                    3141
+                ],
+                "angle": 0,
+                "content": "1"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    976,
+                    151,
+                    1568,
+                    204
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    528
+                ],
+                "angle": 0,
+                "content": "assistance to the United States in emergency situations.\\(^{4}\\) Notably, the EMA specifically states that \"a government institution may not respond to a provincial emergency unless the government of the province requests assistance or there is an agreement with the province that requires or permits the assistance.\"\\(^{5}\\)"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    587,
+                    2256,
+                    877
+                ],
+                "angle": 0,
+                "content": "There are situations, however, where the existing authorities of the federal government may be too constraining to enable an effective emergency response, and where the provincial governments are unable to act with their existing mandates. In these cases, the federal government may, in consultation with the affected provinces, invoke broader authorities provided in the Emergencies Act.[6]"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    927,
+                    2256,
+                    1158
+                ],
+                "angle": 0,
+                "content": "As of 2022, the Emergencies Act has only been invoked once, in response to the 2022 occupation of downtown Ottawa and the blockades of border crossings in Ontario and Alberta. The use of the act was deemed controversial, especially given the previous uses of the act's predecessor legislation."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1214,
+                    818,
+                    1277
+                ],
+                "angle": 0,
+                "content": "II. Legislative History"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1333,
+                    711,
+                    1386
+                ],
+                "angle": 0,
+                "content": "A. First World War"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1445,
+                    2256,
+                    2065
+                ],
+                "angle": 0,
+                "content": "The Emergencies Act has its origins in the War Measures Act, which was originally enacted at the start of the First World War in 1914.[7] The War Measures Act allowed the Governor in Council (the federal cabinet) to proclaim the existence of a real or apprehended war, invasion, or insurrection, and to authorize the cabinet to issue orders in council (cabinet orders) or regulations concerning: censorship, powers of arrest and deportation, appropriation of property, production controls, and travel restrictions. This effectively allowed the cabinet to govern Canada during wartime without the need for parliamentary approvals. The extent of these powers were illustrated in the Supreme Court case, *Re George Edwin Gray*, involving a conscientious objector who was charged under the Military Service Act. The act was amended through an order in council rather than through the parliamentary process, which the Supreme Court of Canada explained as follows:"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    433,
+                    2125,
+                    2108,
+                    2336
+                ],
+                "angle": 0,
+                "content": "The exercise of legislative functions such as those here in question by the Governor-in-council rather than by Parliament is no doubt something to be avoided as far as possible. But we are living in extra-ordinary times which necessitate the taking of extraordinary measures.[8]"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2392,
+                    2001,
+                    2448
+                ],
+                "angle": 0,
+                "content": "According to the Canadian Encyclopedia, these provisions in the War Measures Act"
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2626,
+                    446,
+                    2673
+                ],
+                "angle": 0,
+                "content": "4 Id. s. 5."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2699,
+                    492,
+                    2748
+                ],
+                "angle": 0,
+                "content": "5 Id. s. 6(3)."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2775,
+                    1818,
+                    2828
+                ],
+                "angle": 0,
+                "content": "<sup>6</sup> Emergencies Act, R.S.C., 1985, c. 22 (4th Supp.) (Can.), https://perma.cc/RJ5T-JUZU."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2847,
+                    1736,
+                    2900
+                ],
+                "angle": 0,
+                "content": "<sup>7</sup> War Measures Act, 1914, 5 George V, c. 2 (Can.), https://perma.cc/9AED-GF6D."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2920,
+                    1879,
+                    2976
+                ],
+                "angle": 0,
+                "content": "<sup>8</sup> In Re George Edwin Gray, (1918) 57 S.C.R. 150, at p. 181, https://perma.cc/6YUQ-FH9Z."
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2626,
+                    1879,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    288,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2256,
+                    3141
+                ],
+                "angle": 0,
+                "content": "2"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    976,
+                    151,
+                    1568,
+                    204
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    436,
+                    297,
+                    2108,
+                    561
+                ],
+                "angle": 0,
+                "content": "[were] used to ban 253 publications, including 222 American, 164 foreign-language and 89 leftist publications. Following the Bolshevik Revolution in Russia in 1917, socialist reading materials in particular were targeted for censure. Membership in left-leaning or pacifist organizations was forbidden. People were also arrested and interned for their political beliefs.[9]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    610,
+                    2256,
+                    900
+                ],
+                "angle": 0,
+                "content": "The federal government also interned 8,816 people, only \\(35\\%\\) of whom were prisoners of war, with the rest being ethnic Germans, Austro-Hungarians, Bulgarians, or Ottomans. Some of those interned were Canadian-born or naturalized British subjects (there was no distinct Canadian citizenship at the time). Eighty-five thousand ethnic Ukrainians were also required to register as enemy aliens and were forbidden from leaving the country.[10]"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    943,
+                    2256,
+                    1112
+                ],
+                "angle": 0,
+                "content": "The War Measures Act was also used to put down riots which occurred in Quebec City in 1918. These emerged from protests against mandatory conscription, and resulted in the deaths of four civilians.[11]"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1168,
+                    765,
+                    1221
+                ],
+                "angle": 0,
+                "content": "B. Second World War"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    293,
+                    1273,
+                    2256,
+                    2072
+                ],
+                "angle": 0,
+                "content": "The War Measures Act was also employed during the Second World War. Canada declared war on Germany on September 10, 1939, but under the provisions of the War Measures Act, the federal cabinet had proclaimed the existence of war as of August 25, \\(1939^{12}\\) and in accordance with the powers granted to it by the Act, the federal cabinet issued the Defence of Canada Regulations.[13] These regulations included restrictions on radio transmitters, imposed censorship, and required registration of \"enemy aliens.\" Beginning almost immediately after the Pearl Harbor attacks, over 22,000 Japanese Canadians were interned, at their own expense, in camps away from the Pacific Coast under the Defence of Canada regulations.[14] Even after the war ended in 1945, the Canadian government sought to deport Japanese nationals and naturalized citizens from Japan under legislation that allowed the continuation of the War Measures Act into peacetime.[15] These measures were upheld by the Judicial Committee of the Privy Council, which acted as Canada's highest court until 1947, deferring to the government's proclamation that a state of emergency continued to exist.[16] The Government of Canada ultimately apologized to Japanese Canadians and issued compensation in 1988.[17]"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2131,
+                    2195,
+                    2187
+                ],
+                "angle": 0,
+                "content": "<sup>9</sup> Denis Smith, War Measures Act, in The Canadian Encyclopedia (Mar. 13 2020), https://perma.cc/29GS-VCZ2."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2207,
+                    382,
+                    2253
+                ],
+                "angle": 0,
+                "content": "10 Id."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2277,
+                    2236,
+                    2385
+                ],
+                "angle": 0,
+                "content": "<sup>11</sup> Martin Auger, On the Brink of Civil War: The Canadian Government and the Suppression of the 1918 Quebec Easter Riots, 89 Canadian Historical Review 503 (Dec. 2008), https://perma.cc/JM3U-2WMZ (by subscription)."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2402,
+                    1861,
+                    2458
+                ],
+                "angle": 0,
+                "content": "<sup>12</sup> Canada Gazette, Vol. 73, No. 11, p. 728 (Sept. 9, 1939), https://perma.cc/DDC2-WADW."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2478,
+                    1912,
+                    2534
+                ],
+                "angle": 0,
+                "content": "<sup>13</sup> Defence of Canada Regulations, P.C. 2483 (Sept. 3, 1939), https://perma.cc/C2WH-SBGB."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2550,
+                    1830,
+                    2607
+                ],
+                "angle": 0,
+                "content": "<sup>14</sup> Canada Gazette, Vol. 75, No. 212 Extra (Feb. 27, 1942), https://perma.cc/MV4M-64XP."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2623,
+                    2111,
+                    2732
+                ],
+                "angle": 0,
+                "content": "\\(^{15}\\) Eric S. Block & Adam Goldenberg, *Emergency Law in Canada: Commentary & Legislation* 11 (2021), LOC bibliographic information available at https://lccn.loc.gov/2020445459."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2748,
+                    2193,
+                    2854
+                ],
+                "angle": 0,
+                "content": "<sup>16</sup> The Co-operative Committee on Japanese Canadians v. The Attorney General of Canada, [1946] UKPC 48, https://perma.cc/W3Z7-AGAJ."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2871,
+                    1963,
+                    2976
+                ],
+                "angle": 0,
+                "content": "<sup>17</sup> Herbert Denton, Ottawa to Pay Reparations for War Internees, Washington Post (Sept. 23, 1988), https://perma.cc/HZ5P-QEAQ."
+            },
+            {
+                "block_id": 15,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2131,
+                    2236,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "3"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    976,
+                    151,
+                    1568,
+                    204
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    590
+                ],
+                "angle": 0,
+                "content": "In *Emergency Law in Canada*, Eric Block and Adam Goldenberg also raised the little known use of the War Measures Act through secret orders in council issued in 1946, after the defection of Soviet diplomat Igor Gouzenko and the discovery of Soviet operatives in North America spying on the U.S. atomic program.[18] These compelled the cooperation of suspected spies with the commission of inquiry investigating the issue."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    288,
+                    633,
+                    1093,
+                    693
+                ],
+                "angle": 0,
+                "content": "According to the Library of Parliament"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    433,
+                    739,
+                    2108,
+                    950
+                ],
+                "angle": 0,
+                "content": "[i]n 1947, the Constitution of Transitional Measures Act was enacted, maintaining certain wartime orders and regulations, and stayed in place until 30 April 1951. Although the War Measures Act was not invoked during the Korean War, certain more limited powers were granted to Cabinet under the Emergency Powers Act between March 1951 and May 1954.[19]"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1003,
+                    925,
+                    1056
+                ],
+                "angle": 0,
+                "content": "C. The October Crisis of 1970"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1108,
+                    2264,
+                    1508
+                ],
+                "angle": 0,
+                "content": "The War Measures Act was last invoked in October 1970, in the wake of the kidnapping and assassination of Quebec provincial cabinet minister Pierre Laporte by the Front de Libération du Québec (FLQ), and the kidnapping of British trade commissioner James Cross, both in the Montreal region. On October 16, 1970, Prime Minister Pierre Elliott Trudeau's cabinet invoked the War Measures Act, concluding that there was \"a real and apprehended insurrection\" in Quebec.[20] The War Measures Act was invoked in response to a request from the province of Quebec and the city of Montreal for emergency federal assistance.[21]"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1557,
+                    2256,
+                    1904
+                ],
+                "angle": 0,
+                "content": "Using the powers conferred to it by the War Measures Act, the federal cabinet promulgated the Public Order Regulations, naming the FLQ as an unlawful association.[22] Section 7 of the Public Order Regulations suspended bail rights for those arrested as members of the FLQ, and section 9 allowed for arrests without warrants of suspected FLQ members and those accused of aiding them. Section 8 provided for the broad classification of persons as members of FLQ, including having"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1956,
+                    1445,
+                    2003
+                ],
+                "angle": 0,
+                "content": "a. attended any meeting of the unlawful association,"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2032,
+                    1614,
+                    2082
+                ],
+                "angle": 0,
+                "content": "b. spoke publicly in advocacy for the unlawful association, or"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2108,
+                    2098,
+                    2214
+                ],
+                "angle": 0,
+                "content": "c. communicated statements of the unlawful association as a representative or professed representative of the unlawful association[.]23"
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    436,
+                    1956,
+                    2098,
+                    2214
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2405,
+                    1076,
+                    2455
+                ],
+                "angle": 0,
+                "content": "18 Canada Gazette, supra note 14, at pp. 13-14."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2478,
+                    2162,
+                    2574
+                ],
+                "angle": 0,
+                "content": "\\(^{19}\\) Peter Niemczak, *Emergencies Act*, Library of Parliament, Ottawa (Oct. 10, 2001), https://perma.cc/S2BD-LKC6."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2600,
+                    2164,
+                    2702
+                ],
+                "angle": 0,
+                "content": "20 Proclamation declaring that apprehended insurrection exists and has existed from the \\(15^{\\text{th}}\\) October, 1970, SOR/70-443, https://perma.cc/HA6X-SPMQ."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2725,
+                    2190,
+                    2824
+                ],
+                "angle": 0,
+                "content": "21 Letters from the Quebec Authorities requesting the Implementation of the War Measures Act (October 15-16, 1970), Documents on the October Crisis, Marianopolis College (2000), https://perma.cc/MKM4-53BV."
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2847,
+                    1708,
+                    2900
+                ],
+                "angle": 0,
+                "content": "22 Public Order Regulations, 1970, SOR/70-444, https://perma.cc/HA6X-SPMQ."
+            },
+            {
+                "block_id": 16,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2923,
+                    382,
+                    2966
+                ],
+                "angle": 0,
+                "content": "23 Id."
+            },
+            {
+                "block_id": 17,
+                "type": "list",
+                "bbox": [
+                    288,
+                    2405,
+                    2190,
+                    2966
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 18,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 19,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3102,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "4"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    976,
+                    151,
+                    1568,
+                    204
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    534
+                ],
+                "angle": 0,
+                "content": "Using these powers, the police searched over 3,000 properties without warrants and arrested 468 people, of whom 435 people were never charged with an offense.[24] The Public Order Regulations were superseded by legislation, namely the Public Order (Temporary Measures) Act, 1970, and remained in force until April 30, 1971.[25]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    577,
+                    2256,
+                    1207
+                ],
+                "angle": 0,
+                "content": "In 1971 the Quebec Court of Appeal upheld the constitutionality of charges of being a member of the FLQ.[26] The court noted that those accused of membership in the FLQ had the right to present evidence to rebut the charges, and that \"while the presumption was, indeed, onerous, . . . its severity could be understood by looking at the danger which the legislation was intended to counteract.\"[27] The court also found that the Canadian Bill of Rights, which was enacted in 1960, did not apply as the Canadian Bill of Rights had a clause expressly allowing parliament to legislate notwithstanding the Canadian Bill of Rights[28] and that the Public Order (Temporary Measures) Act, 1970 had such a clause. It should be noted that the Canadian Bill of Rights is not a constitutional statute to which all legislation must conform. The Canadian Charter of Rights and Freedoms (the Charter), included in the constitution was not adopted until the proclamation of the Constitution Act, 1982.[29]"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1254,
+                    1134,
+                    1313
+                ],
+                "angle": 0,
+                "content": "D. Introduction of the Emergencies Act"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1359,
+                    2254,
+                    1534
+                ],
+                "angle": 0,
+                "content": "The advent of the Charter, which entrenched civil liberties in the Canadian constitution, as well as the 1981 McDonald Commission into the operation of the Royal Canadian Mounted Police, resulted in the need for reform of the War Measures Act. The McDonald Commission explained"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    433,
+                    1580,
+                    2111,
+                    2102
+                ],
+                "angle": 0,
+                "content": "[t]he October Crisis made one thing quite clear: the government had no means of bringing emergency powers into play in a national domestic crisis other than by invoking the War Measures Act or by enacting special legislation in Parliament. Whether or not the use of emergency powers was justified in 1970 is not for us to decide. However, the question that arises is whether a statute that would authorize less severe measures, with more protection for fundamental rights and freedoms, should be available for use in similar circumstances. In the spring of 1971, legislation was drafted dealing with civil emergencies and the government proposed the appointment of a special joint committee of the Senate and the House of Commons to consider the enactment of this legislation. However, the committee was not appointed and the legislation was never introduced.[30]"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2154,
+                    2256,
+                    2273
+                ],
+                "angle": 0,
+                "content": "Specific recommendations included increasing the role of parliament, by ensuring that each invocation of the War Measures Act be accompanied by parliamentary approval even if"
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2379,
+                    1642,
+                    2438
+                ],
+                "angle": 0,
+                "content": "24 Emergency Law in Canada: Commentary & Legislation, supra note 15, at p. 19."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2451,
+                    2093,
+                    2508
+                ],
+                "angle": 0,
+                "content": "25 Public Order (Temporary Measures) Act, S.C. 1970-71-72, c. 2 (Can.), https://perma.cc/JCG2-G3KG."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2527,
+                    1619,
+                    2583
+                ],
+                "angle": 0,
+                "content": "26 Gagnon v. R., [1971] Que. C.A. 454 (Can.), https://perma.cc/G99F-69BA."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2600,
+                    385,
+                    2649
+                ],
+                "angle": 0,
+                "content": "27 Id."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2676,
+                    1909,
+                    2732
+                ],
+                "angle": 0,
+                "content": "28 Canadian Bill of Rights, S.C. 1960, c. 44 (Can.) at section 2, https://perma.cc/9KKB-FU82."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2748,
+                    2221,
+                    2854
+                ],
+                "angle": 0,
+                "content": "29 Canadian Charter of Rights and Freedoms, s. 7, Part 1 of the Constitution Act, 1982, being Schedule B to the Canada Act 1982 (UK), 1982, c. 11, https://perma.cc/54PG-38AG."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2874,
+                    2238,
+                    2979
+                ],
+                "angle": 0,
+                "content": "<sup>30</sup> Freedom and Security Under the Law, Vol. 2, Commission of Inquiry Concerning Certain Activities of the Royal Canadian Mounted Police (1981), at p. 920, https://perma.cc/Y56H-6RPJ."
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2379,
+                    2238,
+                    2979
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "5"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    976,
+                    151,
+                    1568,
+                    204
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    528
+                ],
+                "angle": 0,
+                "content": "Parliament is not currently in session, and that the approval be periodically reviewed.\\(^{31}\\) The McDonald Commission also noted that fundamental rights provided in the Canadian Bill of Rights (this being before the adoption of the Charter) should be retained even in times of crisis. The report states that"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    433,
+                    584,
+                    2103,
+                    745
+                ],
+                "angle": 0,
+                "content": "[t]hese [rights] are fundamental to our system of justice and public administration in peace and in war, and we believe that the total exemption of the War Measures Act from the Canadian Bill of Rights is not required.[32]"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    792,
+                    2254,
+                    910
+                ],
+                "angle": 0,
+                "content": "In particular, the report noted that the powers exercised during the Second World War, which denaturalized Canadian citizens of Japanese descent, should not have been allowed.[33]"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    956,
+                    2256,
+                    1247
+                ],
+                "angle": 0,
+                "content": "On July 21, 1988, Bill C-77, An Act to Provide for Safety and Security in Emergencies (Emergencies Act), was given royal assent and replaced the War Measures Act.[34] The Emergencies Act, introduced on June 26, 1987,[35] by the government of Prime Minister Brian Mulroney, was drafted to address shortcomings addressed in the McDonald Commission's report. A working paper drafted by Emergency Preparedness Canada explained"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    433,
+                    1300,
+                    2111,
+                    1775
+                ],
+                "angle": 0,
+                "content": "[s]hortcomings of the existing framework of federal emergency powers have been a matter of concern for some time. The October crisis of 1970 led to widespread dissatisfaction with the War Measures Act as a means of dealing with peacetime public order crises . . . . The adequacy of safeguards constraining the use of the War Measures Act were called into question when Canada acceded to the International Covenant on Civil and Political Rights in 1976. As a signatory to the Covenant and the Optional Protocol, Canada has undertaken to ensure that its legislation incorporates certain fundamental human rights. To fulfill its obligations under Article 4 of the Covenant would require amendments to the War Measures Act, a point reiterated in the report of the McDonald Commission."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    433,
+                    1815,
+                    2106,
+                    1980
+                ],
+                "angle": 0,
+                "content": "The proclamation of the Canadian Charter of Rights and Freedoms in 1982 has raised the issue of whether the safeguards in existing emergencies legislations are compatible with the fundamental rights and freedoms now constitutionally guaranteed by the Charter.[36]"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2022,
+                    2264,
+                    2260
+                ],
+                "angle": 0,
+                "content": "Ultimately the new emergencies legislation needed to fulfill certain criteria set out by the federal government, namely: that it provided adequate authority to deal effectively with emergencies, that it included parliamentary accountability, that it was consistent with the federal nature of Canada, and that it safeguarded human rights consistent with the Charter."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2352,
+                    647,
+                    2409
+                ],
+                "angle": 0,
+                "content": "31 Id. at pp. 926-928."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2428,
+                    553,
+                    2481
+                ],
+                "angle": 0,
+                "content": "32 Id. at p. 923."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2501,
+                    550,
+                    2554
+                ],
+                "angle": 0,
+                "content": "33 Id. at p. 924."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2577,
+                    2221,
+                    2732
+                ],
+                "angle": 0,
+                "content": "34 Bill C-77 was studied by a legislative committee of the House of Commons, the proceedings and transcripts of which are available through the Canadian Parliamentary Historical Resources of the Library of Parliament, https://perma.cc/YC4X-JKFD."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2748,
+                    2093,
+                    2854
+                ],
+                "angle": 0,
+                "content": "<sup>35</sup> House of Commons Journals, 33<sup>rd</sup> Parliament, 2<sup>nd</sup> Session, Vol. 129 Pt. 1 at page 1260 (June 26, 1987), Canadian Parliamentary Historical Resources, Library of Parliament, https://perma.cc/BBB6-253Y."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2874,
+                    2198,
+                    2979
+                ],
+                "angle": 0,
+                "content": "<sup>36</sup> Emergency Preparedness Canada, Bill C-77: An Act to Provide for Safety and Security in Emergencies: Working Paper (1987), https://perma.cc/J6MT-87AX."
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2352,
+                    2221,
+                    2979
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3154
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3102,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "6"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    976,
+                    151,
+                    1568,
+                    204
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    356,
+                    2254,
+                    471
+                ],
+                "angle": 0,
+                "content": "In his speech during the debate in the House of Commons, Minister of National Defence Perrin Beatty explained that the"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    433,
+                    528,
+                    2108,
+                    788
+                ],
+                "angle": 0,
+                "content": "War Measures Act is too broad and too sweeping. It makes no provision for dealing either moderately with peacetime disasters or for a measures and prudent response to international tension. For 17 years Canadians and politicians of all Parties have been advocating abolition of the War Measures Act saying it was outmoded and dangerous, and too blunt an instrument for anything short of war.[37]"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    288,
+                    841,
+                    1175,
+                    900
+                ],
+                "angle": 0,
+                "content": "III. Operation of the Emergencies Act"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    960,
+                    2254,
+                    1131
+                ],
+                "angle": 0,
+                "content": "The Emergencies Act contains specific provisions for the type of emergency, as well as built-in limits and accountability mechanisms. Foremost, it is necessary to note that unlike the War Measures Act, the Emergencies Act explicitly states in its preamble that"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    433,
+                    1184,
+                    2108,
+                    1448
+                ],
+                "angle": 0,
+                "content": "the Governor in Council, in taking such special temporary measures, would be subject to the Canadian Charter of Rights and Freedoms and the Canadian Bill of Rights and must have regard to the International Covenant on Civil and Political Rights, particularly with respect to those fundamental rights that are not to be limited or abridged even in a national emergency.[38]"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1498,
+                    2254,
+                    1729
+                ],
+                "angle": 0,
+                "content": "While regulations under the Emergencies Act can infringe on constitutional rights under the Charter, it would have to be justified under section 1 of the Charter which states that rights are \"subject only to such reasonable limits prescribed by law as can be demonstrably justified in a free and democratic society.\"[39]"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1782,
+                    838,
+                    1841
+                ],
+                "angle": 0,
+                "content": "A. Types of Emergencies"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1894,
+                    1624,
+                    1953
+                ],
+                "angle": 0,
+                "content": "Section 3 of the Emergencies Act defines a national emergency as"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2009,
+                    1524,
+                    2062
+                ],
+                "angle": 0,
+                "content": "an urgent and critical situation of a temporary nature that"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    583,
+                    2082,
+                    2103,
+                    2237
+                ],
+                "angle": 0,
+                "content": "(a) seriously endangers the lives, health or safety of Canadians and is of such proportions or nature as to exceed the capacity or authority of a province to deal with it, or"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    586,
+                    2263,
+                    2103,
+                    2372
+                ],
+                "angle": 0,
+                "content": "(b) seriously threatens the ability of the Government of Canada to preserve the sovereignty, security and territorial integrity of Canada"
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    583,
+                    2082,
+                    2103,
+                    2372
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2392,
+                    1820,
+                    2448
+                ],
+                "angle": 0,
+                "content": "and that cannot be effectively dealt with under any other law of Canada.[40]"
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2649,
+                    2136,
+                    2755
+                ],
+                "angle": 0,
+                "content": "<sup>37</sup>Hansard, House of Commons, \\(33^{\\mathrm{rd}}\\) Parliament, \\(2^{\\mathrm{nd}}\\) Session, Vol. 9, page 10808 (Nov. 16, 1987), Canadian Parliamentary Historical Resources, Library of Parliament, https://perma.cc/U4V6-77KC."
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2775,
+                    816,
+                    2831
+                ],
+                "angle": 0,
+                "content": "38 Emergencies Act preamble."
+            },
+            {
+                "block_id": 16,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2847,
+                    1150,
+                    2904
+                ],
+                "angle": 0,
+                "content": "39 Canadian Charter of Rights and Freedoms s. 1."
+            },
+            {
+                "block_id": 17,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2923,
+                    706,
+                    2976
+                ],
+                "angle": 0,
+                "content": "40 Emergencies Act s. 3."
+            },
+            {
+                "block_id": 18,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2649,
+                    2136,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 19,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 20,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2254,
+                    3138
+                ],
+                "angle": 0,
+                "content": "7"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    976,
+                    151,
+                    1568,
+                    204
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    643
+                ],
+                "angle": 0,
+                "content": "The Emergencies Act defines four categories of national emergencies: public welfare emergencies, public order emergencies, international emergencies, and war emergencies. Public welfare emergencies include natural disasters such as floods and fires, accidents or pollution such as oil spill responses, and diseases such as pandemics.[41] A public order emergency is \"an emergency that arises from threats to the security of Canada,\"[42] defined in the Canadian Security Intelligence Act as"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    436,
+                    699,
+                    2103,
+                    805
+                ],
+                "angle": 0,
+                "content": "(a) espionage or sabotage that is against Canada or is detrimental to the interests of Canada or activities directed toward or in support of such espionage or sabotage,"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    436,
+                    825,
+                    2103,
+                    933
+                ],
+                "angle": 0,
+                "content": "(b) foreign influenced activities within or relating to Canada that are detrimental to the interests of Canada and are clandestine or deceptive or involve a threat to any person,"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    436,
+                    953,
+                    2103,
+                    1115
+                ],
+                "angle": 0,
+                "content": "(c) activities within or relating to Canada directed toward or in support of the threat or use of acts of serious violence against persons or property for the purpose of achieving a political, religious or ideological objective within Canada or a foreign state, and"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1135,
+                    2103,
+                    1293
+                ],
+                "angle": 0,
+                "content": "(d) activities directed toward undermining by covert unlawful acts, or directed toward or intended ultimately to lead to the destruction or overthrow by violence of, the constitutionally established system of government in Canada,"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    436,
+                    699,
+                    2103,
+                    1293
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1316,
+                    2103,
+                    1425
+                ],
+                "angle": 0,
+                "content": "but does not include lawful advocacy, protest or dissent, unless carried on in conjunction with any of the activities referred to in paragraphs (a) to (d).<sup>43</sup>"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1504,
+                    2256,
+                    1735
+                ],
+                "angle": 0,
+                "content": "An international emergency is defined as one deriving from “acts of intimidation or coercion or the real or imminent use of force” involving Canada and one or more countries.[44] Finally, a war emergency is “war or other armed conflict, real or imminent involving Canada or its allies that is so serious as to be a national emergency.”[45]"
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1788,
+                    887,
+                    1844
+                ],
+                "angle": 0,
+                "content": "B. Declaring an Emergency"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1897,
+                    2264,
+                    2475
+                ],
+                "angle": 0,
+                "content": "The Emergencies Act gives the Governor in Council (the federal cabinet) the power to declare a state of emergency when it has reasonable grounds to believe that the relevant type of emergency exists. With the exception of a war emergency, the reason for the emergency, its geographic scope, and the necessary and temporary measures must be set out in the proclamation. For public order or public welfare emergencies, i.e. domestic emergencies, the governments of the affected provinces must be consulted, and an emergency cannot be declared unless the province or provinces agree that the emergency is beyond the scope of their capacity to respond effectively. This obligation is discharged if the consultation cannot be done without jeopardizing the emergency actions, though the consultation must still take place before the declaration of emergency is voted on by either house of parliament."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2626,
+                    451,
+                    2673
+                ],
+                "angle": 0,
+                "content": "41 Id. s. 5"
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2702,
+                    476,
+                    2745
+                ],
+                "angle": 0,
+                "content": "42 Id. s. 16."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2775,
+                    1958,
+                    2828
+                ],
+                "angle": 0,
+                "content": "43 Canadian Security Intelligence Act, R.S.C. 1985, c. C-23 at s. 2, https://perma.cc/G4PK-535P."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2851,
+                    724,
+                    2900
+                ],
+                "angle": 0,
+                "content": "44 Emergencies Act s. 27."
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2927,
+                    476,
+                    2966
+                ],
+                "angle": 0,
+                "content": "45 Id. s. 37."
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    288,
+                    2626,
+                    1958,
+                    2966
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 18,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3098,
+                    2251,
+                    3141
+                ],
+                "angle": 0,
+                "content": "8"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    976,
+                    151,
+                    1568,
+                    204
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    288,
+                    300,
+                    1124,
+                    359
+                ],
+                "angle": 0,
+                "content": "C. Emergency Orders and Regulations"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    409,
+                    2256,
+                    818
+                ],
+                "angle": 0,
+                "content": "Unlike the previous War Measure Act, the federal cabinet's ability to enact emergency orders and regulations is prescriptive and restricted. Each category of emergency has a specified matter that falls under the government's regulatory authority. According to section 4 of the Emergencies Act, there are two categories of regulations that are prohibited across all categories of emergencies: the power to alter the Emergencies Act and the power to detain, imprison, or intern Canadian citizens or permanent residents on the \"basis of race, national or ethnic origin, colour, religion, sex, age or mental or physical disability.\""
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    293,
+                    864,
+                    2256,
+                    1557
+                ],
+                "angle": 0,
+                "content": "Under a public welfare emergency, the federal cabinet can promulgate regulations concerning: travel to, from or within a specified area,[46] evacuation of persons or property from a specified area[47]; the requisition, use or disposition of property,[48] orders for people or groups of people to render essential services that they are competent to provide, conditional on reasonable compensation being paid,[49] and the distribution of essential goods, services, and resources.[50] The government can also authorize and make emergency payments,[51] establish emergency shelters and hospitals,[52] assess damages and repair them,[53] and assess environmental damages and alleviate them.[54] Finally, under a public welfare emergency, the federal cabinet can, through regulations, change its normal relationship with respect to the judiciary: it can impose summary convictions (with a maximum penalty a fine of \\(500 (about US\\)364) and/or a six month jail term)[55] for breaches of the orders. Alternatively, it can establish a regulation which permits an indictment process with a maximum penalty of $5000 (about US$3,643) or five years in jail.[56]"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1607,
+                    2256,
+                    1900
+                ],
+                "angle": 0,
+                "content": "During a public order emergency, the federal cabinet has authority to set out some regulations of the same kind as it can set out during a public welfare emergency. Specifically, it is able to impose summary convictions and indictments with the same penalties as mentioned above,[57] can direct individuals or groups of people to render services (for reasonable compensation) that they are competent to provide,[58] and can regulate travel to, from, or within any specified area.[59] Under"
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    1956,
+                    553,
+                    2016
+                ],
+                "angle": 0,
+                "content": "46 Id. s 8(1)(a)."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2032,
+                    545,
+                    2088
+                ],
+                "angle": 0,
+                "content": "47 Id. s 8(1)(b)."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2108,
+                    540,
+                    2161
+                ],
+                "angle": 0,
+                "content": "48 Id. s 8(1)(c)."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2184,
+                    545,
+                    2237
+                ],
+                "angle": 0,
+                "content": "49 Id. s 8(1)(d)."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2257,
+                    540,
+                    2310
+                ],
+                "angle": 0,
+                "content": "50 Id. s 8(1)(e)."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2329,
+                    538,
+                    2385
+                ],
+                "angle": 0,
+                "content": "51 Id. s 8(1)(f)."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2405,
+                    545,
+                    2458
+                ],
+                "angle": 0,
+                "content": "52 Id. s 8(1)(g)."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2478,
+                    545,
+                    2531
+                ],
+                "angle": 0,
+                "content": "53Id.s8(1)(h)."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2554,
+                    532,
+                    2607
+                ],
+                "angle": 0,
+                "content": "54Id.s8(1)(i)."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2626,
+                    568,
+                    2682
+                ],
+                "angle": 0,
+                "content": "55 Id. s 8(1)(j)(i)."
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2702,
+                    578,
+                    2755
+                ],
+                "angle": 0,
+                "content": "56 Id. s 8(1)(j)(ii)."
+            },
+            {
+                "block_id": 16,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2775,
+                    632,
+                    2828
+                ],
+                "angle": 0,
+                "content": "57 Id. s 19(1)(e)(i-ii)."
+            },
+            {
+                "block_id": 17,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2851,
+                    566,
+                    2900
+                ],
+                "angle": 0,
+                "content": "58 Id. s 19(1)(d)."
+            },
+            {
+                "block_id": 18,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2923,
+                    612,
+                    2976
+                ],
+                "angle": 0,
+                "content": "59 Id. s 19(1)(a)(ii)."
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    285,
+                    1956,
+                    632,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 21,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "9"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    976,
+                    151,
+                    1568,
+                    204
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    534
+                ],
+                "angle": 0,
+                "content": "this type of emergency, the federal cabinet also has the power to set out regulations concerning public assembly that may reasonably be expected to lead to a breach of peace,[60] the use of specified property,[61] the securing of protected places,[62] and the assumption of control, restoration, and maintenance of public utilities and services.[63]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    587,
+                    2256,
+                    1164
+                ],
+                "angle": 0,
+                "content": "In an international emergency, the federal cabinet may make some regulations that are similar to regulations under other types of emergencies, and others that are unique. Overlapping regulatory powers include: directing people or groups to provide services (for compensation) that they are competent to provide,[64] securing protected places,[65] and the imposition of summary convictions and indictment penalties for contraventions of emergency orders, as above.[66] Unique powers allow the cabinet to regulate: industries, including the use of equipment, facilities and inventory,[67] appropriation and forfeiture of property or services,[68] international aspects of specified financial activities,[69] spending funds to deal with the emergency in excess of a cap set by parliament,[70] and authorizing ministers to take specified actions (of a political, diplomatic, or economic nature) to deal with the emergency.[71]"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1207,
+                    2256,
+                    1669
+                ],
+                "angle": 0,
+                "content": "The cabinet is granted powers to partially regulate travel, including prohibiting Canadian citizens or permanent residents from travel outside Canada, and prohibiting entry to other people,[72] and removing people who are not citizens or permanent residents (or protected persons under section 95 of the Immigration and Refugee Act) from Canada, on the grounds of violating international or human rights, or criminality (even if they haven't yet been convicted) if the penalty of the criminal act is prison time of more than 6 months.[73] International Emergencies also allow the cabinet to make other regulations that overlap with normally judicial powers, including: conducting inquiries in relation to defense contracts or supplies, or in relation to hoarding, overcharging or"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1956,
+                    601,
+                    2016
+                ],
+                "angle": 0,
+                "content": "\\(^{60}\\) Id. s 19(1)(a)(i)."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2032,
+                    624,
+                    2088
+                ],
+                "angle": 0,
+                "content": "\\(^{61}\\) Id. s 19(1)(a)(iii)."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2108,
+                    563,
+                    2161
+                ],
+                "angle": 0,
+                "content": "\\(^{62}\\) Id. s 19(1)(b)."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2184,
+                    561,
+                    2240
+                ],
+                "angle": 0,
+                "content": "\\(^{63}\\) Id. s 19(1)(c)."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2257,
+                    561,
+                    2310
+                ],
+                "angle": 0,
+                "content": "\\(^{64}\\) Id. s 30(1)(e)."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2329,
+                    555,
+                    2385
+                ],
+                "angle": 0,
+                "content": "\\(^{65}\\) Id. s 30(1)(f)."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2405,
+                    627,
+                    2458
+                ],
+                "angle": 0,
+                "content": "\\(^{66}\\) Id. s 30(1)(l)(i-ii)."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2478,
+                    561,
+                    2534
+                ],
+                "angle": 0,
+                "content": "67 Id. s 30(1)(a)."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2550,
+                    563,
+                    2607
+                ],
+                "angle": 0,
+                "content": "\\(^{68}\\) Id. s 30(1)(b)."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2626,
+                    553,
+                    2682
+                ],
+                "angle": 0,
+                "content": "\\(^{69}\\) Id. s 30(1)(i)."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2699,
+                    550,
+                    2755
+                ],
+                "angle": 0,
+                "content": "\\(^{70}\\) Id. s 30(1)(j)."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2775,
+                    563,
+                    2831
+                ],
+                "angle": 0,
+                "content": "\\(^{71}\\)Id. s 30(1)(k)."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2851,
+                    563,
+                    2904
+                ],
+                "angle": 0,
+                "content": "\\(^{72}\\) Id. s 30(1)(g)."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2923,
+                    563,
+                    2976
+                ],
+                "angle": 0,
+                "content": "\\(^{73}\\) Id. s 30(1)(h)."
+            },
+            {
+                "block_id": 18,
+                "type": "list",
+                "bbox": [
+                    285,
+                    1956,
+                    627,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 19,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 20,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "10"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    976,
+                    151,
+                    1568,
+                    204
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2254,
+                    419
+                ],
+                "angle": 0,
+                "content": "fraudulent operations in respect of scarce commodities,[74] and authorizing searches (including of private homes) and seizures and detentions related to these inquiries.[75]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    465,
+                    2256,
+                    699
+                ],
+                "angle": 0,
+                "content": "During a war emergency, the federal government is granted broad powers to \"make such orders or regulations as the Governor in Council believes, on reasonable grounds, are necessary or advisable for dealing with the emergency.\" The only exception specifically laid out is the prohibition on implementing military conscription by regulation."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    288,
+                    749,
+                    1002,
+                    808
+                ],
+                "angle": 0,
+                "content": "D. Oversight and Accountability"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    861,
+                    2254,
+                    980
+                ],
+                "angle": 0,
+                "content": "The Emergencies Act contains statutory provisions regarding parliamentary concurrence, approval, and review, as well as an independent commission of inquiry after each use of the act."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1029,
+                    833,
+                    1089
+                ],
+                "angle": 0,
+                "content": "1. Parliamentary Oversight"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1141,
+                    2256,
+                    1537
+                ],
+                "angle": 0,
+                "content": "Section 58 of the Emergencies Act states that a minister of the Crown is required to present a motion to confirm the declaration of the state of emergency and a report on consultations with the affected provinces within seven sitting days of the declaration being issued. If parliament is not in session, both houses of parliament must be recalled within seven days, even if the parliamentary session has been prerogued. The motion must be taken up on the following day and debated without interruption until the chamber is ready for a vote. If the motion is defeated, the state of emergency is revoked with immediate effect."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1597,
+                    2254,
+                    1768
+                ],
+                "angle": 0,
+                "content": "Section 59 states that whenever at least ten members of the Senate or 20 members of the House of Commons file a motion to revoke an emergency declaration, then it must be debated within 3 sitting days for up to 10 hours and voted on."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1824,
+                    2254,
+                    2112
+                ],
+                "angle": 0,
+                "content": "States of emergency automatically end at intervals specified in the Emergencies Act unless previously revoked by parliament or the federal cabinet. Public welfare emergencies expire after 90 days,[76] public order emergencies after 30 days,[77] international emergencies after 60 days,[78] and war emergencies after 120 days.[79] Parliament can also vote to extend the states of emergency at regular intervals."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2164,
+                    2254,
+                    2455
+                ],
+                "angle": 0,
+                "content": "According to section 62, \"the exercise of powers and the performance of duties and functions pursuant to a declaration of emergency\" is to be reviewed by a parliamentary committee consisting of both members of the House of Common from each recognized party, and members of the Senate. All orders or regulations made under the Emergencies Act are presented in parliament and referred to the committee for review in a closed session. The committee may vote"
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2550,
+                    568,
+                    2607
+                ],
+                "angle": 0,
+                "content": "\\(^{74}\\) Id. s 30(1)(c)."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2626,
+                    568,
+                    2679
+                ],
+                "angle": 0,
+                "content": "75 Id. s 30(1)(d)."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2699,
+                    497,
+                    2752
+                ],
+                "angle": 0,
+                "content": "\\(^{76}\\) Id. s 7(2)."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2775,
+                    515,
+                    2828
+                ],
+                "angle": 0,
+                "content": "77 Id. s 18(2)."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2851,
+                    515,
+                    2900
+                ],
+                "angle": 0,
+                "content": "\\(^{78}\\)Id. s 29(2)."
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2923,
+                    515,
+                    2973
+                ],
+                "angle": 0,
+                "content": "79 Id. s 39(2)."
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2550,
+                    568,
+                    2973
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 18,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2249,
+                    3141
+                ],
+                "angle": 0,
+                "content": "11"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    974,
+                    151,
+                    1568,
+                    204
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    534
+                ],
+                "angle": 0,
+                "content": "to revoke the regulation. The committee is also mandated to report to each house of parliament at least once every 60 days during a state of emergency, whenever a motion or proclamation for the continuation or revocation of the state of emergency is issued, and within seven sitting days of the expiry or revocation of the state of emergency occurs."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    288,
+                    584,
+                    793,
+                    643
+                ],
+                "angle": 0,
+                "content": "2. Commission of Inquiry"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    693,
+                    2256,
+                    983
+                ],
+                "angle": 0,
+                "content": "In addition to the establishment of the parliamentary committee, the federal cabinet must also set up a commission of inquiry into the \"circumstances that led to the declaration and the measures taken for dealing with the emergency\" within 60 days of the end of the state of emergency. The report of the inquiry must be presented in both houses of parliament within 360 days of the end of the state of emergency."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1036,
+                    1088,
+                    1095
+                ],
+                "angle": 0,
+                "content": "IV. Usage of the Emergencies Act"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1158,
+                    2256,
+                    1389
+                ],
+                "angle": 0,
+                "content": "A state of emergency under the Emergencies Act has only been invoked once since it was enacted in 1988. According to media reports there has been discussion, from government officials, politicians and academics, of invoking the Emergencies Act at various points in the last 33 years, including for the following events:"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1445,
+                    2147,
+                    1501
+                ],
+                "angle": 0,
+                "content": "the Oka Crisis between the Quebec government and Haudenosaunee peoples in 1990,80"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1524,
+                    2254,
+                    1636
+                ],
+                "angle": 0,
+                "content": "- the event of a unilateral declaration of Quebec independence after the 1995 secession referendum,\\(^{81}\\)"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1666,
+                    1394,
+                    1722
+                ],
+                "angle": 0,
+                "content": "the anticipated millennium Y2K outages in 1999,82"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1752,
+                    1456,
+                    1808
+                ],
+                "angle": 0,
+                "content": "the Summit of the Americas in Quebec City in 2000,83"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1838,
+                    1073,
+                    1890
+                ],
+                "angle": 0,
+                "content": "- the opioid epidemic in 2017,\\(^{84}\\) and"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1920,
+                    1415,
+                    1976
+                ],
+                "angle": 0,
+                "content": "- the first wave of the COVID-19 pandemic in 2020.85"
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    285,
+                    1445,
+                    2254,
+                    1976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2257,
+                    2103,
+                    2359
+                ],
+                "angle": 0,
+                "content": "<sup>80</sup> John Kessel and Elizabeth Payne, Military Blasted Over Restrictions, Ottawa Citizen (Sept. 20, 1990) (by subscription)."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2382,
+                    2019,
+                    2481
+                ],
+                "angle": 0,
+                "content": "<sup>81</sup> Edison Stewart, *Manning Backs Use of Force to Keep Parts of Quebec*, Toronto Star (Dec. 8, 1995) (by subscription)."
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2504,
+                    2126,
+                    2607
+                ],
+                "angle": 0,
+                "content": "82 David Pugliese, 'Martial law' rushed for Y2K Chaos: Report Warns Government to be Ready toInvoke Federal Emergencies Act, Ottawa Citizen (Dec. 12, 1998) (by subscription)."
+            },
+            {
+                "block_id": 16,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2626,
+                    2170,
+                    2729
+                ],
+                "angle": 0,
+                "content": "<sup>83</sup> Kevin Dougherty, *Fence 'Threat to Rule of Law': Summit Barrier Will Create a Temporary 'Police State', Lawyer Argues in Court, The [Montreal] Gazette (Apr. 10, 2001) (by subscription)."
+            },
+            {
+                "block_id": 17,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2752,
+                    2177,
+                    2851
+                ],
+                "angle": 0,
+                "content": "<sup>84</sup> Andrea Woo, B.C. asks Ottawa to declare public-health emergency as death toll from overdoses continues to surge, The Globe and Mail (Jan. 19, 2017) (by subscription)."
+            },
+            {
+                "block_id": 18,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2874,
+                    2205,
+                    2976
+                ],
+                "angle": 0,
+                "content": "<sup>85</sup> George Stevens, It is time for Ottawa toInvoke the Emergencies Act to Flatten COVID's Curve, Waterloo Region Record (Nov. 23, 2020) (by subscription)."
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2257,
+                    2205,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 21,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "12"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    976,
+                    151,
+                    1568,
+                    204
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    288,
+                    300,
+                    1236,
+                    359
+                ],
+                "angle": 0,
+                "content": "A. Declaration of a Public Order Emergency"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    412,
+                    2254,
+                    528
+                ],
+                "angle": 0,
+                "content": "On February 15, 2022, the Governor in Council issued a proclamation declaring a public order emergency under the Emergencies Act due to"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    433,
+                    584,
+                    2108,
+                    900
+                ],
+                "angle": 0,
+                "content": "the continuing blockades by both persons and motor vehicles that is occurring at various locations throughout Canada and the continuing threats to oppose measures to remove the blockades, including by force, which blockades are being carried on in conjunction with activities that are directed toward or in support of the threat or use of acts of serious violence against persons or property, including critical infrastructure, for the purpose of achieving a political or ideological objective within Canada.[86]"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    947,
+                    2256,
+                    1122
+                ],
+                "angle": 0,
+                "content": "Additionally, the proclamation made reference to adverse effects on the Canadian economy, Canada's relationship with the United States, breakdowns of supply chains for essential goods, and the potential for violence and unrest threatening the safety and security of Canadians."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1174,
+                    2254,
+                    1626
+                ],
+                "angle": 0,
+                "content": "The proclamation also laid out temporary measures that may be required to address the emergency including: measures to regulate public assembly that may lead to a breach of the peace, such as the travel to or within any specified area, or to prohibit the use of specified property (especially goods used for a blockade),[87] and measures related to provision of services, including directing people to provide towing services, and requiring payment platforms to report certain transactions.[88] The proclamation noted that they may authorize the Royal Canadian Mounted Police (RCMP) to enforce municipal and provincial laws,[89] and that they may enact measures which impose fines or imprisonment for contravention of the orders.[90]"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1683,
+                    2254,
+                    1848
+                ],
+                "angle": 0,
+                "content": "The declaration of the public order emergency was revoked by proclamation on February 23, 2022, after the blockades of the border crossings and the parliamentary precinct were cleared by police.[91]"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1907,
+                    874,
+                    1966
+                ],
+                "angle": 0,
+                "content": "B. Emergency Regulations"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2019,
+                    2254,
+                    2247
+                ],
+                "angle": 0,
+                "content": "On February 15, 2022, the same day the federal cabinet issued the declaration of emergency, it also registered the Emergency Measures Regulations. These were enacted on the recommendation of the minister of public safety and emergency preparedness, as authorized under section 91 of the Emergencies Act, and came into force that day.[92]"
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2425,
+                    2060,
+                    2484
+                ],
+                "angle": 0,
+                "content": "86 Proclamation Declaring a Public Order Emergency, SOR/2022-20, https://perma.cc/CK96-R2ZW."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2501,
+                    1206,
+                    2557
+                ],
+                "angle": 0,
+                "content": "87 Id. \"Special Temporary Measures\" subsection (a)."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2577,
+                    1239,
+                    2630
+                ],
+                "angle": 0,
+                "content": "88 Id. \"Special Temporary Measures\" subsection (b-c)."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2649,
+                    1208,
+                    2706
+                ],
+                "angle": 0,
+                "content": "89 Id. \"Special Temporary Measures\" subsection (d)."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2725,
+                    1206,
+                    2781
+                ],
+                "angle": 0,
+                "content": "90 Id. \"Special Temporary Measures\" subsection (e)."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2798,
+                    1810,
+                    2904
+                ],
+                "angle": 0,
+                "content": "91 Proclamation Revoking the Declaration of a Public Order Emergency, SOR/2022-26, https://perma.cc/NS8S-EB5M."
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2920,
+                    1920,
+                    2979
+                ],
+                "angle": 0,
+                "content": "92 Emergency Measures Regulations, SOR/2022-21 preamble, https://perma.cc/8JZL-BDC9."
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2425,
+                    2060,
+                    2979
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 18,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "13"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    974,
+                    151,
+                    1568,
+                    204
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    933
+                ],
+                "angle": 0,
+                "content": "The regulations contained provisions very similar to the potential temporary measures laid out in the proclamation of emergency. They prohibited people from participating in public assembly which may reasonably be expected to lead to a breach of the peace,[93] or causing a minor to participate.[94] People were not allowed to travel to or within an area where an assembly which might reasonably be expected to lead to a breach of the peace occurring,[95] unless they lived or worked in the area or were moving through for reasons unrelated to the assembly, or if they were a peace officer, working for a peace officer, or working for the government to execute their duties.[96] The regulations designated some areas as “protected” and noted that they may be secured.[97] These included: critical infrastructure,[98] Parliament Hill,[99] official residences,[100] government buildings and defense buildings,[101] war memorials,[102] and other areas designated by the Minister of Public Safety.[103]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    983,
+                    2256,
+                    1389
+                ],
+                "angle": 0,
+                "content": "The regulations also required that individuals make available and render goods and services requested by the Minister of Public Safety, the Commissioner of the RCMP, or a person acting on their behalf for the removal, towing, and storage of vehicles and equipment that were part of the blockade.[104] The government was compelled to provide compensation at the current market price for anyone who rendered goods under the previous regulation. If a person suffered loss, injury, or damage as a result of the regulations, he or she could apply for compensation in accordance with Part V of the Emergencies Act.[105]"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1438,
+                    2256,
+                    1673
+                ],
+                "angle": 0,
+                "content": "If a person did not comply with the Regulations, a peace officer was permitted to take necessary measures to ensure compliance.[106] The penalties included: summary conviction, a maximum fine of five hundred dollars or imprisonment for up to six months or both; or indictment, a fine up to five thousand dollars or to imprisonment for up to five years or both.[107]"
+            },
+            {
+                "block_id": 4,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    1877,
+                    510,
+                    1940
+                ],
+                "angle": 0,
+                "content": "93 Id. s 2(1)."
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    1956,
+                    497,
+                    2013
+                ],
+                "angle": 0,
+                "content": "94Id.s2(2)."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2032,
+                    494,
+                    2085
+                ],
+                "angle": 0,
+                "content": "95 Id. s 4(1)."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2108,
+                    494,
+                    2161
+                ],
+                "angle": 0,
+                "content": "96 Id. s 4(3)."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2181,
+                    451,
+                    2227
+                ],
+                "angle": 0,
+                "content": "97 Id. s 6."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2257,
+                    494,
+                    2306
+                ],
+                "angle": 0,
+                "content": "98 Id. s 6(a)."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2329,
+                    497,
+                    2382
+                ],
+                "angle": 0,
+                "content": "99 Id. s 6(b)."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2402,
+                    507,
+                    2455
+                ],
+                "angle": 0,
+                "content": "100 Id. s 6(c)."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2478,
+                    510,
+                    2531
+                ],
+                "angle": 0,
+                "content": "101 Id. s 6(d)."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2550,
+                    507,
+                    2603
+                ],
+                "angle": 0,
+                "content": "102 Id. s 6(e)."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2626,
+                    504,
+                    2679
+                ],
+                "angle": 0,
+                "content": "103 Id. s 6(f)."
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2699,
+                    507,
+                    2752
+                ],
+                "angle": 0,
+                "content": "104 Id. s 7(1)."
+            },
+            {
+                "block_id": 16,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2775,
+                    507,
+                    2828
+                ],
+                "angle": 0,
+                "content": "105 Id. s 9(2)."
+            },
+            {
+                "block_id": 17,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2847,
+                    527,
+                    2900
+                ],
+                "angle": 0,
+                "content": "106 Id. s 10(2)."
+            },
+            {
+                "block_id": 18,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2923,
+                    527,
+                    2973
+                ],
+                "angle": 0,
+                "content": "107 Id. s 10(2)."
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    285,
+                    1877,
+                    527,
+                    2973
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 21,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3098,
+                    2251,
+                    3141
+                ],
+                "angle": 0,
+                "content": "14"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    974,
+                    151,
+                    1568,
+                    204
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    288,
+                    300,
+                    1042,
+                    356
+                ],
+                "angle": 0,
+                "content": "C. Emergency Economic Measures"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    293,
+                    412,
+                    2256,
+                    1326
+                ],
+                "angle": 0,
+                "content": "In addition to the Regulations described above, on February 15, 2022, the Governor in Council issued an Emergency Economic Measures Order on the advice of the Minister of Public Safety and Emergency Preparedness, as authorized under section 19(1) of the Emergencies Act.[108] The general aim of the provisions in the Order was to prevent the use or transfer of property which would contribute to the Emergency. This is illustrated in subsection 2(1), which ordered that an entity set out in section 3 must cease dealing in property that is owned, held, or controlled by a designated person or a person acting on their behalf.[109] They are not permitted to facilitate related transactions,[110] make property (including funds and virtual currency) available to a designated person or someone working on their behalf,[111] or provide any financial services for the benefit of a designated person.[112] The entities in section 3 include: authorized foreign banks, credit societies and savings unions, foreign companies, Canadian companies, insurance companies, loan companies, securities investors and portfolio management companies, and entities that provide a platform to raise funds or virtual currency through donations.[113] These organizations must also disclose to the RCMP or the Director of the Canadian Security Intelligence Service the existence of property they believe is held on behalf of a designated person, and any information about a transaction or proposed transaction in respect of this property.[114]"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1382,
+                    2254,
+                    1554
+                ],
+                "angle": 0,
+                "content": "For the purposes of this Emergency Economic Measures Order, a designated person is defined as \"any individual or entity that is engaged, directly or indirectly, in an activity prohibited by sections 2 to 5 of the Emergency Measures Regulations.\"115"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1607,
+                    841,
+                    1666
+                ],
+                "angle": 0,
+                "content": "D. Parliamentary Process"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1725,
+                    2256,
+                    2181
+                ],
+                "angle": 0,
+                "content": "On February 16, 2022, the report on consultations leading up to the declaration of the state of emergency was presented in both houses of parliament.[116] The report outlines a meeting which occurred on February 14, 2022 between the prime minister and the premiers of Canada's 13 provinces and territories, and explains the positions of each of the provincial and territorial governments on the declaration of a state of emergency. Overall, the premiers of Ontario, Newfoundland and Labrador, and British Columbia supported the declaration, while the other premiers were either opposed or felt that it was unnecessary to respond to the situation in their respective provinces and territories."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2280,
+                    2032,
+                    2336
+                ],
+                "angle": 0,
+                "content": "<sup>108</sup> Emergency Economic Measures Order, SOR/2022-22 preamble, https://perma.cc/FR82-VHCR."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2356,
+                    553,
+                    2409
+                ],
+                "angle": 0,
+                "content": "109 Id. s 2(1)(a)."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2428,
+                    555,
+                    2481
+                ],
+                "angle": 0,
+                "content": "110 Id. s 2(1)(b)."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2504,
+                    553,
+                    2557
+                ],
+                "angle": 0,
+                "content": "111 Id. s 2(1)(c)."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2580,
+                    510,
+                    2630
+                ],
+                "angle": 0,
+                "content": "112 Id. s 2(1)."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2653,
+                    464,
+                    2699
+                ],
+                "angle": 0,
+                "content": "113 Id. s 3."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2725,
+                    464,
+                    2772
+                ],
+                "angle": 0,
+                "content": "114 Id. s 5."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2801,
+                    464,
+                    2844
+                ],
+                "angle": 0,
+                "content": "115 Id. s 1."
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2280,
+                    2032,
+                    2844
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2874,
+                    2093,
+                    2979
+                ],
+                "angle": 0,
+                "content": "<sup>116</sup> Report to the Houses of Parliament: Emergencies Act Consultations, Public Safety Canada (Feb. 16, 2022), https://perma.cc/MQ23-9BR2."
+            },
+            {
+                "block_id": 16,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "15"
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    974,
+                    151,
+                    1568,
+                    204
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    356,
+                    2254,
+                    867
+                ],
+                "angle": 0,
+                "content": "On February 17, 2022, the Minister of Public Safety moved the motion for confirmation of the declaration of the public order emergency in the House of Commons as required by section 58 of the Emergencies Act, which states that the chamber confirm the declaration of the public order emergency.[117] The House of Commons debated the motion from February 17 to February 21, 2022, when it was put to a vote.[118] The House of Commons confirmed the state of emergency with a vote of 185 to 151, with the governing Liberal Party, along with the New Democratic Party and Green Party supporting the motion, and the Conservative Party and Bloc Québécois voting against. The Conservative Party announced that it would be giving notice of a motion to revoke the state of emergency in accordance with section 59 of the Emergencies Act.[119]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    927,
+                    2254,
+                    1158
+                ],
+                "angle": 0,
+                "content": "The government representative in the Senate presented the proclamation and the regulations in the Senate on February 21, 2022, and debate on the proclamation was held on February 22 and 23, 2022.\\(^{120}\\) With the declaration by the government revoking the state of emergency, the debate was ended without a vote.\\(^{121}\\)"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1211,
+                    2254,
+                    1438
+                ],
+                "angle": 0,
+                "content": "On February 28, 2022, the government presented the February 23, 2022 proclamation revoking the declaration of a public order emergency in the House of Commons.[122] The speaker of the House of Commons then ruled that the motion to revoke the state of emergency was null and void.[123]"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1494,
+                    2249,
+                    2009
+                ],
+                "angle": 0,
+                "content": "The leader of the government in the House of Commons then presented a motion to establish the parliamentary review committee required under section 62 of the Emergencies Act.\\(^{124}\\) The proposal included having two members of the smaller opposition New Democratic Party and Bloc Québécois co-chair the multi-partisan committee along with an additional co-chair nominated by the Senate. The members of the committee, along with any support staff such as clerks and Library of Parliament analysts, would be required to swear an oath of secrecy in accordance with section 62 of the Emergencies Act. The motion was adopted on March 2, 2022, and an identical motion was adopted by the Senate on March 3, 2022.\\(^{125}\\) The committee met for the first time March 14, 2022, and in accordance with section 62 of the Emergencies Act, presented"
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    285,
+                    2082,
+                    2162,
+                    2138
+                ],
+                "angle": 0,
+                "content": "117 Journals, 44th Parliament, 1st Session, House of Commons (Feb. 17, 2022), https://perma.cc/LF9J-U8G5."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    288,
+                    2148,
+                    2187,
+                    2214
+                ],
+                "angle": 0,
+                "content": "\\(^{118}\\) Journals, \\(44^{\\text{th}}\\) Parliament, \\(1^{\\text{st}}\\) Session, House of Commons (Feb. 21, 2022), https://perma.cc/S3RM-GRR2."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2227,
+                    2221,
+                    2333
+                ],
+                "angle": 0,
+                "content": "119 Bergen Reacts to Vote on Emergency Measures: Tables Motion to Revoke, Conservative Party of Canada (Feb. 21, 2022), https://perma.cc/498X-JH2S."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2349,
+                    1807,
+                    2461
+                ],
+                "angle": 0,
+                "content": "\\(^{120}\\) Journals of the Senate, \\(44^{\\text{th}}\\) Parliament, \\(1^{\\text{st}}\\) Session, Senate of Canada (Feb. 22, 2022), https://perma.cc/UE3R-JZYF."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2475,
+                    1807,
+                    2580
+                ],
+                "angle": 0,
+                "content": "\\(^{121}\\) Journals of the Senate, \\(44^{\\text{th}}\\) Parliament, \\(1^{\\text{st}}\\) Session, Senate of Canada (Feb. 23, 2022), https://perma.cc/Q9YM-GCXQ."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2593,
+                    2195,
+                    2659
+                ],
+                "angle": 0,
+                "content": "\\(^{122}\\) Journals, \\(44^{\\text{th}}\\) Parliament, \\(1^{\\text{st}}\\) Session, House of Commons, (Feb. 28, 2022), https://perma.cc/DEQ4-V6YT."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2673,
+                    392,
+                    2722
+                ],
+                "angle": 0,
+                "content": "123 Id."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2748,
+                    395,
+                    2798
+                ],
+                "angle": 0,
+                "content": "124 Id."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    283,
+                    2821,
+                    2231,
+                    2970
+                ],
+                "angle": 0,
+                "content": "\\(^{125}\\) Journals, \\(44^{\\text{th}}\\) Parliament, \\(1^{\\text{st}}\\) Session, House of Commons (March 2, 2022), https://perma.cc/4KE2-XBWL; Journals of the Senate, \\(44^{\\text{th}}\\) Parliament, \\(1^{\\text{st}}\\) Session, Senate of Canada (March 3, 2022), https://perma.cc/77MR-NEC8."
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2082,
+                    2231,
+                    2970
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3098,
+                    2251,
+                    3141
+                ],
+                "angle": 0,
+                "content": "16"
+            }
+        ]
+    },
+    {
+        "page_id": 19,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    974,
+                    151,
+                    1568,
+                    204
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    419
+                ],
+                "angle": 0,
+                "content": "a first report confirming it had met and intends to issue additional substantive reports.\\(^{126}\\) As of October 2022, its inquiry continues."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    288,
+                    468,
+                    869,
+                    531
+                ],
+                "angle": 0,
+                "content": "E. Commission of Inquiry"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    580,
+                    2264,
+                    1270
+                ],
+                "angle": 0,
+                "content": "On April 25, 2022, the prime minister announced the appointment of Ontario Court of Appeal Justice Paul Roleau as commissioner of the statutorily mandated commission of inquiry into the public order emergency.[127] Under the terms of the Emergencies Act, the commission must issue its final report by February 20, 2023, 360 days after the state of emergency was proclaimed. According to the order-in-council establishing the commission, its mandate is to examine the circumstances leading up to the declaration of the public order emergency, as well as examine the use of the Emergencies Act and its attendant temporary regulations.[128] The commissioner was also directed to examine the goals of the convoy protestors and blockaders, the use of disinformation, the domestic and international funding of the convoy protestors and blockaders, the economic impact of the blockades, and the police response to the blockades.[129] The commission was not empowered, however, to make any determinations or conclusions about civil or criminal liability of any persons or organizations.[130]"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1323,
+                    2256,
+                    1557
+                ],
+                "angle": 0,
+                "content": "On June 27, 2022, the commission ruled on which organizations or individuals would be granted standing before the commission, using the principles of whether they had a \"substantial and direct interest\" and would bring \"necessary contributions\" to the commission's work. On that basis, the commission granted standing in various forms to"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1610,
+                    1354,
+                    1666
+                ],
+                "angle": 0,
+                "content": "- federal, provincial, and municipal governments;"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1696,
+                    1058,
+                    1749
+                ],
+                "angle": 0,
+                "content": "police services and organizations;"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1778,
+                    1326,
+                    1834
+                ],
+                "angle": 0,
+                "content": "community groups and chamber of commerce;"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1864,
+                    844,
+                    1917
+                ],
+                "angle": 0,
+                "content": "insurance associations;"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1947,
+                    1609,
+                    2003
+                ],
+                "angle": 0,
+                "content": "- individuals implicated in the convoy protests and blockades;"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2032,
+                    928,
+                    2088
+                ],
+                "angle": 0,
+                "content": "crowdfunding experts; and"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2115,
+                    1262,
+                    2174
+                ],
+                "angle": 0,
+                "content": "- legal organizations and advocacy groups.\\(^{131}\\)"
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    288,
+                    1610,
+                    1609,
+                    2174
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2356,
+                    2221,
+                    2557
+                ],
+                "angle": 0,
+                "content": "<sup>126</sup> Review of the Exercise of Powers and the Performance of Duties and Functions Pursuant to the Declaration of Emergency that was in Effect from Monday, February 14, 2022, to Wednesday, February 23, 2022, Special Joint Committee on the Declaration of Emergency, First Report, \\(44^{\\text{th}}\\) Parliament, \\(1^{\\text{st}}\\) Session (Mar. 22, 2022), https://perma.cc/LW73-SHTG."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2577,
+                    2198,
+                    2682
+                ],
+                "angle": 0,
+                "content": "127 Prime Minister Announces Public Order Emergency Commission Following the Invocation of the Emergencies Act, Office of the Prime Minister (Apr. 25, 2022), https://perma.cc/RGX6-HJ4W."
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2699,
+                    1920,
+                    2755
+                ],
+                "angle": 0,
+                "content": "128 P.C. Number: 2022-0392, Orders In Council (Apr. 25, 2022), https://perma.cc/LE6P-29D3."
+            },
+            {
+                "block_id": 16,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2775,
+                    392,
+                    2821
+                ],
+                "angle": 0,
+                "content": "129 Id."
+            },
+            {
+                "block_id": 17,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2851,
+                    392,
+                    2894
+                ],
+                "angle": 0,
+                "content": "130 Id."
+            },
+            {
+                "block_id": 18,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2920,
+                    2198,
+                    2976
+                ],
+                "angle": 0,
+                "content": "131 Public Order Emergency Commission, Decision on Standing (Jul. 25, 2022), https://perma.cc/7XQN-PH55."
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2356,
+                    2221,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 21,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "17"
+            }
+        ]
+    },
+    {
+        "page_id": 20,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    974,
+                    151,
+                    1568,
+                    204
+                ],
+                "angle": 0,
+                "content": "Canada: The Emergencies Act"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    706
+                ],
+                "angle": 0,
+                "content": "On July 29, 2022, the commission issued its rules of practice,\\(^{132}\\) and began holding public hearings on October 13, 2022, to establish the factual basis that led to the emergency declaration.\\(^{133}\\) The fact finding phase will last six weeks, and over 50 witnesses have been invited to provide evidence, including protest participants, law enforcement officers, government officials, and cabinet ministers.\\(^{134}\\) These hearings are accessible to the public via webcast and recordings.\\(^{135}\\) Beginning November 28, the Commission will spend one week interviewing experts to answer law and policy questions that emerge from the Commission's factual research.\\(^{136}\\)"
+            },
+            {
+                "block_id": 2,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2475,
+                    1958,
+                    2580
+                ],
+                "angle": 0,
+                "content": "<sup>132</sup> Public Order Emergency Commission, Rules of Practice and Procedure (Revised July 29, 2022), https://perma.cc/8QL4-C3PY."
+            },
+            {
+                "block_id": 3,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2600,
+                    2111,
+                    2702
+                ],
+                "angle": 0,
+                "content": "133 Public Hearings Start Thursday, October 13, 2022, Public Order Emergency Commission (Oct. 11, 2022), https://perma.cc/X9ZN-GZ2X."
+            },
+            {
+                "block_id": 4,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2725,
+                    392,
+                    2772
+                ],
+                "angle": 0,
+                "content": "134 Id."
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2798,
+                    2085,
+                    2854
+                ],
+                "angle": 0,
+                "content": "135 Live Webcast, Public Order Emergency Commission (Oct. 13, 2022), https://perma.cc/XZ3U-UTTV."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2874,
+                    2134,
+                    2976
+                ],
+                "angle": 0,
+                "content": "136 Marsha McLeod & Marieke Walsh, Public Hearings on Use of Emergencies Act: What to Know about the Commission and Speakers Being Called, The Globe and Mail (Oct. 13, 2022), https://perma.cc/V5DC-NR94."
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    290,
+                    2475,
+                    2134,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3154
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 9,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "18"
+            }
+        ]
+    }
+]

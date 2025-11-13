@@ -1,0 +1,4641 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    224,
+                    339,
+                    589,
+                    699
+                ],
+                "angle": 0,
+                "content": "DEPARTMENT OF STATE UNITED STATES OF AMERICA"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    892,
+                    429,
+                    1619,
+                    508
+                ],
+                "angle": 0,
+                "content": "Joint Regional Strategy"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    1960,
+                    346,
+                    2315,
+                    699
+                ],
+                "angle": 0,
+                "content": "UNITED STATES AGENCY INTERNATIONAL DEVELOPMENT"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    879,
+                    1445,
+                    1667,
+                    1508
+                ],
+                "angle": 0,
+                "content": "EAST ASIA AND THE PACIFIC"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    354,
+                    1663,
+                    2195,
+                    1854
+                ],
+                "angle": 0,
+                "content": "Department of State Bureau of East Asian and Pacific Affairs (EAP) USAID Bureau for Asia (AA)"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1053,
+                    2498,
+                    1496,
+                    2544
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    844,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1058,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 2 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    290,
+                    405,
+                    790,
+                    471
+                ],
+                "angle": 0,
+                "content": "Table of Contents"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    339,
+                    537,
+                    2254,
+                    597
+                ],
+                "angle": 0,
+                "content": "1. Executive Statement and Mission Statement 3"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    339,
+                    627,
+                    2256,
+                    686
+                ],
+                "angle": 0,
+                "content": "2. Bureau Strategic Framework 8"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    339,
+                    712,
+                    2254,
+                    772
+                ],
+                "angle": 0,
+                "content": "3. Bureau Goals and Objectives 13"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    339,
+                    798,
+                    2254,
+                    858
+                ],
+                "angle": 0,
+                "content": "4. Bureau Cross-Cutting Management Goal 43"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    339,
+                    537,
+                    2256,
+                    858
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    844,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3141
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1058,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 3 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    364,
+                    306,
+                    1685,
+                    376
+                ],
+                "angle": 0,
+                "content": "1. Executive Statement and Mission Statement"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    290,
+                    521,
+                    951,
+                    584
+                ],
+                "angle": 0,
+                "content": "Interim Mission Statement"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    673,
+                    2246,
+                    1102
+                ],
+                "angle": 0,
+                "content": "The Bureau of East Asian and Pacific Affairs and Bureau for Asia will anchor the United States in the Indo-Pacific and strengthen the region itself, alongside our closest allies and partners to adapt to 21st century challenges. We will work to advance our positive vision of a free and open Indo-Pacific that is more connected, prosperous, secure, and resilient. We will manage competition responsibly to defend the interests and values of the United States and the region."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    290,
+                    1184,
+                    805,
+                    1250
+                ],
+                "angle": 0,
+                "content": "Executive Statement"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1336,
+                    2244,
+                    2220
+                ],
+                "angle": 0,
+                "content": "The Indo-Pacific region is at the forefront of shaping global peace, progress, and prosperity for the 21st century. The United States is a proud Indo-Pacific nation, with deep cultural, historical, and economic ties to the region. Half of the United States' top trading partners are in the Indo-Pacific. It is the destination for nearly a third of our exports, and the source of $900 billion in foreign domestic investment in the United States, creating millions of jobs spread across all 50 U.S. states. More members of the U.S. military are stationed in the region than anywhere else in the world outside the United States, safeguarding the peace and security that benefits us all. Stretching from the West Coast of the U.S to the Indian Ocean, the Indo-Pacific region encompasses the world's fastest growing markets and offers unprecedented potential to bolster U.S. prosperity."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2343,
+                    2249,
+                    2864
+                ],
+                "angle": 0,
+                "content": "The U.S. Department of State's Bureau of East Asian and Pacific Affairs (State/EAP) and the U.S. Agency for International Development's (USAID) Bureau for Asia (USAID/Asia) are leading U.S. engagement in East Asia and Pacific region – a region that is home to two-thirds of Indo-Pacific countries and one that is on the front lines of strategic competition – by asserting U.S. leadership to advance democratic principles and good governance, sustainable growth, and security for the benefit of the Indo-Pacific region and the American people."
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    288,
+                    3032,
+                    846,
+                    3088
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1058,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 4 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2254,
+                    547
+                ],
+                "angle": 0,
+                "content": "In pursuit of our ambitious mission, the East Asia and Pacific Joint Regional Strategy (JRS) outlines a total of six (6) primary goals, including five unclassified and one classified, and a management goal. Throughout the timeframe of this strategy, we aim to address the following:"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    669,
+                    1264,
+                    726
+                ],
+                "angle": 0,
+                "content": "1. Strengthen Ties with Allies and Partners"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    362,
+                    762,
+                    989,
+                    821
+                ],
+                "angle": 0,
+                "content": "2. Address Global Challenges"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    364,
+                    854,
+                    1364,
+                    914
+                ],
+                "angle": 0,
+                "content": "3. Deter Current and Emerging Security Threats"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    362,
+                    943,
+                    1713,
+                    1006
+                ],
+                "angle": 0,
+                "content": "4. Strengthen Democracy, Governance, and Human Rights (DRG)"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1036,
+                    1422,
+                    1092
+                ],
+                "angle": 0,
+                "content": "5. Bolster Sustainable, Inclusive Economic Growth"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    359,
+                    1125,
+                    2019,
+                    1188
+                ],
+                "angle": 0,
+                "content": "6. Shape the strategic environment around the People's Republic of China (PRC)"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1217,
+                    1769,
+                    1277
+                ],
+                "angle": 0,
+                "content": "7. Ensure Effectiveness/ Accountability (Crosscutting Management)"
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    359,
+                    669,
+                    2019,
+                    1277
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1399,
+                    2256,
+                    2567
+                ],
+                "angle": 0,
+                "content": "Consistent with the President's Interim National Security Guidance, and the Joint Strategic Plan (JSP), and the Indo-Pacific Strategy (IPS), we will reinforce our long-standing historical ties with the region by modernizing alliances, strengthening emerging partnerships, and bolstering regional institutions to harness our collective capacity to advance shared interests, deter common threats, and promote a free and open Indo-Pacific. Working toward the goals outlined in our strategy will not only affirm the role of the U.S. in the region, it will also reinforce the region's role in addressing both the challenges and opportunities of this century. To this end, the Allies and Partners Goal cuts across all the other sectoral and thematic objectives outlined in this strategy including Global Challenges, Security, Democracy, Governance and Human Rights, Economic Growth, and PRC. Working with our allies and partners includes formal and informal groups, such as the Association of South East Asian Nations (ASEAN), Asia-Pacific Economic Cooperation (APEC), and the Quadrennial Security Dialogue (Quad), as well as smaller civil society organizations and networks throughout the region."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2682,
+                    2152,
+                    2927
+                ],
+                "angle": 0,
+                "content": "Despite the enormous potential for U.S. engagement in the Indo-Pacific, the COVID-19 pandemic continues to exacerbate a myriad of global challenges that have long beset the region, including climate change, fragile and fragmented health systems, and humanitarian"
+            },
+            {
+                "block_id": 13,
+                "type": "footer",
+                "bbox": [
+                    288,
+                    3032,
+                    844,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 14,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1058,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 5 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2246,
+                    1009
+                ],
+                "angle": 0,
+                "content": "crises. For example, the Pacific Islands, the Philippines, and Indonesia are particularly vulnerable to the impacts of the climate crisis, including accelerated sea level rise, global warming, and recurring floods/drought. Likewise, the East Asia and Pacific region continues to be a hotspot for emerging zoonotic and infectious diseases. The COVID-19 pandemic has underscored the need for a more systematic, region-wide approach that fosters resilient health systems capable of detecting and responding to current and future outbreaks. In order to address these complex challenges, we will mobilize coalitions of like-minded partners and reinforce our relationships with multilateral institutions and key actors in partner countries."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1122,
+                    2256,
+                    2286
+                ],
+                "angle": 0,
+                "content": "The United States' presence in the region has supported regional peace, security, and stability for the past 75 years. In the 21st century we are extending and modernizing our role as a regional ally to defend U.S. interests and protect against threats whether emerging, new, or longstanding. This includes deepening cooperation with Australia and the United Kingdom (U.K.) to continue to deliver on the Australia, U.K. and U.S. security pact (AUKUS) and strengthening coordination with the Republic of South Korea (ROK) and Japan to respond to the Democratic People's Republic of Korea's (DPRK) provocations and pursue the complete denuclearization of the Korean Peninsula. Through cooperation with ally and partner governments and civil society organizations, we will integrate our efforts and strengthen collective regional capabilities to dissuade and defend against threats in any form or domain. We will address and prevent terrorism and violent extremism, and the trafficking of drugs, people, and wildlife. We will also build the cybersecurity capacity of partner nations by improving their ability to protect against and respond to cybersecurity incidents."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2405,
+                    2221,
+                    2923
+                ],
+                "angle": 0,
+                "content": "We will work collectively to defend and promote democratic values, combat threats to free societies, and maintain a stable and open international system. Achieving these objectives is critical, now more than ever, as the impacts of the COVID-19 pandemic will have a lingering effect on the operating environment. Rising authoritarianism, increased democratic backsliding, the proliferation of disinformation, growing inequality, and rising assertiveness by actors like the PRC threaten to erode democratic principles and institutions. In Burma, the"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    288,
+                    3032,
+                    849,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1058,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 6 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2254,
+                    537
+                ],
+                "angle": 0,
+                "content": "February 2021 coup d'etat has led to intensified ethnic and religious violence, massive displacement, and a humanitarian crisis that has again transcended the borders of East Asia and the Pacific countries."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    666,
+                    2231,
+                    1095
+                ],
+                "angle": 0,
+                "content": "In light of these challenges, our strategy will support efforts to strengthen human rights, promote the rule of law, and empower citizens with an emphasis on addressing discrimination, inequity, and marginalization in all its forms. Along with our allies and partners, we will form a fortified platform upon which we can revitalize democracy, uphold universal values, and promote human dignity - all of which are essential to a free and open Indo-Pacific region."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1217,
+                    2244,
+                    1917
+                ],
+                "angle": 0,
+                "content": "A free and open Indo-Pacific is also rooted in promoting prosperity here and abroad. This means ensuring that all people, even the most marginalized, will be able to experience economic prosperity and opportunity. We will advance more inclusive and sustainable growth and promote free, fair, and open trade that improves the lives of Americans, particularly for working- and middle-class families, as well as for people around the world. Our strategy supports efforts to promote growth by ensuring healthy, educated, and productive populations in partner countries while collaborating with our partners to tackle global challenges such as climate change and health security."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1950,
+                    2249,
+                    2564
+                ],
+                "angle": 0,
+                "content": "For example, we will support the Build Back Better World Initiative that, in coordination with our like-minded partners, aims to mobilize private sector capital in four key areas (climate, health, digital, gender) to support sound, value-driven, transparent infrastructure development. We will also advance the Indo-Pacific Economic Framework to advance resilience, inclusion, sustainability and competitiveness, including through improved digital connectivity and a smooth transition to renewable energy. In doing this, the economic governance of the region will be strengthened - a lynchpin to greater global prosperity."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2682,
+                    2244,
+                    2923
+                ],
+                "angle": 0,
+                "content": "One of the most pressing threats to a free and open region is an increasingly assertive PRC that is challenging the rules-based international order. By reasserting the United States' forward-looking global leadership, we will ensure that we, working alongside our allies and partners, set"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    288,
+                    3032,
+                    849,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1058,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 7 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2254,
+                    1191
+                ],
+                "angle": 0,
+                "content": "the international agenda to shape global norms and agreements that advance our shared interests and reflect our mutual values. We aim to assert positive U.S. leadership by demonstrating that democratic governance and open markets work and that delivering vital public services equitably and in a manner that preserves sovereignty are the best ways to build just, inclusive, and prosperous societies. We will bolster maritime security by strengthening partner countries' maritime domain awareness and countering illegal, unregulated, and unreported (IUU) fishing, which has impeded regional security and prosperity. We will continue to call for peace and stability in the Taiwan Strait and urge a peaceful resolution of cross-Strait differences consistent with the wishes and best interests of the Taiwanese. We acknowledge that aspects of the PRC goal are redundant with other goals of the JRS."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1310,
+                    2254,
+                    2201
+                ],
+                "angle": 0,
+                "content": "Finally, President Biden's recent Executive Order on *Diversity, Equity, Inclusion and Accessibility* (DEIA) undergirds all the Goals, Objectives, and Sub-objectives outlined in this strategy. State/EAP has a Bureau Diversity and Inclusion (D&I) Council that works domestically and with the D&I Councils at Missions within the region to ensure we are advancing DEIA principles in both our internal and external policies and engagements. USAID/Asia, including USAID's Missions in the region, has established a Bureau DEIA Council and several work streams to integrate DEIA principles into its workforce (i.e., Hiring and Retention; Staff Empowerment; Data Transparency) as well as to promote inclusive equitable development into its Asia programs. Attention to DEIA improves performance and representation internally and externally and enables our diplomacy to reflect the rich diversity of the United States."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    849,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1058,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1058,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 8 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    364,
+                    306,
+                    1249,
+                    376
+                ],
+                "angle": 0,
+                "content": "2. Bureau Strategic Framework"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    475,
+                    2221,
+                    752
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 1: Expand and strengthen alliances and partnerships with countries and institutions to advance a more resilient, prosperous, and secure Indo-Pacific region."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    362,
+                    848,
+                    2244,
+                    996
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.1: Revitalize alliances and partnerships to ensure a secure, free, and open Indo-Pacific and bolster the rules-based international order."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1032,
+                    2172,
+                    1270
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.2: Leverage multilateral, regional, and minilateral fora, including those outside the Indo-Pacific, to deliver concrete solutions to global and regional challenges and threats."
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    362,
+                    848,
+                    2244,
+                    1270
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1369,
+                    2249,
+                    1544
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 2: Respond to and address the global challenges that undermine the region's security and prosperity."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1633,
+                    2116,
+                    1778
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.1: Build sustainable and resilient health systems to detect and respond to emerging challenges, including current and future outbreaks."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1818,
+                    2231,
+                    1877
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.2: Reduce emissions and increase climate resilience and adaptation."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1913,
+                    2187,
+                    2062
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.3: Reduce the need for humanitarian assistance and improve lifesaving response capabilities of host governments and local actors."
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    362,
+                    1633,
+                    2231,
+                    2062
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3029,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 13,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1058,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 9 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    288,
+                    303,
+                    2223,
+                    485
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 3: Prevent, reduce, and defend against the full spectrum of current and emerging security threats by enhancing regional coordination and capacity."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    362,
+                    570,
+                    2244,
+                    815
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.1: Improve the synchronization of joint security actions and capacity building with allies, partners, and other federal agencies to strengthen deterrence and influence the decision-making of regional adversaries."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    844,
+                    2223,
+                    996
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.2: Reduce the threat that the DPRK poses to the U.S. and our allies and partners."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1032,
+                    2147,
+                    1277
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.3: Prevent adversary ability to deny U.S. and ally access, use of critical infrastructure and awareness in key domains, including: maritime, airspace, space, and cyberspace."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1310,
+                    2223,
+                    1739
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.4: U.S. security and development assistance and forward presence contribute to countries in the region upholding and adhering to international law and norms, including UNCLOS, while countering transnational crime and violent extremism, resolving conflicts, combating human trafficking, and building cybersecurity capacity. (USAID/Asia)"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    362,
+                    570,
+                    2244,
+                    1739
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3029,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1484,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 10 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    303,
+                    2164,
+                    584
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 4: Strengthen democracy in the region; promote equity, accessibility, human rights; and advance transparent, accountable governance that works in the public interest."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    676,
+                    2096,
+                    917
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 4.1: Improve human rights conditions and promote equity and accessibility, particularly among women and marginalized and underrepresented groups."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    953,
+                    2228,
+                    1197
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 4.2: Support a resilient, viable civil society and independent media capable of promoting and defending democracy, holding government accountable, and combating propaganda and mis-, dis- and mal-information."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1230,
+                    2221,
+                    1471
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 4.3: Strengthen the efficacy, equity, and inclusivity of governing institutions in pursuit of the public interest, including the conduct of free and fair elections."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1508,
+                    2246,
+                    1752
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 4.4: Promote transparency and accountability, a human-rights centered rule of law, and access to justice to counter internal and external authoritarian influence and coercion, corruption, and the abuse of power."
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    364,
+                    676,
+                    2246,
+                    1752
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3029,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1484,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 11 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    303,
+                    2254,
+                    584
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 5: Advance more inclusive and sustainable growth and promote free, fair, and open trade and transparent investment that improves the lives of Americans and people around the world."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    362,
+                    676,
+                    2210,
+                    907
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.1: Leverage U.S. diplomatic, development, and private sector tools and engagement to strengthen the regional economic architecture for open, fair, and rules-based markets."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    953,
+                    2172,
+                    1194
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.2: Promote trade and investment that advances more equitable, sustainable, and inclusive economic growth where benefits are shared broadly, including with marginalized and underrepresented groups."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1230,
+                    2111,
+                    1471
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.3: Advance a connected, open, innovative, interoperable, and trusted digital ecosystem that enhances global security and economic prosperity, including for marginalized and underrepresented groups."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1508,
+                    2078,
+                    1656
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.4: Strengthen human capital, including for marginalized and underrepresented groups, to advance regional prosperity."
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    362,
+                    676,
+                    2210,
+                    1656
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3029,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1484,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 12 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    306,
+                    2228,
+                    693
+                ],
+                "angle": 0,
+                "content": "Strategic Goal 6: The United States will implement a comprehensive strategy to harness our national strengths and our unmatched network of allies and partners and shape the strategic environment around Beijing to advance our vision for an open, inclusive international system."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    362,
+                    782,
+                    2172,
+                    1016
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 6.1: The United States government implement a modern industrial strategy to sustain and expand our economic and technological influence, make our economy and supply chains more resilient, and sharpen our competitive edge."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1059,
+                    2198,
+                    1194
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 6.2: Align with our allies and partners to advance a shared vision for the future."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1247,
+                    1558,
+                    1293
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 6.3: Outcompete China in key areas."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1339,
+                    2187,
+                    1386
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 6.4: Work together with Beijing where our interests come together."
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    362,
+                    782,
+                    2198,
+                    1386
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1584,
+                    2131,
+                    1861
+                ],
+                "angle": 0,
+                "content": "Bureau Cross-Cutting Management Goal 1: Align and manage personnel and resources to implement strategic priorities and to ensure effectiveness and accountability."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1953,
+                    2187,
+                    2092
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Objective 1.1: Build a resilient workforce through effective compensation, professional development, and employee engagement."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    362,
+                    2141,
+                    2157,
+                    2277
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Objective 1.2: Build management platform that provides professional cost-effective support."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    362,
+                    2326,
+                    2164,
+                    2465
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Objective 1.3: Encourage an inclusive workforce through training."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    362,
+                    2511,
+                    2157,
+                    2649
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Objective 1.4: USAID will improve alignment of resources to strategic priorities and programs that are reflective of DEIA principles."
+            },
+            {
+                "block_id": 13,
+                "type": "list",
+                "bbox": [
+                    362,
+                    1953,
+                    2187,
+                    2649
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    844,
+                    3082
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1486,
+                    3141
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 13 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    364,
+                    306,
+                    1249,
+                    376
+                ],
+                "angle": 0,
+                "content": "3. Bureau Goals and Objectives"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    478,
+                    2221,
+                    752
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 1: Expand and strengthen alliances and partnerships with countries and institutions to advance a more resilient, prosperous, and secure Indo-Pacific region."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    848,
+                    2256,
+                    1739
+                ],
+                "angle": 0,
+                "content": "- **Bureau Goal 1 Description:** U.S. engagement and coordination with allies and partners underpins the core logic for U.S. engagement in the Indo-Pacific. This logic ends with a free and open Indo-Pacific, but it begins with a given: the United States should not compete alone with a rising PRC. Rather, our strategy calls for a collective response that punctures the PRC's narrative of a bilateral Great Power Competition, amplifies U.S. efforts, and pools the shared ambitions, resources and national power of our like-minded partners. To achieve every other strategic goal in the JRS, the United States must deepen its ties with allies and like-minded partners, leverage a constellation of multilateral and minilateral groups to converge around shared principles, and operationalize our partnerships to achieve concrete outcomes in the Indo-Pacific."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1795,
+                    2236,
+                    2775
+                ],
+                "angle": 0,
+                "content": "Moreover, our democratic alliances enable us to advance our shared objectives, promote high standards, establish effective international rules, and hold countries like the People's Republic of China (PRC) and the Democratic People's Republic of Korea (DPRK) to account. The USG will reaffirm, invest in, and modernize Indo-Pacific alliances with Australia, Japan, the Philippines, the ROK, and Thailand. The U.S. will work with allies to share responsibilities equitably, while encouraging them to invest in their own comparative advantages against shared current and future threats. The U.S. will also deepen its engagement with existing and emerging partners including New Zealand, Singapore, Indonesia, Taiwan, and Vietnam—all regional partners that are critical for supporting an open, rules-based international order in which the merits of the U.S. approach effectively counter negative influence from adversaries."
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 14 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    436,
+                    300,
+                    2246,
+                    1283
+                ],
+                "angle": 0,
+                "content": "Beyond alliances, the U.S. will double down on building partnerships throughout the world, because our strength is multiplied when we combine efforts to address common challenges, share costs, and widen the circle of cooperation. Our vital national interests compel the deepest connection to the Indo-Pacific. The United States will work alongside key partners, including through groupings such as the Quad, ASEAN, AUKUS, the Mekong-U.S. Partnership, Friends of the Mekong, and APEC to advance our shared objectives. Countries outside of the East Asia and Pacific region, including India and in Europe, are key partners in advancing shared objectives. These partnerships are critical to implementing our common vision for the Indo-Pacific. Recognizing the deep ties of shared history and sacrifice, the U.S. and its allies and partners, including Australia and New Zealand, will reinforce our partnership with the Pacific Island states."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1399,
+                    2241,
+                    1643
+                ],
+                "angle": 0,
+                "content": "This goal is cross-cutting across all other EAP JRS goals, as working with our allies and partners is fundamental to achieving our foreign policy goals in the East Asia and Pacific region."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    849,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1058,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 15 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2218,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 1.1: Revitalize alliances and partnerships to ensure a secure, free, and open Indo-Pacific and to bolster the rules-based international order."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    537,
+                    2246,
+                    1514
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.1 Justification and Linkages: If State and USAID, in coordination with the broader U.S. Government interagency are able to successfully revitalize alliances in the region, then the United States can leverage these relationships to achieve other key JRS goals and objectives including addressing global challenges and strengthening regional security. This objective is consistent with the Interim National Security Strategy and the Department of State and United States Agency for International Development Indo-Pacific Strategy (Opportunity A), which direct the United States to strengthen and leverage allies in the Indo-Pacific region. This objective supports JSP Strategic Objective 1.4: Peace and Security and JSP Strategic Objective 1.5 Build Support for American Values. Additionally, this objective shares lines of effort with JRS goals 2, 3, 4, 5, and 6."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1547,
+                    2256,
+                    2712
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.1 Risk Considerations: Failure to revitalize the U.S. alliance network and strengthen partnerships would severely impede our ability to compete with a rising PRC and advance our vision for the Indo-Pacific region. Ceding the Indo-Pacific to strategic competitors would have significant second- and third-order effects that would challenge our leadership around the world. Lack of strong engagement with allies would damage our credibility as a reliable partner and would hasten the erosion of the very partnerships that the U.S. aims to revitalize. The complex challenges around climate change, COVID-19 and global health security, economic growth, corruption, and democratic backsliding cannot be addressed by a few countries or the U.S. alone. The U.S. must invest in relationship building with allies and partners to achieve shared priorities in the region. In addition, a lack of allies in the Indo-Pacific region would prevent the U.S. from maintaining a persistent, credible deterrent to major adversaries, and make conflict more costly and damaging to the United States."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 16 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2164,
+                    537
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 1.2: Leverage multilateral and regional institutions and partnerships, including those outside the Indo-Pacific, to deliver concrete solutions to global and regional challenges and threats."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    627,
+                    2246,
+                    1514
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.2 Justification and Linkages: The EAP region is fortunate to have a number of mature multilateral and regional institutions which offer opportunities for expanded engagement to address shared priorities. Through this objective, State and USAID can invest in strengthening priority institutions and partnerships to help achieve results on shared interests This objective is consistent with the Interim National Security Strategy and the Department of State and United States Agency for International Development (USAID) Indo-Pacific Strategy (Opportunity A), which direct the United States to strengthen and leverage our participation in multilateral organizations in the Indo-Pacific region. This objective supports JSP Strategic Objective 1.4: Peace and Security. Additionally, this objective shares lines of effort with JRS goals 2, 3, 4, 5, and 6."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1547,
+                    2254,
+                    2339
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.2 Risk Considerations: Multilateral and regional institutions and partnership are important tools for advancing like-minded priorities. Lack of engagement would forego opportunities to strategically impact the region on major U.S. interests and create the perception that the U.S. is not engaged in the region. In order to reinforce our commitment, we are holding a special summit with the leaders of ASEAN to cement our strategic partnership with ASEAN. Additionally, we will use our host year of the Asia-Pacific Economic Cooperation (APEC) multilateral forum in 2023 to underscore our commitment to advance fair and open trade and investment, bolster American competitiveness, and ensure a free and open Indo-Pacific."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1058,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 17 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    288,
+                    303,
+                    2244,
+                    478
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 2: Respond to and address the global challenges that undermine the region's security and prosperity."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    567,
+                    2256,
+                    1458
+                ],
+                "angle": 0,
+                "content": "- **Bureau Goal 2 Description: Global challenges including climate change, COVID-19 (and other pandemics), infectious disease, and humanitarian crises transcend boundaries and therefore require a coordinated approach with partners. The United States will move swiftly to earn back our position of leadership in international institutions, joining with the international community to tackle the climate crisis and shared global health challenges. Addressing these issues effectively requires renewed U.S. leadership in international institutions and strengthened partnerships with governments, civil society, and the private sector. This will include efforts to seek concrete, results-oriented cooperation with the PRC where our interests align on transnational challenges, such as climate change and global health security."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1058,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 18 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2218,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 2.1: Build sustainable and resilient health systems to detect and respond to emerging challenges, including current and future pandemics."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    537,
+                    2249,
+                    1692
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.1 Justification and Linkages: The fragility of health systems has never been of greater interest—or importance—than at this moment. The loss of life, massive social disruption, and collapse of even the most basic health-care services under the strain of the COVID-19 pandemic demonstrate what is at stake. During future crises, resilient health systems will reduce loss of life and mitigate adverse health consequences by providing effective care for both emergency and routine health needs. Resilient health systems can also minimize social and economic disruption that characterize outbreaks and other large-scale health threats by mounting an effective health response, ensuring continuity of routine operations, providing trustworthy public information, and hastening resumption of normal activity. This objective is consistent with the Interim National Security Strategy, supports JSP Strategic Objective 1.1: Leadership in strengthening global health security, and shares lines of effort with JRS bureau objective 5.4."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1729,
+                    2254,
+                    2798
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.1 Risk Considerations: The COVID-19 pandemic has shown the grave consequences of a true global health crisis including growing debt, rising poverty, deteriorating food security, and worsening gender-based violence. The crisis produced an every-country-for-itself mentality that left everyone more isolated, less prosperous, and less safe. The collapse of several health systems under surging caseloads led to both high case mortality and distrust in the public sector's ability to deliver needed services. If the USG does not invest in sustainable and resilient health systems, there is an increased risk that future pandemics and ongoing health challenges would have an even more severe impact on the region, impacting the United States prosperity and security. Thus, we expand support for the Global Health Security Agenda including prevention, detection, and response coupled with other health system strengthening initiatives to increase capacity in Indo Pacific countries to respond to future challenges."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 19 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    303,
+                    2223,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 2.2: Reduce emissions and increase climate resilience and adaptation in the East Asia and Pacific region."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    537,
+                    2228,
+                    1425
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.2 Justification and Linkages: Climate change is affecting every country on every continent. It is disrupting national economies and affecting lives. Weather patterns are changing, sea levels are rising, and weather events are becoming more extreme. Saving lives and livelihoods requires urgent action to address the climate emergency. Addressing climate change by supporting a transition to clean energy also offers opportunities for economic growth and investment for the United States and its allies. This objective links to several of the other JRS Goals including Economic Growth (EG), Security, and Allies and Partners (cross-cutting) as well as JSP Strategic Objective 1.2: Climate Change. This objective also links to the new USAID Climate Strategy currently under development."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1455,
+                    2256,
+                    2986
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.2 Risk Considerations: Without action, rapidly rising temperatures pose an acute danger and have the potential to cause catastrophic damage to the economy, security, natural resources, and public health of the United States, our allies, and partner countries. Failing to address the climate crisis will exacerbate many of the complex social and economic inequalities that currently exist in the region where action to mitigate its adverse impacts is either limited or stymied due to poor governance, a lack of resources/ capacity, and corruption. Moreover, some research indicates that countries most vulnerable to climate change face high levels of public sector corruption thereby undermining efforts focused at increased resilience. Taking action requires transforming key systems and services across a variety of sectors to address critical constraints such as corruption and poor infrastructure that limit countries' abilities to reach adaptation goals. Inaction has grave consequences globally as it will continue to threaten national security and jeopardize development gains in nearly every sector. Thus, addressing the climate crisis effectively requires a collective, multi-sectoral approach that involves careful planning and ongoing engagement with multiple partners and stakeholders, including marginalized and indigenous communities who are often most severely impacted by climate change."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 19,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 20 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    303,
+                    2182,
+                    462
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 2.3: Reduce the need for humanitarian assistance and improve life-saving response capabilities of host governments and local actors."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    547,
+                    2228,
+                    1435
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.3 Justification and Linkages: Increasing effects of climate change threatening livelihoods, impacting food security and health security, and increased conflict driving poverty or migration for many in the region are further exacerbated by the COVID-19 pandemic. Longer term interventions in addressing the non-emergency needs of vulnerable populations, including programming addressing livelihoods, food security, and health security, will increase resilience to shocks. We must bolster cooperation with other donor partners to promote disaster risk reduction, foster resilience, and mitigate gender-based violence. This objective links to the JRS Goals EG, Security, Allies and Partners as well as JSP Strategic Objective 1.3: Humanitarian Leadership."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1465,
+                    2218,
+                    2168
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.3 Risk Considerations: Given the frequency and complexity of emergencies, disasters, and lengthy conflicts resulting in displacements, development and relief efforts must be more coherent. In addition, we must continue to work to ensure the safety of civilians -- providing assistance in dangerous environments and ensuring that conflicts don't hinder the provision of life-saving support. We must also amplify efforts to bolster resilience to disasters and intensified climate risks, while also promoting enhanced livelihoods and furthering regional prosperity through a multi-sectoral approach that includes disaster resilient infrastructure."
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    364,
+                    547,
+                    2228,
+                    2168
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 20,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 21 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    288,
+                    303,
+                    2223,
+                    485
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 3: Prevent, reduce, and defend against the full spectrum of current and emerging security threats by enhancing regional coordination and capacity."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    567,
+                    2246,
+                    1643
+                ],
+                "angle": 0,
+                "content": "- Bureau Goal 3 Description: The United States and its allies face significant security threats in the region from a number of adversaries, ranging from high-end conflict with strategic adversaries and continued development and proliferation of weapons of mass destruction and other illicit activities by the DPRK, to violent extremism, ethnic and religious violence, organized transnational crime, and “gray zone” activities short of conflict that impact U.S. strategic interests. Preventing these threats from harming the citizens, facilities, and economic interests of the United States and its allies preserves U.S. access, protects life and property, demonstrates our regional and global leadership, and reinforces the critical alliance and partner networks that enable our extensive presence in the Indo-Pacific region. These objectives support implementation of broader national and regional strategies, including the interim National Security Strategy, the National Defense Strategy, and the Indo-Pacific Strategy."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1058,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 21,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 22 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2231,
+                    537
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 3.1: In coordination with other federal agencies, improve synchronization of joint security actions and capacity building with foreign allies and partners to strengthen deterrence and influence decision-making of regional adversaries."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    627,
+                    2249,
+                    1692
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.1 Justification and Linkages: The Biden-Harris Administration's foreign policy emphasizes strengthening allies and partners globally. Capacity-building efforts with allies and partners, at all levels of capability, through diplomacy, security assistance, and access to defense articles and technology, is fundamental to ensuring those allies and partners can resist coercion, defend their sovereignty, and contribute to joint training and operations in the region. This objective links to objectives and lines of effort in the interim National Security Strategic Guidance, the National Defense Strategy, the National Military Strategy, the Indo-Pacific Strategy, U.S. Indo-Pacific Command's Theater Campaign Plan, interagency Counterterrorism Strategy for Southeast Asia (2019), and the Integrated Country Strategies of U.S. missions in the East Asia and Pacific region. Additionally, this objective supports JSP Strategic Objective 1.4: Peace and Security."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1729,
+                    2238,
+                    2890
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.1 Risk Considerations: Failure to leverage robust U.S. diplomacy, security assistance and training and partnerships with both high-capability allies like Australia, Japan, and the ROK, to emerging partners in Southeast Asia and the Pacific, will erode U.S. influence, threaten to reduce interoperability with and access for U.S. security forces, and create greater openings for strategic competitors to replace the United States as a preferred security partner in the Indo-Pacific while also increasing risks posed by other regional adversaries, such as violent extremists and criminal networks. Taking action involves: deploying sufficient diplomatic, federal agency, and foreign assistance resources to engage allies and partners across the entire Indo-Pacific region; support expanded DOD posture in the region, including close synchronization of State diplomatic support to DOD operations, exercises, and presence; increasing efforts to engage civilian security, law enforcement, and disaster response elements to combat gray zone competition and build resilience."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1486,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 22,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 23 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2180,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 3.2: Reduce the threat that the DPRK poses to the U.S. and our allies and partners."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    537,
+                    2231,
+                    1791
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.2 Justification and Linkages: The DPRK weapons program constitutes a threat to international peace and security and to the global nonproliferation regime. The United States has a vital interest in deterring the DPRK, defending against its provocations and uses of force, limiting the reach of its most dangerous weapons programs, and above all keeping the American people, our deployed forces, and our allies safe. The United States will achieve this through a calibrated, practical approach that is open to and will explore diplomacy with the DPRK, but also hold the DPRK accountable for provocations through U.N. Security Council Resolutions (UNSCR) enforcement. We will work with allies, especially the ROK and Japan, through bilateral and trilateral discussions to maximize coordination on DPRK policies. We will also continue attempts to diplomatically engage with the DPRK in dialogue with the ultimate goal of denuclearization of the Korean Peninsula. This objective supports the JRS Goal Allies and Partners and the JSP Strategic Objective 1.4: Peace and Security."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1821,
+                    2228,
+                    2527
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.2 Risk Considerations: Failure to achieve this objective would likely result in an increase in frequency and severity of DPRK provocations and greater expansion of the DPRK's weapons of mass destruction and ballistic missile programs. This would also undermine regional stability and lead to greater threat of attack emanating from the DPRK to the U.S. homeland and our allies and partners. We intend to mitigate this risk by working throughout the international community to enforce sanctions, discussing with our partners and allies to address the DPRK's provocations, and continue to seek diplomatic engagement with the DPRK to bring them to dialogue."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 23,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 24 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2154,
+                    544
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 3.3: Prevent adversary ability to deny U.S. and ally access, use of critical infrastructure and awareness in key domains, including: maritime, airspace, space, and cyberspace."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    627,
+                    2256,
+                    1884
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.3 Justification and Linkages: Strategic adversaries are increasingly aggressive in efforts to secure and influence key domains and infrastructure in the Indo-Pacific, either to secure those resources for themselves or deny access to them to the United States and our allies and partners. They use a full range of military, civilian, and \"gray zone\" capabilities to use those domains and infrastructure to their advantage. U.S. security assistance is a critical tool for ensuring ally and partner support for free and open use of those domains across the region, and for ensuring that law enforcement and other cooperation to secure them is effective and in line with U.S. interests. This objective supports the JRS Goal 5 (Economic Growth) and the JSP Strategic Objective 2.4: Strengthen Resilience. This objective links to objectives and lines of effort in the National Security Strategy (TBC), the National Defense Strategy (TBC), the National Military Strategy, the Indo-Pacific Strategy, U.S. Indo-Pacific Command's Theater Campaign Plan, and the Integrated Country Strategies of U.S. missions in the East Asia and Pacific region."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1913,
+                    2254,
+                    2897
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.3 Risk Considerations: If the U.S. is unable to preserve free and open use of critical domains, it would hinder the U.S's ability to deploy needed capabilities in those domains, allow adversaries to access them to threaten U.S. security, foreign policy, and economic interests, and allow the use of those channels by violent extremists, transnational criminal organizations, and other threat groups to evade or undermine law enforcement, counterterrorism, and economic efforts in support of a free and open Indo-Pacific region. We intend to help mitigate these risks by increasing partner capacity in the region to monitor maritime, cyber, and other domains; strengthening bilateral and regional governance structures; expanding information sharing on threats in these domains; and synchronizing capacity building efforts with increased DOD and federal agency presence and activities in these domains."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 24,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 25 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2195,
+                    646
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 3.4: U.S. security and development assistance and forward presence contribute to countries in the region upholding and adhering to international law and norms, including UNCLOS, while countering transnational crime and violent extremism, resolving conflicts, combating human trafficking, and building cybersecurity capacity."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    722,
+                    2241,
+                    1884
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.4 Justification and Linkages: Ensuring partner compliance with and support for international law, along with robust efforts to adequately enforce the law and comport with international norms and standards while doing so, is a critical goal of our security cooperation policy. Security assistance efforts that do not bolster law enforcement and counter illicit activity strengthen adversary nations and non-national groups' ability to use \"gray zone\" tactics to gain advantage over those who do. This objective links to objectives and lines of effort in the National Security Strategy, the National Defense Strategy, the National Military Strategy, the Indo-Pacific Strategy, U.S. Indo-Pacific Command's Theater Campaign Plan, regional counterterrorism and counternarcotics strategies, U.S. National Action Plan on Trafficking in Persons, and the Integrated Country Strategies of U.S. missions in the EAP region. Additionally, this objective supports the JSP Strategic Objective 1.4: Peace and Security and JSP Strategic Objective 3.2: Equity and Inclusion."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1913,
+                    2249,
+                    2986
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.4 Risk Considerations: Further erosion of the rules-based international order, sustained by a robust network of allied and partner cooperation, and the norms that have emerged as a result, would embolden adversaries to damage U.S. and partner interests through illegal, illicit, or “gray zone” hybrid operations designed to evade, distort, or rewrite the international order in their favor. Adversaries would be more active in asserting territorial or maritime claims not supported by international law, increasing the risk of conflict with U.S. partners. It would enable the use of “lawfare” to limit U.S. security presence and to hamper activities or operations in the region against threat groups. Additionally, without assistance to increase their ability to adhere to and uphold international law, countries’ sovereignty and economic development could be jeopardized. To help alleviate this threat, we are engaging with allies and partners under the Indo-Pacific Strategy to"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    293,
+                    3032,
+                    844,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 25,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 26 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    436,
+                    300,
+                    2164,
+                    633
+                ],
+                "angle": 0,
+                "content": "identify current and future threats to the rules-based international order, sustaining support to allies in addressing transnational crime, money laundering and terrorism threats, and building resilience to economic and other forms of coercion short of conflict."
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    1058,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 26,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 27 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    306,
+                    2159,
+                    584
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 4: Strengthen democracy in the region; promote equity, accessibility, human rights; and advance transparent, accountable governance that works in the public interest."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    676,
+                    2254,
+                    2841
+                ],
+                "angle": 0,
+                "content": "- Bureau Goal 4 Description: As Secretary Blinken noted at the release of the 2021 Country Reports on Human Rights Practices in April 2022, we have seen in many years running an alarming recession of democracy, rule of law, and respect for human rights in many parts of the world, including in Asia. State/EAP and the Asia Bureau are concerned by an increase in government efforts across the region to shrink the space for civil society and democratic institutions through increased restrictions on human rights, particularly freedoms of expression, assembly, and association. We see it in the genocide and crimes against humanity being committed against predominantly Muslim Uyghurs and other ethnic and religious minority groups in Xinjiang and other human rights violations committed in Tibetan regions of China. We see it in persecution and the imprisonment of opposition politicians, anti-corruption activists, labor rights, human rights defenders, lawyers, and journalists in Hong Kong, Cambodia, and the Philippines. We see it in nonviolent protesters being killed, beaten, and imprisoned in Burma after the February 2021 coup d'etat by the same military who earlier committed genocide against the Rohingya and other ethnic groups and that has now reversed much of the progress the country had achieved in transitioning to democracy and improving human rights and freedoms. Governments in the region are increasingly exploring options to restrict NGOs, as we see in Thailand, and have increasingly cracked down on internet and media freedoms in places like Vietnam, Indonesia, and Malaysia. These alarming trend lines are being worsened by the COVID-19 pandemic, which those in power have used as pretext to target critics, restrict freedom of assembly, and further repress human rights. Weakened democratic institutions and impunity open the door for coercive PRC actions and empower the PRC to increasingly disrupt the international order across the region."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1486,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 27,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 28 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2218,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 4.1: Improve human rights conditions and promote equity and accessibility, particularly among women and marginalized and underrepresented groups."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    537,
+                    2246,
+                    1884
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 4.1 Justification and Linkages: Adhering to universal human rights standards and protecting fundamental freedoms is critical to building and sustaining a democracy. Equal rights and freedoms for all individuals of a society regardless of their background, religion, political or sexual orientation, gender identity, socio-economic status, and ethnicity make for stronger governments, more peaceful societies, and prosperous nations. Governments should promote and protect the rights and freedoms of its people and create safe environments for political, social, and economic participation. This objective links to Executive Order 13985 (Advancing Racial Equity and Support for Underserved Communities Through the Federal Government), Executive Order 14020 (Executive Order on Establishment of the White House Gender Policy Council) the February 4, 2021 Presidential Memorandum on Advancing the Human Rights of Lesbian, Gay, Bisexual, Transgender, Queer, and Intersex Persons Around the World, and the Department's Plan to Implement the U.S. Strategy on Women, Peace, and Security. This objective also supports JSP Strategic Objective 3.1 Democracy and Governance and JSP Strategic Objective 3.2 Equity and Inclusion."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1913,
+                    2254,
+                    2986
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 4.1 Risk Considerations: The East Asia and Pacific region has not been immune to the trend of democratic backsliding. At best, some leaders, across all levels of government in the region lack the political will and capacity to advance human rights. At worst, entire groups of a population in the region have been subject to systemic targeting, intimidation, abuse, coercion, political imprisonment and some, like the Rohingya, ethnic cleansing. In some cases, governments, non-state actors, and their proxies have become more sophisticated in their approach to abusing human rights, enacting and enforcing laws that consciously marginalize a segment of a population, targeting human rights defenders themselves or the work they do, applying virtual intimidation tactics, physical force, and psychological pressures. Forced labor and human trafficking remain persistent throughout the region, particularly among the most vulnerable and marginalized communities. Additionally, external crises such as the"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    293,
+                    3032,
+                    844,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1486,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 28,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 29 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    436,
+                    300,
+                    2246,
+                    1191
+                ],
+                "angle": 0,
+                "content": "COVID-19 pandemic and climate change have further contributed to the marginalization of certain populations, such as women and girls who have experienced an increase in gender-based violence during the COVID-19 pandemic. Taking action involves financial support and technical assistance to activists and organizations working to advance human rights and freedoms, as well as offer protection including psycho-social support to people vulnerable to marginalization, intimidation, and targeting by governments. It also involves diplomatic action to hold perpetrators to account be those government officials or members of organized groups. The USG will also work with like-minded democratic organizations and governments to help strengthen open spaces for free expression, assembly, and association."
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    1058,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 29,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 30 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2198,
+                    537
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 4.2: Support a resilient, viable civil society and independent media capable of promoting and defending democracy, holding government accountable, and combating propaganda and mis-, dis- and mal-information."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    627,
+                    2244,
+                    1880
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 4.2 Justification and Linkages: A vibrant civil society and independent media play critical roles in keeping governments accountable, promoting civic awareness and participation, and advocating for people's needs. Civil society and media serve as watchdogs to expose corruption, efforts which can contribute to holding public sector actors accountable. In a rapidly developing information environment that provides new potential for propaganda and mis-, dis-, and mal-information, a healthy civil society and an independent media serve as the protectors of evidence-based knowledge and decision-making. Nurturing the development of and strengthening the capacity of both sectors is increasingly important to balance the information landscape; to strengthen citizen-government relationships; to ensure meaningful participation across gender, race, ethnicity, disability, and religious and other aspects of identity and communities; to promote and protect the rights of minorities and underrepresented groups; and to advance inclusive and equitable governing systems. This objective supports JSP Strategic Objective 3.1: Democracy and Governance."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1913,
+                    2249,
+                    2798
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 4.2 Risk Considerations: Civil society and media in the region continue to experience an increasingly restrictive and hostile environment. Emerging technologies and the changing media landscape have provided new tools for governments and other actors to restrict free speech and launch disinformation campaigns. According to CIVICUS Monitor, among the most widespread violations documented in the last year was the use of restrictive laws to criminalize and prosecute human rights defenders, journalists and critics.\\(^{1}\\) National governments in the region, using the COVID-19 pandemic as a new pretext, have been reported to intimidate and harass independent organizations, manipulate and sensor information, and crush dissenting views. Civil society and independent media continue to experience challenges"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    293,
+                    2927,
+                    1354,
+                    2979
+                ],
+                "angle": 0,
+                "content": "\\(^{1}\\) https://findings2020.monitor.civicus.org/asia-pacific.html"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    844,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1486,
+                    3141
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 30,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 31 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    436,
+                    300,
+                    2256,
+                    1646
+                ],
+                "angle": 0,
+                "content": "in improving capacity and professionalism, sustaining their efforts and securing financial independence. In some countries, civic and journalistic work is inherently dangerous, putting individual activists and professionals at great physical and psychological risk, online and offline. PRC efforts to capture local markets through overt and covert information manipulation activities are increasingly successful and moving beyond traditional strongholds within diaspora communities. All these trends are not only corrosive to democracy, but also create an environment that can enable bad actors to exploit tensions that further marginalize underrepresented groups and communities. To address these challenges, we are bolstering efforts to support resilient, viable civil society and independent media capable of promoting and defending democracy, holding governments accountable, and combating propaganda and mis-, dis- and mal-information. We will also advocate with partner governments to support an enabling environment for independent media and civil society to operate, free of intimidation, coercion, and harassment and foster open, secure, and inclusive digital ecosystems that advance democracy."
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    849,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    1058,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 31,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 32 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2154,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 4.3: Strengthen the efficacy, equitability, and inclusivity of governing institutions in pursuit of the public interest, including the conduct of free and fair elections."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    537,
+                    2249,
+                    1791
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 4.3 Justification and Linkages: Inclusive, effective, and equitable public institutions that work in pursuit of the greater good have stronger, more trusting relationships with their citizens, contributing to stability, peace, and prosperity. Inclusive governing structures, policies, and regulations allow for civil society and broader public participation in policy and decision-making, and delivery of services. Effective institutions continuously adjust their systems, structures, and policies to achieve wider societal goals, from increasing access to healthcare, to improving quality of education. More inclusive governing institutions can also achieve greater equitability because they tend to be more representative and responsive to broader segments of the population. Equitable policies, systems, and regulations contribute to social cohesion and prevent conflict, reduce poverty, and contribute to economic growth. Free and fair elections, while not the only component of a democratic society, are at the core of establishing and maintaining a healthy and prosperous democracy. This objective supports JSP Strategic Objective 3.1: Democracy and Governance."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1824,
+                    2241,
+                    2986
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 4.3 Risk Considerations: Corruption, authoritarian influence, and entrenched political and ruling elites threaten the independence and effectiveness of public institutions in many EAP countries. The PRC's non-transparent lending to, and infrastructure investments in many countries in the region, often made behind closed doors with ruling elites, exacerbate corruption, further erode public trust, and have a negative impact on human rights. Regional and national authoritarian players are getting more and more savvy at manipulating elections, impacting their integrity and credibility. The lack of political will and limited resources to overcoming capacity shortages present challenges for many governments in achieving progress. To help mitigate these actions, we are strengthening inclusive, effective, and equitable public institutions, to include governing structures, policies, and regulations that allow civil society and the broader public to participate in policy and decision-making, and delivery of services. We will continue to support the conduct, administration, and monitoring of"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    293,
+                    3032,
+                    844,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1486,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 32,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 33 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    436,
+                    300,
+                    2124,
+                    544
+                ],
+                "angle": 0,
+                "content": "free, fair and equitable elections, as well as strengthen good governance practices where political will exists for effective, inclusive and equitable service delivery and policy-making."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    610,
+                    2144,
+                    854
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 4.4: Promote transparency and accountability, a human-rights centered approach, rule of law, and access to justice to counter internal and external authoritarian influence and coercion, corruption, and the abuse of power."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    937,
+                    2256,
+                    2283
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 4.4 Justification and Linkages: Governments that are transparent and have rights-based laws, institutions, and processes foster an environment conducive to accountability, equality and access to justice for all, which contribute to stability and prosperity. Rule of law that respects the rights of people boosts trust between citizens and the government. Support for rights to information laws and open-government initiatives are critical to increasing the transparency, equity, and accountability of governing institutions. Citizen-centered governance where institutions and processes are open and transparent, informed by citizens' views, and address peoples' needs, across multiple aspects of identity and community, such as gender, race, ethnicity, religion, LGBTQ+, and disability, is important for an effective and functioning society. Regional stability is best built on strong institutions that uphold human rights and fundamental freedoms and are resistant to systemic corruption, elite capture, and foreign influence. Additionally, this objective supports JSP Strategic Objective 1.4: Peace and Security, JSP Strategic Objective 3.1 Democracy and Governance, and JSP Strategic Objective 3.3: Combating Corruption."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    364,
+                    2313,
+                    2221,
+                    2923
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 4.4 Risk Considerations: Corruption and weak rule of law undermine public trust in government, waste public resources, and can exacerbate injustice, impunity, and human rights abuses. The East Asia and Pacific (EAP) region is home to many burgeoning democracies that have weak institutions or limited capacity through judicial institutions, parliamentary/legislative oversight, or civil society mechanisms to hold corrupt actors accountable. Political, economic, and public health crises have also tested the limits of existing governance structures, driving some"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 33,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 34 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    436,
+                    303,
+                    2246,
+                    1458
+                ],
+                "angle": 0,
+                "content": "governments to increase control over their populations, triggering an erosion of rule of law and human rights. In addition, the region is increasingly troubled by external provocations, economic coercion, and authoritarianism that undermine and co-opt democratic systems. Development incentives and the need for foreign financing, particularly for infrastructure, have driven rising corruption among government officials. In particular, the PRC's use of corrosive capital through the Belt and Road Initiative (BRI) and other spending often promote unsustainable lending arrangements that exacerbate corruption, undermine the rule of law, and erode national sovereignty. To mitigate these risks, we are providing technical assistance and training to partner governments committed to tackling public corruption, improving public procurement, and achieving judicial independence and equitable access to justice for all. We will also support the development and implementation of laws and legal systems that are consistent with international human rights standards."
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    1058,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 34,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 35 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    306,
+                    2195,
+                    584
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 5: Advance more inclusive and sustainable growth and promote free, fair, and open trade and transparent investment that improves the lives of Americans and people around the world."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    676,
+                    2246,
+                    1933
+                ],
+                "angle": 0,
+                "content": "- Bureau Goal 5 Description: Consistent with the President's interim national security guidance and Joint Strategic Plan Goal 2, the U.S. Government (USG) will expand economic prosperity and opportunity, especially for working- and middle-class families. Recognizing the imperative of combating climate change and tackling other global challenges, the USG will build back better to advance a more sustainable, resilient and inclusive economic future. The USG will work closely with its allies and partners to pursue a free and open Indo-Pacific and advance a positive economic agenda for the region through an Indo-Pacific economic framework on trade, supply chains, energy and the environment and other areas. The USG will leverage its membership in APEC and engagement with ASEAN to support economic reforms that will open markets and promote high standard investment in the region, particularly in infrastructure. The USG will strengthen the economic governance of the region in support of a rules-based international order. The USG will promote healthy, educated, and productive populations in partner countries to drive inclusive economic growth."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1058,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 35,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 36 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2198,
+                    537
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 5.1: Leverage U.S. diplomatic, development, and private sector tools and engagement to strengthen the regional economic architecture for open, fair, and rules-based markets."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    627,
+                    2241,
+                    1607
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.1 Justification and Linkages: U.S. leadership is critical for advancing a free and open Indo-Pacific, but to be successful the United States must be seen as “present” in the region – including through direct government engagements both bilaterally and multilaterally, by providing foreign assistance, and by increasing private sector trade and investment. This will demonstrate our commitment to the region and help us build support for rules, norms, and standards that support free, fair, and open trade and transparent investment. This objective supports JSP Strategic Objective 2.1: Economic Governance and JSP Strategic Objective 2.2: Inclusive and Sustainable Economic Growth. Additionally, this objective shares lines of effort with JRS Bureau Objective 1.1: Revitalize alliances to ensure a secure, free, and open Indo-Pacific and to bolster the rules-based international order."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    367,
+                    1640,
+                    2241,
+                    2801
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.1 Risk Considerations: Ceding the economic playing field to our strategic competitors would lead to a region that is less open to U.S. trade and investment, limiting opportunities for U.S. businesses and workers. COVID-19 related travel restrictions may limit opportunities for in-person diplomacy at regional institutions. In addition, strategic competitors could undermine USG efforts to lead and revitalize institutions and promote transparent, inclusive economic development in the region, as well as set alternative norms and standards, in order to gain even greater influence in the region. To help mitigate these factors, we are working with like-minded partners and allies to launch the Indo-Pacific Economic Framework that aims to address fair and resilient trade, supply chain resilience, infrastructure and decarbonization, and anticorruption in order to deepen our economic engagement in the region and tackle global challenges. We will also explore continuing remote or hybrid participation in events, where appropriate, to ensure a strong USG presence."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 36,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 37 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2210,
+                    544
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 5.2: Promote trade and investment that advances more equitable, sustainable, and inclusive economic growth where benefits are shared broadly, including with marginalized and underrepresented groups."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    362,
+                    630,
+                    2228,
+                    1329
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.2 Justification and Linkages: Following the COVID-19 pandemic, trade and investment is essential to not only the region's recovery, but to that of the entire globe. Ensuring open markets and private sector driven trade is a reliable path to sustainable, long term income growth and employment that benefits all including marginalized and underrepresented groups. This objective is linked to Executive Order 14017 on America's Supply Chains. This objective supports JSP Strategic Objective 2.2: Inclusive and Sustainable Economic Growth and JSP Strategic Objective 2.4: Strengthen U.S./Global Resilience to Economic, Technological, and Environmental shocks."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1366,
+                    2256,
+                    2065
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.2 Risk Considerations: The Indo-Pacific is one of the most vibrant and dynamic markets for U.S. trade and investment and home to many critical links for global supply chains. The COVID-19 pandemic has increased risks to open and predictable supply chains. Failure to access those markets would harm U.S. businesses, workers, and consumers. Rising inequality or coercive economic behavior contributes to regional instability. To address these factors, we will discuss ways to diversify supply chains and, where possible, explore options for formal coordination with foreign partners and the private sector on initiatives like the Indo-Pacific Economic Framework."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 37,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 38 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2136,
+                    544
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 5.3: Advance a connected, open, innovative, interoperable, and trusted digital ecosystem that enhances global security and economic prosperity, including for marginalized and underrepresented groups."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    627,
+                    2244,
+                    1791
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.3 Justification and Linkages: The COVID-19 pandemic reinforced the importance of digital connectivity in our economy and society. The responsible use of emerging technologies can drive innovation, spur economic growth, and help tackle global challenges by providing relevant, timely, accurate information as well as supporting initiatives and platforms that improve access to key services across a wide variety of sectors including telemedicine, microfinance, e-commerce, electronic payments, and infrastructure development. This objective supports JSP Strategic Objective 2.3: Support U.S. technological leadership, strengthen competitiveness, and enhance and protect the U.S. innovation base, and JSP Strategic Objective 2.4: Strengthen U.S. and Global Resilience. Additionally, this objective supports JRS Bureau Objective 3.3 Prevent adversary ability to deny U.S. and ally access, use of critical infrastructure and awareness: maritime, airspace, space, and cyberspace and Executive Order 14034 – Protecting Americans' Sensitive Data from Foreign Adversaries."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1821,
+                    2244,
+                    2343
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.3 Risk Considerations: Digital and emerging technologies are critical to our national and economic security; however, authoritarian regimes are advancing a vision of the digital ecosystem that is closed, restricts access to U.S. firms, and can be used to violate human rights and fundamental freedoms. We are working closely with partners to expand access to the internet and increase training for cybersecurity and countering mis- and disinformation, especially for vulnerable groups."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 38,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 39 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    303,
+                    1940,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 5.4: Strengthen human capital, including for marginalized and underrepresented groups, to advance regional prosperity."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    537,
+                    2249,
+                    1333
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.4 Justification and linkages: Continued improvements in the education and health outcomes of our partner countries are critical to improving human capital and ultimately sustaining long term economic growth and free and open societies. Investments in the social sectors that will address health, education, labor rights and workforce capacity challenges in the region will be critical to ensuring resilient supply chains and a workforce attuned to meeting the demands of the digital economy. This objective supports JSP Strategic Objective 2.2: Inclusive and Sustainable Economic Growth. Additionally, this objective supports the JRS Bureau Objective 2.1: Global Challenges: Sustainable Health Systems to Respond to Emerging Challenges."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1362,
+                    2244,
+                    2432
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.4 Risk considerations: The COVID pandemic has worsened regional disparities in health and education outcomes and is a direct threat to sustained economic growth in the EAP region. The immediate impacts from the COVID-19 pandemic include a significant decrease in instructional time, major disruptions to student and family routines, and a potential exacerbation of the digital divide for students in rural, remote and poor communities who may not have access to distance learning options delivered via internet, smart phones and computers. While the cumulative impact of school closures and limited access to alternative education service delivery is not fully known, there will likely be a significant learning loss for students who are not able to attend school. To help mitigate the impact of this loss, we will explore ways to leverage virtual or hybrid formats for our capacity building and technical assistance programs in health and education."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1058,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 39,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 40 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    306,
+                    2228,
+                    693
+                ],
+                "angle": 0,
+                "content": "Strategic Goal 6: The United States will implement a comprehensive strategy to harness our national strengths and our unmatched network of allies and partners and shape the strategic environment around Beijing to advance our vision for an open, inclusive international system."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    362,
+                    782,
+                    2213,
+                    1293
+                ],
+                "angle": 0,
+                "content": "- Bureau Goal 6 Description: The Biden administration's strategy can be summed up in three words – “invest, align, compete.” We will invest in the foundations of our strength here at home – our competitiveness, our innovation, our democracy. We will align our efforts with our network of allies and partners, acting with common purpose and in common cause. And harnessing these two key assets, we’ll compete with China to defend our interests and build our vision for the future."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1382,
+                    2213,
+                    1626
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 6.1: The United States government implement a modern industrial strategy to sustain and expand our economic and technological influence, make our economy and supply chains more resilient, and sharpen our competitive edge."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1709,
+                    2244,
+                    2230
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 6.1 Justification and Linkages: The Biden Administration has made clear that we will make historic investments in research and innovation, including in fields like artificial intelligence, biotechnology, and quantum computing. Supply chains are moving now, and if we don’t draw them here, they’ll be established somewhere else. These investments will not only make America stronger; they’ll make us a stronger partner and ally as well."
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1486,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 40,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 41 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2147,
+                    452
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 6.2: Align with our allies and partners to advance a shared vision for the future."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    362,
+                    537,
+                    2256,
+                    1244
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 6.2 Justification and Linkages: From day one, the Biden administration has worked to re-energize America’s unmatched network of alliances and partnerships and to re-engage in international institutions. We’re encouraging partners to work with each other, and through regional and global organizations. And we’re standing up new coalitions to deliver for our people and meet the tests of the century ahead. We will deepen our engagement through initiative like the Indo-Pacific Economic Framework for Prosperity, the Quad, U.S.-ASEAN Summit, AUKUS, and U.S.-EU Trade and Technology Council."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1320,
+                    1425,
+                    1379
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 6.3: Outcompete China in key areas."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1465,
+                    2254,
+                    2811
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 6.3 Justification and Linkages: We're sharpening our tools to safeguard our technological competitiveness. As we push back responsibly on unfair technology and economic practices, we'll work to maintain economic and people-to-people ties connecting the United States and China, consistent with our interests and our values. The administration is shifting our military investments away from platforms that were designed for the conflicts of the 20th century toward asymmetric systems that are longer-range, harder to find, easier to move. We're developing new concepts to guide how we conduct military operations. And we're diversifying our force posture and global footprint, fortifying our networks, critical civilian infrastructure, and space-based capabilities. We'll help our allies and partners in the region with their own asymmetric capabilities, too. We'll continue to uphold our commitments under the Taiwan Relations Act to assist Taiwan in maintaining a sufficient self-defense capability – and, as indicated in the TRA, to \"maintain our capacity to resist any resort to force or other forms of coercion that would jeopardize the security or the social or economic system, of Taiwan.\""
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 41,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 42 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    288,
+                    303,
+                    2060,
+                    359
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 6.4: Work together with Beijing where our interests come together."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    448,
+                    2244,
+                    1880
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 6.4 Justification and Linkages: Even as we invest, align, and compete, we'll work together with Beijing where our interests come together. We can't let the disagreements that divide us stop us from moving forward on the priorities that demand that we work together, for the good of our people and for the good of the world. That starts with climate. Likewise, on the COVID-19 pandemic, our fates are linked. That's why we're so convinced that all countries need to work together to vaccinate the world and all nations must transparently share data and samples – and provide access to experts – for new variants and emerging and re-emerging pathogens, to prevent the next pandemic even as we fight the current one. On nonproliferation and arms control, it's in all of our interests to uphold the rules, the norms, the treaties that have reduced the spread of weapons of mass destruction. To counter illegal and illicit narcotics, especially synthetic opioids like fentanyl that killed more than 100,000 Americans last year, we want to work with China to stop international drug trafficking organizations from getting precursor chemicals, many of which originate in China. As a global food crisis threatens people worldwide, we look to China – a country that's achieved great things in agriculture – to help with a global response."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1058,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 42,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 43 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    362,
+                    306,
+                    1570,
+                    376
+                ],
+                "angle": 0,
+                "content": "4. Bureau Cross-Cutting Management Goal"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    288,
+                    478,
+                    2144,
+                    752
+                ],
+                "angle": 0,
+                "content": "Bureau Cross-Cutting Management Goal 1: Align and manage personnel and resources to implement strategic priorities and to ensure effectiveness and accountability."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    848,
+                    2246,
+                    2187
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Goal 1 Description: This goal reflects various priorities outlined in the Interim National Security Strategic Guidance, and State Functional Bureau Strategies including the Bureau of Human Resources, Information Resource Management, Overseas Building Operations, and Administration. The United States Government (USG) helps ensure international security and prosperity through our leadership in diplomacy, development, and humanitarian assistance. Fundamental to achieving this goal is empowering, strengthening and protecting the workforce so that it can fully bring to bear its expertise, experience, creativity, and informed judgment to implement the United States' strategic priorities in concert with our partners. In support of the State-USAID Joint Strategic Plan Goal 4: Revitalizing the Diplomatic/Development Workforce and Infrastructure, we aim to align workforce plans, resources for diplomatic and security operations, and ensure safe and secure facilities. Finally, Diversity, Equity, Inclusion and Accessibility (DEIA) is fundamental to our effectiveness as it improves the USG's ability to realize the core ideals of democracy and human rights."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1058,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 43,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 44 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    285,
+                    303,
+                    2254,
+                    363
+                ],
+                "angle": 0,
+                "content": "Bureau Cross-Cutting Management Objective 1.1: Build a resilient workforce through effective"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    293,
+                    392,
+                    1741,
+                    458
+                ],
+                "angle": 0,
+                "content": "compensation, professional development, and employee engagement."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    364,
+                    537,
+                    2116,
+                    600
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Objective 1.1 Justification and Linkages: This"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    436,
+                    627,
+                    2241,
+                    1884
+                ],
+                "angle": 0,
+                "content": "objective aligns to the priorities outlined in the Interim National Security Strategy (NSS), the Joint Strategic Plan, and the Functional Bureau Strategies of the Department of State's Bureau of Budget and Planning, Diplomatic Security, Human Resources, Information Resource Management, and Overseas Building Operations (OBO). The Interim NSS underscores the need to \"invest in our national security workforce, institutions, and partnerships, inspire a new generation to public service, ensure our workforce represents the diversity of our country, and modernize our decision-making processes. It also supports the State-USAID JSP's Goal 4 of revitalizing the diplomatic and development workforce and infrastructure, by aligning workforce plans, resources for diplomatic and security operations, and the need for safe and secure facilities. To this end, increasing USDH staffing levels is necessary to implement the President's and Secretary's vision for increased strategic engagement in the Indo-Pacific. Additional domestic staffing will bolster the Bureau's ability to support post's efforts to counter undue influence amongst U.S. interests and partners."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    364,
+                    1913,
+                    2047,
+                    1976
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Objective 1.1 Risk Considerations: By not"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2003,
+                    2236,
+                    2890
+                ],
+                "angle": 0,
+                "content": "increasing USDH staffing levels, State/EAP will not be able to achieve the President’s policy agenda to counter undue influence directed at U.S. interests and partners. Internal risks to hiring needed personnel include insufficient allocation of staff, convoluted hiring practices, slow onboarding practices, and an inability to mobilize recruitment and retention activities. External risks include funding uncertainties, competing interest from the private sector, and a shortage of qualified talent in needed technical areas. Both USAID and State will build on ongoing efforts to help mitigate these weaknesses like virtual employee onboarding and orientation; prioritizing the reduction of security clearance processing time; and improving personnel information systems and customer service."
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3088
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 44,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1484,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 45 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    303,
+                    2210,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Cross-Cutting Management Objective 1.2: Build management platform that provides professional cost-effective support. (State/EAP)"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    537,
+                    2213,
+                    1141
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Objective 1.2 Justification and Linkages: This goal reflects the priority in expanding the Island Support Unit and rebranding it as the State/EAP Management Center (EMC). This would be a full service, independent management platform based in the EAP region, wholly dedicated to supporting small posts. The EMC would be responsible for all management activities at respective posts until they are large enough to stand up independent units. This objective supports the Indo-Pacific Strategy."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1184,
+                    2228,
+                    1699
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Objective 1.2 Risk Considerations: The EMC would prevent curtailment and would allow State/EAP to meet service standards. Not having the EMC would significantly decrease our ability to maintain necessary management controls over basic functions. To mitigate this risk we are strengthening controls, reducing the costs incurred for curtailment, and scaling bidding opportunities to attract more candidates."
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    364,
+                    537,
+                    2228,
+                    1699
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 45,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1481,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 46 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    303,
+                    2223,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Cross-Cutting Management Objective 1.3: Encourage an inclusive workforce through training."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    537,
+                    2218,
+                    1141
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Objective 1.3 Justification and Linkages: This management objective reflects State/EAP's priority in ensuring a diverse and inclusive workforce. As it stands, the Bureau requires all FS03s and GS 13s or higher to complete leadership training. A requirement of this training is to complete an unconscious bias course, which supports an inclusive workforce, and the bureau aims to make this a mandatory course for all staff. This objective supports JSP Goal 4.1: Build and equip a diverse, inclusive, resilient, and dynamic workforce."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1184,
+                    2244,
+                    1973
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Objective 1.3 Risk Considerations: According to the President's Executive Order (EO) on Diversity, Equity, Inclusion and Accessibility; the Administration is focused on advancing equity within the Federal Government and cultivating a workforce that draws from the full diversity of the Nation. Deviation from this objective would be in violation of the EO on DEIA. State/USAID have deployed a comprehensive suite of training modules as well as established an architecture for DEIA integration across all programming and the entire workforce. This included establishing DEIA Advisors, DEIA councils, etc to ensure DEIA principles are fully integrated within the Agency."
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    364,
+                    537,
+                    2244,
+                    1973
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    844,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    1058,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 46,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1045,
+                    151,
+                    1484,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 47 of 47"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2231,
+                    462
+                ],
+                "angle": 0,
+                "content": "Bureau Cross-Cutting Management Objective 1.4: USAID will improve alignment of resources to strategic priorities and programs that are reflective of DEIA principles."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    554,
+                    2246,
+                    1531
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Objective 1.4 Justification and Linkages: This management objective reflects USAID's commitment to advancing national security and ensuring taxpayer dollars achieve tangible, sustainable results around the world. To this end, we implement the USAID program cycle, which encompasses a comprehensive set of planning, implementation and learning processes that ensures USAID's programs are effective and evidence based. More specifically, we continually monitor both human and programmatic resources to ensure effectiveness and alignment with our highest priorities. We achieve this through a variety of approaches including strategic reviews, quarterly financial reviews/pipeline analyses, and performance and impact evaluations. Applying these tools on an ongoing basis helps increase program effectiveness thereby resulting in transformative outcomes around the world."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1564,
+                    2256,
+                    1993
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Objective 1.4 Risk Considerations: Failing to secure needed staff will hamper our efforts to advance national security and further global prosperity. Relatedly, failing to incorporate DEIA principles throughout all programs will limit our effectiveness and impede the USG's ability to best realize the core ideals of democracy and human rights."
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    364,
+                    554,
+                    2256,
+                    1993
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    846,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: January 6, 2023"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    }
+]

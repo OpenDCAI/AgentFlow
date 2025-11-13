@@ -1,0 +1,659 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    293,
+                    313,
+                    520,
+                    491
+                ],
+                "angle": 0,
+                "content": "LAW"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    290,
+                    495,
+                    726,
+                    669
+                ],
+                "angle": 0,
+                "content": "LIBRARY"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    293,
+                    673,
+                    721,
+                    712
+                ],
+                "angle": 0,
+                "content": "LIBRARY OF CONGRESS"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    540,
+                    1296,
+                    2098,
+                    1554
+                ],
+                "angle": 0,
+                "content": "United States: Legalization and Regulation of Drugs"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1048,
+                    1617,
+                    1496,
+                    1683
+                ],
+                "angle": 0,
+                "content": "November 2021"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1025,
+                    2699,
+                    1522,
+                    2748
+                ],
+                "angle": 0,
+                "content": "LL File No. 2022-020712"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1065,
+                    2755,
+                    1481,
+                    2801
+                ],
+                "angle": 0,
+                "content": "LRA-D-PUB-002609"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    645,
+                    3042,
+                    1902,
+                    3095
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress, Global Legal Research Directorate"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    459,
+                    3095,
+                    2083,
+                    3151
+                ],
+                "angle": 0,
+                "content": "(202) 707-5080 (phone) • (866) 550-0442 (fax) • law@loc.gov • http://www.law.gov"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    578,
+                    1455,
+                    1963,
+                    1765
+                ],
+                "angle": 0,
+                "content": "This report is provided for reference purposes only. It does not constitute legal advice and does not represent the official opinion of the United States Government. The information provided reflects research undertaken as of the date of writing. It has not been updated."
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    423,
+                    300,
+                    2124,
+                    392
+                ],
+                "angle": 0,
+                "content": "United States: Legalization and Regulation of Drugs"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1025,
+                    409,
+                    1519,
+                    524
+                ],
+                "angle": 0,
+                "content": "Jason S. Zarin  \nLegal Reference Librarian"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    636,
+                    2254,
+                    755
+                ],
+                "angle": 0,
+                "content": "This report describes legislation concerning the legalization or regulation of drugs in the United States introduced in the US Congress during the last ten years.\\(^{1}\\)"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    805,
+                    2256,
+                    1329
+                ],
+                "angle": 0,
+                "content": "Under current federal law, the Controlled Substances Act (CSA)\\(^2\\) regulates drugs deemed to pose a risk of abuse and dependence. The CSA applies whether the drugs are medical or recreational, or legally or illegally distributed. Under the CSA, drugs that fall within the purview of the act are classified within five categories of controlled substances (schedules I through V). The schedule on which a controlled substance is placed determines the level of restriction imposed on its production, distribution, and possession, as well as the penalties applicable to any improper handling of the substance.\\(^3\\) Accordingly, any legislation that would legalize or decriminalize a particular controlled substance as a matter of federal law would require changing the substance's classification under a CSA schedule or removing it from the purview of the CSA entirely."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1376,
+                    2254,
+                    1782
+                ],
+                "angle": 0,
+                "content": "The following is a list of proposed legislation regarding legalization or regulation of drugs that would be considered controlled substances under the CSA introduced in the 112th through the 117th Congresses (2011-2021), which we identified on the official website for U.S. federal legislative information, Congress.gov. Only one bill (H.R. 3884, the MORE Act of 2020) proceeded to a vote. The MORE Act of 2020 passed the House of Representatives by a vote of 228 to 164 and was sent to the Senate, but the Senate did not vote on the bill. No legislation at the federal level has been passed by both houses of Congress and enacted into law."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1831,
+                    2254,
+                    1947
+                ],
+                "angle": 0,
+                "content": "For more information about the legislative process in the United States Congress, please refer to the following resources:"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2006,
+                    1522,
+                    2055
+                ],
+                "angle": 0,
+                "content": "- Compiling a Federal Legislative History: A Beginner's Guide<sup>4</sup>"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2118,
+                    1213,
+                    2174
+                ],
+                "angle": 0,
+                "content": "How Our Laws Are Made (H. Doc. 110-49)5"
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    290,
+                    2006,
+                    1522,
+                    2174
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2280,
+                    2205,
+                    2478
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup> Most legislation concerning the legalization of drugs, in particular marijuana/cannabis, has been conducted at the state level. Lists of states that in recent years have legalized or decriminalized recreational and/or medical cannabis compiled by the advocacy group NORML (formerly, the National Organization for the Reform of Marijuana Laws) may be found at https://norml.org/laws/."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2501,
+                    1881,
+                    2607
+                ],
+                "angle": 0,
+                "content": "2 Pub. L. 91-513, 84 Stat. 1236 (1970), codified as amended at 21 U.S.C. § 801 et seq., https://uscode.house.gov/view.xhtml?path=/prelim@title21/chapter13&edition=prelim."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2626,
+                    2244,
+                    2722
+                ],
+                "angle": 0,
+                "content": "Joanna R. Lampe, Cong. Rsch. Serv., R45948, The Controlled Substances Act (CSA): A Legal Overview for the 117th Congress (2021), https://crsreports.congress.gov/product/pdf/R/R45948."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2748,
+                    1762,
+                    2847
+                ],
+                "angle": 0,
+                "content": "\\(^{4}\\) Law Library of Congress, Compiling a Federal Legislative History: A Beginner's Guide, https://guides.loc.gov/legislative-history."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2874,
+                    1858,
+                    2973
+                ],
+                "angle": 0,
+                "content": "\\(^{5}\\) John V. Sullivan, How Our Laws Are Made, H.R. Doc. No. 110-49 (2007), https://www.govinfo.gov/content/pkg/CDOC-110hdoc49/pdf/CDOC-110hdoc49.pdf."
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2280,
+                    2244,
+                    2973
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2249,
+                    3141
+                ],
+                "angle": 0,
+                "content": "1"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    762,
+                    151,
+                    1782,
+                    207
+                ],
+                "angle": 0,
+                "content": "United States: Legalization and Regulation of Drugs"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    293,
+                    290,
+                    2254,
+                    2986
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Congress</td><td>Legislation Number</td><td>Title</td><td>URL</td></tr><tr><td>117th Congress (2021-2022)</td><td>H.R. 5657</td><td>Medical Marijuana Research Act</td><td>https://www.congress.gov/bill/117th-congress/house-bill/5657</td></tr><tr><td>117th Congress (2021-2022)</td><td>H.R. 3617</td><td>MORE Act of 2021</td><td>https://www.congress.gov/bill/117th-congress/house-bill/3617</td></tr><tr><td>117th Congress (2021-2022)</td><td>H.R. 2864</td><td>Clean Slate Act of 2021</td><td>https://www.congress.gov/bill/117th-congress/house-bill/2864</td></tr><tr><td>117th Congress (2021-2022)</td><td>S. 1380</td><td>Clean Slate Act of 2021</td><td>https://www.congress.gov/bill/117th-congress/senate-bill/1380</td></tr><tr><td>117th Congress (2021-2022)</td><td>H.R. 2830</td><td>GRAM Act</td><td>https://www.congress.gov/bill/117th-congress/house-bill/2830</td></tr><tr><td>117th Congress (2021-2022)</td><td>H.R. 365</td><td>Marijuana 1-to-3 Act of 2021</td><td>https://www.congress.gov/bill/117th-congress/house-bill/365</td></tr><tr><td>116th Congress (2019-2020)</td><td>H.R. 4323</td><td>Marijuana 1-to-3 Act of 2019</td><td>https://www.congress.gov/bill/116th-congress/house-bill/4323</td></tr><tr><td>116th Congress (2019-2020)</td><td>H.R. 3884</td><td>MORE Act of 2020</td><td>https://www.congress.gov/bill/116th-congress/house-bill/3884</td></tr><tr><td>116th Congress (2019-2020)</td><td>S. 2227</td><td>MORE Act of 2019</td><td>https://www.congress.gov/bill/116th-congress/senate-bill/2227</td></tr><tr><td>116th Congress (2019-2020)</td><td>H.R. 3754</td><td>To amend the Controlled Substances Act to provide for a new rule regarding the application of the Act to marijuana, and for other purposes.</td><td>https://www.congress.gov/bill/116th-congress/house-bill/3754</td></tr><tr><td>116th Congress (2019-2020)</td><td>H.R. 3546</td><td>State Cannabis Commerce Act</td><td>https://www.congress.gov/bill/116th-congress/house-bill/3546</td></tr><tr><td>116th Congress (2019-2020)</td><td>H.R. 3544</td><td>Homegrown Act of 2019.</td><td>https://www.congress.gov/bill/116th-congress/house-bill/3544</td></tr><tr><td>116th Congress (2019-2020)</td><td>S. 2032</td><td>Cannabidiol and Marijuana Research Expansion Act</td><td>https://www.congress.gov/bill/116th-congress/senate-bill/2032</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "2"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    762,
+                    151,
+                    1782,
+                    207
+                ],
+                "angle": 0,
+                "content": "United States: Legalization and Regulation of Drugs"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    293,
+                    290,
+                    2254,
+                    2900
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>116th Congress (2019-2020)</td><td>S. 2030</td><td>State Cannabis Commerce Act</td><td>https://www.congress.gov/bill/116th-congress/senate-bill/2030</td></tr><tr><td>116th Congress (2019-2020)</td><td>H.R. 2843</td><td>Marijuana Freedom and Opportunity Act</td><td>https://www.congress.gov/bill/116th-congress/house-bill/2843</td></tr><tr><td>116th Congress (2019-2020)</td><td>S. 1552</td><td>Marijuana Freedom and Opportunity Act</td><td>https://www.congress.gov/bill/116th-congress/senate-bill/1552</td></tr><tr><td>116th Congress (2019-2020)</td><td>H.R. 2348</td><td>Clean Slate Act of 2019</td><td>https://www.congress.gov/bill/116th-congress/house-bill/2348</td></tr><tr><td>116th Congress (2019-2020)</td><td>H.R. 2093</td><td>STATES Act</td><td>https://www.congress.gov/bill/116th-congress/house-bill/2093</td></tr><tr><td>116th Congress (2019-2020)</td><td>S. 1028</td><td>STATES Act</td><td>https://www.congress.gov/bill/116th-congress/senate-bill/1028</td></tr><tr><td>116th Congress (2019-2020)</td><td>H.R. 2071</td><td>Second Amendment Protection Act</td><td>https://www.congress.gov/bill/116th-congress/house-bill/2071</td></tr><tr><td>116th Congress (2019-2020)</td><td>H.R. 2012</td><td>Respect States&#x27; and Citizens&#x27; Rights Act of 2019</td><td>https://www.congress.gov/bill/116th-congress/house-bill/2012</td></tr><tr><td>116th Congress (2019-2020)</td><td>H.R. 1893</td><td>Next Step Act of 2019</td><td>https://www.congress.gov/bill/116th-congress/house-bill/1893</td></tr><tr><td>116th Congress (2019-2020)</td><td>H.R. 1588</td><td>Ending Federal Marijuana Prohibition Act of 2019</td><td>https://www.congress.gov/bill/116th-congress/house-bill/1588</td></tr><tr><td>116th Congress (2019-2020)</td><td>S. 697</td><td>Next Step Act of 2019</td><td>https://www.congress.gov/bill/116th-congress/senate-bill/697</td></tr><tr><td>116th Congress (2019-2020)</td><td>H.R. 1456</td><td>Marijuana Justice Act of 2019</td><td>https://www.congress.gov/bill/116th-congress/house-bill/1456</td></tr><tr><td>116th Congress (2019-2020)</td><td>S. 597</td><td>Marijuana Justice Act of 2019</td><td>https://www.congress.gov/bill/116th-congress/senate-bill/597</td></tr><tr><td>116th Congress (2019-2020)</td><td>H.R. 1119</td><td>Responsibly Addressing the Marijuana Policy Gap Act of 2019</td><td>https://www.congress.gov/bill/116th-congress/house-bill/1119</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2251,
+                    3141
+                ],
+                "angle": 0,
+                "content": "3"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    762,
+                    151,
+                    1782,
+                    207
+                ],
+                "angle": 0,
+                "content": "United States: Legalization and Regulation of Drugs"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    293,
+                    290,
+                    2254,
+                    2910
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>116th Congress (2019-2020)</td><td>S. 421</td><td>Responsibly Addressing the Marijuana Policy Gap Act of 2019</td><td>https://www.congress.gov/bill/116th-congress/senate-bill/421</td></tr><tr><td>116th Congress (2019-2020)</td><td>H.R. 493</td><td>Sensible Enforcement of Cannabis Act of 2019</td><td>https://www.congress.gov/bill/116th-congress/house-bill/493</td></tr><tr><td>116th Congress (2019-2020)</td><td>H.R. 420</td><td>Regulate Marijuana Like Alcohol Act</td><td>https://www.congress.gov/bill/116th-congress/house-bill/420</td></tr><tr><td>116th Congress (2019-2020)</td><td>H.R. 127</td><td>CARERS Act of 2019</td><td>https://www.congress.gov/bill/116th-congress/house-bill/127</td></tr><tr><td>115th Congress (2017-2018)</td><td>H.R. 6677</td><td>Clean Slate Act of 2018</td><td>https://www.congress.gov/bill/115th-congress/house-bill/6677</td></tr><tr><td>115th Congress (2017-2018)</td><td>H.R. 6669</td><td>Clean Slate Act of 2018</td><td>https://www.congress.gov/bill/115th-congress/house-bill/6669</td></tr><tr><td>115th Congress (2017-2018)</td><td>S. 3174</td><td>Marijuana Freedom and Opportunity Act</td><td>https://www.congress.gov/bill/115th-congress/senate-bill/3174</td></tr><tr><td>115th Congress (2017-2018)</td><td>H.R. 6043</td><td>STATES Act</td><td>https://www.congress.gov/bill/115th-congress/house-bill/6043</td></tr><tr><td>115th Congress (2017-2018)</td><td>S. 3032</td><td>STATES Act</td><td>https://www.congress.gov/bill/115th-congress/senate-bill/3032</td></tr><tr><td>115th Congress (2017-2018)</td><td>H.R. 5050</td><td>Sensible Enforcement of Cannabis Act of 2018</td><td>https://www.congress.gov/bill/115th-congress/house-bill/5050</td></tr><tr><td>115th Congress (2017-2018)</td><td>H.R. 4825</td><td>MEDS Act</td><td>https://www.congress.gov/bill/115th-congress/house-bill/4825</td></tr><tr><td>115th Congress (2017-2018)</td><td>H.R. 4816</td><td>Stop Civil Asset Forfeiture Funding for Marijuana Suppression Act of 2018</td><td>https://www.congress.gov/bill/115th-congress/house-bill/4816</td></tr><tr><td>115th Congress (2017-2018)</td><td>H.R. 4815</td><td>Marijuana Justice Act of 2018</td><td>https://www.congress.gov/bill/115th-congress/house-bill/4815</td></tr><tr><td>115th Congress (2017-2018)</td><td>S. 1803</td><td>MEDS Act</td><td>https://www.congress.gov/bill/115th-congress/senate-bill/1803</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3102,
+                    2251,
+                    3138
+                ],
+                "angle": 0,
+                "content": "4"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    762,
+                    151,
+                    1782,
+                    207
+                ],
+                "angle": 0,
+                "content": "United States: Legalization and Regulation of Drugs"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    293,
+                    290,
+                    2254,
+                    2910
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>115th Congress (2017-2018)</td><td>S. 1764</td><td>CARERS Act of 2017</td><td>https://www.congress.gov/bill/115th-congress/senate-bill/1764</td></tr><tr><td>115th Congress (2017-2018)</td><td>S. 1689</td><td>Marijuana Justice Act of 2017</td><td>https://www.congress.gov/bill/115th-congress/senate-bill/1689</td></tr><tr><td>115th Congress (2017-2018)</td><td>H.R. 3534</td><td>State Marihuana And Regulatory Tolerance Enforcement Act</td><td>https://www.congress.gov/bill/115th-congress/house-bill/3534</td></tr><tr><td>115th Congress (2017-2018)</td><td>H.R. 3530</td><td>Industrial Hemp Farming Act of 2017</td><td>https://www.congress.gov/bill/115th-congress/house-bill/3530</td></tr><tr><td>115th Congress (2017-2018)</td><td>H.R. 2920</td><td>CARERS Act of 2017</td><td>https://www.congress.gov/bill/115th-congress/house-bill/2920</td></tr><tr><td>115th Congress (2017-2018)</td><td>S. 1374</td><td>CARERS Act of 2017</td><td>https://www.congress.gov/bill/115th-congress/senate-bill/1374</td></tr><tr><td>115th Congress (2017-2018)</td><td>S. 1276</td><td>Cannabidiol Research Expansion Act</td><td>https://www.congress.gov/bill/115th-congress/senate-bill/1276</td></tr><tr><td>115th Congress (2017-2018)</td><td>H.R. 2528</td><td>Respect States&#x27; and Citizens&#x27; Rights Act of 2017</td><td>https://www.congress.gov/bill/115th-congress/house-bill/2528</td></tr><tr><td>115th Congress (2017-2018)</td><td>S. 1008</td><td>Therapeutic Hemp Medical Access Act of 2017</td><td>https://www.congress.gov/bill/115th-congress/senate-bill/1008</td></tr><tr><td>115th Congress (2017-2018)</td><td>H.R. 2273</td><td>Charlotte&#x27;s Web Medical Access Act of 2017</td><td>https://www.congress.gov/bill/115th-congress/house-bill/2273</td></tr><tr><td>115th Congress (2017-2018)</td><td>H.R. 2020</td><td>To provide for the rescheduling of marijuana into schedule III of the Controlled Substances Act.</td><td>https://www.congress.gov/bill/115th-congress/house-bill/2020</td></tr><tr><td>115th Congress (2017-2018)</td><td>H.R. 1841</td><td>Regulate Marijuana Like Alcohol Act</td><td>https://www.congress.gov/bill/115th-congress/house-bill/1841</td></tr><tr><td>115th Congress (2017-2018)</td><td>H.R. 1824</td><td>Responsibly Addressing the Marijuana Policy Gap Act of 2017</td><td>https://www.congress.gov/bill/115th-congress/house-bill/1824</td></tr><tr><td>115th Congress (2017-2018)</td><td>S. 780</td><td>Responsibly Addressing the Marijuana Policy Gap Act of 2017</td><td>https://www.congress.gov/bill/115th-congress/senate-bill/780</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3102,
+                    2251,
+                    3141
+                ],
+                "angle": 0,
+                "content": "5"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    762,
+                    151,
+                    1782,
+                    207
+                ],
+                "angle": 0,
+                "content": "United States: Legalization and Regulation of Drugs"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    293,
+                    290,
+                    2254,
+                    2910
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>115th Congress (2017-2018)</td><td>H.R. 1227</td><td>Ending Federal Marijuana Prohibition Act of 2017</td><td>https://www.congress.gov/bill/115th-congress/house-bill/1227</td></tr><tr><td>115th Congress (2017-2018)</td><td>H.R. 975</td><td>Respect State Marijuana Laws Act of 2017</td><td>https://www.congress.gov/bill/115th-congress/house-bill/975</td></tr><tr><td>115th Congress (2017-2018)</td><td>H.R. 331</td><td>States&#x27; Medical Marijuana Property Rights Protection Act</td><td>https://www.congress.gov/bill/115th-congress/house-bill/331</td></tr><tr><td>114th Congress (2015-2016)</td><td>S. 3269</td><td>Cannabidiol Research Expansion Act</td><td>https://www.congress.gov/bill/114th-congress/senate-bill/3269</td></tr><tr><td>114th Congress (2015-2016)</td><td>S. 3077</td><td>MEDS Act</td><td>https://www.congress.gov/bill/114th-congress/senate-bill/3077</td></tr><tr><td>114th Congress (2015-2016)</td><td>H.R. 4779</td><td>CBD Oil Act of 2016</td><td>https://www.congress.gov/bill/114th-congress/house-bill/4779</td></tr><tr><td>114th Congress (2015-2016)</td><td>H.R. 4467</td><td>MAILS Act</td><td>https://www.congress.gov/bill/114th-congress/house-bill/4467</td></tr><tr><td>114th Congress (2015-2016)</td><td>S. 2504</td><td>MAILS Act</td><td>https://www.congress.gov/bill/114th-congress/senate-bill/2504</td></tr><tr><td>114th Congress (2015-2016)</td><td>S. 2237</td><td>Ending Federal Marijuana Prohibition Act of 2015</td><td>https://www.congress.gov/bill/114th-congress/senate-bill/2237</td></tr><tr><td>114th Congress (2015-2016)</td><td>H.R. 3746</td><td>State Marihuana And Regulatory Tolerance Enforcement Act</td><td>https://www.congress.gov/bill/114th-congress/house-bill/3746</td></tr><tr><td>114th Congress (2015-2016)</td><td>H.R. 3629</td><td>Respect States&#x27; and Citizens&#x27; Rights Act of 2015</td><td>https://www.congress.gov/bill/114th-congress/house-bill/3629</td></tr><tr><td>114th Congress (2015-2016)</td><td>H.R. 3518</td><td>Stop Civil Asset Forfeiture Funding for Marijuana Suppression Act of 2015</td><td>https://www.congress.gov/bill/114th-congress/house-bill/3518</td></tr><tr><td>114th Congress (2015-2016)</td><td>H.R. 3124</td><td>Clean Slate for Marijuana Offenses Act of 2015</td><td>https://www.congress.gov/bill/114th-congress/house-bill/3124</td></tr><tr><td>114th Congress (2015-2016)</td><td>H.R. 1940</td><td>Respect State Marijuana Laws Act of 2015</td><td>https://www.congress.gov/bill/114th-congress/house-bill/1940</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3102,
+                    2251,
+                    3141
+                ],
+                "angle": 0,
+                "content": "6"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    762,
+                    151,
+                    1782,
+                    207
+                ],
+                "angle": 0,
+                "content": "United States: Legalization and Regulation of Drugs"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    293,
+                    290,
+                    2254,
+                    2910
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>114th Congress (2015-2016)</td><td>H.R. 1538</td><td>CARERS Act of 2015</td><td>https://www.congress.gov/bill/114th-congress/house-bill/1538</td></tr><tr><td>114th Congress (2015-2016)</td><td>S. 683</td><td>Compassionate Access, Research Expansion, and Respect States Act of 2015</td><td>https://www.congress.gov/bill/114th-congress/senate-bill/683</td></tr><tr><td>114th Congress (2015-2016)</td><td>H.R. 1013</td><td>Regulate Marijuana Like Alcohol Act</td><td>https://www.congress.gov/bill/114th-congress/house-bill/1013</td></tr><tr><td>114th Congress (2015-2016)</td><td>H.R. 262</td><td>States&#x27; Medical Marijuana Property Rights Protection Act</td><td>https://www.congress.gov/bill/114th-congress/house-bill/262</td></tr><tr><td>113th Congress (2013-2014)</td><td>H.R. 4046</td><td>Unmuzzle the Drug Czar Act of 2014</td><td>https://www.congress.gov/bill/113th-congress/house-bill/4046</td></tr><tr><td>113th Congress (2013-2014)</td><td>H.R. 3483</td><td>Protecting Individual Liberties and States&#x27; Rights Act</td><td>https://www.congress.gov/bill/113th-congress/house-bill/3483</td></tr><tr><td>113th Congress (2013-2014)</td><td>H.R. 1635</td><td>National Commission on Federal Marijuana Policy Act of 2013</td><td>https://www.congress.gov/bill/113th-congress/house-bill/1635</td></tr><tr><td>113th Congress (2013-2014)</td><td>H.R. 1523</td><td>Respect State Marijuana Laws Act of 2013</td><td>https://www.congress.gov/bill/113th-congress/house-bill/1523</td></tr><tr><td>113th Congress (2013-2014)</td><td>H.R. 784</td><td>States&#x27; Medical Marijuana Property Rights Protection Act</td><td>https://www.congress.gov/bill/113th-congress/house-bill/784</td></tr><tr><td>113th Congress (2013-2014)</td><td>H.R. 710</td><td>Truth in Trials Act</td><td>https://www.congress.gov/bill/113th-congress/house-bill/710</td></tr><tr><td>113th Congress (2013-2014)</td><td>H.R. 499</td><td>Ending Federal Marijuana Prohibition Act of 2013</td><td>https://www.congress.gov/bill/113th-congress/house-bill/499</td></tr><tr><td>112th Congress (2011-2012)</td><td>H.R. 6335</td><td>States&#x27; Medical Marijuana Property Rights Protection Act</td><td>https://www.congress.gov/bill/112th-congress/house-bill/6335</td></tr><tr><td>112th Congress (2011-2012)</td><td>H.R. 6134</td><td>Truth in Trials Act</td><td>https://www.congress.gov/bill/112th-congress/house-bill/6134</td></tr><tr><td>112th Congress (2011-2012)</td><td>H.R. 2306</td><td>Ending Federal Marijuana Prohibition Act of 2011</td><td>https://www.congress.gov/bill/112th-congress/house-bill/2306</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3098,
+                    2251,
+                    3141
+                ],
+                "angle": 0,
+                "content": "7"
+            }
+        ]
+    }
+]

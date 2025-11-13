@@ -1,0 +1,2130 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1128,
+                    56,
+                    2426,
+                    192
+                ],
+                "angle": 0,
+                "content": "Proceedings of the 1st Joint SLTU and CCURL Workshop (SLTU-CCURL 2020), pages 202-210 Language Resources and Evaluation Conference (LREC 2020), Marseille, 11-16 May 2020 © European Language Resources Association (ELRA), licensed under CC-BY-NC"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    265,
+                    361,
+                    2195,
+                    431
+                ],
+                "angle": 0,
+                "content": "Corpus Creation for Sentiment Analysis in Code-Mixed Tamil-English Text"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    587,
+                    501,
+                    1873,
+                    617
+                ],
+                "angle": 0,
+                "content": "Bharathi Raja Chakravarthi\\(^{1}\\), Vigneshwaran Muralidaran\\(^{2}\\), Ruba Priyadharshini\\(^{3}\\), John P. McCrae\\(^{1}\\)"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    632,
+                    624,
+                    1838,
+                    670
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup>Insight SFI Research Centre for Data Analytics, Data Science Institute,"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    493,
+                    673,
+                    1967,
+                    722
+                ],
+                "angle": 0,
+                "content": "National University of Ireland Galway, {bharathi.raja, john.mccrae} @insight-centre.org"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    384,
+                    726,
+                    2079,
+                    771
+                ],
+                "angle": 0,
+                "content": "\\(^{2}\\)School of English, Communication and Philosophy, Cardiff University, muralidaranV@cardiff.ac.uk"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    538,
+                    771,
+                    1922,
+                    824
+                ],
+                "angle": 0,
+                "content": "\\(^{3}\\)Saraswathi Narayanan College, Madurai, India, rubapriyadharshini@gmail.com"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1146,
+                    887,
+                    1317,
+                    933
+                ],
+                "angle": 0,
+                "content": "Abstract"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    200,
+                    940,
+                    2252,
+                    1304
+                ],
+                "angle": 0,
+                "content": "Understanding the sentiment of a comment from a video or an image is an essential task in many applications. Sentiment analysis of a text can be useful for various decision-making processes. One such application is to analyse the popular sentiments of videos on social media based on viewer comments. However, comments from social media do not follow strict rules of grammar, and they contain mixing of more than one language, often written in non-native scripts. Non-availability of annotated code-mixed data for a low-resourced language like Tamil also adds difficulty to this problem. To overcome this, we created a gold standard Tamil-English code-switched, sentiment-annotated corpus containing 15,744 comment posts from YouTube. In this paper, we describe the process of creating the corpus and assigning polarities. We present inter-annotator agreement and show the results of sentiment analysis trained on this corpus as a benchmark."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    205,
+                    1350,
+                    1081,
+                    1396
+                ],
+                "angle": 0,
+                "content": "Keywords: code mixed, Tamil, sentiment, corpus, dataset"
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    518,
+                    1455,
+                    885,
+                    1504
+                ],
+                "angle": 0,
+                "content": "1. Introduction"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    200,
+                    1522,
+                    1205,
+                    2420
+                ],
+                "angle": 0,
+                "content": "Sentiment analysis has become important in social media research (Yang and Eisenstein, 2017). Until recently these applications were created for high-resourced languages which analysed monolingual utterances. But social media in multilingual communities contains more code-mixed text (Barman et al., 2014; Chanda et al., 2016; Pratapa et al., 2018a; Winata et al., 2019a). Our study focuses on sentiment analysis in Tamil, which has little annotated data for code-mixed scenarios (Phani et al., 2016; Jose et al., 2020). Features based on the lexical properties such as a dictionary of words and parts of speech tagging have less performance compared to the supervised learning (Kannan et al., 2016) approaches using annotated data. However, an annotated corpus developed for monolingual data cannot deal with code-mixed usage and therefore it fails to yield good results (AlGhamdi et al., 2016; Aguilar et al., 2018) due to mixture of languages at different levels of linguistic analysis."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    200,
+                    2469,
+                    1203,
+                    3023
+                ],
+                "angle": 0,
+                "content": "Code-mixing is common among speakers in a bilingual speech community. As English is seen as the language of prestige and education, the influence of lexicon, connectives and phrases from English language is common in spoken Tamil. It is largely observed in educated speakers although not completely absent amongst less educated and uneducated speakers (Krishnasamy, 2015). Due to their pervasiveness of English online, code-mixed Tamil-English (Tanglish) sentences are often typed in Roman script (Suryawanshi et al., 2020a; Suryawanshi et al., 2020b)."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    203,
+                    3062,
+                    1203,
+                    3220
+                ],
+                "angle": 0,
+                "content": "We present TamilMixSentiment \\(①\\) a dataset of YouTube video comments in Tanglish. TamilMixSentiment was developed with guidelines following the work of Mohammad"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    260,
+                    3258,
+                    1156,
+                    3311
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup>https://github.com/bharathichezhiyan/TamilMixSentiment"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1252,
+                    1459,
+                    2255,
+                    1862
+                ],
+                "angle": 0,
+                "content": "(2016) and without annotating the word level language tag. The instructions enabled light and speedy annotation while maintaining consistency. The overall inter-annotator agreement in terms of Kripendorff's \\(\\alpha\\) (Krippendorff, 1970) stands at 0.6. In total, 15,744 comments were annotated; this makes the largest general domain sentiment dataset for this relatively low-resource language with code-mixing phenomenon."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1255,
+                    1908,
+                    2255,
+                    2262
+                ],
+                "angle": 0,
+                "content": "We observed all the three types of code-mixed sentences - - Inter-Sentential switch, Intra-Sentential switch and Tag switching. Most comments were written in Roman script with either Tamil grammar with English lexicon or English grammar with Tamil lexicon. Some comments were written in Tamil script with English expressions in between. The following examples illustrate the point."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1300,
+                    2301,
+                    2250,
+                    2501
+                ],
+                "angle": 0,
+                "content": "- Intha padam vantha piragu yellarum Thala ya kondaduvanga. - After the movie release, everybody will celebrate the hero. Tamil words written in Roman script with no English switch."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1300,
+                    2536,
+                    2250,
+                    2687
+                ],
+                "angle": 0,
+                "content": "- Trailer late ah parthavanga like podunga. - Those who watched the trailer late, please like it. Tag switching with English words."
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1300,
+                    2722,
+                    2255,
+                    2873
+                ],
+                "angle": 0,
+                "content": "- Omg .. use head phones. Enna bgm da saami .. - - OMG! Use your headphones. Good Lord, What a background score! Inter-sentential switch"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    1300,
+                    2904,
+                    2255,
+                    3051
+                ],
+                "angle": 0,
+                "content": "- I think sivakarthickku hero setup set aagala. - I think the hero role does not suit Sivakarthick. Intra-sentential switch between clauses."
+            },
+            {
+                "block_id": 21,
+                "type": "list",
+                "bbox": [
+                    1300,
+                    2301,
+                    2255,
+                    3051
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    1255,
+                    3097,
+                    2255,
+                    3297
+                ],
+                "angle": 0,
+                "content": "In this work we present our dataset, annotation scheme and investigate the properties and statistics of the dataset and information about the annotators. We also present baseline classification results on the new dataset with ten"
+            },
+            {
+                "block_id": 23,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3364,
+                    1280,
+                    3409
+                ],
+                "angle": 0,
+                "content": "202"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    203,
+                    287,
+                    1205,
+                    445
+                ],
+                "angle": 0,
+                "content": "models to establish a baseline for future comparisons. The best results were achieved with models that use logistic regression and random forest."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    208,
+                    487,
+                    925,
+                    543
+                ],
+                "angle": 0,
+                "content": "The contribution of this paper is two-fold:"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    240,
+                    568,
+                    1198,
+                    673
+                ],
+                "angle": 0,
+                "content": "1. We present the first gold standard code-mixed Tamil-English dataset annotated for sentiment analysis."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    238,
+                    698,
+                    1198,
+                    947
+                ],
+                "angle": 0,
+                "content": "2. We provide an experimental analysis of logistic regression, naive Bayes, decision tree, random forest, SVM, dynamic meta-embedding, contextualized dynamic meta-embedding, 1DConv-LSTM and BERT on our code-mixed data for sentiment classification."
+            },
+            {
+                "block_id": 4,
+                "type": "list",
+                "bbox": [
+                    238,
+                    568,
+                    1198,
+                    947
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    503,
+                    989,
+                    905,
+                    1038
+                ],
+                "angle": 0,
+                "content": "2. Related Work"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    203,
+                    1055,
+                    1203,
+                    1504
+                ],
+                "angle": 0,
+                "content": "Recently, there has been a considerable amount of work and effort to collect resources for code-switched text. However, code-switched datasets and lexicons for sentiment analysis are still limited in number, size and availability. For monolingual analysis, there exist various corpora for English (Hu and Liu, 2004; Wiebe et al., 2005; Jiang et al., 2019), Russian (Rogers et al., 2018), German (Cieliebak et al., 2017), Norwegian (Mæhlum et al., 2019) and Indian languages (Agrawal et al., 2018; Rani et al., 2020)."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    203,
+                    1508,
+                    1200,
+                    1855
+                ],
+                "angle": 0,
+                "content": "When it comes to code-mixing, an English-Hindi corpus was created by (Sitaram et al., 2015; Joshi et al., 2016; Pa-tra et al., 2018), an English-Spanish corpus was introduced by (Solorio et al., 2014; Vilares et al., 2015; Vilares et al., 2016), and a Chinese-English one (Lee and Wang, 2015) was collected from Weibo.com and English-Bengali data were released by Patra et al. (Patra et al., 2018)."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    203,
+                    1855,
+                    1200,
+                    2599
+                ],
+                "angle": 0,
+                "content": "Tamil is a Dravidian language spoken by Tamil people in India, Sri Lanka and by the Tamil diaspora around the world, with official recognition in India, Sri Lanka and Singapore (Chakravarthi et al., 2018; Chakravarthi et al., 2019a; Chakravarthi et al., 2019b; Chakravarthi et al., 2019c). Several research activities on sentiment analysis in Tamil (Padmamala and Prema, 2017) and other Indian languages (Ranjan et al., 2016; Das and Bandyopadhyay, 2010; A.R. et al., 2012; Phani et al., 2016; Prasad et al., 2016; Priyadharshini et al., 2020; Chakravarthi et al., 2020) are happening because the sheer number of native speakers are a potential market for commercial NLP applications. However, sentiment analysis on Tamil-English code-mixed data (Patra et al., 2018) is under-developed and data tare not readily available for research."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    203,
+                    2602,
+                    1200,
+                    3248
+                ],
+                "angle": 0,
+                "content": "Until recently, word-level annotations were used for research in code-mixed corpora. Almost all the previous systems proposed were based on data annotated at the word-level. This is not only time-consuming but also expensive to create. However, neural networks and meta-embeddings (Kiela et al., 2018) have shown great promise in code-switched research without the need for word-level annotation. In particular, work by Winata et al. (2019a) learns to utilise information from pre-trained embeddings without explicit word-level language tags. A recent work by Winata et al. (2019b) utilised the subword-level information from closely related languages to improve the performance on the code-mixed text."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1255,
+                    291,
+                    2260,
+                    540
+                ],
+                "angle": 0,
+                "content": "As there was no previous dataset available for Tamil-English (Tanglish) sentiment annotation, we create a sentiment dataset for Tanglish with voluntary annotators. We also show the baseline results with a few models explained in Section 5."
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    1339,
+                    673,
+                    2170,
+                    3034
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(b) Example 2"
+            },
+            {
+                "block_id": 13,
+                "type": "image_caption",
+                "bbox": [
+                    1441,
+                    3132,
+                    2069,
+                    3185
+                ],
+                "angle": 0,
+                "content": "Figure 1: Examples of Google Form."
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3364,
+                    1280,
+                    3409
+                ],
+                "angle": 0,
+                "content": "203"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    297,
+                    284,
+                    1104,
+                    340
+                ],
+                "angle": 0,
+                "content": "3. Corpus Creation and Annotation"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    203,
+                    354,
+                    1200,
+                    1452
+                ],
+                "angle": 0,
+                "content": "Our goal was to create a code-mixed dataset for Tamil to ensure that enough data are available for research purposes. We used the YouTube Comment Scaper tool and collected 184,573 sentences for Tamil from YouTube comments. We collected the comments from the trailers of a movies released in 2019. Many of the them contained sentences that were either entirely written in English or code-mixed Tamil-English or fully written in Tamil. So we filtered out a non-code-mixed corpus based on language identification at comment level using the langdetect library. Thus if the comment is written fully in Tamil or English, we discarded that comment since monolingual resources are available for these languages. We also identified if the sentences were written in other languages such as Hindi, Malayalam, Urdu, Telugu, and Kannada. We preprocessed the comments by removing the emoticons and applying a sentence length filter. We want to create a code-mixed corpus of reasonable size with sentences that have fairly defined sentiments which will be useful for future research. Thus our filter removed sentences with less than five words and more than 15 words after cleaning the data. In the end we got 15,744 Tanglish sentences."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    203,
+                    1487,
+                    677,
+                    1540
+                ],
+                "angle": 0,
+                "content": "3.1. Annotation Setup"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    203,
+                    1550,
+                    1200,
+                    1999
+                ],
+                "angle": 0,
+                "content": "For annotation, we adopted the approach taken by Mohammad (2016), and a minimum of three annotators annotated each sentence in the dataset according to the following schema shown in the Figure 1 We added new category Other language: If the sentence is written in some other language other than Tamil or English. Examples for this are the comments written in other Indian languages using the Roman script. The annotation guidelines are given in English and Tamil."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    203,
+                    2052,
+                    1200,
+                    3146
+                ],
+                "angle": 0,
+                "content": "As we have collected data from YouTube we anonymized to keep the privacy of the users who commented on it. As the voluntary annotators' personal information were collected to know about the them, this gives rise to both ethical, privacy and legal concerns. Therefore, the annotators were informed in the beginning that their data is being recorded and they can choose to withdraw from the process at any stage of annotation. The annotators should actively agree to being recorded. We created Google Forms in which we collected the annotators' email addresses which we used to ensure that an annotator was allowed to label a given sentence only once. We collected the information on gender, education and medium of instruction in school to know the diversity of annotators. Each Google form has been set to contain a maximum of 100 sentences. Example of the Google form is given in the Figure 1 The annotators have to agree that they understood the scheme; otherwise, they cannot proceed further. Three steps complete the annotation setup. First, each sentence was annotated by two people. In the second step, the data were collected if both of them agreed. In the case of conflict, a third person annotated the sentence. In the third step, if all the three of"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1257,
+                    291,
+                    2252,
+                    382
+                ],
+                "angle": 0,
+                "content": "them did not agree, then two more annotators annotated the sentences."
+            },
+            {
+                "block_id": 6,
+                "type": "table",
+                "bbox": [
+                    1379,
+                    424,
+                    2138,
+                    841
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\">Gender</td><td>Male</td><td>9</td></tr><tr><td>Female</td><td>2</td></tr><tr><td rowspan=\"3\">Higher Education</td><td>Undegrade</td><td>2</td></tr><tr><td>Graduate</td><td>2</td></tr><tr><td>Postgraduate</td><td>7</td></tr><tr><td rowspan=\"2\">Medium of Schooling</td><td>English</td><td>6</td></tr><tr><td>Tamil</td><td>5</td></tr><tr><td>Total</td><td></td><td>11</td></tr></table>",
+                "caption": "Table 1: Annotators"
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1257,
+                    1076,
+                    1610,
+                    1122
+                ],
+                "angle": 0,
+                "content": "3.2. Annotators"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1255,
+                    1140,
+                    2252,
+                    2038
+                ],
+                "angle": 0,
+                "content": "To control the quality of annotation, we removed the annotator who did not annotate well in the first form. For example, if the annotators showed unreasonable delay in responding or if they labelled all sentences with the same sentiment or if more than fifty annotations in a form were wrong, we removed those contributions. Eleven volunteers were involved in the process. All of them were native speakers of Tamil with diversity in gender, educational level and medium of instruction in their school education. Table 1 shows information about the annotators. The volunteers were instructed to fill up the Google form, and 100 sentences were sent to them. If an annotator offers to volunteer more, the next Google form is sent to them with another set of 100 sentences and in this way each volunteer chooses to annotate as many sentences from the corpus as they want. We send the forms to an equal number of male and female annotators. However, from Table 1 we can see that only two female annotators volunteered to contribute."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    1257,
+                    2080,
+                    1716,
+                    2129
+                ],
+                "angle": 0,
+                "content": "3.3. Corpus Statistics"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1255,
+                    2143,
+                    2255,
+                    2792
+                ],
+                "angle": 0,
+                "content": "Corpus statistics is given in the Table 2 The distribution of released data is shown in Table 3 The entire dataset of 15,744 sentences was randomly shuffled and split into three parts as follows: 11,335 sentences were used for training, 1,260 sentences form the validation set and 3,149 sentences were used for testing. The machine learning models were applied to this subset of data rather than k-fold cross validation. The only other code-mixed dataset of reasonable size that we could find was an earlier work by Remmiya Devi et al. (2016) on code-mix entity extraction for Hindi-English and Tamil-English tweets, released as a part of the shared task in FIRE 2016. The dataset consisted of 3,200 Tanglish tweets used for training and 1,376 tweets for testing."
+            },
+            {
+                "block_id": 12,
+                "type": "title",
+                "bbox": [
+                    1257,
+                    2834,
+                    1925,
+                    2887
+                ],
+                "angle": 0,
+                "content": "3.4. Inter Annotator Agreement"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1255,
+                    2897,
+                    2255,
+                    3301
+                ],
+                "angle": 0,
+                "content": "We used Krippendorff's alpha \\((\\alpha)\\) (Krippendorff, 1970) to measure inter-annotator agreement because of the nature of our annotation setup. This is a robust statistical measure that accounts for incomplete data and, therefore, does not require every annotator to annotate every sentence. It is also a measure that takes into account the degree of disagreement between the predicted classes, which is crucial in our annotation scheme. For instance, if the annotators disagree"
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    258,
+                    3199,
+                    1099,
+                    3248
+                ],
+                "angle": 0,
+                "content": "\\(^{2}\\)https://github.com/philbot9/youtube-comment-scaper"
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    258,
+                    3248,
+                    806,
+                    3297
+                ],
+                "angle": 0,
+                "content": "\\(^{3}\\)https://pypi.org/project/langdetect/"
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    258,
+                    3199,
+                    1099,
+                    3297
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3364,
+                    1280,
+                    3409
+                ],
+                "angle": 0,
+                "content": "204"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    754,
+                    280,
+                    1711,
+                    645
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Language pair</td><td>Tamil-English</td></tr><tr><td>Number of Tokens</td><td>169,833</td></tr><tr><td>Vocabulary Size</td><td>30,898</td></tr><tr><td>Number of Posts</td><td>15,744</td></tr><tr><td>Number of Sentences</td><td>17,926</td></tr><tr><td>Average number of Tokens per post</td><td>10</td></tr><tr><td>Average number of sentences per post</td><td>1</td></tr></table>",
+                "caption": "Table 2: Corpus statistic of and Tamil-English"
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    416,
+                    848,
+                    994,
+                    1217
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Class</td><td>Tamil-English</td></tr><tr><td>Positive</td><td>10,559</td></tr><tr><td>Negative</td><td>2,037</td></tr><tr><td>Mixed feelings</td><td>1,801</td></tr><tr><td>Neutral</td><td>850</td></tr><tr><td>Other language</td><td>497</td></tr><tr><td>Total</td><td>15,744</td></tr></table>",
+                "caption": "Table 3: Data Distribution"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    203,
+                    1431,
+                    1200,
+                    1624
+                ],
+                "angle": 0,
+                "content": "between Positive and Negative class, this disagreement is more serious than when they disagree between Mixed feelings and Neutral. \\(\\alpha\\) can handle such disagreements. \\(\\alpha\\) is defined as:"
+            },
+            {
+                "block_id": 5,
+                "type": "equation",
+                "bbox": [
+                    585,
+                    1620,
+                    1198,
+                    1718
+                ],
+                "angle": 0,
+                "content": "\\[\n\\alpha = 1 - \\frac {D _ {o}}{D _ {e}} \\tag {1}\n\\]"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    203,
+                    1736,
+                    1200,
+                    1978
+                ],
+                "angle": 0,
+                "content": "\\(D_{o}\\) is the observed disagreement between sentiment labels by the annotators and \\(D_{e}\\) is the disagreement expected when the coding of sentiments can be attributed to chance rather than due to the inherent property of the sentiment itself."
+            },
+            {
+                "block_id": 7,
+                "type": "equation",
+                "bbox": [
+                    439,
+                    1971,
+                    1198,
+                    2087
+                ],
+                "angle": 0,
+                "content": "\\[\nD _ {o} = \\frac {1}{n} \\sum_ {c} \\sum_ {k} o _ {c k m e t r i c} \\delta_ {c k} ^ {2} \\tag {2}\n\\]"
+            },
+            {
+                "block_id": 8,
+                "type": "equation",
+                "bbox": [
+                    344,
+                    2115,
+                    1198,
+                    2234
+                ],
+                "angle": 0,
+                "content": "\\[\nD _ {e} = \\frac {1}{n (n - 1)} \\sum_ {c} \\sum_ {k} n _ {c}. n _ {k m e t r i c} \\delta_ {c k} ^ {2} \\qquad (3)\n\\]"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    203,
+                    2252,
+                    1200,
+                    2795
+                ],
+                "angle": 0,
+                "content": "Here \\( o_{ck} \\), \\( n_c \\), \\( n_k \\) and \\( n \\) refer to the frequencies of values in coincidence matrices and metric refers to any metric or level of measurement such as nominal, ordinal, interval, ratio and others. Krippendorff's alpha applies to all these metrics. We used nominal and interval metric to calculate annotator agreement. The range of \\( \\alpha \\) is between 0 and 1, \\( 1 \\geq \\alpha \\geq 0 \\). When \\( \\alpha \\) is 1 there is perfect agreement between annotators and when 0 the agreement is entirely due to chance. Our annotation produced an agreement of 0.6585 using nominal metric and 0.6799 using interval metric."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    451,
+                    2844,
+                    950,
+                    2901
+                ],
+                "angle": 0,
+                "content": "4. Difficult Examples"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    203,
+                    2915,
+                    1198,
+                    3013
+                ],
+                "angle": 0,
+                "content": "In this section we talk about some examples that were difficult to annotate."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    240,
+                    3048,
+                    1200,
+                    3297
+                ],
+                "angle": 0,
+                "content": "1. Enakku iru mugan trailer gnabagam than varuthu - All it reminds me of is the trailer of the movie Irumugan. Not sure whether the speaker enjoyed Irumugan trailer or disliked it or simply observed the similarities between the two trailers."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    859,
+                    2250,
+                    1108
+                ],
+                "angle": 0,
+                "content": "2. Rajini ah vida akshay mass ah irukane - Akshay looks more amazing than Rajini. Difficult to decide if it is a disappointment that the villain looks better than the hero or a positive appreciation for the villain actor."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    1136,
+                    2250,
+                    1283
+                ],
+                "angle": 0,
+                "content": "3. Ada dei nome sambatha da dei - I wonder, Is this our Sampath? Hey!. Conflict between neutral and positive."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1290,
+                    1319,
+                    2255,
+                    1518
+                ],
+                "angle": 0,
+                "content": "4. Lokesh kanagaraj movie naalae.... English Rap....Song vandurum - If it is a movie of Lokesh kanagaraj, it always has an English rap song. Ambiguous sentiment."
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    1290,
+                    859,
+                    2255,
+                    1518
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1255,
+                    1543,
+                    2255,
+                    1894
+                ],
+                "angle": 0,
+                "content": "According to the instructions, questions about music director, movie release date and remarks about when the speaker is watching the video should be treated as neutral. However the above examples show that some comments about the actors and movies can be ambiguously interpreted as neutral or positive or negative. We found annotator disagreements in such sentences."
+            },
+            {
+                "block_id": 18,
+                "type": "title",
+                "bbox": [
+                    1488,
+                    1932,
+                    2024,
+                    1989
+                ],
+                "angle": 0,
+                "content": "5. Benchmark Systems"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1255,
+                    1999,
+                    2255,
+                    2206
+                ],
+                "angle": 0,
+                "content": "In order to provide a simple baseline, we applied various machine learning algorithms for determining the sentiments of YouTube posts in code-mixed Tamil-English language."
+            },
+            {
+                "block_id": 20,
+                "type": "title",
+                "bbox": [
+                    1257,
+                    2231,
+                    1821,
+                    2287
+                ],
+                "angle": 0,
+                "content": "5.1. Experimental Settings"
+            },
+            {
+                "block_id": 21,
+                "type": "title",
+                "bbox": [
+                    1257,
+                    2297,
+                    1860,
+                    2343
+                ],
+                "angle": 0,
+                "content": "5.1.1. Logistic Regression (LR):"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    1255,
+                    2343,
+                    2252,
+                    2501
+                ],
+                "angle": 0,
+                "content": "We evaluate the Logistic Regression model with L2 regularization. The input features are the Term Frequency Inverse Document Frequency (TF-IDF) values of up to 3 grams."
+            },
+            {
+                "block_id": 23,
+                "type": "title",
+                "bbox": [
+                    1255,
+                    2529,
+                    1984,
+                    2578
+                ],
+                "angle": 0,
+                "content": "5.1.2. Support Vector Machine (SVM):"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    1255,
+                    2578,
+                    2252,
+                    2781
+                ],
+                "angle": 0,
+                "content": "We evaluate the SVM model with L2 regularization. The features are the same as in LR. The purpose of SVM classification algorithm is to define optimal hyperplane in N dimensional space to separate the data points from each other."
+            },
+            {
+                "block_id": 25,
+                "type": "title",
+                "bbox": [
+                    1255,
+                    2813,
+                    1947,
+                    2862
+                ],
+                "angle": 0,
+                "content": "5.1.3. K-Nearest Neighbour (K-NN):"
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    1255,
+                    2866,
+                    2252,
+                    2964
+                ],
+                "angle": 0,
+                "content": "We use KNN for classification with 3,4,5,and 9 neighbours by applying uniform weights."
+            },
+            {
+                "block_id": 27,
+                "type": "title",
+                "bbox": [
+                    1257,
+                    2999,
+                    1756,
+                    3044
+                ],
+                "angle": 0,
+                "content": "5.1.4. Decision Tree (DT):"
+            },
+            {
+                "block_id": 28,
+                "type": "text",
+                "bbox": [
+                    1255,
+                    3048,
+                    2255,
+                    3301
+                ],
+                "angle": 0,
+                "content": "Decision trees have been previously used in NLP tasks for classification. In decision tree, the prediction is done by splitting the root training set into subsets as nodes, and each node contains output of the decision, label or condition. After sequentially choosing alternative decisions, each node"
+            },
+            {
+                "block_id": 29,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3364,
+                    1280,
+                    3409
+                ],
+                "angle": 0,
+                "content": "205"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    292,
+                    280,
+                    2170,
+                    799
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Classifier</td><td>Positive</td><td>Negative</td><td>Neutral</td><td>Mixed</td><td>Other language</td><td>Micro Avg</td><td>Macro Avg</td><td>Weighted Avg</td></tr><tr><td>KNN</td><td>0.70</td><td>0.23</td><td>0.35</td><td>0.16</td><td>0.06</td><td>0.45</td><td>0.30</td><td>0.53</td></tr><tr><td>Decision Tree</td><td>0.71</td><td>0.30</td><td>0.24</td><td>0.17</td><td>0.60</td><td>0.61</td><td>0.40</td><td>0.56</td></tr><tr><td>Random Forest</td><td>0.69</td><td>0.51</td><td>0.80</td><td>0.41</td><td>0.68</td><td>0.68</td><td>0.62</td><td>0.63</td></tr><tr><td>Logistic Regression</td><td>0.68</td><td>0.56</td><td>0.61</td><td>0.36</td><td>0.76</td><td>0.68</td><td>0.59</td><td>0.62</td></tr><tr><td>Naive Bayes</td><td>0.66</td><td>0.62</td><td>0.00</td><td>0.40</td><td>0.69</td><td>0.66</td><td>0.48</td><td>0.59</td></tr><tr><td>SVM</td><td>0.66</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.66</td><td>0.13</td><td>0.43</td></tr><tr><td>1DConv-LSTM</td><td>0.71</td><td>0.30</td><td>0.00</td><td>0.14</td><td>0.67</td><td>0.63</td><td>0.36</td><td>0.54</td></tr><tr><td>DME</td><td>0.68</td><td>0.34</td><td>0.31</td><td>0.29</td><td>0.71</td><td>0.67</td><td>0.46</td><td>0.57</td></tr><tr><td>CDME</td><td>0.67</td><td>0.56</td><td>0.56</td><td>0.20</td><td>0.68</td><td>0.67</td><td>0.53</td><td>0.59</td></tr><tr><td>BERT Multilingual</td><td>0.67</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.64</td><td>0.67</td><td>0.26</td><td>0.46</td></tr></table>",
+                "caption": "Table 4: Precision"
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    292,
+                    964,
+                    2170,
+                    1483
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Classifier</td><td>Positive</td><td>Negative</td><td>Neutral</td><td>Mixed</td><td>Other language</td><td>Micro Avg</td><td>Macro Avg</td><td>Weighted Avg</td></tr><tr><td>KNN</td><td>0.63</td><td>0.04</td><td>0.10</td><td>0.02</td><td>0.61</td><td>0.45</td><td>0.28</td><td>0.45</td></tr><tr><td>Decision Tree</td><td>0.83</td><td>0.21</td><td>0.13</td><td>0.12</td><td>0.54</td><td>0.61</td><td>0.36</td><td>0.61</td></tr><tr><td>Random Forest</td><td>0.98</td><td>0.18</td><td>0.09</td><td>0.04</td><td>0.55</td><td>0.68</td><td>0.32</td><td>0.68</td></tr><tr><td>Logistic Regression</td><td>0.98</td><td>0.13</td><td>0.06</td><td>0.01</td><td>0.32</td><td>0.68</td><td>0.30</td><td>0.68</td></tr><tr><td>Naive Bayes</td><td>1.00</td><td>0.01</td><td>0.00</td><td>0.01</td><td>0.18</td><td>0.66</td><td>0.24</td><td>0.67</td></tr><tr><td>SVM</td><td>1.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.66</td><td>0.20</td><td>0.66</td></tr><tr><td>1DConv-LSTM</td><td>0.91</td><td>0.11</td><td>0.00</td><td>0.10</td><td>0.28</td><td>0.63</td><td>0.28</td><td>0.63</td></tr><tr><td>DME</td><td>0.99</td><td>0.03</td><td>0.02</td><td>0.01</td><td>0.49</td><td>0.67</td><td>0.31</td><td>0.57</td></tr><tr><td>CDME</td><td>0.99</td><td>0.01</td><td>0.03</td><td>0.00</td><td>0.52</td><td>0.67</td><td>0.31</td><td>0.67</td></tr><tr><td>BERT Multilingual</td><td>0.99</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.58</td><td>0.67</td><td>0.31</td><td>0.46</td></tr></table>",
+                "caption": "Table 5: Recall"
+            },
+            {
+                "block_id": 4,
+                "type": "table",
+                "bbox": [
+                    292,
+                    1652,
+                    2170,
+                    2171
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Classifier</td><td>Positive</td><td>Negative</td><td>Neutral</td><td>Mixed</td><td>Other language</td><td>Micro Avg</td><td>Macro Avg</td><td>Weighted Avg</td></tr><tr><td>KNN</td><td>0.66</td><td>0.06</td><td>0.15</td><td>0.04</td><td>0.10</td><td>0.45</td><td>0.29</td><td>0.50</td></tr><tr><td>Decision Tree</td><td>0.77</td><td>0.24</td><td>0.17</td><td>0.14</td><td>0.54</td><td>0.61</td><td>0.38</td><td>0.58</td></tr><tr><td>Random Forest</td><td>0.81</td><td>0.18</td><td>0.09</td><td>0.04</td><td>0.55</td><td>0.68</td><td>0.42</td><td>0.65</td></tr><tr><td>Logistic Regression</td><td>0.81</td><td>0.21</td><td>0.12</td><td>0.03</td><td>0.45</td><td>0.68</td><td>0.40</td><td>0.64</td></tr><tr><td>Naive Bayes</td><td>0.80</td><td>0.02</td><td>0.00</td><td>0.01</td><td>0.29</td><td>0.66</td><td>0.32</td><td>0.63</td></tr><tr><td>SVM</td><td>0.79</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.66</td><td>0.16</td><td>0.52</td></tr><tr><td>1DConv-LSTM</td><td>0.80</td><td>0.16</td><td>0.00</td><td>0.12</td><td>0.39</td><td>0.63</td><td>0.31</td><td>0.58</td></tr><tr><td>DME</td><td>0.80</td><td>0.05</td><td>0.04</td><td>0.01</td><td>0.58</td><td>0.67</td><td>0.37</td><td>0.57</td></tr><tr><td>CDME</td><td>0.80</td><td>0.02</td><td>0.05</td><td>0.01</td><td>0.59</td><td>0.67</td><td>0.39</td><td>0.63</td></tr><tr><td>BERT Multilingual</td><td>0.80</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.61</td><td>0.67</td><td>0.28</td><td>0.46</td></tr></table>",
+                "caption": "Table 6: F-score"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    203,
+                    2378,
+                    1198,
+                    2634
+                ],
+                "angle": 0,
+                "content": "recursively is split again and finally the classifier defines some rules to predict the result. We used it to classify the sentiments for baseline. Maximum depth was 800 and minimum sample splits were 5 for DT. The criterion were Gini and entropy."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    205,
+                    2704,
+                    731,
+                    2750
+                ],
+                "angle": 0,
+                "content": "5.1.5. Random Forest (RF):"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    203,
+                    2764,
+                    1198,
+                    2911
+                ],
+                "angle": 0,
+                "content": "In random forest, the classifier randomly generates trees without defining rules. We evaluate the RF model with same features as in DT."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    205,
+                    2988,
+                    970,
+                    3037
+                ],
+                "angle": 0,
+                "content": "5.1.6. Multinominal Naive Bayes (MNB):"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    203,
+                    3048,
+                    1198,
+                    3294
+                ],
+                "angle": 0,
+                "content": "Naive-Bayes classifier is a probabilistic model, which is derived from Bayes Theorem that finds the probability of hypothesis activity to the given evidence activity. We evaluate the MNB model with our data using \\(\\alpha = 1\\) with TF-IDF vectors."
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    1255,
+                    2381,
+                    1697,
+                    2424
+                ],
+                "angle": 0,
+                "content": "5.1.7. 1DConv-LSTM:"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1252,
+                    2431,
+                    2252,
+                    2585
+                ],
+                "angle": 0,
+                "content": "The model we evaluated consists of Embedding layer, Dropout, 1DConv with activation ReLU, Max-pooling and LSTM. The embeddings are randomly initialized."
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    1255,
+                    2616,
+                    1761,
+                    2662
+                ],
+                "angle": 0,
+                "content": "5.1.8. BERT-Multilingual:"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1252,
+                    2666,
+                    2255,
+                    3065
+                ],
+                "angle": 0,
+                "content": "Devlin et al. (2019) introduced a language representation model which is Bidirectional Encoder Representation from Transforms. It is designed to pre-train from unlabelled text and can be fine-tuned by adding last layer. BERT has been used for many text classification tasks (Tayyar Madabushi et al., 2019; Ma et al., 2019; Cohan et al., 2019). We explore classification of a code-mixed data into their corresponding sentiment categories."
+            },
+            {
+                "block_id": 15,
+                "type": "title",
+                "bbox": [
+                    1255,
+                    3097,
+                    1731,
+                    3143
+                ],
+                "angle": 0,
+                "content": "5.1.9. DME and CDME:"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1252,
+                    3150,
+                    2255,
+                    3301
+                ],
+                "angle": 0,
+                "content": "We also implemented the Dynamic Meta Embedding (Kiela et al., 2018) to evaluate our model. As a first step, we used Word2Vec and FastText to train from our dataset since dy-"
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3364,
+                    1280,
+                    3409
+                ],
+                "angle": 0,
+                "content": "206"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    203,
+                    291,
+                    1205,
+                    392
+                ],
+                "angle": 0,
+                "content": "namic meta-embedding is an effective method for the supervised learning of embedding ensembles."
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    203,
+                    417,
+                    1027,
+                    473
+                ],
+                "angle": 0,
+                "content": "5.2. Experiment Results and Discussion"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    200,
+                    480,
+                    1205,
+                    1375
+                ],
+                "angle": 0,
+                "content": "The experimental results of the sentiment classification task using different methods are shown in terms of precision in Table4, recall in Table5 and F-score in Table6. We used sklearn4 for evaluation. The micro-average is calculated by aggregating the contributions of all classes to compute the average metric. In a multi-class classification setup, micro-average is preferable if there are class imbalances. For instance in our data, we have many more examples of positive classes than other classes. A macro-average will compute the metrics (precision, recall, F-score) independently for each class and then take the average. Thus this metric treats all classes equally and it does not take imbalance into account. A weighted average takes the metrics from each class just like macro but the contribution of each class to the average is weighted by the number of examples available for it. For our test, positive is 2,075, negative is 424, neutral is 173, mixed feelings are 377, and non-Tamil is 100."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    200,
+                    1427,
+                    1203,
+                    2020
+                ],
+                "angle": 0,
+                "content": "As shown in the tables, all the classification algorithms perform poorly on the code-mixed dataset. Logistic regression, random forest classifiers and decision trees were the ones that fared comparatively better across all sentiment classes. Surprisingly, the classification result by the SVM model has much worse diversity than the other methods. Applying deep learning methods also does not lead to higher scores on the three automatic metrics. We think this stems from the characteristics of the dataset. The classification scores for different sentiment classes appear to be in line with the distribution of sentiments in the dataset."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    200,
+                    2073,
+                    1203,
+                    2725
+                ],
+                "angle": 0,
+                "content": "The dataset is not a balanced distribution. Table 3 shows that out of total 15,744 sentences \\(67\\%\\) belong to Positive class while the other sentiment classes share \\(13\\%\\), \\(5\\%\\) and \\(3\\%\\) respectively. The precision, recall and F-measure scores are higher for the Positive class while the scores for Neutral and Mixed feeling classes were disastrous. Apart from their low distribution in the dataset, these two classes are difficult to annotate for even human annotators as discussed in Section 4. In comparison, the Negative and Other language classes were better. We suspect this is due to more explicit clues for negative and non-Tamil words and due to relatively higher distribution of negative comments in the data."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    203,
+                    2771,
+                    1203,
+                    3223
+                ],
+                "angle": 0,
+                "content": "Since we collected the post from movie trailers, we got more positive sentiment than others as the people who watch trailers are more likely to be interested in movies and this skews the overall distribution. However, as the code-mixing phenomenon is not incorporated in the earlier models, this resource could be taken as a starting point for further research. There is significant room for improvement in code-mixed research with our dataset. In our experiments, we only utilized the machine learning methods,"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1252,
+                    291,
+                    2255,
+                    501
+                ],
+                "angle": 0,
+                "content": "but more information such as linguistic information or hierarchical meta-embedding can be utilized. This dataset can be used to create a multilingual embedding for code-mixed data (Pratapa et al., 2018b)."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1585,
+                    540,
+                    1925,
+                    589
+                ],
+                "angle": 0,
+                "content": "6. Conclusion"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1252,
+                    610,
+                    2255,
+                    1112
+                ],
+                "angle": 0,
+                "content": "We presented, to the best of our knowledge, the most substantial corpus for under-resourced code-mixed Tanglish with annotations for sentiment polarity. We achieved a high inter-annotator agreement in terms of Krippendorff \\(\\alpha\\) from voluntary annotators on contributions collected using Google form. We created baselines with gold standard annotated data and presented our results for each class in Precision, Recall, and F-Score. We expect this resource will enable the researchers to address new and exciting problems in code-mixed research."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1508,
+                    1157,
+                    2004,
+                    1210
+                ],
+                "angle": 0,
+                "content": "7. Acknowledgments"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1252,
+                    1224,
+                    2260,
+                    1778
+                ],
+                "angle": 0,
+                "content": "This publication has emanated from research supported in part by a research grant from Science Foundation Ireland (SFI) under Grant Number SFI/12/RC/2289 (Insight), SFI/12/RC/2289_P2 (Insight_2), co-funded by the European Regional Development Fund as well as by the EU H2020 programme under grant agreements 731015 (ELEXIS-European Lexical Infrastructure), 825182 (Prêt-à-LLOD), and Irish Research Council grant IRCLA/2017/129 (CARDAMOM-Comparative Deep Models of Language for Minority and Historical Languages)."
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    1416,
+                    1824,
+                    2093,
+                    1880
+                ],
+                "angle": 0,
+                "content": "8. Bibliographical References"
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1260,
+                    1894,
+                    2255,
+                    2245
+                ],
+                "angle": 0,
+                "content": "Agrawal, R., Chenthil Kumar, V., Muralidharan, V., and Sharma, D. (2018). No more beating about the bush : A step towards idiom handling for Indian language NLP. In Proceedings of the Eleventh International Conference on Language Resources and Evaluation (LREC 2018), Miyazaki, Japan, May. European Language Resources Association (ELRA)."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1262,
+                    2245,
+                    2252,
+                    2445
+                ],
+                "angle": 0,
+                "content": "Gustavo Aguilar, et al., editors. (2018). Proceedings of the Third Workshop on Computational Approaches to Linguistic Code-Switching, Melbourne, Australia, July. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1262,
+                    2448,
+                    2260,
+                    2746
+                ],
+                "angle": 0,
+                "content": "AlGhamdi, F., Molina, G., Diab, M., Solorio, T., Hawwari, A., Soto, V., and Hirschberg, J. (2016). Part of speech tagging for code switched data. In Proceedings of the Second Workshop on Computational Approaches to Code Switching, pages 98-107, Austin, Texas, November. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1262,
+                    2750,
+                    2255,
+                    2995
+                ],
+                "angle": 0,
+                "content": "A.R., B., Joshi, A., and Bhattacharyya, P. (2012). Cross-lingual sentiment analysis for Indian languages using linked WordNets. In Proceedings of COLING 2012: Posters, pages 73–82, Mumbai, India, December. The COLING 2012 Organizing Committee."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1262,
+                    2999,
+                    2255,
+                    3304
+                ],
+                "angle": 0,
+                "content": "Barman, U., Das, A., Wagner, J., and Foster, J. (2014). Code mixing: A challenge for language identification in the language of social media. In Proceedings of the First Workshop on Computational Approaches to Code Switching, pages 13-23, Doha, Qatar, October. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 17,
+                "type": "list",
+                "bbox": [
+                    1260,
+                    1894,
+                    2260,
+                    3304
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 18,
+                "type": "footer",
+                "bbox": [
+                    260,
+                    3262,
+                    632,
+                    3315
+                ],
+                "angle": 0,
+                "content": "\\(^{4}\\)https://scikit-learn.org/"
+            },
+            {
+                "block_id": 19,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3364,
+                    1282,
+                    3409
+                ],
+                "angle": 0,
+                "content": "207"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    208,
+                    291,
+                    1200,
+                    487
+                ],
+                "angle": 0,
+                "content": "Chakravarthi, B. R., Arcan, M., and McCrae, J. P. (2018). Improving wordnets for under-resourced languages using machine translation. In Proceedings of the 9th Global WordNet Conference (GWC 2018), page 78."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    210,
+                    494,
+                    1200,
+                    785
+                ],
+                "angle": 0,
+                "content": "Chakravarthi, B. R., Arcan, M., and McCrae, J. P. (2019a). Comparison of different orthographies for machine translation of under-resourced dravidian languages. In 2nd Conference on Language, Data and Knowledge (LDK 2019). Schloss Dagstuhl-Leibniz-Zentrum fuer Informatik."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    208,
+                    792,
+                    1198,
+                    1136
+                ],
+                "angle": 0,
+                "content": "Chakravarthi, B. R., Arcan, M., and McCrae, J. P. (2019b). WordNet gloss translation for under-resourced languages using multilingual neural machine translation. In Proceedings of the Second Workshop on Multilingualism at the Intersection of Knowledge Bases and Machine Translation, pages 1-7, Dublin, Ireland, 19 August. European Association for Machine Translation."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    208,
+                    1143,
+                    1198,
+                    1536
+                ],
+                "angle": 0,
+                "content": "Chakravarthi, B. R., Priyadharshini, R., Stearns, B., Jayapal, A., S, S., Arcan, M., Zarrouk, M., and McCrae, J. P. (2019c). Multilingual multimodal machine translation for Dravidian languages utilizing phonetic transcription. In Proceedings of the 2nd Workshop on Technologies for MT of Low Resource Languages, pages 56-63, Dublin, Ireland, 20 August. European Association for Machine Translation."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    208,
+                    1543,
+                    1198,
+                    1989
+                ],
+                "angle": 0,
+                "content": "Chakravarthi, B. R., Jose, N., Suryawanshi, S., Sherly, E., and McCrae, J. P. (2020). A sentiment analysis dataset for code-mixed Malayalam-English. In Proceedings of the 1st Joint Workshop of SLTU (Spoken Language Technologies for Under-resourced languages) and CCURL (Collaboration and Computing for Under-Resourced Languages) (SLTU-CCURL 2020), Marseille, France, May. European Language Resources Association (ELRA)."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    208,
+                    1996,
+                    1198,
+                    2290
+                ],
+                "angle": 0,
+                "content": "Chanda, A., Das, D., and Mazumdar, C. (2016). Unraveling the English-Bengali code-mixing phenomenon. In Proceedings of the Second Workshop on Computational Approaches to Code Switching, pages 80-89, Austin, Texas, November. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    208,
+                    2297,
+                    1198,
+                    2592
+                ],
+                "angle": 0,
+                "content": "Cieliebak, M., Deriu, J. M., Egger, D., and Uzdilli, F. (2017). A Twitter corpus and benchmark resources for German sentiment analysis. In Proceedings of the Fifth International Workshop on Natural Language Processing for Social Media, pages 45-51, Valencia, Spain, April. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    208,
+                    2599,
+                    1198,
+                    2992
+                ],
+                "angle": 0,
+                "content": "Cohan, A., Beltagy, I., King, D., Dalvi, B., and Weld, D. (2019). Pretrained language models for sequential sentence classification. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP), pages 3693-3699, Hong Kong, China, November. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    208,
+                    2999,
+                    1198,
+                    3241
+                ],
+                "angle": 0,
+                "content": "Das, A. and Bandyopadhyay, S. (2010). SentiWordNet for Indian languages. In Proceedings of the Eighth Workshop on Asian Language Resources, pages 56-63, Beijing, China, August. Coling 2010 Organizing Committee."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    210,
+                    3248,
+                    1198,
+                    3297
+                ],
+                "angle": 0,
+                "content": "Devlin, J., Chang, M.-W., Lee, K., and Toutanova, K."
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    208,
+                    291,
+                    1200,
+                    3297
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    1297,
+                    291,
+                    2255,
+                    638
+                ],
+                "angle": 0,
+                "content": "(2019). BERT: Pre-training of deep bidirectional transformers for language understanding. In Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers), pages 4171-4186, Minneapolis, Minnesota, June. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1262,
+                    648,
+                    2252,
+                    894
+                ],
+                "angle": 0,
+                "content": "Hu, M. and Liu, B. (2004). Mining and summarizing customer reviews. In Proceedings of the Tenth ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, KDD '04, page 168-177, New York, NY, USA. Association for Computing Machinery."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1262,
+                    901,
+                    2250,
+                    1297
+                ],
+                "angle": 0,
+                "content": "Jiang, Q., Chen, L., Xu, R., Ao, X., and Yang, M. (2019). A challenge dataset and effective models for aspect-based sentiment analysis. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP), pages 6279-6284, Hong Kong, China, November. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1262,
+                    1308,
+                    2250,
+                    1554
+                ],
+                "angle": 0,
+                "content": "Jose, N., Chakravarthi, B. R., Suryawanshi, S., Sherly, E., and McCrae, J. P. (2020). A survey of current datasets for code-switching research. In 2020 6th International Conference on Advanced Computing & Communication Systems (ICACCS)."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1262,
+                    1564,
+                    2247,
+                    1911
+                ],
+                "angle": 0,
+                "content": "Joshi, A., Prabhu, A., Shrivastava, M., and Varma, V. (2016). Towards sub-word level compositions for sentiment analysis of Hindi-English code mixed text. In Proceedings of COLING 2016, the 26th International Conference on Computational Linguistics: Technical Papers, pages 2482-2491, Osaka, Japan, December. The COLING 2016 Organizing Committee."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1265,
+                    1922,
+                    2250,
+                    2164
+                ],
+                "angle": 0,
+                "content": "Kannan, A., Mohanty, G., and Mamidi, R. (2016). Towards building a SentiWordNet for Tamil. In Proceedings of the 13th International Conference on Natural Language Processing, pages 30-35, Varanasi, India, December. NLP Association of India."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1265,
+                    2178,
+                    2250,
+                    2473
+                ],
+                "angle": 0,
+                "content": "Kiela, D., Wang, C., and Cho, K. (2018). Dynamic meta-embeddings for improved sentence representations. In Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, pages 1466–1477, Brussels, Belgium, October-November. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1265,
+                    2483,
+                    2247,
+                    2627
+                ],
+                "angle": 0,
+                "content": "Krippendorff, K. (1970). Estimating the reliability, systematic error and random error of interval data. Educational and Psychological Measurement, 30(1):61-70."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1265,
+                    2638,
+                    2247,
+                    2785
+                ],
+                "angle": 0,
+                "content": "Krishnasamy, K. (2015). Code mixing among Tamil-English bilingual children. International Journal of Social Science and Humanity, 5(9):788."
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    1265,
+                    2795,
+                    2250,
+                    3041
+                ],
+                "angle": 0,
+                "content": "Lee, S. and Wang, Z. (2015). Emotion in code-switching texts: Corpus construction and analysis. In Proceedings of the Eighth SIGHAN Workshop on Chinese Language Processing, pages 91-99, Beijing, China, July. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 21,
+                "type": "ref_text",
+                "bbox": [
+                    1265,
+                    3051,
+                    2250,
+                    3297
+                ],
+                "angle": 0,
+                "content": "Ma, X., Xu, P., Wang, Z., Nallapati, R., and Xiang, B. (2019). Domain adaptation with BERT-based domain classification and data selection. In Proceedings of the 2nd Workshop on Deep Learning Approaches for Low-Resource NLP (DeepLo 2019), pages 76–83, Hong"
+            },
+            {
+                "block_id": 22,
+                "type": "list",
+                "bbox": [
+                    1262,
+                    291,
+                    2255,
+                    3297
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 23,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3364,
+                    1280,
+                    3406
+                ],
+                "angle": 0,
+                "content": "208"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    253,
+                    291,
+                    1195,
+                    389
+                ],
+                "angle": 0,
+                "content": "Kong, China, November. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    213,
+                    396,
+                    1200,
+                    694
+                ],
+                "angle": 0,
+                "content": "Mæhlum, P., Barnes, J., Øvrelid, L., and Velldal, E. (2019). Annotating evaluative sentences for sentiment analysis: a dataset for Norwegian. In Proceedings of the 22nd Nordic Conference on Computational Linguistics, pages 121-130, Turku, Finland, September-October. Linköping University Electronic Press."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    210,
+                    705,
+                    1200,
+                    999
+                ],
+                "angle": 0,
+                "content": "Mohammad, S. (2016). A practical guide to sentiment annotation: Challenges and solutions. In Proceedings of the 7th Workshop on Computational Approaches to Subjectivity, Sentiment and Social Media Analysis, pages 174-179, San Diego, California, June. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    213,
+                    1010,
+                    1198,
+                    1308
+                ],
+                "angle": 0,
+                "content": "Padmamala, R. and Prema, V. (2017). Sentiment analysis of online Tamil contents using recursive neural network models approach for Tamil language. In 2017 IEEE International Conference on Smart Technologies and Management for Computing, Communication, Controls, Energy and Materials (ICSTM), pages 28-31, Aug."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    213,
+                    1315,
+                    1198,
+                    1511
+                ],
+                "angle": 0,
+                "content": "Patra, B. G., Das, D., and Das, A. (2018). Sentiment analysis of code-mixed indian languages: An overview of sail_code-mixed shared task@ icon-2017. arXiv preprint arXiv:1803.06745."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    213,
+                    1518,
+                    1198,
+                    1817
+                ],
+                "angle": 0,
+                "content": "Phani, S., Lahiri, S., and Biswas, A. (2016). Sentiment analysis of Tweets in three Indian languages. In Proceedings of the 6th Workshop on South and Southeast Asian Natural Language Processing (WSSANLP2016), pages 93-102, Osaka, Japan, December. The COLING 2016 Organizing Committee."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    213,
+                    1827,
+                    1198,
+                    2031
+                ],
+                "angle": 0,
+                "content": "Prasad, S. S., Kumar, J., Prabhakar, D. K., and Tripathi, S. (2016). Sentiment mining: An approach for Bengali and Tamil tweets. In 2016 Ninth International Conference on Contemporary Computing (IC3), pages 1-4, Aug."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    213,
+                    2038,
+                    1198,
+                    2381
+                ],
+                "angle": 0,
+                "content": "Pratapa, A., Bhat, G., Choudhury, M., Sitaram, S., Danda-pat, S., and Bali, K. (2018a). Language modeling for code-mixing: The role of linguistic theory based synthetic data. In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 1543-1553, Melbourne, Australia, July. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    213,
+                    2388,
+                    1198,
+                    2687
+                ],
+                "angle": 0,
+                "content": "Pratapa, A., Choudhury, M., and Sitaram, S. (2018b). Word embeddings for code-mixed language processing. In Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, pages 3067-3072, Brussels, Belgium, October-November. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    213,
+                    2694,
+                    1198,
+                    2943
+                ],
+                "angle": 0,
+                "content": "Priyadharshini, R., Chakravarthi, B. R., Vegupatti, M., and McCrae, J. P. (2020). Named entity recognition for code-mixed Indian corpus using meta embedding. In 2020 6th International Conference on Advanced Computing & Communication Systems (ICACCS)."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    213,
+                    2950,
+                    1198,
+                    3301
+                ],
+                "angle": 0,
+                "content": "Rani, P., Suryawanshi, S., Goswami, K., Chakravarthi, B. R., Fransen, T., and McCrae, J. P. (2020). A comparative study of different state-of-the-art hate speech detection methods for Hindi-English code-mixed data. In Proceedings of the Second Workshop on Trolling, Aggression and Cyberbullying, Marseille, France, May. European Language Resources Association (ELRA)."
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    210,
+                    291,
+                    1200,
+                    3301
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1265,
+                    291,
+                    2252,
+                    536
+                ],
+                "angle": 0,
+                "content": "Ranjan, P., Raja, B., Priyadharshini, R., and Balabantaray, R. C. (2016). A comparative study on code-mixed data of Indian social media vs formal text. In 2016 2nd International Conference on Contemporary Computing and Informatics (IC3I), pages 608-611."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1265,
+                    543,
+                    2250,
+                    789
+                ],
+                "angle": 0,
+                "content": "Remmiya Devi, G., Veena, P., Anand Kumar, M., and Soman, K. (2016). Amrita-cen@ fire 2016: Code-mix entity extraction for Hindi-English and Tamil-English tweets. In CEUR workshop proceedings, volume 1737, pages 304–308."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1265,
+                    796,
+                    2250,
+                    1140
+                ],
+                "angle": 0,
+                "content": "Rogers, A., Romanov, A., Rumshisky, A., Volkova, S., Gronas, M., and Gribov, A. (2018). RuSentiment: An enriched sentiment analysis dataset for social media in Russian. In Proceedings of the 27th International Conference on Computational Linguistics, pages 755-763, Santa Fe, New Mexico, USA, August. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1265,
+                    1147,
+                    2250,
+                    1392
+                ],
+                "angle": 0,
+                "content": "Sitaram, D., Murthy, S., Ray, D., Sharma, D., and Dhar, K. (2015). Sentiment analysis of mixed language employing Hindi-english code switching. In 2015 International Conference on Machine Learning and Cybernetics (ICMLC), volume 1, pages 271–276, July."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1265,
+                    1399,
+                    2250,
+                    1792
+                ],
+                "angle": 0,
+                "content": "Solorio, T., Blair, E., Maharjan, S., Bethard, S., Diab, M., Ghoneim, M., Hawwari, A., AlGhamdi, F., Hirschberg, J., Chang, A., and Fung, P. (2014). Overview for the first shared task on language identification in code-switched data. In Proceedings of the First Workshop on Computational Approaches to Code Switching, pages 62-72, Doha, Qatar, October. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1265,
+                    1799,
+                    2250,
+                    2094
+                ],
+                "angle": 0,
+                "content": "Suryawanshi, S., Chakravarthi, B. R., Arcan, M., and Buitelaar, P. (2020a). Multimodal meme dataset (Multi-OFF) for identifying offensive content in image and text. In Proceedings of the Second Workshop on Trolling, Aggression and Cyberbullying, Marseille, France, May. European Language Resources Association (ELRA)."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1265,
+                    2101,
+                    2252,
+                    2395
+                ],
+                "angle": 0,
+                "content": "Suryawanshi, S., Chakravarthi, B. R., Verma, P., Arcan, M., McCrae, J. P., and Buitelaar, P. (2020b). A dataset for troll classification of Tamil memes. In Proceedings of the 5th Workshop on Indian Language Data Resource and Evaluation (WILDRE-5), Marseille, France, May. European Language Resources Association (ELRA)."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1265,
+                    2399,
+                    2250,
+                    2743
+                ],
+                "angle": 0,
+                "content": "Tayyar Madabushi, H., Kochkina, E., and Castelle, M. (2019). Cost-sensitive BERT for generalisable sentence classification on imbalanced data. In Proceedings of the Second Workshop on Natural Language Processing for Internet Freedom: Censorship, Disinformation, and Propaganda, pages 125-134, Hong Kong, China, November. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    1265,
+                    2750,
+                    2252,
+                    3094
+                ],
+                "angle": 0,
+                "content": "Vilares, D., Alonso, M. A., and Gómez-Rodríguez, C. (2015). Sentiment analysis on monolingual, multilingual and code-switching Twitter corpora. In Proceedings of the 6th Workshop on Computational Approaches to Subjectivity, Sentiment and Social Media Analysis, pages 2-8, Lisboa, Portugal, September. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 21,
+                "type": "ref_text",
+                "bbox": [
+                    1265,
+                    3101,
+                    2250,
+                    3297
+                ],
+                "angle": 0,
+                "content": "Vilares, D., Alonso, M. A., and Gómez-Rodríguez, C. (2016). En-es-cs: An English-Spanish code-switching twitter corpus for multilingual sentiment analysis. In Nicoletta Calzolari (Conference Chair), et al., edi"
+            },
+            {
+                "block_id": 22,
+                "type": "list",
+                "bbox": [
+                    1265,
+                    291,
+                    2252,
+                    3297
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 23,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3364,
+                    1280,
+                    3406
+                ],
+                "angle": 0,
+                "content": "209"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    253,
+                    291,
+                    1200,
+                    484
+                ],
+                "angle": 0,
+                "content": "tors, Proceedings of the Tenth International Conference on Language Resources and Evaluation (LREC 2016), Paris, France, may. European Language Resources Association (ELRA)."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    213,
+                    494,
+                    1200,
+                    638
+                ],
+                "angle": 0,
+                "content": "Wiebe, J., Wilson, T., and Cardie, C. (2005). Annotating expressions of opinions and emotions in language. *Language Resources and Evaluation*, 39(2):165-210, May."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    210,
+                    645,
+                    1198,
+                    940
+                ],
+                "angle": 0,
+                "content": "Winata, G. I., Lin, Z., and Fung, P. (2019a). Learning multilingual meta-embeddings for code-switching named entity recognition. In Proceedings of the 4th Workshop on Representation Learning for NLP (RepL4NLP-2019), pages 181–186, Florence, Italy, August. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    213,
+                    947,
+                    1200,
+                    1389
+                ],
+                "angle": 0,
+                "content": "Winata, G. I., Lin, Z., Shin, J., Liu, Z., and Fung, P. (2019b). Hierarchical meta-embeddings for code-switching named entity recognition. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP), pages 3532–3538, Hong Kong, China, November. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    213,
+                    1396,
+                    1200,
+                    1592
+                ],
+                "angle": 0,
+                "content": "Yang, Y. and Eisenstein, J. (2017). Overcoming language variation in sentiment analysis with social attention. Transactions of the Association for Computational Linguistics, 5:295-307."
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    210,
+                    291,
+                    1200,
+                    1592
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3364,
+                    1280,
+                    3402
+                ],
+                "angle": 0,
+                "content": "210"
+            }
+        ]
+    }
+]

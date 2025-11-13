@@ -1,0 +1,1493 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    364,
+                    554,
+                    2260,
+                    862
+                ],
+                "angle": 0,
+                "content": "宏碁 磨 荣 主 斜 并"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    987,
+                    869,
+                    1381,
+                    1237
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1972,
+                    936,
+                    2242,
+                    1041
+                ],
+                "angle": 0,
+                "content": "755"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1158,
+                    1108,
+                    1496,
+                    1171
+                ],
+                "angle": 0,
+                "content": "ASAPLUS"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1158,
+                    1171,
+                    1496,
+                    1220
+                ],
+                "angle": 0,
+                "content": "Resources Limited"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    458,
+                    1304,
+                    2014,
+                    1406
+                ],
+                "angle": 0,
+                "content": "ASAPPLUS RESOURCES LIMITED"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    868,
+                    1420,
+                    1587,
+                    1486
+                ],
+                "angle": 0,
+                "content": "[Incorporated in Singapore]"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    746,
+                    1486,
+                    1781,
+                    1550
+                ],
+                "angle": 0,
+                "content": "UEN 201210180E | ARBN 158 717 492"
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    714,
+                    1658,
+                    1786,
+                    1753
+                ],
+                "angle": 0,
+                "content": "ANNUAL REPORT 2020"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    404,
+                    2826,
+                    1051,
+                    2882
+                ],
+                "angle": 0,
+                "content": "60 Paya Lebar Road #08-55"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    406,
+                    2886,
+                    850,
+                    2938
+                ],
+                "angle": 0,
+                "content": "Paya Lebar Square"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    406,
+                    2938,
+                    823,
+                    2994
+                ],
+                "angle": 0,
+                "content": "Singapore 409051"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    406,
+                    2994,
+                    1046,
+                    3047
+                ],
+                "angle": 0,
+                "content": "info@asaplusresources.com"
+            },
+            {
+                "block_id": 13,
+                "type": "footer",
+                "bbox": [
+                    947,
+                    3205,
+                    2285,
+                    3261
+                ],
+                "angle": 0,
+                "content": "[Background photo: adit of one of the production tunnels at the Beikeng Mine]"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    295,
+                    322,
+                    1496,
+                    431
+                ],
+                "angle": 0,
+                "content": "1. Managing director's statement"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    287,
+                    550,
+                    1342,
+                    603
+                ],
+                "angle": 0,
+                "content": "To my fellow shareholders of Asaplus Resources Limited"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    663,
+                    2191,
+                    1052
+                ],
+                "angle": 0,
+                "content": "I do not think it will be an exaggeration to describe the year 2020 as being the most extraordinary and challenging period that all of us have faced in our lifetimes. The Covid-19 pandemic has affected and continues to affect not only our daily lives, our mental health, the business environment in which we operate, it also forces us to re-think how we can improve our business processes in the foreseeable future. Notwithstanding these trying circumstances, it is my great honour to present to you on behalf of the board our company's annual report for the financial year ended 30 June 2020 (FY2020)."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1112,
+                    1221,
+                    1168
+                ],
+                "angle": 0,
+                "content": "Overview of the Company's business operations"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1231,
+                    1595,
+                    1283
+                ],
+                "angle": 0,
+                "content": "The Company's current activities are focused on two aspects, namely:"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1340,
+                    1092,
+                    1396
+                ],
+                "angle": 0,
+                "content": "(a) developing the Beikeng Mine; and"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1452,
+                    2184,
+                    1564
+                ],
+                "angle": 0,
+                "content": "(b) constructing and commissioning of the Huayu Plant to process the ore extracted from the Beikeng Mine."
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    290,
+                    1340,
+                    2184,
+                    1564
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1620,
+                    846,
+                    1676
+                ],
+                "angle": 0,
+                "content": "In FY2020, the Company had:"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1732,
+                    2184,
+                    1901
+                ],
+                "angle": 0,
+                "content": "(1) completed the tunneling and upgrading of the necessary production, access and ventilation tunnels at the Beikeng Mine, including the construction of pullouts and replacement of aging arch supports;"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1957,
+                    1729,
+                    2010
+                ],
+                "angle": 0,
+                "content": "(2) installed electrical lighting and ventilation systems along the tunnels;"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2069,
+                    2184,
+                    2181
+                ],
+                "angle": 0,
+                "content": "(3) constructed a stock-pile area for ore extracted from the Beikeng Mine, and a system of access roads within and connecting to the Beikeng Mine;"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2238,
+                    2181,
+                    2350
+                ],
+                "angle": 0,
+                "content": "(4) constructed, and obtained from the Public Security Bureau the license to operate, a secured magazine to store explosives used at the Beikeng Mine; and"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2406,
+                    2181,
+                    2515
+                ],
+                "angle": 0,
+                "content": "(5) kept all extraction, production safety and environmental protection licenses and approvals in good standing."
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    290,
+                    1732,
+                    2184,
+                    2515
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2574,
+                    2186,
+                    2855
+                ],
+                "angle": 0,
+                "content": "As of the date of this annual report, I am pleased to advise that the Beikeng Mine has been developed to a state capable of full commercial operations, which the Company plans to do when construction of the Huayu Plant is completed and fully commissioned. The Company is currently not extracting and selling raw ore to the market because current spot prices for the raw ore from the Beikeng Mine does not justify this."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2911,
+                    2189,
+                    3192
+                ],
+                "angle": 0,
+                "content": "The board expects that the Company will need to carry out fund-raising in the near future to strengthen the its cash reserves, and the current plan is for it to make a private placement of shares in or about the first calender quarter of the year 2021. The Company is optimistic that the private placement will be subscribed given that China is one of the few economies which are projected to grow in 2020 and to grow substantially in 2021."
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    301,
+                    2191,
+                    578
+                ],
+                "angle": 0,
+                "content": "Your directors and I are fully aware that the current global economic climate is challenging as a result of the curtailment of economic activities world-wide in response to the Covid-19 pandemic. However, in economies that appear to have brought the spread of Covid-19 under control are seeing the reopening of their economies. In particularly, in China where the Company's mine and proposed processing plant is located is showing strong indicators of growth."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    638,
+                    2196,
+                    1034
+                ],
+                "angle": 0,
+                "content": "In its World Economic Outlook Update (June 2020)1, the International Monetary Fund projects that China's GDP for 2020 (full year) and 2021 will grow at \\(1\\%\\) and \\(8.2\\%\\) respectively. This expected economic expansion is partly fuelled by fiscal policies implemented by the Chinese government which includes investments in infrastructure construction. Therefore, the Company cautiously expect that there will be an up-tick of demand for construction materials which in turn will drive demand for base commodities like iron ore and other minerals which the Company will produce once the Huayu Plant is commissioned."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1087,
+                    761,
+                    1143
+                ],
+                "angle": 0,
+                "content": "Annual general meeting"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1203,
+                    2191,
+                    1487
+                ],
+                "angle": 0,
+                "content": "We will hold the Company's annual general meeting on 9 November 2020 which, for the first time, will be held by video-conferencing means. A notice of meeting will be dispatched to you in due course and will also be announced on the ASX announcements portal. Please keep a look-out for it and, if possible, please find time to attend the annual general meeting. I look forward to meeting you during the meeting."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1540,
+                    598,
+                    1599
+                ],
+                "angle": 0,
+                "content": "Share buy-back"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1659,
+                    2189,
+                    1831
+                ],
+                "angle": 0,
+                "content": "In FY2020, Asaplus Resources Limited (the Company) did not carry out any buy-back of its shares. As of the date of this Annual Report, the Company has not sought shareholders' approval for the buy-back of its shares and does not intend to do so at the forthcoming annual general meeting."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1883,
+                    1020,
+                    1939
+                ],
+                "angle": 0,
+                "content": "Information required under LR5.20(a)"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2003,
+                    824,
+                    2224
+                ],
+                "angle": 0,
+                "content": "The mining tenements held by the Company and its child entities as at the date of the 2020 Annual Report"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    886,
+                    1999,
+                    2191,
+                    2676
+                ],
+                "angle": 0,
+                "content": "The Silverstone Project, a \\(4.83\\mathrm{km}^2\\) tenement located in Datian County, Sanming City, Fujian Province in the People's Republic of China, under exploration licence number T35120110102043628 which expired on 30 October 2014. The Company has applied to the relevant authorities for an extension of time to apply for the renewal of this exploration permit. As the Company does not have any immediate plan to commence commercial operations at the Silverstone Project, the Company will only apply for the extension of the exploration permit (as a precursor for the Company to complete its application for an extraction licence) at such time when demand for and prices of iron ore make it feasible to commence commercial operations at the Silverstone Mine."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    886,
+                    2729,
+                    2189,
+                    2957
+                ],
+                "angle": 0,
+                "content": "The Beikeng Mine, a \\(0.771 \\mathrm{~km}^{2}\\) iron ore tenement located in Datian County, Sanming City, Fujian Province in the People's Republic of China, under extraction licence number C3500002010122110086857 which expires on 4 February 2023."
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    290,
+                    294,
+                    2186,
+                    1048
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Location of the tenements</td><td>Tenement</td><td>Location</td></tr><tr><td></td><td>Silverstone Project</td><td>Datian County, Sanming City\nFujian Province\nChina</td></tr><tr><td></td><td>Beikeng Mine</td><td>Datian County, Sanming City\nFujian Province\nChina</td></tr><tr><td>Percentage interest held</td><td>Tenement</td><td>Percentage interest held</td></tr><tr><td></td><td>Silverstone Project</td><td>100%</td></tr><tr><td></td><td>Beikeng Mine</td><td>80%</td></tr></table>"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1115,
+                    2181,
+                    1227
+                ],
+                "angle": 0,
+                "content": "The summary of the ore reserves and mineral resources at the above tenements in a tabular form is as follows:"
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    290,
+                    1273,
+                    2184,
+                    1529
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td></td><td rowspan=\"2\">Date of original disclosure, including Competent Person&#x27;s statement</td></tr><tr><td>Resources estimate in the Inferred Category</td><td>Note(s) on the resource estimate</td></tr></table>"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    290,
+                    1561,
+                    563,
+                    1613
+                ],
+                "angle": 0,
+                "content": "Beikeng Mine"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    347,
+                    1631,
+                    2055,
+                    1743
+                ],
+                "angle": 0,
+                "content": "1,058,100 tonnes Includes 25,000 tonnes already mined and is 8 August 2017 stockpiled at the mine site"
+            },
+            {
+                "block_id": 5,
+                "type": "table",
+                "bbox": [
+                    816,
+                    1775,
+                    1729,
+                    1922
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Fe (%)</td><td>Pb (%)</td><td>Zn (%)</td><td>Wo3 (%)</td></tr><tr><td>27.52</td><td>1.53</td><td>1.22</td><td>0.58</td></tr></table>"
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    290,
+                    1982,
+                    662,
+                    2038
+                ],
+                "angle": 0,
+                "content": "Silverstone Project"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    347,
+                    2055,
+                    2025,
+                    2108
+                ],
+                "angle": 0,
+                "content": "3,480,700 tonnes Calculated based on a cut of figure of \\(30\\%\\) Fe 13 May 2013"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2178,
+                    2181,
+                    2290
+                ],
+                "angle": 0,
+                "content": "Before signing off and especially in these trying times brought forth by this once a lifetime pandemic, I wish each and every one of you: stay well, stay healthy and stay safe."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2343,
+                    583,
+                    2395
+                ],
+                "angle": 0,
+                "content": "Yours faithfully."
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    287,
+                    2395,
+                    585,
+                    2522
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2518,
+                    548,
+                    2560
+                ],
+                "angle": 0,
+                "content": "DING Poi Bor"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    295,
+                    2571,
+                    613,
+                    2616
+                ],
+                "angle": 0,
+                "content": "12 October 2020"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    287,
+                    322,
+                    1960,
+                    431
+                ],
+                "angle": 0,
+                "content": "2. Board of directors and corporate governance"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    494,
+                    2184,
+                    606
+                ],
+                "angle": 0,
+                "content": "As of the date of this Annual Report, the Company is managed by a board of directors which currently comprises four directors, namely"
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    290,
+                    655,
+                    2184,
+                    1101
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Name</td><td>Date appointed, or last appointed as applicable</td><td>Designation</td></tr><tr><td>ONG Yih Ching</td><td>25 August 2018</td><td>Independent director®</td></tr><tr><td>DING Poi Bor</td><td>25 August 2018</td><td>Managing director</td></tr><tr><td>Dominic LIM Kian Gam</td><td>9 November 2019</td><td>Independent director</td></tr><tr><td>LAU Eng Foo (Andy)</td><td>9 November 2019</td><td>Non-executive director</td></tr></table>"
+            },
+            {
+                "block_id": 3,
+                "type": "table_footnote",
+                "bbox": [
+                    446,
+                    1119,
+                    2104,
+                    1224
+                ],
+                "angle": 0,
+                "content": "@ The Company has not appointed a chair since the previous chair retired. In the interim, ONG Yih Ching had performed the functions of a chair in an acting capacity."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1290,
+                    1983,
+                    1343
+                ],
+                "angle": 0,
+                "content": "The qualifications, business and working experience of each director is summarised below:"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    444,
+                    1396,
+                    863,
+                    1967
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(a)"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    908,
+                    1403,
+                    1201,
+                    1455
+                ],
+                "angle": 0,
+                "content": "ONG Yih Ching"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    908,
+                    1459,
+                    1238,
+                    1511
+                ],
+                "angle": 0,
+                "content": "Malaysian citizen"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    903,
+                    1571,
+                    2184,
+                    2020
+                ],
+                "angle": 0,
+                "content": "ONG Yih Ching is a Chartered Accountant (Malaysia) and is a Fellow of the Association of Chartered Certified Accountants in the United Kingdom. He is currently principal of a corporate advisory company with a practice focus on advising and consulting on accounting, audit, tax, corporate restructuring and IPO preparation. Prior to this, he was responsible for the finance functions of a public company listed on both the ASX and the CLOB board of the then Stock Exchange of Singapore."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2076,
+                    2181,
+                    2188
+                ],
+                "angle": 0,
+                "content": "During this financial year under review, ONG Yih Ching performed the functions of the Company's chair in an acting capacity."
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    444,
+                    2241,
+                    866,
+                    2718
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(b)"
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    908,
+                    2245,
+                    1161,
+                    2294
+                ],
+                "angle": 0,
+                "content": "DING Poi Bor"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    908,
+                    2301,
+                    1238,
+                    2353
+                ],
+                "angle": 0,
+                "content": "Malaysian citizen"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    903,
+                    2413,
+                    2184,
+                    2746
+                ],
+                "angle": 0,
+                "content": "Ding Poi Bor is currently the group managing director of DKLS Industries Berhad (DKLS), a company listed on the Main Market of Bursa Malaysia (formerly known as Kuala Lumpur Stock Exchange). He is a founding member of DKLS and was appointed to its board as an executive director in 1996. He was subsequently appointed as deputy managing director in 2003 and thereafter to his current"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    434,
+                    2750,
+                    2181,
+                    3023
+                ],
+                "angle": 0,
+                "content": "position in 2007. He is also the chairman of the Investment Committee of DKLS. He has over 30 years of diversified experience in quarry operations and project management of civil and structural engineering, road-works and building construction projects, with a specialization in runway construction. He is also well versed in land and marine piling works and marine structures."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    436,
+                    3083,
+                    2184,
+                    3195
+                ],
+                "angle": 0,
+                "content": "As managing director, he is tasked with all the executive functions to oversee the overall management of the Company's business and operations."
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    444,
+                    294,
+                    863,
+                    754
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(c)"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    908,
+                    301,
+                    1355,
+                    354
+                ],
+                "angle": 0,
+                "content": "Dominic LIM Kian Gam"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    908,
+                    361,
+                    1236,
+                    410
+                ],
+                "angle": 0,
+                "content": "Singapore citizen"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    905,
+                    470,
+                    2186,
+                    799
+                ],
+                "angle": 0,
+                "content": "Dominic is the Head of Loan Syndication and Distribution at Oversea-Chinese Banking Corporation Limited (OCBC Bank). Dominic has been in the banking industry for more than 25 years and has extensive knowledge of banking matters in the Asia-Pacific region. He has extensive experience in a wide array of lending products, ranging from structured financing and debt securitization"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    434,
+                    806,
+                    2186,
+                    1199
+                ],
+                "angle": 0,
+                "content": "to project and leveraged financing, and encompassing all industries and sectors. Prior to joining OCBC Bank, he was with several international investment and commercial banks. Dominic is a business graduate from the National University of Singapore and has a MSc degree in Finance from Zicklin School of Business, Baruch College, a constituent college of City University of New York. Dominic is a member of Beta Gamma Sigma Society, an international honour society for business students, graduates and scholars founded in 1913 at the University of Wisconsin in the United States."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    434,
+                    1255,
+                    2184,
+                    1424
+                ],
+                "angle": 0,
+                "content": "Dominic has relevant financial expertise. Therefore, when the board meets as an audit committee, or when the board meets to perform the role normally performed by an audit committee, Dominic will chair these meetings."
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    444,
+                    1469,
+                    866,
+                    1845
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(d)"
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    908,
+                    1476,
+                    1293,
+                    1532
+                ],
+                "angle": 0,
+                "content": "LAU Eng Foo (Andy)"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    910,
+                    1536,
+                    1236,
+                    1585
+                ],
+                "angle": 0,
+                "content": "Malaysian citizen"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    905,
+                    1645,
+                    2184,
+                    1866
+                ],
+                "angle": 0,
+                "content": "Andy is the founder of and driving force behind of a group of companies in Malaysia specialising in civil engineering construction, earthwork, and granite and iron ore extraction contracting. He has been involved in these lines of business since the early 1970's."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1869,
+                    2184,
+                    1985
+                ],
+                "angle": 0,
+                "content": "Having done business in and with China since the late 1990's, Andy brings with him to the board vast experience and in-depth knowledge of the Chinese business environment."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2038,
+                    2186,
+                    2262
+                ],
+                "angle": 0,
+                "content": "At present, the board does not have a fixed number of meetings it will hold per annum. The board meets as frequently as may be required to deal with matters arising. A record of the directors' attendance at board meetings (either in person or by telecommunication means) held during the period under review is set out below:"
+            },
+            {
+                "block_id": 14,
+                "type": "table",
+                "bbox": [
+                    287,
+                    2329,
+                    2194,
+                    2911
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\">Director</td><td colspan=\"2\">Total number of meetings</td></tr><tr><td>held during the financial year, or since the date of the director&#x27;s appointment (as the case may be)</td><td>attended by the director</td></tr><tr><td>ONG Yih Ching</td><td>4</td><td>3</td></tr><tr><td>DING Poi Bor</td><td>4</td><td>4</td></tr><tr><td>Dominic LIM Kian Gam</td><td>4</td><td>4</td></tr><tr><td>LAU Eng Foo (Andy)</td><td>4</td><td>4</td></tr></table>"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2964,
+                    2189,
+                    3244
+                ],
+                "angle": 0,
+                "content": "The ASX Corporate Governance Council Principles and Recommendations Fourth Edition (the Principles and Recommendations) currently applies to the Company for the financial year under review in this Annual Report. As the Company is listed on ASX, it is subject to the continuous disclosure obligations under ASX Listing Rules, the Australian Corporations Act and the Singapore Companies Act. Subject to the exceptions set out in:"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    434,
+                    301,
+                    2184,
+                    413
+                ],
+                "angle": 0,
+                "content": "☑ the Asaplus Corporate Governance Statement 2020 (the AJY CG Statement 2020) which includes the Company's \"if not, why not\" report; and"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    434,
+                    466,
+                    2184,
+                    582
+                ],
+                "angle": 0,
+                "content": "Key to disclosures - Corporate Governance Principles and Recommendations in the form set out in Appendix 4G of the ASX Listing Rules (the AJY Appendix 4G 2020),"
+            },
+            {
+                "block_id": 2,
+                "type": "list",
+                "bbox": [
+                    434,
+                    301,
+                    2184,
+                    582
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    638,
+                    2186,
+                    919
+                ],
+                "angle": 0,
+                "content": "the Company had adopted the Principles and Recommendations to determine an appropriate system of control and accountability to best fit its business and operations commensurate with these guidelines. Full copies of the Company's corporate governance policies, the AJY CG Statement 2020 and the AJY Appendix 4G 2020 are available for download at the Company's website (www.asaplusresources.com)."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    975,
+                    2184,
+                    1087
+                ],
+                "angle": 0,
+                "content": "As the Company's activities develop in size, nature and scope, the board will consider the implementation of additional corporate governance practices."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1220,
+                    1007,
+                    1329
+                ],
+                "angle": 0,
+                "content": "3. Financial report"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1392,
+                    2189,
+                    1620
+                ],
+                "angle": 0,
+                "content": "The Company’s financial report for the financial year ended 30 June 2020 is set out in the Company’s audited consolidated financial statements (the 2020 Audited Accounts) which was lodged with ASX on 25 September 2020. The 2020 Audited Accounts are available for download at the ASX announcements portal (link here) or at the Company’s website (www.asaplusresources.com)."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1750,
+                    1330,
+                    1855
+                ],
+                "angle": 0,
+                "content": "4. Shareholding information"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1918,
+                    1273,
+                    1971
+                ],
+                "angle": 0,
+                "content": "Number of Security Holders and Securities on Issue"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    434,
+                    2031,
+                    2184,
+                    2199
+                ],
+                "angle": 0,
+                "content": "As of the close of business on 8 October 2020, the Company has issued 136,000,000 CHESS Depositary Interests (CDIs) over 136,000,000 fully paid ordinary shares in the Company's issued and paid up share capital held by 400 CDI-holders."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    434,
+                    2255,
+                    2186,
+                    2536
+                ],
+                "angle": 0,
+                "content": "Under a Subscription Agreement dated 25 January 2018 (as amended by a Supplemental Agreement dated 6 February 2018), the Company granted an option to subscribe for up to 12,000,000 new Shares at a price of $0.09795 (or RMB0.50 at the agreed foreign exchange rate) per Share to an investor. This option expires at 5:00PM Western Australian time on 1 August 2021."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2592,
+                    1732,
+                    2648
+                ],
+                "angle": 0,
+                "content": "There is no other class of shares or securities issued by the Company."
+            },
+            {
+                "block_id": 12,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2704,
+                    555,
+                    2760
+                ],
+                "angle": 0,
+                "content": "Voting Rights"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2816,
+                    1571,
+                    2869
+                ],
+                "angle": 0,
+                "content": "Under the Company's constitution, a CDI-holder may either:"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2929,
+                    2102,
+                    2985
+                ],
+                "angle": 0,
+                "content": "(a) give CDN voting instructions in relation to the number of CDs he or she holds; or"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    436,
+                    3041,
+                    2184,
+                    3202
+                ],
+                "angle": 0,
+                "content": "(b) requests CDN to appoint him or her or another person he or she nominates as CDN's proxy to attend the general meeting as CDN's proxy in relation to the number of CDIs he or she holds."
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    436,
+                    2929,
+                    2184,
+                    3202
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    436,
+                    301,
+                    2181,
+                    417
+                ],
+                "angle": 0,
+                "content": "At a general meeting, on a show of hands, a CDI holder present in person or by proxy has one vote and, upon a poll, each CDI shall have one vote."
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    290,
+                    470,
+                    816,
+                    522
+                ],
+                "angle": 0,
+                "content": "Distribution of CDI-holders"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    439,
+                    582,
+                    2156,
+                    638
+                ],
+                "angle": 0,
+                "content": "The distribution of CDI-holders as of the close of business on 8 October 2020 are as follows:"
+            },
+            {
+                "block_id": 4,
+                "type": "table",
+                "bbox": [
+                    761,
+                    785,
+                    1873,
+                    1399
+                ],
+                "angle": 0,
+                "content": "<table><tr><td colspan=\"5\">08 Oct 2020</td></tr><tr><td>Range</td><td>Securities</td><td>%</td><td>No. of holders</td><td>%</td></tr><tr><td>100,001 and Over</td><td>129,339,282</td><td>95.10</td><td>45</td><td>11.25</td></tr><tr><td>10,001 to 100,000</td><td>4,500,717</td><td>3.31</td><td>138</td><td>34.50</td></tr><tr><td>5,001 to 10,000</td><td>2,160,000</td><td>1.59</td><td>216</td><td>54.00</td></tr><tr><td>1,001 to 5,000</td><td>0</td><td>0.00</td><td>0</td><td>0.00</td></tr><tr><td>1 to 1,000</td><td>1</td><td>0.00</td><td>1</td><td>0.25</td></tr><tr><td>Total</td><td>136,000,000</td><td>100.00</td><td>400</td><td>100.00</td></tr><tr><td>Unmarketable Parcels</td><td>1</td><td>0.00</td><td>1</td><td>0.25</td></tr></table>",
+                "caption": "Holding distribution"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    290,
+                    1504,
+                    781,
+                    1561
+                ],
+                "angle": 0,
+                "content": "Substantial Shareholders"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1617,
+                    2189,
+                    1736
+                ],
+                "angle": 0,
+                "content": "Substantial shareholders of the Company, that is to say, holders holding more than \\(5\\%\\) of the Company's issued share capital, as of the close of business on 8 October 2020 are as follows:"
+            },
+            {
+                "block_id": 7,
+                "type": "table",
+                "bbox": [
+                    759,
+                    1820,
+                    1876,
+                    2157
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Rank\n^</td><td>Name</td><td>A/C designation</td><td>08 Oct 2020</td><td>%IC</td></tr><tr><td>1</td><td>DING POI BOR</td><td></td><td>39,500,000</td><td>29.04</td></tr><tr><td>2</td><td>MR LAU ENG FOO</td><td></td><td>29,425,443</td><td>21.64</td></tr><tr><td>3</td><td>MS TAN WIL LIAN</td><td></td><td>14,625,000</td><td>10.75</td></tr><tr><td>4</td><td>MR HONG XUSHENG</td><td></td><td>10,750,000</td><td>7.90</td></tr></table>"
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    290,
+                    2245,
+                    853,
+                    2301
+                ],
+                "angle": 0,
+                "content": "Twenty Largest Shareholders"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2357,
+                    2189,
+                    2469
+                ],
+                "angle": 0,
+                "content": "The twenty largest shareholders of the Company as of the close of business on 8 October 2020 are listed in Appendix A."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    290,
+                    2525,
+                    776,
+                    2581
+                ],
+                "angle": 0,
+                "content": "Security Holding Queries"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2638,
+                    2189,
+                    2753
+                ],
+                "angle": 0,
+                "content": "All queries relating to holdings of CDIs issued by the Company should be addressed to the Company's share registry at the following address:"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    588,
+                    2806,
+                    1072,
+                    2859
+                ],
+                "angle": 0,
+                "content": "Company Matters Pty Ltd"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    593,
+                    2866,
+                    1007,
+                    2915
+                ],
+                "angle": 0,
+                "content": "Level 12 QV1 Building"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    595,
+                    2922,
+                    1030,
+                    2971
+                ],
+                "angle": 0,
+                "content": "250 St Georges Terrace"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    595,
+                    2974,
+                    883,
+                    3020
+                ],
+                "angle": 0,
+                "content": "Perth WA 6000"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    595,
+                    3030,
+                    985,
+                    3080
+                ],
+                "angle": 0,
+                "content": "Tel: +61 8 9211 6653"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    595,
+                    3087,
+                    995,
+                    3136
+                ],
+                "angle": 0,
+                "content": "Fax: +61 2 9287 0350"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1955,
+                    305,
+                    2184,
+                    357
+                ],
+                "angle": 0,
+                "content": "Appendix A"
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    387,
+                    543,
+                    2097,
+                    2894
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Rank\n^</td><td>Name</td><td>A/C designation</td><td>08 Oct 2020</td><td>%IC</td></tr><tr><td>1</td><td>DING POI BOR</td><td></td><td>39,500,000</td><td>29.04</td></tr><tr><td>2</td><td>MR LAU ENG FOO</td><td></td><td>29,425,443</td><td>21.64</td></tr><tr><td>3</td><td>MS TAN WIL LIAN</td><td></td><td>14,625,000</td><td>10.75</td></tr><tr><td>4</td><td>MR HONG XUSHENG</td><td></td><td>10,750,000</td><td>7.90</td></tr><tr><td>5</td><td>WANG JIANRONG</td><td></td><td>6,010,000</td><td>4.42</td></tr><tr><td>6</td><td>JIANSHENG QIU</td><td></td><td>5,456,000</td><td>4.01</td></tr><tr><td>7</td><td>CITICORP NOMINEES PTY LIMI...</td><td></td><td>2,095,000</td><td>1.54</td></tr><tr><td>8</td><td>SINNY UNITED SDN BHD</td><td></td><td>2,000,000</td><td>1.47</td></tr><tr><td>9</td><td>QUN LIU</td><td></td><td>1,760,000</td><td>1.29</td></tr><tr><td>10</td><td>IRENE CHUA PAIK SEE</td><td></td><td>1,700,000</td><td>1.25</td></tr><tr><td>11</td><td>TEE CHEE SENG</td><td></td><td>1,000,000</td><td>0.74</td></tr><tr><td>11</td><td>ZAMRI BIN ABD HAMID</td><td></td><td>1,000,000</td><td>0.74</td></tr><tr><td>11</td><td>MR GEH YEAN CHIN</td><td></td><td>1,000,000</td><td>0.74</td></tr><tr><td>12</td><td>MR JIACHENG LI</td><td></td><td>954,000</td><td>0.70</td></tr><tr><td>13</td><td>MOHAMED IYLIA ANWAR &amp; BIN ...</td><td></td><td>880,000</td><td>0.65</td></tr><tr><td>13</td><td>DANDONG LI</td><td></td><td>880,000</td><td>0.65</td></tr><tr><td>14</td><td>BNP PARIBAS NOMS PTY LTD</td><td>&lt;JOB KAY HIAN PR...</td><td>838,620</td><td>0.62</td></tr><tr><td>15</td><td>HSBC CUSTODY NOMINEES (A...</td><td></td><td>772,720</td><td>0.57</td></tr><tr><td>16</td><td>CHUSHUI FANG</td><td></td><td>704,000</td><td>0.52</td></tr><tr><td>17</td><td>LIRU HUANG</td><td></td><td>549,500</td><td>0.40</td></tr><tr><td>18</td><td>JIYU ZHENG</td><td></td><td>528,000</td><td>0.39</td></tr><tr><td>19</td><td>JULIE LIM WAN WAH</td><td></td><td>500,000</td><td>0.37</td></tr><tr><td>19</td><td>TOO SEONG LING</td><td></td><td>500,000</td><td>0.37</td></tr><tr><td>19</td><td>SOON CHIN CHYE</td><td></td><td>500,000</td><td>0.37</td></tr><tr><td>20</td><td>MINGGUO HONG</td><td></td><td>440,000</td><td>0.32</td></tr><tr><td>20</td><td>LIZHEN HONG</td><td></td><td>440,000</td><td>0.32</td></tr></table>",
+                "caption": "Top holder"
+            }
+        ]
+    }
+]

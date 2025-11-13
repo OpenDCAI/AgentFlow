@@ -1,0 +1,1953 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    1182,
+                    209,
+                    2907,
+                    1014
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    192,
+                    892,
+                    723,
+                    1100
+                ],
+                "angle": 0,
+                "content": "Data"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    192,
+                    1188,
+                    1608,
+                    1402
+                ],
+                "angle": 0,
+                "content": "Presentation"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    126,
+                    160,
+                    2499,
+                    317
+                ],
+                "angle": 0,
+                "content": "Gestalt Principles of Visual Perception"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    123,
+                    401,
+                    2832,
+                    702
+                ],
+                "angle": 0,
+                "content": "Gestalt psychology was conceived in the Berlin School of Experimental Psychology, and tries to understand the laws of our ability to acquire and maintain meaningful perceptions."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    159,
+                    717,
+                    1644,
+                    810
+                ],
+                "angle": 0,
+                "content": "(German: Gestalt [gəˈʃtalt] \"shape, form\")"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    126,
+                    874,
+                    2802,
+                    1073
+                ],
+                "angle": 0,
+                "content": "Key principle: when the human mind perceives a form, the whole has a reality of its own, independent of the parts."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    123,
+                    1184,
+                    2835,
+                    1488
+                ],
+                "angle": 0,
+                "content": "This allowed the development of 8 Gestalt Laws of Grouping. Here we are highlighting only the most relevant 5 for data presentation. You can read more details about them on Wikipedia: https://en.wikipedia.org/wiki/Gestalt_psychology"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    120,
+                    160,
+                    2499,
+                    317
+                ],
+                "angle": 0,
+                "content": "Gestalt Principles of Visual Perception"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    114,
+                    413,
+                    1380,
+                    567
+                ],
+                "angle": 0,
+                "content": "Proximity. We tend to see objects that are visually close together as belonging to part of a group."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1518,
+                    413,
+                    2769,
+                    567
+                ],
+                "angle": 0,
+                "content": "Similarity. Objects that are similar in shape and color as belonging to part of a group."
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    264,
+                    747,
+                    1341,
+                    1203
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1884,
+                    658,
+                    2523,
+                    1293
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    276,
+                    97,
+                    825,
+                    200
+                ],
+                "angle": 0,
+                "content": "US SPACE TRAVEL"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    273,
+                    211,
+                    993,
+                    273
+                ],
+                "angle": 0,
+                "content": "A TIMELINE OF MANNED NASA FLIGHTS"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    270,
+                    335,
+                    963,
+                    408
+                ],
+                "angle": 0,
+                "content": "On July 21, 2011, the last Space Shuttle flight landed, ending 50 years of manned NASA flights. The US space program began in 1961 and resulted in 166 nearly continuous missions, costing an estimated $7 billion per year. Space travel continues through international partnerships and unmanned missions, but it remains to be seen what is next for American space exploration."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    279,
+                    449,
+                    348,
+                    469
+                ],
+                "angle": 0,
+                "content": "MERCURY"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    279,
+                    472,
+                    576,
+                    487
+                ],
+                "angle": 0,
+                "content": "Mercury Redstone 3 (Freedom 7), May 5, 1961"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    279,
+                    487,
+                    591,
+                    503
+                ],
+                "angle": 0,
+                "content": "Mercury Redstone 4 (Liberty Bell 7), July 24, 1961"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    279,
+                    503,
+                    597,
+                    519
+                ],
+                "angle": 0,
+                "content": "Mercury Atlas 6 (Friendship 2), February 20, 1982"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    279,
+                    519,
+                    546,
+                    536
+                ],
+                "angle": 0,
+                "content": "Mercury Atlas 7 (Aurora 7), May 24, 1962."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    279,
+                    536,
+                    555,
+                    551
+                ],
+                "angle": 0,
+                "content": "Memory Atlas 8 (Sioma 2), October 3, 1962"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    279,
+                    551,
+                    555,
+                    570
+                ],
+                "angle": 0,
+                "content": "Mercury Atlas 9 (Faith 7, May 15-16, 1983)"
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    279,
+                    592,
+                    333,
+                    612
+                ],
+                "angle": 0,
+                "content": "GEMINI"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    279,
+                    614,
+                    450,
+                    629
+                ],
+                "angle": 0,
+                "content": "Gemini 3, March 23, 1965"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    279,
+                    629,
+                    453,
+                    646
+                ],
+                "angle": 0,
+                "content": "Gemini IV, June 3-7, 1965."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    279,
+                    646,
+                    477,
+                    661
+                ],
+                "angle": 0,
+                "content": "Gemin V. August 21-29, 1985"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    279,
+                    661,
+                    498,
+                    678
+                ],
+                "angle": 0,
+                "content": "Gemini VII December 4-15, 1965"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    279,
+                    678,
+                    504,
+                    695
+                ],
+                "angle": 0,
+                "content": "Gomina VI December 15-16, 1985"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    279,
+                    695,
+                    459,
+                    712
+                ],
+                "angle": 0,
+                "content": "Gemsill March 15, 1986"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    279,
+                    712,
+                    456,
+                    727
+                ],
+                "angle": 0,
+                "content": "GroupX:3-6,1965"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    279,
+                    727,
+                    456,
+                    744
+                ],
+                "angle": 0,
+                "content": "GennXInc18-211965"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    279,
+                    744,
+                    507,
+                    761
+                ],
+                "angle": 0,
+                "content": "Genus XL September 12-15, 1968"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    279,
+                    761,
+                    507,
+                    779
+                ],
+                "angle": 0,
+                "content": "Gaminu 11 November 1-15, 1986"
+            },
+            {
+                "block_id": 21,
+                "type": "title",
+                "bbox": [
+                    279,
+                    803,
+                    333,
+                    825
+                ],
+                "angle": 0,
+                "content": "APOLLO"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    279,
+                    827,
+                    480,
+                    842
+                ],
+                "angle": 0,
+                "content": "Apollo 7, October 11-22, 1968"
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    279,
+                    842,
+                    492,
+                    857
+                ],
+                "angle": 0,
+                "content": "Anio 8. Deci mber 21-27, 1969"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    279,
+                    857,
+                    465,
+                    874
+                ],
+                "angle": 0,
+                "content": "Apollo 9, March 3-13, 1969"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    279,
+                    874,
+                    465,
+                    891
+                ],
+                "angle": 0,
+                "content": "Apollo 10, May 18-26, 1969"
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    279,
+                    891,
+                    462,
+                    908
+                ],
+                "angle": 0,
+                "content": "Apollo 11 July 16-24, 1958"
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    279,
+                    908,
+                    504,
+                    925
+                ],
+                "angle": 0,
+                "content": "Apollo 12 November 14-24, 1969"
+            },
+            {
+                "block_id": 28,
+                "type": "text",
+                "bbox": [
+                    279,
+                    925,
+                    465,
+                    941
+                ],
+                "angle": 0,
+                "content": "Apollo 13, Agni 11-17, 1970"
+            },
+            {
+                "block_id": 29,
+                "type": "text",
+                "bbox": [
+                    279,
+                    941,
+                    531,
+                    958
+                ],
+                "angle": 0,
+                "content": "Apollo 14, January 31-February 9, 1971"
+            },
+            {
+                "block_id": 30,
+                "type": "text",
+                "bbox": [
+                    279,
+                    958,
+                    495,
+                    975
+                ],
+                "angle": 0,
+                "content": "Apollo 15, July 26-August 2, 1971"
+            },
+            {
+                "block_id": 31,
+                "type": "text",
+                "bbox": [
+                    279,
+                    975,
+                    462,
+                    992
+                ],
+                "angle": 0,
+                "content": "Apollo 16 Apr 16-22, 1972"
+            },
+            {
+                "block_id": 32,
+                "type": "text",
+                "bbox": [
+                    279,
+                    992,
+                    492,
+                    1009
+                ],
+                "angle": 0,
+                "content": "Apolo 17 Decembe r 2-19 1922"
+            },
+            {
+                "block_id": 33,
+                "type": "title",
+                "bbox": [
+                    279,
+                    1031,
+                    333,
+                    1053
+                ],
+                "angle": 0,
+                "content": "SKYLAB"
+            },
+            {
+                "block_id": 34,
+                "type": "text",
+                "bbox": [
+                    279,
+                    1055,
+                    510,
+                    1070
+                ],
+                "angle": 0,
+                "content": "Orbited the Earth from 1978 to 1979"
+            },
+            {
+                "block_id": 35,
+                "type": "text",
+                "bbox": [
+                    279,
+                    1070,
+                    492,
+                    1087
+                ],
+                "angle": 0,
+                "content": "Skylab 2, May 25-June 22, 1973"
+            },
+            {
+                "block_id": 36,
+                "type": "text",
+                "bbox": [
+                    279,
+                    1087,
+                    522,
+                    1103
+                ],
+                "angle": 0,
+                "content": "Skylab 3, July 28-September 25, 1973"
+            },
+            {
+                "block_id": 37,
+                "type": "text",
+                "bbox": [
+                    279,
+                    1103,
+                    819,
+                    1122
+                ],
+                "angle": 0,
+                "content": "Skulab 4, November 16, 1973-February 8, 1974 (at B4 days, 1 hour, 15 minutes, and 31"
+            },
+            {
+                "block_id": 38,
+                "type": "text",
+                "bbox": [
+                    279,
+                    1122,
+                    666,
+                    1139
+                ],
+                "angle": 0,
+                "content": "second, Skylab 4 mmers the longest US space (light to date)"
+            },
+            {
+                "block_id": 39,
+                "type": "title",
+                "bbox": [
+                    279,
+                    1159,
+                    471,
+                    1183
+                ],
+                "angle": 0,
+                "content": "APOLLO/SOYUZ TEST PROJECT"
+            },
+            {
+                "block_id": 40,
+                "type": "text",
+                "bbox": [
+                    279,
+                    1184,
+                    654,
+                    1203
+                ],
+                "angle": 0,
+                "content": "July 15-24, 1978. The first international partnership in space."
+            },
+            {
+                "block_id": 41,
+                "type": "title",
+                "bbox": [
+                    279,
+                    1223,
+                    384,
+                    1245
+                ],
+                "angle": 0,
+                "content": "SPACE SHUTTLE"
+            },
+            {
+                "block_id": 42,
+                "type": "text",
+                "bbox": [
+                    279,
+                    1247,
+                    681,
+                    1262
+                ],
+                "angle": 0,
+                "content": "Shuttie, Columbia, Challenger, Discovery, Atlantis and Endeavor"
+            },
+            {
+                "block_id": 43,
+                "type": "text",
+                "bbox": [
+                    279,
+                    1262,
+                    857,
+                    1536
+                ],
+                "angle": 0,
+                "content": "1901-STS-1,STS-2/1982,STS-3,STS-4,STS-5/1983,STS-6,STS-7,STS-8,STS-9/1984;STS-41B,STS-41C,STS-41D,STS-41G,STS-51A/1985,STS-51C,STS-51D,STS-51E,STS-51G,STS-51F,STS-51H,STS-51J,STS-51I,STS-51J,STS-51K,STS-51L,STS-51M,STS-51N,STS-52,STS-59,STS-60,STS-61,STS-62,STS-63,STS-64,STS-65,STS-66,STS-67,STS-68,STS-69,STS-70,STS-71,STS-72,STS-73,STS-74/1998,STS-75,STS-76,STS-77,STS-78,STS-79,STS-80/1997;STS-81,STS-82,STS-83,STS-84,STS-85,STS-86,STS-87/1998;STS-89;STS-90,STS-91,STS-92,STS-93,STS-94,STS-95,STS-96,STS-97/2000;STS-98;STS-100,STS-101;STS-102,STS-103;STS-104;STS-105;STS-106/2002;STS-107;STS-108/2003;STS-109;STS-110;STS-111;STS-112/2003;STS-113/2004;STS-114/2005;STS-121,STS-122,STS-123,STS-124,STS-125/2006;STS-129/2007;STS-130/2008;STS-131/2009;STS-132/2010;STS-133/2011;STS-134/2012;STS-135"
+            },
+            {
+                "block_id": 44,
+                "type": "text",
+                "bbox": [
+                    276,
+                    1559,
+                    768,
+                    1574
+                ],
+                "angle": 0,
+                "content": "SOURCES www.winger.com.www.wingerszurwite.org/owes-silssowrflne123456"
+            },
+            {
+                "block_id": 45,
+                "type": "text",
+                "bbox": [
+                    276,
+                    1574,
+                    843,
+                    1591
+                ],
+                "angle": 0,
+                "content": "www.rocktminoeq/epiceline.html www.hakonics.com/2008017/The space exploration worth"
+            },
+            {
+                "block_id": 46,
+                "type": "text",
+                "bbox": [
+                    276,
+                    1591,
+                    459,
+                    1605
+                ],
+                "angle": 0,
+                "content": "The data are normalized to 0."
+            },
+            {
+                "block_id": 47,
+                "type": "image",
+                "bbox": [
+                    954,
+                    150,
+                    2586,
+                    1568
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 48,
+                "type": "footer",
+                "bbox": [
+                    2577,
+                    1601,
+                    2640,
+                    1615
+                ],
+                "angle": 0,
+                "content": "MCMT 10"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    753,
+                    420,
+                    2214,
+                    1282
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    498,
+                    43,
+                    2508,
+                    1642
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    1128,
+                    148,
+                    1839,
+                    1590
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "U.S. healthcare spending. 1960-2007. % of GDP"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    120,
+                    160,
+                    2499,
+                    317
+                ],
+                "angle": 0,
+                "content": "Gestalt Principles of Visual Perception"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    114,
+                    413,
+                    1422,
+                    698
+                ],
+                "angle": 0,
+                "content": "Closure. We tend to perceive objects such as shapes, letters, pictures, etc., as being whole when they are not complete. Specifically, when parts of a whole picture are missing, our perception fills in the visual gap."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1512,
+                    413,
+                    2862,
+                    756
+                ],
+                "angle": 0,
+                "content": "Continuity. Elements of objects tend to be grouped together, and therefore integrated into perceptual wholes if they are aligned within an object. In cases where there is an intersection between objects, individuals tend to perceive the two objects as two single uninterrupted entities."
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    258,
+                    849,
+                    1296,
+                    1417
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    2052,
+                    992,
+                    2340,
+                    1266
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    342,
+                    160,
+                    2196,
+                    224
+                ],
+                "angle": 0,
+                "content": "Carte Figurative des pertes suaccatives en bonno de I'xcue Francaise dans la campagne de Rlloie 1812-1813."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    720,
+                    214,
+                    1770,
+                    261
+                ],
+                "angle": 0,
+                "content": "Oraekpeae. N. 0inaxd, Inopredicn Gcnral eos Pouls n Chuaes mectaie"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1770,
+                    236,
+                    2196,
+                    285
+                ],
+                "angle": 0,
+                "content": "Pae 20 Noovue 186g"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    339,
+                    281,
+                    2199,
+                    393
+                ],
+                "angle": 0,
+                "content": "les mnnnns 3hannn pinnns nnnnepenntnns paes lansnns aonn dnnmllndie ponee mille hannne, ilson de pns cintns en tanees des gones. Le wge sigrnes bonnns spivnncn on Russie, le min ceac qni anr cien - Les cngiunnents qni oenn a deess e la cante n ie prissic anns let ouangos de N. Chiero, deefigur, deFezondac, de Chambray enjmonl inov de Jacob, pharmation de I'cxme seipne 28 Octfe."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    369,
+                    389,
+                    2187,
+                    472
+                ],
+                "angle": 0,
+                "content": "Lue miaue faine juge a dail la imnation 1aeme, jai nppe qne coep auane 1e ananal Davon pni aoienie tachis en NusK aHilw aim tajm ooc Aulu wtdk, aainou ngns maic biwclaee."
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    93,
+                    472,
+                    2913,
+                    1436
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    96,
+                    1453,
+                    480,
+                    1482
+                ],
+                "angle": 0,
+                "content": "Auyp. pRgur, 1. Pn. 34000 2000"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    2697,
+                    1449,
+                    2895,
+                    1477
+                ],
+                "angle": 0,
+                "content": "Imp. Int. Regulier e Enerstler"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1152,
+                    334,
+                    2013,
+                    555
+                ],
+                "angle": 0,
+                "content": "Tracking the West Nile Virus"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    789,
+                    506,
+                    2211,
+                    1367
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    120,
+                    160,
+                    2514,
+                    317
+                ],
+                "angle": 0,
+                "content": "Gestalt Principles of Visual Perception"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    117,
+                    413,
+                    1422,
+                    494
+                ],
+                "angle": 0,
+                "content": "Law of good Gestalt. Elements of objects tend to be"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    117,
+                    509,
+                    1476,
+                    816
+                ],
+                "angle": 0,
+                "content": "perceptually grouped together if they form a pattern that is regular, simple, and orderly. This law implies that as individuals perceive the world, they eliminate complexity and unfamiliarity so they can observe a reality in its most simplistic form. Eliminating extraneous stimuli helps the mind create meaning."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    117,
+                    884,
+                    1473,
+                    1129
+                ],
+                "angle": 0,
+                "content": "This meaning created by perception implies a global regularity, which is often mentally prioritized over spatial relations. The law of good gestalt focuses on the idea of conciseness, which is what all of gestalt theory is based on."
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    2019,
+                    361,
+                    2625,
+                    1534
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    675,
+                    160,
+                    1419,
+                    577
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    1110,
+                    573,
+                    1344,
+                    735
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    1383,
+                    609,
+                    1392,
+                    636
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "CAPITAL AND POLICY"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    744,
+                    742,
+                    1224,
+                    771
+                ],
+                "angle": 0,
+                "content": "Venture Capital and Private Equity Attractiveness Index"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    744,
+                    776,
+                    840,
+                    798
+                ],
+                "angle": 0,
+                "content": "Index Rank"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    753,
+                    805,
+                    1236,
+                    837
+                ],
+                "angle": 0,
+                "content": "100 1st"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    747,
+                    849,
+                    1164,
+                    879
+                ],
+                "angle": 0,
+                "content": "82.6 10th"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    747,
+                    889,
+                    1014,
+                    918
+                ],
+                "angle": 0,
+                "content": "48.7 42nd"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    747,
+                    931,
+                    1002,
+                    962
+                ],
+                "angle": 0,
+                "content": "45.2 48th"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    747,
+                    975,
+                    963,
+                    1004
+                ],
+                "angle": 0,
+                "content": "37.1 64th"
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    744,
+                    805,
+                    1236,
+                    1004
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    744,
+                    1022,
+                    1335,
+                    1053
+                ],
+                "angle": 0,
+                "content": "Ease of Access to Capital OECD Index (1-7 Scale, hardest to easiest)"
+            },
+            {
+                "block_id": 13,
+                "type": "image",
+                "bbox": [
+                    744,
+                    1063,
+                    1353,
+                    1164
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    744,
+                    1186,
+                    1032,
+                    1215
+                ],
+                "angle": 0,
+                "content": "Days Needed to Start a Business"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    744,
+                    1225,
+                    1350,
+                    1271
+                ],
+                "angle": 0,
+                "content": "47 168"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    744,
+                    1274,
+                    792,
+                    1301
+                ],
+                "angle": 0,
+                "content": "2010"
+            },
+            {
+                "block_id": 17,
+                "type": "image",
+                "bbox": [
+                    795,
+                    1272,
+                    837,
+                    1311
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 18,
+                "type": "image",
+                "bbox": [
+                    840,
+                    1272,
+                    876,
+                    1311
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1296,
+                    1272,
+                    1344,
+                    1299
+                ],
+                "angle": 0,
+                "content": "2003"
+            },
+            {
+                "block_id": 20,
+                "type": "title",
+                "bbox": [
+                    744,
+                    1348,
+                    1158,
+                    1384
+                ],
+                "angle": 0,
+                "content": "STRENGTHS AND WEAKNESSES"
+            },
+            {
+                "block_id": 21,
+                "type": "title",
+                "bbox": [
+                    744,
+                    1390,
+                    869,
+                    1426
+                ],
+                "angle": 0,
+                "content": "Strengths"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    747,
+                    1434,
+                    1230,
+                    1465
+                ],
+                "angle": 0,
+                "content": "Large young and growing middle-income population"
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    747,
+                    1470,
+                    1317,
+                    1497
+                ],
+                "angle": 0,
+                "content": "- Valuations more attractive than in other major Asian countries"
+            },
+            {
+                "block_id": 24,
+                "type": "list",
+                "bbox": [
+                    747,
+                    1434,
+                    1317,
+                    1497
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 25,
+                "type": "title",
+                "bbox": [
+                    1425,
+                    202,
+                    1551,
+                    258
+                ],
+                "angle": 0,
+                "content": "ASIA"
+            },
+            {
+                "block_id": 26,
+                "type": "title",
+                "bbox": [
+                    1428,
+                    265,
+                    1686,
+                    317
+                ],
+                "angle": 0,
+                "content": "INDONESIA"
+            },
+            {
+                "block_id": 27,
+                "type": "image",
+                "bbox": [
+                    1893,
+                    207,
+                    1962,
+                    253
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 28,
+                "type": "image",
+                "bbox": [
+                    1971,
+                    207,
+                    2061,
+                    253
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 29,
+                "type": "image",
+                "bbox": [
+                    2064,
+                    207,
+                    2130,
+                    253
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 30,
+                "type": "text",
+                "bbox": [
+                    2061,
+                    275,
+                    2253,
+                    305
+                ],
+                "angle": 0,
+                "content": "Global Average Index"
+            },
+            {
+                "block_id": 32,
+                "type": "image",
+                "bbox": [
+                    1425,
+                    415,
+                    1461,
+                    454
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "ENTREPRENEURSHIP AND INNOVATION"
+            },
+            {
+                "block_id": 33,
+                "type": "text",
+                "bbox": [
+                    1470,
+                    423,
+                    1527,
+                    450
+                ],
+                "angle": 0,
+                "content": "Agree"
+            },
+            {
+                "block_id": 34,
+                "type": "image",
+                "bbox": [
+                    1575,
+                    423,
+                    1617,
+                    454
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 35,
+                "type": "text",
+                "bbox": [
+                    1620,
+                    423,
+                    1700,
+                    450
+                ],
+                "angle": 0,
+                "content": "Disagree"
+            },
+            {
+                "block_id": 36,
+                "type": "image",
+                "bbox": [
+                    1755,
+                    422,
+                    1785,
+                    454
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 37,
+                "type": "text",
+                "bbox": [
+                    1800,
+                    423,
+                    1968,
+                    450
+                ],
+                "angle": 0,
+                "content": "N/A or Don't Know"
+            },
+            {
+                "block_id": 38,
+                "type": "image",
+                "bbox": [
+                    1482,
+                    470,
+                    1854,
+                    865
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 39,
+                "type": "image",
+                "bbox": [
+                    1875,
+                    467,
+                    2283,
+                    865
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 40,
+                "type": "image",
+                "bbox": [
+                    1473,
+                    884,
+                    1851,
+                    1279
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 41,
+                "type": "image",
+                "bbox": [
+                    1902,
+                    886,
+                    2268,
+                    1279
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 42,
+                "type": "title",
+                "bbox": [
+                    1437,
+                    1390,
+                    1602,
+                    1422
+                ],
+                "angle": 0,
+                "content": "Weaknesses"
+            },
+            {
+                "block_id": 43,
+                "type": "text",
+                "bbox": [
+                    1437,
+                    1434,
+                    1818,
+                    1463
+                ],
+                "angle": 0,
+                "content": "Inadequate infrastructure in some areas"
+            },
+            {
+                "block_id": 44,
+                "type": "text",
+                "bbox": [
+                    1440,
+                    1470,
+                    1911,
+                    1497
+                ],
+                "angle": 0,
+                "content": "Large companies tend to be family- or state-owned"
+            },
+            {
+                "block_id": 45,
+                "type": "list",
+                "bbox": [
+                    1437,
+                    1434,
+                    1911,
+                    1497
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    657,
+                    118,
+                    1581,
+                    320
+                ],
+                "angle": 0,
+                "content": "ADVANCED SCIENCE COURSE"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    672,
+                    327,
+                    1191,
+                    435
+                ],
+                "angle": 0,
+                "content": "at a glance"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    669,
+                    516,
+                    993,
+                    558
+                ],
+                "angle": 0,
+                "content": "minutes watched online"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    675,
+                    558,
+                    1047,
+                    708
+                ],
+                "angle": 0,
+                "content": "70,000"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1086,
+                    513,
+                    1290,
+                    717
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    663,
+                    773,
+                    1266,
+                    1076
+                ],
+                "angle": 0,
+                "content": "425 registered participants from 105 countries"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    687,
+                    1095,
+                    1440,
+                    1466
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1329,
+                    768,
+                    1638,
+                    801
+                ],
+                "angle": 0,
+                "content": "institutional affiliation"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1329,
+                    801,
+                    1641,
+                    1455
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    1794,
+                    126,
+                    1872,
+                    187
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1773,
+                    187,
+                    2031,
+                    204
+                ],
+                "angle": 0,
+                "content": "PREPARATORY COMMISSION"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1881,
+                    135,
+                    2028,
+                    182
+                ],
+                "angle": 0,
+                "content": "CTBTO"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1881,
+                    182,
+                    2031,
+                    204
+                ],
+                "angle": 0,
+                "content": "RY COMMISSION"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    2034,
+                    129,
+                    2319,
+                    151
+                ],
+                "angle": 0,
+                "content": "1 preparatory commission for the"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    2034,
+                    151,
+                    2319,
+                    173
+                ],
+                "angle": 0,
+                "content": "comprehensive nuclear-test-ban"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    2034,
+                    173,
+                    2208,
+                    195
+                ],
+                "angle": 0,
+                "content": "I treaty organization"
+            },
+            {
+                "block_id": 16,
+                "type": "image",
+                "bbox": [
+                    1680,
+                    519,
+                    1929,
+                    702
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1968,
+                    590,
+                    2253,
+                    727
+                ],
+                "angle": 0,
+                "content": "2,000"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1818,
+                    727,
+                    2253,
+                    769
+                ],
+                "angle": 0,
+                "content": "clicks on lecture videos"
+            },
+            {
+                "block_id": 19,
+                "type": "image",
+                "bbox": [
+                    1821,
+                    860,
+                    2046,
+                    1004
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    2106,
+                    882,
+                    2250,
+                    1000
+                ],
+                "angle": 0,
+                "content": "33"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    1917,
+                    1017,
+                    2253,
+                    1066
+                ],
+                "angle": 0,
+                "content": "lectures delivered"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    1683,
+                    1174,
+                    1761,
+                    1341
+                ],
+                "angle": 0,
+                "content": "1"
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    1770,
+                    1154,
+                    1929,
+                    1255
+                ],
+                "angle": 0,
+                "content": "goal"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    1878,
+                    1309,
+                    2265,
+                    1380
+                ],
+                "angle": 0,
+                "content": "TRAIN THE NEXT GENERATION OF CTBT EXPERTS."
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    711,
+                    342,
+                    2292,
+                    1355
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    732,
+                    113,
+                    2244,
+                    1632
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Export von Bananen in Tonnen von 1994-2005"
+            }
+        ]
+    }
+]

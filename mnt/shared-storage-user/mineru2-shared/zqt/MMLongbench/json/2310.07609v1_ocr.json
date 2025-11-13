@@ -1,0 +1,1869 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    630,
+                    312,
+                    1848,
+                    456
+                ],
+                "angle": 0,
+                "content": "QACheck: A Demonstration System for Question-Guided Multi-Hop Fact-Checking"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    525,
+                    498,
+                    1955,
+                    561
+                ],
+                "angle": 0,
+                "content": "Liangming Pan\\(^{1,2}\\) Xinyuan Lu\\(^{3}\\) Min-Yen Kan\\(^{3}\\) Preslav Nakov\\(^{1}\\)"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    339,
+                    561,
+                    2153,
+                    620
+                ],
+                "angle": 0,
+                "content": "\\(^{1}\\)MBZUAI \\(^{2}\\)University of California, Santa Barbara \\(^{3}\\) National University of Singapore"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    607,
+                    680,
+                    1210,
+                    792
+                ],
+                "angle": 0,
+                "content": "liangmingpan@ucsb.edu kanmy@comp.nus.edu.sg"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1218,
+                    680,
+                    1875,
+                    792
+                ],
+                "angle": 0,
+                "content": "luxinyuan@u.nus.edu preslav.nakov@mbzuai.ac.ae"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    647,
+                    887,
+                    846,
+                    936
+                ],
+                "angle": 0,
+                "content": "Abstract"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    352,
+                    982,
+                    1143,
+                    2083
+                ],
+                "angle": 0,
+                "content": "Fact-checking real-world claims often requires complex, multi-step reasoning due to the absence of direct evidence to support or refute them. However, existing fact-checking systems often lack transparency in their decision-making, making it challenging for users to comprehend their reasoning process. To address this, we propose the Question-guided Multihop Fact-Checking (QCHECK) system, which guides the model's reasoning process by asking a series of questions critical for verifying a claim. QCHECK has five key modules: a claim verifier, a question generator, a question-answering module, a QA validator, and a reasoner. Users can input a claim into QCHECK, which then predicts its veracity and provides a comprehensive report detailing its reasoning process, guided by a sequence of (question, answer) pairs. QCHECK also provides the source of evidence supporting each question, fostering a transparent, explainable, and user-friendly fact-checking process."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    285,
+                    2125,
+                    645,
+                    2174
+                ],
+                "angle": 0,
+                "content": "1 Introduction"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    280,
+                    2217,
+                    1215,
+                    2883
+                ],
+                "angle": 0,
+                "content": "In our age characterized by large amounts of both true and false information, fact-checking is not only crucial for counteracting misinformation but also plays a vital role in fostering trust in AI systems. However, the process of validating real-world claims is rarely straightforward. Unlike the simplicity of supporting or refuting a claim with a single piece of direct evidence, real-world claims often resemble multi-layered puzzles that require complex and multi-step reasoning to solve (Jiang et al., 2020; Nguyen et al., 2020; Aly and Vlachos, 2022; Chen et al., 2022; Pan et al., 2023)."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    282,
+                    2894,
+                    1213,
+                    3062
+                ],
+                "angle": 0,
+                "content": "As an example, to verify the claim \"Sunlight can reach the deepest part of the Black Sea.\", it may be challenging to find direct evidence on the web that"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1272,
+                    880,
+                    2178,
+                    1662
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 1: An example of question-guided reasoning for fact-checking complex real-world claims."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1257,
+                    1862,
+                    2195,
+                    2652
+                ],
+                "angle": 0,
+                "content": "refutes or supports this claim. Instead, a human fact-checker needs to decompose the claim, gather multiple pieces of evidence, and perform step-by-step reasoning (Pan et al., 2023). This reasoning process can be formulated as question-guided reasoning, where the verification of the claim is guided by asking and answering a series of relevant questions, as shown in Figure 1. In this example, we sequentially raise two questions: “What is the greatest depth of the Black Sea?” and “How far can sunlight penetrate water?”. After independently answering these two questions by gathering relevant information from the Web, we can assert that the initial claim is false with simple reasoning."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1257,
+                    2662,
+                    2198,
+                    3227
+                ],
+                "angle": 0,
+                "content": "While several models (Liu et al., 2020; Zhong et al., 2020; Aly and Vlachos, 2022) have been proposed to facilitate multi-step reasoning in fact-checking, they generally lack transparency in their reasoning processes. These models simply take a claim as input, then output a veracity label without an explicit explanation. Recent attempts, such as Quin+ (Samarinas et al., 2021) and WhatTheWikiFact (Chernyavskiy et al., 2021), have aimed to develop more explainable fact-checking systems, by"
+            },
+            {
+                "block_id": 14,
+                "type": "aside_text",
+                "bbox": [
+                    57,
+                    1090,
+                    146,
+                    2539
+                ],
+                "angle": 270,
+                "content": "arXiv:2310.07609v1 [cs.CL] 11 Oct 2023"
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    282,
+                    3087,
+                    1215,
+                    3223
+                ],
+                "angle": 0,
+                "content": "\\(^{1}\\)QACHECK is public available at https://github.com/XinyuanLu00/QACheck. A recorded video is at https://www.youtube.com/watch?v=ju8kxSldM64"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    280,
+                    298,
+                    1213,
+                    578
+                ],
+                "angle": 0,
+                "content": "searching and visualizing the supporting evidence for a given claim. However, these systems primarily validate a claim from a single document, and do not provide a detailed, step-by-step visualization of the reasoning process as shown in Figure 1."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    290,
+                    585,
+                    1215,
+                    1536
+                ],
+                "angle": 0,
+                "content": "We introduce the Question-guided Multi-hop Fact-Checking (QACheck) system, which addresses the aforementioned issues by generating multi-step explanations via question-guided reasoning. To facilitate an explainable reasoning process, QACheck manages the reasoning process by guiding the model to self-generate a series of questions vital for claim verification. Our system, as depicted in Figure 2, is composed of five modules: 1) a claim verifier that assesses whether sufficient information has been gathered to verify the claim, 2) a question generator to generate the next relevant question, 3) a question-answering module to answer the raised question, 4) a QA validator to evaluate the usefulness of the generated (Q, A) pair, and 5) a reasoner to output the final veracity label based on all collected contexts."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    280,
+                    1543,
+                    1215,
+                    2388
+                ],
+                "angle": 0,
+                "content": "QACHECK offers enough adaptability, allowing users to customize the design of each module by integrating with different models. For example, we provide three alternative implementations for the QA component: the retriever-reader model, the FLAN-T5 model, and the GPT3-based reciter-reader model. Furthermore, we offer a user-friendly interface for users to fact-check any input claim and visualize its detailed question-guided reasoning process. The screenshot of our user interface is shown in Figure 4. We will discuss the implementation details of the system modules in Section 3 and some evaluation results in Section 4. Finally, we present the details of the user interface in Section 5. and conclude and discuss future work in Section 6."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    282,
+                    2441,
+                    669,
+                    2490
+                ],
+                "angle": 0,
+                "content": "2 Related Work"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    280,
+                    2536,
+                    1215,
+                    3041
+                ],
+                "angle": 0,
+                "content": "Fact-Checking Systems. The recent surge in automated fact-checking research aims to mitigate the spread of misinformation. Various fact-checking systems, for example, \\(\\mathrm{TANBH}^2\\) (Zhang et al., 2019), \\(\\mathrm{PRTA}^3\\) (Martino et al., 2020), and WHATTHEWIKFACT\\(^4\\) (Chernyavskiy et al., 2021) predominantly originating from Wikipedia and claims within political or scientific domains, have facilitated this endeavor. However, the major"
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1285,
+                    291,
+                    2175,
+                    1287
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 2: The architecture of our QACHECK system."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1257,
+                    1466,
+                    2195,
+                    2199
+                ],
+                "angle": 0,
+                "content": "ity of these systems limit the validation or refutation of a claim to a single document, indicating a gap in systems for multi-step reasoning (Pan et al., 2023). The system most similar to ours is \\( \\text{Quin} + \\) (Samarinas et al., 2021), which demonstrates evidence retrieval in a single step. In contrast, our QACHECK shows a question-led multi-step reasoning process with explanations and retrieved evidence for each reasoning step. In summary, our system 1) supports fact-checking real-world claims that require multi-step reasoning, and 2) enhances transparency and helps users have a clear understanding of the reasoning process."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1260,
+                    2238,
+                    2193,
+                    2971
+                ],
+                "angle": 0,
+                "content": "Explanation Generation. Simply predicting a veracity label to the claim is not persuasive, and can even enhance mistaken beliefs (Guo et al., 2022). Hence, it is necessary for automated fact-checking methods to provide explanations to support model predictions. Traditional approaches have utilized attention weights, logic, or summary generation to provide post-hoc explanations for model predictions (Lu and Li, 2020; Ahmadi et al., 2019; Kotonya and Toni, 2020; Jolly et al., 2022; Xing et al., 2022). In contrast, our approach employs question-answer pair based explanations, offering more human-like and natural explanations."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1262,
+                    3020,
+                    1791,
+                    3076
+                ],
+                "angle": 0,
+                "content": "3 System Architecture"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1260,
+                    3115,
+                    2193,
+                    3223
+                ],
+                "angle": 0,
+                "content": "Figure 2 shows the general architecture of our system, comprised of five principal modules: a Claim"
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    337,
+                    3076,
+                    890,
+                    3129
+                ],
+                "angle": 0,
+                "content": "\\(^{2}\\)https://www.tanbih.org/about"
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    339,
+                    3129,
+                    885,
+                    3174
+                ],
+                "angle": 0,
+                "content": "<sup>3</sup>https://propaganda.qcri.org/"
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    339,
+                    3174,
+                    1074,
+                    3220
+                ],
+                "angle": 0,
+                "content": "4https://www.tanbih.org/whatthewiki fact"
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    337,
+                    3076,
+                    1074,
+                    3220
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    280,
+                    298,
+                    1220,
+                    1996
+                ],
+                "angle": 0,
+                "content": "Verifier \\(\\mathcal{D}\\), a Question Generator \\(\\mathcal{Q}\\), a Question-Answering Model \\(\\mathcal{A}\\), a Validator \\(\\nu\\), and a Reasoner \\(\\mathcal{R}\\). We first initialize an empty context \\(\\mathcal{C} = \\emptyset\\). Upon the receipt of a new input claim \\(c\\), the system first utilizes the claim verifier to determine the sufficiency of the existing context to validate the claim, i.e., \\(\\mathcal{D}(c,\\mathcal{C}) \\to \\{\\text{True}, \\text{False}\\}\\). If the output is False, the question generator learns to generate the next question that is necessary for verifying the claim, i.e., \\(\\mathcal{Q}(c,\\mathcal{C}) \\to q\\). The question-answering model is then applied to answer the question and provide the supported evidence, i.e., \\(\\mathcal{A}(q) \\to a, e\\), where \\(a\\) is the predicted answer, and \\(e\\) is the retrieved evidence that supports the answer. Afterward, the validator is used to validate the usefulness of the newly-generated (Q, A) pair based on the existing context and the claim, i.e., \\(\\mathcal{V}(c,\\{q,a\\},\\mathcal{C}) \\to \\{\\text{True}, \\text{False}\\}\\). If the output is True, the \\((q,a)\\) pair is added into the context \\(C\\). Otherwise, the question generator is asked to generate another question. We repeat this process of calling \\(\\mathcal{D} \\to \\mathcal{Q} \\to \\mathcal{A} \\to \\mathcal{V}\\) until the claim verifier returns a True indicating that the current context \\(C\\) contains sufficient information to verify the claim \\(c\\). In this case, the reasoner module is called to utilize the stored relevant context to justify the veracity of the claim and outputs the final label, i.e., \\(\\mathcal{R}(c,\\mathcal{C}) \\to \\{\\text{Supported}, \\text{Refuted}\\}\\). The subsequent sections provide a comprehensive description of the five key modules in QACHECK."
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    282,
+                    2062,
+                    682,
+                    2115
+                ],
+                "angle": 0,
+                "content": "3.1 Claim Verifier"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    280,
+                    2153,
+                    1215,
+                    3227
+                ],
+                "angle": 0,
+                "content": "The claim verifier is a central component of QACHECK, with the specific role of determining if the current context information is sufficient to verify the claim. This module is to ensure that the system can efficiently complete the claim verification process without redundant reasoning. We build the claim verifier based on InstructGPT (Ouyang et al., 2022), utilizing its powerful in-context learning ability. Recent large language models such as InstructGPT (Ouyang et al., 2022) and GPT-4 (OpenAI, 2023) have demonstrated strong few-shot generalization ability via in-context learning, in which the model can efficiently learn a task when prompted with the instruction of the task together with a small number of demonstrations. We take advantage of InstructGPT's in-context learning ability to implement the claim verifier. We prompt InstructGPT with ten distinct in-context examples as detailed in Appendix A.1, where each example"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1260,
+                    298,
+                    2195,
+                    466
+                ],
+                "angle": 0,
+                "content": "consists of a claim and relevant question-answer pairs. We then prompt the model with the claim, the context, and the following instruction:"
+            },
+            {
+                "block_id": 4,
+                "type": "equation",
+                "bbox": [
+                    1352,
+                    505,
+                    1689,
+                    557
+                ],
+                "angle": 0,
+                "content": "\\[\n\\text {C l a i m} = \\boxed {\\text {C L A I M}}\n\\]"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1352,
+                    564,
+                    2044,
+                    613
+                ],
+                "angle": 0,
+                "content": "We already know the following:"
+            },
+            {
+                "block_id": 6,
+                "type": "equation",
+                "bbox": [
+                    1362,
+                    620,
+                    1545,
+                    670
+                ],
+                "angle": 0,
+                "content": "\\[\n\\begin{array}{c} \\text {C o n t e x t} \\end{array}\n\\]"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1354,
+                    677,
+                    2096,
+                    782
+                ],
+                "angle": 0,
+                "content": "Can we know whether the claim is true or false now? Yes or no?"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1260,
+                    824,
+                    2195,
+                    996
+                ],
+                "angle": 0,
+                "content": "If the response is 'no', we proceed to the question generator module. Conversely, if the response is 'yes', the process jumps to call the reasoner module."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1262,
+                    1034,
+                    1771,
+                    1083
+                ],
+                "angle": 0,
+                "content": "3.2 Question Generator"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1260,
+                    1105,
+                    2195,
+                    1666
+                ],
+                "angle": 0,
+                "content": "The question generator module is called when the initial claim lacks the necessary context for verification. This module aims to generate the next relevant question needed for verifying the claim. Similar to the claim verifier, we also leverage InstructGPT for in-context learning. We use slightly different prompts for generating the initial question and the follow-up questions. The detailed prompts are in Appendix A.2. For the initial question generation, the instruction is:"
+            },
+            {
+                "block_id": 11,
+                "type": "equation",
+                "bbox": [
+                    1354,
+                    1708,
+                    1687,
+                    1761
+                ],
+                "angle": 0,
+                "content": "\\[\n\\text {C l a i m} = \\boxed {\\text {C L A I M}}\n\\]"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1354,
+                    1768,
+                    2093,
+                    1876
+                ],
+                "angle": 0,
+                "content": "To verify the above claim, we can first ask a simple question:"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1918,
+                    2046,
+                    1971
+                ],
+                "angle": 0,
+                "content": "For follow-up questions, the instruction is:"
+            },
+            {
+                "block_id": 14,
+                "type": "equation",
+                "bbox": [
+                    1354,
+                    2010,
+                    1687,
+                    2062
+                ],
+                "angle": 0,
+                "content": "\\[\n\\text {C l a i m} = \\boxed {\\text {C L A I M}}\n\\]"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1354,
+                    2069,
+                    2044,
+                    2122
+                ],
+                "angle": 0,
+                "content": "We already know the following:"
+            },
+            {
+                "block_id": 16,
+                "type": "equation",
+                "bbox": [
+                    1362,
+                    2125,
+                    1545,
+                    2174
+                ],
+                "angle": 0,
+                "content": "\\[\n\\begin{array}{c} \\text {C o n t e x t} \\end{array}\n\\]"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1354,
+                    2185,
+                    2096,
+                    2343
+                ],
+                "angle": 0,
+                "content": "To verify the claim, what is the next question we need to know the answer to?"
+            },
+            {
+                "block_id": 18,
+                "type": "title",
+                "bbox": [
+                    1262,
+                    2388,
+                    1912,
+                    2441
+                ],
+                "angle": 0,
+                "content": "3.3 Question Answering Model"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1260,
+                    2462,
+                    2195,
+                    2911
+                ],
+                "angle": 0,
+                "content": "After generating a question, the Question Answering (QA) module retrieves corresponding evidence and provides an answer as the output. The system's reliability largely depends on the accuracy of the QA module's responses. Understanding the need for different QA methods in various fact-checking scenarios, we introduce three different implementations for the QA module, as shown in Figure 3."
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    1260,
+                    2943,
+                    2195,
+                    3223
+                ],
+                "angle": 0,
+                "content": "Retriever-Reader. We first integrate the well-known retriever-reader framework, a prevalent QA paradigm originally introduced by Chen et al. (2017). In this framework, a retriever first retrieves relevant documents from a large evidence"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    332,
+                    298,
+                    1173,
+                    1610
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 3: Illustrations of the three different implementations of the Question Answering module in QACHECK."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    280,
+                    1848,
+                    1215,
+                    2638
+                ],
+                "angle": 0,
+                "content": "corpus, and then a reader predicts an answer conditioned on the retrieved documents. For the evidence corpus, we use the Wikipedia dump provided by the Knowledge-Intensive Language Tasks (KILT) benchmark (Petroni et al., 2021), in which the Wikipedia articles have been pre-processed and separated into paragraphs. For the retriever, we apply the widely-used sparse retrieval based on BM25 (Robertson and Zaragoza, 2009), implemented with the Pyserini toolkit (Lin et al., 2021). For the reader, we use the RoBERTa-large (Liu et al., 2019) model fine-tuned on the SQuAD dataset (Rajpurkar et al., 2016), using the implementation from PrimeQA\\(^{5}\\) (Sil et al., 2023)."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    280,
+                    2683,
+                    1215,
+                    3136
+                ],
+                "angle": 0,
+                "content": "FLAN-T5. While effective, the retriever-reader framework is constrained by its reliance on the evidence corpus. In scenarios where a user's claim is outside the scope of Wikipedia, the system might fail to produce a credible response. To enhance flexibility, we also incorporate the FLAN-T5 model (Chung et al., 2022), a Seq2Seq model pretrained on more than 1.8K tasks with instruction"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1260,
+                    298,
+                    2190,
+                    466
+                ],
+                "angle": 0,
+                "content": "tuning. It directly takes the question as input and then generates the answer and the evidence, based on the model's parametric knowledge."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1255,
+                    494,
+                    2195,
+                    1452
+                ],
+                "angle": 0,
+                "content": "GPT Reciter-Reader. Recent studies (Sun et al., 2023; Yu et al., 2023) have demonstrated the great potential of the GPT series, such as Instruct-GPT (Ouyang et al., 2022) and GPT-4 (OpenAI, 2023), to function as robust knowledge repositories. The knowledge can be retrieved by properly prompting the model. Drawing from this insight, we introduce the GPT Reciter-Reader approach. Given a question, we prompt the InstructGPT to \"recite\" the knowledge stored within it, and InstructGPT responds with relevant evidence. The evidence is then fed into a reader model to produce the corresponding answer. While this method, like FLAN-T5, does not rely on a specific corpus, it stands out by using InstructGPT. This offers a more dependable parametric knowledge base than FLAN-T5."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1260,
+                    1469,
+                    2193,
+                    1806
+                ],
+                "angle": 0,
+                "content": "The above three methods provide a flexible and robust QA module, allowing for switching between the methods as required, depending on the claim being verified and the available contextual information. In the following, we use GPT Reciter-Reader as the default implementation for our QA module."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1262,
+                    1841,
+                    1644,
+                    1897
+                ],
+                "angle": 0,
+                "content": "3.4 QA Validator"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1260,
+                    1915,
+                    2193,
+                    2367
+                ],
+                "angle": 0,
+                "content": "The validator module ensures the usefulness of the newly-generated QA pairs. For a QA pair to be valid, it must satisfy two criteria: 1) it brings additional information to the current context \\(\\mathcal{C}\\), and 2) it is useful for verifying the original claim. We again implement the validator by prompting InstructGPT with a suite of ten demonstrations shown in Appendix A.3. The instruction is as follows:"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1352,
+                    2399,
+                    1689,
+                    2452
+                ],
+                "angle": 0,
+                "content": "Claim = CLAIM"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1354,
+                    2462,
+                    2044,
+                    2511
+                ],
+                "angle": 0,
+                "content": "We already know the following:"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1362,
+                    2518,
+                    1545,
+                    2564
+                ],
+                "angle": 0,
+                "content": "CONTEXT"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1362,
+                    2574,
+                    1818,
+                    2620
+                ],
+                "angle": 0,
+                "content": "Now we further know:"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1367,
+                    2631,
+                    1634,
+                    2680
+                ],
+                "angle": 0,
+                "content": "NEW QA PAIR"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1357,
+                    2687,
+                    2093,
+                    2848
+                ],
+                "angle": 0,
+                "content": "Does the QA pair have additional knowledge useful for verifying the claim?"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1260,
+                    2887,
+                    2195,
+                    3227
+                ],
+                "angle": 0,
+                "content": "The validator acts as a safeguard against the system producing redundant or irrelevant QA pairs. Upon validation of a QA pair, it is added to the current context \\(\\mathcal{C}\\). Subsequently, the system initiates another cycle of calling the claim verifier, question generator, question answering, and validation."
+            },
+            {
+                "block_id": 16,
+                "type": "page_footnote",
+                "bbox": [
+                    337,
+                    3171,
+                    1002,
+                    3223
+                ],
+                "angle": 0,
+                "content": "5https://github.com/primeqa/primeqa"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    312,
+                    312,
+                    2168,
+                    2248
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 4: The screenshot of the QACHECK user interface showing its key annotated functions. First, users have the option to select a claim or manually input a claim that requires verification. Second, users can start the verification process by clicking the Submit button. Third, the system shows a step-by-step question-answering guided reasoning process. Each step includes the reasoning depth, the generated question, relevant retrieved evidence, and the corresponding predicted answer. Finally, it presents the final prediction label with the supporting rationale."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    282,
+                    2645,
+                    585,
+                    2694
+                ],
+                "angle": 0,
+                "content": "3.5 Reasoner"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    280,
+                    2718,
+                    1215,
+                    3227
+                ],
+                "angle": 0,
+                "content": "The reasoner is called when the claim verifier determines that the context \\(\\mathcal{C}\\) is sufficient to verify the claim or the system hits the maximum allowed iterations, set to 5 by default. The reasoner is a special question-answering model which takes the context \\(\\mathcal{C}\\) and the claim \\(c\\) as inputs and then answers the question \"Is the claim true or false?\" The model is also requested to output the rationale with the prediction. We provide two different implementations:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1260,
+                    2645,
+                    2190,
+                    2816
+                ],
+                "angle": 0,
+                "content": "tions for the reasoner: 1) the end-to-end QA model based on FLAN-T5, and 2) the InstructGPT model with the prompts given in Appendix A.4."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    1262,
+                    2855,
+                    1878,
+                    2908
+                ],
+                "angle": 0,
+                "content": "4 Performance Evaluation"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1260,
+                    2943,
+                    2195,
+                    3227
+                ],
+                "angle": 0,
+                "content": "To evaluate the performance of our QACHECK, we use two fact-checking datasets that contain complex claims requiring multi-step reasoning: HOVER (Jiang et al., 2020) and FEVERIOUS (Aly et al., 2021), following the same experimental set-"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    307,
+                    287,
+                    1208,
+                    834
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Model</td><td>2-hop</td><td>HOVER 3-hop</td><td>4-hop</td><td>FEVEROUS</td></tr><tr><td>InstructGPT</td><td></td><td></td><td></td><td></td></tr><tr><td>- Direct</td><td>56.51</td><td>51.75</td><td>49.68</td><td>60.13</td></tr><tr><td>- CoT</td><td>57.20</td><td>53.66</td><td>51.83</td><td>61.05</td></tr><tr><td>Codex</td><td>55.57</td><td>53.42</td><td>45.59</td><td>57.85</td></tr><tr><td>FLAN-T5</td><td>48.27</td><td>52.11</td><td>51.13</td><td>55.16</td></tr><tr><td>ProgramFC</td><td>54.27</td><td>54.18</td><td>52.88</td><td>59.66</td></tr><tr><td>QCheck</td><td>55.67</td><td>54.67</td><td>52.35</td><td>59.47</td></tr></table>",
+                "caption": "Table 1: Evaluation of F1 scores for different models. The bold text shows the best results for each setting."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    280,
+                    1052,
+                    1215,
+                    1785
+                ],
+                "angle": 0,
+                "content": "tings used in Pan et al. (2023). HOVER contains 1,126 two-hop claims, 1,835 three-hop claims, and 1,039 four-hop claims, while FEVEROUS has 2,962 multi-hop claims. We compare our method with the baselines of directly applying InstructGPT with two different prompting methods: (i) direct prompting with the claim, and (ii) CoT (Wei et al., 2022) or chain-of-thought prompting with few-shot demonstrations of reasoning explanations. We also compare with ProgramFC (Pan et al., 2023), FLAN-T5 (Chung et al., 2022), and Codex (Chen et al., 2021). We use the reported results for the baseline models from Pan et al. (2023)."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    280,
+                    1792,
+                    1215,
+                    2638
+                ],
+                "angle": 0,
+                "content": "The evaluation results are shown in Table 1. Our QACHECK system achieves a macro-F1 score of 55.67, 54.67, and 52.35 on HOVER two-hop, three-hop, and four-hop claims, respectively. It achieves a 59.47 F1 score on FEVEROUS. These scores are better than directly using InstructGPT, Codex, or FLAN-T5. They are also on par with the systems that apply claim decomposition strategies, i.e., CoT, and ProgramFC. The results demonstrate the effectiveness of our QACHECK system. Especially, the QACHECK has better improvement over the end-to-end models on claims with high reasoning depth. This indicates that decomposing a complex claim into simpler steps with question-guided reasoning can facilitate more accurate reasoning."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    282,
+                    2690,
+                    682,
+                    2746
+                ],
+                "angle": 0,
+                "content": "5 User Interface"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    280,
+                    2788,
+                    1215,
+                    3132
+                ],
+                "angle": 0,
+                "content": "We create a demo system based on Flask<sup>6</sup> for verifying open-domain claims with QACHECK, as shown in Figure 4. The QACHECK demo is designed to be intuitive and user-friendly, enabling users to input any claim or select from a list of pre-defined claims (top half of Figure 4)."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1252,
+                    298,
+                    2195,
+                    1315
+                ],
+                "angle": 0,
+                "content": "Upon selecting or inputting a claim, the user can start the fact-checking process by clicking the \"Submit\" button. The bottom half of Figure 4 shows a snapshot of QACHECK's output for the input claim \"Lars Onsager won the Nobel prize when he was 30 years old\". The system visualizes the detailed question-guided reasoning process. For each reasoning step, the system shows the index of the reasoning step, the generated question, and the predicted answer to the question. The retrieved evidence to support the answer is shown on the right for each step. The system then shows the final veracity prediction for the original claim accompanied by a comprehensive rationale in the \"Prediction with rationale\" section. This step-by-step illustration not only enhances the understanding of our system's fact-checking process but also offers transparency to its functioning."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1260,
+                    1319,
+                    2198,
+                    1715
+                ],
+                "angle": 0,
+                "content": "QACHECK also allows users to change the underlying question-answering model. As shown at the top of Figure 4, users can select between the three different QA models introduced in Section 3.3, depending on their specific requirements or preferences. Our demo system will be open-sourced under the Apache-2.0 license."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1260,
+                    1768,
+                    2002,
+                    1824
+                ],
+                "angle": 0,
+                "content": "6 Conclusion and Future Works"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1255,
+                    1866,
+                    2195,
+                    2655
+                ],
+                "angle": 0,
+                "content": "This paper presents the QACHECK system, a novel approach designed for verifying real-world complex claims. QACHECK conducts the reasoning process with the guidance of asking and answering a series of questions and answers. Specifically, QACHECK iteratively generates contextually relevant questions, retrieves and validates answers, judges the sufficiency of the context information, and finally, reasons out the claim's truth value based on the accumulated knowledge. QACHECK leverages a wide range of techniques, such as in-context learning, document retrieval, and question-answering, to ensure a precise, transparent, explainable, and user-friendly fact-checking process."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1260,
+                    2662,
+                    2198,
+                    3227
+                ],
+                "angle": 0,
+                "content": "In the future, we plan to enhance QACHECK 1) by integrating additional knowledge bases to further improve the breadth and depth of information accessible to the system (Feng et al., 2023; Kim et al., 2023), and 2) by incorporating a multimodal interface to support image (Chakraborty et al., 2023), table (Chen et al., 2020; Lu et al., 2023), and chart-based fact-checking (Akhtar et al., 2023), which can broaden the system's utility in processing and analyzing different forms of data."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    337,
+                    3171,
+                    1171,
+                    3223
+                ],
+                "angle": 0,
+                "content": "\\(^{6}\\)https://flask.palletsprojects.com/en/2.3.x/"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    285,
+                    298,
+                    548,
+                    347
+                ],
+                "angle": 0,
+                "content": "Limitations"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    280,
+                    382,
+                    1223,
+                    1119
+                ],
+                "angle": 0,
+                "content": "We identify two main limitations of QACHECK. First, several modules of our QACHECK currently utilize external API-based large language models, such as InstructGPT. This reliance on external APIs tends to prolong the response time of our system. As a remedy, we are considering the integration of open-source, locally-run large language models like LLaMA (Touvron et al., 2023). Secondly, the current scope of our QACHECK is confined to evaluating True/False claims. Recognizing the significance of also addressing Not Enough Information claims, we plan to devise strategies to incorporate these in upcoming versions of the system."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    285,
+                    1157,
+                    659,
+                    1206
+                ],
+                "angle": 0,
+                "content": "Ethics Statement"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    280,
+                    1245,
+                    1215,
+                    1694
+                ],
+                "angle": 0,
+                "content": "The use of large language models requires a significant amount of energy for computation for training, which contributes to global warming. Our work performs few-shot in-context learning instead of training models from scratch, so the energy footprint of our work is less. The large language model (InstructGPT) whose API we use for inference consumes significant energy."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    285,
+                    1736,
+                    692,
+                    1792
+                ],
+                "angle": 0,
+                "content": "Acknowledgement"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    280,
+                    1820,
+                    1215,
+                    2160
+                ],
+                "angle": 0,
+                "content": "This project is supported by the Ministry of Education, Singapore, under its MOE AcRF TIER 3 Grant (MOE-MOET32022-0001). The computational work for this article was partially performed on resources of the National Supercomputing Centre, Singapore."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    285,
+                    2252,
+                    530,
+                    2301
+                ],
+                "angle": 0,
+                "content": "References"
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    287,
+                    2329,
+                    1215,
+                    2564
+                ],
+                "angle": 0,
+                "content": "Naser Ahmadi, Joohyung Lee, Paolo Papotti, and Mohammed Saeed. 2019. Explainable fact checking with probabilistic answer set programming. In Proceedings of the 2019 Truth and Trust Online Conference (TTO)."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2592,
+                    1215,
+                    2827
+                ],
+                "angle": 0,
+                "content": "Mubashara Akhtar, Oana Cocarascu, and Elena Simperl. 2023. Reading and reasoning over chart images for evidence-based automated fact-checking. In *Findings of the Association for Computational Linguistics (EACL)*, pages 399-414."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2855,
+                    1215,
+                    3223
+                ],
+                "angle": 0,
+                "content": "Rami Aly, Zhijiang Guo, Michael Sejr Schlichtkrull, James Thorne, Andreas Vlachos, Christos Christodoulopoulos, Oana Cocarascu, and Arpit Mittal. 2021. FEVEROUS: Fact Extraction and VERIFICATION Over Unstructured and Structured information. In Proceedings of the Neural Information Processing Systems (NeurIPS) Track on Datasets and Benchmarks."
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    287,
+                    2329,
+                    1215,
+                    3223
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    1267,
+                    301,
+                    2195,
+                    536
+                ],
+                "angle": 0,
+                "content": "Rami Aly and Andreas Vlachos. 2022. Natural logic-guided autoregressive multi-hop document retrieval for fact verification. In Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP), pages 6123-6135."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1267,
+                    575,
+                    2195,
+                    1034
+                ],
+                "angle": 0,
+                "content": "Megha Chakraborty, Khusbu Pahwa, Anku Rani, Adarsh Mahar, Aditya Pakala, Arghya Sarkar, Harshit Dave, Ishan Paul, Janvita Reddy, Preethi Gurumurthy, Ritvik G, Samahriti Mukherjee, Shreyas Chatterjee, Kinjal Sensharma, Dwip Dalal, Suryavardan S, Shreyash Mishra, Parth Patwa, Aman Chadha, Amit P. Sheth, and Amitava Das. 2023. FAC-TIFY3M: A benchmark for multimodal fact verification with explainability through 5w question-answering. CoRR, abs/2306.05523."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1267,
+                    1076,
+                    2195,
+                    1308
+                ],
+                "angle": 0,
+                "content": "Danqi Chen, Adam Fisch, Jason Weston, and Antoine Bordes. 2017. Reading wikipedia to answer open-domain questions. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (ACL), pages 1870-1879."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1267,
+                    1350,
+                    2195,
+                    1624
+                ],
+                "angle": 0,
+                "content": "Jifan Chen, Aniruddh Sriram, Eunsol Choi, and Greg Durrett. 2022. Generating literal and implied subquestions to fact-check complex claims. In Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP), pages 3495-3516."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1267,
+                    1666,
+                    2195,
+                    2631
+                ],
+                "angle": 0,
+                "content": "Mark Chen, Jerry Tworek, Heewoo Jun, Qiming Yuan, Henrique Ponde de Oliveira Pinto, Jared Kaplan, Harrison Edwards, Yuri Burda, Nicholas Joseph, Greg Brockman, Alex Ray, Raul Puri, Gretchen Krueger, Michael Petrov, Heidy Khlaaf, Girish Sastry, Pamela Mishkin, Brooke Chan, Scott Gray, Nick Ryder, Mikhail Pavlov, Alethea Power, Lukasz Kaiser, Mohammad Bavarian, Clemens Winter, Philippe Tillet, Felipe Petroski Such, Dave Cummings, Matthias Plappert, Fotios Chantzis, Elizabeth Barnes, Ariel Herbert-Voss, William Hebgen Guss, Alex Nichol, Alex Paino, Nikolas Tezak, Jie Tang, Igor Babuschkin, Suchir Balaji, Shantanu Jain, William Saunders, Christopher Hesse, Andrew N. Carr, Jan Leike, Joshua Achiam, Vedant Misra, Evan Morikawa, Alec Radford, Matthew Knight, Miles Brundage, Mira Murati, Katie Mayer, Peter Welinder, Bob McGrew, Dario Amodei, Sam McCandlish, Ilya Sutskever, and Wojciech Zaremba. 2021. Evaluating large language models trained on code. ArXiv preprint, abs/2107.03374."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1267,
+                    2673,
+                    2195,
+                    2950
+                ],
+                "angle": 0,
+                "content": "Wenhu Chen, Hongmin Wang, Jianshu Chen, Yunkai Zhang, Hong Wang, Shiyang Li, Xiyou Zhou, and William Yang Wang. 2020. Tabfact: A large-scale dataset for table-based fact verification. In Proceedings of 8th International Conference on Learning Representations (ICLR)."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1267,
+                    2988,
+                    2195,
+                    3223
+                ],
+                "angle": 0,
+                "content": "Anton Chernyavskiy, Dmitry Ilvovsky, and Preslav Nakov. 2021. Whatthewikifact: Fact-checking claims against wikipedia. In Proceedings of the 30th ACM International Conference on Information and Knowledge Management (CIKM), pages 4690-4695."
+            },
+            {
+                "block_id": 18,
+                "type": "list",
+                "bbox": [
+                    1267,
+                    301,
+                    2195,
+                    3223
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    301,
+                    1215,
+                    806
+                ],
+                "angle": 0,
+                "content": "Hyung Won Chung, Le Hou, Shayne Longpre, Barret Zoph, Yi Tay, William Fedus, Eric Li, Xuezhi Wang, Mostafa Dehghani, Siddhartha Brahma, Albert Webson, Shixiang Shane Gu, Zhuyun Dai, Mirac Suzgun, Xinyun Chen, Aakanksha Chowdhery, Sharan Narang, Gaurav Mishra, Adams Yu, Vincent Y. Zhao, Yanping Huang, Andrew M. Dai, Hongkun Yu, Slav Petrov, Ed H. Chi, Jeff Dean, Jacob Devlin, Adam Roberts, Denny Zhou, Quoc V. Le, and Jason Wei. 2022. Scaling instruction-finetuned language models. CoRR, abs/2210.11416."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    838,
+                    1213,
+                    1027
+                ],
+                "angle": 0,
+                "content": "Shangbin Feng, Vidhisha Balachandran, Yuyang Bai, and Yulia Tsvetkov. 2023. Factkb: Generalizable factuality evaluation using language models enhanced with factual knowledge. CoRR, abs/2305.08281."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1055,
+                    1208,
+                    1241
+                ],
+                "angle": 0,
+                "content": "Zhijiang Guo, Michael Sejr Schlichtkrull, and Andreas Vlachos. 2022. A survey on automated fact-checking. Transactions of the Association for Computational Linguistics (TACL), 10:178-206."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1273,
+                    1213,
+                    1547
+                ],
+                "angle": 0,
+                "content": "Yichen Jiang, Shikha Bordia, Zheng Zhong, Charles Dognin, Maneesh Singh, and Mohit Bansal. 2020. HoVer: A dataset for many-hop fact extraction and claim verification. In *Findings of the Association for Computational Linguistics (EMNLP)*, pages 3441-3460."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1582,
+                    1213,
+                    1722
+                ],
+                "angle": 0,
+                "content": "Shailza Jolly, Pepa Atanasova, and Isabelle Augenstein. 2022. Generating fluent fact checking explanations with unsupervised post-editing. Information, 13:500."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1754,
+                    1213,
+                    2027
+                ],
+                "angle": 0,
+                "content": "Jiho Kim, Sungjin Park, Yeonsu Kwon, Yohan Jo, James Thorne, and Edward Choi. 2023. Factkg: Fact verification via reasoning on knowledge graphs. In Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (ACL), pages 16190-16206."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2062,
+                    1213,
+                    2297
+                ],
+                "angle": 0,
+                "content": "Neema Kotonya and Francesca Toni. 2020. Explainable automated fact-checking for public health claims. In Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP), pages 7740-7754."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2325,
+                    1213,
+                    2690
+                ],
+                "angle": 0,
+                "content": "Jimmy Lin, Xueguang Ma, Sheng-Chieh Lin, Zheng-Hong Yang, Ronak Pradeep, and Rodrigo Frassetto Nogueira. 2021. Pyserini: A python toolkit for reproducible information retrieval research with sparse and dense representations. In Proceedings of International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR), pages 2356-2362."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2725,
+                    1213,
+                    2957
+                ],
+                "angle": 0,
+                "content": "Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov. 2019. Roberta: A robustly optimized BERT pretraining approach. CoRR, abs/1907.11692."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2988,
+                    1213,
+                    3223
+                ],
+                "angle": 0,
+                "content": "Zhenghao Liu, Chenyan Xiong, Maosong Sun, and Zhiyuan Liu. 2020. Fine-grained fact verification with kernel graph attention network. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics (ACL), pages 7342-7351."
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    290,
+                    301,
+                    1215,
+                    3223
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    301,
+                    2188,
+                    529
+                ],
+                "angle": 0,
+                "content": "Xinyuan Lu, Liangming Pan, Qian Liu, Preslav Nakov, and Min-Yen Kan. 2023. SCITAB: A challenging benchmark for compositional reasoning and claim verification on scientific tables. CoRR, abs/2305.13186."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    568,
+                    2188,
+                    803
+                ],
+                "angle": 0,
+                "content": "Yi-Ju Lu and Cheng-Te Li. 2020. GCAN: graph-aware co-attention networks for explainable fake news detection on social media. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics (ACL), pages 505-514."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    834,
+                    2188,
+                    1161
+                ],
+                "angle": 0,
+                "content": "Giovanni Da San Martino, Shaden Shaar, Yifan Zhang, Seunghak Yu, Alberto Barrón-Cedeno, and Preslav Nakov. 2020. Prta: A system to support the analysis of propaganda techniques in the news. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics: System Demonstrations (ACL), pages 287-293."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    1196,
+                    2188,
+                    1473
+                ],
+                "angle": 0,
+                "content": "Van-Hoang Nguyen, Kazunari Sugiyama, Preslav Nakov, and Min-Yen Kan. 2020. FANG: leveraging social context for fake news detection using graph representation. In Proceedings of the 29th ACM International Conference on Information and Knowledge Management (CIKM), pages 1165-1174."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    1508,
+                    2188,
+                    1599
+                ],
+                "angle": 0,
+                "content": "OpenAI. 2023. GPT-4 technical report. CoRR, abs/2303.08774."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    1638,
+                    2188,
+                    2101
+                ],
+                "angle": 0,
+                "content": "Long Ouyang, Jeffrey Wu, Xu Jiang, Diogo Almeida, Carroll L. Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, John Schulman, Jacob Hilton, Fraser Kelton, Luke Miller, Maddie Simens, Amanda Askell, Peter Welinder, Paul F. Christiano, Jan Leike, and Ryan Lowe. 2022. Training language models to follow instructions with human feedback. In Proceedings of the 36th Conference on Neural Information Processing Systems (NeurIPS)."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    2136,
+                    2188,
+                    2413
+                ],
+                "angle": 0,
+                "content": "Liangming Pan, Xiaobao Wu, Xinyuan Lu, Anh Tuan Luu, William Yang Wang, Min-Yen Kan, and Preslav Nakov. 2023. Fact-checking complex claims with program-guided reasoning. In Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (ACL), pages 6981-7004."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    2448,
+                    2188,
+                    2911
+                ],
+                "angle": 0,
+                "content": "Fabio Petroni, Aleksandra Piktus, Angela Fan, Patrick S. H. Lewis, Majid Yazdani, Nicola De Cao, James Thorne, Yacine Jernite, Vladimir Karpukhin, Jean Maillard, Vassilis Plachouras, Tim Roktaschel, and Sebastian Riedel. 2021. KILT: a benchmark for knowledge intensive language tasks. In Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT), pages 2523–2544."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    2946,
+                    2188,
+                    3216
+                ],
+                "angle": 0,
+                "content": "Pranav Rajpurkar, Jian Zhang, Konstantin Lopyrev, and Percy Liang. 2016. Squad: 100, 000+ questions for machine comprehension of text. In Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing (EMNLP), pages 2383-2392."
+            },
+            {
+                "block_id": 20,
+                "type": "list",
+                "bbox": [
+                    1270,
+                    301,
+                    2188,
+                    3216
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    301,
+                    1215,
+                    487
+                ],
+                "angle": 0,
+                "content": "Stephen E. Robertson and Hugo Zaragoza. 2009. The probabilistic relevance framework: BM25 and beyond. Journal of Foundations and Trends in Information Retrieval, 3(4):333-389."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    522,
+                    1215,
+                    845
+                ],
+                "angle": 0,
+                "content": "Chris Samarinas, Wynne Hsu, and Mong-Li Lee. 2021. Improving evidence retrieval for automated explainable fact-checking. In Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies: System Demonstrations, (NAACL-HLT), pages 84-91."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    880,
+                    1215,
+                    1343
+                ],
+                "angle": 0,
+                "content": "Avi Sil, Jaydeep Sen, Bhavani Iyer, Martin Franz, Kshitij Fadnis, Mihaela Bornea, Sara Rosenthal, J. Scott McCarley, Rong Zhang, Vishwajeet Kumar, Yulong Li, Md. Arafat Sultan, Riyadh Bhat, Jürgen Broß, Radu Florian, and Salim Roukos. 2023. Primeqa: The prime repository for state-of-the-art multilingual question answering research and development. In Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics: System Demonstrations (ACL), pages 51-62."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1378,
+                    1210,
+                    1564
+                ],
+                "angle": 0,
+                "content": "Zhiqing Sun, Xuezhi Wang, Yi Tay, Yiming Yang, and Denny Zhou. 2023. Recitation-augmented language models. In Proceedings of the 11th International Conference on Learning Representations (ICLR)."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1599,
+                    1210,
+                    1918
+                ],
+                "angle": 0,
+                "content": "Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, Aurélien Rodriguez, Armand Joulin, Edouard Grave, and Guillaume Lample. 2023. Llama: Open and efficient foundation language models. CoRR, abs/2302.13971."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1960,
+                    1210,
+                    2143
+                ],
+                "angle": 0,
+                "content": "Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Ed H. Chi, Quoc Le, and Denny Zhou. 2022. Chain of thought prompting elicits reasoning in large language models. CoRR, abs/2201.11903."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2181,
+                    1215,
+                    2455
+                ],
+                "angle": 0,
+                "content": "Rui Xing, Shraey Bhatia, Timothy Baldwin, and Jey Han Lau. 2022. Automatic explanation generation for climate science claims. In Proceedings of the The 20th Annual Workshop of the Australasian Language Technology Association (ALTA), pages 122-129."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2494,
+                    1215,
+                    2813
+                ],
+                "angle": 0,
+                "content": "Wenhao Yu, Dan Iter, Shuohang Wang, Yichong Xu, Mingxuan Ju, Soumya Sanyal, Chenguang Zhu, Michael Zeng, and Meng Jiang. 2023. Generate rather than retrieve: Large language models are strong context generators. In Proceedings of the 11th International Conference on Learning Representations (ICLR)."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2852,
+                    1215,
+                    3220
+                ],
+                "angle": 0,
+                "content": "Yifan Zhang, Giovanni Da San Martino, Alberto Barrón-Cedeno, Salvatore Romeo, Jisun An, Haewoon Kwak, Todor Staykovski, Israa Jaradat, Georgi Karadzhov, Ramy Baly, Kareem Darwish, James R. Glass, and Preslav Nakov. 2019. Tanbih: Get to know what you are reading. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on"
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    290,
+                    301,
+                    1215,
+                    3220
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    1312,
+                    301,
+                    2190,
+                    396
+                ],
+                "angle": 0,
+                "content": "Natural Language Processing: System Demonstrations (EMNLP-IJCNLP), pages 223-228."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    427,
+                    2195,
+                    708
+                ],
+                "angle": 0,
+                "content": "Wanjun Zhong, Jingjing Xu, Duyu Tang, Zenan Xu, Nan Duan, Ming Zhou, Jiahai Wang, and Jian Yin. 2020. Reasoning over semantic-level graph for fact checking. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics (ACL), pages 6170-6180."
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    1270,
+                    301,
+                    2195,
+                    708
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    285,
+                    298,
+                    565,
+                    354
+                ],
+                "angle": 0,
+                "content": "A Prompts"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    285,
+                    385,
+                    932,
+                    442
+                ],
+                "angle": 0,
+                "content": "A.1 Prompts for Claim Verifier"
+            },
+            {
+                "block_id": 2,
+                "type": "code",
+                "bbox": [
+                    282,
+                    477,
+                    1059,
+                    1452
+                ],
+                "angle": 0,
+                "content": "Claim = Superdrag and Collective Soul are both rock bands.  \nWe already know the following:  \nQuestion 1 = Is Superdrag a rock band?  \nAnswer 1 = Yes  \nCan we know whether the claim is true or false now? Yes or no?  \nPrediction = No, we cannot know.  \nClaim = Superdrag and Collective Soul are both rock bands.  \nWe already know the following:  \nQuestion 1 = Is Superdrag a rock band?  \nAnswer 1 = Yes  \nQuestion 2 = Is Collective Soul a rock band?  \nAnswer 2 = Yes  \nCan we know whether the claim is true or false now? Yes or no?  \nPrediction = Yes, we can know.  \n<10 demonstrations in total>  \n-----  \nClaim = [[CLAIM]]  \nClaim = CLAIM  \nWe already know the following: [[QA_CONTEXTS]]  \nCan we know whether the claim is true or false now? Yes or no?  \nPrediction ="
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    285,
+                    1529,
+                    1123,
+                    1659
+                ],
+                "angle": 0,
+                "content": "A.2 Prompts for Question Generation Prompts for the initial question generation"
+            },
+            {
+                "block_id": 4,
+                "type": "code",
+                "bbox": [
+                    282,
+                    1676,
+                    1002,
+                    2083
+                ],
+                "angle": 0,
+                "content": "Claim \\(=\\) Superdrag and Collective Soul are   \nboth rock bands.   \nTo verify the above claim, we can   \nfirst ask a simple question:   \nQuestion \\(=\\) Is Superdrag a rock band?   \n<10 demonstrations in total>   \n-----   \nClaim \\(= \\left[\\left[\\mathrm{CLAIM}\\right]\\right]\\)   \nTo verify the above claim, we can   \nfirst ask a simple question:   \nQuestion \\(=\\)"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    285,
+                    2125,
+                    1193,
+                    2181
+                ],
+                "angle": 0,
+                "content": "Prompts for the follow-up question generation"
+            },
+            {
+                "block_id": 6,
+                "type": "code",
+                "bbox": [
+                    282,
+                    2203,
+                    1037,
+                    2844
+                ],
+                "angle": 0,
+                "content": "Claim \\(=\\) Superdrag and Collective Soul are   \nboth rock bands.   \nWe already know the following:   \nQuestion 1 \\(=\\) Is Superdrag a rock band?   \nAnswer 1 \\(=\\) Yes   \nTo verify the claim, what is the   \nnext question we need to know the   \nanswer to?   \nQuestion 2 \\(=\\) Is Collective Soul a rock band?   \n<10 demonstrations in total>   \n-----   \nClaim \\(=\\) [[CLAIM]]   \nWe already know the following:   \n[[QA_CONTEXTS]]   \nTo verify the claim, what is the   \nnext question we need to know the   \nanswer to?   \nQuestion [[Q_INDEX]] \\(=\\)"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    285,
+                    2922,
+                    841,
+                    2978
+                ],
+                "angle": 0,
+                "content": "A.3 Prompts for Validator"
+            },
+            {
+                "block_id": 8,
+                "type": "code",
+                "bbox": [
+                    282,
+                    3013,
+                    997,
+                    3220
+                ],
+                "angle": 0,
+                "content": "Claim \\(=\\) Superdrag and Collective Soul are both rock bands.   \nWe already know the following:   \nQuestion \\(=\\) Is Superdrag a rock band?   \nAnswer \\(=\\) Yes   \nNow we further know:"
+            },
+            {
+                "block_id": 9,
+                "type": "code",
+                "bbox": [
+                    1265,
+                    308,
+                    1997,
+                    845
+                ],
+                "angle": 0,
+                "content": "Question \\(=\\) Is Collective Soul a rock band?   \nAnswer \\(=\\) Yes   \nDoes the QA pair have additional   \nknowledge useful for verifying the claim?   \nThe answer:Yes   \n<10 demonstrations in total>   \n-----   \nClaim \\(= \\left[[\\mathrm{CLAIM}]\\right]\\)   \nWe already know the following:   \n[[QA_CONTEXTS]]   \nNow we further know:   \n[[NEW_QA_PAIR]]   \nDoes the QA pair have additional   \nknowledge useful for verifying the claim?   \nThe answer:"
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    926,
+                    1818,
+                    978
+                ],
+                "angle": 0,
+                "content": "A.4 Prompts for Reasoner"
+            },
+            {
+                "block_id": 11,
+                "type": "code",
+                "bbox": [
+                    1267,
+                    1020,
+                    2012,
+                    1255
+                ],
+                "angle": 0,
+                "content": "Contexts:  \nQ1: When Lars Onsager won the Nobel Prize?  \nA1: 1968  \nQ2: When was Lars Onsager born?  \nA2: 1903  \nClaim = Lars Onsager won the Nobel Prize when he was 30 years old."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1270,
+                    1287,
+                    1768,
+                    1322
+                ],
+                "angle": 0,
+                "content": "Is this claim true or false?"
+            },
+            {
+                "block_id": 13,
+                "type": "code",
+                "bbox": [
+                    1270,
+                    1357,
+                    1987,
+                    1490
+                ],
+                "angle": 0,
+                "content": "Answer:  \nLars Onsager won the Nobel Prize in 1968.  \nLars Onsager was born in 1903.  \nTherefore, the final answer is: False."
+            },
+            {
+                "block_id": 14,
+                "type": "code",
+                "bbox": [
+                    1270,
+                    1550,
+                    1768,
+                    1817
+                ],
+                "angle": 0,
+                "content": "<10 demonstrations in total>   \n---   \nContexts:   \n[[CONTEXTS]]   \nClaim \\(=\\) [[CLAIM]]   \nIs this claim true or false?   \nAnswer:   \nTherefore, the final answer :"
+            }
+        ]
+    }
+]

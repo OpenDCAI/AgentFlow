@@ -1,0 +1,2063 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    451,
+                    277,
+                    2034,
+                    413
+                ],
+                "angle": 0,
+                "content": "Barack's Wife Hillary: Using Knowledge Graphs for Fact-Aware Language Modeling"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    548,
+                    449,
+                    1974,
+                    575
+                ],
+                "angle": 0,
+                "content": "Robert L. Logan IV* Nelson F. Liu†§ Matthew E. Peters§ Matt Gardner§ Sameer Singh*"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    811,
+                    596,
+                    1687,
+                    652
+                ],
+                "angle": 0,
+                "content": "* University of California, Irvine, CA, USA"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    783,
+                    652,
+                    1711,
+                    708
+                ],
+                "angle": 0,
+                "content": "† University of Washington, Seattle, WA, USA"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    632,
+                    712,
+                    1850,
+                    771
+                ],
+                "angle": 0,
+                "content": "\\(^{\\S}\\) Allen Institute for Artificial Intelligence, Seattle, WA, USA"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    391,
+                    778,
+                    2098,
+                    841
+                ],
+                "angle": 0,
+                "content": "{rlogan, sameer}@uci.edu, {mattg, matthewp}@allenai.org, nfliu@cs.washington.edu"
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    652,
+                    929,
+                    850,
+                    978
+                ],
+                "angle": 0,
+                "content": "Abstract"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    357,
+                    1034,
+                    1146,
+                    2283
+                ],
+                "angle": 0,
+                "content": "Modeling human language requires the ability to not only generate fluent text but also encode factual knowledge. However, traditional language models are only capable of remembering facts seen at training time, and often have difficulty recalling them. To address this, we introduce the knowledge graph language model (KGLM), a neural language model with mechanisms for selecting and copying facts from a knowledge graph that are relevant to the context. These mechanisms enable the model to render information it has never seen before, as well as generate out-of-vocabulary tokens. We also introduce the Linked WikiText-2 dataset,\\(^{1}\\) a corpus of annotated text aligned to the Wikidata knowledge graph whose contents (roughly) match the popular WikiText-2 benchmark (Merit et al., 2017). In experiments, we demonstrate that the KGLM achieves significantly better performance than a strong baseline language model. We additionally compare different language models' ability to complete sentences requiring factual knowledge, and show that the KGLM outperforms even very large language models in generating facts."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    290,
+                    2332,
+                    650,
+                    2385
+                ],
+                "angle": 0,
+                "content": "1 Introduction"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2427,
+                    1218,
+                    3108
+                ],
+                "angle": 0,
+                "content": "For language models to generate plausible sentences, they must be both syntactically coherent as well as consistent with the world they describe. Although language models are quite skilled at generating grammatical sentences, and previous work has shown that language models also possess some degree of common-sense reasoning and basic knowledge (Vinyals and Le, 2015; Serban et al., 2016; Trinh and Le, 2019), their ability to generate factually correct text is quite limited. The clearest limitation of existing language models is that they, at best, can only memorize facts observed during"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1297,
+                    915,
+                    2160,
+                    1140
+                ],
+                "angle": 0,
+                "content": "[Super Mario Land] is a [1989] [side-Scrolling] [platform video game] developed and published by [Nintendo] as a [launch title] for their [Game Boy] [handheld game console]."
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    1314,
+                    1157,
+                    2148,
+                    1543
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 1: Linked WikiText-2 Example. A localized knowledge graph containing facts that are (possibly) conveyed in the sentence above. The graph is built by iteratively linking each detected entity to Wikidata, then adding any relations to previously mentioned entities. Note that not all entities are connected, potentially due to missing relations in Wikidata."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2059,
+                    2195,
+                    2901
+                ],
+                "angle": 0,
+                "content": "training. For instance, when conditioned on the text at the top of Figure 1, an AWD-LSTM language model (Merit et al., 2018) trained on Wikitext-2 assigns higher probability to the word \"PlayStation\" than \"Game Boy\", even though this sentence appears verbatim in the training data. This is not surprising—existing models represent the distribution over the entire vocabulary directly, whether they are common words, references to real world entities, or factual information like dates and numbers. As a result, language models are unable to generate factually correct sentences, do not generalize to rare/unseen entities, and often omit rare tokens from the vocabulary (instead generating UNKNOWN tokens)."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2911,
+                    2193,
+                    3195
+                ],
+                "angle": 0,
+                "content": "We introduce the knowledge graph language model (KGLM), a neural language model with mechanisms for selecting and copying information from an external knowledge graph. The KGLM maintains a dynamically growing local knowledge"
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    342,
+                    3139,
+                    1066,
+                    3188
+                ],
+                "angle": 0,
+                "content": "\\(^{1}\\)https://rloganiv.github.io/linked-wikitext-2"
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "5962"
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    416,
+                    3301,
+                    2054,
+                    3399
+                ],
+                "angle": 0,
+                "content": "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics, pages 5962-5971 Florence, Italy, July 28 - August 2, 2019. ©2019 Association for Computational Linguistics"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    266,
+                    1223,
+                    831
+                ],
+                "angle": 0,
+                "content": "graph, a subset of the knowledge graph that contains entities that have already been mentioned in the text, and their related entities. When generating entity tokens, the model either decides to render a new entity that is absent from the local graph, thereby growing the local knowledge graph, or to render a fact from the local graph. When rendering, the model combines the standard vocabulary with tokens available in the knowledge graph, thus supporting numbers, dates, and other rare tokens."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    845,
+                    1220,
+                    1410
+                ],
+                "angle": 0,
+                "content": "Figure 1 illustrates how the KGLM works. Initially, the graph is empty and the model uses the entity Super Mario Land to render the first three tokens, thus adding it and its relations to the local knowledge graph. After generating the next two tokens (\"is\", \"a\") using the standard language model, the model selects Super Mario Land as the parent entity, Publication Date as the relation to render, and copies one of the tokens of the date entity as the token (\"1989\" in this case)."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1427,
+                    1220,
+                    2273
+                ],
+                "angle": 0,
+                "content": "To facilitate research on knowledge graph-based language modeling, we collect the distantly supervised Linked WikiText-2 dataset. The underlying text closely matches WikiText-2 (Merit et al., 2017), a popular benchmark for language modeling, allowing comparisons against existing models. The tokens in the text are linked to entities in Wikidata (Vrandecic and Krötzsch, 2014) using a combination of human-provided links and off-the-shelf linking and coreference models. We also use relations between these entities in Wikidata to construct plausible reasons for why an entity may have been mentioned: it could either be related to an entity that is already mentioned (including itself) or a brand new, unrelated entity for the document."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2287,
+                    1223,
+                    3195
+                ],
+                "angle": 0,
+                "content": "We train and evaluate the KGLM on Linked WikiText-2. When compared against AWD-LSTM, a recent and performant language model, KGLM obtains not only a lower overall perplexity, but also a substantially lower unknown-penalized perplexity (Ueberla, 1994; Ahn et al., 2016), a metric that allows fair comparisons between models that accurately model rare tokens and ones that predict them to be unknown. We also compare factual completion capabilities of these models, where they predict the next word after a factual sentence (e.g., \"Barack is married to \") and show that KGLM is significantly more accurate. Lastly, we show that the model is able to generate accurate facts for rare entities, and can be controlled via modifications the knowledge graph."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    263,
+                    2126,
+                    322
+                ],
+                "angle": 0,
+                "content": "2 Knowledge Graph Language Model"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    350,
+                    2195,
+                    522
+                ],
+                "angle": 0,
+                "content": "In this section we introduce a language model that is conditioned on an external, structured knowledge source, which it uses to generate factual text."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    557,
+                    1942,
+                    610
+                ],
+                "angle": 0,
+                "content": "2.1 Problem Setup and Notation"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    627,
+                    2198,
+                    1080
+                ],
+                "angle": 0,
+                "content": "A language model defines a probability distribution over each token within a sequence, conditioned on the sequence of tokens observed so far. We denote the random variable representing the next token as \\( x_{t} \\) and the sequence of the tokens before \\( t \\) as \\( x_{<t} \\), i.e. language models compute \\( p(x_{t}|x_{<t}) \\). RNN language models (Mikolov et al., 2010) parameterize this distribution using a recurrent structure:"
+            },
+            {
+                "block_id": 8,
+                "type": "equation",
+                "bbox": [
+                    1396,
+                    1115,
+                    2193,
+                    1241
+                ],
+                "angle": 0,
+                "content": "\\[\n\\begin{array}{l} p \\left(x _ {t} \\mid x _ {<   t}\\right) = \\operatorname {s o f t m a x} \\left(\\mathbf {W} _ {h} \\mathbf {h} _ {t} + \\mathbf {b}\\right), \\tag {1} \\\\ \\mathbf {h} _ {t} = \\mathrm {R N N} (\\mathbf {h} _ {t - 1}, \\mathbf {x} _ {t - 1}). \\\\ \\end{array}\n\\]"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1276,
+                    2195,
+                    1389
+                ],
+                "angle": 0,
+                "content": "We use LSTMs (Hochreiter and Schmidhuber, 1997) as the recurrent module in this paper."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1392,
+                    2198,
+                    2181
+                ],
+                "angle": 0,
+                "content": "A knowledge graph (KG) is a directed, labeled graph consisting of entities \\(\\mathcal{E}\\) as nodes, with edges defined over a set of relations \\(\\mathcal{R}\\), i.e. \\(\\mathcal{KG} = \\{(p,r,e) \\mid p \\in \\mathcal{E}, r \\in \\mathcal{R}, e \\in \\mathcal{E}\\}\\), where \\(p\\) is a parent entity with relation \\(r\\) to another entity \\(e\\). Practical KGs have other aspects that make this formulation somewhat inexact: some relations are to literal values, such as numbers and dates, facts may be expressed as properties on relations, and entities have aliases as the set of strings that can refer to the entity. We also define a local knowledge graph for a subset of entities \\(\\mathcal{E}_{<t}\\) as \\(\\mathcal{KG}_{<t} = \\{(p,r,e) \\mid p \\in \\mathcal{E}_{<t}, r \\in \\mathcal{R}, e \\in \\mathcal{E}\\}\\), i.e. contains entities \\(\\mathcal{E}_{<t}\\) and all facts they participate in."
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2217,
+                    2024,
+                    2273
+                ],
+                "angle": 0,
+                "content": "2.2 Generative KG Language Model"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2290,
+                    2198,
+                    2908
+                ],
+                "angle": 0,
+                "content": "The primary goal of the knowledge graph language model (KGLM) is to enable a neural language model to generate entities and facts from a knowledge graph. To encourage the model to generate facts that have appeared in the context already, KGLM will maintain a local knowledge graph containing all facts involving entities that have appeared in the context. As the model decides to refer to entities that have not been referred to yet, it will grow the local knowledge graph with additional entities and facts to reflect the new entity."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2911,
+                    2195,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Formally, we will compute \\( p(x_{t}, \\mathcal{E}_{t} | x_{<t}, \\mathcal{E}_{<t}) \\) where \\( x_{<t} \\) is the sequence of observed tokens, \\( \\mathcal{E}_{<t} \\) is the set of entities mentioned in \\( x_{<t} \\), and \\( \\mathcal{KG}_{<t} \\) is the local knowledge graph determined by \\( \\mathcal{E}_{<t} \\), as described above. The generative process is:"
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "5963"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    357,
+                    277,
+                    2128,
+                    326
+                ],
+                "angle": 0,
+                "content": "Super Mario Land is a 1989 side- scrolling platform video game developed and published by Nintendo"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    344,
+                    364,
+                    2153,
+                    1203
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 2: KGLM Illustration. When trying to generate the token following \"published by\", the model first decides the type of the mention \\((t_{t})\\) to be a related entity (darker indicates higher probability), followed by identifying the parent \\((p_{t})\\), relation \\((r_{t})\\), and entity to render \\((e_{t})\\) from the local knowledge graph as (Super Mario Land, Publisher, Nintendo). The final distribution over the words includes the standard vocabulary along with aliases of Nintendo, and the model selects \"Nintendo\" as the token \\(x_{t}\\). Facts related to Nintendo will be added to the local graph."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    305,
+                    1589,
+                    1213,
+                    1813
+                ],
+                "angle": 0,
+                "content": "- Decide the type of \\( x_{t} \\), which we denote by \\( t_{t} \\): whether it is a reference to an entity in \\( \\mathcal{K}\\mathcal{G}_{< t} \\) (related), a reference to an entity not in \\( \\mathcal{K}\\mathcal{G}_{< t} \\) (new), or not an entity mention \\( (\\emptyset) \\)."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    305,
+                    1817,
+                    1210,
+                    1918
+                ],
+                "angle": 0,
+                "content": "- If \\( t_t = \\) new then choose the upcoming entity \\( e_t \\) from the set of all entities \\( \\mathcal{E} \\)."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    307,
+                    1929,
+                    724,
+                    1978
+                ],
+                "angle": 0,
+                "content": "- If \\( t_t = \\) related then:"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    305,
+                    1589,
+                    1213,
+                    1978
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    396,
+                    1985,
+                    1094,
+                    2038
+                ],
+                "angle": 0,
+                "content": "- Choose a parent entity \\( p_t \\) from \\( \\mathcal{E}_{<t} \\)."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    396,
+                    2041,
+                    1133,
+                    2150
+                ],
+                "angle": 0,
+                "content": "- Choose a factual relation \\( r_t \\) to render, \\( r_t \\in \\{(p, r, e) \\in \\mathcal{KG}_{<t} | p = p_t\\} \\)."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    396,
+                    2153,
+                    1101,
+                    2266
+                ],
+                "angle": 0,
+                "content": "- Choose \\( e_t \\) as one of the tail entities, \\( e_t \\in \\{e | (p_t, r_t, e) \\in \\mathcal{KG}_{<t}\\} \\)."
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    396,
+                    1985,
+                    1133,
+                    2266
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    307,
+                    2269,
+                    746,
+                    2318
+                ],
+                "angle": 0,
+                "content": "- If \\( t_t = \\emptyset \\) then \\( e_t = \\emptyset \\)."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    305,
+                    2325,
+                    1215,
+                    2431
+                ],
+                "angle": 0,
+                "content": "- Generate \\( x_{t} \\) conditioned on \\( e_{t} \\), potentially copying one of \\( e_{t} \\)'s aliases."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    305,
+                    2434,
+                    1091,
+                    2550
+                ],
+                "angle": 0,
+                "content": "- If \\( e_t \\notin \\mathcal{E}_{<t} \\), then \\( \\mathcal{E}_{<(t+1)} \\gets \\mathcal{E}_{<t} \\cup \\{e_t\\} \\), else \\( \\mathcal{E}_{<(t+1)} \\gets \\mathcal{E}_{<t} \\)."
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    305,
+                    2269,
+                    1215,
+                    2550
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2560,
+                    1215,
+                    2729
+                ],
+                "angle": 0,
+                "content": "For the model to refer to an entity it has already mentioned, we introduce a Reflexive relation that self-relates, i.e. \\( p = e \\) for \\( (p, \\text{Reflexive}, e) \\)."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2739,
+                    1218,
+                    3188
+                ],
+                "angle": 0,
+                "content": "An illustration of this process and the variables is provided in Figure 2, for generating a token in the middle of the same sentence as in Figure 1. Amongst the three mention types \\((t_{t})\\), the model chooses a reference to existing entity, which requires picking a fact to render. As the parent entity of this fact \\((p_{t})\\), the model picks Super Mario Land, and then follows the Publisher relation \\((r_{t})\\) to se"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1589,
+                    2195,
+                    1869
+                ],
+                "angle": 0,
+                "content": "lect Nintendo as the entity to render \\((e_t)\\). When rendering Nintendo as a token \\(x_t\\), the model has an expanded vocabulary available to it, containing the standard vocabulary along with all word types in any of the aliases of \\(e_t\\)."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1894,
+                    2198,
+                    2402
+                ],
+                "angle": 0,
+                "content": "Marginalizing out the KG There is a mismatch between our initial task requirement, \\( p(x_{t}|x_{<t}) \\), and the model we describe so far, which computes \\( p(x_{t},\\mathcal{E}_{t}|x_{<t},\\mathcal{E}_{<t}) \\). We will essentially marginalize out the local knowledge graph to compute the probability of the tokens, i.e. \\( p(\\mathbf{x}) = \\sum_{\\mathcal{E}}p(\\mathbf{x},\\mathcal{E}) \\). We will clarify this, along with describing the training and the inference/decoding algorithms for this model and other details of the setup, in Section 4."
+            },
+            {
+                "block_id": 19,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2462,
+                    2024,
+                    2515
+                ],
+                "angle": 0,
+                "content": "2.3 Parameterizing the Distributions"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2546,
+                    2195,
+                    3055
+                ],
+                "angle": 0,
+                "content": "The parametric distributions used in the generative process above are defined as follows. We begin by computing the hidden state \\(\\mathbf{h}_t\\) using the formula in Eqn (1). We then split the vector into three components: \\(\\mathbf{h}_t = [\\mathbf{h}_{t,x};\\mathbf{h}_{t,p};\\mathbf{h}_{t,r}]\\), which are respectively used to predict words, parents, and relations. The type of the token, \\(t_t\\), is computed using a single-layer softmax over \\(\\mathbf{h}_{t,x}\\) to predict one of \\(\\{\\text{new}, \\text{related}, \\emptyset\\}\\)."
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    3080,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Picking an Entity We also introduce pretrained embeddings for all entities and relations in the"
+            },
+            {
+                "block_id": 22,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "5964"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    266,
+                    1215,
+                    431
+                ],
+                "angle": 0,
+                "content": "knowledge graph, denoted by \\(\\mathbf{v}_e\\) for entity \\(e\\) and \\(\\mathbf{v}_r\\) for relation \\(r\\). To select \\(e_t\\) from all entities in case \\(t_t = \\mathrm{new}\\), we use:"
+            },
+            {
+                "block_id": 1,
+                "type": "equation",
+                "bbox": [
+                    416,
+                    477,
+                    1086,
+                    540
+                ],
+                "angle": 0,
+                "content": "\\[\np (e _ {t}) = \\mathrm {s o f t m a x} (\\mathbf {v} _ {e} \\cdot (\\mathbf {h} _ {t, p} + \\mathbf {h} _ {t, r}))\n\\]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    575,
+                    1215,
+                    919
+                ],
+                "angle": 0,
+                "content": "over all \\( e \\in \\mathcal{E} \\). The reason we add \\( \\mathbf{h}_{t,p} \\) and \\( \\mathbf{h}_{t,r} \\) is to mimic the structure of TransE, which we use to obtain entity and relation embeddings. Details on TransE will be provided in Section 4. For mention of a related entity, \\( t_t = \\) related, we pick a parent entity \\( p_t \\) using"
+            },
+            {
+                "block_id": 3,
+                "type": "equation",
+                "bbox": [
+                    496,
+                    957,
+                    1009,
+                    1020
+                ],
+                "angle": 0,
+                "content": "\\[\np (p _ {t}) = \\mathrm {s o f t m a x} (\\mathbf {v} _ {p} \\cdot \\mathbf {h} _ {t, p})\n\\]"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1055,
+                    1133,
+                    1112
+                ],
+                "angle": 0,
+                "content": "over all \\(p \\in \\mathcal{E}_t\\), then pick the relation \\(r_t\\) using"
+            },
+            {
+                "block_id": 5,
+                "type": "equation",
+                "bbox": [
+                    498,
+                    1154,
+                    1004,
+                    1217
+                ],
+                "angle": 0,
+                "content": "\\[\np (r _ {t}) = \\mathrm {s o f t m a x} (\\mathbf {v} _ {r} \\cdot \\mathbf {h} _ {t, r})\n\\]"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1252,
+                    1218,
+                    1480
+                ],
+                "angle": 0,
+                "content": "over all \\( r \\in \\{r | (p_t, r, e) \\in \\mathcal{K}\\mathcal{G}_t\\} \\). The combination of \\( p_t \\) and \\( r_t \\) determine the entity \\( e_t \\) (which must satisfy \\( (p_t, r_t, e_t) \\in \\mathcal{K}\\mathcal{G}_t \\); if there are multiple options one is chosen at random)."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1497,
+                    1215,
+                    2174
+                ],
+                "angle": 0,
+                "content": "Rendering the Entity If \\( e_t = \\emptyset \\), i.e. there is no entity to render, we use the same distribution over the vocabulary as in Eqn (1) - a softmax using \\( \\mathbf{h}_{t,x} \\). If there is an entity to render, we construct the distribution over the original vocabulary and a vocabulary containing all the tokens that appear in aliases of \\( e_t \\). This distribution is conditioned on \\( e_t \\) in addition to \\( x_t \\). To compute the scores over the original vocabulary, \\( \\mathbf{h}_{t,x} \\) is replaced by \\( \\mathbf{h}_{t,x}' = \\mathbf{W}_{\\mathrm{proj}}[\\mathbf{h}_{t,x}; \\mathbf{v}_{e_t}] \\) where \\( \\mathbf{W}_{\\mathrm{proj}} \\) is a learned weight matrix that projects the concatenated vector into the same vector space as \\( \\mathbf{h}_{t,x} \\)."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2174,
+                    1215,
+                    2459
+                ],
+                "angle": 0,
+                "content": "To obtain probabilities for words in the alias vocabulary, we use a copy mechanism Gu et al. (2016). The token sequences comprising each alias \\(\\{a_{j}\\}\\) are embedded then encoded using an LSTM to form vectors \\(\\mathbf{a}_{j}\\). Copy scores are computed as:"
+            },
+            {
+                "block_id": 9,
+                "type": "equation",
+                "bbox": [
+                    342,
+                    2490,
+                    1156,
+                    2592
+                ],
+                "angle": 0,
+                "content": "\\[\np (x _ {t} = a _ {j}) \\propto \\exp \\left[ \\sigma \\left(\\left(\\mathbf {h} _ {t, x} ^ {\\prime}\\right) ^ {T} \\mathbf {W} _ {\\mathrm {c o p y}}\\right) \\mathbf {a} _ {j} \\right]\n\\]"
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2708,
+                    761,
+                    2760
+                ],
+                "angle": 0,
+                "content": "3 Linked WikiText-2"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2795,
+                    1218,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Modeling aside, one of the primary barriers to incorporating factual knowledge into language models is that training data is hard to obtain. Standard language modeling corpora consist only of text, and thus are unable to describe which entities or facts each token is referring to. In contrast, while relation extraction datasets link text to a knowledge"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    266,
+                    2198,
+                    884
+                ],
+                "angle": 0,
+                "content": "graph, the text is made up of disjoint sentences that do not provide sufficient context to train a powerful language model. Our goals are much more aligned to the data-to-text task (Ahn et al., 2016; Lebret et al., 2016; Wiseman et al., 2017; Yang et al., 2017; Gardent et al., 2017; Ferreira et al., 2018), where a small table-sized KB is provided to generate a short piece of text; we are interested in language models that dynamically decide the facts to incorporate from the knowledge graph, guided by the discourse."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    894,
+                    2200,
+                    1852
+                ],
+                "angle": 0,
+                "content": "For these reasons we introduce the Linked WikiText-2 dataset, consisting of (approximately) the same articles appearing in the WikiText-2 language modeling corpus, but linked to the Wikidata (Vrandecić and Krötzsch, 2014) knowledge graph. Because the text closely matches, models trained on Linked WikiText-2 can be compared to models trained on WikiText-2. Furthermore, because many of the facts in Wikidata are derived from Wikipedia articles, the knowledge graph has a good coverage of facts expressed in the text. The dataset is available for download at: https://rloganiv.github.io/linked-wikitext-2. Our system annotates one document at a time, and consists of entity linking, relation annotations, and post-processing. The following paragraphs describe each step in detail."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1876,
+                    2198,
+                    2725
+                ],
+                "angle": 0,
+                "content": "Initial entity annotations We begin by identifying an initial set of entity mentions within the text. The primary source of these mentions is the human-provided links between Wikipedia articles. Whenever a span of text is linked to another Wikipedia article, we associate its corresponding Wikidata entity with the span. While article links provide a large number of gold entity annotations, they are insufficient for capturing all of the mentions in the article since entities are only linked the first time they occur. Accordingly, we use the neural-el (Gupta et al., 2017) entity linker to identify additional links to Wikidata, and identify coreferences using Stanford CoreNLP<sup>2</sup> to cover pronouns, nominals, and other tokens missed by the linker."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2753,
+                    2198,
+                    3087
+                ],
+                "angle": 0,
+                "content": "Local knowledge graph The next step iteratively creates a generative story for the entities using relations in the knowledge graph as well as identifies new entities. To do this, we process the text token by token. Each time an entity is encountered, we add all of the related entities in Wikidata as candi"
+            },
+            {
+                "block_id": 16,
+                "type": "page_footnote",
+                "bbox": [
+                    1319,
+                    3136,
+                    1997,
+                    3192
+                ],
+                "angle": 0,
+                "content": "\\(^{2}\\)https://stanfordnlp.github.io/CoreNLP/"
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "5965"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    325,
+                    252,
+                    2165,
+                    845
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Tokens</td><td>xt</td><td colspan=\"9\">Super Mario Land is a 1989 side - scrolling platform video game developed</td></tr><tr><td>Mention type</td><td>tt</td><td>new</td><td>∅</td><td>∅</td><td>related</td><td>new</td><td>related</td><td>∅</td><td></td><td></td></tr><tr><td>Entity Mentioned</td><td>et</td><td>SML</td><td>∅</td><td>∅</td><td>04-21-1989</td><td>SIDE_SCROLL</td><td>PVG</td><td>∅</td><td></td><td></td></tr><tr><td>Relation</td><td>rt</td><td>∅</td><td>∅</td><td>∅</td><td>pub date</td><td>∅</td><td>genre</td><td>∅</td><td></td><td></td></tr><tr><td>Parent Entity</td><td>pt</td><td>∅</td><td>∅</td><td>∅</td><td>SML</td><td>∅</td><td>SML</td><td>∅</td><td></td><td></td></tr><tr><td colspan=\"2\">xt and published by</td><td colspan=\"9\">Nintendo as a launch title for their Game Boy</td></tr><tr><td>tt</td><td>∅</td><td>∅</td><td>related</td><td>∅</td><td>new</td><td>∅</td><td>related</td><td>related</td><td>∅</td><td></td></tr><tr><td>et</td><td>∅</td><td>∅</td><td>NIN</td><td>∅</td><td>LT</td><td>∅</td><td>GAME_BOY</td><td>HGC</td><td>∅</td><td></td></tr><tr><td>rt</td><td>∅</td><td>∅</td><td>pub</td><td>∅</td><td>∅</td><td>∅</td><td>R:manu / platform</td><td>instance of</td><td>∅</td><td></td></tr><tr><td>pt</td><td>∅</td><td>∅</td><td>SML</td><td>∅</td><td>∅</td><td>∅</td><td>NIN / SML</td><td>GAME_BOY</td><td>∅</td><td></td></tr></table>",
+                "caption": "Table 1: Example Annotation of the sentence from Figure 1, including corresponding variables from Figure 2. Note that Game Boy has multiple parent and relation annotations, as the platform for Super Mario Land and as manufactured by Nintendo. Wikidata identifiers are made human-readable (e.g., SML is Q647249) for clarity."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1122,
+                    1218,
+                    1403
+                ],
+                "angle": 0,
+                "content": "dates for matching. If one of these related entities is seen later in the document, we identify the entity as a parent for the later entity. Since multiple relations may appear as explanations for each token, we allow a token to have multiple facts."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1424,
+                    1215,
+                    2273
+                ],
+                "angle": 0,
+                "content": "Expanding the annotations Since there may be entities that were missed in the initial set, as well as non-entity tokens of interest such as dates and quantities we further expand the entity annotations using string matching. For entities, we match the set of aliases provided in Wikidata. For dates, we create an exhaustive list of all of the possible ways of expressing the date (e.g. \"December 7, 1941\", \"7-12-1941\", \"1941\", ...). We perform a similar approach for quantities, using the pint library in Python to handle the different ways of expressing units (e.g. \"g\", \"gram\", ...). Since there are many ways to express a numerical quantity, we only render the quantity at the level of precision supplied by Wikidata, and do not perform unit conversions."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2287,
+                    1225,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Example Annotation An example annotation is provided in Table 1 corresponding to the instance in Figure 1, along with the variables that correspond to the generative process of the knowledge graph language model (KGLM). The entity mentioned for most tokens here are human-provided links, apart from \"1989\" that is linked to 04-21-1989 by the string matching process. The annotations indicate which of the entities are new and related based on whether they are reachable by entities linked so far, clearly making a mistake for side-scrolling game and platform video game due to missing links in Wikidata. Finally, multiple plausible reasons for Game Boy are included: it's the platform for Super Mario Land and it is manufactured by Nintendo, even though only the former is more relevant here."
+            },
+            {
+                "block_id": 5,
+                "type": "table",
+                "bbox": [
+                    1302,
+                    1112,
+                    2170,
+                    1508
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>Train</td><td>Dev</td><td>Test</td></tr><tr><td>Documents</td><td>600</td><td>60</td><td>60</td></tr><tr><td>Tokens</td><td>2,019,195</td><td>207,982</td><td>236,062</td></tr><tr><td>Vocab. Size</td><td>33,558</td><td>-</td><td>-</td></tr><tr><td>Mention Tokens</td><td>207,803</td><td>21,226</td><td>24,441</td></tr><tr><td>Mention Spans</td><td>122,983</td><td>12,214</td><td>15,007</td></tr><tr><td>Unique Entities</td><td>41,058</td><td>5,415</td><td>5,625</td></tr><tr><td>Unique Relations</td><td>1,291</td><td>484</td><td>504</td></tr></table>",
+                "caption": "Table 2: Linked WikiText-2 Corpus Statistics."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1683,
+                    2198,
+                    1911
+                ],
+                "angle": 0,
+                "content": "Even with these omissions and mistakes, it is clear that the annotations are rich and detailed, with a high coverage, and thus should prove beneficial for training knowledge graph language models."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1929,
+                    2200,
+                    2550
+                ],
+                "angle": 0,
+                "content": "Dataset Statistics Statistics for Linked WikiText-2 are provided in Table 2. In this corpus, more than \\(10\\%\\) of the tokens are considered entity tokens, i.e. they are generated as factual references to information in the knowledge graph. Each entity is only mentioned a few times (less than 5 on average, with a long tail), and with more than thousand different relations. Thus it is clear that regular language models would not be able to generate factual text, and there is a need for language models to be able to refer to external sources of information."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2571,
+                    2200,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Differences from WikiText-2 Although our dataset is designed to closely replicate WikiText-2, there are some differences that prevent direct comparison. Firstly, there are minor variations in text across articles due to edits between download dates. Secondly, according to correspondence with Merity et al. (2017), WikiText-2 was collected by querying the Wikipedia Text API. Because this API discards useful annotation information (e.g. article links), Linked WikiText-2 instead was created by directly from the article HTML."
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1295,
+                    3279
+                ],
+                "angle": 0,
+                "content": "5966"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    287,
+                    263,
+                    1116,
+                    319
+                ],
+                "angle": 0,
+                "content": "4 Training and Inference for KGLM"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    350,
+                    1218,
+                    463
+                ],
+                "angle": 0,
+                "content": "In this section, we describe the training and inference algorithm for KGLM."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    480,
+                    1215,
+                    877
+                ],
+                "angle": 0,
+                "content": "Pretrained KG Embeddings During evaluation, we may need to make predictions on entities and relations that have not been seen during training. Accordingly, we use fixed entity and relations embeddings pre-trained using TransE (Bordes et al., 2013) on Wikidata. Given \\((p,r,e)\\), we learn embeddings \\(\\mathbf{v}_p\\), \\(\\mathbf{v}_r\\) and \\(\\mathbf{v}_e\\) to minimize the distance:"
+            },
+            {
+                "block_id": 3,
+                "type": "equation",
+                "bbox": [
+                    424,
+                    915,
+                    1079,
+                    985
+                ],
+                "angle": 0,
+                "content": "\\[\n\\delta (\\mathbf {v} _ {p}, \\mathbf {v} _ {r}, \\mathbf {v} _ {e}) = \\| \\mathbf {v} _ {p} + \\mathbf {v} _ {r} - \\mathbf {v} _ {e} \\| ^ {2}.\n\\]"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1024,
+                    1218,
+                    1080
+                ],
+                "angle": 0,
+                "content": "We use a max-margin loss to learn the embeddings:"
+            },
+            {
+                "block_id": 5,
+                "type": "equation",
+                "bbox": [
+                    295,
+                    1119,
+                    1205,
+                    1189
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathcal {L} = \\max \\left(0, \\gamma + \\delta \\left(\\mathbf {v} _ {p}, \\mathbf {v} _ {r}, \\mathbf {v} _ {e}\\right) - \\delta \\left(\\mathbf {v} _ {p} ^ {\\prime}, \\mathbf {v} _ {r}, \\mathbf {v} _ {e} ^ {\\prime}\\right)\\right)\n\\]"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1224,
+                    1215,
+                    1336
+                ],
+                "angle": 0,
+                "content": "where \\(\\gamma\\) is the margin, and either \\(p'\\) or \\(e'\\) is a randomly chosen entity embedding."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1357,
+                    1220,
+                    1634
+                ],
+                "angle": 0,
+                "content": "Training with Linked WikiText-2 Although the generative process in KGLM involves many steps, training the model on Linked WikiText-2 is straightforward. Our loss objective is the negative log-likelihood of the training data:"
+            },
+            {
+                "block_id": 8,
+                "type": "equation",
+                "bbox": [
+                    399,
+                    1676,
+                    1099,
+                    1785
+                ],
+                "angle": 0,
+                "content": "\\[\n\\ell (\\Theta) = \\sum_ {t} \\log p (x _ {t}, \\mathcal {E} _ {t} | x _ {<   t}, \\mathcal {E} _ {<   t}; \\Theta),\n\\]"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1827,
+                    1218,
+                    2160
+                ],
+                "angle": 0,
+                "content": "where \\(\\Theta\\) is the set of model parameters. Note that if an annotation has multiple viable parents such as Game Boy in 1, then we marginalize over all of the parents. Since all random variables are observed, training can be performed using off-the-shelf gradient-based optimizers."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2181,
+                    1220,
+                    2862
+                ],
+                "angle": 0,
+                "content": "Inference While observing annotations makes the model easy to train, we do not assume that the model has access to annotations during evaluation. Furthermore, as discussed in Section 2.2, the goal in language modelling is to measure the marginal probability \\( p(\\mathbf{x}) = \\sum_{\\mathbf{\\varepsilon}} p(\\mathbf{x}, \\mathbf{\\varepsilon}) \\) not the joint probability. However, this sum is intractable to compute due to the large combinatorial space of possible annotations. We address this problem by approximating the marginal distribution using importance sampling. Given samples from a proposal distribution \\( q(\\mathcal{E}|\\mathbf{x}) \\) the marginal distribution is:"
+            },
+            {
+                "block_id": 11,
+                "type": "equation",
+                "bbox": [
+                    342,
+                    2897,
+                    1153,
+                    3181
+                ],
+                "angle": 0,
+                "content": "\\[\n\\begin{array}{l} p (\\mathbf {x}) = \\sum_ {\\boldsymbol {\\varepsilon}} p (\\mathbf {x}, \\boldsymbol {\\mathcal {E}}) = \\sum_ {\\boldsymbol {\\varepsilon}} \\frac {p (\\mathbf {x} , \\boldsymbol {\\mathcal {E}})}{q (\\boldsymbol {\\mathcal {E}} | \\mathbf {x})} q (\\boldsymbol {\\mathcal {E}} | \\mathbf {x}) \\\\ \\approx \\frac {1}{N} \\sum_ {\\pmb {\\varepsilon} \\sim q} \\frac {p \\left(\\mathbf {x} , \\pmb {\\varepsilon}\\right)}{q \\left(\\pmb {\\varepsilon} | \\mathbf {x}\\right)} \\\\ \\end{array}\n\\]"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    263,
+                    2198,
+                    543
+                ],
+                "angle": 0,
+                "content": "This approach is used to evaluate models in Ji et al. (2017) and Dyer et al. (2016). Following Ji et al. (2017), we compute \\( q(\\mathcal{E}|\\mathbf{x}) \\) using a discriminative version of our model that predicts annotations for the current token instead of for the next token."
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    592,
+                    1630,
+                    648
+                ],
+                "angle": 0,
+                "content": "5 Experiments"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    743,
+                    2198,
+                    1024
+                ],
+                "angle": 0,
+                "content": "To evaluate the proposed language model, we first introduce the baselines, followed by an evaluation using perplexity of held-out corpus, accuracy on fact completion, and an illustration of how the model uses the knowledge graph."
+            },
+            {
+                "block_id": 15,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1066,
+                    1721,
+                    1122
+                ],
+                "angle": 0,
+                "content": "5.1 Evaluation Setup"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1157,
+                    2198,
+                    1266
+                ],
+                "angle": 0,
+                "content": "Baseline Models We compare KGLM to the following baseline models:"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1273,
+                    2193,
+                    1434
+                ],
+                "angle": 0,
+                "content": "- AWD-LSTM (Merit et al., 2018): strong LSTM-based model used as the foundation of most state-of-the-art models on WikiText-2."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1441,
+                    2193,
+                    1715
+                ],
+                "angle": 0,
+                "content": "- ENTITYNLM (Ji et al., 2017): an LSTM-based language model with the ability to track entity mentions. Embeddings for entities are created dynamically, and are not informed by any external sources of information."
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1725,
+                    2188,
+                    1943
+                ],
+                "angle": 0,
+                "content": "- EntityCopyNet: a variant of the KGLM where \\( t_{t} = \\) new for all mentions, i.e. entities are selected from \\( \\mathcal{E} \\) and entity aliases are copied, but relations in the knowledge graph are unused."
+            },
+            {
+                "block_id": 20,
+                "type": "list",
+                "bbox": [
+                    1262,
+                    1273,
+                    2193,
+                    1943
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2024,
+                    2198,
+                    2869
+                ],
+                "angle": 0,
+                "content": "Hyperparameters We pre-train 256 dimensional entity and relation embeddings for all entities within two hops of the set of entities that occur in Linked WikiText-2 using TransE with margin \\(\\gamma = 1\\). Weights are tied between all date embeddings and between all quantity embeddings to save memory. Following Merity et al. (2018) we use 400 dimensional word embeddings and a 3 layer LSTM with hidden dimension 1150 to encode tokens. We also employ the same regularization strategy (DropConnect (Wan et al., 2013) + Dropout(Srivastava et al., 2014)) and weight tying approach. However, we perform optimization using Adam (Kingma and Ba, 2015) with learning rate 1e-3 instead of NT-ASGD, having found that it is more stable."
+            },
+            {
+                "block_id": 22,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2911,
+                    1528,
+                    2964
+                ],
+                "angle": 0,
+                "content": "5.2 Results"
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    3006,
+                    2198,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Perplexity We evaluate our model using the standard perplexity metric: \\(\\exp \\left(\\frac{1}{T}\\sum_{t=1}^{T}\\log p(x_t)\\right)\\). However, perplexity suffers from the issue that it"
+            },
+            {
+                "block_id": 24,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "5967"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    339,
+                    252,
+                    1171,
+                    536
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>PPL</td><td>UPP</td></tr><tr><td>ENTITYNLM* (Ji et al., 2017)</td><td>85.4</td><td>189.2</td></tr><tr><td>EntityCopyNet*</td><td>76.1</td><td>144.0</td></tr><tr><td>AWD-LSTM (Merit et al., 2018)</td><td>74.8</td><td>165.8</td></tr><tr><td>KGLM*</td><td>44.1</td><td>88.5</td></tr></table>",
+                "caption": "Table 3: Perplexity Results on Linked WikiText-2. Results for models marked with * are obtained using importance sampling."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    827,
+                    1223,
+                    1964
+                ],
+                "angle": 0,
+                "content": "overestimates the probability of out-of-vocabulary tokens when they are mapped to a single UNK token. This is problematic for comparing the performance of the KGLM to traditional language models on Linked WikiText-2 since there are a large number of rare entities whose alias tokens are out-of-vocabulary. That is, even if the KGLM identifies the correct entity and copies the correct alias token with high probability, other models can attain better perplexity by assigning a higher probability to UNK. Accordingly, we also measure unknown penalized perplexity (UPP) (a.k.a adjusted perplexity) introduced by Ueberla (1994), and used recently by Ahn et al. (2016) and Spithourakis and Riedel (2018). This metric penalizes the probability of UNK tokens by evenly dividing their probability mass over \\(\\mathcal{U}\\), the set of tokens that get mapped to UNK. We can be compute UPP by replacing \\(p(\\mathrm{UNK})\\) in the perplexity above by \\(\\frac{1}{|\\mathcal{U}|} p(\\mathrm{UNK})\\), where \\(|\\mathcal{U}|\\) is estimated from the data."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1978,
+                    1220,
+                    2652
+                ],
+                "angle": 0,
+                "content": "We present the model perplexities in Table 3. To marginalize over annotations, perplexities for the ENTITY NLM, EntityCopyNet, and KGLM are estimated using the importance sampling approach described in Section 4. We observe that the KGLM attains substantially lower perplexity than the other entity-based language models (44.1 vs. 76.1/85.4), providing strong evidence that leveraging knowledge graphs is crucial for accurate language modeling. Furthermore, KGLM significantly outperforms all models in unknown penalized perplexity, demonstrating its ability to generate rare tokens."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2683,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Fact Completion Since factual text generation is our primary objective, we evaluate the ability of language models to complete sentences with factual information. We additionally compare with the small GPT-2 (Radford et al., 2019), a language model trained on a much larger corpus of text. We select 6 popular relations from Freebase, and write a simple completion template for each, such as “\\(X\\) was born in ______” for the birthplace relation. We"
+            },
+            {
+                "block_id": 5,
+                "type": "table",
+                "bbox": [
+                    1275,
+                    252,
+                    2195,
+                    712
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td rowspan=\"2\">AWD-LSTM</td><td rowspan=\"2\">GPT-2</td><td colspan=\"2\">KGLM</td></tr><tr><td></td><td>Oracle</td><td>NEL</td></tr><tr><td>nation-capital</td><td>0/0</td><td>6/7</td><td>0/0</td><td>0/4</td></tr><tr><td>birthloc</td><td>0/9</td><td>14/14</td><td>94/95</td><td>85/92</td></tr><tr><td>birthdate</td><td>0/25</td><td>8/9</td><td>65/68</td><td>61/67</td></tr><tr><td>spouse</td><td>0/0</td><td>2/3</td><td>2/2</td><td>1/19</td></tr><tr><td>city-state</td><td>0/13</td><td>62/62</td><td>9/59</td><td>4/59</td></tr><tr><td>book-author</td><td>0/2</td><td>0/0</td><td>61/62</td><td>25/28</td></tr><tr><td>Average</td><td>0.0/8.2</td><td>15.3/15.8</td><td>38.5/47.7</td><td>29.3/44.8</td></tr></table>",
+                "caption": "Table 4: Fact Completion. Top- \\(k\\) accuracy (@1/@5,%) for predicting the next token for an incomplete factual sentence. See examples in Table 5."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    985,
+                    2193,
+                    1206
+                ],
+                "angle": 0,
+                "content": "generate sentences for these templates for a number of \\((X,Y)\\) pairs for which the relation holds, and manually examine the first token generated by each language model to determine whether it is correct."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1210,
+                    2195,
+                    1543
+                ],
+                "angle": 0,
+                "content": "Table 4 presents performance of each language model on the relations. The oracle KGLM is given the correct entity annotation for \\( X \\), while the NEL KGLM uses the discriminative model used for importance sampling combined with the NEL entity linker to produce an entity annotation for \\( X \\)."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1547,
+                    2198,
+                    2224
+                ],
+                "angle": 0,
+                "content": "Amongst models trained on the same data, both KGLM variants significantly outperform AWD-LSTM; they produce accurate facts, while AWD-LSTM produced generic, common words. KGLMs are also competitive with models trained on orders of magnitude more data, producing factual completions that require specific knowledge, such as birthplaces, dates, and authors. However, they do not capture facts or relations that frequently appear in large corpora, like the cities within states.<sup>3</sup> It is encouraging to see that the KGLM with automatic linking performs comparably to oracle linking."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2227,
+                    2198,
+                    3069
+                ],
+                "angle": 0,
+                "content": "We provide examples in Table 5 to highlight qualitative differences between KGLM, trained on 600 documents, and the recent state-of-the-art language model, GPT-2, trained on the Text corpus with over 8 million documents (Radford et al., 2019). For examples that both models get factually correct or incorrect, the generated tokens by KGLM are often much more specific, as opposed to selection of more popular/generic tokens (GPT-2 often predicts \"New York\" as the birthplace, even for popular entities). KGLM, in particular, gets factual statements correct when the head or tail entities are rare, while GPT-2 can only complete facts for more-popular entities while using more-generic tokens (such as \"January\" instead of \"20\")."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    1265,
+                    3101,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "This is not a failure of the KG, but of the model's ability to pick the correct relation from the KG given the prompt."
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "5968"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    421,
+                    242,
+                    2059,
+                    827
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>Input Sentence</td><td>Gold</td><td>GPT-2</td><td>KGLM</td></tr><tr><td>Both correct</td><td>Paris Hilton was born in __ \nArnold Schwarzenegger was born on __</td><td>New York City \n1947-07-30</td><td>New \nJuly</td><td>1981 \n30</td></tr><tr><td>KGLM correct</td><td>Bob Dylan was born in __ \nBarack Obama was born on __ \nUlysses is a book that was written by __</td><td>Duluth \n1961-08-04 \nJames Joyce</td><td>New \nJanuary \na</td><td>Duluth \nAugust \nJames</td></tr><tr><td>GPTv2 correct</td><td>St. Louis is a city in the state of __ \nRichard Nixon was born on __ \nKanye West is married to __</td><td>Missouri \n1913-01-09 \nKim Kardashian</td><td>Missouri \nJanuary \nKim</td><td>Oldham \n20 \nthe</td></tr><tr><td>Both incorrect</td><td>The capital of India is __ \nMadonna is married to __</td><td>New Delhi \nCarlos Leon</td><td>the \na</td><td>a \nAlex</td></tr></table>",
+                "caption": "Table 5: Completion Examples. Examples of fact completion by KGLM and GPT-2, which has been trained on a much larger corpus. GPT-2 tends to produce very common and general tokens, such as one of a few popular cities to follow \"born in\". KGLM sometimes makes mistakes in linking to the appropriate fact in the KG, however, the generated facts are more specific and contain rare tokens. We omit AWD-LSTM from this figure as it rarely produced tokens apart from the generic \"the\" or \"a\", or \"\\(\\langle UNK\\rangle\\)\"."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1199,
+                    1223,
+                    2108
+                ],
+                "angle": 0,
+                "content": "Effect of changing the KG For most language models, it is difficult to control their generation since factual knowledge is entangled with generation capabilities of the model. For KGLM, an additional benefit of its use of an external source of knowledge is that KGLM is directly controllable via modifications to the KG. To illustrate this capability with a simple example, we create completion of \"Barack Obama was born on _\" with the original fact (Barack Obama, birthDate, 1961-08-04), resulting in the top three decoded tokens as \"August\", \"4\", \"1961\". After changing the birth date to 2013-03-21, the top three decoded tokens become \"March\", \"21\", \"2013\". Thus, changing the fact in the knowledge graph directly leads to a corresponding change in the model's prediction."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2160,
+                    677,
+                    2213
+                ],
+                "angle": 0,
+                "content": "6 Related Work"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2280,
+                    1215,
+                    2448
+                ],
+                "angle": 0,
+                "content": "Knowledge-based language models Our work draws inspiration from two existing knowledge-based language models:"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2455,
+                    1215,
+                    2844
+                ],
+                "angle": 0,
+                "content": "(i) ENTITYNLM (Ji et al., 2017) which improves a language model's ability to track entities by jointly modeling named entity recognition and coreference. Our model similarly tracks entities through a document, improving its ability to generate factual information by modeling entity linking and relation extraction."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2852,
+                    1220,
+                    3195
+                ],
+                "angle": 0,
+                "content": "(ii) The neural knowledge language model (NKLM) (Ahn et al., 2016) which established the idea of leveraging knowledge graphs in neural language models. The main differentiating factor between the KGLM and NKLM is that the KGLM operates on an entire knowledge graph and can be"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2455,
+                    1220,
+                    3195
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1199,
+                    2200,
+                    1599
+                ],
+                "angle": 0,
+                "content": "evaluated on text without additional conditioning information, whereas the NKLM operates on a relatively smaller set of predefined edges emanating from a single entity, and requires that entity be provided as conditioning information ahead of time. This requirement precludes direct comparison between NKLM and the baselines in Section 5."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1631,
+                    2200,
+                    2595
+                ],
+                "angle": 0,
+                "content": "Data-to-text generation Our work is also related to the task of neural data-to-text generation. For a survey of early non-neural text generation methods we refer the reader to Reiter and Dale (1997). Recent neural methods have been applied to generating text from tables of sports statistics (Wiseman et al., 2017), lists and tables (Yang et al., 2017), and Wikipedia info-boxes (Lebret et al., 2016). The primary difference between these works and ours is our motivation. These works focus on generating coherent text within a narrow domain (e.g. sports, recipes, introductory sentences), and optimize metrics such as BLEU and METEOR score. Our focus instead is to use a large source of structured knowledge to improve language model's ability to handle rare tokens and facts on a broad domain of topics, and our emphasis is on improving perplexity."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2627,
+                    2200,
+                    3195
+                ],
+                "angle": 0,
+                "content": "General language modeling Also related are the recent papers proposing modifications to the AWD-LSTM that improve performance on Wikitext-2 (Gong et al., 2018; Yang et al., 2018; Krause et al., 2018). We chose to benchmark against AWD-LSTM since these contributions are orthogonal, and many of the techniques are compatible with the KGLM. KGLM improves upon AWD-LSTM, and we expect using KGLM in conjunction with these methods will yield further improvement."
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "5969"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    287,
+                    263,
+                    1019,
+                    315
+                ],
+                "angle": 0,
+                "content": "7 Conclusions and Future Work"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    350,
+                    1223,
+                    1473
+                ],
+                "angle": 0,
+                "content": "By relying on memorization, existing language models are unable to generate factually correct text about real-world entities. In particular, they are unable to capture the long tail of rare entities and word types like numbers and dates. In this work, we proposed the knowledge graph language model (KGLM), a neural language model that can access an external source of facts, encoded as a knowledge graph, in order to generate text. Our implementation is available at: https://github.com/rloganiv/kglm-model. We also introduced Linked WikiText-2 containing text that has been aligned to facts in the knowledge graph, allowing efficient training of the model. Linked WikiText-2 is freely available for download at: https://rloganiv.github.io/ linked-wikitext-2. In our evaluation, we showed that by utilizing this graph, the proposed KGLM is able to generate higher-quality, factually correct text that includes mentions of rare entities and specific tokens like numbers and dates."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1480,
+                    1220,
+                    2048
+                ],
+                "angle": 0,
+                "content": "This work lays the groundwork for future research into knowledge-aware language modeling. The limitations of the KGLM model, such as the need for marginalization during inference and reliance on annotated tokens, raise new research problems for advancing neural NLP models. Our distantly supervised approach to dataset creation can be used with other knowledge graphs and other kinds of text as well, providing opportunities for accurate language modeling in new domains."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2087,
+                    719,
+                    2143
+                ],
+                "angle": 0,
+                "content": "Acknowledgements"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2174,
+                    1223,
+                    2799
+                ],
+                "angle": 0,
+                "content": "First and foremost, we would like to thank Stephen Merity for sharing the materials used to collect the WikiText-2 dataset, and Nitish Gupta for modifying his entity linker to assist our work. We would also like to thank Dheeru Dua and Anthony Chen for their thoughtful feedback. This work was supported in part by Allen Institute of Artificial Intelligence (AI2), and in part by NSF award #IIS-1817183. The views expressed are those of the authors and do not reflect the official policy or position of the funding agencies."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    1272,
+                    263,
+                    1515,
+                    312
+                ],
+                "angle": 0,
+                "content": "References"
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    343,
+                    2195,
+                    484
+                ],
+                "angle": 0,
+                "content": "Sungjin Ahn, Heeyoul Choi, Tanel Parnamaa, and Yoshua Bengio. 2016. A neural knowledge language model. ArXiv:1608.00318."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    1275,
+                    522,
+                    2200,
+                    712
+                ],
+                "angle": 0,
+                "content": "Antoine Bordes, Nicolas Usunier, Alberto Garcia-Duran, Jason Weston, and Oksana Yakhnenko. 2013. Translating embeddings for modeling multi-relational data. In Proc. of NeurIPS."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    1275,
+                    750,
+                    2200,
+                    891
+                ],
+                "angle": 0,
+                "content": "Chris Dyer, Adhiguna Kuncoro, Miguel Ballesteros, and Noah A. Smith. 2016. Recurrent neural network grammars. In Proc. of NAACL."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    1275,
+                    929,
+                    2195,
+                    1073
+                ],
+                "angle": 0,
+                "content": "Thiago Castro Ferreira, Diego Moussallem, Emiel Krahmer, and Sander Wubben. 2018. Enriching the WebNLG corpus. In Proc. of INLG."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1112,
+                    2198,
+                    1297
+                ],
+                "angle": 0,
+                "content": "Claire Gardent, Anastasia Shimorina, Shashi Narayan, and Laura Perez-Beltrachini. 2017. The WebNLG challenge: Generating text from RDF data. In Proc. of INLG."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    1275,
+                    1336,
+                    2195,
+                    1480
+                ],
+                "angle": 0,
+                "content": "Chengyue Gong, Di He, Xu Tan, Tao Qin, Liwei Wang, and Tie-Yan Liu. 2018. Frage: frequency-agnostic word representation. In Proc. of NeurIPS."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1275,
+                    1515,
+                    2195,
+                    1659
+                ],
+                "angle": 0,
+                "content": "Jiatao Gu, Zhengdong Lu, Hang Li, and Victor O.K. Li. 2016. Incorporating copying mechanism in sequence-to-sequence learning. In Proc. of ACL."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1275,
+                    1694,
+                    2198,
+                    1838
+                ],
+                "angle": 0,
+                "content": "Nitish Gupta, Sameer Singh, and Dan Roth. 2017. Entity linking via joint encoding of types, descriptions, and context. In Proc. of EMNLP."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1275,
+                    1876,
+                    2200,
+                    2017
+                ],
+                "angle": 0,
+                "content": "Sepp Hochreiter and Jürgen Schmidhuber. 1997. Long short-term memory. Neural computation, 9(8):1735-1780."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1275,
+                    2055,
+                    2195,
+                    2245
+                ],
+                "angle": 0,
+                "content": "Yangfeng Ji, Chenhao Tan, Sebastian Martschat, Yejin Choi, and Noah A. Smith. 2017. Dynamic entity representations in neural language models. In Proc. of EMNLP."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1275,
+                    2280,
+                    2200,
+                    2420
+                ],
+                "angle": 0,
+                "content": "Diederik P. Kingma and Jimmy Ba. 2015. Adam: A method for stochastic optimization. In Proc. of ICLR."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1275,
+                    2462,
+                    2195,
+                    2606
+                ],
+                "angle": 0,
+                "content": "Ben Krause, Emmanuel Kahembwe, Iain Murray, and Steve Renals. 2018. Dynamic evaluation of neural sequence models. In Proc. of ICML."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1275,
+                    2641,
+                    2195,
+                    2827
+                ],
+                "angle": 0,
+                "content": "Rémi Lebret, David Grangier, and Michael Auli. 2016. Neural text generation from structured data with application to the biography domain. In *Proc. of EMNLP*."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1275,
+                    2866,
+                    2195,
+                    3009
+                ],
+                "angle": 0,
+                "content": "Stephen Merity, Nitish Shirish Keskar, and Richard Socher. 2018. Regularizing and optimizing LSTM language models. In Proc. of ICLR."
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    3048,
+                    2195,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Stephen Merity, Caiming Xiong, James Bradbury, and Richard Socher. 2017. Pointer sentinel mixture models. In Proc. of ICLR."
+            },
+            {
+                "block_id": 21,
+                "type": "list",
+                "bbox": [
+                    1272,
+                    343,
+                    2200,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 22,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1295,
+                    3279
+                ],
+                "angle": 0,
+                "content": "5970"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    270,
+                    1215,
+                    456
+                ],
+                "angle": 0,
+                "content": "Tomáš Mikolov, Martin Karafiát, Lukáš Burget, Jan Černocký, and Sanjeev Khudanpur. 2010. Recurrent neural network based language model. In Proc. of INTERSPEECH."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    494,
+                    1220,
+                    680
+                ],
+                "angle": 0,
+                "content": "Alec Radford, Jeff Wu, Rewon Child, David Luan, Dario Amodei, and Ilya Sutskever. 2019. Language models are unsupervised multitask learners. Technical report, OpenAI."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    712,
+                    1220,
+                    852
+                ],
+                "angle": 0,
+                "content": "Ehud Reiter and Robert Dale. 1997. Building applied natural language generation systems. Natural Language Engineering, 3(1):57-87."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    887,
+                    1220,
+                    1073
+                ],
+                "angle": 0,
+                "content": "Iulian V. Serban, Alessandro Sordoni, Yoshua Bengio, Aaron Courville, and Joelle Pineau. 2016. Building end-to-end dialogue systems using generative hierarchical neural network models. In Proc. of AAAI."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1105,
+                    1220,
+                    1290
+                ],
+                "angle": 0,
+                "content": "Georgios P. Spithourakis and Sebastian Riedel. 2018. Numeracy for language models: Evaluating and improving their ability to predict numbers. In Proc. of ACL."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1326,
+                    1220,
+                    1557
+                ],
+                "angle": 0,
+                "content": "Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan Salakhutdinov. 2014. Dropout: a simple way to prevent neural networks from overfitting. The Journal of Machine Learning Research, 15(1):1929-1958."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1592,
+                    1215,
+                    1687
+                ],
+                "angle": 0,
+                "content": "Trieu H. Trinh and Quoc V. Le. 2019. Do language models have common sense? In Proc. of ICLR."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1718,
+                    1215,
+                    1911
+                ],
+                "angle": 0,
+                "content": "Joerg Ueberla. 1994. Analysing a simple language modelA·some general conclusions for language models for speech recognition. Computer Speech & Language, 8(2):153 - 176."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1943,
+                    1220,
+                    2087
+                ],
+                "angle": 0,
+                "content": "Oriol Vinyals and Quoc V. Le. 2015. A neural conversational model. Proc. of ICML Deep Learning Workshop."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2118,
+                    1220,
+                    2259
+                ],
+                "angle": 0,
+                "content": "Denny Vrandecic and Markus Krötzsch. 2014. Wikidata: A free collaborative knowledgebase. Communications of the ACM, 57(10):78-85."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2294,
+                    1220,
+                    2434
+                ],
+                "angle": 0,
+                "content": "Li Wan, Matthew Zeiler, Sixin Zhang, Yann LeCun, and Rob Fergus. 2013. Regularization of neural networks using dropconnect. In Proc. of ICML."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2466,
+                    1220,
+                    2609
+                ],
+                "angle": 0,
+                "content": "Sam Wiseman, Stuart M. Shieber, and Alexander M. Rush. 2017. Challenges in data-to-document generation. In Proc. of EMNLP."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2641,
+                    1220,
+                    2827
+                ],
+                "angle": 0,
+                "content": "Zhilin Yang, Zihang Dai, Ruslan Salakhutdinov, and William W Cohen. 2018. Breaking the softmax bottleneck: A high-rank RNN language model. In Proc. of ICLR."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2862,
+                    1220,
+                    3002
+                ],
+                "angle": 0,
+                "content": "Zichao Yang, Phil Blunsom, Chris Dyer, and Wang Ling. 2017. Reference-aware language models. In Proc. of EMNLP."
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    292,
+                    270,
+                    1220,
+                    3002
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1287,
+                    3276
+                ],
+                "angle": 0,
+                "content": "5971"
+            }
+        ]
+    }
+]

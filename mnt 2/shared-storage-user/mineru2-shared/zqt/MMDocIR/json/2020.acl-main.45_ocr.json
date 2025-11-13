@@ -1,0 +1,2953 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    694,
+                    284,
+                    1793,
+                    350
+                ],
+                "angle": 0,
+                "content": "Dice Loss for Data-imbalanced NLP Tasks"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    347,
+                    438,
+                    2160,
+                    508
+                ],
+                "angle": 0,
+                "content": "Xiaoya Li\\*, Xiaofei Sun\\*, Yuxian Meng\\*, Junjun Liang\\*, Fei Wu\\* and Jiwei Li\\*"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    513,
+                    508,
+                    1984,
+                    564
+                ],
+                "angle": 0,
+                "content": "\\(\\spadesuit\\) Department of Computer Science and Technology, Zhejiang University"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1089,
+                    564,
+                    1384,
+                    617
+                ],
+                "angle": 0,
+                "content": "Shannon.AI"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    379,
+                    624,
+                    2116,
+                    684
+                ],
+                "angle": 0,
+                "content": "{xiaoya_li, xiaofei_sun, yuxian_meng, jiwei_li} \\(@\\) shannonai.com, wufei@cs.zju.edu.cn"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    654,
+                    852,
+                    850,
+                    905
+                ],
+                "angle": 0,
+                "content": "Abstract"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    354,
+                    975,
+                    1153,
+                    1620
+                ],
+                "angle": 0,
+                "content": "Many NLP tasks such as tagging and machine reading comprehension (MRC) are faced with the severe data imbalance issue: negative examples significantly outnumber positive ones, and the huge number of easy-negative examples overwhelms training. The most commonly used cross entropy criteria is actually accuracy-oriented, which creates a discrepancy between training and test. At training time, each training instance contributes equally to the objective function, while at test time F1 score concerns more about positive examples."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    354,
+                    1683,
+                    1151,
+                    2476
+                ],
+                "angle": 0,
+                "content": "In this paper, we propose to use dice loss in replacement of the standard cross-entropy objective for data-imbalanced NLP tasks. Dice loss is based on the Sørensen-Dice coefficient (Sørensen, 1948) or Tversky index (Tversky, 1977), which attaches similar importance to false positives and false negatives, and is more immune to the data-imbalance issue. To further alleviate the dominating influence from easy-negative examples in training, we propose to associate training examples with dynamically adjusted weights to deemphasize easy-negative examples. Experimental results show that this strategy narrows down the gap between the F1 score in evaluation and the dice loss in training."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    354,
+                    2543,
+                    1151,
+                    3185
+                ],
+                "angle": 0,
+                "content": "With the proposed training objective, we observe significant performance boosts over a wide range of data imbalanced NLP tasks. Notably, we are able to achieve SOTA results on CTB5, CTB6 and UD1.4 for the part of speech tagging task, and competitive or even better results on CoNLL03, OntoNotes5.0, MSRA and OntoNotes4.0 for the named entity recognition task along with the machine reading comprehension and paraphrase identification tasks. The code can be found at https://github.com/ShannonAI/dice_loss_for_NLP."
+            },
+            {
+                "block_id": 9,
+                "type": "table",
+                "bbox": [
+                    1282,
+                    845,
+                    2188,
+                    1076
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Task</td><td># neg</td><td># pos</td><td>ratio</td></tr><tr><td>CoNLL03 NER</td><td>170K</td><td>34K</td><td>4.98</td></tr><tr><td>OntoNotes5.0 NER</td><td>1.96M</td><td>239K</td><td>8.18</td></tr><tr><td>SQuAD 1.1 (Rajpurkar et al., 2016)</td><td>10.3M</td><td>175K</td><td>55.9</td></tr><tr><td>SQuAD 2.0 (Rajpurkar et al., 2018)</td><td>15.4M</td><td>188K</td><td>82.0</td></tr><tr><td>QUOREF (Dasigi et al., 2019)</td><td>6.52M</td><td>38.6K</td><td>169</td></tr></table>",
+                "caption": "Table 1: Number of positive and negative examples and their ratios for different data-imbalanced NLP tasks."
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    1270,
+                    1266,
+                    1630,
+                    1319
+                ],
+                "angle": 0,
+                "content": "1 Introduction"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1361,
+                    2198,
+                    2480
+                ],
+                "angle": 0,
+                "content": "Data imbalance is a common issue in a variety of NLP tasks such as tagging and machine reading comprehension. Table 1 gives concrete examples: for the Named Entity Recognition (NER) task (Sang and De Meulder, 2003; Nadeau and Sekine, 2007), most tokens are backgrounds with tagging class \\( O \\). Specifically, the number of tokens with tagging class \\( O \\) is 5 times as many as those with entity labels for the CoNLL03 dataset and 8 times for the OntoNotes5.0 dataset; Data-imbalanced issue is more severe for MRC tasks (Rajpurkar et al., 2016; Nguyen et al., 2016; Rajpurkar et al., 2018; Kočisky et al., 2018; Dasigi et al., 2019) with the value of negative-positive ratio being 50-200, which is due to the reason that the task of MRC is usually formalized as predicting the starting and ending indexes conditioned on the query and the context, and given a chunk of text of an arbitrary length, only two tokens are positive (or of interest) with all the rest being background."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2522,
+                    2200,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Data imbalance results in the following two issues: (1) the training-test discrepancy: Without balancing the labels, the learning process tends to converge to a point that strongly biases towards class with the majority label. This actually creates a discrepancy between training and test: at training time, each training instance contributes equally to the objective function, whereas at test time, F1 gives equal weight to positive and negative examples; (2) the overwhelming effect of easy-negative examples. As pointed out by Meng et al. (2019), a significantly large number of negative examples also"
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3230,
+                    1280,
+                    3279
+                ],
+                "angle": 0,
+                "content": "465"
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    439,
+                    3301,
+                    2036,
+                    3395
+                ],
+                "angle": 0,
+                "content": "Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics, pages 465-476 July 5 - 10, 2020. ©2020 Association for Computational Linguistics"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    266,
+                    1223,
+                    940
+                ],
+                "angle": 0,
+                "content": "means that the number of easy-negative example is large. The huge number of easy examples tends to overwhelm the training, making the model not sufficiently learn to distinguish between positive examples and hard-negative examples. The cross-entropy objective (CE for short) or maximum likelihood (MLE) objective, which is widely adopted as the training objective for data-imbalanced NLP tasks (Lample et al., 2016; Wu et al., 2019; Devlin et al., 2018; Yu et al., 2018a; McCann et al., 2018; Ma and Hovy, 2016; Chen et al., 2017), handles neither of the issues."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    975,
+                    1220,
+                    1757
+                ],
+                "angle": 0,
+                "content": "To handle the first issue, we propose to replace CE or MLE with losses based on the Sørensen-Dice coefficient (Sorensen, 1948) or Tversky index (Tversky, 1977). The Sørensen-Dice coefficient, dice loss for short, is the harmonic mean of precision and recall. It attaches equal importance to false positives (FPs) and false negatives (FNs) and is thus more immune to data-imbalanced datasets. Tversky index extends dice loss by using a weight that trades precision and recall, which can be thought as the approximation of the \\( F_{\\beta} \\) score, and thus comes with more flexibility. Therefore, we use dice loss or Tversky index to replace CE loss to address the first issue."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1796,
+                    1223,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Only using dice loss or Tversky index is not enough since they are unable to address the dominating influence of easy-negative examples. This is intrinsically because dice loss is actually a soft version of the F1 score. Taking the binary classification task as an example, at test time, an example will be classified as negative as long as its probability is smaller than 0.5, but training will push the value to 0 as much as possible. This gap isn't a big issue for balanced datasets, but is extremely detrimental if a big proportion of training examples are easy-negative ones: easy-negative examples can easily dominate training since their probabilities can be pushed to 0 fairly easily. Meanwhile, the model can hardly distinguish between hard-negative examples and positive ones. Inspired by the idea of focal loss (Lin et al., 2017) in computer vision, we propose a dynamic weight adjusting strategy, which associates each training example with a weight in proportion to \\((1 - p)\\), and this weight dynamically changes as training proceeds. This strategy helps deemphasize confident examples during training as their probability \\(p\\) approaches 1, making the model attentive to hard-negative examples, and thus alleviates the dominating effect of easy-negative exam-"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    266,
+                    2198,
+                    427
+                ],
+                "angle": 0,
+                "content": "plies. Combining both strategies, we observe significant performance boosts on a wide range of data imbalanced NLP tasks."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    466,
+                    2198,
+                    799
+                ],
+                "angle": 0,
+                "content": "The rest of this paper is organized as follows: related work is presented in Section 2. We describe different proposed losses in Section 3. Experimental results are presented in Section 4. We perform ablation studies in Section 5, followed by a brief conclusion in Section 6."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    845,
+                    1654,
+                    898
+                ],
+                "angle": 0,
+                "content": "2 Related Work"
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    936,
+                    1721,
+                    992
+                ],
+                "angle": 0,
+                "content": "2.1 Data Resampling"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1010,
+                    2203,
+                    2466
+                ],
+                "angle": 0,
+                "content": "The idea of weighting training examples has a long history. Importance sampling (Kahn and Marshall, 1953) assigns weights to different samples and changes the data distribution. Boosting algorithms such as AdaBoost (Kanduri et al., 2018) select harder examples to train subsequent classifiers. Similarly, hard example mining (Malisiewicz et al., 2011) downsamples the majority class and exploits the most difficult examples. Oversampling (Chen et al., 2010; Chawla et al., 2002) is used to balance the data distribution. Another line of data resampling is to dynamically control the weights of examples as training proceeds. For example, focal loss (Lin et al., 2017) used a soft weighting scheme that emphasizes harder examples during training. In self-paced learning (Kumar et al., 2010), example weights are obtained through optimizing the weighted training loss which encourages learning easier examples first. At each training step, self-paced learning algorithm optimizes model parameters and example weights jointly. Other works (Chang et al., 2017; Katharopoulos and Fleuret, 2018) adjusted the weights of different training examples based on training loss. Besides, recent work (Jiang et al., 2017; Fan et al., 2018) proposed to learn a separate network to predict sample weights."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2504,
+                    2066,
+                    2609
+                ],
+                "angle": 0,
+                "content": "2.2 Data Imbalance Issue in Computer Vision"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2634,
+                    2198,
+                    3195
+                ],
+                "angle": 0,
+                "content": "The background-object label imbalance issue is severe and thus well studied in the field of object detection (Li et al., 2015; Girshick, 2015; He et al., 2015; Girshick et al., 2013; Ren et al., 2015). The idea of hard negative mining (HNM) (Girshick et al., 2013) has gained much attention recently. Pang et al. (2019) proposed a novel method called IoU-balanced sampling and Chen et al. (2019) designed a ranking model to replace the conventional classification task with an average-precision loss"
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3234,
+                    1282,
+                    3279
+                ],
+                "angle": 0,
+                "content": "466"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    287,
+                    263,
+                    1215,
+                    427
+                ],
+                "angle": 0,
+                "content": "to alleviate the class imbalance issue. The efforts made on object detection have greatly inspired us to solve the data imbalance issue in NLP."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    459,
+                    1218,
+                    1469
+                ],
+                "angle": 0,
+                "content": "Sudre et al. (2017) addressed the severe class imbalance issue for the image segmentation task. They proposed to use the class re-balancing property of the Generalized Dice Loss as the training objective for unbalanced tasks. Shen et al. (2018) investigated the influence of Dice-based loss for multi-class organ segmentation using a dataset of abdominal CT volumes. Kodym et al. (2018) proposed to use the batch soft Dice loss function to train the CNN network for the task of segmentation of organs at risk (OAR) of medical images. Shamir et al. (2019) extended the definition of the classical Dice coefficient to facilitate the direct comparison of a ground truth binary image with a probabilistic map. In this paper, we introduce dice loss into NLP tasks as the training objective and propose a dynamic weight adjusting strategy to address the dominating influence of easy-negative examples."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1504,
+                    521,
+                    1554
+                ],
+                "angle": 0,
+                "content": "3 Losses"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1592,
+                    575,
+                    1641
+                ],
+                "angle": 0,
+                "content": "3.1 Notation"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1662,
+                    1215,
+                    2224
+                ],
+                "angle": 0,
+                "content": "For illustration purposes, we use the binary classification task to demonstrate how different losses work. The mechanism can be easily extended to multi-class classification. Let \\( X \\) denote a set of training instances and each instance \\( x_{i} \\in X \\) is associated with a golden binary label \\( y_{i} = [y_{i0}, y_{i1}] \\) denoting the ground-truth class \\( x_{i} \\) belongs to, and \\( p_{i} = [p_{i0}, p_{i1}] \\) is the predicted probabilities of the two classes respectively, where \\( y_{i0}, y_{i1} \\in \\{0, 1\\}, p_{i0}, p_{i1} \\in [0, 1] \\) and \\( p_{i1} + p_{i0} = 1 \\)."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2259,
+                    788,
+                    2315
+                ],
+                "angle": 0,
+                "content": "3.2 Cross Entropy Loss"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2332,
+                    1163,
+                    2388
+                ],
+                "angle": 0,
+                "content": "The vanilla cross entropy (CE) loss is given by:"
+            },
+            {
+                "block_id": 7,
+                "type": "equation",
+                "bbox": [
+                    446,
+                    2417,
+                    1213,
+                    2557
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathrm {C E} = - \\frac {1}{N} \\sum_ {i} \\sum_ {j \\in \\{0, 1 \\}} y _ {i j} \\log p _ {i j} \\qquad (1)\n\\]"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2585,
+                    1215,
+                    2974
+                ],
+                "angle": 0,
+                "content": "As can be seen from Eq.1, each \\( x_{i} \\) contributes equally to the final objective. Two strategies are normally used to address the case where we wish that not all \\( x_{i} \\) are treated equally: associating different classes with different weighting factor \\( \\alpha \\) or resampling the datasets. For the former, Eq.1 is adjusted as follows:"
+            },
+            {
+                "block_id": 9,
+                "type": "equation",
+                "bbox": [
+                    322,
+                    3002,
+                    1210,
+                    3192
+                ],
+                "angle": 0,
+                "content": "\\[\n\\text {W e i g h t e d} \\quad \\mathrm {C E} = - \\frac {1}{N} \\sum_ {i} \\alpha_ {i} \\sum_ {j \\in \\{0, 1 \\}} y _ {i j} \\log p _ {i j} \\tag {2}\n\\]"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    263,
+                    2198,
+                    1329
+                ],
+                "angle": 0,
+                "content": "where \\(\\alpha_{i} \\in [0,1]\\) may be set by the inverse class frequency or treated as a hyperparameter to set by cross validation. In this work, we use \\(\\lg\\left(\\frac{n - n_t}{n_t} + K\\right)\\) to calculate the coefficient \\(\\alpha\\), where \\(n_t\\) is the number of samples with class \\(t\\) and \\(n\\) is the total number of samples in the training set. \\(K\\) is a hyperparameter to tune. Intuitively, this equation assigns less weight to the majority class and more weight to the minority class. The data resampling strategy constructs a new dataset by sampling training examples from the original dataset based on human-designed criteria, e.g. extracting equal training samples from each class. Both strategies are equivalent to changing the data distribution during training and thus are of the same nature. Empirically, these two methods are not widely used due to the trickiness of selecting \\(\\alpha\\) especially for multi-class classification tasks and that inappropriate selection can easily bias towards rare classes (Valverde et al., 2017)."
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    1368,
+                    2074,
+                    1420
+                ],
+                "angle": 0,
+                "content": "3.3 Dice Coefficient and Tversky Index"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1441,
+                    2198,
+                    1725
+                ],
+                "angle": 0,
+                "content": "Sørensen-Dice coefficient (Sorensen, 1948; Dice, 1945), dice coefficient (DSC) for short, is an F1-oriented statistic used to gauge the similarity of two sets. Given two sets \\( A \\) and \\( B \\), the vanilla dice coefficient between them is given as follows:"
+            },
+            {
+                "block_id": 13,
+                "type": "equation",
+                "bbox": [
+                    1491,
+                    1764,
+                    2193,
+                    1890
+                ],
+                "angle": 0,
+                "content": "\\[\n\\operatorname {D S C} (A, B) = \\frac {2 | A \\cap B |}{| A | + | B |} \\tag {3}\n\\]"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1925,
+                    2198,
+                    2262
+                ],
+                "angle": 0,
+                "content": "In our case, \\(A\\) is the set that contains all positive examples predicted by a specific model, and \\(B\\) is the set of all golden positive examples in the dataset. When applied to boolean data with the definition of true positive (TP), false positive (FP), and false negative (FN), it can be then written as follows:"
+            },
+            {
+                "block_id": 15,
+                "type": "equation",
+                "bbox": [
+                    1314,
+                    2304,
+                    2188,
+                    2599
+                ],
+                "angle": 0,
+                "content": "\\[\n\\begin{array}{l} D S C = \\frac {2 T P}{2 T P + F N + F P} = \\frac {2 \\frac {T P}{T P + F N} \\frac {T P}{T P + F P}}{\\frac {T P}{T P + F N} + \\frac {T P}{T P + F P}} \\\\ = \\frac {2 \\operatorname {P r e} \\times \\operatorname {R e c}}{\\operatorname {P r e} + \\operatorname {R e c}} = F 1 \\tag {4} \\\\ \\end{array}\n\\]"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2606,
+                    2190,
+                    2711
+                ],
+                "angle": 0,
+                "content": "For an individual example \\( x_{i} \\), its corresponding dice coefficient is given as follows:"
+            },
+            {
+                "block_id": 17,
+                "type": "equation",
+                "bbox": [
+                    1523,
+                    2757,
+                    2193,
+                    2876
+                ],
+                "angle": 0,
+                "content": "\\[\n\\operatorname {D S C} \\left(x _ {i}\\right) = \\frac {2 p _ {i 1} y _ {i 1}}{p _ {i 1} + y _ {i 1}} \\tag {5}\n\\]"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2915,
+                    2198,
+                    3192
+                ],
+                "angle": 0,
+                "content": "As can be seen, a negative example \\((y_{i1} = 0)\\) does not contribute to the objective. For smoothing purposes, it is common to add a \\(\\gamma\\) factor to both the nominator and the denominator, making the form to be as follows (we simply set \\(\\gamma = 1\\) in the rest of"
+            },
+            {
+                "block_id": 19,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3234,
+                    1280,
+                    3276
+                ],
+                "angle": 0,
+                "content": "467"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    359,
+                    256,
+                    1146,
+                    757
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Loss</td><td>Formula (one sample xi)</td></tr><tr><td>CE</td><td>- ∑j∈{0,1} yij log pij</td></tr><tr><td>WCE</td><td>-αi ∑j∈{0,1} yij log pij</td></tr><tr><td>DL</td><td>1 - 2pi1y1i + γ / pi2i + yi1 + γ</td></tr><tr><td>TL</td><td>1 - pi1y1i + γ / pi1y1i + α pi1y10 + β pi0y1i + γ</td></tr><tr><td>DSC</td><td>1 - 2(1-pi1)pi1·yi1 + γ / (1-pi1)pi1 + yi1 + γ</td></tr><tr><td>FL</td><td>-αi ∑j∈{0,1} (1 - pij)γ log pij</td></tr></table>",
+                "caption": "Table 2: Different losses and their formulas. We add +1 to DL, TL and DSC so that they are positive."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    287,
+                    926,
+                    511,
+                    978
+                ],
+                "angle": 0,
+                "content": "this paper):"
+            },
+            {
+                "block_id": 3,
+                "type": "equation",
+                "bbox": [
+                    501,
+                    992,
+                    1213,
+                    1112
+                ],
+                "angle": 0,
+                "content": "\\[\n\\operatorname {D S C} \\left(x _ {i}\\right) = \\frac {2 p _ {i 1} y _ {i 1} + \\gamma}{p _ {i 1} + y _ {i 1} + \\gamma} \\tag {6}\n\\]"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1122,
+                    1218,
+                    1403
+                ],
+                "angle": 0,
+                "content": "As can be seen, negative examples whose DSC is \\(\\frac{\\gamma}{p_{i1} + \\gamma}\\), also contribute to the training. Additionally, Milletari et al. (2016) proposed to change the denominator to the square form for faster convergence, which leads to the following dice loss (DL):"
+            },
+            {
+                "block_id": 5,
+                "type": "equation",
+                "bbox": [
+                    421,
+                    1438,
+                    1213,
+                    1571
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathrm {D L} = \\frac {1}{N} \\sum_ {i} \\left[ 1 - \\frac {2 p _ {i 1} y _ {i 1} + \\gamma}{p _ {i 1} ^ {2} + y _ {i 1} ^ {2} + \\gamma} \\right] \\tag {7}\n\\]"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1582,
+                    1215,
+                    1796
+                ],
+                "angle": 0,
+                "content": "Another version of DL is to directly compute set-level dice coefficient instead of the sum of individual dice coefficient, which is easier for optimization:"
+            },
+            {
+                "block_id": 7,
+                "type": "equation",
+                "bbox": [
+                    446,
+                    1810,
+                    1210,
+                    1936
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathrm {D L} = 1 - \\frac {2 \\sum_ {i} p _ {i 1} y _ {i 1} + \\gamma}{\\sum_ {i} p _ {i 1} ^ {2} + \\sum_ {i} y _ {i 1} ^ {2} + \\gamma} \\tag {8}\n\\]"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1975,
+                    1215,
+                    2199
+                ],
+                "angle": 0,
+                "content": "Tversky index (TI), which can be thought as the approximation of the \\( F_{\\beta} \\) score, extends dice coefficient to a more general case. Given two sets \\( A \\) and \\( B \\), tversky index is computed as follows:"
+            },
+            {
+                "block_id": 9,
+                "type": "equation",
+                "bbox": [
+                    409,
+                    2213,
+                    1210,
+                    2336
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathrm {T I} = \\frac {\\left| A \\cap B \\right|}{\\left| A \\cap B \\right| + \\alpha \\left| A \\backslash B \\right| + \\beta \\left| B \\backslash A \\right|} \\tag {9}\n\\]"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2346,
+                    1215,
+                    2574
+                ],
+                "angle": 0,
+                "content": "Tversky index offers the flexibility in controlling the tradeoff between false-negatives and false-positives. It degenerates to DSC if \\(\\alpha = \\beta = 0.5\\). The Tversky loss (TL) is thus given as follows:"
+            },
+            {
+                "block_id": 11,
+                "type": "equation",
+                "bbox": [
+                    322,
+                    2585,
+                    1210,
+                    2736
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathrm {T L} = \\frac {1}{N} \\sum_ {i} \\left[ 1 - \\frac {p _ {i 1} y _ {i 1} + \\gamma}{p _ {i 1} y _ {i 1} + \\alpha p _ {i 1} y _ {i 0} + \\beta p _ {i 0} y _ {i 1} + \\gamma} \\right] \\tag {10}\n\\]"
+            },
+            {
+                "block_id": 12,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2774,
+                    873,
+                    2830
+                ],
+                "angle": 0,
+                "content": "3.4 Self-adjusting Dice Loss"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2848,
+                    1218,
+                    3065
+                ],
+                "angle": 0,
+                "content": "Consider a simple case where the dataset consists of only one example \\( x_{i} \\), which is classified as positive as long as \\( p_{i1} \\) is larger than 0.5. The computation of \\( F1 \\) score is actually as follows:"
+            },
+            {
+                "block_id": 14,
+                "type": "equation",
+                "bbox": [
+                    458,
+                    3087,
+                    1210,
+                    3206
+                ],
+                "angle": 0,
+                "content": "\\[\n\\operatorname {F} 1 \\left(x _ {i}\\right) = 2 \\frac {\\mathbb {I} \\left(p _ {i 1} > 0 . 5\\right) y _ {i 1}}{\\mathbb {I} \\left(p _ {i 1} > 0 . 5\\right) + y _ {i 1}} \\tag {11}\n\\]"
+            },
+            {
+                "block_id": 15,
+                "type": "image",
+                "bbox": [
+                    1334,
+                    291,
+                    2103,
+                    912
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 1: An illustration of derivatives of the four losses. The derivative of DSC approaches zero right after \\( p \\) exceeds 0.5, and for the other losses, the derivatives reach 0 only if the probability is exactly 1, which means they will push \\( p \\) to 1 as much as possible."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1252,
+                    2195,
+                    1866
+                ],
+                "angle": 0,
+                "content": "Comparing Eq.5 with Eq.11, we can see that Eq.5 is actually a soft form of \\( F1 \\), using a continuous \\( p \\) rather than the binary \\( \\mathbb{I}(p_{i1} > 0.5) \\). This gap isn't a big issue for balanced datasets, but is extremely detrimental if a big proportion of training examples are easy-negative ones: easy-negative examples can easily dominate training since their probabilities can be pushed to 0 fairly easily. Meanwhile, the model can hardly distinguish between hard-negative examples and positive ones, which has a huge negative effect on the final F1 performance."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1897,
+                    2193,
+                    2115
+                ],
+                "angle": 0,
+                "content": "To address this issue, we propose to multiply the soft probability \\( p \\) with a decaying factor \\( (1 - p) \\), changing Eq.11 to the following adaptive variant of DSC:"
+            },
+            {
+                "block_id": 19,
+                "type": "equation",
+                "bbox": [
+                    1359,
+                    2157,
+                    2190,
+                    2280
+                ],
+                "angle": 0,
+                "content": "\\[\n\\operatorname {D S C} \\left(x _ {i}\\right) = \\frac {2 \\left(1 - p _ {i 1}\\right) p _ {i 1} \\cdot y _ {i 1} + \\gamma}{\\left(1 - p _ {i 1}\\right) p _ {i 1} + y _ {i 1} + \\gamma} \\tag {12}\n\\]"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2318,
+                    2195,
+                    2708
+                ],
+                "angle": 0,
+                "content": "One can think \\((1 - p_{i1})\\) as a weight associated with each example, which changes as training proceeds. The intuition of changing \\(p_{i1}\\) to \\((1 - p_{i1})p_{i1}\\) is to push down the weight of easy examples. For easy examples whose probability are approaching 0 or 1, \\((1 - p_{i1})p_{i1}\\) makes the model attach significantly less focus to them."
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2743,
+                    2198,
+                    3195
+                ],
+                "angle": 0,
+                "content": "A close look at Eq.12 reveals that it actually mimics the idea of focal loss (FL for short) (Lin et al., 2017) for object detection in vision. Focal loss was proposed for one-stage object detector to handle foreground-background tradeoff encountered during training. It down-weights the loss assigned to well-classified examples by adding a \\((1 - p)^{\\gamma}\\) factor, leading the final loss to be \\(-(1 - p)^{\\gamma} \\log p\\)."
+            },
+            {
+                "block_id": 22,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3234,
+                    1280,
+                    3276
+                ],
+                "angle": 0,
+                "content": "468"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    302,
+                    256,
+                    2195,
+                    908
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td colspan=\"3\">CTB5</td><td colspan=\"3\">CTB6</td><td colspan=\"3\">UD1.4</td></tr><tr><td>Model</td><td>Prec.</td><td>Rec.</td><td>F1</td><td>Prec.</td><td>Rec.</td><td>F1</td><td>Prec.</td><td>Rec.</td><td>F1</td></tr><tr><td>Joint-POS(Sig)(Shao et al., 2017)</td><td>93.68</td><td>94.47</td><td>94.07</td><td>-</td><td>-</td><td>90.81</td><td>89.28</td><td>89.54</td><td>89.41</td></tr><tr><td>Joint-POS(Ens)(Shao et al., 2017)</td><td>93.95</td><td>94.81</td><td>94.38</td><td>-</td><td>-</td><td>-</td><td>89.67</td><td>89.86</td><td>89.75</td></tr><tr><td>Lattice-LSTM(Zhang and Yang, 2018)</td><td>94.77</td><td>95.51</td><td>95.14</td><td>92.00</td><td>90.86</td><td>91.43</td><td>90.47</td><td>89.70</td><td>90.09</td></tr><tr><td>BERT-Tagger(Devlin et al., 2018)</td><td>95.86</td><td>96.26</td><td>96.06</td><td>94.91</td><td>94.63</td><td>94.77</td><td>95.42</td><td>94.17</td><td>94.79</td></tr><tr><td>BERT+FL</td><td>96.11</td><td>97.42</td><td>96.76</td><td>95.80</td><td>95.08</td><td>95.44</td><td>96.33</td><td>95.85</td><td>96.81</td></tr><tr><td></td><td></td><td></td><td>(+0.70)</td><td></td><td></td><td>(+0.67)</td><td></td><td></td><td>(+2.02)</td></tr><tr><td>BERT+DL</td><td>96.77</td><td>98.87</td><td>97.81</td><td>94.08</td><td>96.12</td><td>95.09</td><td>96.10</td><td>97.79</td><td>96.94</td></tr><tr><td></td><td></td><td></td><td>(+1.75)</td><td></td><td></td><td>(+0.32)</td><td></td><td></td><td>(+2.15)</td></tr><tr><td>BERT+DSC</td><td>97.10</td><td>98.75</td><td>97.92</td><td>96.29</td><td>96.85</td><td>96.57</td><td>96.24</td><td>97.73</td><td>96.98</td></tr><tr><td></td><td></td><td></td><td>(+1.86)</td><td></td><td></td><td>(+1.80)</td><td></td><td></td><td>(+2.19)</td></tr></table>",
+                "caption": "Table 3: Experimental results for Chinese POS datasets including CTB5, CTB6 and UD1.4."
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    292,
+                    1024,
+                    1238,
+                    1904
+                ],
+                "angle": 0,
+                "content": "<table><tr><td colspan=\"4\">English WSJ</td></tr><tr><td>Model</td><td>Prec.</td><td>Rec.</td><td>F1</td></tr><tr><td>Meta BiLSTM(Bohnet et al., 2018)</td><td>-</td><td>-</td><td>98.23</td></tr><tr><td>BERT-Tagger (Devlin et al., 2018)</td><td>99.21</td><td>98.36</td><td>98.86</td></tr><tr><td>BERT-Tagger+FL</td><td>98.36</td><td>98.97</td><td>98.88 (+0.02)</td></tr><tr><td>BERT-Tagger+DL</td><td>99.34</td><td>98.22</td><td>98.91 (+0.05)</td></tr><tr><td>BERT-Tagger+DSC</td><td>99.41</td><td>98.93</td><td>99.38 (+0.52)</td></tr><tr><td colspan=\"4\">English Tweets</td></tr><tr><td>Model</td><td>Prec.</td><td>Rec.</td><td>F1</td></tr><tr><td>FastText+CNN+CRF(Godin, 2019)</td><td>-</td><td>-</td><td>91.78</td></tr><tr><td>BERT-Tagger (Devlin et al., 2018)</td><td>92.33</td><td>91.98</td><td>92.34</td></tr><tr><td>BERT-Tagger+FL</td><td>91.24</td><td>93.22</td><td>92.47 (+0.13)</td></tr><tr><td>BERT-Tagger+DL</td><td>91.44</td><td>92.88</td><td>92.52 (+0.18)</td></tr><tr><td>BERT-Tagger+DSC</td><td>92.87</td><td>93.54</td><td>92.58 (+0.24)</td></tr></table>",
+                "caption": "Table 4: Experimental results for English POS datasets."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2055,
+                    1218,
+                    2560
+                ],
+                "angle": 0,
+                "content": "In Table 2, we summarize all the aforementioned losses. Figure 1 gives an explanation from the perspective in derivative: The derivative of DSC approaches zero right after \\( p \\) exceeds 0.5, which suggests the model attends less to examples once they are correctly classified. But for the other losses, the derivatives reach 0 only if the probability is exactly 1, which means they will push \\( p \\) to 1 as much as possible."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2634,
+                    654,
+                    2694
+                ],
+                "angle": 0,
+                "content": "4 Experiments"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2743,
+                    1218,
+                    3188
+                ],
+                "angle": 0,
+                "content": "We evaluated the proposed method on four NLP tasks, part-of-speech tagging, named entity recognition, machine reading comprehension and paraphrase identification. Hyperparameters are tuned on the corresponding development set of each dataset. More experiment details including datasets and hyperparameters are shown in supplementary material."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1031,
+                    1848,
+                    1090
+                ],
+                "angle": 0,
+                "content": "4.1 Part-of-Speech Tagging"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1122,
+                    2198,
+                    1736
+                ],
+                "angle": 0,
+                "content": "Settings Part-of-speech tagging (POS) is the task of assigning a part-of-speech label (e.g., noun, verb, adjective) to each word in a given text. In this paper, we choose BERT (Devlin et al., 2018) as the backbone and conduct experiments on three widely used Chinese POS datasets including Chinese Treebank (Xue et al., 2005) 5.0/6.0 and UD1.4 and English datasets including Wall Street Journal (WSJ) and the dataset proposed by Ritter et al. (2011). We report the span-level micro-averaged precision, recall and F1 for evaluation."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1270,
+                    1813,
+                    2106,
+                    1869
+                ],
+                "angle": 0,
+                "content": "Baselines We used the following baselines:"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    1932,
+                    2190,
+                    2038
+                ],
+                "angle": 0,
+                "content": "- Joint-POS: Shao et al. (2017) jointly learns Chinese word segmentation and POS."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    2045,
+                    2195,
+                    2150
+                ],
+                "angle": 0,
+                "content": "- Lattice-LSTM: Zhang and Yang (2018) constructs a word-character lattice network."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    2157,
+                    2195,
+                    2269
+                ],
+                "angle": 0,
+                "content": "- Bert-Tagger: Devlin et al. (2018) treats part-of-speech as a tagging task."
+            },
+            {
+                "block_id": 13,
+                "type": "list",
+                "bbox": [
+                    1317,
+                    1932,
+                    2195,
+                    2269
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2343,
+                    2198,
+                    3016
+                ],
+                "angle": 0,
+                "content": "Results Table 3 presents the experimental results on Chinese datasets. As can be seen, the proposed DSC loss outperforms the best baseline results by a large margin, i.e., outperforming BERT-tags by \\(+1.86\\) in terms of F1 score on CTB5, \\(+1.80\\) on CTB6 and \\(+2.19\\) on UD1.4. As far as we know, we are achieving SOTA performances on the three datasets. Focal loss only obtains a little performance improvement on CTB5 and CTB6, and the dice loss obtains huge gain on CTB5 but not on CTB6, which indicates the three losses are not consistently robust in solving the data imbalance issue."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    3080,
+                    2200,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Table 4 presents the experimental results for English datasets."
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3234,
+                    1285,
+                    3279
+                ],
+                "angle": 0,
+                "content": "469"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    310,
+                    256,
+                    1208,
+                    2374
+                ],
+                "angle": 0,
+                "content": "<table><tr><td colspan=\"4\">English CoNLL 2003</td></tr><tr><td>Model</td><td>Prec.</td><td>Rec.</td><td>F1</td></tr><tr><td>ELMo(Peters et al., 2018)</td><td>-</td><td>-</td><td>92.22</td></tr><tr><td>CVT(Clark et al., 2018)</td><td>-</td><td>-</td><td>92.6</td></tr><tr><td>BERT-Tagger(Devlin et al., 2018)</td><td>-</td><td>-</td><td>92.8</td></tr><tr><td>BERT-MRC(Li et al., 2019)</td><td>92.33</td><td>94.61</td><td>93.04</td></tr><tr><td>BERT-MRC+FL</td><td>93.13</td><td>93.09</td><td>93.11 (+0.06)</td></tr><tr><td>BERT-MRC+DL</td><td>93.22</td><td>93.12</td><td>93.17 (+0.12)</td></tr><tr><td>BERT-MRC+DSC</td><td>93.41</td><td>93.25</td><td>93.33 (+0.29)</td></tr><tr><td colspan=\"4\">English OntoNotes 5.0</td></tr><tr><td>Model</td><td>Prec.</td><td>Rec.</td><td>F1</td></tr><tr><td>CVT (Clark et al., 2018)</td><td>-</td><td>-</td><td>88.8</td></tr><tr><td>BERT-Tagger (Devlin et al., 2018)</td><td>90.01</td><td>88.35</td><td>89.16</td></tr><tr><td>BERT-MRC(Li et al., 2019)</td><td>92.98</td><td>89.95</td><td>91.11</td></tr><tr><td>BERT-MRC+FL</td><td>90.13</td><td>92.34</td><td>91.22 (+0.11)</td></tr><tr><td>BERT-MRC+DL</td><td>91.70</td><td>92.06</td><td>91.88 (+0.77)</td></tr><tr><td>BERT-MRC+DSC</td><td>91.59</td><td>92.56</td><td>92.07 (+0.96)</td></tr><tr><td colspan=\"4\">Chinese MSRA</td></tr><tr><td>Model</td><td>Prec.</td><td>Rec.</td><td>F1</td></tr><tr><td>Lattice-LSTM (Zhang and Yang, 2018)</td><td>93.57</td><td>92.79</td><td>93.18</td></tr><tr><td>BERT-Tagger (Devlin et al., 2018)</td><td>94.97</td><td>94.62</td><td>94.80</td></tr><tr><td>Glyce-BERT (Wu et al., 2019)</td><td>95.57</td><td>95.51</td><td>95.54</td></tr><tr><td>BERT-MRC(Li et al., 2019)</td><td>96.18</td><td>95.12</td><td>95.75</td></tr><tr><td>BERT-MRC+FL</td><td>95.45</td><td>95.89</td><td>95.67 (-0.08)</td></tr><tr><td>BERT-MRC+DL</td><td>96.20</td><td>96.68</td><td>96.44 (+0.69)</td></tr><tr><td>BERT-MRC+DSC</td><td>96.67</td><td>96.77</td><td>96.72 (+0.97)</td></tr><tr><td colspan=\"4\">Chinese OntoNotes 4.0</td></tr><tr><td>Model</td><td>Prec.</td><td>Rec.</td><td>F1</td></tr><tr><td>Lattice-LSTM (Zhang and Yang, 2018)</td><td>76.35</td><td>71.56</td><td>73.88</td></tr><tr><td>BERT-Tagger (Devlin et al., 2018)</td><td>78.01</td><td>80.35</td><td>79.16</td></tr><tr><td>Glyce-BERT (Wu et al., 2019)</td><td>81.87</td><td>81.40</td><td>80.62</td></tr><tr><td>BERT-MRC(Li et al., 2019)</td><td>82.98</td><td>81.25</td><td>82.11</td></tr><tr><td>BERT-MRC+FL</td><td>83.63</td><td>82.97</td><td>83.30 (+1.19)</td></tr><tr><td>BERT-MRC+DL</td><td>83.97</td><td>84.05</td><td>84.01 (+1.90)</td></tr><tr><td>BERT-MRC+DSC</td><td>84.22</td><td>84.72</td><td>84.47 (+2.36)</td></tr></table>",
+                "caption": "Table 5: Experimental results for NER task."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2504,
+                    920,
+                    2557
+                ],
+                "angle": 0,
+                "content": "4.2 Named Entity Recognition"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2578,
+                    1218,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Settings Named entity recognition (NER) is the task of detecting the span and semantic category of entities within a chunk of text. Our implementation uses the current state-of-the-art model proposed by Li et al. (2019) as the backbone, and changes the MLE loss to DSC loss. Datasets that we use include OntoNotes4.0 (Pradhan et al., 2011), MSRA (Levow, 2006), CoNLL2003 (Sang and Meulder, 2003) and OntoNotes5.0 (Pradhan et al., 2013). We report span-level micro-averaged precision, recall and F1."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1270,
+                    266,
+                    2084,
+                    319
+                ],
+                "angle": 0,
+                "content": "Baselines We use the following baselines:"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    350,
+                    2190,
+                    456
+                ],
+                "angle": 0,
+                "content": "- ELMo: a tagging model with pretraining from Peters et al. (2018)."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    463,
+                    2195,
+                    624
+                ],
+                "angle": 0,
+                "content": "- Lattice-LSTM: Zhang and Yang (2018) constructs a word-character lattice, only used in Chinese datasets."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    631,
+                    2190,
+                    792
+                ],
+                "angle": 0,
+                "content": "- CVT: Clark et al. (2018) uses Cross-View Training(CVT) to improve the representations of a Bi-LSTM encoder."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    799,
+                    2190,
+                    908
+                ],
+                "angle": 0,
+                "content": "- Bert-Tagger: Devlin et al. (2018) treats NER as a tagging task."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    912,
+                    2195,
+                    1073
+                ],
+                "angle": 0,
+                "content": "- Glyce-BERT: Wu et al. (2019) combines Chinese glyph information with BERT pretraining."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    1076,
+                    2190,
+                    1297
+                ],
+                "angle": 0,
+                "content": "- BERT-MRC: Li et al. (2019) formulates NER as a machine reading comprehension task and achieves SOTA results on Chinese and English NER benchmarks."
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    1317,
+                    350,
+                    2195,
+                    1297
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1336,
+                    2195,
+                    1722
+                ],
+                "angle": 0,
+                "content": "Results Table 5 shows experimental results on NER datasets. DSC outperforms BERT-MRC(Li et al., 2019) by \\(+0.29\\), \\(+0.96\\), \\(+0.97\\) and \\(+2.36\\) respectively on CoNLL2003, OntoNotes5.0, MSRA and OntoNotes4.0. As far as we are concerned, we are setting new SOTA performances on all of the four NER datasets."
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    1768,
+                    2046,
+                    1824
+                ],
+                "angle": 0,
+                "content": "4.3 Machine Reading Comprehension"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1841,
+                    2198,
+                    2511
+                ],
+                "angle": 0,
+                "content": "Settings The task of machine reading comprehension (MRC) (Seo et al., 2016; Wang et al., 2016; Wang and Jiang, 2016; Wang et al., 2016; Shen et al., 2017; Chen et al., 2017) predicts the answer span in the passage given a question and the passage. We followed the standard protocols in Seo et al. (2016), in which the start and end indexes of answer are predicted. We report Extract Match (EM) as well as F1 score on validation set. We use three datasets on this task: SQuAD v1.1, SQuAD v2.0 (Rajpurkar et al., 2016, 2018) and Quoref (Dasigi et al., 2019)."
+            },
+            {
+                "block_id": 15,
+                "type": "title",
+                "bbox": [
+                    1270,
+                    2546,
+                    2103,
+                    2599
+                ],
+                "angle": 0,
+                "content": "Baselines We used the following baselines:"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    2634,
+                    2195,
+                    2908
+                ],
+                "angle": 0,
+                "content": "- QANet: Yu et al. (2018b) builds a model based on convolutions and self-attention. Convolutions are used to model local interactions and self-attention are used to model global interactions."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    2915,
+                    2195,
+                    3076
+                ],
+                "angle": 0,
+                "content": "- BERT: Devlin et al. (2018) scores each candidate span and the maximum scoring span is used as a prediction."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    3080,
+                    2195,
+                    3192
+                ],
+                "angle": 0,
+                "content": "- XLNet: Yang et al. (2019) proposes a generalized autoregressive pretraining method that"
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    1317,
+                    2634,
+                    2195,
+                    3192
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3234,
+                    1282,
+                    3276
+                ],
+                "angle": 0,
+                "content": "470"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    525,
+                    256,
+                    1959,
+                    1031
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\">Model</td><td colspan=\"2\">SQuAD v1.1</td><td colspan=\"2\">SQuAD v2.0</td><td colspan=\"2\">QuoRef</td></tr><tr><td>EM</td><td>F1</td><td>EM</td><td>F1</td><td>EM</td><td>F1</td></tr><tr><td>QANet (Yu et al., 2018b)</td><td>73.6</td><td>82.7</td><td>-</td><td>-</td><td>34.41</td><td>38.26</td></tr><tr><td>BERT (Devlin et al., 2018)</td><td>84.1</td><td>90.9</td><td>78.7</td><td>81.9</td><td>58.44</td><td>64.95</td></tr><tr><td>BERT+FL</td><td>84.67(+0.57)</td><td>91.25(+0.35)</td><td>78.92(+0.22)</td><td>82.20(+0.30)</td><td>60.78(+2.34)</td><td>66.19(+1.24)</td></tr><tr><td>BERT+DL</td><td>84.83(+0.73)</td><td>91.86(+0.96)</td><td>78.99(+0.29)</td><td>82.88(+0.98)</td><td>62.03(+3.59)</td><td>66.88(+1.93)</td></tr><tr><td>BERT+DSC</td><td>85.34(+1.24)</td><td>91.97(+1.07)</td><td>79.02(+0.32)</td><td>82.95(+1.05)</td><td>62.44(+4.00)</td><td>67.52(+2.57)</td></tr><tr><td>XLNet (Yang et al., 2019)</td><td>88.95</td><td>94.52</td><td>86.12</td><td>88.79</td><td>64.52</td><td>71.49</td></tr><tr><td>XLNet+FL</td><td>88.90(-0.05)</td><td>94.55(+0.03)</td><td>87.04(+0.92)</td><td>89.32(+0.53)</td><td>65.19(+0.67)</td><td>72.34(+0.85)</td></tr><tr><td>XLNet+DL</td><td>89.13(+0.18)</td><td>95.36(+0.84)</td><td>87.22(+1.10)</td><td>89.44(+0.65)</td><td>65.77(+1.25)</td><td>72.85(+1.36)</td></tr><tr><td>XLNet+DSC</td><td>89.79(+0.84)</td><td>95.77(+1.25)</td><td>87.65(+1.53)</td><td>89.51(+0.72)</td><td>65.98(+1.46)</td><td>72.90(+1.41)</td></tr></table>",
+                "caption": "Table 6: Experimental results for MRC task."
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    357,
+                    1154,
+                    1146,
+                    1897
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Model</td><td>MRPC F1</td><td>QQP F1</td></tr><tr><td>BERT (Devlin et al., 2018)</td><td>88.0</td><td>91.3</td></tr><tr><td>BERT+FL</td><td>88.43 (+0.43)</td><td>91.86 (+0.56)</td></tr><tr><td>BERT+DL</td><td>88.71 (+0.71)</td><td>91.92 (+0.62)</td></tr><tr><td>BERT+DSC</td><td>88.92 (+0.92)</td><td>92.11 (+0.81)</td></tr><tr><td>XLNet (Yang et al., 2019)</td><td>89.2</td><td>91.8</td></tr><tr><td>XLNet+FL</td><td>89.25 (+0.05)</td><td>92.31 (+0.51)</td></tr><tr><td>XLNet+DL</td><td>89.33 (+0.13)</td><td>92.39 (+0.59)</td></tr><tr><td>XLNet+DSC</td><td>89.78 (+0.58)</td><td>92.60 (+0.79)</td></tr></table>",
+                "caption": "Table 7: Experimental results for PI task."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    377,
+                    2031,
+                    1101,
+                    2083
+                ],
+                "angle": 0,
+                "content": "enables learning bidirectional contexts."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2122,
+                    1218,
+                    2680
+                ],
+                "angle": 0,
+                "content": "Results Table 6 shows the experimental results for MRC task. With either BERT or XLNet, our proposed DSC loss obtains significant performance boost on both EM and F1. For SQuADv1.1, our proposed method outperforms XLNet by +1.25 in terms of F1 score and +0.84 in terms of EM. For SQuAD v2.0, the proposed method achieves 87.65 on EM and 89.51 on F1. On QuoRef, the proposed method surpasses XLNet by +1.46 on EM and +1.41 on F1."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2725,
+                    903,
+                    2781
+                ],
+                "angle": 0,
+                "content": "4.4 Paraphrase Identification"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2799,
+                    1218,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Settings Paraphrase identification (PI) is the task of identifying whether two sentences have the same meaning or not. We conduct experiments on the two widely-used datasets: MRPC (Dolan and Brockett, 2005) and QQP. F1 score is reported for comparison. We use BERT (Devlin et al., 2018) and XLNet (Yang et al., 2019) as baselines."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1164,
+                    2198,
+                    1389
+                ],
+                "angle": 0,
+                "content": "Results Table 7 shows the results. We find that replacing the training objective with DSC introduces performance boost for both settings, +0.58 for MRPC and +0.73 for QQP."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1438,
+                    1714,
+                    1487
+                ],
+                "angle": 0,
+                "content": "5 Ablation Studies"
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    1532,
+                    2160,
+                    1582
+                ],
+                "angle": 0,
+                "content": "5.1 Datasets imbalanced to different extents"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1610,
+                    2198,
+                    2167
+                ],
+                "angle": 0,
+                "content": "It is interesting to see how differently the proposed objectives affect datasets imbalanced to different extents. We use the paraphrase identification dataset QQP (37% positive and 63% negative) for studies. To construct datasets with different imbalance degrees, we used the original QQP dataset to construct synthetic training sets with different positive-negative ratios. Models are trained on these different synthetic sets and then test on the same original test set."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    2203,
+                    2193,
+                    2367
+                ],
+                "angle": 0,
+                "content": "- Original training set (original) The original dataset with 363,871 examples, with \\(37\\%\\) being positive and \\(63\\%\\) being negative"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    2374,
+                    2195,
+                    2929
+                ],
+                "angle": 0,
+                "content": "- Positive augmentation (+ positive) We created a balanced dataset by adding positive examples. We first randomly chose positive training examples in the original training set as templates. Then we used Spacy<sup>1</sup> to retrieve entity mentions and replace them with new ones by linking mentions to their corresponding entities in DBpedia. The augmented set contains 458,477 examples, with \\(50\\%\\) being positive and \\(50\\%\\) being negative."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    2932,
+                    2193,
+                    3097
+                ],
+                "angle": 0,
+                "content": "- Negative augmentation (+ negative) We created a more imbalanced dataset. The size of the newly constructed training set and"
+            },
+            {
+                "block_id": 15,
+                "type": "list",
+                "bbox": [
+                    1317,
+                    2203,
+                    2195,
+                    3097
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "page_footnote",
+                "bbox": [
+                    1319,
+                    3139,
+                    2111,
+                    3192
+                ],
+                "angle": 0,
+                "content": "\\(^{1}\\)https://github.com/explosion/spaCy"
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3234,
+                    1277,
+                    3279
+                ],
+                "angle": 0,
+                "content": "471"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    431,
+                    256,
+                    2054,
+                    526
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>original</td><td>+ positive</td><td>+ negative</td><td>- negative</td><td>+ positive &amp; negative</td></tr><tr><td>BERT</td><td>91.3</td><td>92.27</td><td>90.08</td><td>89.73</td><td>93.14</td></tr><tr><td>BERT+FL</td><td>91.86(+0.56)</td><td>92.64(+0.37)</td><td>90.61(+0.53)</td><td>90.79(+1.06)</td><td>93.45(+0.31)</td></tr><tr><td>BERT+DL</td><td>91.92(+0.62)</td><td>92.87(+0.60)</td><td>90.22(+0.14)</td><td>90.49(+0.76)</td><td>93.52(+0.38)</td></tr><tr><td>BERT+DSC</td><td>92.11(+0.81)</td><td>92.92(+0.65)</td><td>90.78(+0.70)</td><td>90.80(+1.07)</td><td>93.63(+0.49)</td></tr></table>",
+                "caption": "Table 8: The effect of different data augmentation ways for QQP in terms of F1-score."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    374,
+                    652,
+                    1215,
+                    985
+                ],
+                "angle": 0,
+                "content": "the data augmented technique are exactly the same as \\(+\\) negative, except that we chose negative training examples as templates. The augmented training set contains 458,477 examples, with \\(21\\%\\) being positive and \\(79\\%\\) being negative."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    337,
+                    989,
+                    1084,
+                    1045
+                ],
+                "angle": 0,
+                "content": "- Negative downsampling (- negative)"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    374,
+                    1048,
+                    1215,
+                    1322
+                ],
+                "angle": 0,
+                "content": "We down-sampled negative examples in the original training set to get a balanced training set. The down-sampled set contains 269,165 examples, with \\(50\\%\\) being positive and \\(50\\%\\) being negative."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    337,
+                    1326,
+                    1215,
+                    1434
+                ],
+                "angle": 0,
+                "content": "- Positive and negative augmentation (+ positive & +negative)"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    374,
+                    1438,
+                    1215,
+                    1768
+                ],
+                "angle": 0,
+                "content": "We augmented the original training data with additional positive and negative examples with the data distribution staying the same. The augmented dataset contains 458,477 examples, with \\(50\\%\\) being positive and \\(50\\%\\) being negative."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1803,
+                    1215,
+                    2360
+                ],
+                "angle": 0,
+                "content": "Results are shown in Table 8. We first look at the first line, with all results obtained using the MLE objective. We can see that \\(+\\) positive outperforms original, and \\(+\\) negative underperforms original. This is in line with our expectation since \\(+\\) positive creates a balanced dataset while \\(+\\) negative creates a more imbalanced dataset. Despite the fact that \\(-\\) negative creates a balanced dataset, the number of training data decreases, resulting in inferior performances."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2399,
+                    1215,
+                    2901
+                ],
+                "angle": 0,
+                "content": "DSC achieves the highest F1 score across all datasets. Specially, for \\(+\\) positive, DSC achieves minor improvements \\((+0.05\\mathrm{F}1)\\) over DL. In contrast, it significantly outperforms DL for \\(+\\) negative dataset. This is in line with our expectation since DSC helps more on more imbalanced datasets. The performance of FL and DL are not consistent across different datasets, while DSC consistently performs the best on all datasets."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2946,
+                    1136,
+                    3006
+                ],
+                "angle": 0,
+                "content": "5.2 Dice loss for accuracy-oriented tasks?"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    285,
+                    3027,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "We argue that the cross-entropy objective is actually accuracy-oriented, whereas the proposed losses perform as a soft version of F1 score. To"
+            },
+            {
+                "block_id": 11,
+                "type": "table",
+                "bbox": [
+                    1458,
+                    641,
+                    2004,
+                    912
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>SST-2</td><td>SST-5</td></tr><tr><td>Model</td><td>Acc</td><td>Acc</td></tr><tr><td>BERT+CE</td><td>94.90</td><td>55.57</td></tr><tr><td>BERT+DL</td><td>94.37</td><td>54.63</td></tr><tr><td>BERT+DSC</td><td>94.84</td><td>55.19</td></tr></table>",
+                "caption": "Table 9: The effect of DL and DSC on sentiment classification tasks. BERT+CE refers to fine-tuning BERT and setting cross-entropy as the training objective."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1147,
+                    2200,
+                    1869
+                ],
+                "angle": 0,
+                "content": "explore the effect of the dice loss on accuracy-oriented tasks such as text classification, we conduct experiments on the Stanford Sentiment Treebank (SST) datasets including SST-2 and SST-5. We fine-tuned \\(\\mathrm{BERT}_{\\mathrm{Large}}\\) with different training objectives. Experimental results for SST are shown in Table 9. For SST-5, BERT with CE achieves 55.57 in terms of accuracy, while DL and DSC perform slightly worse (54.63 and 55.19, respectively). Similar phenomenon is observed for SST-2. These results verify that the proposed dice loss is not accuracy-oriented, and should not be used for accuracy-oriented tasks."
+            },
+            {
+                "block_id": 14,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    1915,
+                    2089,
+                    1971
+                ],
+                "angle": 0,
+                "content": "5.3 Hyper-parameters in Tversky Index"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1989,
+                    2198,
+                    2830
+                ],
+                "angle": 0,
+                "content": "As mentioned in Section 3.3, Tversky index (TI) offers the flexibility in controlling the tradeoff between false-negatives and false-positives. In this subsection, we explore the effect of hyperparameters (i.e., \\(\\alpha\\) and \\(\\beta\\)) in TI to test how they manipulate the tradeoff. We conduct experiments on the Chinese OntoNotes4.0 NER dataset and English QuoRef MRC dataset. Experimental results are shown in Table 10. The highest F1 on Chinese OntoNotes4.0 is 84.67 when \\(\\alpha\\) is set to 0.6 while for QuoRef, the highest F1 is 68.44 when \\(\\alpha\\) is set to 0.4. In addition, we can observe that the performance varies a lot as \\(\\alpha\\) changes in distinct datasets, which shows that the hyperparameters \\(\\alpha, \\beta\\) actually play an important role in TI."
+            },
+            {
+                "block_id": 16,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2876,
+                    1597,
+                    2929
+                ],
+                "angle": 0,
+                "content": "6 Conclusion"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2967,
+                    2195,
+                    3195
+                ],
+                "angle": 0,
+                "content": "In this paper, we propose the dice-based loss to narrow down the gap between training objective and evaluation metrics (F1 score). Experimental results show that the proposed loss function help"
+            },
+            {
+                "block_id": 18,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3234,
+                    1282,
+                    3279
+                ],
+                "angle": 0,
+                "content": "472"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    349,
+                    252,
+                    1161,
+                    705
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>α</td><td>Chinese Onto4.0</td><td>English QuoRef</td></tr><tr><td>α = 0.1</td><td>80.13</td><td>63.23</td></tr><tr><td>α = 0.2</td><td>81.17</td><td>63.45</td></tr><tr><td>α = 0.3</td><td>84.22</td><td>65.88</td></tr><tr><td>α = 0.4</td><td>84.52</td><td>68.44</td></tr><tr><td>α = 0.5</td><td>84.47</td><td>67.52</td></tr><tr><td>α = 0.6</td><td>84.67</td><td>66.35</td></tr><tr><td>α = 0.7</td><td>81.81</td><td>65.09</td></tr><tr><td>α = 0.8</td><td>80.97</td><td>64.13</td></tr><tr><td>α = 0.9</td><td>80.21</td><td>64.84</td></tr></table>",
+                "caption": "Table 10: The effect of hyperparameters in Tversky Index. We set \\(\\beta = 1 - \\alpha\\) and thus we only list \\(\\alpha\\) here."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    287,
+                    887,
+                    1213,
+                    1003
+                ],
+                "angle": 0,
+                "content": "to achieve significant performance boost without changing model architectures."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1041,
+                    697,
+                    1101
+                ],
+                "angle": 0,
+                "content": "Acknowledgement"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1129,
+                    1215,
+                    1410
+                ],
+                "angle": 0,
+                "content": "We thank all anonymous reviewers, as well as Qinghong Han, Wei Wu and Jiawei Wu for their comments and suggestions. The work is supported by the National Natural Science Foundation of China (NSFC No. 61625107 and 61751209)."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    290,
+                    1504,
+                    535,
+                    1554
+                ],
+                "angle": 0,
+                "content": "References"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    282,
+                    1585,
+                    1218,
+                    1957
+                ],
+                "angle": 0,
+                "content": "Bernd Bohnet, Ryan T. McDonald, Gonçalo Simões, Daniel Andor, Emily Pitler, and Joshua Maynez. 2018. Morphosyntactic tagging with a meta-bilSTM model over context sensitive token encodings. In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics, ACL 2018, Melbourne, Australia, July 15-20, 2018, Volume 1: Long Papers, pages 2642-2652."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1982,
+                    1215,
+                    2171
+                ],
+                "angle": 0,
+                "content": "Haw-Shiuan Chang, Erik G. Learned-Miller, and Andrew McCallum. 2017. Active bias: Training more accurate neural networks by emphasizing high variance samples. In NIPS."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2196,
+                    1215,
+                    2381
+                ],
+                "angle": 0,
+                "content": "N. V. Chawla, K. W. Bowyer, Lawrence O. Hall, and W. P. Kegelmeyer. 2002. Smote: Synthetic minority over-sampling technique. J. Artif. Intell. Res., 16:321-357."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2409,
+                    1215,
+                    2553
+                ],
+                "angle": 0,
+                "content": "Danqi Chen, Adam Fisch, Jason Weston, and Antoine Bordes. 2017. Reading wikipedia to answer open-domain questions. arXiv preprint arXiv:1704.00051."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2574,
+                    1218,
+                    2855
+                ],
+                "angle": 0,
+                "content": "Kean Chen, Jianguo Li, Weiyao Lin, John See, Ji Wang, Lingyu Duan, Zhibo Chen, Changwei He, and Junni Zou. 2019. Towards accurate one-stage object detection with ap-loss. In IEEE Conference on Computer Vision and Pattern Recognition, CVPR 2019, Long Beach, CA, USA, June 16-20, 2019, pages 5119-5127."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2880,
+                    1220,
+                    3065
+                ],
+                "angle": 0,
+                "content": "Shijuan Chen, Haibo He, and Edwardo A. Garcia. 2010. Ramoboost: Ranked minority oversampling in boosting. IEEE Transactions on Neural Networks, 21:1624-1642."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    285,
+                    3090,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Kevin Clark, Minh-Thang Luong, Christopher D. Manning, and Quoc V. Le. 2018. Semi-supervised sequence"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    266,
+                    2198,
+                    456
+                ],
+                "angle": 0,
+                "content": "modeling with cross-view training. In Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, Brussels, Belgium, October 31 - November 4, 2018, pages 1914-1925."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    484,
+                    2195,
+                    673
+                ],
+                "angle": 0,
+                "content": "Pradeep Dasigi, Nelson F Liu, Ana Marasovic, Noah A Smith, and Matt Gardner. 2019. Quoref: A reading comprehension dataset with questions requiring coreferential reasoning. arXiv preprint arXiv:1908.05803."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    698,
+                    2195,
+                    887
+                ],
+                "angle": 0,
+                "content": "Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2018. Bert: Pre-training of deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    912,
+                    2190,
+                    1010
+                ],
+                "angle": 0,
+                "content": "Lee R Dice. 1945. Measures of the amount of ecologic association between species. *Ecology*, 26(3):297-302."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1034,
+                    2195,
+                    1224
+                ],
+                "angle": 0,
+                "content": "William B. Dolan and Chris Brockett. 2005. Automatically constructing a corpus of sentential paraphrases. In Proceedings of the Third International Workshop on Paraphrasing (IWP2005)."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1248,
+                    2190,
+                    1347
+                ],
+                "angle": 0,
+                "content": "Yang Fan, Fei Tian, Tao Qin, Xiuping Li, and Tie-Yan Liu. 2018. Learning to teach. *ArXiv*, abs/1805.03643."
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1375,
+                    2195,
+                    1515
+                ],
+                "angle": 0,
+                "content": "Ross B. Girshick. 2015. Fast r-cnn. 2015 IEEE International Conference on Computer Vision (ICCV), pages 1440-1448."
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1543,
+                    2195,
+                    1778
+                ],
+                "angle": 0,
+                "content": "Ross B. Girshick, Jeff Donahue, Trevor Darrell, and Jitendra Malik. 2013. Rich feature hierarchies for accurate object detection and semantic segmentation. 2014 IEEE Conference on Computer Vision and Pattern Recognition, pages 580-587."
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1803,
+                    2195,
+                    1992
+                ],
+                "angle": 0,
+                "content": "Frédéric Godin. 2019. Improving and Interpreting Neural Networks for Word-Level Prediction Tasks in Natural Language Processing. Ph.D. thesis, Ghent University, Belgium."
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2017,
+                    2195,
+                    2210
+                ],
+                "angle": 0,
+                "content": "Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. 2015. Deep residual learning for image recognition. 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pages 770-778."
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2234,
+                    2195,
+                    2420
+                ],
+                "angle": 0,
+                "content": "Lu Jiang, Zhengyuan Zhou, Thomas Leung, Li-Jia Li, and Li Fei-Fei. 2017. Mentornet: Learning data-driven curriculum for very deep neural networks on corrupted labels. In ICML."
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2448,
+                    2195,
+                    2592
+                ],
+                "angle": 0,
+                "content": "H. Kahn and A. W. Marshall. 1953. Methods of reducing sample size in monte carlo computations. *Operations Research*, 1(5):263-278."
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2616,
+                    2195,
+                    2852
+                ],
+                "angle": 0,
+                "content": "Anil Kanduri, Mohammad Hashem Haghbayan, Amir M. Rahmani, Muhammad Shafique, Axel Jantsch, and Pasi Liljeberg. 2018. adboost: Thermal aware performance boosting through dark silicon patterning. IEEE Trans. Computers, 67(8):1062-1077."
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2880,
+                    2195,
+                    3020
+                ],
+                "angle": 0,
+                "content": "Angelos Katharopoulos and François Fleuret. 2018. Not all samples are created equal: Deep learning with importance sampling. In ICML."
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    3048,
+                    2195,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Tomáš Kočisky, Jonathan Schwarz, Phil Blunsom, Chris Dyer, Karl Moritz Hermann, Gáabor Melis, and Edward Grefenstette. 2018. The narrativeqa reading"
+            },
+            {
+                "block_id": 28,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3234,
+                    1280,
+                    3279
+                ],
+                "angle": 0,
+                "content": "473"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    270,
+                    1215,
+                    361
+                ],
+                "angle": 0,
+                "content": "comprehension challenge. Transactions of the Association of Computational Linguistics, 6:317-328."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    392,
+                    1220,
+                    666
+                ],
+                "angle": 0,
+                "content": "Oldrich Kodym, Michal Spanel, and Adam Herout. 2018. Segmentation of head and neck organs at risk using CNN with batch dice loss. In *Pattern Recognition - 40th German Conference*, GCPR 2018, Stuttgart, Germany, October 9-12, 2018, Proceedings, pages 105-114."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    701,
+                    1220,
+                    1024
+                ],
+                "angle": 0,
+                "content": "M. Pawan Kumar, Benjamin Packer, and Daphne Koller. 2010. Self-paced learning for latent variable models. In Advances in Neural Information Processing Systems 23: 24th Annual Conference on Neural Information Processing Systems 2010. Proceedings of a meeting held 6-9 December 2010, Vancouver, British Columbia, Canada., pages 1189-1197."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1052,
+                    1220,
+                    1241
+                ],
+                "angle": 0,
+                "content": "Guillaume Lample, Miguel Ballesteros, Sandeep Subramanian, Kazuya Kawakami, and Chris Dyer. 2016. Neural architectures for named entity recognition. arXiv preprint arXiv:1603.01360."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1269,
+                    1220,
+                    1547
+                ],
+                "angle": 0,
+                "content": "Gina-Anne Levow. 2006. The third international Chinese language processing bakeoff: Word segmentation and named entity recognition. In Proceedings of the Fifth SIGHAN Workshop on Chinese Language Processing, pages 108-117, Sydney, Australia. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1578,
+                    1220,
+                    1768
+                ],
+                "angle": 0,
+                "content": "H. Li, Z. Lin, X. Shen, J. Brandt, and G. Hua. 2015. A convolutional neural network cascade for face detection. In 2015 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pages 5325-5334."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    1796,
+                    1220,
+                    1978
+                ],
+                "angle": 0,
+                "content": "Xiaoya Li, Jingrong Feng, Yuxian Meng, Qinghong Han, Fei Wu, and Jiwei Li. 2019. A unified MRC framework for named entity recognition. CoRR, abs/1910.11476."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2010,
+                    1218,
+                    2199
+                ],
+                "angle": 0,
+                "content": "Tsung-Yi Lin, Priya Goyal, Ross Girshick, Kaiming He, and Piotr Dólar. 2017. Focal loss for dense object detection. In Proceedings of the IEEE international conference on computer vision, pages 2980-2988."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2227,
+                    1220,
+                    2367
+                ],
+                "angle": 0,
+                "content": "Xuezhe Ma and Eduard Hovy. 2016. End-to-end sequence labeling via bi-directional lstm-cnns-crf. arXiv preprint arXiv:1603.01354."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2399,
+                    1220,
+                    2631
+                ],
+                "angle": 0,
+                "content": "Tomasz Malisiewicz, Abhinav Gupta, and Alexei A. Efros. 2011. Ensemble of exemplar-svms for object detection and beyond. In IEEE International Conference on Computer Vision, ICCV 2011, Barcelona, Spain, November 6-13, 2011, pages 89-96."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2662,
+                    1220,
+                    2848
+                ],
+                "angle": 0,
+                "content": "Bryan McCann, Nitish Shirish Keskar, Caiming Xiong, and Richard Socher. 2018. The natural language decathlon: Multitask learning as question answering. arXiv preprint arXiv:1806.08730."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2876,
+                    1220,
+                    3016
+                ],
+                "angle": 0,
+                "content": "Yuxian Meng, Muyu Li, Wei Wu, and Jiwei Li. 2019. *Dsreg: Using distant supervision as a regularizer*. arXiv preprint arXiv:1905.11658."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    3048,
+                    1220,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Fausto Milletari, Nassir Navab, and Seyed-Ahmad Ahmadi. 2016. V-net: Fully convolutional neural networks for volumetric medical image segmentation. In"
+            },
+            {
+                "block_id": 13,
+                "type": "list",
+                "bbox": [
+                    290,
+                    270,
+                    1220,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    270,
+                    2190,
+                    361
+                ],
+                "angle": 0,
+                "content": "2016 Fourth International Conference on 3D Vision (3DV), pages 565-571. IEEE."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    389,
+                    2195,
+                    526
+                ],
+                "angle": 0,
+                "content": "David Nadeau and Satoshi Sekine. 2007. A survey of named entity recognition and classification. *Linguistica Investigaciones*, 30(1):3-26."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    557,
+                    2195,
+                    785
+                ],
+                "angle": 0,
+                "content": "Tri Nguyen, Mir Rosenberg, Xia Song, Jianfeng Gao, Saurabh Tiwary, Rangan Majumder, and Li Deng. 2016. Ms marco: A human generated machine reading comprehension dataset. arXiv preprint arXiv:1611.09268."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    813,
+                    2195,
+                    1090
+                ],
+                "angle": 0,
+                "content": "Jiangmiao Pang, Kai Chen, Jianping Shi, Huajun Feng, Wanli Ouyang, and Dahua Lin. 2019. Libra R-CNN: towards balanced learning for object detection. In IEEE Conference on Computer Vision and Pattern Recognition, CVPR 2019, Long Beach, CA, USA, June 16-20, 2019, pages 821-830."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1119,
+                    2195,
+                    1304
+                ],
+                "angle": 0,
+                "content": "Matthew E Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark, Kenton Lee, and Luke Zettlemoyer. 2018. Deep contextualized word representations. arXiv preprint arXiv:1802.05365."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1329,
+                    2195,
+                    1561
+                ],
+                "angle": 0,
+                "content": "Sameer Pradhan, Mitchell P. Marcus, Martha Palmer, Lance A. Ramshaw, Ralph M. Weischedel, and Nianwen Xue, editors. 2011. Proceedings of the Fifteenth Conference on Computational Natural Language Learning: Shared Task. ACL."
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1589,
+                    2195,
+                    1915
+                ],
+                "angle": 0,
+                "content": "Sameer Pradhan, Alessandro Moschitti, Nianwen Xue, Hwee Tou Ng, Anders Björkelund, Olga Uryupina, Yuchen Zhang, and Zhi Zhong. 2013. Towards robust linguistic analysis using OntoNotes. In Proceedings of the Seventeenth Conference on Computational Natural Language Learning, pages 143-152, Sofia, Bulgaria. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 21,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1939,
+                    2195,
+                    2080
+                ],
+                "angle": 0,
+                "content": "Pranav Rajpurkar, Robin Jia, and Percy Liang. 2018. Know what you don't know: Unanswerable questions for squad. arXiv preprint arXiv:1806.03822."
+            },
+            {
+                "block_id": 22,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2108,
+                    2195,
+                    2290
+                ],
+                "angle": 0,
+                "content": "Pranav Rajpurkar, Jian Zhang, Konstantin Lopyrev, and Percy Liang. 2016. Squad: 100,000+ questions for machine comprehension of text. arXiv preprint arXiv:1606.05250."
+            },
+            {
+                "block_id": 23,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2318,
+                    2195,
+                    2546
+                ],
+                "angle": 0,
+                "content": "Shaoqing Ren, Kaiming He, Ross B. Girshick, and Jian Sun. 2015. Faster r-cnn: Towards real-time object detection with region proposal networks. IEEE Transactions on Pattern Analysis and Machine Intelligence, 39:1137-1149."
+            },
+            {
+                "block_id": 24,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2578,
+                    2195,
+                    2855
+                ],
+                "angle": 0,
+                "content": "Alan Ritter, Sam Clark, Mausam, and Oren Etzioni. 2011. Named entity recognition in tweets: An experimental study. In Proceedings of the 2011 Conference on Empirical Methods in Natural Language Processing, pages 1524-1534, Edinburgh, Scotland, UK. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 25,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2880,
+                    2195,
+                    3023
+                ],
+                "angle": 0,
+                "content": "Erik F Sang and Fien De Meulder. 2003. Introduction to the conll-2003 shared task: Language-independent named entity recognition. arXiv preprint cs/0306050."
+            },
+            {
+                "block_id": 26,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    3048,
+                    2195,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Erik F. Tjong Kim Sang and Fien De Meulder. 2003. Introduction to the conll-2003 shared task: Language-independent named entity recognition. In Proceed"
+            },
+            {
+                "block_id": 27,
+                "type": "list",
+                "bbox": [
+                    1272,
+                    270,
+                    2195,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 28,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3234,
+                    1280,
+                    3276
+                ],
+                "angle": 0,
+                "content": "474"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    270,
+                    1220,
+                    456
+                ],
+                "angle": 0,
+                "content": "ings of the Seventh Conference on Natural Language Learning, CoNLL 2003, Held in cooperation with HLT-NAACL 2003, Edmonton, Canada, May 31 - June 1, 2003, pages 142-147."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    287,
+                    484,
+                    1215,
+                    666
+                ],
+                "angle": 0,
+                "content": "Minjoon Seo, Aniruddha Kembhavi, Ali Farhadi, and Hannaneh Hajishirzi. 2016. Bidirectional attention flow for machine comprehension. arXiv preprint arXiv:1611.01603."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    698,
+                    1218,
+                    887
+                ],
+                "angle": 0,
+                "content": "Reuben R. Shamir, Yuval Duchin, Jinyoung Kim, Guillermo Sapiro, and Noam Harel. 2019. Continuous dice coefficient: a method for evaluating probabilistic segmentations. CoRR, abs/1906.11031."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    915,
+                    1220,
+                    1101
+                ],
+                "angle": 0,
+                "content": "Yan Shao, Christian Hardmeier, Jörg Tiedemann, and Joakim Nivre. 2017. Character-based joint segmentation and pos tagging for chinese using bidirectional rnncrf. arXiv preprint arXiv:1704.01314."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1129,
+                    1220,
+                    1406
+                ],
+                "angle": 0,
+                "content": "Chen Shen, Holger R. Roth, Hirohisa Oda, Masahiro Oda, Yuichiro Hayashi, Kazunari Misawa, and Kensaku Mori. 2018. On the influence of dice loss function in multi-class organ segmentation of abdominal CT using 3d fully convolutional networks. CoRR, abs/1801.05912."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1438,
+                    1220,
+                    1711
+                ],
+                "angle": 0,
+                "content": "Yelong Shen, Po-Sen Huang, Jianfeng Gao, and Weizhu Chen. 2017. Reasonet: Learning to stop reading in machine comprehension. In Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, pages 1047-1055. ACM."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1743,
+                    1220,
+                    1932
+                ],
+                "angle": 0,
+                "content": "Th A Sorensen. 1948. A method of establishing groups of equal amplitude in plant sociology based on similarity of species content and its application to analyses of the vegetation on Danish commons. *Biol. Skar.*, 5:1-34."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1957,
+                    1220,
+                    2420
+                ],
+                "angle": 0,
+                "content": "Carole H. Sudre, Wenqi Li, Tom Vercauteren, Sébastien Ourselin, and M. Jorge Cardoso. 2017. Generalised dice overlap as a deep learning loss function for highly unbalanced segmentations. In Deep Learning in Medical Image Analysis and Multimodal Learning for Clinical Decision Support - Third International Workshop, DLMIA 2017, and 7th International Workshop, ML-CDS 2017, Held in Conjunction with MICCAI 2017, Quebec City, QC, Canada, September 14, 2017, Proceedings, pages 240-248."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2448,
+                    1220,
+                    2539
+                ],
+                "angle": 0,
+                "content": "Amos Tversky. 1977. Features of similarity. *Psychological review*, 84(4):327."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2571,
+                    1220,
+                    2890
+                ],
+                "angle": 0,
+                "content": "Sergi Valverde, Mariano Cabezas, Eloy Roura, Sandra González-Villà, Deborah Pareto, Joan C Vilanova, Lluis Ramíó-Torrentà, Alex Rovira, Arnau Oliver, and Xavier Lladó. 2017. Improving automated multiple sclerosis lesion segmentation with a cascaded 3d convolutional neural network approach. NeuroImage, 155:159-168."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2922,
+                    1220,
+                    3065
+                ],
+                "angle": 0,
+                "content": "Shuohang Wang and Jing Jiang. 2016. Machine comprehension using match-lstm and answer pointer. arXiv preprint arXiv:1608.07905."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    285,
+                    3094,
+                    1220,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Zhiguo Wang, Haitao Mi, Wael Hamza, and Radu Florian. 2016. Multi-perspective context match"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    270,
+                    2195,
+                    361
+                ],
+                "angle": 0,
+                "content": "ing for machine comprehension. arXiv preprint arXiv:1612.04211."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    389,
+                    2198,
+                    575
+                ],
+                "angle": 0,
+                "content": "Wei Wu, Yuxian Meng, Qinghong Han, Muyu Li, Xiaoya Li, Jie Mei, Ping Nie, Xiaofei Sun, and Jiwei Li. 2019. Glyce: Glyph-vectors for chinese character representations. arXiv preprint arXiv:1901.10125."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    603,
+                    2198,
+                    792
+                ],
+                "angle": 0,
+                "content": "Naiwen Xue, Fei Xia, Fudong Choiu, and Marta Palmer. 2005. The penn chinese treebank: Phrase structure annotation of a large corpus. Natural Language Engineering, 11(2):207-238."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    817,
+                    2198,
+                    1006
+                ],
+                "angle": 0,
+                "content": "Zhilin Yang, Zihang Dai, Yiming Yang, Jaime G. Carbonell, Ruslan Salakhutdinov, and Quoc V. Le. 2019. Xlnet: Generalized autoregressive pretraining for language understanding. CoRR, abs/1906.08237."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1031,
+                    2198,
+                    1266
+                ],
+                "angle": 0,
+                "content": "Adams Wei Yu, David Dohan, Minh-Thang Luong, Rui Zhao, Kai Chen, Mohammad Norouzi, and Quoc V Le. 2018a. Qanet: Combining local convolution with global self-attention for reading comprehension. arXiv preprint arXiv:1804.09541."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1290,
+                    2198,
+                    1617
+                ],
+                "angle": 0,
+                "content": "Adams Wei Yu, David Dohan, Minh-Thang Luong, Rui Zhao, Kai Chen, Mohammad Norouzi, and Quoc V. Le. 2018b. Janet: Combining local convolution with global self-attention for reading comprehension. In 6th International Conference on Learning Representations, ICLR 2018, Vancouver, BC, Canada, April 30 - May 3, 2018, Conference Track Proceedings."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1641,
+                    2198,
+                    1739
+                ],
+                "angle": 0,
+                "content": "Yue Zhang and Jie Yang. 2018. Chinese ner using lattice lstm. arXiv preprint arXiv:1805.02023."
+            },
+            {
+                "block_id": 19,
+                "type": "title",
+                "bbox": [
+                    1270,
+                    1785,
+                    1692,
+                    1834
+                ],
+                "angle": 0,
+                "content": "A Dataset Details"
+            },
+            {
+                "block_id": 20,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1876,
+                    1853,
+                    1932
+                ],
+                "angle": 0,
+                "content": "A.1 Part-of-Speech Tagging"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1950,
+                    2193,
+                    2111
+                ],
+                "angle": 0,
+                "content": "Datasets We conduct experiments on three widely used benchmark, i.e., Chinese Treebank \\(5.0^{2} / 6.0^{3}\\) and \\(\\mathrm{UD1.4^4}\\)."
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    1319,
+                    2146,
+                    2198,
+                    2595
+                ],
+                "angle": 0,
+                "content": "- CTB5 is a Chinese dataset for tagging and parsing, which contains 507,222 words, 824,983 characters and 18,782 sentences extracted from newswire sources, including 698 articles from Xinhua (1994-1998), 55 articles from Information Services Department of HK-SAR (1997) and 132 articles from Sinorama Magazine (1996-1998 & 2000-2001)."
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    1319,
+                    2627,
+                    2195,
+                    2785
+                ],
+                "angle": 0,
+                "content": "- CTB6 is an extension of CTB5, containing 781,351 words, 1,285,149 characters and 28,295 sentences."
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    1319,
+                    2827,
+                    2195,
+                    2932
+                ],
+                "angle": 0,
+                "content": "- UD is the abbreviation of Universal Dependencies, which is a framework for consistent"
+            },
+            {
+                "block_id": 25,
+                "type": "list",
+                "bbox": [
+                    1319,
+                    2146,
+                    2198,
+                    2932
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 26,
+                "type": "page_footnote",
+                "bbox": [
+                    1267,
+                    2967,
+                    2111,
+                    3192
+                ],
+                "angle": 0,
+                "content": "\\(^{2}\\)https://catalog.ldc.upenn.edu/LDC2005T01  \n\\(^{3}\\)https://catalog.ldc.upenn.edu/LDC2007T36  \n\\(^{4}\\)https://universaldependencies.org/"
+            },
+            {
+                "block_id": 27,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3234,
+                    1280,
+                    3276
+                ],
+                "angle": 0,
+                "content": "475"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    374,
+                    266,
+                    1223,
+                    543
+                ],
+                "angle": 0,
+                "content": "annotation of grammar (parts of speech, morphological features, and syntactic dependencies) across different human languages. In this work, we use UD1.4 for Chinese POS tagging."
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    287,
+                    578,
+                    932,
+                    631
+                ],
+                "angle": 0,
+                "content": "A.2 Named Entity Recognition"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    287,
+                    648,
+                    1215,
+                    869
+                ],
+                "angle": 0,
+                "content": "Datasets For the NER task, we consider both Chinese datasets, i.e., OntoNotes4.0\\(^5\\) and MSRA\\(^6\\), and English datasets, i.e., CoNLL2003\\(^7\\) and OntoNotes5.0\\(^8\\)."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    337,
+                    901,
+                    1215,
+                    1129
+                ],
+                "angle": 0,
+                "content": "- CoNLL2003 is an English dataset with 4 entity types: Location, Organization, Person and Miscellaneous. We followed data processing protocols in (Ma and Hovy, 2016)."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    337,
+                    1154,
+                    1215,
+                    1375
+                ],
+                "angle": 0,
+                "content": "- English OntoNotes5.0 consists of texts from a wide variety of sources and contains 18 entity types. We use the standard train/dev/test split of CoNLL2012 shared task."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    337,
+                    1406,
+                    1218,
+                    1845
+                ],
+                "angle": 0,
+                "content": "- Chinese MSRA performs as a Chinese benchmark dataset containing 3 entity types. Data in MSRA is collected from news domain. Since the development set is not provided in the original MSRA dataset, we randomly split the training set into training and development splits by 9:1. We use the official test set for evaluation."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    337,
+                    1880,
+                    1215,
+                    2104
+                ],
+                "angle": 0,
+                "content": "- Chinese OntoNotes4.0 is a Chinese dataset and consists of texts from news domain, which has 18 entity types. In this paper, we take the same data split as Wu et al. (2019) did."
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    337,
+                    901,
+                    1218,
+                    2104
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2139,
+                    1104,
+                    2192
+                ],
+                "angle": 0,
+                "content": "A.3 Machine Reading Comprehension"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2210,
+                    1215,
+                    2322
+                ],
+                "angle": 0,
+                "content": "Datasets For MRC task, we use three datasets: SQuADv1.1/v2.0\\(^{9}\\) and Queref\\(^{10}\\) datasets."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    337,
+                    2350,
+                    1218,
+                    2687
+                ],
+                "angle": 0,
+                "content": "- SQuAD v1.1 and SQuAD v2.0 are the most widely used QA benchmarks. SQuAD1.1 is a collection of 100K crowdsourced question-answer pairs, and SQuAD2.0 extends SQuAD1.1 allowing no short answer exists in the provided passage."
+            },
+            {
+                "block_id": 11,
+                "type": "code",
+                "bbox": [
+                    287,
+                    2704,
+                    1089,
+                    3192
+                ],
+                "angle": 0,
+                "content": "5https://catalog.ldc.upenn.edu/ LDC2011T03 6http://sighan.cs.uchicago.edu/ bakeoff2006/ 7https://www.clips.uantwerpen.be/ conll2003/ner/ 8https://catalog.ldc.upenn.edu/ LDC2013T19 9https://rajpurkar.github.io/ SQuAD-explorer/ 10https://allenlp.org/quoref"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    266,
+                    2198,
+                    491
+                ],
+                "angle": 0,
+                "content": "- Quoref is a QA dataset which tests the coreferential reasoning capability of reading comprehension systems, containing 24K questions over 4.7K paragraphs from Wikipedia."
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    526,
+                    1895,
+                    578
+                ],
+                "angle": 0,
+                "content": "A.4 Paraphrase Identification"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    596,
+                    2193,
+                    708
+                ],
+                "angle": 0,
+                "content": "Datasets Experiments are conducted on two PI datasets: MRPC\\(^{11}\\) and QQP\\(^{12}\\)."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    736,
+                    2198,
+                    1073
+                ],
+                "angle": 0,
+                "content": "- MRPC is a corpus of sentence pairs automatically extracted from online news sources, with human annotations of whether the sentence pairs are semantically equivalent. The MRPC dataset has imbalanced classes (6800 pairs in total, and \\(68\\%\\) for positive, \\(32\\%\\) for negative)."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    1101,
+                    2198,
+                    1382
+                ],
+                "angle": 0,
+                "content": "- QQP is a collection of question pairs from the community question-answering website Quora. The class distribution in QQP is also unbalanced (over 400,000 question pairs in total, and \\(37\\%\\) for positive, \\(63\\%\\) for negative)."
+            },
+            {
+                "block_id": 17,
+                "type": "list",
+                "bbox": [
+                    1317,
+                    736,
+                    2198,
+                    1382
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 18,
+                "type": "page_footnote",
+                "bbox": [
+                    1270,
+                    3009,
+                    2235,
+                    3192
+                ],
+                "angle": 0,
+                "content": "11https://www.microsoft.com/en-us/ download/details.aspx?id=52398 12https://www.quora.com/q/quoradata/ First-Quora-Dataset-Release-Question-Pairs"
+            },
+            {
+                "block_id": 19,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3230,
+                    1282,
+                    3279
+                ],
+                "angle": 0,
+                "content": "476"
+            }
+        ]
+    }
+]

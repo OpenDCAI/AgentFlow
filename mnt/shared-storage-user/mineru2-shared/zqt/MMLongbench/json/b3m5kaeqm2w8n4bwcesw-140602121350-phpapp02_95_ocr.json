@@ -1,0 +1,3482 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1203,
+                    786,
+                    1968,
+                    1020
+                ],
+                "angle": 0,
+                "content": "Physics"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1299,
+                    1080,
+                    1900,
+                    1175
+                ],
+                "angle": 0,
+                "content": "Halimah Tasnim"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    537,
+                    678,
+                    2659,
+                    1173
+                ],
+                "angle": 0,
+                "content": "Module 1: Energy for the Home"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    92,
+                    59,
+                    1648,
+                    158
+                ],
+                "angle": 0,
+                "content": "Temperature: Measured in degrees \\( ^{O}C' \\) or Kelvin \\( ^{\\prime}K' \\)"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    96,
+                    273,
+                    1241,
+                    351
+                ],
+                "angle": 0,
+                "content": "Thermal Energy is measured Joules 'J'"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    96,
+                    475,
+                    940,
+                    630
+                ],
+                "angle": 0,
+                "content": "Things are cold because the average energy is low"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    96,
+                    748,
+                    915,
+                    905
+                ],
+                "angle": 0,
+                "content": "Things are hot because the average energy is high"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    96,
+                    1013,
+                    969,
+                    1166
+                ],
+                "angle": 0,
+                "content": "Temperature: the average of thermal energy per particle"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    96,
+                    1301,
+                    979,
+                    1456
+                ],
+                "angle": 0,
+                "content": "Thermal Energy: the total amount of energy altogether"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    96,
+                    1564,
+                    940,
+                    1715
+                ],
+                "angle": 0,
+                "content": "Temperature is an arbitrary scale."
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    2380,
+                    30,
+                    3180,
+                    644
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1228,
+                    675,
+                    1968,
+                    1080
+                ],
+                "angle": 0,
+                "content": "P1a: Temperature and Energy"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    2192,
+                    948,
+                    2592,
+                    1013
+                ],
+                "angle": 0,
+                "content": "Heat travels:"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    2192,
+                    1022,
+                    2540,
+                    1094
+                ],
+                "angle": 0,
+                "content": "Hot to Cold"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    2188,
+                    1098,
+                    3094,
+                    1240
+                ],
+                "angle": 0,
+                "content": "-Thermal energy is lost by hot objects"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    2188,
+                    1243,
+                    2867,
+                    1387
+                ],
+                "angle": 0,
+                "content": "-Keep losing heat until equilibrium is reached"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    2188,
+                    1389,
+                    3152,
+                    1539
+                ],
+                "angle": 0,
+                "content": "-Thermal energy is lost quicker by hot objects than cold objects"
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    2188,
+                    1098,
+                    3152,
+                    1539
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    44,
+                    50,
+                    940,
+                    199
+                ],
+                "angle": 0,
+                "content": "Specific Heat Capacity is also known as SHC"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    48,
+                    320,
+                    886,
+                    541
+                ],
+                "angle": 0,
+                "content": "SHC: helps figure out how much energy you need for a substance."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    48,
+                    671,
+                    761,
+                    973
+                ],
+                "angle": 0,
+                "content": "The amount of the substance matters as it changes the amount of energy needed."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    48,
+                    1072,
+                    963,
+                    1301
+                ],
+                "angle": 0,
+                "content": "The substance also matters as different substances need different amount of energy"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    44,
+                    1409,
+                    1276,
+                    1711
+                ],
+                "angle": 0,
+                "content": "SHC is about how much energy is needed to warm a material up- to increase the temperature up by an amount . It is different for every substance!"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1081,
+                    50,
+                    1484,
+                    124
+                ],
+                "angle": 0,
+                "content": "The Formula:"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1081,
+                    198,
+                    2886,
+                    475
+                ],
+                "angle": 0,
+                "content": "Energy = SHC x Mass x Temperature Change (J) \\((\\mathrm{J} / \\mathrm{Kg}^{\\mathrm{O}}\\mathrm{C})\\) (Kg) (°C)"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1081,
+                    541,
+                    2428,
+                    621
+                ],
+                "angle": 0,
+                "content": "Manipulate the formula to the questions need"
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1222,
+                    671,
+                    1971,
+                    1076
+                ],
+                "angle": 0,
+                "content": "P1a: Specific Heat Capacity"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1430,
+                    1256,
+                    2352,
+                    1418
+                ],
+                "angle": 0,
+                "content": "Double the amount- Double the energy"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1427,
+                    1477,
+                    2268,
+                    1630
+                ],
+                "angle": 0,
+                "content": "Double the time- Double the energy"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    2198,
+                    696,
+                    2976,
+                    837
+                ],
+                "angle": 0,
+                "content": "*Change the mass to KG if needed"
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    2489,
+                    925,
+                    3155,
+                    1765
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    57,
+                    77,
+                    886,
+                    217
+                ],
+                "angle": 0,
+                "content": "Specific Latent Heat is also known as SLH"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    57,
+                    329,
+                    940,
+                    556
+                ],
+                "angle": 0,
+                "content": "SLH is about the amount of energy used to overcome the bonds to change state."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    57,
+                    675,
+                    899,
+                    1042
+                ],
+                "angle": 0,
+                "content": "The material doesn't get hotter while changing state because the energy is being used to break the intermolecular bonds."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    64,
+                    1179,
+                    1120,
+                    1396
+                ],
+                "angle": 0,
+                "content": "The amount of energy used in SLH is different for each material or substance"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    64,
+                    1546,
+                    844,
+                    1693
+                ],
+                "angle": 0,
+                "content": "*Change the mass to KG if needed"
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    2076,
+                    28,
+                    3184,
+                    664
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    1132,
+                    675,
+                    1971,
+                    1062
+                ],
+                "angle": 0,
+                "content": "P1a: Specific Latent Heat"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1676,
+                    1200,
+                    2073,
+                    1270
+                ],
+                "angle": 0,
+                "content": "The Formula:"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1686,
+                    1346,
+                    2806,
+                    1533
+                ],
+                "angle": 0,
+                "content": "Energy = SLH x Mass (J) (J/KgOc) (Kg)"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1676,
+                    1602,
+                    3017,
+                    1679
+                ],
+                "angle": 0,
+                "content": "Manipulate the formula to the questions need"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    41,
+                    54,
+                    809,
+                    345
+                ],
+                "angle": 0,
+                "content": "There are several ways to lose heat; they are: Convection, Conduction a Radiation"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    41,
+                    442,
+                    950,
+                    1031
+                ],
+                "angle": 0,
+                "content": "Convection: is the transfer of thermal energy as it is carried by a particle. Warm particles are less dense and rise whereas cold particles are more dense and fall. This is called a current- and occurs in fluids (LIQUIDS and GASES)"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    51,
+                    1155,
+                    924,
+                    1668
+                ],
+                "angle": 0,
+                "content": "Radiation: is the transfer of thermal energy from hot objects; it is energy passed on a WAVE and doesn't need any particles to pass on thermal energy. Travels in all directions."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1084,
+                    52,
+                    1827,
+                    414
+                ],
+                "angle": 0,
+                "content": "Conduction: is the transfer of thermal energy as it is passed on particle to particle. ONLY occurs in SOLIDS"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    1129,
+                    536,
+                    1823,
+                    928
+                ],
+                "angle": 0,
+                "content": "P1b: How to Lose Heat"
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1968,
+                    21,
+                    3132,
+                    982
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1174,
+                    1008,
+                    3171,
+                    1778
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    41,
+                    50,
+                    860,
+                    273
+                ],
+                "angle": 0,
+                "content": "Efficiency is the amount of energy that is turned into useful energy"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    41,
+                    385,
+                    163,
+                    453
+                ],
+                "angle": 0,
+                "content": "E.g."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    41,
+                    453,
+                    1027,
+                    1031
+                ],
+                "angle": 0,
+                "content": "A traditional coal fire is not the most efficient way to heat a room because for every 100J of energy stored in the coal only 25J of energy is used to heat the room. The remaining 75J to surroundings; meaning it is \\(25\\%\\) efficient"
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    1177,
+                    39,
+                    2137,
+                    619
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    1203,
+                    707,
+                    1990,
+                    1107
+                ],
+                "angle": 0,
+                "content": "P1b: Efficiency and Payback Time"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    2220,
+                    97,
+                    3040,
+                    396
+                ],
+                "angle": 0,
+                "content": "Payback time is when how long it takes for you to get that value of money- the typical cost in time"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    2224,
+                    484,
+                    2345,
+                    550
+                ],
+                "angle": 0,
+                "content": "E.g."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    2224,
+                    554,
+                    2640,
+                    621
+                ],
+                "angle": 0,
+                "content": "Wall Cavities:"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    2224,
+                    626,
+                    2544,
+                    691
+                ],
+                "angle": 0,
+                "content": "Cost: £400"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    2224,
+                    700,
+                    2758,
+                    774
+                ],
+                "angle": 0,
+                "content": "Save: £80 (yearly)"
+            },
+            {
+                "block_id": 10,
+                "type": "equation",
+                "bbox": [
+                    2265,
+                    842,
+                    2598,
+                    986
+                ],
+                "angle": 0,
+                "content": "\\[\n\\frac {4 0 0}{8 0} = 5\n\\]"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    2224,
+                    993,
+                    3014,
+                    1067
+                ],
+                "angle": 0,
+                "content": "5 years to get money back"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    51,
+                    1200,
+                    444,
+                    1270
+                ],
+                "angle": 0,
+                "content": "The Formula:"
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    57,
+                    1344,
+                    1299,
+                    1517
+                ],
+                "angle": 0,
+                "content": "Efficiency = Useful Energy output / Total Energy Input"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    44,
+                    1589,
+                    1388,
+                    1738
+                ],
+                "angle": 0,
+                "content": "Manipulate the formula to the questions need (x100 for percentage)"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1756,
+                    1200,
+                    2156,
+                    1270
+                ],
+                "angle": 0,
+                "content": "The Formula:"
+            },
+            {
+                "block_id": 16,
+                "type": "title",
+                "bbox": [
+                    1769,
+                    1346,
+                    2803,
+                    1517
+                ],
+                "angle": 0,
+                "content": "Payback Time \\(=\\) Cost Savings"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1756,
+                    1589,
+                    3100,
+                    1665
+                ],
+                "angle": 0,
+                "content": "Manipulate the formula to the questions need"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    57,
+                    68,
+                    1209,
+                    511
+                ],
+                "angle": 0,
+                "content": "A wave moves energy but no matter i.e. if you place a cork in the middle of a tank and put your hand in and out of it you get a wave however the cork doesn't move only the energy produced"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1523,
+                    68,
+                    1932,
+                    144
+                ],
+                "angle": 0,
+                "content": "The Formula:"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1523,
+                    214,
+                    2848,
+                    370
+                ],
+                "angle": 0,
+                "content": "Wave Speed = Frequency x Wavelength (m/s) Hertz (Hz) (m)"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1526,
+                    435,
+                    2873,
+                    514
+                ],
+                "angle": 0,
+                "content": "Manipulate the formula to the questions need"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    60,
+                    595,
+                    934,
+                    669
+                ],
+                "angle": 0,
+                "content": "There are two types of wave:"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    64,
+                    673,
+                    425,
+                    736
+                ],
+                "angle": 0,
+                "content": "-Transverse"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    64,
+                    743,
+                    473,
+                    817
+                ],
+                "angle": 0,
+                "content": "-Longitudinal"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    64,
+                    673,
+                    473,
+                    817
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    64,
+                    923,
+                    419,
+                    984
+                ],
+                "angle": 0,
+                "content": "Transverse:"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    60,
+                    993,
+                    1123,
+                    1281
+                ],
+                "angle": 0,
+                "content": "They are like a mexican wave because it ripples around a stadium by the people as they stand up and sit down."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    60,
+                    1287,
+                    1104,
+                    1575
+                ],
+                "angle": 0,
+                "content": "Water particles move up and down as the wave spreads out from where a pebble is dropped in the water."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    60,
+                    1580,
+                    1059,
+                    1724
+                ],
+                "angle": 0,
+                "content": "They travel in right-angles to the wave vibration."
+            },
+            {
+                "block_id": 12,
+                "type": "title",
+                "bbox": [
+                    1404,
+                    777,
+                    1785,
+                    1027
+                ],
+                "angle": 0,
+                "content": "P1c: Waves"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1206,
+                    1116,
+                    1881,
+                    1267
+                ],
+                "angle": 0,
+                "content": "Light is an example of a transverse wave."
+            },
+            {
+                "block_id": 14,
+                "type": "image",
+                "bbox": [
+                    2064,
+                    621,
+                    3052,
+                    1179
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1209,
+                    1386,
+                    1593,
+                    1456
+                ],
+                "angle": 0,
+                "content": "They can be:"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1209,
+                    1461,
+                    2304,
+                    1535
+                ],
+                "angle": 0,
+                "content": "-reflected: bounce back towards you"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1209,
+                    1537,
+                    2633,
+                    1605
+                ],
+                "angle": 0,
+                "content": "-refracted: bend as they enter/ leave a material"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1209,
+                    1609,
+                    3123,
+                    1681
+                ],
+                "angle": 0,
+                "content": "-diffracted: spread out when doing through a gap or hit a barrier"
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    1209,
+                    1461,
+                    3123,
+                    1681
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    76,
+                    77,
+                    502,
+                    145
+                ],
+                "angle": 0,
+                "content": "REFRACTION:"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    76,
+                    156,
+                    723,
+                    363
+                ],
+                "angle": 0,
+                "content": "Bends the wave when entering/leaving a substance to another"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    1004,
+                    66,
+                    1673,
+                    541
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1744,
+                    97,
+                    2268,
+                    507
+                ],
+                "angle": 0,
+                "content": "They slow down because the substance would be a different density to another substance."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    2377,
+                    77,
+                    2825,
+                    145
+                ],
+                "angle": 0,
+                "content": "DIFFRACTION:"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    2374,
+                    156,
+                    3030,
+                    370
+                ],
+                "angle": 0,
+                "content": "Spreads the wave out when going through a gap or barrier"
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    64,
+                    484,
+                    476,
+                    552
+                ],
+                "angle": 0,
+                "content": "REFLECTION:"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    64,
+                    559,
+                    771,
+                    768
+                ],
+                "angle": 0,
+                "content": "Bounces the wave back towards where it came from"
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    25,
+                    905,
+                    755,
+                    1762
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Reflection"
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    1491,
+                    657,
+                    1712,
+                    756
+                ],
+                "angle": 0,
+                "content": "P1c:"
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    1308,
+                    783,
+                    1888,
+                    1141
+                ],
+                "angle": 0,
+                "content": "Reflection, Refraction, Diffraction"
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    2348,
+                    455,
+                    3168,
+                    1036
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    796,
+                    1409,
+                    1984,
+                    1476
+                ],
+                "angle": 0,
+                "content": "All wave can be reflected and refracted"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    796,
+                    1562,
+                    1347,
+                    1630
+                ],
+                "angle": 0,
+                "content": "Law of Reflection:"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    796,
+                    1639,
+                    2048,
+                    1711
+                ],
+                "angle": 0,
+                "content": "Angle of incidence \\( = \\) Angle of Reflection"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    2201,
+                    1107,
+                    3068,
+                    1321
+                ],
+                "angle": 0,
+                "content": "Maximum diffraction occurs when: the gap is equal to the wave."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    2201,
+                    1400,
+                    3033,
+                    1621
+                ],
+                "angle": 0,
+                "content": "Minimum diffraction occurs when: the gap is smaller or larger than the wave."
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    64,
+                    77,
+                    1200,
+                    145
+                ],
+                "angle": 0,
+                "content": "Properties of electromagnetic waves:"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    64,
+                    149,
+                    1504,
+                    219
+                ],
+                "angle": 0,
+                "content": "-they transfer energy from one place to another"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    64,
+                    223,
+                    1488,
+                    293
+                ],
+                "angle": 0,
+                "content": "-they can be reflected, refracted and diffracted"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    64,
+                    297,
+                    1318,
+                    365
+                ],
+                "angle": 0,
+                "content": "-they can travel through a vacuum (space)"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    64,
+                    369,
+                    1788,
+                    439
+                ],
+                "angle": 0,
+                "content": "-the shorter the wavelength the more dangerous they are"
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    64,
+                    149,
+                    1788,
+                    439
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    2265,
+                    77,
+                    3036,
+                    214
+                ],
+                "angle": 0,
+                "content": "Types of electromagnetic waves:"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    2268,
+                    226,
+                    2630,
+                    291
+                ],
+                "angle": 0,
+                "content": "Radiowaves"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    2774,
+                    225,
+                    3004,
+                    288
+                ],
+                "angle": 0,
+                "content": "Rabbits"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    2268,
+                    298,
+                    2630,
+                    361
+                ],
+                "angle": 0,
+                "content": "Microwaves"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    2787,
+                    300,
+                    2947,
+                    361
+                ],
+                "angle": 0,
+                "content": "Mate"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    2268,
+                    369,
+                    2521,
+                    432
+                ],
+                "angle": 0,
+                "content": "Infrared"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    2809,
+                    372,
+                    2880,
+                    430
+                ],
+                "angle": 0,
+                "content": "In"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    2268,
+                    442,
+                    2633,
+                    511
+                ],
+                "angle": 0,
+                "content": "Visible light"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    2780,
+                    448,
+                    2924,
+                    513
+                ],
+                "angle": 0,
+                "content": "Very"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    2268,
+                    516,
+                    2601,
+                    577
+                ],
+                "angle": 0,
+                "content": "Ultraviolet"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    2748,
+                    518,
+                    2995,
+                    577
+                ],
+                "angle": 0,
+                "content": "Unusual"
+            },
+            {
+                "block_id": 17,
+                "type": "image",
+                "bbox": [
+                    41,
+                    633,
+                    995,
+                    1231
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 18,
+                "type": "title",
+                "bbox": [
+                    1174,
+                    730,
+                    2035,
+                    1083
+                ],
+                "angle": 0,
+                "content": "P1c: Electromagnetic Waves"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    2265,
+                    594,
+                    2438,
+                    660
+                ],
+                "angle": 0,
+                "content": "X-ray"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    2268,
+                    669,
+                    2496,
+                    723
+                ],
+                "angle": 0,
+                "content": "Gamma"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    2665,
+                    594,
+                    2969,
+                    660
+                ],
+                "angle": 0,
+                "content": "eXpensive"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    2700,
+                    666,
+                    2950,
+                    723
+                ],
+                "angle": 0,
+                "content": "Gardens"
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    41,
+                    1360,
+                    448,
+                    1434
+                ],
+                "angle": 0,
+                "content": "The Formula:"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    41,
+                    1508,
+                    1366,
+                    1585
+                ],
+                "angle": 0,
+                "content": "Wave Speed = Frequency x Wavelength"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    41,
+                    1656,
+                    1388,
+                    1731
+                ],
+                "angle": 0,
+                "content": "Manipulate the formula to the questions need"
+            },
+            {
+                "block_id": 26,
+                "type": "image",
+                "bbox": [
+                    1625,
+                    1191,
+                    3158,
+                    1773
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    76,
+                    77,
+                    940,
+                    219
+                ],
+                "angle": 0,
+                "content": "TIR: stands for total internal reflection"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    73,
+                    331,
+                    976,
+                    556
+                ],
+                "angle": 0,
+                "content": "TIR occurs when the angle of light is larger than the critical angle"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    73,
+                    667,
+                    976,
+                    891
+                ],
+                "angle": 0,
+                "content": "The critical angle is the angle at which the the wave is neither reflected or refracted"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    76,
+                    1031,
+                    448,
+                    1103
+                ],
+                "angle": 0,
+                "content": "If the angle:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    76,
+                    1103,
+                    886,
+                    1396
+                ],
+                "angle": 0,
+                "content": "-is bigger than the critical angle the light is reflected -is smaller than the critical angle the light is refracted"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    73,
+                    1468,
+                    1027,
+                    1683
+                ],
+                "angle": 0,
+                "content": "If all the ave is reflected then it is called Total Internal Reflection"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1116,
+                    59,
+                    1510,
+                    135
+                ],
+                "angle": 0,
+                "content": "Fibre Optics:"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1113,
+                    135,
+                    2934,
+                    277
+                ],
+                "angle": 0,
+                "content": "fibre optics are solid cables that are made of the a substance that is denser than the air around."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1113,
+                    282,
+                    2979,
+                    430
+                ],
+                "angle": 0,
+                "content": "The cables must be thin because the thinner the wire the more likely it will reflects"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1116,
+                    502,
+                    2150,
+                    577
+                ],
+                "angle": 0,
+                "content": "\\*this is opposite for thicker cables"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1222,
+                    682,
+                    1920,
+                    1098
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    1100,
+                    1161,
+                    2012,
+                    1769
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    2096,
+                    669,
+                    2464,
+                    736
+                ],
+                "angle": 0,
+                "content": "Uses of TIR:"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    2096,
+                    743,
+                    3100,
+                    885
+                ],
+                "angle": 0,
+                "content": "-Endoscopes to look into peoples bodies and look for any defects"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    2096,
+                    891,
+                    2627,
+                    955
+                ],
+                "angle": 0,
+                "content": "-Communications"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    2096,
+                    964,
+                    2220,
+                    1027
+                ],
+                "angle": 0,
+                "content": "-TV"
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    2096,
+                    743,
+                    3100,
+                    1027
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "image",
+                "bbox": [
+                    2076,
+                    1161,
+                    3171,
+                    1764
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    57,
+                    64,
+                    1148,
+                    288
+                ],
+                "angle": 0,
+                "content": "Light has been used for sending messages. This allowed messages to be sent quickly."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    57,
+                    293,
+                    1078,
+                    432
+                ],
+                "angle": 0,
+                "content": "However the disadvantage of this was that a code as needed."
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    1318,
+                    54,
+                    2051,
+                    558
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    2147,
+                    28,
+                    3161,
+                    790
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    60,
+                    561,
+                    844,
+                    712
+                ],
+                "angle": 0,
+                "content": "Lasers are another way of using light."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    64,
+                    820,
+                    396,
+                    885
+                ],
+                "angle": 0,
+                "content": "Lasers are:"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    64,
+                    892,
+                    1004,
+                    1254
+                ],
+                "angle": 0,
+                "content": "-in phase; in sync- all crests and trough match up Monochromatic; one colour usually red but also green, blue and purple"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    64,
+                    1258,
+                    662,
+                    1330
+                ],
+                "angle": 0,
+                "content": "- Coherent; in phase"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    60,
+                    1332,
+                    966,
+                    1548
+                ],
+                "angle": 0,
+                "content": "-Low Divergence; doesn't spread out, narrow beam of light even over long distances"
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    60,
+                    892,
+                    1004,
+                    1548
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    64,
+                    1656,
+                    1043,
+                    1724
+                ],
+                "angle": 0,
+                "content": "Lasers are used in CDs and DVDs"
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    1280,
+                    756,
+                    1913,
+                    1031
+                ],
+                "angle": 0,
+                "content": "P1d: Using Light"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    2236,
+                    860,
+                    3126,
+                    1013
+                ],
+                "angle": 0,
+                "content": "White light spreads out when travelling long distances."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1212,
+                    1191,
+                    2582,
+                    1715
+                ],
+                "angle": 0,
+                "content": "CDs and DVDs have microscopic pits which act like the absence of light in Morse code. The laser reflects when it hits a shiny surface and doesn't reflect when it hits a pit. This then sends a message to computer chips which then send a visual or audio track to the player."
+            },
+            {
+                "block_id": 14,
+                "type": "image",
+                "bbox": [
+                    2656,
+                    1130,
+                    3155,
+                    1762
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    54,
+                    64,
+                    1612,
+                    217
+                ],
+                "angle": 0,
+                "content": "White/Shiny: are poor radiators and poor absorbers energy"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    54,
+                    221,
+                    1600,
+                    369
+                ],
+                "angle": 0,
+                "content": "Black/Matt: are good radiators and good absorbers of energy"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    54,
+                    450,
+                    384,
+                    525
+                ],
+                "angle": 0,
+                "content": "Radiation:"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    54,
+                    532,
+                    976,
+                    828
+                ],
+                "angle": 0,
+                "content": "Heat travels in a wave; it is the transfer of kinetic energy; doesn't use particles; you can feel its effects (warmth)"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    54,
+                    1008,
+                    406,
+                    1083
+                ],
+                "angle": 0,
+                "content": "Frequency:"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    54,
+                    1083,
+                    953,
+                    1305
+                ],
+                "angle": 0,
+                "content": "The higher the frequency the more energy is has and the more dangerous it is"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    60,
+                    1418,
+                    880,
+                    1497
+                ],
+                "angle": 0,
+                "content": "Wavelength: must be short"
+            },
+            {
+                "block_id": 7,
+                "type": "table",
+                "bbox": [
+                    1132,
+                    565,
+                    3126,
+                    1711
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Infrared Radiation</td><td>Microwaves</td></tr><tr><td>Shiny surfaces at the bottom; reflects infrared rays back towards food</td><td>Kinetic energy is given to water or fat molecules</td></tr><tr><td>Helps heat surfaces of the food</td><td>energy is transferred by conduction or convection</td></tr><tr><td>Energy is transferred by conduction (solid) and convection (fluids)</td><td>Shiny surfaces reflect any waves back to food</td></tr><tr><td>Travels to the centre of the food</td><td>Sent 1 cm into the food</td></tr></table>"
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1859,
+                    86,
+                    3084,
+                    475
+                ],
+                "angle": 0,
+                "content": "P1e: Cooking with Infrared and Microwaves"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    64,
+                    66,
+                    1072,
+                    144
+                ],
+                "angle": 0,
+                "content": "Phone signals travel at \\(3 \\times 10^{8} \\mathrm{~m} / \\mathrm{s}\\)"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    60,
+                    255,
+                    995,
+                    556
+                ],
+                "angle": 0,
+                "content": "The waves are transmitted and received. If the are not in line of sight' the signal may be lost."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    60,
+                    678,
+                    886,
+                    824
+                ],
+                "angle": 0,
+                "content": "All types of phones receive waves"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    60,
+                    955,
+                    1001,
+                    1249
+                ],
+                "angle": 0,
+                "content": "When you talk into your phone; it converts the sound into a microwave signal and is sent to the nearest phone mast."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    60,
+                    1380,
+                    1001,
+                    1524
+                ],
+                "angle": 0,
+                "content": "Microwave signals are affected by:"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    64,
+                    1531,
+                    825,
+                    1593
+                ],
+                "angle": 0,
+                "content": "-Poor weather conditions"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    64,
+                    1605,
+                    784,
+                    1672
+                ],
+                "angle": 0,
+                "content": "-large surfaces of water"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    64,
+                    1531,
+                    825,
+                    1672
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1260,
+                    180,
+                    2041,
+                    644
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1203,
+                    775,
+                    1990,
+                    1044
+                ],
+                "angle": 0,
+                "content": "P1e: Phone Signals"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1148,
+                    1283,
+                    1916,
+                    1724
+                ],
+                "angle": 0,
+                "content": "Weather conditions can scatter the signal Radiowaves spread out (diffract) signals when passing through a gap i.e. between buildings"
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    2153,
+                    81,
+                    3152,
+                    450
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Near Line-of-Sight (Visual LOS w/ Fresnel zone obstructions)"
+            },
+            {
+                "block_id": 14,
+                "type": "image",
+                "bbox": [
+                    2153,
+                    525,
+                    3152,
+                    891
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Non-Line-of-Sight (NLOS)"
+            },
+            {
+                "block_id": 16,
+                "type": "image",
+                "bbox": [
+                    2153,
+                    968,
+                    3148,
+                    1337
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    2083,
+                    1396,
+                    3075,
+                    1756
+                ],
+                "angle": 0,
+                "content": "Mobile phones can damage your brain by heating; but there is not answer that is set in stone that they can radically damage your brain"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    44,
+                    66,
+                    1100,
+                    439
+                ],
+                "angle": 0,
+                "content": "Analogue Signals: are signals that continuously changes in values i.e. analogue clocks.; It can be anything from the lowest value to the highest value."
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    1254,
+                    46,
+                    2067,
+                    273
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    1254,
+                    284,
+                    2067,
+                    545
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    2198,
+                    90,
+                    2960,
+                    169
+                ],
+                "angle": 0,
+                "content": "How they are Converted:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    2124,
+                    338,
+                    2428,
+                    423
+                ],
+                "angle": 0,
+                "content": "Analogue"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    54,
+                    525,
+                    911,
+                    835
+                ],
+                "angle": 0,
+                "content": "Digital Signals: have signals that are of set values i.e. on/off Morse code is a digital signal"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    54,
+                    954,
+                    969,
+                    1256
+                ],
+                "angle": 0,
+                "content": "Multiplexing: is when joining multiple digital signals together in one transmission"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    54,
+                    525,
+                    969,
+                    1256
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1481,
+                    696,
+                    1721,
+                    813
+                ],
+                "angle": 0,
+                "content": "P1f:"
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1196,
+                    837,
+                    2000,
+                    1107
+                ],
+                "angle": 0,
+                "content": "Analogue and Digital Signals"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    2464,
+                    568,
+                    3004,
+                    723
+                ],
+                "angle": 0,
+                "content": "ADC (analogue-digital converter)"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    2265,
+                    932,
+                    2489,
+                    1015
+                ],
+                "angle": 0,
+                "content": "Digital"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    2057,
+                    1580,
+                    2358,
+                    1661
+                ],
+                "angle": 0,
+                "content": "Analogue"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    2553,
+                    1234,
+                    2960,
+                    1459
+                ],
+                "angle": 0,
+                "content": "DAC (digital-analogue converter)"
+            },
+            {
+                "block_id": 14,
+                "type": "image",
+                "bbox": [
+                    44,
+                    1306,
+                    1836,
+                    1764
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1388,
+                    99,
+                    1593,
+                    196
+                ],
+                "angle": 0,
+                "content": "P1g:"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    956,
+                    203,
+                    2019,
+                    293
+                ],
+                "angle": 0,
+                "content": "Wireless Communication"
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    169,
+                    342,
+                    2812,
+                    1722
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Radiowave</td><td>part of the electromagnetic spectrum; mainly used for communication</td></tr><tr><td>Refraction</td><td>the change in direction of a wave when passing through one medium to another of different density</td></tr><tr><td>Frequency</td><td>the number of waves passing through a point in a space of time i.e 300 m/s</td></tr><tr><td>Microwaves</td><td>the shortest wavelength of radiowaves in the electromagnetic spectrum</td></tr><tr><td>Aerial</td><td>a device for receiving and transmitting radio signals</td></tr><tr><td>Ionosphere</td><td>a layer of the upper atmosphere</td></tr><tr><td>Interference</td><td>poor radio reception caused by overlapping waves</td></tr><tr><td>Electromagnetic Spectrum</td><td>the complete range of observed electromagnetic aves</td></tr><tr><td>Wavelength</td><td>Distance occupied by one complete cycle of a wave</td></tr><tr><td>Ghosting</td><td>the effect of two signals from the same source which have travelled distances to reach an aerial</td></tr></table>"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    60,
+                    64,
+                    764,
+                    140
+                ],
+                "angle": 0,
+                "content": "Wireless Technologies:"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    64,
+                    147,
+                    1011,
+                    282
+                ],
+                "angle": 0,
+                "content": "- appliances that communicate without wires"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    64,
+                    295,
+                    908,
+                    432
+                ],
+                "angle": 0,
+                "content": "-televisions and radios use radiowaves"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    64,
+                    442,
+                    694,
+                    577
+                ],
+                "angle": 0,
+                "content": "-mobile phones use microwaves"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    64,
+                    586,
+                    944,
+                    721
+                ],
+                "angle": 0,
+                "content": "-laptops and computers use microwaves"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    64,
+                    732,
+                    1011,
+                    873
+                ],
+                "angle": 0,
+                "content": "-smartphones use microwaves and radiowaves"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    64,
+                    147,
+                    1011,
+                    873
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    60,
+                    946,
+                    963,
+                    1170
+                ],
+                "angle": 0,
+                "content": "*appliances that use wireless communication need an aerial to receive signals"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1116,
+                    64,
+                    2150,
+                    581
+                ],
+                "angle": 0,
+                "content": "Long distance communication -signals can be refracted by different layers in the atmosphere allowing them to travel further ionosphere refracts radiowaves -microwaves can be used to send signals to satellites"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    2265,
+                    86,
+                    3052,
+                    680
+                ],
+                "angle": 0,
+                "content": "Problems that can occur: -signal can spread out waves can refract when passing through different layers of atmosphere -makes it difficult to send signals when you want to -drop in quality"
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    1436,
+                    702,
+                    1817,
+                    824
+                ],
+                "angle": 0,
+                "content": "P1g:"
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    1164,
+                    842,
+                    2035,
+                    1094
+                ],
+                "angle": 0,
+                "content": "Wireless Communication"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    2176,
+                    770,
+                    3040,
+                    910
+                ],
+                "angle": 0,
+                "content": "Appliances that use wireless means:"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    2176,
+                    921,
+                    2649,
+                    988
+                ],
+                "angle": 0,
+                "content": "-TVs and radios"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    2176,
+                    995,
+                    2604,
+                    1062
+                ],
+                "angle": 0,
+                "content": "-Smartphones"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    2176,
+                    1069,
+                    2438,
+                    1141
+                ],
+                "angle": 0,
+                "content": "-laptops"
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    2176,
+                    921,
+                    2649,
+                    1141
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "title",
+                "bbox": [
+                    64,
+                    1263,
+                    451,
+                    1332
+                ],
+                "angle": 0,
+                "content": "Advantages:"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    64,
+                    1337,
+                    950,
+                    1400
+                ],
+                "angle": 0,
+                "content": "-no wired connection needed"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    64,
+                    1409,
+                    844,
+                    1477
+                ],
+                "angle": 0,
+                "content": "-portable and convenient"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    64,
+                    1486,
+                    1232,
+                    1549
+                ],
+                "angle": 0,
+                "content": "-can be used on the move i.e. train, bus"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    64,
+                    1558,
+                    1212,
+                    1697
+                ],
+                "angle": 0,
+                "content": "-can receive more than one signal at a time"
+            },
+            {
+                "block_id": 22,
+                "type": "list",
+                "bbox": [
+                    64,
+                    1337,
+                    1232,
+                    1697
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 23,
+                "type": "title",
+                "bbox": [
+                    1436,
+                    1249,
+                    1900,
+                    1319
+                ],
+                "angle": 0,
+                "content": "Disadvantages:"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    1430,
+                    1323,
+                    2921,
+                    1467
+                ],
+                "angle": 0,
+                "content": "-wireless signals can be reflected or refracted off buildings or by the atmosphere"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    1430,
+                    1468,
+                    3008,
+                    1540
+                ],
+                "angle": 0,
+                "content": "-drop-in-quality: signal becomes weak or lose energy"
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    1430,
+                    1540,
+                    2652,
+                    1612
+                ],
+                "angle": 0,
+                "content": "-too many reflections can drop in quality"
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    1430,
+                    1612,
+                    2576,
+                    1688
+                ],
+                "angle": 0,
+                "content": "-signal be blocked by hills or buildings"
+            },
+            {
+                "block_id": 28,
+                "type": "list",
+                "bbox": [
+                    1430,
+                    1323,
+                    3008,
+                    1688
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    57,
+                    64,
+                    1206,
+                    284
+                ],
+                "angle": 0,
+                "content": "Line of sight is a 'line' that is free from any obstructions i.e. tall building or trees"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1286,
+                    68,
+                    3033,
+                    286
+                ],
+                "angle": 0,
+                "content": "We use Bluetooth or Wi-Fi for short range communication. To send long distance communication we use different methods"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    54,
+                    394,
+                    950,
+                    1067
+                ],
+                "angle": 0,
+                "content": "When there are obstructions the signal can drop in quality; so to fix this the microwave transmitters are placed close together on high hills to avoid the obstructions. Line of sight is an assured way of sending signals but we are not always in sight of them"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1036,
+                    379,
+                    3104,
+                    680
+                ],
+                "angle": 0,
+                "content": "You can't send a signal to a receiver if it far away because the Earth's curvature gets in the way like a large wall of water between the transmitter and aerial. Also only certain waves can be reflected in different parts of the atmosphere i.e. radiowaves are reflected"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    2281,
+                    702,
+                    2864,
+                    777
+                ],
+                "angle": 0,
+                "content": "off the ionosphere."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    1113,
+                    781,
+                    2083,
+                    1049
+                ],
+                "angle": 0,
+                "content": "P1g: Receiving Signals"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    2233,
+                    871,
+                    3084,
+                    1058
+                ],
+                "angle": 0,
+                "content": "An advantage of wired communication is that you can send rapid amount of data very quickly"
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    35,
+                    1171,
+                    1315,
+                    1765
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1683,
+                    1114,
+                    3142,
+                    1765
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    60,
+                    72,
+                    896,
+                    142
+                ],
+                "angle": 0,
+                "content": "There are two major waves:"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    64,
+                    147,
+                    1174,
+                    217
+                ],
+                "angle": 0,
+                "content": "P-Waves: they are the primary waves"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    64,
+                    221,
+                    1238,
+                    289
+                ],
+                "angle": 0,
+                "content": "S-Waves: they are the secondary waves"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    60,
+                    394,
+                    1084,
+                    610
+                ],
+                "angle": 0,
+                "content": "P-Waves are the 'invincible' waves as they travel through solids and liquids."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    57,
+                    615,
+                    876,
+                    680
+                ],
+                "angle": 0,
+                "content": "S-Waves: these are the less"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    57,
+                    685,
+                    1072,
+                    835
+                ],
+                "angle": 0,
+                "content": "'invincible' waves as they can only go through solids"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    57,
+                    934,
+                    927,
+                    1301
+                ],
+                "angle": 0,
+                "content": "The other wave is an L-Wave: this travel the surface of the Earth. This help find the epicentre of the earthquake after looking at the P and S waves."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    64,
+                    1454,
+                    1081,
+                    1742
+                ],
+                "angle": 0,
+                "content": "P-Waves are longitudinal In longitudinal waves, the vibrations are along the same direction as the direction of travel."
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1408,
+                    34,
+                    2416,
+                    745
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    2464,
+                    34,
+                    3123,
+                    745
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    1228,
+                    928,
+                    1936,
+                    1195
+                ],
+                "angle": 0,
+                "content": "P1h: Earthquakes"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1235,
+                    1353,
+                    2019,
+                    1713
+                ],
+                "angle": 0,
+                "content": "S-Waves are transverse In transverse waves, the vibrations are at right angles to the direction of travel."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    2195,
+                    833,
+                    3084,
+                    1558
+                ],
+                "angle": 0,
+                "content": "They are recorded by seismometers. These are embedded into bedrock (rock that doesn't fall loose). The simplest version is: a pen in a box with a roll of paper; and when a wave hits the pen will record it by marking the paper when dangling side to side"
+            }
+        ]
+    },
+    {
+        "page_id": 19,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    54,
+                    64,
+                    911,
+                    486
+                ],
+                "angle": 0,
+                "content": "UV radiation can damage people in a variety of ways; it can affect us damaging our: -skin -eyes are just two ways"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1024,
+                    64,
+                    3126,
+                    351
+                ],
+                "angle": 0,
+                "content": "People with naturally dark skin already have inherently high levels of melanin, and so are able to spend a longer amount of time in the sun before burning, if they burn at all. Fair-skinned people don't have it quite so easy - burning can occur within a relatively short amount of time."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    54,
+                    554,
+                    214,
+                    628
+                ],
+                "angle": 0,
+                "content": "Skin:"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    54,
+                    633,
+                    940,
+                    1051
+                ],
+                "angle": 0,
+                "content": "UV radiation can damage cells in our skin; this damage can cause cancer so you have to be wary when out in the sun. It can also cause our skin to age quicker"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    67,
+                    1123,
+                    230,
+                    1191
+                ],
+                "angle": 0,
+                "content": "Eyes:"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    64,
+                    1195,
+                    892,
+                    1396
+                ],
+                "angle": 0,
+                "content": "UV radiation can also affect your eyes; the damage by the radiation can cause cataracts"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    44,
+                    1503,
+                    793,
+                    1575
+                ],
+                "angle": 0,
+                "content": "The sun gives off radiation"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1030,
+                    462,
+                    3049,
+                    534
+                ],
+                "angle": 0,
+                "content": "SPF: this is what tells you how much more longer you can stay in the sun."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1123,
+                    633,
+                    1814,
+                    1015
+                ],
+                "angle": 0,
+                "content": "P1h: UV Radiation on People"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1996,
+                    558,
+                    3033,
+                    840
+                ],
+                "angle": 0,
+                "content": "You get the burn time from the radiation; then multiply it by the SPF number on your sun cream (SPF: Skin Protection Factor)"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1049,
+                    1148,
+                    1830,
+                    1368
+                ],
+                "angle": 0,
+                "content": "Melanin is produced in your body; it is natural chemical that acts like sun cream"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1964,
+                    928,
+                    3120,
+                    1215
+                ],
+                "angle": 0,
+                "content": "Sunbeds use UV lights to give people a tan. It is an artificial sun that has increased in use; it is also the reason why skin cancer is increasing"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1977,
+                    1330,
+                    3081,
+                    1616
+                ],
+                "angle": 0,
+                "content": "UV rays, for example, are necessary for our body to produce vitamin D, a substance that helps strengthen bones and safeguards against diseases"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    44,
+                    1674,
+                    1248,
+                    1742
+                ],
+                "angle": 0,
+                "content": "Sun cream and sunblock filter the radiation"
+            }
+        ]
+    },
+    {
+        "page_id": 20,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    57,
+                    68,
+                    1100,
+                    293
+                ],
+                "angle": 0,
+                "content": "The ozone is a layer of gas in the atmosphere; majority of the ozone reside in the stratosphere."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    57,
+                    376,
+                    1024,
+                    522
+                ],
+                "angle": 0,
+                "content": "The ozone is thinning though by CFCs"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    64,
+                    615,
+                    761,
+                    759
+                ],
+                "angle": 0,
+                "content": "CFCs are also known as Chlorofluorocarbons"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    60,
+                    876,
+                    809,
+                    1242
+                ],
+                "angle": 0,
+                "content": "The ozone filters the amount of radiation that goes into the Earth; however the radiation intake is increasing"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    60,
+                    1310,
+                    851,
+                    1744
+                ],
+                "angle": 0,
+                "content": "Satellites are used to survey the ozone layer; this also showed scientist that the ozone was thinning in colder places i.e. Antarctica."
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1382,
+                    61,
+                    1968,
+                    644
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    979,
+                    705,
+                    2214,
+                    1119
+                ],
+                "angle": 0,
+                "content": "P1h: UV Radiation on Earth and Atmosphere"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    972,
+                    1188,
+                    1721,
+                    1693
+                ],
+                "angle": 0,
+                "content": "To stop the Ozone thinning fast an international agreement was made in 1980; to stop using CFCs This was signed by many countries"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1836,
+                    1184,
+                    2592,
+                    1627
+                ],
+                "angle": 0,
+                "content": "The colder the area the faster the chemical reaction involving CFCs, the quicker the Ozone thins. The cold is a catalyst for the reaction"
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    2355,
+                    295,
+                    3180,
+                    1130
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    2668,
+                    1227,
+                    3155,
+                    1762
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    }
+]

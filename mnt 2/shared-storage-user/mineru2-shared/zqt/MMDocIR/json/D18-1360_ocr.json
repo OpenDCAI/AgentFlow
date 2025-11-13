@@ -1,0 +1,3160 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    419,
+                    280,
+                    2066,
+                    424
+                ],
+                "angle": 0,
+                "content": "Multi-Task Identification of Entities, Relations, and Coreference for Scientific Knowledge Graph Construction"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    565,
+                    533,
+                    1945,
+                    592
+                ],
+                "angle": 0,
+                "content": "Yi Luan Luheng He Mari Ostendorf Hannaneh Hajishirzi"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    987,
+                    596,
+                    1508,
+                    655
+                ],
+                "angle": 0,
+                "content": "University of Washington"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    781,
+                    655,
+                    1721,
+                    715
+                ],
+                "angle": 0,
+                "content": "{luanyi, luheng, ostendor, hannaneh} \\(@\\) uw.edu"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    654,
+                    929,
+                    848,
+                    978
+                ],
+                "angle": 0,
+                "content": "Abstract"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    354,
+                    1038,
+                    1153,
+                    1887
+                ],
+                "angle": 0,
+                "content": "We introduce a multi-task setup of identifying and classifying entities, relations, and coreference clusters in scientific articles. We create SciERC, a dataset that includes annotations for all three tasks and develop a unified framework called Scientific Information Extractor (SCIE) for with shared span representations. The multi-task setup reduces cascading errors between tasks and leverages cross-sentence relations through coreference links. Experiments show that our multi-task model outperforms previous models in scientific information extraction without using any domain-specific features. We further show that the framework supports construction of a scientific knowledge graph, which we use to analyze information in scientific literature.\\(^{1}\\)"
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    290,
+                    1943,
+                    650,
+                    1996
+                ],
+                "angle": 0,
+                "content": "1 Introduction"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2038,
+                    1218,
+                    2652
+                ],
+                "angle": 0,
+                "content": "As scientific communities grow and evolve, new tasks, methods, and datasets are introduced and different methods are compared with each other. Despite advances in search engines, it is still hard to identify new technologies and their relationships with what existed before. To help researchers more quickly identify opportunities for new combinations of tasks, methods and data, it is important to design intelligent algorithms that can extract and organize scientific information from a large collection of documents."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2662,
+                    1220,
+                    3058
+                ],
+                "angle": 0,
+                "content": "Organizing scientific information into structured knowledge bases requires information extraction (IE) about scientific entities and their relationships. However, the challenges associated with scientific IE are greater than for a general domain. First, annotation of scientific text requires domain expertise which makes annotation costly and limits resources."
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    1280,
+                    926,
+                    2188,
+                    1624
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 1: Example annotation: phrases that refer to the same scientific concept are annotated into the same coreference cluster, such as MORphological PAser MORPA, it and MORPA (marked as red)."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1996,
+                    2200,
+                    2841
+                ],
+                "angle": 0,
+                "content": "In addition, most relation extraction systems are designed for within-sentence relations. However, extracting information from scientific articles requires extracting relations across sentences. Figure 1 illustrates this problem. The cross-sentence relations between some entities can only be connected by entities that refer to the same scientific concept, including generic terms (such as the pronoun it, or phrases like our method) that are not informative by themselves. With co-reference, context-free grammar can be connected to MORPA through the intermediate co-referred pronoun it. Applying existing IE systems to this data, without co-reference, will result in much lower relation coverage (and a sparse knowledge base)."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2852,
+                    2198,
+                    3195
+                ],
+                "angle": 0,
+                "content": "In this paper, we develop a unified learning model for extracting scientific entities, relations, and coreference resolution. This is different from previous work (Luan et al., 2017b; Gupta and Manning, 2011; Tsai et al., 2013; Gabor et al., 2018) which often addresses these tasks as independent"
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    287,
+                    3097,
+                    1220,
+                    3188
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup>Data and code are publicly available at: http://nlp.cs.washington.edu/sciIE/"
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3279,
+                    1290,
+                    3322
+                ],
+                "angle": 0,
+                "content": "3219"
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    401,
+                    3325,
+                    2074,
+                    3367
+                ],
+                "angle": 0,
+                "content": "Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, pages 3219-3232"
+            },
+            {
+                "block_id": 16,
+                "type": "footer",
+                "bbox": [
+                    458,
+                    3367,
+                    2019,
+                    3409
+                ],
+                "angle": 0,
+                "content": "Brussels, Belgium, October 31 - November 4, 2018. ©2018 Association for Computational Linguistics"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    266,
+                    1223,
+                    940
+                ],
+                "angle": 0,
+                "content": "components of a pipeline. Our unified model is a multi-task setup that shares parameters across low-level tasks, making predictions by leveraging context across the document through coreference links. Specifically, we extend prior work for learning span representations and coreference resolution (Lee et al., 2017; He et al., 2018). Different from a standard tagging system, our system enumerates all possible spans during decoding and can effectively detect overlapped spans. It avoids cascading errors between tasks by jointly modeling all spans and span-span relations."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    947,
+                    1223,
+                    1739
+                ],
+                "angle": 0,
+                "content": "To explore this problem, we create a dataset SCI-ERC for scientific information extraction, which includes annotations of scientific terms, relation categories and co-reference links. Our experiments show that the unified model is better at predicting span boundaries, and it outperforms previous state-of-the-art scientific IE systems on entity and relation extraction (Luan et al., 2017b; Augenstein et al., 2017). In addition, we build a scientific knowledge graph integrating terms and relations extracted from each article. Human evaluation shows that propagating coreference can significantly improve the quality of the automatic constructed knowledge graph."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1743,
+                    1223,
+                    2367
+                ],
+                "angle": 0,
+                "content": "In summary we make the following contributions. We create a dataset for scientific information extraction by jointly annotating scientific entities, relations, and coreference links. Extending a previous end-to-end coreference resolution system, we develop a multi-task learning framework that can detect scientific entities, relations, and coreference clusters without hand-engineered features. We use our unified framework to build a scientific knowledge graph from a large collection of documents and analyze information in scientific literature."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2413,
+                    677,
+                    2466
+                ],
+                "angle": 0,
+                "content": "2 Related Work"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2511,
+                    1223,
+                    3129
+                ],
+                "angle": 0,
+                "content": "There has been growing interest in research on automatic methods for information extraction from scientific articles. Past research in scientific IE addressed analyzing citations (Athar and Teufel, 2012b,a; Kas, 2011; Gabor et al., 2016; Sim et al., 2012; Do et al., 2013; Jaidka et al., 2014; AbuJbara and Radev, 2011), analyzing research community (Vogel and Jurafsky, 2012; Anderson et al., 2012), and unsupervised methods for extracting scientific entities and relations (Gupta and Manning, 2011; Tsai et al., 2013; Gabor et al., 2016)."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    332,
+                    3136,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "More recently, two datasets in SemEval 2017"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    266,
+                    2203,
+                    1736
+                ],
+                "angle": 0,
+                "content": "and 2018 have been introduced, which facilitate research on supervised and semi-supervised learning for scientific information extraction. SemEval 17 (Augenstein et al., 2017) includes 500 paragraphs from articles in the domains of computer science, physics, and material science. It includes three types of entities (called keyphrases): Tasks, Methods, and Materials and two relation types: hyponym-of and synonym-of. SemEval 18 (Gábor et al., 2018) is focused on predicting relations between entities within a sentence. It consists of six relation types. Using these datasets, neural models (Ammar et al., 2017, 2018; Luan et al., 2017b; Augenstein and Søgaard, 2017) are introduced for extracting scientific information. We extend these datasets by increasing relation coverage, adding cross-sentence coreference linking, and removing some annotation constraints. Different from most previous IE systems for scientific literature and general domains (Miwa and Bansal, 2016; Xu et al., 2016; Peng et al., 2017; Quirk and Poon, 2017; Luan et al., 2018; Adel and Schütze, 2017), which use preprocessed syntactic, discourse or coreference features as input, our unified framework does not rely on any pipeline processing and is able to model overlapping spans."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1757,
+                    2200,
+                    2830
+                ],
+                "angle": 0,
+                "content": "While Singh et al. (2013) show improvements by jointly modeling entities, relations, and coreference links, most recent neural models for these tasks focus on single tasks (Clark and Manning, 2016; Wiseman et al., 2016; Lee et al., 2017; Lample et al., 2016; Peng et al., 2017) or joint entity and relation extraction (Katiyar and Cardie, 2017; Zhang et al., 2017; Adel and Schütze, 2017; Zheng et al., 2017). Among those studies, many papers assume the entity boundaries are given, such as (Clark and Manning, 2016), Adel and Schütze (2017) and Peng et al. (2017). Our work relaxes this constraint and predicts entity boundaries by optimizing over all possible spans. Our model draws from recent end-to-end span-based models for coreference resolution (Lee et al., 2017, 2018) and semantic role labeling (He et al., 2018) and extends them for the multi-task framework involving the three tasks of identification of entity, relation and coreference."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2855,
+                    2200,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Neural multi-task learning has been applied to a range of NLP tasks. Most of these models share word-level representations (Collobert and Weston, 2008; Klerke et al., 2016; Luan et al., 2016, 2017a; Rei, 2017), while Peng et al. (2017) uses high-order cross-task factors. Our model instead propagates"
+            },
+            {
+                "block_id": 9,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3279,
+                    1292,
+                    3325
+                ],
+                "angle": 0,
+                "content": "3220"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    287,
+                    266,
+                    1215,
+                    375
+                ],
+                "angle": 0,
+                "content": "cross-task information via span representations, which is related to Swayamdipta et al. (2017)."
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    287,
+                    420,
+                    540,
+                    473
+                ],
+                "angle": 0,
+                "content": "3 Dataset"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    512,
+                    1223,
+                    1354
+                ],
+                "angle": 0,
+                "content": "Our dataset (called SciERC) includes annotations for scientific entities, their relations, and coreference clusters for 500 scientific abstracts. These abstracts are taken from 12 AI conference/workshop proceedings in four AI communities from the Semantic Scholar Corpus<sup>2</sup>. SciERC extends previous datasets in scientific articles SemEval 2017 Task 10 (SemEval 17) (Augenstein et al., 2017) and SemEval 2018 Task 7 (SemEval 18) (Gábor et al., 2018) by extending entity types, relation types, relation coverage, and adding cross-sentence relations using coreference links. Our dataset is publicly available at: http://nlp.cs.washington.edu/sciIE/. Table 1 shows the statistics of Sci-ERC."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1392,
+                    1220,
+                    2125
+                ],
+                "angle": 0,
+                "content": "Annotation Scheme We define six types for annotating scientific entities (Task, Method, Metric, Material, Other-ScientificTerm and Generic) and seven relation types (Compare, Part-of, Conjunc-tion, Evaluate-for, Feature-of, Used-for, Hyponym-Of). Directionality is taken into account except for the two symmetric relation types (Conjunction and Compare). Coreference links are annotated between identical scientific entities. A Generic entiy is annotated only when the entity is involved in a relation or is coreferred with another entity. Annotation guidelines can be found in Appendix A. Figure 1 shows an annotated example."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2129,
+                    1218,
+                    2578
+                ],
+                "angle": 0,
+                "content": "Following annotation guidelines from QasemiZadeh and Schumann (2016) and using the BRAT interface (Stenetorp et al., 2012), our annotators perform a greedy annotation for spans and always prefer the longer span whenever ambiguity occurs. Nested spans are allowed when a subspan has a relation/coreference link with another term outside the span."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2613,
+                    1215,
+                    2946
+                ],
+                "angle": 0,
+                "content": "Human Agreements One domain expert annotated all the documents in the dataset; \\(12\\%\\) of the data is dually annotated by 4 other domain experts to evaluate the user agreements. The kappa score for annotating entities is \\(76.9\\%\\), relation extraction is \\(67.8\\%\\) and coreference is \\(63.8\\%\\)."
+            },
+            {
+                "block_id": 6,
+                "type": "table",
+                "bbox": [
+                    1272,
+                    256,
+                    2195,
+                    564
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Statistics</td><td>SCIERC</td><td>SemEval 17</td><td>SemEval 18</td></tr><tr><td>#Entities</td><td>8089</td><td>9946</td><td>7483</td></tr><tr><td>#Relations</td><td>4716</td><td>672</td><td>1595</td></tr><tr><td>#Relations/Doc</td><td>9.4</td><td>1.3</td><td>3.2</td></tr><tr><td>#Coref links</td><td>2752</td><td>-</td><td>-</td></tr><tr><td>#Coref clusters</td><td>1023</td><td>-</td><td>-</td></tr></table>",
+                "caption": "Table 1: Dataset statistics for our dataset SCIERC and two previous datasets on scientific information extraction. All datasets annotate 500 documents."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    789,
+                    2198,
+                    1806
+                ],
+                "angle": 0,
+                "content": "Comparison with previous datasets SciERC is focused on annotating cross-sentence relations and has more relation coverage than SemEval 17 and SemEval 18, as shown in Table 1. SemEval 17 is mostly designed for entity recognition and only covers two relation types. The task in SemEval 18 is to classify a relation between a pair of entities given entity boundaries, but only intra-sentence relations are annotated and each entity only appears in one relation, resulting in sparser relation coverage than our dataset (3.2 vs. 9.4 relations per abstract). SciERC extends these datasets by adding more relation types and coreference clusters, which allows representing cross-sentence relations, and removing annotation constraints. Table 1 gives a comparison of statistics among the three datasets. In addition, SciERC aims at including broader coverage of general AI communities."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1852,
+                    1493,
+                    1904
+                ],
+                "angle": 0,
+                "content": "4 Model"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1943,
+                    2198,
+                    2901
+                ],
+                "angle": 0,
+                "content": "We develop a unified framework (called SCIE) to identify and classify scientific entities, relations, and coreference resolution across sentences. SCIE is a multi-task learning setup that extends previous span-based models for coreference resolution (Lee et al., 2017) and semantic role labeling (He et al., 2018). All three tasks of entity recognition, relation extraction, and coreference resolution are treated as multinomial classification problems with shared span representations. SCIE benefits from expressive contextualized span representations as classifier features. By sharing span representations, sentence-level tasks can benefit from information propagated from coreference resolution across sentences, without increasing the complexity of inference. Figure 2 shows a high-level overview of the SCIE multi-task framework."
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    2950,
+                    1756,
+                    2999
+                ],
+                "angle": 0,
+                "content": "4.1 Problem Definition"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    3023,
+                    2195,
+                    3195
+                ],
+                "angle": 0,
+                "content": "The input is a document represented as a sequence of words \\( D = \\{w_{1},\\ldots ,w_{n}\\} \\), from which we derive \\( S = \\{s_1,\\dots ,s_N\\} \\), the set of all possible"
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2971,
+                    1223,
+                    3192
+                ],
+                "angle": 0,
+                "content": "2These conferences include general AI (AAAI, IJCAI), NLP (ACL, EMNLP, IJCNLP), speech (ICASSP, Interspeech), machine learning (NIPS, ICML), and computer vision (CVPR, ICCV, ECCV) at http://labs.sementicscholar.org/corpus/"
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3279,
+                    1287,
+                    3325
+                ],
+                "angle": 0,
+                "content": "3221"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    387,
+                    259,
+                    2113,
+                    996
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 2: Overview of the multitask setup, where all three tasks are treated as classification problems on top of shared span representations. Dotted arcs indicate the normalization space for each task."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1241,
+                    1218,
+                    1743
+                ],
+                "angle": 0,
+                "content": "within-sentence word sequence spans (up to a reasonable length) in the document. The output contains three structures: the entity types \\( E \\) for all spans \\( S \\), the relations \\( R \\) for all pair of spans \\( S \\times S \\), and the coreference links \\( C \\) for all spans in \\( S \\). The output structures are represented with a set of discrete random variables indexed by spans or pairs of spans. Specifically, the output structures are defined as follows."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1761,
+                    1220,
+                    2041
+                ],
+                "angle": 0,
+                "content": "Entity recognition is to predict the best entity type for every candidate span. Let \\( L_{\\mathrm{E}} \\) represent the set of all possible entity types including the null-type \\( \\epsilon \\). The output structure \\( E \\) is a set of random variables indexed by spans: \\( e_i \\in L_{\\mathrm{E}} \\) for \\( i = 1, \\dots, N \\)."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2052,
+                    1218,
+                    2448
+                ],
+                "angle": 0,
+                "content": "Relation extraction is to predict the best relation type given an ordered pair of spans \\((s_i, s_j)\\). Let \\(L_{\\mathbb{R}}\\) be the set of all possible relation types including the null-type \\(\\epsilon\\). The output structure \\(R\\) is a set of random variables indexed over pairs of spans \\((i, j)\\) that belong to the same sentence: \\(r_{ij} \\in L_{\\mathbb{R}}\\) for \\(i, j = 1, \\ldots, N\\)."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2459,
+                    1220,
+                    2802
+                ],
+                "angle": 0,
+                "content": "Coreference resolution is to predict the best antecedent (including a special null antecedent) given a span, which is the same mention-ranking model used in Lee et al. (2017). The output structure \\( C \\) is a set of random variables defined as: \\( c_{i} \\in \\{1, \\ldots, i - 1, \\epsilon\\} \\) for \\( i = 1, \\ldots, N \\)."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2873,
+                    731,
+                    2922
+                ],
+                "angle": 0,
+                "content": "4.2 Model Definition"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2964,
+                    1218,
+                    3195
+                ],
+                "angle": 0,
+                "content": "We formulate the multi-task learning setup as learning the conditional probability distribution \\( P(E, R, C|D) \\). For efficient training and inference, we decompose \\( P(E, R, C|D) \\) assuming spans are"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1267,
+                    1241,
+                    1932,
+                    1297
+                ],
+                "angle": 0,
+                "content": "conditionally independent given \\(D\\):"
+            },
+            {
+                "block_id": 9,
+                "type": "equation",
+                "bbox": [
+                    1334,
+                    1333,
+                    2193,
+                    1561
+                ],
+                "angle": 0,
+                "content": "\\[\n\\begin{array}{l} P (E, R, C \\mid D) = P (E, R, C, S \\mid D) \\tag {1} \\\\ = \\prod_ {i = 1} ^ {N} P (e _ {i} \\mid D) P (c _ {i} \\mid D) \\prod_ {j = 1} ^ {N} P (r _ {i j} \\mid D), \\\\ \\end{array}\n\\]"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1592,
+                    2193,
+                    1704
+                ],
+                "angle": 0,
+                "content": "where the conditional probabilities of each random variable are independently normalized:"
+            },
+            {
+                "block_id": 11,
+                "type": "equation",
+                "bbox": [
+                    1267,
+                    1736,
+                    2193,
+                    1862
+                ],
+                "angle": 0,
+                "content": "\\[\nP (e _ {i} = e \\mid D) = \\frac {\\exp (\\Phi_ {\\mathrm {E}} (e , s _ {i}))}{\\sum_ {e ^ {\\prime} \\in L _ {\\mathrm {E}}} \\exp (\\Phi_ {\\mathrm {E}} (e ^ {\\prime} , s _ {i}))} \\qquad (2)\n\\]"
+            },
+            {
+                "block_id": 12,
+                "type": "equation",
+                "bbox": [
+                    1270,
+                    1866,
+                    2133,
+                    1992
+                ],
+                "angle": 0,
+                "content": "\\[\nP (r _ {i j} = r \\mid D) = \\frac {\\exp (\\Phi_ {\\mathrm {R}} (r , s _ {i} , s _ {j}))}{\\sum_ {r ^ {\\prime} \\in L _ {\\mathrm {R}}} \\exp (\\Phi_ {\\mathrm {R}} (r ^ {\\prime} , s _ {i} , s _ {j}))}\n\\]"
+            },
+            {
+                "block_id": 13,
+                "type": "equation",
+                "bbox": [
+                    1270,
+                    1999,
+                    2222,
+                    2129
+                ],
+                "angle": 0,
+                "content": "\\[\nP (c _ {i} = j \\mid D) = \\frac {\\exp (\\Phi_ {\\mathbf {C}} (s _ {i} , s _ {j}))}{\\sum_ {j ^ {\\prime} \\in \\{1 , \\ldots , i - 1 , \\epsilon \\}} \\exp (\\Phi_ {\\mathbf {C}} (s _ {i} , s _ {j ^ {\\prime}}))},\n\\]"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2157,
+                    2198,
+                    2602
+                ],
+                "angle": 0,
+                "content": "where \\(\\Phi_{\\mathrm{E}}\\) denotes the unnormalized model score for an entity type \\(e\\) and a span \\(s_i\\), \\(\\Phi_{\\mathrm{R}}\\) denotes the score for a relation type \\(r\\) and span pairs \\(s_i, s_j\\), and \\(\\Phi_{\\mathrm{C}}\\) denotes the score for a binary coreference link between \\(s_i\\) and \\(s_j\\). These \\(\\Phi\\) scores are further decomposed into span and pairwise span scores computed from feed-forward networks, as will be explained in Section 4.3."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2606,
+                    2193,
+                    2715
+                ],
+                "angle": 0,
+                "content": "For simplicity, we omit \\(D\\) from the \\(\\Phi\\) functions and \\(S\\) from the observation."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2750,
+                    2198,
+                    2918
+                ],
+                "angle": 0,
+                "content": "Objective Given a set of all documents \\(\\mathcal{D}\\), the model loss function is defined as a weighted sum of the negative log-likelihood loss of all three tasks:"
+            },
+            {
+                "block_id": 17,
+                "type": "equation",
+                "bbox": [
+                    1334,
+                    2950,
+                    2190,
+                    3181
+                ],
+                "angle": 0,
+                "content": "\\[\n\\begin{array}{l} - \\sum_ {\\left(D, R ^ {*}, E ^ {*}, C ^ {*}\\right) \\in \\mathcal {D}} \\left\\{ \\right.\\lambda_ {\\mathrm {E}} \\log P \\left(E ^ {*} \\mid D\\right) \\quad \\tag {3} \\\\ \\left. + \\lambda_ {\\mathrm {R}} \\log P (R ^ {*} \\mid D) + \\lambda_ {\\mathrm {C}} \\log P (C ^ {*} \\mid D) \\right\\} \\\\ \\end{array}\n\\]"
+            },
+            {
+                "block_id": 18,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3279,
+                    1292,
+                    3325
+                ],
+                "angle": 0,
+                "content": "3222"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    263,
+                    1215,
+                    540
+                ],
+                "angle": 0,
+                "content": "where \\(E^{*}, R^{*}\\), and \\(C^{*}\\) are gold structures of the entity types, relations, and coreference, respectively. The task weights \\(\\lambda_{\\mathrm{E}}, \\lambda_{\\mathrm{R}}\\), and \\(\\lambda_{\\mathrm{C}}\\) are introduced as hyper-parameters to control the importance of each task."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    287,
+                    547,
+                    1215,
+                    1010
+                ],
+                "angle": 0,
+                "content": "For entity recognition and relation extraction, \\( P(E^{*} \\mid D) \\) and \\( P(R^{*} \\mid D) \\) are computed with the definition in Equation (2). For coreference resolution, we use the marginalized loss following Lee et al. (2017) since each mention can have multiple correct antecedents. Let \\( C_{i}^{*} \\) be the set of all correct antecedents for span \\( i \\), we have: \\( \\log P(C^{*} \\mid D) = \\sum_{i=1..N} \\log \\sum_{c \\in C_{i}^{*}} P(c \\mid D) \\)."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1034,
+                    811,
+                    1087
+                ],
+                "angle": 0,
+                "content": "4.3 Scoring Architecture"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1105,
+                    1215,
+                    1897
+                ],
+                "angle": 0,
+                "content": "We use feedforward neural networks (FFNNs) over shared span representations \\(\\mathbf{g}\\) to compute a set of span and pairwise span scores. For the span scores, \\(\\phi_e(s_i)\\) measures how likely a span \\(s_i\\) has an entity type \\(e\\), and \\(\\phi_{\\mathrm{mr}}(s_i)\\) and \\(\\phi_{\\mathrm{mc}}(s_i)\\) measure how likely a span \\(s_i\\) is a mention in a relation or a coreference link, respectively. The pairwise scores \\(\\phi_r(s_i,s_j)\\) and \\(\\phi_{\\mathrm{c}}(s_i,s_j)\\) measure how likely two spans are associated in a relation \\(r\\) or a coreference link, respectively. Let \\(\\mathbf{g}_i\\) be the fixed-length vector representation for span \\(s_i\\). For different tasks, the span scores \\(\\phi_{\\mathrm{x}}(s_i)\\) for \\(\\mathbf{x} \\in \\{e,\\mathrm{mc},\\mathrm{mr}\\}\\) and pairwise span scores \\(\\phi_{\\mathrm{y}}(s_i,s_j)\\) for \\(\\mathbf{y} \\in \\{r,\\mathrm{c}\\}\\) are computed as follows:"
+            },
+            {
+                "block_id": 4,
+                "type": "equation",
+                "bbox": [
+                    359,
+                    1929,
+                    1148,
+                    2059
+                ],
+                "angle": 0,
+                "content": "\\[\n\\begin{array}{l} \\phi_ {\\mathrm {x}} (s _ {i}) = \\mathbf {w} _ {\\mathrm {x}} \\cdot \\operatorname {F F N N} _ {\\mathrm {x}} (\\mathbf {g} _ {i}) \\\\ \\phi_ {\\mathrm {y}} (s _ {i}, s _ {j}) = \\mathbf {w} _ {\\mathrm {y}} \\cdot \\mathrm {F F N N} _ {\\mathrm {y}} ([ \\mathbf {g} _ {i}, \\mathbf {g} _ {j}, \\mathbf {g} _ {i} \\odot \\mathbf {g} _ {j} ]), \\\\ \\end{array}\n\\]"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2087,
+                    1213,
+                    2248
+                ],
+                "angle": 0,
+                "content": "where \\(\\odot\\) is element-wise multiplication, and \\(\\{\\mathbf{w}_{\\mathrm{x}},\\mathbf{w}_{\\mathrm{y}}\\}\\) are neural network parameters to be learned."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    334,
+                    2255,
+                    1213,
+                    2308
+                ],
+                "angle": 0,
+                "content": "We use these scores to compute the different \\(\\Phi\\):"
+            },
+            {
+                "block_id": 7,
+                "type": "equation",
+                "bbox": [
+                    354,
+                    2343,
+                    1215,
+                    2402
+                ],
+                "angle": 0,
+                "content": "\\[\n\\Phi_ {\\mathrm {E}} (e, s _ {i}) = \\phi_ {e} (s _ {i}) \\tag {4}\n\\]"
+            },
+            {
+                "block_id": 8,
+                "type": "equation",
+                "bbox": [
+                    295,
+                    2413,
+                    1215,
+                    2546
+                ],
+                "angle": 0,
+                "content": "\\[\n\\begin{array}{l} \\Phi_ {\\mathbf {R}} (r, s _ {i}, s _ {j}) = \\phi_ {\\mathrm {m r}} (s _ {i}) + \\phi_ {\\mathrm {m r}} (s _ {j}) + \\phi_ {r} (s _ {i}, s _ {j}) \\\\ \\Phi_ {\\mathrm {C}} (s _ {i}, s _ {j}) = \\phi_ {\\mathrm {m c}} (s _ {i}) + \\phi_ {\\mathrm {m c}} (s _ {j}) + \\phi_ {\\mathrm {c}} (s _ {i}, s _ {j}) \\\\ \\end{array}\n\\]"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2571,
+                    1213,
+                    2852
+                ],
+                "angle": 0,
+                "content": "The scores in Equation (4) are defined for entity types, relations, and antecedents that are not the null-type \\(\\epsilon\\). Scores involving the null label are set to a constant 0: \\(\\Phi_{\\mathrm{E}}(\\epsilon, s_i) = \\Phi_{\\mathrm{R}}(\\epsilon, s_i, s_j) = \\Phi_{\\mathrm{C}}(s_i, \\epsilon) = 0\\)."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2855,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "We use the same span representations \\(\\mathbf{g}\\) from (Lee et al., 2017) and share them across the three tasks. We start by building bi-directional LSTMs (Hochreiter and Schmidhuber, 1997) from word, character and ELMo (Peters et al., 2018) embeddings."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    266,
+                    2198,
+                    599
+                ],
+                "angle": 0,
+                "content": "For a span \\( s_i \\), its vector representation \\( \\mathbf{g}_i \\) is constructed by concatenating \\( s_i \\)'s left and right end points from the BiLSTM outputs, an attention-based soft \"headword,\" and embedded span width features. Hyperparameters and other implementation details will be described in Section 6."
+            },
+            {
+                "block_id": 12,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    648,
+                    1826,
+                    705
+                ],
+                "angle": 0,
+                "content": "4.4 Inference and Pruning"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    726,
+                    2198,
+                    1403
+                ],
+                "angle": 0,
+                "content": "Following previous work, we use beam pruning to reduce the number of pairwise span factors from \\( O(n^{4}) \\) to \\( O(n^{2}) \\) at both training and test time, where \\( n \\) is the number of words in the document. We define two separate beams: \\( B_{\\mathrm{C}} \\) to prune spans for the coreference resolution task, and \\( B_{\\mathrm{R}} \\) for relation extraction. The spans in the beams are sorted by their span scores \\( \\phi_{\\mathrm{mc}} \\) and \\( \\phi_{\\mathrm{mr}} \\) respectively, and the sizes of the beams are limited by \\( \\lambda_{\\mathrm{C}}n \\) and \\( \\lambda_{\\mathrm{R}}n \\). We also limit the maximum width of spans to a fixed number \\( W \\), which further reduces the number of span factors to \\( O(n) \\)."
+            },
+            {
+                "block_id": 14,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1452,
+                    2039,
+                    1508
+                ],
+                "angle": 0,
+                "content": "5 Knowledge Graph Construction"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1543,
+                    2198,
+                    2508
+                ],
+                "angle": 0,
+                "content": "We construct a scientific knowledge graph from a large corpus of scientific articles. The corpus includes all abstracts (110k in total) from 12 AI conference proceedings from the Semantic Scholar Corpus. Nodes in the knowledge graph correspond to scientific entities. Edges correspond to scientific relations between pairs of entities. The edges are typed according to the relation types defined in Section 3. Figure 4 shows a part of a knowledge graph created by our method. For example, Statistical Machine Translation (SMT) and grammatical error correction are nodes in the graph, and they are connected through a Used-for relation type. In order to construct the knowledge graph for the whole corpus, we first apply the ScIE model over single documents and then integrate the entities and relations across multiple documents (Figure 3)."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2546,
+                    2193,
+                    2655
+                ],
+                "angle": 0,
+                "content": "Extracting nodes (entities) The SciIE model extracts entities, their relations, and coreference"
+            },
+            {
+                "block_id": 17,
+                "type": "image",
+                "bbox": [
+                    1277,
+                    2732,
+                    2190,
+                    3087
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 3: Knowledge graph construction process."
+            },
+            {
+                "block_id": 19,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3279,
+                    1290,
+                    3325
+                ],
+                "angle": 0,
+                "content": "3223"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    295,
+                    263,
+                    1213,
+                    1055
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 4: A part of an automatically constructed scientific knowledge graph with the most frequent neighbors of the scientific term statistical machine translation (SMT) on the graph. For simplicity we denote Used-for (Reverse) as Uses, Evaluated-for (Reverse) as Evaluated-by, and replace common terms with their acronyms. The original graph and more examples are given in Figure 10 in Appendix B."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1648,
+                    1215,
+                    2497
+                ],
+                "angle": 0,
+                "content": "clusters within one document. Phrases are heuristically normalized (described in Section 6) using entities and coreference links. In particular, we link all entities that belong to the same coreference cluster to replace generic terms with any other nongeneric term in the cluster. Moreover, we replace all the entities in the cluster with the entity that has the longest string. Our qualitative analysis shows that there are fewer ambiguous phrases using coreference links (Figure 5). We calculate the frequency counts of all entities that appear in the whole corpus. We assign nodes in the knowledge graph by selecting the most frequent entities (with counts \\(>k\\)) in the corpus, and merge in any remaining entities for which a frequent entity is a substring."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2536,
+                    1215,
+                    2936
+                ],
+                "angle": 0,
+                "content": "Assigning edges (relations) A pair of entities may appear in different contexts, resulting in different relation types between those entities (Figure 6). For every pair of entities in the graph, we calculate the frequency of different relation types across the whole corpus. We assign edges between entities by selecting the most frequent relation type."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2981,
+                    806,
+                    3044
+                ],
+                "angle": 0,
+                "content": "6 Experimental Setup"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    287,
+                    3080,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "We evaluate our unified framework SciIE on SCI-ERC and SemEval 17. The knowledge graph for"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1267,
+                    263,
+                    2175,
+                    627
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 5: Frequency of detected entities with and without coreference resolution: using coreference reduces the frequency of the generic phrase detection while significantly increasing the frequency of specific phrases. Linking entities through coreference helps disambiguate phrases when generating the knowledge graph."
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1282,
+                    1112,
+                    2160,
+                    1497
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 6: Frequency of relation types between pairs of entities: (left) automatic speech recognition (ASR) and machine translation (MT), (right) conditional random field (CRF) and graphical model (GM). We use the most frequent relation between pairs of entities in the knowledge graph."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1957,
+                    2198,
+                    2069
+                ],
+                "angle": 0,
+                "content": "scientific community analysis is built using the Semantic Scholar Corpus (110k abstracts in total)."
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2108,
+                    1565,
+                    2157
+                ],
+                "angle": 0,
+                "content": "6.1 Baselines"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2181,
+                    2198,
+                    2290
+                ],
+                "angle": 0,
+                "content": "We compare our model with the following baselines on ScIERCdataset:"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    2329,
+                    2198,
+                    2606
+                ],
+                "angle": 0,
+                "content": "- LSTM+CRF The state-of-the-art NER system (Lample et al., 2016), which applies CRF on top of LSTM for named entity tagging, the approach has also been used in scientific term extraction (Luan et al., 2017b)."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    2648,
+                    2195,
+                    2760
+                ],
+                "angle": 0,
+                "content": "- LSTM+CRF+ELMo LSTM+CRF with ELMo as an additional input feature."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    2795,
+                    2200,
+                    3195
+                ],
+                "angle": 0,
+                "content": "- E2E Rel State-of-the-art joint entity and relation extraction system (Miwa and Bansal, 2016) that has also been used in scientific literature (Peters et al., 2017; Augenstein et al., 2017). This system uses syntactic features such as part-of-speech tagging and dependency parsing."
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    1317,
+                    2329,
+                    2200,
+                    3195
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3279,
+                    1292,
+                    3325
+                ],
+                "angle": 0,
+                "content": "3224"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    337,
+                    263,
+                    1210,
+                    427
+                ],
+                "angle": 0,
+                "content": "- E2E Rel(Pipeline) Pipeline setting of E2E Rel. Extract entities first and use entity results as input to relation extraction task."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    337,
+                    473,
+                    1210,
+                    582
+                ],
+                "angle": 0,
+                "content": "- E2E Rel+ELMo E2E Rel with ELMo as an additional input feature."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    337,
+                    624,
+                    1215,
+                    852
+                ],
+                "angle": 0,
+                "content": "- E2E Coref State-of-the-art coreference system Lee et al. (2017) combined with ELMo. Our system SCIIE extends E2E Coref with multi-task learning."
+            },
+            {
+                "block_id": 3,
+                "type": "list",
+                "bbox": [
+                    337,
+                    263,
+                    1215,
+                    852
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    891,
+                    1215,
+                    1396
+                ],
+                "angle": 0,
+                "content": "In the SemEval task, we compare our model ScIE with the best reported system in the SemEval leaderboard (Peters et al., 2017), which extends E2E Rel with several in-domain features such as gazetteers extracted from existing knowledge bases and model ensembles. We also compare with the state of the art on keyphrase extraction (Luan et al., 2017b), which applies semi-supervised methods to a neural tagging model.<sup>3</sup>"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1438,
+                    855,
+                    1490
+                ],
+                "angle": 0,
+                "content": "6.2 Implementation details"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1511,
+                    1215,
+                    2413
+                ],
+                "angle": 0,
+                "content": "Our system extends the implementation and hyperparameters from Lee et al. (2017) with the following adjustments. We use a 1 layer BiLSTM with 200-dimensional hidden layers. All the FFNNs have 2 hidden layers of 150 dimensions each. We use 0.4 variational dropout (Gal and Ghahramani, 2016) for the LSTMs, 0.4 dropout for the FFNNs, and 0.5 dropout for the input embeddings. We model spans up to 8 words. For beam pruning, we use \\(\\lambda_{\\mathrm{C}} = 0.3\\) for coreference resolution and \\(\\lambda_{\\mathrm{R}} = 0.4\\) for relation extraction. For constructing the knowledge graph, we use the following heuristics to normalize the entity phrases. We replace all acronyms with their corresponding full name and normalize all the plural terms with their singular counterparts."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2455,
+                    838,
+                    2511
+                ],
+                "angle": 0,
+                "content": "7 Experimental Results"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2546,
+                    1213,
+                    2715
+                ],
+                "angle": 0,
+                "content": "We evaluate SciIE on SciERC and SemEval 17 datasets. We provide qualitative results and human evaluation of the constructed knowledge graph."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2753,
+                    607,
+                    2802
+                ],
+                "angle": 0,
+                "content": "7.1 IE Results"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2827,
+                    1215,
+                    3111
+                ],
+                "angle": 0,
+                "content": "Results on SciERC Table 2 compares the result of our model with baselines on the three tasks: entity recognition (Table 2a), relation extraction (Table 2b), and coreference resolution (Table 2c). As evidenced by the table, our unified multi-task setup"
+            },
+            {
+                "block_id": 11,
+                "type": "table",
+                "bbox": [
+                    1272,
+                    256,
+                    2195,
+                    663
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\">Model</td><td colspan=\"3\">Dev</td><td colspan=\"3\">Test</td></tr><tr><td>P</td><td>R</td><td>F1</td><td>P</td><td>R</td><td>F1</td></tr><tr><td>LSTM+CRF</td><td>67.2</td><td>65.8</td><td>66.5</td><td>62.9</td><td>61.1</td><td>62.0</td></tr><tr><td>LSTM+CRF+ELMo</td><td>68.1</td><td>66.3</td><td>67.2</td><td>63.8</td><td>63.2</td><td>63.5</td></tr><tr><td>E2E Rel(Pipeline)</td><td>66.7</td><td>65.9</td><td>66.3</td><td>60.8</td><td>61.2</td><td>61.0</td></tr><tr><td>E2E Rel</td><td>64.3</td><td>68.6</td><td>66.4</td><td>60.6</td><td>61.9</td><td>61.2</td></tr><tr><td>E2E Rel+ELMo</td><td>67.5</td><td>66.3</td><td>66.9</td><td>63.5</td><td>63.9</td><td>63.7</td></tr><tr><td>SciIE</td><td>70.0</td><td>66.3</td><td>68.1</td><td>67.2</td><td>61.5</td><td>64.2</td></tr></table>",
+                "caption": "(a) Entity recognition."
+            },
+            {
+                "block_id": 13,
+                "type": "table",
+                "bbox": [
+                    1272,
+                    733,
+                    2193,
+                    1059
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\">Model</td><td colspan=\"3\">Dev</td><td colspan=\"3\">Test</td></tr><tr><td>P</td><td>R</td><td>F1</td><td>P</td><td>R</td><td>F1</td></tr><tr><td>E2E Rel(Pipeline)</td><td>34.2</td><td>33.7</td><td>33.9</td><td>37.8</td><td>34.2</td><td>35.9</td></tr><tr><td>E2E Rel</td><td>37.3</td><td>33.5</td><td>35.3</td><td>37.1</td><td>32.2</td><td>34.1</td></tr><tr><td>E2E Rel+ELMo</td><td>38.5</td><td>36.4</td><td>37.4</td><td>38.4</td><td>34.9</td><td>36.6</td></tr><tr><td>SciIE</td><td>45.4</td><td>34.9</td><td>39.5</td><td>47.6</td><td>33.5</td><td>39.3</td></tr></table>",
+                "caption": "(b) Relation extraction."
+            },
+            {
+                "block_id": 15,
+                "type": "table",
+                "bbox": [
+                    1272,
+                    1126,
+                    2193,
+                    1371
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\">Model</td><td colspan=\"3\">Dev</td><td colspan=\"3\">Test</td></tr><tr><td>P</td><td>R</td><td>F1</td><td>P</td><td>R</td><td>F1</td></tr><tr><td>E2E Coref</td><td>59.4</td><td>52.0</td><td>55.4</td><td>60.9</td><td>37.3</td><td>46.2</td></tr><tr><td>SciIE</td><td>61.5</td><td>54.8</td><td>58.0</td><td>52.0</td><td>44.9</td><td>48.2</td></tr></table>",
+                "caption": "(c) Coreference resolution."
+            },
+            {
+                "block_id": 17,
+                "type": "table_caption",
+                "bbox": [
+                    1265,
+                    1473,
+                    2198,
+                    1701
+                ],
+                "angle": 0,
+                "content": "Table 2: Comparison with previous systems on the development and test set for our three tasks. For coreference resolution, we report the average P/R/F1 of MUC, \\(\\mathbf{B}^{3}\\), and \\(\\mathrm{CEAF}_{\\phi_4}\\) scores."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1792,
+                    2198,
+                    2634
+                ],
+                "angle": 0,
+                "content": "SCIE outperforms all the baselines. For entity recognition, our model achieves \\(1.3\\%\\) and \\(2.4\\%\\) relative improvement over LSTM+CRF with and without ELMo, respectively. Moreover, it achieves \\(1.8\\%\\) and \\(2.7\\%\\) relative improvement over E2E Rel with and without ELMo, respectively. For relation extraction, we observe more significant improvement with \\(13.1\\%\\) relative improvement over E2E Rel and \\(7.4\\%\\) improvement over E2E Rel with ELMo. For coreference resolution, SCIE outperforms E2E Coref with \\(4.5\\%\\) relative improvement. We still observe a large gap between human-level performance and a machine learning system. We invite the community to address this challenging task."
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2683,
+                    2198,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Ablations We evaluate the effect of multi-task learning in each of the three tasks defined in our dataset. Table 3 reports the results for individual tasks when additional tasks are included in the learning objective function. We observe that performance improves with each added task in the objective. For example, Entity recognition (65.7) benefits from both coreference resolution (67.5) and relation extraction (66.8). Relation extrac"
+            },
+            {
+                "block_id": 20,
+                "type": "page_footnote",
+                "bbox": [
+                    342,
+                    3139,
+                    1056,
+                    3188
+                ],
+                "angle": 0,
+                "content": "<sup>3</sup>We compare with the inductive setting results."
+            },
+            {
+                "block_id": 21,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3279,
+                    1292,
+                    3325
+                ],
+                "angle": 0,
+                "content": "3225"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    292,
+                    256,
+                    1210,
+                    589
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Task</td><td>Entity Rec.</td><td>Relation</td><td>Coref.</td></tr><tr><td>Multi Task (SC1IE)</td><td>68.1</td><td>39.5</td><td>58.0</td></tr><tr><td>Single Task</td><td>65.7</td><td>37.9</td><td>55.3</td></tr><tr><td>+Entity Rec.</td><td>-</td><td>38.9</td><td>57.1</td></tr><tr><td>+Relation</td><td>66.8</td><td>-</td><td>57.6</td></tr><tr><td>+Coreference</td><td>67.5</td><td>39.5</td><td>-</td></tr></table>",
+                "caption": "Table 3: Ablation study for multitask learning on ScIERC development set. Each column shows results for the target task."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    887,
+                    1218,
+                    1168
+                ],
+                "angle": 0,
+                "content": "tion (37.9) significantly benefits when multi-tasked with coreference resolution (7.1% relative improvement). Coreference resolution benefits when multitasked with relation extraction, with 4.9% relative improvement."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1213,
+                    1220,
+                    2283
+                ],
+                "angle": 0,
+                "content": "Results on SemEval 17 Table 4 compares the results of our model with the state of the art on the SemEval 17 dataset for tasks of span identification, keyphrase extraction and relation extraction as well as the overall score. Span identification aims at identifying spans of entities. Keyphrase classification and relation extraction has the same setting with the entity and relation extraction in ScIERC. Our model outperforms all the previous models that use hand-designed features. We observe more significant improvement in span identification than keyphrase classification. This confirms the benefit of our model in enumerating spans (rather than BIO tagging in state-of-the-art systems). Moreover, we have competitive results compared to the previous state of the art in relation extraction. We observe less gain compared to the ScIERC dataset mainly because there are no coherence links, and the relation types are not comprehensive."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2336,
+                    940,
+                    2392
+                ],
+                "angle": 0,
+                "content": "7.2 Knowledge Graph Analysis"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2413,
+                    1215,
+                    2529
+                ],
+                "angle": 0,
+                "content": "We provide qualitative analysis and human evaluations on the constructed knowledge graph."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2571,
+                    1220,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Scientific trend analysis Figure 7 shows the historical trend analysis (from 1996 to 2016) of the most popular applications of the phrase neural network, selected according to the statistics of the extracted relation triples with the 'Used-for' relation type from speech, computer vision, and NLP conference papers. We observe that, before 2000, neural network has been applied to a greater percentage of speech applications compared to the NLP and computer vision papers. In NLP, neural networks first gain popularity in language modeling"
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1319,
+                    263,
+                    2123,
+                    554
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1319,
+                    557,
+                    2121,
+                    848
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    1322,
+                    855,
+                    2121,
+                    1143
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 7: Historical trend for top applications of the keyphrase neural network in NLP, speech, and CV conference papers we collected. y-axis indicates the ratio of papers that use neural network in the task to the number of papers that is about the task."
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    1285,
+                    1536,
+                    2101,
+                    1922
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 8: Precision/pseudo-recall curves for human evaluation by varying cut-off thresholds. The AUC is 0.751 with coreference, and 0.695 without."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2234,
+                    2198,
+                    2627
+                ],
+                "angle": 0,
+                "content": "and then extend to other tasks such as POS Tagging and Machine Translation. In computer vision, the application of neural networks gains popularity in object recognition earlier (around 2010) than the other two more complex tasks of object detection and image segmentation (hardest and also the latest)."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2683,
+                    2198,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Knowledge Graph Evaluation Figure 8 shows the human evaluation of the constructed knowledge graph, comparing the quality of automatically generated knowledge graphs with and without the coreference links. We randomly select 10 frequent scientific entities and extract all the relation triples that include one of the selected entities leading to \\(1.5\\mathrm{k}\\) relation triples from both systems. We ask four domain experts to annotate each of these ex"
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3279,
+                    1292,
+                    3325
+                ],
+                "angle": 0,
+                "content": "3226"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    292,
+                    256,
+                    2200,
+                    550
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\">Model</td><td colspan=\"3\">Span Indentification</td><td colspan=\"3\">Keyphrase Extraction</td><td colspan=\"3\">Relation Extraction</td><td colspan=\"3\">Overall</td></tr><tr><td>P</td><td>R</td><td>F1</td><td>P</td><td>R</td><td>F1</td><td>P</td><td>R</td><td>F1</td><td>P</td><td>R</td><td>F1</td></tr><tr><td>(Luan 2017)</td><td>-</td><td>-</td><td>56.9</td><td>-</td><td>-</td><td>45.3</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Best SemEval</td><td>55</td><td>54</td><td>55</td><td>44</td><td>43</td><td>44</td><td>36</td><td>23</td><td>28</td><td>44</td><td>41</td><td>43</td></tr><tr><td>SCIIE</td><td>62.2</td><td>55.4</td><td>58.6</td><td>48.5</td><td>43.8</td><td>46.0</td><td>40.4</td><td>21.2</td><td>27.8</td><td>48.1</td><td>41.8</td><td>44.7</td></tr></table>",
+                "caption": "Table 4: Results for scientific keyphrase extraction and extraction on SemEval 2017 Task 10, comparing with previous best systems."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    782,
+                    1223,
+                    1462
+                ],
+                "angle": 0,
+                "content": "tracted relations to define ground truth labels. Each domain expert is assigned 2 or 3 entities and all of the corresponding relations. Figure 8 shows precision/recall curves for both systems. Since it is not feasible to compute the actual recall of the systems, we compute the pseudo-recall (Zhang et al., 2015) based on the output of both systems. We observe that the knowledge graph curve with coreference linking is mostly above the curve without coreference linking. The precision of both systems is high (above \\(84\\%\\) for both systems), but the system with coreference links has significantly higher recall."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1508,
+                    617,
+                    1561
+                ],
+                "angle": 0,
+                "content": "8 Conclusion"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1603,
+                    1223,
+                    2501
+                ],
+                "angle": 0,
+                "content": "In this paper, we create a new dataset and develop a multi-task model for identifying entities, relations, and coreference clusters in scientific articles. By sharing span representations and leveraging cross-sentence information, our multi-task setup effectively improves performance across all tasks. Moreover, we show that our multi-task model is better at predicting span boundaries and outperforms previous state-of-the-art scientific IE systems on entity and relation extraction, without using any hand-engineered features or pipeline processing. Using our model, we are able to automatically organize the extracted information from a large collection of scientific articles into a knowledge graph. Our analysis shows the importance of coreference links in making a dense, useful graph."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2504,
+                    1223,
+                    2960
+                ],
+                "angle": 0,
+                "content": "We still observe a large gap between the performance of our model and human performance, confirming the challenges of scientific IE. Future work includes improving the performance using semi-supervised techniques and providing in-domain features. We also plan to extend our multi-task framework to information extraction tasks in other domains."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    287,
+                    3002,
+                    662,
+                    3058
+                ],
+                "angle": 0,
+                "content": "Acknowledgments"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    3080,
+                    1220,
+                    3195
+                ],
+                "angle": 0,
+                "content": "This research was supported by the Office of Naval Research under the MURI grant N00014-18-1-"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    778,
+                    2200,
+                    1178
+                ],
+                "angle": 0,
+                "content": "2670, NSF (IIS 1616112, III 1703166), Allen Distinguished Investigator Award, and gifts from Allen Institute for AI, Google, Amazon, and Bloomberg. We are grateful to Waleed Ammar and AI2 for sharing the Semantic Scholar Corpus. We also thank the anonymous reviewers, UW-NLP group and Shouu-I Yu for their helpful comments."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1270,
+                    1273,
+                    1515,
+                    1322
+                ],
+                "angle": 0,
+                "content": "References"
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    1350,
+                    2200,
+                    1585
+                ],
+                "angle": 0,
+                "content": "Amjad Abu-Jbara and Dragomir Radev. 2011. Coherent citation-based summarization of scientific papers. In Proc. Annual Meeting of the Association for Computational Linguistics: Human Language Technologies. volume 1, pages 500-509."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    1617,
+                    2200,
+                    1852
+                ],
+                "angle": 0,
+                "content": "Heike Adel and Hinrich Schütze. 2017. Global normalization of convolutional neural networks for joint entity and relation classification. In Proc. Conf. Empirical Methods Natural Language Process. (EMNLP). pages 1723-1729."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    1887,
+                    2200,
+                    2262
+                ],
+                "angle": 0,
+                "content": "Waleed Ammar, Dirk Groeneveld, Chandra Bhagavatula, Iz Beltagy, Miles Crawford, Doug Downey, Jason Dunkelberger, Ahmed Elgohary, Sergey Feldman, Vu Ha, et al. 2018. Construction of the literature graph in semantic scholar. In Proc. Conf. North American Assoc. for Computational Linguistics: Human Language Technologies (NAACL-HLT), (Industry Papers). pages 84-91."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    2290,
+                    2200,
+                    2571
+                ],
+                "angle": 0,
+                "content": "Waleed Ammar, Matthew Peters, Chandra Bhagavatula, and Russell Power. 2017. The ai2 system at semeval-2017 task 10 (scienceie): semi-supervised end-to-end entity and relation extraction. In Proc. Int. Workshop on Semantic Evaluation (SemEval). pages 592-596."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    2606,
+                    2200,
+                    2795
+                ],
+                "angle": 0,
+                "content": "Ashton Anderson, Dan McFarland, and Dan Jurafsky. 2012. Towards a computational history of the ACL: 1980-2008. In Proc. ACL Special Workshop on Rediscovering 50 Years of Discoveries. pages 13-21."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    2827,
+                    2200,
+                    3062
+                ],
+                "angle": 0,
+                "content": "Awais Athar and Simone Teufel. 2012a. Context-enhanced citation sentiment detection. In Proc. Conf. North American Assoc. for Computational Linguistics: Human Language Technologies (NAACL-HLT). pages 597-601."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1270,
+                    3094,
+                    2200,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Awais Athar and Simone Teufel. 2012b. Detection of implicit citations for sentiment detection. In Proc."
+            },
+            {
+                "block_id": 17,
+                "type": "list",
+                "bbox": [
+                    1270,
+                    1350,
+                    2200,
+                    3195
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 18,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3279,
+                    1292,
+                    3325
+                ],
+                "angle": 0,
+                "content": "3227"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    334,
+                    270,
+                    1213,
+                    361
+                ],
+                "angle": 0,
+                "content": "ACL Workshop on Detecting Structure in Scholarly Discourse. pages 18-26."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    399,
+                    1215,
+                    677
+                ],
+                "angle": 0,
+                "content": "Isabelle Augenstein, Mrinal Das, Sebastian Riedel, Lakshmi Vikraman, and Andrew McCallum. 2017. Semeval 2017 task 10: ScienceIE - extracting keyphrases and relations from scientific publications. In Proc. Int. Workshop on Semantic Evaluation (SemEval)."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    715,
+                    1215,
+                    901
+                ],
+                "angle": 0,
+                "content": "Isabelle Augenstein and Anders Søgaard. 2017. Multi-task learning of keyphrase boundary classification. In Proc. Annu. Meeting Assoc. for Computational Linguistics (ACL). pages 341-346."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    940,
+                    1215,
+                    1122
+                ],
+                "angle": 0,
+                "content": "Kevin Clark and Christopher D. Manning. 2016. Improving coreference resolution by learning entity-level distributed representations. CoRR abs/1606.01323."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    1164,
+                    1215,
+                    1389
+                ],
+                "angle": 0,
+                "content": "Ronan Collobert and Jason Weston. 2008. A unified architecture for natural language processing: Deep neural networks with multitask learning. In Proc. Int. Conf. Machine Learning (ICML). pages 160-167."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    1431,
+                    1215,
+                    1662
+                ],
+                "angle": 0,
+                "content": "Huy Hoang Nhat Do, Muthu Kumar Chandrasekaran, Philip S Cho, and Min Yen Kan. 2013. Extracting and matching authors and affiliations in scholarly documents. In Proc. ACM/IEEE-CS Joint Conference on Digital libraries. pages 219-228."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    1701,
+                    1215,
+                    1978
+                ],
+                "angle": 0,
+                "content": "Kata Gabor, Davide Buscaldi, Anne-Kathrin Schumann, Behrang QasemiZadeh, Haifa Zargayouna, and Thierry Charnois. 2018. Semeval-2018 Task 7: Semantic relation extraction and classification in scientific papers. In Proc. Int. Workshop on Semantic Evaluation (SemEval)."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    2017,
+                    1215,
+                    2294
+                ],
+                "angle": 0,
+                "content": "Kata Gabor, Haifa Zargayouna, Davide Buscaldi, Isabelle Tellier, and Thierry Charnois. 2016. Semantic annotation of the ACL anthology corpus for the automatic analysis of scientific literature. In Proc. Language Resources and Evaluation Conference (LREC)."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    2332,
+                    1215,
+                    2564
+                ],
+                "angle": 0,
+                "content": "Kata Gábor, Haïfa Zargayouna, Isabelle Tellier, Davide Buscaldi, and Thierry Charnois. 2016. Unsupervised relation extraction in specialized corpora using sequence mining. In International Symposium on Intelligent Data Analysis. Springer, pages 237-248."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    2602,
+                    1215,
+                    2785
+                ],
+                "angle": 0,
+                "content": "Yarin Gal and Zoubin Ghahramani. 2016. A theoretically grounded application of dropout in recurrent neural networks. In Proc. Annu. Conf. Neural Inform. Process. Syst. (NIPS)."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    2823,
+                    1215,
+                    3002
+                ],
+                "angle": 0,
+                "content": "Sonal Gupta and Christopher D Manning. 2011. Analyzing the dynamics of research by extracting key aspects of scientific papers. In Proc. IJCNLP. pages 1-9."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    3048,
+                    1215,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Luheng He, Kenton Lee, Omer Levy, and Luke Zettle-moyer. 2018. Jointly predicting predicates and arguments in neural semantic role labeling. In ACL."
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    295,
+                    270,
+                    1215,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    270,
+                    2195,
+                    403
+                ],
+                "angle": 0,
+                "content": "Sepp Hochreiter and Jürgen Schmidhuber. 1997. Long short-term memory. *Neural computation* 9(8):1735-1780."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    445,
+                    2195,
+                    722
+                ],
+                "angle": 0,
+                "content": "Kokil Jaidka, Muthu Kumar Chandrasekaran, Beatriz Fisas Elizalde, Rahul Jha, Christopher Jones, Min-Yen Kan, Ankur Khanna, Diego Molla-Aliod, Dragomir R Radev, Francesco Ronzano, et al. 2014. The computational linguistics summarization pilot task. In Proc. Text Analysis Conference."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    764,
+                    2190,
+                    855
+                ],
+                "angle": 0,
+                "content": "Miray Kas. 2011. Structures and statistics of citation networks. Technical report, DTIC Document."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    894,
+                    2190,
+                    1126
+                ],
+                "angle": 0,
+                "content": "Arzoo Katiyar and Claire Cardie. 2017. Going out on a limb: Joint extraction of entity mentions and relations without dependency trees. In Proc. Annu. Meeting Assoc. for Computational Linguistics (ACL). volume 1, pages 917-928."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1164,
+                    2195,
+                    1304
+                ],
+                "angle": 0,
+                "content": "Sigrid Klerke, Yoav Goldberg, and Anders Søgaard. 2016. Improving sentence compression by learning to predict gaze. In HLT-NAACL."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1343,
+                    2195,
+                    1571
+                ],
+                "angle": 0,
+                "content": "Guillaume Lample, Miguel Ballesteros, Sandeep Subramanian, Kazuya Kawakami, and Chris Dyer. 2016. Neural architectures for named entity recognition. In Proc. Conf. North American Assoc. for Computational Linguistics (NAACL)."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1610,
+                    2190,
+                    1750
+                ],
+                "angle": 0,
+                "content": "Kenton Lee, Luheng He, Mike Lewis, and Luke S. Zettlemoyer. 2017. End-to-end neural coreference resolution. In EMNLP."
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1792,
+                    2195,
+                    1925
+                ],
+                "angle": 0,
+                "content": "Kenton Lee, Luheng He, and Luke Zettlemoyer. 2018. Higher-order coreference resolution with coarse-to-fine inference. In *NAACL*."
+            },
+            {
+                "block_id": 21,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1967,
+                    2195,
+                    2150
+                ],
+                "angle": 0,
+                "content": "Yi Luan, Chris Brockett, Bill Dolan, Jianfeng Gao, and Michel Galley. 2017a. Multi-task learning for speaker-role adaptation in neural conversation models. In Proc. IJCNLP."
+            },
+            {
+                "block_id": 22,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2192,
+                    2190,
+                    2424
+                ],
+                "angle": 0,
+                "content": "Yi Luan, Yangfeng Ji, Hannaneh Hajishirzi, and Boyang Li. 2016. Multiplicative representations for unsupervised semantic role induction. In Proc. Annu. Meeting Assoc. for Computational Linguistics (ACL). page 118."
+            },
+            {
+                "block_id": 23,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2462,
+                    2190,
+                    2648
+                ],
+                "angle": 0,
+                "content": "Yi Luan, Mari Ostendorf, and Hannaneh Hajishirzi. 2017b. Scientific information extraction with semi-supervised neural tagging. In Proc. Conf. Empirical Methods Natural Language Process. (EMNLP)."
+            },
+            {
+                "block_id": 24,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2687,
+                    2195,
+                    2960
+                ],
+                "angle": 0,
+                "content": "Yi Luan, Mari Ostendorf, and Hannaneh Hajishirzi. 2018. The uwnlp system at semeval-2018 task 7: Neural relation extraction model with selectively incorporated concept embeddings. In Proc. Int. Workshop on Semantic Evaluation (SemEval). pages 788-792."
+            },
+            {
+                "block_id": 25,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    3002,
+                    2195,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Makoto Miwa and Mohit Bansal. 2016. End-to-end relation extraction using lstms on sequences and tree structures. In Proc. Annu. Meeting Assoc. for Computational Linguistics (ACL). pages 1105-1116."
+            },
+            {
+                "block_id": 26,
+                "type": "list",
+                "bbox": [
+                    1272,
+                    270,
+                    2195,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 27,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3279,
+                    1292,
+                    3325
+                ],
+                "angle": 0,
+                "content": "3228"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    270,
+                    1215,
+                    498
+                ],
+                "angle": 0,
+                "content": "Nanyun Peng, Hoifung Poon, Chris Quirk, Kristina Toutanova, and Wen-tau Yih. 2017. Cross-sentence n-ary relation extraction with graph lstms. Trans. Assoc. for Computational Linguistics (TACL) 5:101-115."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    536,
+                    1215,
+                    771
+                ],
+                "angle": 0,
+                "content": "Matthew Peters, Waleed Ammar, Chandra Bhagavatula, and Russell Power. 2017. Semi-supervised sequence tagging with bidirectional language models. In Proc. Annu. Meeting Assoc. for Computational Linguistics (ACL). volume 1, pages 1756-1765."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    806,
+                    1215,
+                    989
+                ],
+                "angle": 0,
+                "content": "Matthew E. Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark, Kenton Lee, and Luke Zettlemoyer. 2018. Deep contextualized word representations. In *NAACL*."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1031,
+                    1215,
+                    1213
+                ],
+                "angle": 0,
+                "content": "Behrang QasemiZadeh and Anne-Kathrin Schumann. 2016. The ACL RD-TEC 2.0: A language resource for evaluating term extraction and entity recognition methods. In LREC."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1252,
+                    1215,
+                    1480
+                ],
+                "angle": 0,
+                "content": "Chris Quirk and Hoifung Poon. 2017. Distant supervision for relation extraction beyond the sentence boundary. In Proc. European Chapter Assoc. for Computational Linguistics (EACL). pages 1171-1182."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1522,
+                    1215,
+                    1662
+                ],
+                "angle": 0,
+                "content": "Marek Rei. 2017. Semi-supervised multitask learning for sequence labeling. In Proc. Annu. Meeting Assoc. for Computational Linguistics (ACL)."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1701,
+                    1215,
+                    1929
+                ],
+                "angle": 0,
+                "content": "Yanchuan Sim, Noah A Smith, and David A Smith. 2012. Discovering factions in the computational linguistics community. In Proc. ACL Special Workshop on Rediscovering 50 Years of Discoveries. pages 22-32."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1971,
+                    1215,
+                    2203
+                ],
+                "angle": 0,
+                "content": "Sameer Singh, Sebastian Riedel, Brian Martin, Jiaping Zheng, and Andrew McCallum. 2013. Joint inference of entities, relations, and coreference. In Proc. of the 2013 workshop on Automated knowledge base construction. ACM, pages 1-6."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2241,
+                    1215,
+                    2511
+                ],
+                "angle": 0,
+                "content": "Pontus Stenetorp, Sampo Pyysalo, Goran Topić, Tomoko Ohta, Sophia Ananiadou, and Jun'ichi Tsujii. 2012. Brat: a web-based tool for nlp-assisted text annotation. In Proc. European Chapter Assoc. for Computational Linguistics (EACL). pages 102-107."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2553,
+                    1215,
+                    2736
+                ],
+                "angle": 0,
+                "content": "Swabha Swayamdipta, Sam Thomson, Chris Dyer, and Noah A. Smith. 2017. Frame-semantic parsing with softmax-margin segmental rnns and a syntactic scaffold. CoRR abs/1706.09528."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2778,
+                    1215,
+                    2964
+                ],
+                "angle": 0,
+                "content": "Chen-Tse Tsai, Gourab Kundu, and Dan Roth. 2013. Concept-based analysis of scientific literature. In Proc. ACM Int. Conference on Information & Knowledge Management. ACM, pages 1733-1738."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    3002,
+                    1215,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Adam Vogel and Dan Jurafsky. 2012. He said, she said: Gender in the ACL anthology. In Proc. ACL Special Workshop on Rediscovering 50 Years of Discoveries. pages 33-41."
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    292,
+                    270,
+                    1215,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    270,
+                    2195,
+                    406
+                ],
+                "angle": 0,
+                "content": "Sam Wiseman, Alexander M. Rush, and Stuart M. Shieber. 2016. Learning global features for coreference resolution. In HLT-NAACL."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    442,
+                    2195,
+                    677
+                ],
+                "angle": 0,
+                "content": "Yan Xu, Ran Jia, Lili Mou, Ge Li, Yunchuan Chen, Yangyang Lu, and Zhi Jin. 2016. Improved relation classification by deep recurrent neural networks with data augmentation. In Proc. Int. Conf. Computational Linguistics (COLING). pages 1461-1470."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    708,
+                    2195,
+                    845
+                ],
+                "angle": 0,
+                "content": "Congle Zhang, Stephen Soderland, and Daniel S. Weld. 2015. Exploiting parallel news streams for unsupervised event extraction. TACL 3:117-129."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    880,
+                    2195,
+                    1069
+                ],
+                "angle": 0,
+                "content": "Meishan Zhang, Yue Zhang, and Guohong Fu. 2017. End-to-end neural relation extraction with global optimization. In Proc. Conf. Empirical Methods Natural Language Process. (EMNLP). pages 1730-1740."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1101,
+                    2195,
+                    1375
+                ],
+                "angle": 0,
+                "content": "Suncong Zheng, Feng Wang, Hongyun Bao, Yuexing Hao, Peng Zhou, and Bo Xu. 2017. Joint extraction of entities and relations based on a novel tagging scheme. In Proc. Annu. Meeting Assoc. for Computational Linguistics (ACL). volume 1, pages 1227-1236."
+            },
+            {
+                "block_id": 18,
+                "type": "list",
+                "bbox": [
+                    1272,
+                    270,
+                    2195,
+                    1375
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 19,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3279,
+                    1292,
+                    3325
+                ],
+                "angle": 0,
+                "content": "3229"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    290,
+                    263,
+                    853,
+                    315
+                ],
+                "angle": 0,
+                "content": "A Annotation Guideline"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    290,
+                    350,
+                    731,
+                    406
+                ],
+                "angle": 0,
+                "content": "A.1 Entity Category"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    337,
+                    424,
+                    1215,
+                    533
+                ],
+                "angle": 0,
+                "content": "- Task: Applications, problems to solve, systems to construct."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    374,
+                    554,
+                    1213,
+                    666
+                ],
+                "angle": 0,
+                "content": "E.g. information extraction, machine reading system, image segmentation, etc."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    337,
+                    701,
+                    1220,
+                    813
+                ],
+                "angle": 0,
+                "content": "- Method: Methods , models, systems to use, or tools, components of a system, frameworks."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    374,
+                    834,
+                    1215,
+                    940
+                ],
+                "angle": 0,
+                "content": "E.g. language model, CORENLP, POS parser, kernel method, etc."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    337,
+                    982,
+                    1220,
+                    1147
+                ],
+                "angle": 0,
+                "content": "- Evaluation Metric: Metrics, measures, or entities that can express quality of a system/method."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    374,
+                    1168,
+                    1215,
+                    1336
+                ],
+                "angle": 0,
+                "content": "E.g. F1, BLEU, Precision, Recall, ROC curve, mean reciprocal rank, mean-squared error, robustness, time complexity, etc."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    337,
+                    1375,
+                    1215,
+                    1483
+                ],
+                "angle": 0,
+                "content": "- Material: Data, datasets, resources, Corpus, Knowledge base."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    374,
+                    1504,
+                    1215,
+                    1722
+                ],
+                "angle": 0,
+                "content": "E.g. image data, speech data, stereo images, bilingual dictionary, paraphrased questions, CoNLL, Panntreebank, WordNet, Wikipedia, etc."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    337,
+                    1764,
+                    1215,
+                    1876
+                ],
+                "angle": 0,
+                "content": "- Evaluation Metric: Metric measure or term that can express quality of a system/method."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    374,
+                    1894,
+                    1215,
+                    2122
+                ],
+                "angle": 0,
+                "content": "E.g. F1, BLEU, Precision, Recall, ROC curve, mean reciprocal rank, mean-squared error, robustness, compile time, time complexity..."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    337,
+                    2157,
+                    1215,
+                    2322
+                ],
+                "angle": 0,
+                "content": "- Generic: General terms or pronouns that may refer to a entity but are not themselves informative, often used as connection words."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    374,
+                    2343,
+                    1215,
+                    2452
+                ],
+                "angle": 0,
+                "content": "E.g model, approach, prior knowledge, them, it..."
+            },
+            {
+                "block_id": 14,
+                "type": "title",
+                "bbox": [
+                    290,
+                    2494,
+                    774,
+                    2550
+                ],
+                "angle": 0,
+                "content": "A.2 Relation Category"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2567,
+                    1220,
+                    2844
+                ],
+                "angle": 0,
+                "content": "Relation link can not go beyond sentence boundary. We define 4 asymmetric relation types (Used-for, Feature-of, Hyponym-of, Part-of), together with 2 symmetric relation types (Compare, Conjunction). B always points to A for asymmetric relations"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    337,
+                    2883,
+                    1215,
+                    3055
+                ],
+                "angle": 0,
+                "content": "- Used-for: B is used for A, B models A, A is trained on B, B exploits A, A is based on B. E.g."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    466,
+                    3080,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "The TISPER system has been designed to enable many text applications."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1451,
+                    266,
+                    2138,
+                    322
+                ],
+                "angle": 0,
+                "content": "Our method models user proficiency."
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1451,
+                    326,
+                    2193,
+                    382
+                ],
+                "angle": 0,
+                "content": "Our algorithms exploits local soothness."
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    410,
+                    2195,
+                    526
+                ],
+                "angle": 0,
+                "content": "- Feature-of: B belongs to A, B is a feature of A, B is under A domain. E.g."
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    1451,
+                    547,
+                    2193,
+                    715
+                ],
+                "angle": 0,
+                "content": "prior knowledge of the model genre-specific regularities of discourse structure"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    1451,
+                    729,
+                    2024,
+                    782
+                ],
+                "angle": 0,
+                "content": "English text in science domain"
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    810,
+                    2193,
+                    926
+                ],
+                "angle": 0,
+                "content": "- Hyponym-of: B is a hyponym of A, B is a type of A. E.g."
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    1451,
+                    947,
+                    1942,
+                    1003
+                ],
+                "angle": 0,
+                "content": "TUIT is a software library"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    1451,
+                    1010,
+                    2198,
+                    1122
+                ],
+                "angle": 0,
+                "content": "NLP applications such as machine translation and language generation"
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    1150,
+                    1937,
+                    1206
+                ],
+                "angle": 0,
+                "content": "- Part-of: B is a part of A… E.g."
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    1451,
+                    1227,
+                    2195,
+                    1396
+                ],
+                "angle": 0,
+                "content": "The system includes two models: speech recognition and natural language understanding"
+            },
+            {
+                "block_id": 28,
+                "type": "text",
+                "bbox": [
+                    1451,
+                    1403,
+                    2198,
+                    1511
+                ],
+                "angle": 0,
+                "content": "We incorporate NLU module to the system."
+            },
+            {
+                "block_id": 29,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    1547,
+                    2198,
+                    1771
+                ],
+                "angle": 0,
+                "content": "- Compare: Symmetric relation (use blue to denote entity). Opposite of conjunction, compare two models/methods, or listing two opposing entities. E.g."
+            },
+            {
+                "block_id": 30,
+                "type": "text",
+                "bbox": [
+                    1451,
+                    1792,
+                    2198,
+                    1904
+                ],
+                "angle": 0,
+                "content": "Unlike the quantitative prior, the qualitative prior is often ignored..."
+            },
+            {
+                "block_id": 31,
+                "type": "text",
+                "bbox": [
+                    1451,
+                    1911,
+                    2193,
+                    2024
+                ],
+                "angle": 0,
+                "content": "We compare our system with previous sequential tagging systems..."
+            },
+            {
+                "block_id": 32,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    2052,
+                    2193,
+                    2220
+                ],
+                "angle": 0,
+                "content": "- Conjunction: Symmetric relation (use blue to denote entity). Function as similar role or use/incorporate with. E.g."
+            },
+            {
+                "block_id": 33,
+                "type": "text",
+                "bbox": [
+                    1451,
+                    2245,
+                    2195,
+                    2353
+                ],
+                "angle": 0,
+                "content": "obtained from human expert or knowledge base"
+            },
+            {
+                "block_id": 34,
+                "type": "text",
+                "bbox": [
+                    1451,
+                    2364,
+                    2195,
+                    2473
+                ],
+                "angle": 0,
+                "content": "NLP applications such as machine translation and language generation"
+            },
+            {
+                "block_id": 35,
+                "type": "title",
+                "bbox": [
+                    1270,
+                    2504,
+                    1634,
+                    2550
+                ],
+                "angle": 0,
+                "content": "A.3 Coreference"
+            },
+            {
+                "block_id": 36,
+                "type": "text",
+                "bbox": [
+                    1267,
+                    2578,
+                    2093,
+                    2631
+                ],
+                "angle": 0,
+                "content": "Two Entities that points to the same concept."
+            },
+            {
+                "block_id": 37,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    2659,
+                    1888,
+                    2711
+                ],
+                "angle": 0,
+                "content": "- Anaphora and Cataphora:"
+            },
+            {
+                "block_id": 38,
+                "type": "text",
+                "bbox": [
+                    1451,
+                    2736,
+                    2195,
+                    2848
+                ],
+                "angle": 0,
+                "content": "We introduce a machine reading system... The system..."
+            },
+            {
+                "block_id": 39,
+                "type": "text",
+                "bbox": [
+                    1451,
+                    2855,
+                    2193,
+                    2967
+                ],
+                "angle": 0,
+                "content": "The prior knowledge include...Such knowledge can be applied to..."
+            },
+            {
+                "block_id": 40,
+                "type": "text",
+                "bbox": [
+                    1317,
+                    3002,
+                    1868,
+                    3055
+                ],
+                "angle": 0,
+                "content": "- Coreferring noun phrase:"
+            },
+            {
+                "block_id": 41,
+                "type": "text",
+                "bbox": [
+                    1451,
+                    3080,
+                    2195,
+                    3192
+                ],
+                "angle": 0,
+                "content": "We develop a part-of-speech tagging system...The POS tagger..."
+            },
+            {
+                "block_id": 42,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3279,
+                    1295,
+                    3325
+                ],
+                "angle": 0,
+                "content": "3230"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    290,
+                    266,
+                    525,
+                    312
+                ],
+                "angle": 0,
+                "content": "A.4 Notes"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    327,
+                    340,
+                    1218,
+                    673
+                ],
+                "angle": 0,
+                "content": "1. Entity boundary annotation follows the ACL RD-TEC Annotation Guideline (QasemiZadeh and Schumann, 2016), with the extension that spans can be embedded in longer spans, only if the shorter span is involved in a relation."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    325,
+                    715,
+                    1220,
+                    940
+                ],
+                "angle": 0,
+                "content": "2. Do not include determinators (such as the, a), or adjective pronouns (such as this,its, these, such) to the span. If generic phrases are not involved in a relation, do not tag them."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    325,
+                    978,
+                    1024,
+                    1031
+                ],
+                "angle": 0,
+                "content": "3. Do not tag relation if one entity is:"
+            },
+            {
+                "block_id": 4,
+                "type": "list",
+                "bbox": [
+                    325,
+                    340,
+                    1220,
+                    1031
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    429,
+                    1062,
+                    774,
+                    1108
+                ],
+                "angle": 0,
+                "content": "- Variable bound:"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    466,
+                    1122,
+                    1215,
+                    1227
+                ],
+                "angle": 0,
+                "content": "We introduce a neural based approach.. Its benefit is..."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    429,
+                    1245,
+                    788,
+                    1287
+                ],
+                "angle": 0,
+                "content": "- The word which:"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    466,
+                    1304,
+                    1215,
+                    1410
+                ],
+                "angle": 0,
+                "content": "We introduce a neural based approach, which is a..."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    325,
+                    1455,
+                    1074,
+                    1508
+                ],
+                "angle": 0,
+                "content": "4. Do not tag coreference if the entity is"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    429,
+                    1543,
+                    1215,
+                    1824
+                ],
+                "angle": 0,
+                "content": "- Generically-used Other-ScientificTerm: ...advantage gained from local smoothness which... We present algorithms exploiting local smoothness in more aggressive ways..."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    429,
+                    1838,
+                    1215,
+                    1943
+                ],
+                "angle": 0,
+                "content": "- Same scientific term but refer to different examples:"
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    429,
+                    1543,
+                    1215,
+                    1943
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    466,
+                    1953,
+                    1215,
+                    2059
+                ],
+                "angle": 0,
+                "content": "We use a data structure, we also use another data structure..."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    325,
+                    2104,
+                    960,
+                    2157
+                ],
+                "angle": 0,
+                "content": "5. Do not label negative relations:"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    374,
+                    2178,
+                    1213,
+                    2283
+                ],
+                "angle": 0,
+                "content": "X is not used in Y or X is hard to be applied in Y"
+            },
+            {
+                "block_id": 16,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2332,
+                    1123,
+                    2448
+                ],
+                "angle": 0,
+                "content": "B Annotation and Knowledge Graph Examples"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2480,
+                    1215,
+                    2708
+                ],
+                "angle": 0,
+                "content": "Here we take a screen shot of the BRAT interface for an ACL paper in Figure 9. We also attach the original figure of Figure 3 in Figure 10. More examples can be found in the project website<sup>4</sup>."
+            },
+            {
+                "block_id": 18,
+                "type": "footer",
+                "bbox": [
+                    339,
+                    3139,
+                    1153,
+                    3188
+                ],
+                "angle": 0,
+                "content": "4http://nlp.cs.washington.edu/sciIE/"
+            },
+            {
+                "block_id": 19,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3279,
+                    1287,
+                    3325
+                ],
+                "angle": 0,
+                "content": "3231"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    305,
+                    326,
+                    2183,
+                    1147
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 9: Annotation example 1 from ACL"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    411,
+                    1361,
+                    2101,
+                    2960
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 10: An example of our automatically generated knowledge graph centered on statistical machine translation. This is the original figure of Figure 4."
+            },
+            {
+                "block_id": 4,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3279,
+                    1292,
+                    3325
+                ],
+                "angle": 0,
+                "content": "3232"
+            }
+        ]
+    }
+]

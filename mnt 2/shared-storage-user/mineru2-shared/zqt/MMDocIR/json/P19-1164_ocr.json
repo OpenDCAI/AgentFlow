@@ -1,0 +1,1299 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    622,
+                    284,
+                    1860,
+                    354
+                ],
+                "angle": 0,
+                "content": "Evaluating Gender Bias in Machine Translation"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    575,
+                    456,
+                    1915,
+                    519
+                ],
+                "angle": 0,
+                "content": "Gabriel Stanovsky\\(^{1,2}\\), Noah A. Smith\\(^{1,2}\\), and Luke Zettlemoyer\\(^{1}\\)"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    243,
+                    557,
+                    2260,
+                    620
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup>Paul G. Allen School of Computer Science & Engineering, University of Washington, Seattle, USA"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    689,
+                    620,
+                    1808,
+                    677
+                ],
+                "angle": 0,
+                "content": "\\(^{2}\\)Allen Institute for Artificial Intelligence, Seattle, USA"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    699,
+                    680,
+                    1806,
+                    740
+                ],
+                "angle": 0,
+                "content": "{gabis, nasmith, lsz}@cs.washington.edu"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    652,
+                    929,
+                    850,
+                    982
+                ],
+                "angle": 0,
+                "content": "Abstract"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    354,
+                    1027,
+                    1143,
+                    1982
+                ],
+                "angle": 0,
+                "content": "We present the first challenge set and evaluation protocol for the analysis of gender bias in machine translation (MT). Our approach uses two recent coreference resolution datasets composed of English sentences which cast participants into non-stereotypical gender roles (e.g., \"The doctor asked the nurse to help her in the operation\"). We devise an automatic gender bias evaluation method for eight target languages with grammatical gender, based on morphological analysis (e.g., the use of female inflection for the word \"doctor\"). Our analyses show that four popular industrial MT systems and two recent state-of-the-art academic MT models are significantly prone to gender-biased translation errors for all tested target languages. Our data and code are publicly available at https://github.com/gabrielStanovsky/mt_gender."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    290,
+                    2027,
+                    650,
+                    2076
+                ],
+                "angle": 0,
+                "content": "1 Introduction"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2118,
+                    1215,
+                    2736
+                ],
+                "angle": 0,
+                "content": "Learned models exhibit social bias when their training data encode stereotypes not relevant for the task, but the correlations are picked up anyway. Notable examples include gender biases in visual SRL (cooking is stereotypically done by women, construction workers are stereotypically men; Zhao et al., 2017), lexical semantics (\"man is to computer programmer as woman is to homemaker\"; Bolukbasi et al., 2016), and natural language inference (associating women with gossiping and men with guitars; Rudinger et al., 2017)."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2743,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "In this work, we conduct the first large-scale multilingual evaluation of gender-bias in machine translation (MT), following recent small-scale qualitative studies which observed that online MT services, such as Google Translate or Microsoft Translator, also exhibit biases, e.g., translating nurses as females and programmers as males, regardless of context (Alvarez-Melis and Jaakkola,"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1297,
+                    943,
+                    2178,
+                    1182
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 1: An example of gender bias in machine translation from English (top) to Spanish (bottom). In the English source sentence, the nurse's gender is unknown, while the coreference link with \"her\" identifies the \"doctor\" as a female. On the other hand, the Spanish target sentence uses morphological features for gender: \"el doctor\" (male), versus \"la enfermera\" (female). Aligning between source and target sentences reveals that a stereotypical assignment of gender roles changed the meaning of the translated sentence by changing the doctor's gender."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1876,
+                    2193,
+                    2101
+                ],
+                "angle": 0,
+                "content": "2017; Font and Costa-Jussà, 2019). Google Translate recently tried to mitigate these biases by allowing users to sometimes choose between gendered translations (Kuczmarski, 2018)."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2111,
+                    2193,
+                    3069
+                ],
+                "angle": 0,
+                "content": "As shown in Figure 1, we use data introduced by two recent coreference gender-bias studies: the Winogender (Rudinger et al., 2018), and the Winobias (Zhao et al., 2018) datasets. Following the Winograd schema (Levesque, 2011), each instance in these datasets is an English sentence which describes a scenario with human entities, who are identified by their role (e.g., “the doctor” and “the nurse” in Figure 1), and a pronoun (“her” in the example), which needs to be correctly resolved to one of the entities (“the doctor” in this case). Rudinger et al. (2018) and Zhao et al. (2018) found that while human agreement on the task was high (roughly \\(95\\%\\)), coreference resolution models often ignore context and make socially biased predictions, e.g., associating the feminine pronoun “her” with the stereotypically female “nurse.”"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    3080,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "We observe that for many target languages, a faithful translation requires a similar form of (at"
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1679"
+            },
+            {
+                "block_id": 16,
+                "type": "footer",
+                "bbox": [
+                    416,
+                    3301,
+                    2054,
+                    3350
+                ],
+                "angle": 0,
+                "content": "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics, pages 1679-1684"
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    540,
+                    3353,
+                    1937,
+                    3399
+                ],
+                "angle": 0,
+                "content": "Florence, Italy, July 28 - August 2, 2019. ©2019 Association for Computational Linguistics"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    263,
+                    1215,
+                    1220
+                ],
+                "angle": 0,
+                "content": "least implicit) gender identification. In addition, in the many languages which associate between biological and grammatical gender (e.g., most Romance, Germanic, Slavic, and Semitic languages; Craig, 1986; Mucchi-Faina, 2005; Corbett, 2007), the gender of an animate object can be identified via morphological markers. For instance, when translating our running example in Figure 1 to Spanish, a valid translation may be: “La doctora le pidio a la infermera que le ayudara con el procedimiento,” which indicates that the doctor is a woman, by using a feminine suffix inflection (“doctora”) and the feminine definite gendered article (“la”). However, a biased translation system may ignore the given context and stereotypically translate the doctor as male, as shown at the bottom of the figure."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1227,
+                    1215,
+                    2020
+                ],
+                "angle": 0,
+                "content": "Following these observations, we design a challenge set approach for evaluating gender bias in MT using a concatenation of Winogender and WinoBias. We devise an automatic translation evaluation method for eight diverse target languages, without requiring additional gold translations, relying instead on automatic measures for alignment and morphological analysis (Section 2). We find that four widely used commercial MT systems and two recent state-of-the-art academic models are significantly gender-biased on all tested languages (Section 3). Our method and benchmarks are publicly available, and are easily extensible with more languages and MT models."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2069,
+                    1171,
+                    2129
+                ],
+                "angle": 0,
+                "content": "2 Challenge Set for Gender Bias in MT"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2164,
+                    1215,
+                    2673
+                ],
+                "angle": 0,
+                "content": "We compose a challenge set for gender bias in MT (which we dub \"WinoMT\") by concatenating the Winogender and WinoBias coreference test sets. Overall, WinoMT contains 3,888 instances, and is equally balanced between male and female genders, as well as between stereotypical and nonstereotypical gender-role assignments (e.g., a female doctor versus a female nurse). Additional dataset statistics are presented in Table 1."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2676,
+                    1215,
+                    2848
+                ],
+                "angle": 0,
+                "content": "We use WinoMT to estimate the gender-bias of an MT model, \\(M\\), in target-language \\(L\\) by performing following steps (exemplified in Figure 1):"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2848,
+                    1213,
+                    3016
+                ],
+                "angle": 0,
+                "content": "(1) Translate all of the sentences in WinoMT into \\(L\\) using \\(M\\), thus forming a bilingual corpus of English and the target language \\(L\\)."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    3023,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "(2) Align between the source and target translations, using fast_align (Dyer et al., 2013), trained on the automatic translations from step (1)."
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2848,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "table",
+                "bbox": [
+                    1334,
+                    256,
+                    2133,
+                    599
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>Winogender</td><td>WinoBias</td><td>WinoMT</td></tr><tr><td>Male</td><td>240</td><td>1582</td><td>1826</td></tr><tr><td>Female</td><td>240</td><td>1586</td><td>1822</td></tr><tr><td>Neutral</td><td>240</td><td>0</td><td>240</td></tr><tr><td>Total</td><td>720</td><td>3168</td><td>3888</td></tr></table>",
+                "caption": "Table 1: The coreference test sets and resulting WinoMT corpus statistics (in number of instances)."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    820,
+                    2195,
+                    1273
+                ],
+                "angle": 0,
+                "content": "We then map the English entity annotated in the coreference datasets to its translation (e.g., align between “the doctor” and “el doctor” in Figure 1). (3) Finally, we extract the target-side entity’s gender using simple heuristics over language-specific morphological analysis, which we perform using off-the-shelf tools for each target language, as discussed in the following section."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1276,
+                    2193,
+                    1497
+                ],
+                "angle": 0,
+                "content": "This process extracts the translated genders, according to \\(M\\), for all of the entities in WinoMT, which we can then evaluate against the gold annotations provided by the original English dataset."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1501,
+                    2193,
+                    1778
+                ],
+                "angle": 0,
+                "content": "This process can introduce noise into our evaluation in steps (2) and (3), via wrong alignments or erroneous morphological analysis. In Section 3, we will present a human evaluation showing these errors are infrequent."
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1824,
+                    1592,
+                    1876
+                ],
+                "angle": 0,
+                "content": "3 Evaluation"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1915,
+                    2193,
+                    2080
+                ],
+                "angle": 0,
+                "content": "In this section, we briefly describe the MT systems and the target languages we use, our main results, and their human validation."
+            },
+            {
+                "block_id": 15,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    2122,
+                    1773,
+                    2178
+                ],
+                "angle": 0,
+                "content": "3.1 Experimental Setup"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2196,
+                    2195,
+                    2929
+                ],
+                "angle": 0,
+                "content": "MT systems We test six widely used MT models, representing the state of the art in both commercial and academic research: (1) Google Translate,\\(^{1}\\) (2) Microsoft Translator,\\(^{2}\\) (3) Amazon Translate,\\(^{3}\\) (4) SYSTRAN,\\(^{4}\\) (5) the model of Ott et al. (2018), which recently achieved the best performance on English-to-French translation on the WMT'14 test set, and (6) the model of Edunov et al. (2018), the WMT'18 winner on English-to-German translation. We query the online API for the first four commercial MT systems, while for the latter two academic models we use the pretrained models provided by the Fairseq toolkit.\\(^{5}\\)"
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1322,
+                    2960,
+                    1977,
+                    3006
+                ],
+                "angle": 0,
+                "content": "1https://translate.google.com"
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1322,
+                    3006,
+                    2044,
+                    3051
+                ],
+                "angle": 0,
+                "content": "\\(^{2}\\)https://www.bing.com/Translator"
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1324,
+                    3051,
+                    2066,
+                    3097
+                ],
+                "angle": 0,
+                "content": "3https://aws.amazon.com/translate"
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    1327,
+                    3097,
+                    1937,
+                    3143
+                ],
+                "angle": 0,
+                "content": "4http://www.sysstransoft.com"
+            },
+            {
+                "block_id": 21,
+                "type": "ref_text",
+                "bbox": [
+                    1327,
+                    3143,
+                    2111,
+                    3188
+                ],
+                "angle": 0,
+                "content": "5https://github.com/pytorch/fairseq"
+            },
+            {
+                "block_id": 22,
+                "type": "list",
+                "bbox": [
+                    1322,
+                    2960,
+                    2111,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 23,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1295,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1680"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    409,
+                    256,
+                    2084,
+                    954
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td colspan=\"3\">Google Translate</td><td colspan=\"3\">Microsoft Translator</td><td colspan=\"3\">Amazon Translate*</td><td colspan=\"3\">SYSTRAN</td></tr><tr><td></td><td>Acc</td><td>ΔG</td><td>ΔS</td><td>Acc</td><td>ΔG</td><td>ΔS</td><td>Acc</td><td>ΔG</td><td>ΔS</td><td>Acc</td><td>ΔG</td><td>ΔS</td></tr><tr><td>ES</td><td>53.1</td><td>23.4</td><td>21.3</td><td>47.3</td><td>36.8</td><td>23.2</td><td>59.4</td><td>15.4</td><td>22.3</td><td>45.6</td><td>46.3</td><td>15.0</td></tr><tr><td>FR</td><td>63.6</td><td>6.4</td><td>26.7</td><td>44.7</td><td>36.4</td><td>29.7</td><td>55.2</td><td>17.7</td><td>24.9</td><td>45.0</td><td>44.0</td><td>9.4</td></tr><tr><td>IT</td><td>39.6</td><td>32.9</td><td>21.5</td><td>39.8</td><td>39.8</td><td>17.0</td><td>42.4</td><td>27.8</td><td>18.5</td><td>38.9</td><td>47.5</td><td>9.4</td></tr><tr><td>RU</td><td>37.7</td><td>36.8</td><td>11.4</td><td>36.8</td><td>42.1</td><td>8.5</td><td>39.7</td><td>34.7</td><td>9.2</td><td>37.3</td><td>44.1</td><td>9.3</td></tr><tr><td>UK</td><td>38.4</td><td>43.6</td><td>10.8</td><td>41.3</td><td>46.9</td><td>11.8</td><td>-</td><td>-</td><td>-</td><td>28.9</td><td>22.4</td><td>12.9</td></tr><tr><td>HE</td><td>53.7</td><td>7.9</td><td>37.8</td><td>48.1</td><td>14.9</td><td>32.9</td><td>50.5</td><td>10.3</td><td>47.3</td><td>46.6</td><td>20.5</td><td>24.5</td></tr><tr><td>AR</td><td>48.5</td><td>43.7</td><td>16.1</td><td>47.3</td><td>48.3</td><td>13.4</td><td>49.8</td><td>38.5</td><td>19.0</td><td>47.0</td><td>49.4</td><td>5.3</td></tr><tr><td>DE</td><td>59.4</td><td>12.5</td><td>12.5</td><td>74.1</td><td>0.0</td><td>30.2</td><td>62.4</td><td>12.0</td><td>16.7</td><td>48.6</td><td>34.5</td><td>10.3</td></tr></table>",
+                "caption": "Table 2: Performance of commercial MT systems on the WinoMT corpus on all tested languages, categorized by their family: Spanish, French, Italian, Russian, Ukrainian, Hebrew, Arabic, and German. Acc indicates overall gender accuracy (\\% of instances the translation had the correct gender), \\(\\Delta_G\\) denotes the difference in performance (\\(F_1\\) score) between masculine and feminine scores, and \\(\\Delta_S\\) is the difference in performance (\\(F_1\\) score) between pro-stereotypical and anti-stereotypical gender role assignments (higher numbers in the two latter metrics indicate stronger biases). Numbers in bold indicate best accuracy for the language across MT systems (row), and underlined numbers indicate best accuracy for the MT system across languages (column). *Amazon Translate does not have a trained model for English to Ukrainian."
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    364,
+                    1459,
+                    1146,
+                    1690
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>Acc</td><td>ΔG</td><td>ΔS</td></tr><tr><td>FR (Ott et al., 2018)</td><td>49.4</td><td>2.6</td><td>16.1</td></tr><tr><td>DE (Edunov et al., 2018)</td><td>52.5</td><td>7.3</td><td>8.4</td></tr></table>",
+                "caption": "Table 3: Performance of recent state-of-the-art academic translation models from English to French and German. Metrics are the same as those in Table 2."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2006,
+                    1215,
+                    3195
+                ],
+                "angle": 0,
+                "content": "We selected a set of eight languages with grammatical gender which exhibit a wide range of other linguistic properties (e.g., in terms of alphabet, word order, or grammar), while still allowing for highly accurate automatic morphological analysis. These languages belong to four different families: (1) Romance languages: Spanish, French, and Italian, all of which have gendered noun-determiner agreement and spaCy morphological analysis support (Honnibal and Montani, 2017). (2) Slavic languages (Cyrillic alphabet): Russian and Ukrainian, for which we use the morphological analyzer developed by Korobov (2015). (3) Semitic languages: Hebrew and Arabic, each with a unique alphabet. For Hebrew, we use the analyzer developed by Adler and Elhadad (2006), while gender inflection in Arabic can be easily identified via the ta marbuta character, which uniquely indicates feminine inflection. (4) Germanic languages: German, for which we"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1469,
+                    2190,
+                    1582
+                ],
+                "angle": 0,
+                "content": "use the morphological analyzer developed by Al- tinok (2018)."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1634,
+                    1530,
+                    1683
+                ],
+                "angle": 0,
+                "content": "3.2 Results"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1711,
+                    2193,
+                    2048
+                ],
+                "angle": 0,
+                "content": "Our main findings are presented in Tables 2 and 3. For each tested MT system and target language we compute three metrics with respect to their ability to convey the correct gender in the target language. Ultimately, our analyses indicate that all tested MT systems are indeed gender biased."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2059,
+                    2193,
+                    2785
+                ],
+                "angle": 0,
+                "content": "First, the overall system Accuracy is calculated by the percentage of instances in which the translation preserved the gender of the entity from the original English sentence. We find that most tested systems across eight tested languages perform quite poorly on this metric. The best performing model on each language often does not do much better than a random guess for the correct inflection. An exception to this rule is the translation accuracies on German, where three out of four systems achieve their best performance. This may be explained by German's similarity to the English source language (Hawkins, 2015)."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2792,
+                    2190,
+                    3129
+                ],
+                "angle": 0,
+                "content": "In Table 2, \\(\\Delta_G\\) denotes the difference in performance (\\(F_1\\) score) between male and female translations. Interestingly, all systems, except Microsoft Translator on German, perform significantly better on male roles, which may stem from these being more frequent in the training set."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1312,
+                    3136,
+                    2190,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Perhaps most tellingly, \\(\\Delta_S\\) measures the differ"
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1287,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1681"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    297,
+                    263,
+                    2195,
+                    736
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 2: Google Translate's performance on gender translation on our tested languages. The performance on the stereotypical portion of WinoMT is consistently better than that on the non-stereotypical portion. The other MT systems we tested display similar trends."
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    483,
+                    996,
+                    1024,
+                    1287
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>Original</td><td>+Adj</td><td>Δ</td></tr><tr><td>ES</td><td>53.1</td><td>63.5</td><td>+10.4</td></tr><tr><td>RU</td><td>37.7</td><td>48.9</td><td>+11.2</td></tr><tr><td>UK</td><td>38.4</td><td>42.9</td><td>+4.5</td></tr></table>",
+                "caption": "Table 4: Performance of Google Translate on Spanish, Russian, and Ukrainian gender prediction accuracy (\\% correct) on the original WinoMT corpus, versus a modified version of the dataset where we add sterotypical gender adjectives (see Section 3.3)."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1669,
+                    1215,
+                    2459
+                ],
+                "angle": 0,
+                "content": "ence in performance (\\(F_{1}\\) score) between stereotypical and non-stereotypical gender role assignments, as defined by Zhao et al. (2018) who use statistics provided by the US Department of Labor.\\(^{6}\\) This metric shows that all tested systems have a significant and consistently better performance when presented with pro-stereotypical assignments (e.g., a female nurse), while their performance deteriorates when translating anti-stereotypical roles (e.g., a male receptionist). For instance, Figure 2 depicts Google Translate absolute accuracies on stereotypical and non-stereotypical gender roles across all tested languages. Other tested systems show similar trends."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2508,
+                    855,
+                    2564
+                ],
+                "angle": 0,
+                "content": "3.3 Fighting Bias with Bias"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2588,
+                    1213,
+                    3101
+                ],
+                "angle": 0,
+                "content": "Finally, we tested whether we can affect the translations by automatically creating a version of WinoMT with the adjectives \"handsome\" and \"pretty\" presupposed to male and female entities, respectively. For example, the sentence in Figure 1 will be converted to: \"The pretty doctor asked the nurse to help her in the operation\". We are interested in evaluating whether this \"corrects\" the profession bias by mixing signals, e.g., while \"doc"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1010,
+                    2195,
+                    1575
+                ],
+                "angle": 0,
+                "content": "tor” biases towards a male translation, “pretty” tugs the translation towards a female inflection. Our results show that this improved performance in some languages, significantly reducing bias in Spanish, Russian, and Ukrainian (see Table 4). Admittedly, this is impractical as a general debi- aising scheme, since it assumes oracle coreference resolution, yet it attests to the relation between coreference resolution and MT, and serves as a further indication of gender bias in MT."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1631,
+                    1746,
+                    1680
+                ],
+                "angle": 0,
+                "content": "3.4 Human Validation"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1715,
+                    2193,
+                    2501
+                ],
+                "angle": 0,
+                "content": "We estimate the accuracy of our gender bias evaluation method by randomly sampling 100 instances of all translation systems and target languages, annotating each sample by two target-language native speakers (resulting in 9,600 human annotations). Each instance conformed to a format similar to that used by our automatic gender detection algorithm: human annotators were asked to mark the gender of an entity within a given target-language sentence. (e.g., see “el doctor” as highlighted in the Spanish sentence in Figure 1). By annotating at the sentence-level, we can account for both types of possible errors, i.e., alignment and gender extraction."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2508,
+                    2193,
+                    2953
+                ],
+                "angle": 0,
+                "content": "We compare the sentence-level human annotations to the output of our automatic method, and find that the levels of agreement for all languages and systems were above \\(85\\%\\), with an average agreement on \\(87\\%\\) of the annotations. In comparison, human inter-annotator agreement was \\(90\\%\\), due to noise introduced by several incoherent translations."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2967,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Our errors occur when language-specific idiosyncrasies introduce ambiguity to the morphological analysis. For example, gender for certain words in Hebrew cannot be distinguished without"
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    339,
+                    3136,
+                    1178,
+                    3188
+                ],
+                "angle": 0,
+                "content": "\\(^{6}\\)https://www.bls.gov/cps/cpsaat11.htm"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1682"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    295,
+                    256,
+                    2195,
+                    778
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Source</td><td>[Target lang.] Predicted translation</td><td>Phenomenon</td></tr><tr><td>The janitor does not like the baker because she always messes up the kitchen.</td><td>[ES] Al constranje no le gusta el panadero porque ella siempre desordena la cucina.</td><td>Biased translation, giving “baker” a male inflection, with a mismatched pronoun reference.</td></tr><tr><td>The janitor does not like the pretty baker because she always messes up the kitchen.</td><td>[ES] Al constranje no le gusta la panadera bonita porque ella siempre desordena la cucina.</td><td>Adding a stereotypically female adjective “fixes” the translation.</td></tr><tr><td>The counselor asked the guard a few questions and praised her for the good work.</td><td>[FR] Le conseiller a posé quelques questions à la garde et l’a louée pour le bon travail.</td><td>French uses “garde” for both male and female guards, allowing for a more direct translation from English.</td></tr></table>",
+                "caption": "Table 5: Examples of Google Translate's output for different sentences in the WinoMT corpus. Words in blue, red, and orange indicate male, female and neutral entities, respectively."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    999,
+                    1215,
+                    1571
+                ],
+                "angle": 0,
+                "content": "diacritics (e.g., the male and female versions of the word \"baker\" are spelled identically), and the contracted determiner in French and Italian (\\(l'\\)) is used for both masculine and feminine nouns. In addition, some languages have only male or female inflections for professions which were stereotypically associated with one of the genders, for example \"sastre\" (tailor) in Spanish or \"soldat\" (soldier) in French, which do not have female inflections. See Table 5 for detailed examples."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1603,
+                    607,
+                    1659
+                ],
+                "angle": 0,
+                "content": "4 Discussion"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1694,
+                    1215,
+                    2480
+                ],
+                "angle": 0,
+                "content": "Related work This work is most related to several recent efforts which evaluate MT through the use of challenge sets. Similarly to our use WinoMT, these works evaluate MT systems (either manually or automatically) on test sets which are specially created to exhibit certain linguistic phenomena, thus going beyond the traditional BLEU metric (Papineni et al., 2002). These include challenge sets for language-specific idiosyncrasies (Isabelle et al., 2017), discourse phenomena (Bawden et al., 2018), pronoun translation (Müller et al., 2018; Webster et al., 2018), or coreference and multiword expressions (Burchardt et al., 2017)."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2515,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Limitations and future work While our work presents the first large-scale evaluation of gender bias in MT, it still suffers from certain limitations which could be addressed in follow up work. First, like some of the challenge sets discussed above, WinoMT is composed of synthetic English source-side examples. On the one hand, this allows for a controlled experiment environment, while, on the other hand, this might introduce some artificial biases in our data and evaluation. Ideally, WinoMT could be augmented with natural “in the wild” instances, with many source languages, all"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    999,
+                    2195,
+                    1848
+                ],
+                "angle": 0,
+                "content": "annotated with ground truth entity gender. Second, similar to any medium size test set, it is clear that WinoMT serves only as a proxy estimation for the phenomenon of gender bias, and would probably be easy to overfit. A larger annotated corpus can perhaps provide a better signal for training. Finally, even though in Section 3.3 we show a very rudimentary debiasing scheme which relies on oracle coreference system, it is clear that this is not applicable in a real-world scenario. While recent research has shown that getting rid of such biases may prove to be very challenging (Elazar and Goldberg, 2018; Gonen and Goldberg, 2019), we hope that this work will serve as a first step for developing more gender-balanced MT models."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1922,
+                    1617,
+                    1975
+                ],
+                "angle": 0,
+                "content": "5 Conclusions"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2038,
+                    2193,
+                    2606
+                ],
+                "angle": 0,
+                "content": "We presented the first large-scale multilingual quantitative evidence for gender bias in MT, showing that on eight diverse target languages, all four tested popular commercial systems and two recent state-of-the-art academic MT models are significantly prone to translate based on gender stereotypes rather than more meaningful context. Our data and code are publicly available at https://github.com/gabrielStanovsky/mt_gender."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2683,
+                    1669,
+                    2739
+                ],
+                "angle": 0,
+                "content": "Acknowledgments"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2795,
+                    2193,
+                    3136
+                ],
+                "angle": 0,
+                "content": "We would like to thank Mark Yatskar, Iz Beltagy, Tim Dettmers, Ronan Le Bras, Kyle Richardson, Ariel and Claudia Stanovsky, and Paola Virga for many insightful discussions about the role gender plays in the languages evaluated in this work, as well as the reviewers for their helpful comments."
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "1683"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    292,
+                    263,
+                    535,
+                    315
+                ],
+                "angle": 0,
+                "content": "References"
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    347,
+                    1213,
+                    491
+                ],
+                "angle": 0,
+                "content": "Meni Adler and Michael Elhadad. 2006. An unsupervised morpheme-based HMM for Hebrew morphological disambiguation. In ACL."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    529,
+                    1213,
+                    627
+                ],
+                "angle": 0,
+                "content": "Duygu Altinok. 2018. DEMorphy, German language morphological analyzer. CoRR, abs/1803.00902."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    666,
+                    1213,
+                    852
+                ],
+                "angle": 0,
+                "content": "David Alvarez-Melis and Tommi S. Jaakkola. 2017. A causal framework for explaining the predictions of black-box sequence-to-sequence models. In EMNLP."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    894,
+                    1213,
+                    1080
+                ],
+                "angle": 0,
+                "content": "Rachel Bawden, Rico Sennrich, Alexandra Birch, and Barry Haddow. 2018. Evaluating discourse phenomena in neural machine translation. In *NAACL-HLT*."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1126,
+                    1213,
+                    1354
+                ],
+                "angle": 0,
+                "content": "Tolga Bolukbasi, Kai-Wei Chang, James Y. Zou, Venkatesh Saligrama, and Adam Tauman Kalai. 2016. Man is to computer programmer as woman is to homemaker? debiasing word embeddings. In NIPS."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1399,
+                    1213,
+                    1676
+                ],
+                "angle": 0,
+                "content": "Aljoscha Burchardt, Vivien Macketanz, Jon Dehdari, Georg Heigold, Jan-Thorsten Peter, and Philip Williams. 2017. A linguistic evaluation of rule-based, phrase-based, and neural mt engines. The Prague Bulletin of Mathematical Linguistics, 108(1):159-170."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1718,
+                    1161,
+                    1768
+                ],
+                "angle": 0,
+                "content": "Greville G Corbett. 2007. Gender and noun classes."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1810,
+                    1213,
+                    2003
+                ],
+                "angle": 0,
+                "content": "Colette G Craig. 1986. Noun Classes and Categorization: Proceedings of a Symposium on Categorization and Noun Classification, volume 7. John Benjamins Publishing Company."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2041,
+                    1213,
+                    2181
+                ],
+                "angle": 0,
+                "content": "Chris Dyer, Victor Chahuneau, and Noah A. Smith. 2013. A simple, fast, and effective reparameterization of ibm model 2. In HLT-NAACL."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2224,
+                    1213,
+                    2364
+                ],
+                "angle": 0,
+                "content": "Sergey Edunov, Myle Ott, Michael Auli, and David Grangier. 2018. Understanding back-translation at scale. arXiv preprint arXiv:1808.09381."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2406,
+                    1213,
+                    2543
+                ],
+                "angle": 0,
+                "content": "Yanai Elazar and Yoav Goldberg. 2018. Adversarial removal of demographic attributes from text data. In EMNLP."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2588,
+                    1213,
+                    2771
+                ],
+                "angle": 0,
+                "content": "Joel Escudé Font and Marta R. Costa-Jussà. 2019. Equalizing gender biases in neural machine translation with word embeddings techniques. CoRR, abs/1901.03116."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2820,
+                    1213,
+                    3002
+                ],
+                "angle": 0,
+                "content": "Hila Gonen and Yoav Goldberg. 2019. Lipstick on a pig: Debiasing methods cover up systematic gender biases in word embeddings but do not remove them. HLT-NAACL."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    3048,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "John A Hawkins. 2015. A Comparative Typology of English and German: Unifying the Contrasts. Routledge."
+            },
+            {
+                "block_id": 15,
+                "type": "list",
+                "bbox": [
+                    292,
+                    347,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    270,
+                    2190,
+                    456
+                ],
+                "angle": 0,
+                "content": "Matthew Honnibal and Ines Montani. 2017. spaCy 2: Natural language understanding with Bloom embeddings, convolutional neural networks and incremental parsing. To appear."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    487,
+                    2190,
+                    624
+                ],
+                "angle": 0,
+                "content": "Pierre Isabelle, Colin Cherry, and George F. Foster. 2017. A challenge set approach to evaluating machine translation. In EMNLP."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    663,
+                    2190,
+                    1034
+                ],
+                "angle": 0,
+                "content": "Mikhail Korobov. 2015. Morphological analyzer and generator for Russian and Ukrainian languages. In Mikhail Yu. Khachay, Natalia Konstantinova, Alexander Panchenko, Dmitry I. Ignatov, and Valeri G. Labunets, editors, Analysis of Images, Social Networks and Texts, volume 542 of Communications in Computer and Information Science, pages 320-332. Springer International Publishing."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1066,
+                    2190,
+                    1161
+                ],
+                "angle": 0,
+                "content": "James Kuczmarski. 2018. Reducing gender bias in google translate."
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1196,
+                    2190,
+                    1333
+                ],
+                "angle": 0,
+                "content": "Hector J. Levesque. 2011. The Winograd schema challenge. In AAAI Spring Symposium: Logical Formalizations of Commonsense Reasoning."
+            },
+            {
+                "block_id": 21,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1368,
+                    2190,
+                    1508
+                ],
+                "angle": 0,
+                "content": "Angelica Mucchi-Faina. 2005. Visible or influential? language reforms and gender (in) equality. Social Science Information, 44(1):189-215."
+            },
+            {
+                "block_id": 22,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1543,
+                    2190,
+                    1725
+                ],
+                "angle": 0,
+                "content": "Mathias Müller, Annette Rios, Elena Voita, and Rico Sennrich. 2018. A large-scale test set for the evaluation of context-aware pronoun translation in neural machine translation. CoRR, abs/1810.02268."
+            },
+            {
+                "block_id": 23,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1761,
+                    2190,
+                    1901
+                ],
+                "angle": 0,
+                "content": "Myle Ott, Sergey Edunov, David Grangier, and Michael Auli. 2018. Scaling neural machine translation. arXiv preprint arXiv:1806.00187."
+            },
+            {
+                "block_id": 24,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1936,
+                    2190,
+                    2076
+                ],
+                "angle": 0,
+                "content": "Kishore Papineni, Salim Roukos, Todd Ward, and Wei-Jing Zhu. 2002. Bleu: a method for automatic evaluation of machine translation. In ACL."
+            },
+            {
+                "block_id": 25,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2111,
+                    2190,
+                    2252
+                ],
+                "angle": 0,
+                "content": "Rachel Rudinger, Chandler May, and Benjamin Van Durme. 2017. Social bias in elicited natural language inferences. In EthNLP@EACL."
+            },
+            {
+                "block_id": 26,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2283,
+                    2190,
+                    2424
+                ],
+                "angle": 0,
+                "content": "Rachel Rudinger, Jason Naradowsky, Brian Leonard, and Benjamin Van Durme. 2018. Gender bias in coreference resolution. In *NAACL-HLT*."
+            },
+            {
+                "block_id": 27,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2459,
+                    2190,
+                    2690
+                ],
+                "angle": 0,
+                "content": "Kellie Webster, Marta Recasens, Vera Axelrod, and Jason Baldridge. 2018. Mind the gap: A balanced corpus of gendered ambiguous pronouns. Transactions of the Association for Computational Linguistics, 6:605-617."
+            },
+            {
+                "block_id": 28,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2725,
+                    2190,
+                    2911
+                ],
+                "angle": 0,
+                "content": "Jieyu Zhao, Tianlu Wang, Mark Yatskar, Vicente Ordonez, and Kai-Wei Chang. 2017. Men also like shopping: Reducing gender bias amplification using corpus-level constraints. In EMNLP."
+            },
+            {
+                "block_id": 29,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2946,
+                    2190,
+                    3125
+                ],
+                "angle": 0,
+                "content": "Jieyu Zhao, Tianlu Wang, Mark Yatskar, Vicente Ordonez, and Kai-Wei Chang. 2018. Gender bias in coreference resolution: Evaluation and debiasing methods. In *NAACL-HLT*."
+            },
+            {
+                "block_id": 30,
+                "type": "list",
+                "bbox": [
+                    1272,
+                    270,
+                    2190,
+                    3125
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 31,
+                "type": "page_number",
+                "bbox": [
+                    1198,
+                    3230,
+                    1292,
+                    3276
+                ],
+                "angle": 0,
+                "content": "1684"
+            }
+        ]
+    }
+]

@@ -1,0 +1,4780 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1433,
+                    399,
+                    2170,
+                    488
+                ],
+                "angle": 0,
+                "content": "Pew Research Center"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2187,
+                    369,
+                    2338,
+                    518
+                ],
+                "angle": 0,
+                "content": "#"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    313,
+                    864,
+                    734,
+                    904
+                ],
+                "angle": 0,
+                "content": "FOR RELEASE MAY 21, 2020"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    313,
+                    960,
+                    2195,
+                    1699
+                ],
+                "angle": 0,
+                "content": "Americans Give Higher Ratings to South Korea and Germany Than U.S. for Dealing With Coronavirus"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    311,
+                    1732,
+                    1785,
+                    1811
+                ],
+                "angle": 0,
+                "content": "Poor marks for China, partisan divides over WHO"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    339,
+                    2197,
+                    864,
+                    2240
+                ],
+                "angle": 0,
+                "content": "FOR MEDIA OR OTHER INQUIRIES:"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    339,
+                    2313,
+                    1045,
+                    2356
+                ],
+                "angle": 0,
+                "content": "Richard Wike, Director, Global Attitudes Research"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    339,
+                    2362,
+                    969,
+                    2409
+                ],
+                "angle": 0,
+                "content": "Stefan Cornibert, Communications Manager"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    339,
+                    2451,
+                    563,
+                    2494
+                ],
+                "angle": 0,
+                "content": "202.419.4372"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    339,
+                    2514,
+                    660,
+                    2557
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    339,
+                    2636,
+                    747,
+                    2676
+                ],
+                "angle": 0,
+                "content": "RECOMMENDED CITATION"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    339,
+                    2689,
+                    1068,
+                    2729
+                ],
+                "angle": 0,
+                "content": "Pew Research Center, May, 2020, \"Americans Give"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    339,
+                    2732,
+                    1048,
+                    2768
+                ],
+                "angle": 0,
+                "content": "Higher Ratings to South Korea and Germany Than"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    339,
+                    2772,
+                    823,
+                    2811
+                ],
+                "angle": 0,
+                "content": "U.S. for Dealing With Coronavirus"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    165,
+                    1290,
+                    198
+                ],
+                "angle": 0,
+                "content": "1"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1073,
+                    221,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    1096,
+                    3111,
+                    1453,
+                    3151
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    165,
+                    1290,
+                    204
+                ],
+                "angle": 0,
+                "content": "2"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1071,
+                    217,
+                    1476,
+                    260
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    270,
+                    379,
+                    1203,
+                    452
+                ],
+                "angle": 0,
+                "content": "About Pew Research Center"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    265,
+                    508,
+                    2249,
+                    970
+                ],
+                "angle": 0,
+                "content": "Pew Research Center is a nonpartisan fact tank that informs the public about the issues, attitudes and trends shaping America and the world. It does not take policy positions. The Center conducts public opinion polling, demographic research, content analysis and other data-driven social science research. It studies U.S. politics and policy; journalism and media; internet, science and technology; religion and public life; Hispanic trends; global attitudes and trends; and U.S. social and demographic trends. All of the Center's reports are available at www.pewresearch.org. Pew Research Center is a subsidiary of The Pew Charitable Trusts, its primary funder."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    270,
+                    1042,
+                    867,
+                    1095
+                ],
+                "angle": 0,
+                "content": "© Pew Research Center 2020"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3151
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1068,
+                    161,
+                    1479,
+                    264
+                ],
+                "angle": 0,
+                "content": "3 PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    275,
+                    379,
+                    798,
+                    452
+                ],
+                "angle": 0,
+                "content": "How we did this"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    275,
+                    504,
+                    2274,
+                    1036
+                ],
+                "angle": 0,
+                "content": "Pew Research Center conducted this study to understand what Americans think about how nations around the world are responding to the coronavirus outbreak and what Americans think about international engagement. For this analysis, we surveyed 10,957 U.S. adults from April 29 to May 5, 2020. Everyone who took part is a member of Pew Research Center's American Trends Panel (ATP), an online survey panel that is recruited through national, random sampling of residential addresses. This way nearly all U.S. adults have a chance of selection. The survey is weighted to be representative of the U.S. adult population by gender, race, ethnicity, partisan affiliation, education and other categories. Read more about the ATP's methodology."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    275,
+                    1105,
+                    2195,
+                    1164
+                ],
+                "angle": 0,
+                "content": "Here are the questions used for this report, along with responses, and the survey methodology."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    1096,
+                    3108,
+                    1453,
+                    3151
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    165,
+                    1290,
+                    201
+                ],
+                "angle": 0,
+                "content": "4"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1071,
+                    217,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    267,
+                    372,
+                    2256,
+                    669
+                ],
+                "angle": 0,
+                "content": "Americans Give Higher Ratings to South Korea and Germany Than U.S. for Dealing With Coronavirus"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    267,
+                    689,
+                    1746,
+                    772
+                ],
+                "angle": 0,
+                "content": "Poor marks for China, partisan divides over WHO"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    265,
+                    818,
+                    915,
+                    2013
+                ],
+                "angle": 0,
+                "content": "With stunning speed, the COVID-19 pandemic has swept across borders, claiming victims and shutting down economies in nations across the globe. The crisis has generated a variety of policy responses from governments, with varying degrees of success. When asked how well different countries have responded to the outbreak, Americans give high marks to South Korea and Germany. In contrast, most believe China – where the pandemic is believed to have originated – has done an only fair or poor job."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    969,
+                    867,
+                    2274,
+                    993
+                ],
+                "angle": 0,
+                "content": "Americans give China, Italy low ratings for coronavirus response"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    969,
+                    1009,
+                    2159,
+                    1108
+                ],
+                "angle": 0,
+                "content": "% who say each has done a/an __ job of dealing with the coronavirus outbreak"
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    974,
+                    1138,
+                    2266,
+                    1699
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image_footnote",
+                "bbox": [
+                    969,
+                    1706,
+                    2215,
+                    1788
+                ],
+                "angle": 0,
+                "content": "Note: No answer responses not shown. The WHO is the World Health Organization. Source: Survey of U.S. adults conducted April 29-May 5, 2020."
+            },
+            {
+                "block_id": 9,
+                "type": "image_footnote",
+                "bbox": [
+                    969,
+                    1788,
+                    2218,
+                    1871
+                ],
+                "angle": 0,
+                "content": "\"Americans Give Higher Ratings to South Korea and Germany Than U.S. for Dealing With Coronavirus\""
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    969,
+                    1706,
+                    2218,
+                    1871
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    974,
+                    1887,
+                    1341,
+                    1930
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    262,
+                    2082,
+                    2274,
+                    2415
+                ],
+                "angle": 0,
+                "content": "Most are also critical of Italy's response, while the public is divided over how well the United Kingdom has dealt with COVID-19. Regarding their own country's reaction, Americans are divided along partisan lines. Overall, \\(47\\%\\) of adults say the United States has done a good or excellent job of handling the outbreak, but just \\(27\\%\\) of Democrats and Democratic-leaning independents hold that view, compared with \\(71\\%\\) of Republicans and Republican-leaning independents."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    262,
+                    2484,
+                    2264,
+                    2752
+                ],
+                "angle": 0,
+                "content": "Americans largely agree the U.S. should look beyond its borders for ideas to combat the coronavirus. Nearly half (46%) say the U.S. can learn a great deal from other countries about ways to slow the spread of the virus, while another 38% say it can learn a fair amount. Few say there is not too much (13%) or nothing at all (3%) the U.S. can learn from other countries."
+            },
+            {
+                "block_id": 14,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3154
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    165,
+                    1290,
+                    201
+                ],
+                "angle": 0,
+                "content": "5"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1071,
+                    217,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    265,
+                    382,
+                    905,
+                    1376
+                ],
+                "angle": 0,
+                "content": "The leading international organization for dealing with global health issues, the World Health Organization (WHO), draws strongly partisan reactions. While \\(62\\%\\) of Democrats believe the agency has done an excellent or good job of dealing with the pandemic, just \\(28\\%\\) of Republicans agree. Eight-inten Democrats trust coronavirus information from the WHO; only \\(36\\%\\) of Republicans do so."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1452,
+                    920,
+                    1772
+                ],
+                "angle": 0,
+                "content": "There’s more agreement, however, when it comes to information from the Chinese government: \\(84 \\%\\)of Americans say they place not too much or"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    966,
+                    409,
+                    2249,
+                    534
+                ],
+                "angle": 0,
+                "content": "Few trust coronavirus information from Chinese government, believe China has handled outbreak well"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    971,
+                    554,
+                    1132,
+                    597
+                ],
+                "angle": 0,
+                "content": "% who …"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    969,
+                    617,
+                    2106,
+                    663
+                ],
+                "angle": 0,
+                "content": "Trust information from the Chinese government about the outbreak ..."
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    974,
+                    686,
+                    2261,
+                    834
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    974,
+                    887,
+                    1800,
+                    930
+                ],
+                "angle": 0,
+                "content": "Think China's handling of the outbreak has been ..."
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    974,
+                    950,
+                    2057,
+                    1102
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    974,
+                    1155,
+                    1943,
+                    1197
+                ],
+                "angle": 0,
+                "content": "Think China will have in world affairs after the outbreak"
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    989,
+                    1221,
+                    1917,
+                    1438
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    969,
+                    1468,
+                    1524,
+                    1508
+                ],
+                "angle": 0,
+                "content": "Note: No answer responses not shown."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    969,
+                    1508,
+                    1856,
+                    1547
+                ],
+                "angle": 0,
+                "content": "Source: Survey of U.S. adults conducted April 29-May 5, 2020."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    969,
+                    1551,
+                    2213,
+                    1630
+                ],
+                "angle": 0,
+                "content": "\"Americans Give Higher Ratings to South Korea and Germany Than U.S. for Dealing With Coronavirus\""
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    969,
+                    1650,
+                    1336,
+                    1689
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1782,
+                    1751,
+                    1844
+                ],
+                "angle": 0,
+                "content": "no trust in information from Beijing regarding the coronavirus outbreak."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    262,
+                    1917,
+                    2210,
+                    2244
+                ],
+                "angle": 0,
+                "content": "Many also believe the current crisis will have a long-term impact on China's global stature: \\(50 \\%\\)say China will have less influence in world affairs after the pandemic. As a March Pew Research Center survey found, overall negative attitudes toward China have been on the rise – \\(66 \\%\\)of Americans expressed an unfavorable opinion of China, the most negative rating for the country since the Center began asking the question in 2005."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    262,
+                    2316,
+                    2205,
+                    2514
+                ],
+                "angle": 0,
+                "content": "While unfavorable views of China have increased among both Democrats and Republicans over the past two years, there are nonetheless significant partisan differences in attitudes toward China, with Republicans expressing significantly more negative attitudes."
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    262,
+                    2583,
+                    2180,
+                    2775
+                ],
+                "angle": 0,
+                "content": "The new national survey by Pew Research Center, conducted April 29 to May 5, 2020, among 10,957 U.S. adults using the Center's American Trends Panel, also highlights growing partisan divisions on broad questions about America's role on the world stage."
+            },
+            {
+                "block_id": 20,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3151
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    165,
+                    1290,
+                    201
+                ],
+                "angle": 0,
+                "content": "6"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1071,
+                    217,
+                    1476,
+                    260
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    265,
+                    382,
+                    900,
+                    1036
+                ],
+                "angle": 0,
+                "content": "About six-in-ten Republicans (62%) now think the U.S. does too much in helping address global challenges, while just 26% of Democrats share this view. In Pew Research Center telephone surveys dating back to 2013, the partisan gap in these views was far more modest."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1118,
+                    920,
+                    1636
+                ],
+                "angle": 0,
+                "content": "A related question about America's role in international affairs also shows strong differences along both partisan and ideological lines. Six-in-ten Americans say the U.S. should focus on its own problems and let other countries deal with"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    966,
+                    409,
+                    2215,
+                    534
+                ],
+                "angle": 0,
+                "content": "Growing partisan divisions over U.S.'s role in solving world problems"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    969,
+                    551,
+                    2103,
+                    603
+                ],
+                "angle": 0,
+                "content": "\\(\\%\\) who say the U.S. does too much in helping solve world problems"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    984,
+                    656,
+                    1091,
+                    699
+                ],
+                "angle": 0,
+                "content": "100%"
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    994,
+                    851,
+                    2256,
+                    1263
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image_footnote",
+                "bbox": [
+                    966,
+                    1280,
+                    2162,
+                    1362
+                ],
+                "angle": 0,
+                "content": "Note: Dotted line indicates change in mode of survey. Data from 2013-2018 is from telephone surveys; 2020 data is from online American Trends Panel."
+            },
+            {
+                "block_id": 9,
+                "type": "image_footnote",
+                "bbox": [
+                    971,
+                    1369,
+                    1858,
+                    1405
+                ],
+                "angle": 0,
+                "content": "Source: Survey of U.S. adults conducted April 29-May 5, 2020."
+            },
+            {
+                "block_id": 10,
+                "type": "image_footnote",
+                "bbox": [
+                    971,
+                    1409,
+                    2215,
+                    1488
+                ],
+                "angle": 0,
+                "content": "\"Americans Give Higher Ratings to South Korea and Germany Than U.S. for Dealing With Coronavirus\""
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    971,
+                    1508,
+                    1338,
+                    1547
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1650,
+                    2231,
+                    1973
+                ],
+                "angle": 0,
+                "content": "their problems as best they can; only \\(39\\%\\) think the U.S. should help other countries deal with their problems. However, fully \\(64\\%\\) of liberal Democrats believe the U.S. should help other countries. This is significantly higher than the \\(44\\%\\) registered among moderate and conservative Democrats, and nearly triple the shares of moderate and liberal Republicans and conservative Republicans who hold this view."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    262,
+                    2049,
+                    2221,
+                    2574
+                ],
+                "angle": 0,
+                "content": "There are sharp partisan and ideological differences on other questions about foreign policy and international affairs included in the survey. While \\(81\\%\\) of liberal Democrats think the U.S. has done an only fair or poor job of dealing with the coronavirus outbreak, just \\(22\\%\\) of conservative Republicans say the same. Liberal Democrats stand apart for their bleak assessment of how the pandemic will affect America's standing on the global stage: \\(56\\%\\) believe the U.S. will have less influence in world affairs, 20 percentage points higher than the share of moderate and conservative Democrats who say this (just \\(15\\%\\) of moderate and liberal Republicans and \\(8\\%\\) of conservative Republicans say the U.S. will have less influence)."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    265,
+                    2649,
+                    2246,
+                    2844
+                ],
+                "angle": 0,
+                "content": "Meanwhile, conservative Republicans stand out for their especially negative evaluations of the WHO: Only \\(21\\%\\) believe the Geneva-based organization has done an excellent or good job of dealing with the COVID-19 crisis, compared with \\(40\\%\\) of moderate and liberal Republicans. Solid"
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3151
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    165,
+                    1290,
+                    201
+                ],
+                "angle": 0,
+                "content": "7"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1071,
+                    217,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    265,
+                    382,
+                    912,
+                    643
+                ],
+                "angle": 0,
+                "content": "majorities of liberal Democrats \\((67\\%)\\) and moderate and conservative Democrats \\((58\\%)\\) give the WHO positive reviews."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    265,
+                    716,
+                    920,
+                    1508
+                ],
+                "angle": 0,
+                "content": "Even though the belief that the U.S. can learn at least a fair amount from the rest of the world is widely shared across the political spectrum, those on the left are much more likely to think the country can learn a great deal from other nations: \\(67\\%\\) of liberal Democrats hold this view, compared with only \\(25\\%\\) of conservative Republicans."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1584,
+                    900,
+                    2369
+                ],
+                "angle": 0,
+                "content": "In addition to partisanship, education is an important dividing line on many of the issues examined in the survey. People with higher levels of education are more likely to believe the U.S. should help other countries deal with their problems and to think the U.S. can learn from other countries about effective ways to combat coronavirus. Those with more"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    966,
+                    475,
+                    2249,
+                    600
+                ],
+                "angle": 0,
+                "content": "Stark divides by party and ideology in views about the coronavirus outbreak, its international implications"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    969,
+                    617,
+                    1300,
+                    669
+                ],
+                "angle": 0,
+                "content": "\\(\\%\\) of_ who say ..."
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    979,
+                    706,
+                    2272,
+                    1999
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image_footnote",
+                "bbox": [
+                    966,
+                    2046,
+                    2218,
+                    2168
+                ],
+                "angle": 0,
+                "content": "Source: Survey of U.S. adults conducted April 29-May 5, 2020. \"Americans Give Higher Ratings to South Korea and Germany Than U.S. for Dealing With Coronavirus\""
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    969,
+                    2187,
+                    1338,
+                    2230
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    265,
+                    2382,
+                    2221,
+                    2511
+                ],
+                "angle": 0,
+                "content": "education are also more likely to trust information from the WHO and the European Union, and to believe the U.S. will emerge from the crisis with less influence in global affairs."
+            },
+            {
+                "block_id": 11,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3154
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    165,
+                    1290,
+                    201
+                ],
+                "angle": 0,
+                "content": "8"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1071,
+                    217,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    265,
+                    372,
+                    2106,
+                    445
+                ],
+                "angle": 0,
+                "content": "How much can the U.S. learn from other countries about COVID-19?"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    262,
+                    491,
+                    2152,
+                    683
+                ],
+                "angle": 0,
+                "content": "As nations around the world grapple with how to respond to the COVID-19 outbreak, most Americans think the U.S. can learn from other countries about how to limit the spread of the coronavirus."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    265,
+                    759,
+                    884,
+                    1415
+                ],
+                "angle": 0,
+                "content": "More than eight-in-ten Americans say the U.S. can learn either a great deal or a fair amount from other countries about ways to slow the spread of the coronavirus. By comparison, fewer than two-in-ten say the U.S. can learn not too much or nothing at all from other countries."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1491,
+                    895,
+                    2148
+                ],
+                "angle": 0,
+                "content": "However, there are significant partisan differences over how much the U.S. can learn from the international response. While \\(60\\%\\) of Democrats and Democratic-leaning independents say the U.S. can learn a great deal, just \\(28\\%\\) of Republicans and Republican leaners share that view."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    265,
+                    2224,
+                    915,
+                    2620
+                ],
+                "angle": 0,
+                "content": "There also are differences in views on this question by race and ethnicity, as well as by level of educational attainment. Black and Hispanic people are more likely than white people"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    966,
+                    801,
+                    2198,
+                    924
+                ],
+                "angle": 0,
+                "content": "Most Americans think the U.S. can learn from other countries about how to slow coronavirus"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    966,
+                    943,
+                    2190,
+                    1046
+                ],
+                "angle": 0,
+                "content": "% who say the U.S. can learn _ from other countries around the world about ways to slow the spread of coronavirus"
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    974,
+                    1095,
+                    2266,
+                    2184
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "image_footnote",
+                "bbox": [
+                    966,
+                    2250,
+                    2264,
+                    2329
+                ],
+                "angle": 0,
+                "content": "Note: Whites and blacks include only those who are not Hispanic; Hispanics are of any race. No answer responses not shown."
+            },
+            {
+                "block_id": 11,
+                "type": "image_footnote",
+                "bbox": [
+                    971,
+                    2333,
+                    1858,
+                    2372
+                ],
+                "angle": 0,
+                "content": "Source: Survey of U.S. adults conducted April 29-May 5, 2020."
+            },
+            {
+                "block_id": 12,
+                "type": "image_footnote",
+                "bbox": [
+                    971,
+                    2372,
+                    2218,
+                    2455
+                ],
+                "angle": 0,
+                "content": "\"Americans Give Higher Ratings to South Korea and Germany Than U.S. for Dealing With Coronavirus\""
+            },
+            {
+                "block_id": 13,
+                "type": "image_footnote",
+                "bbox": [
+                    971,
+                    2475,
+                    1336,
+                    2514
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    966,
+                    2250,
+                    2264,
+                    2514
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    262,
+                    2623,
+                    2236,
+                    2880
+                ],
+                "angle": 0,
+                "content": "to say the U.S. can learn a great deal from other nations about ways to slow the spread of the coronavirus. And the belief that the U.S. can learn from other countries about COVID-19 is more widespread among Americans with higher levels of education than among those with lower education levels."
+            },
+            {
+                "block_id": 16,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3154
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    165,
+                    1290,
+                    201
+                ],
+                "angle": 0,
+                "content": "9"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1071,
+                    217,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    267,
+                    376,
+                    1160,
+                    448
+                ],
+                "angle": 0,
+                "content": "Views on U.S. global engagement"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    265,
+                    491,
+                    1231,
+                    884
+                ],
+                "angle": 0,
+                "content": "In the current survey, conducted online among members of Pew Research Center's American Trends Panel, \\(42 \\%\\)of Americans say the U.S. does too much to help solve world problems, compared with smaller shares who say it does too little (28%) or the right amount (28%)."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    265,
+                    956,
+                    1236,
+                    1620
+                ],
+                "angle": 0,
+                "content": "In a telephone survey conducted in May 2018, the public was roughly split in their views: \\(30\\%\\) said the U.S. did too much, \\(33\\%\\) said it did too little and \\(29\\%\\) said it did about the right amount. (Note: The current survey is comparable to past telephone surveys, though asking questions online can elicit somewhat different response patterns, including lower shares expressing no response on web surveys.)"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1689,
+                    1249,
+                    2220
+                ],
+                "angle": 0,
+                "content": "A majority of Republicans (62%) now think the U.S. does too much to help solve world problems, compared with just 8% who say it does too little and 29% who say it does the right amount. On the other hand, a plurality of Democrats (48%) say the U.S. does too little to help solve world problems, while 26% each say it does the right amount or too much."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    265,
+                    2293,
+                    1147,
+                    2488
+                ],
+                "angle": 0,
+                "content": "In telephone surveys in previous years, the partisan divide in these views was far less pronounced than it is today."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1295,
+                    442,
+                    2236,
+                    567
+                ],
+                "angle": 0,
+                "content": "Majority of Republicans now say U.S. does too much to solve world problems"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1295,
+                    580,
+                    2259,
+                    696
+                ],
+                "angle": 0,
+                "content": "% who say U.S. does in helping solve world problems 100%"
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    1336,
+                    825,
+                    2274,
+                    1188
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Rep/Lean Rep"
+            },
+            {
+                "block_id": 11,
+                "type": "image_footnote",
+                "bbox": [
+                    1303,
+                    1333,
+                    1394,
+                    1369
+                ],
+                "angle": 0,
+                "content": "100%"
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    1336,
+                    1494,
+                    2274,
+                    1864
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Dem/Lean Dem"
+            },
+            {
+                "block_id": 14,
+                "type": "image_footnote",
+                "bbox": [
+                    1303,
+                    2003,
+                    1394,
+                    2039
+                ],
+                "angle": 0,
+                "content": "100%"
+            },
+            {
+                "block_id": 15,
+                "type": "image",
+                "bbox": [
+                    1336,
+                    2184,
+                    2274,
+                    2527
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "image_footnote",
+                "bbox": [
+                    1297,
+                    2547,
+                    2249,
+                    2798
+                ],
+                "angle": 0,
+                "content": "Note: Dotted line indicates change in mode of survey. Data from 2013-2018 is from telephone surveys; 2020 data is from online American Trends Panel. No answer responses not shown. Source: Survey of U.S. adults conducted April 29-May 5, 2020. \"Americans Give Higher Ratings to South Korea and Germany Than U.S. for Dealing With Coronavirus\""
+            },
+            {
+                "block_id": 17,
+                "type": "image_footnote",
+                "bbox": [
+                    1300,
+                    2814,
+                    1667,
+                    2854
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 18,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3154
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    165,
+                    1300,
+                    201
+                ],
+                "angle": 0,
+                "content": "10"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1073,
+                    217,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    265,
+                    382,
+                    1241,
+                    910
+                ],
+                "angle": 0,
+                "content": "On a related measure about America's role in the world, \\(60 \\%\\)say the U.S. should deal with its own problems and let other countries deal with their own problems as best they can. A smaller share \\((39 \\%\\)\" says the U.S. should help other countries deal with their problems. Overall views are similar to those measured in a telephone survey in October 2016."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    265,
+                    983,
+                    1241,
+                    1369
+                ],
+                "angle": 0,
+                "content": "About three-quarters of Republicans want the U.S. to deal with its own problems and let other countries manage as best they can. Among Republicans, similar shares of conservatives and those who identify as more moderate or liberal take this view."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1448,
+                    1244,
+                    2102
+                ],
+                "angle": 0,
+                "content": "By contrast, more than half of Democrats say the U.S. should help other countries deal with their problems; \\(46\\%\\) say the U.S. should deal with its own problems and not help with the problems of other countries. There is a divide in views among Democrats by ideology: \\(64\\%\\) of liberal Democrats say the U.S. should help other countries deal with their problems, compared with \\(44\\%\\) of conservative and moderate Democrats."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    265,
+                    2181,
+                    1229,
+                    2376
+                ],
+                "angle": 0,
+                "content": "Those with higher levels of education are more supportive of helping other nations deal with their problems. Six-in-ten postgraduates say"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    262,
+                    2382,
+                    2210,
+                    2577
+                ],
+                "angle": 0,
+                "content": "the U.S. should help other countries deal with their problems. College graduates are evenly split on this question, while clear majorities of those with some college experience and those with no more than a high school diploma say the U.S. should deal with its own problems."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1295,
+                    435,
+                    2266,
+                    564
+                ],
+                "angle": 0,
+                "content": "Americans say focus should be more on own problems, not helping other nations"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1297,
+                    577,
+                    1790,
+                    627
+                ],
+                "angle": 0,
+                "content": "% who say the U.S. should …"
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    1303,
+                    676,
+                    2266,
+                    2009
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1297,
+                    2032,
+                    1856,
+                    2069
+                ],
+                "angle": 0,
+                "content": "Note: No answer responses not shown."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1300,
+                    2075,
+                    2182,
+                    2112
+                ],
+                "angle": 0,
+                "content": "Source: Survey of U.S. adults conducted April 29-May 5, 2020."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1303,
+                    2118,
+                    2249,
+                    2154
+                ],
+                "angle": 0,
+                "content": "\"Americans Give Higher Ratings to South Korea and Germany Than"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1303,
+                    2158,
+                    1785,
+                    2194
+                ],
+                "angle": 0,
+                "content": "U.S. for Dealing With Coronavirus"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1300,
+                    2217,
+                    1667,
+                    2257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3154
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    165,
+                    1300,
+                    201
+                ],
+                "angle": 0,
+                "content": "11"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1073,
+                    221,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    265,
+                    372,
+                    2106,
+                    511
+                ],
+                "angle": 0,
+                "content": "Americans divided along party lines over how well the U.S. has done dealing with the outbreak"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    265,
+                    557,
+                    2246,
+                    686
+                ],
+                "angle": 0,
+                "content": "By a slim margin, more Americans say the U.S. has done only a fair or a poor job (52%) in dealing with the coronavirus outbreak than say it has done an excellent or good job (47%)."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    262,
+                    759,
+                    1221,
+                    1211
+                ],
+                "angle": 0,
+                "content": "Younger adults are considerably more likely to say the U.S. has handled the outbreak poorly than older ones. Around two-thirds of those under 30 (65%) say the U.S. has done a poor job, compared with 59% of those ages 30 to 49 and only around four-in-ten of those 50 and older."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1290,
+                    1241,
+                    1752
+                ],
+                "angle": 0,
+                "content": "More educated Americans are also more critical of how the U.S. has dealt with the disease. Around two-thirds of those with a postgraduate degree say the U.S. has done a poor job, as do around six-in-ten college graduates. In comparison, about four-in-ten of those with a high school degree or less (43%) say the same."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1824,
+                    1173,
+                    2016
+                ],
+                "angle": 0,
+                "content": "Black (63%) and Hispanic (57%) Americans also rate the U.S. response more negatively than white, non-Hispanic Americans (48%)."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    265,
+                    2092,
+                    1236,
+                    2818
+                ],
+                "angle": 0,
+                "content": "But opinions of how well the U.S. is doing in dealing with the coronavirus outbreak are most divided along party lines. Whereas around three-quarters of Democrats and Democratic-leaning independents are critical of the U.S.'s response (73%), similar shares of Republicans and Republican-leaning independents praise the country's handling of the outbreak (71%). Evaluations divide further along ideological lines, with liberal Democrats holding more negative views of the U.S.'s performance than"
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1297,
+                    815,
+                    2223,
+                    937
+                ],
+                "angle": 0,
+                "content": "Evaluations of U.S. COVID-19 response heavily colored by partisanship"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1297,
+                    956,
+                    2187,
+                    1049
+                ],
+                "angle": 0,
+                "content": "\\(\\%\\) who say the U.S. has done a/an \\(\\underline{\\mathbf{\\alpha}}\\) job in dealing with the coronavirus outbreak"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1297,
+                    1075,
+                    2266,
+                    2412
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "image_footnote",
+                "bbox": [
+                    1295,
+                    2442,
+                    2246,
+                    2521
+                ],
+                "angle": 0,
+                "content": "Note: No answer responses not shown. Whites and blacks include only those who are not Hispanic; Hispanics are of any race."
+            },
+            {
+                "block_id": 12,
+                "type": "image_footnote",
+                "bbox": [
+                    1305,
+                    2527,
+                    2187,
+                    2564
+                ],
+                "angle": 0,
+                "content": "Source: Survey of U.S. adults conducted April 29-May 5, 2020."
+            },
+            {
+                "block_id": 13,
+                "type": "image_footnote",
+                "bbox": [
+                    1305,
+                    2570,
+                    2249,
+                    2603
+                ],
+                "angle": 0,
+                "content": "\"Americans Give Higher Ratings to South Korea and Germany Than"
+            },
+            {
+                "block_id": 14,
+                "type": "image_footnote",
+                "bbox": [
+                    1305,
+                    2610,
+                    1785,
+                    2646
+                ],
+                "angle": 0,
+                "content": "U.S. for Dealing With Coronavirus"
+            },
+            {
+                "block_id": 15,
+                "type": "image_footnote",
+                "bbox": [
+                    1305,
+                    2669,
+                    1667,
+                    2706
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    1295,
+                    2442,
+                    2249,
+                    2706
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1453,
+                    3151
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    165,
+                    1300,
+                    201
+                ],
+                "angle": 0,
+                "content": "12"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1073,
+                    217,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    265,
+                    382,
+                    2195,
+                    511
+                ],
+                "angle": 0,
+                "content": "moderate or conservative Democrats (81% vs. 66%, respectively) and conservative Republicans praising the country's response more than moderate or liberal Republicans (77% vs. 61%)."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    267,
+                    574,
+                    2047,
+                    646
+                ],
+                "angle": 0,
+                "content": "Majority of Americans are critical of China's handling of the virus"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    265,
+                    689,
+                    2198,
+                    818
+                ],
+                "angle": 0,
+                "content": "Nearly two-thirds of Americans say China has not done a good job dealing with the coronavirus outbreak, including \\(37\\%\\) who say the country has done a poor job."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    265,
+                    891,
+                    1208,
+                    1353
+                ],
+                "angle": 0,
+                "content": "Around six-in-ten or more in every age group are critical of China's performance. But older Americans – who tend to have less favorable attitudes toward China – give it the lowest marks; \\(69\\%\\) of those ages 65 and older say the country has done a fair or poor job, compared with \\(59\\%\\) of those under 30."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1422,
+                    1208,
+                    1686
+                ],
+                "angle": 0,
+                "content": "Education plays little role in how people feel about China's handling of the virus. Rather, majorities of people in all educational groups say China has not handled the pandemic well."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1758,
+                    1231,
+                    2349
+                ],
+                "angle": 0,
+                "content": "There are significant partisan differences on this question. While half or more of people on both sides of the aisle say China has not done a good job dealing with the outbreak, Republicans are much more likely to hold this view than Democrats. Conservative Republicans are particularly likely to say China has not handled the crisis well: Eight-in-ten hold this view."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1300,
+                    986,
+                    2221,
+                    1105
+                ],
+                "angle": 0,
+                "content": "Broad disapproval of China's response to COVID-19"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1300,
+                    1128,
+                    2236,
+                    1224
+                ],
+                "angle": 0,
+                "content": "% who say China has done a/an ____ job in dealing with the coronavirus outbreak"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1305,
+                    1234,
+                    2272,
+                    2603
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "image_footnote",
+                "bbox": [
+                    1300,
+                    2623,
+                    2254,
+                    2795
+                ],
+                "angle": 0,
+                "content": "Note: No answer responses not shown.  \nSource: Survey of U.S. adults conducted April 29-May 5, 2020.  \n“Americans Give Higher Ratings to South Korea and Germany Than U.S. for Dealing With Coronavirus”"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1303,
+                    2808,
+                    1670,
+                    2847
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 13,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3154
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    165,
+                    1300,
+                    201
+                ],
+                "angle": 0,
+                "content": "13"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1073,
+                    217,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    267,
+                    376,
+                    1173,
+                    640
+                ],
+                "angle": 0,
+                "content": "Partisanship and international orientation are factors in how Americans think other countries have handled the outbreak"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    265,
+                    689,
+                    1249,
+                    1488
+                ],
+                "angle": 0,
+                "content": "Whereas evaluations of both the United States' and China's handling of the coronavirus outbreak are quite partisan, this is less the case when it comes to the other four countries asked about in the survey. Democrats are somewhat more likely than Republicans to say Italy, South Korea and Germany have handled the outbreak well. But, in each of these instances, the difference is less than 10 percentage points. In the case of the UK, \\(54\\%\\) of Republicans say the country has done an excellent or good job, compared with \\(45\\%\\) of Democrats."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1557,
+                    1249,
+                    1749
+                ],
+                "angle": 0,
+                "content": "Americans who believe the U.S. can learn a great deal or a fair amount from other countries about ways to slow the spread of coronavirus"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    1295,
+                    409,
+                    2269,
+                    597
+                ],
+                "angle": 0,
+                "content": "Wide partisan gap on how U.S. has dealt with coronavirus; smaller differences in views of other countries’ responses"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1297,
+                    613,
+                    2236,
+                    712
+                ],
+                "angle": 0,
+                "content": "% who say ____ has done a good/excellent job in dealing with the coronavirus outbreak"
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1297,
+                    735,
+                    2269,
+                    1425
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image_footnote",
+                "bbox": [
+                    1297,
+                    1432,
+                    2073,
+                    1475
+                ],
+                "angle": 0,
+                "content": "Note: All differences shown are statistically significant."
+            },
+            {
+                "block_id": 9,
+                "type": "image_footnote",
+                "bbox": [
+                    1303,
+                    1478,
+                    2187,
+                    1514
+                ],
+                "angle": 0,
+                "content": "Source: Survey of U.S. adults conducted April 29-May 5, 2020."
+            },
+            {
+                "block_id": 10,
+                "type": "image_footnote",
+                "bbox": [
+                    1303,
+                    1518,
+                    2249,
+                    1554
+                ],
+                "angle": 0,
+                "content": "\"Americans Give Higher Ratings to South Korea and Germany Than"
+            },
+            {
+                "block_id": 11,
+                "type": "image_footnote",
+                "bbox": [
+                    1303,
+                    1557,
+                    1790,
+                    1597
+                ],
+                "angle": 0,
+                "content": "U.S. for Dealing With Coronavirus\""
+            },
+            {
+                "block_id": 12,
+                "type": "image_footnote",
+                "bbox": [
+                    1303,
+                    1617,
+                    1670,
+                    1656
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 13,
+                "type": "list",
+                "bbox": [
+                    1297,
+                    1432,
+                    2249,
+                    1656
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    262,
+                    1758,
+                    2274,
+                    2082
+                ],
+                "angle": 0,
+                "content": "are especially likely to say other countries are handling the outbreak well. The differences are most pronounced when it comes to Germany and South Korea. For example, \\(70\\%\\) of those who say the U.S. can learn from other countries say Germany is handling the coronavirus outbreak well, compared with \\(48\\%\\) of those who think that the U.S. can learn little or nothing from other countries."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    265,
+                    2158,
+                    2124,
+                    2352
+                ],
+                "angle": 0,
+                "content": "Republicans who believe the U.S. can learn from other nations are more likely than other Republicans to say other countries are dealing with the pandemic effectively. And the same pattern is found among Democrats."
+            },
+            {
+                "block_id": 16,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3154
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    165,
+                    1300,
+                    201
+                ],
+                "angle": 0,
+                "content": "14"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1073,
+                    217,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    265,
+                    382,
+                    1241,
+                    1036
+                ],
+                "angle": 0,
+                "content": "When it comes to assessments of how well the U.S. is dealing with the outbreak, those who think the U.S. can learn from foreign countries tend to evaluate its current handling of the pandemic less positively. Fewer than half (44%) of those who think the U.S. can glean information from abroad say the country is doing an excellent or good job handling the outbreak, compared with 63% of those who say the U.S. can't learn much from overseas."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    1297,
+                    409,
+                    2259,
+                    597
+                ],
+                "angle": 0,
+                "content": "Those who say U.S. can learn from other countries are more likely to think other nations are handling outbreak well"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1297,
+                    613,
+                    2256,
+                    709
+                ],
+                "angle": 0,
+                "content": "% who say __ is doing a good/excellent job dealing with the coronavirus outbreak"
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1303,
+                    716,
+                    2272,
+                    1409
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1297,
+                    1432,
+                    2073,
+                    1471
+                ],
+                "angle": 0,
+                "content": "Note: All differences shown are statistically significant."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1303,
+                    1475,
+                    2187,
+                    1514
+                ],
+                "angle": 0,
+                "content": "Source: Survey of U.S. adults conducted April 29-May 5, 2020."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1303,
+                    1514,
+                    2249,
+                    1554
+                ],
+                "angle": 0,
+                "content": "\"Americans Give Higher Ratings to South Korea and Germany Than"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1303,
+                    1557,
+                    1790,
+                    1597
+                ],
+                "angle": 0,
+                "content": "U.S. for Dealing With Coronavirus\""
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1300,
+                    1617,
+                    1670,
+                    1653
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 11,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3151
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    165,
+                    1300,
+                    201
+                ],
+                "angle": 0,
+                "content": "15"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1073,
+                    217,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    267,
+                    372,
+                    1639,
+                    442
+                ],
+                "angle": 0,
+                "content": "Partisans divided in their assessments of the WHO"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    265,
+                    491,
+                    2221,
+                    617
+                ],
+                "angle": 0,
+                "content": "The World Health Organization (WHO) has been a key player in addressing the global spread of the coronavirus, which the organization characterized as a pandemic in early March. But the"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    270,
+                    627,
+                    1137,
+                    683
+                ],
+                "angle": 0,
+                "content": "organization has been heavily criticized by"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    272,
+                    693,
+                    1234,
+                    947
+                ],
+                "angle": 0,
+                "content": "President Donald Trump in recent weeks. In mid-April, he halted U.S. funding of the organization – a move sharply criticized by top Democrats."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    267,
+                    1023,
+                    1241,
+                    1749
+                ],
+                "angle": 0,
+                "content": "Americans' views of how well the WHO has dealt with the coronavirus outbreak also fall along partisan lines. Whereas \\(62\\%\\) of Democrats and Democratic-leaning independents say the organization has done at least a good job in handling the global pandemic, only \\(28\\%\\) of Republicans and GOP leaners say the same. Conservative Republicans are less likely to applaud the organization's handling of the virus than moderate or liberal Republicans."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1824,
+                    1241,
+                    2418
+                ],
+                "angle": 0,
+                "content": "Americans with a postgraduate education are somewhat more likely than those with less education to applaud the international organization's handling of the outbreak, though the differences are muted. Younger Americans also approve of the WHO's performance more than older Americans: \\(52 \\%\\)of adults under age 30 say it has done excellent or good job, compared with just \\(39 \\%\\)of those 65 and older."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1295,
+                    719,
+                    2080,
+                    844
+                ],
+                "angle": 0,
+                "content": "Americans are divided on WHO's coronavirus response"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1295,
+                    861,
+                    2213,
+                    963
+                ],
+                "angle": 0,
+                "content": "% who say the World Health Organization has done a/an __ job in dealing with the coronavirus outbreak"
+            },
+            {
+                "block_id": 10,
+                "type": "table",
+                "bbox": [
+                    1326,
+                    983,
+                    2172,
+                    2257
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>Only fair/poor</td><td>Good/excellent</td></tr><tr><td>Total</td><td>51%</td><td>46%</td></tr><tr><td>Ages 18-29</td><td>45</td><td>52</td></tr><tr><td>30-49</td><td>51</td><td>47</td></tr><tr><td>50-64</td><td>51</td><td>46</td></tr><tr><td>65+</td><td>58</td><td>39</td></tr><tr><td>Postgraduate</td><td>47</td><td>51</td></tr><tr><td>College grad</td><td>50</td><td>48</td></tr><tr><td>Some college</td><td>52</td><td>45</td></tr><tr><td>HS or less</td><td>53</td><td>44</td></tr><tr><td>Rep/Lean Rep</td><td>70</td><td>28</td></tr><tr><td>Conserv</td><td>77</td><td>21</td></tr><tr><td>Mod/Lib</td><td>58</td><td>40</td></tr><tr><td>Dem/Lean Dem</td><td>36</td><td>62</td></tr><tr><td>Cons/Mod</td><td>40</td><td>58</td></tr><tr><td>Liberal</td><td>31</td><td>6</td></tr></table>"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1300,
+                    2280,
+                    1856,
+                    2319
+                ],
+                "angle": 0,
+                "content": "Note: No answer responses not shown."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1303,
+                    2323,
+                    2187,
+                    2359
+                ],
+                "angle": 0,
+                "content": "Source: Survey of U.S. adults conducted April 29-May 5, 2020."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1303,
+                    2362,
+                    2249,
+                    2445
+                ],
+                "angle": 0,
+                "content": "\"Americans Give Higher Ratings to South Korea and Germany Than U.S. for Dealing With Coronavirus\""
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1303,
+                    2465,
+                    1667,
+                    2501
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3151
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    165,
+                    1300,
+                    201
+                ],
+                "angle": 0,
+                "content": "16"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1073,
+                    217,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    267,
+                    372,
+                    2078,
+                    577
+                ],
+                "angle": 0,
+                "content": "Information about coronavirus from EU, WHO generally viewed as trustworthy, but most do not trust information from Chinese government"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    265,
+                    627,
+                    910,
+                    1415
+                ],
+                "angle": 0,
+                "content": "As Americans receive information about the coronavirus outbreak from various international sources, majorities say they trust data from the European Union and WHO, but most are wary of information coming from the Chinese government. Only \\(15\\%\\) of U.S. adults say they trust information from Beijing at least a fair amount."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1491,
+                    900,
+                    2214
+                ],
+                "angle": 0,
+                "content": "Trust in information from the EU and WHO, while relatively high overall, is even stronger among people with a college degree or higher. About three-quarters of Americans with a postgraduate degree (78%) or college degree (72%) say they can believe information coming from the EU about the coronavirus outbreak."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    265,
+                    2290,
+                    912,
+                    2814
+                ],
+                "angle": 0,
+                "content": "Similarly, \\(70 \\%\\)of people with a postgraduate degree trust information from the WHO at least a fair amount, including roughly one- third who say they trust the WHO a great deal when it comes to information about the coronavirus. About"
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    966,
+                    739,
+                    2205,
+                    867
+                ],
+                "angle": 0,
+                "content": "Few Americans trust information about the coronavirus outbreak from the Chinese government"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    963,
+                    881,
+                    2096,
+                    980
+                ],
+                "angle": 0,
+                "content": "\\(\\%\\) who trust information from the in regard to the coronavirus outbreak ..."
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    969,
+                    999,
+                    2272,
+                    1402
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    966,
+                    1412,
+                    1524,
+                    1452
+                ],
+                "angle": 0,
+                "content": "Note: No answer responses not shown."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    969,
+                    1455,
+                    1858,
+                    1494
+                ],
+                "angle": 0,
+                "content": "Source: Survey of U.S. adults conducted April 29-May 5, 2020."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    969,
+                    1494,
+                    2215,
+                    1577
+                ],
+                "angle": 0,
+                "content": "\"Americans Give Higher Ratings to South Korea and Germany Than U.S. for Dealing With Coronavirus\""
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    969,
+                    1597,
+                    1338,
+                    1636
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    963,
+                    1782,
+                    2198,
+                    1904
+                ],
+                "angle": 0,
+                "content": "Trust in information from EU especially high among those with more education"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    963,
+                    1923,
+                    2111,
+                    2022
+                ],
+                "angle": 0,
+                "content": "% who trust information from the European Union in regard to the coronavirus outbreak ..."
+            },
+            {
+                "block_id": 15,
+                "type": "image",
+                "bbox": [
+                    997,
+                    2062,
+                    2261,
+                    2534
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    963,
+                    2550,
+                    1522,
+                    2590
+                ],
+                "angle": 0,
+                "content": "Note: No answer responses not shown."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    969,
+                    2593,
+                    1853,
+                    2633
+                ],
+                "angle": 0,
+                "content": "Source: Survey of U.S. adults conducted April 29-May 5, 2020."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    969,
+                    2636,
+                    2213,
+                    2712
+                ],
+                "angle": 0,
+                "content": "\"Americans Give Higher Ratings to South Korea and Germany Than U.S. for Dealing With Coronavirus\""
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    969,
+                    2735,
+                    1336,
+                    2772
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 20,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3151
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    161,
+                    1300,
+                    201
+                ],
+                "angle": 0,
+                "content": "17"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1073,
+                    217,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    265,
+                    382,
+                    877,
+                    570
+                ],
+                "angle": 0,
+                "content": "half of people with a high school degree say they trust information from this source."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    265,
+                    650,
+                    910,
+                    1240
+                ],
+                "angle": 0,
+                "content": "Younger adults are also more likely to view information from the WHO as trustworthy; \\(68 \\%\\)of Americans ages 18 to 29 say they can trust information from the WHO at least a fair amount. Only about half of adults ages 65 and older (51%) share this view."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1316,
+                    920,
+                    1907
+                ],
+                "angle": 0,
+                "content": "Differences by education and age, however, are relatively small compared with the substantial partisan division in these views. Conservative Republicans are much less likely than liberal Democrats to trust information coming from each international source."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1983,
+                    920,
+                    2775
+                ],
+                "angle": 0,
+                "content": "This partisan divide is especially pronounced on views about the WHO; \\(86 \\%\\)of liberal Democrats say they trust information from the WHO at least a fair amount, compared with \\(27 \\%\\)of conservative Republicans. Similar, though somewhat smaller, divisions also exist in trust in information from the EU and the Chinese government."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    966,
+                    412,
+                    2177,
+                    534
+                ],
+                "angle": 0,
+                "content": "Younger adults and those with more education are more likely to trust information from the WHO"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    966,
+                    551,
+                    2236,
+                    650
+                ],
+                "angle": 0,
+                "content": "% who trust information from the World Health Organization in regard to the coronavirus outbreak ..."
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    974,
+                    696,
+                    2264,
+                    1425
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    966,
+                    1448,
+                    1530,
+                    1485
+                ],
+                "angle": 0,
+                "content": "Note: No answer responses not shown."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    971,
+                    1488,
+                    1853,
+                    1527
+                ],
+                "angle": 0,
+                "content": "Source: Survey of U.S. adults conducted April 29-May 5, 2020."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    971,
+                    1531,
+                    2215,
+                    1570
+                ],
+                "angle": 0,
+                "content": "\"Americans Give Higher Ratings to South Korea and Germany Than U.S. for Dealing With"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    971,
+                    1574,
+                    1162,
+                    1610
+                ],
+                "angle": 0,
+                "content": "Coronavirus\""
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    971,
+                    1633,
+                    1338,
+                    1669
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 14,
+                "type": "title",
+                "bbox": [
+                    966,
+                    1834,
+                    2124,
+                    1956
+                ],
+                "angle": 0,
+                "content": "Conservative Republicans less likely to trust information from WHO, EU, Chinese government"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    966,
+                    1976,
+                    2119,
+                    2079
+                ],
+                "angle": 0,
+                "content": "% who trust information from the in regard to the coronavirus outbreak a fair amount/great deal"
+            },
+            {
+                "block_id": 16,
+                "type": "image",
+                "bbox": [
+                    979,
+                    2108,
+                    2269,
+                    2478
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    966,
+                    2494,
+                    1856,
+                    2534
+                ],
+                "angle": 0,
+                "content": "Source: Survey of U.S. adults conducted April 29-May 5, 2020."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    971,
+                    2537,
+                    2215,
+                    2616
+                ],
+                "angle": 0,
+                "content": "\"Americans Give Higher Ratings to South Korea and Germany Than U.S. for Dealing With Coronavirus\""
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    971,
+                    2636,
+                    1338,
+                    2676
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 20,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3154
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    165,
+                    1300,
+                    201
+                ],
+                "angle": 0,
+                "content": "18"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1073,
+                    217,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    267,
+                    372,
+                    1198,
+                    570
+                ],
+                "angle": 0,
+                "content": "How will the pandemic affect the international standing of the U.S., China and the EU?"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    265,
+                    623,
+                    1152,
+                    884
+                ],
+                "angle": 0,
+                "content": "While half of Americans believe China will emerge from the current crisis with less influence in world affairs, far fewer say this about the U.S. or the European Union."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    265,
+                    956,
+                    1246,
+                    1478
+                ],
+                "angle": 0,
+                "content": "The American public is largely split on how they think U.S. influence will be affected by the pandemic. Roughly three-in-ten believe the U.S.'s international clout will be bolstered after the outbreak, while the same share thinks it will be weakened. About four-in-ten see the U.S. coming out of the outbreak with the same influence as before."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1557,
+                    1246,
+                    2415
+                ],
+                "angle": 0,
+                "content": "Clear partisan gaps emerge on this question. Republicans are about twice as likely as Democrats to believe the U.S.'s international influence will be strengthened as a result of the crisis. On the other hand, Democrats are about four times more likely than Republicans to expect American influence to weaken after the outbreak. There is also internal division among Democrats on this question, with liberal party supporters 20 percentage points more likely than conservatives and moderates within the party to foresee the decline of U.S. international influence."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    265,
+                    2491,
+                    1249,
+                    2887
+                ],
+                "angle": 0,
+                "content": "Education is also tied to views about how the pandemic will shape America's role in international affairs. In general, Americans who have completed higher levels of education are more likely to think the country's global influence will recede. For example, \\(45 \\%\\)of"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1297,
+                    316,
+                    2256,
+                    438
+                ],
+                "angle": 0,
+                "content": "Many think China's global influence will decline after the coronavirus outbreak"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1295,
+                    455,
+                    2236,
+                    600
+                ],
+                "angle": 0,
+                "content": "% who say each will have _ influence in world affairs after the coronavirus outbreak compared to before the outbreak"
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    1341,
+                    610,
+                    2236,
+                    1079
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1297,
+                    1112,
+                    1858,
+                    1151
+                ],
+                "angle": 0,
+                "content": "Note: No answer responses not shown."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1300,
+                    1155,
+                    2187,
+                    1194
+                ],
+                "angle": 0,
+                "content": "Source: Survey of U.S. adults conducted April 29-May 5, 2020."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1303,
+                    1197,
+                    2249,
+                    1234
+                ],
+                "angle": 0,
+                "content": "\"Americans Give Higher Ratings to South Korea and Germany Than"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1303,
+                    1234,
+                    1787,
+                    1277
+                ],
+                "angle": 0,
+                "content": "U.S. for Dealing With Coronavirus"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1300,
+                    1296,
+                    1667,
+                    1336
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 15,
+                "type": "title",
+                "bbox": [
+                    1297,
+                    1485,
+                    2182,
+                    1663
+                ],
+                "angle": 0,
+                "content": "Democrats and those with more education especially likely to believe U.S. influence will decline"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1295,
+                    1686,
+                    2177,
+                    1834
+                ],
+                "angle": 0,
+                "content": "% who say the U.S. will have _ influence in world affairs after the coronavirus outbreak compared to before the outbreak"
+            },
+            {
+                "block_id": 17,
+                "type": "image",
+                "bbox": [
+                    1326,
+                    1844,
+                    2205,
+                    2653
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1300,
+                    2673,
+                    1858,
+                    2712
+                ],
+                "angle": 0,
+                "content": "Note: No answer responses not shown."
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1300,
+                    2715,
+                    2187,
+                    2755
+                ],
+                "angle": 0,
+                "content": "Source: Survey of U.S. adults conducted April 29-May 5, 2020."
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    1300,
+                    2775,
+                    1670,
+                    2811
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 21,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3151
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 19,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    165,
+                    1300,
+                    201
+                ],
+                "angle": 0,
+                "content": "19"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1073,
+                    217,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    265,
+                    382,
+                    1160,
+                    643
+                ],
+                "angle": 0,
+                "content": "those with postgraduate degrees think the U.S.'s global position will decline after the pandemic, compared with just \\(21 \\%\\)of those with a high school diploma or less."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    265,
+                    716,
+                    1216,
+                    1102
+                ],
+                "angle": 0,
+                "content": "When asked about China's influence on the world stage, half of Americans believe it will decline after the coronavirus outbreak. Nearly one-in-five think Chinese influence will grow, and about a third think its global standing will be about the same."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1184,
+                    1244,
+                    1838
+                ],
+                "angle": 0,
+                "content": "There is a large partisan divide on this question: Roughly six-in-ten Republicans believe China's international clout will diminish as a result of the coronavirus outbreak, while just \\(40\\%\\) of Democrats say the same. Age divides emerge on this question as well. American adults ages 65 and older are 16 percentage points more likely than those under 30 to say China will have less global influence after the crisis."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1917,
+                    1241,
+                    2178
+                ],
+                "angle": 0,
+                "content": "These partisan and age divides are similar to other attitudes about China. Older Americans and Republicans are also especially likely to say they have a negative opinion of China."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    1295,
+                    409,
+                    2259,
+                    534
+                ],
+                "angle": 0,
+                "content": "Age, partisan divides in views of China's global power after coronavirus outbreak"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1295,
+                    551,
+                    2256,
+                    696
+                ],
+                "angle": 0,
+                "content": "% who say China will have _ influence in world affairs after the coronavirus outbreak compared to before the outbreak"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1310,
+                    739,
+                    2215,
+                    1871
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "image_footnote",
+                "bbox": [
+                    1297,
+                    1907,
+                    1856,
+                    1943
+                ],
+                "angle": 0,
+                "content": "Note: No answer responses not shown."
+            },
+            {
+                "block_id": 10,
+                "type": "image_footnote",
+                "bbox": [
+                    1305,
+                    1950,
+                    2187,
+                    1986
+                ],
+                "angle": 0,
+                "content": "Source: Survey of U.S. adults conducted April 29-May 5, 2020."
+            },
+            {
+                "block_id": 11,
+                "type": "image_footnote",
+                "bbox": [
+                    1305,
+                    1993,
+                    2249,
+                    2072
+                ],
+                "angle": 0,
+                "content": "\"Americans Give Higher Ratings to South Korea and Germany Than U.S. for Dealing With Coronavirus\""
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    1297,
+                    1907,
+                    2249,
+                    2072
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1300,
+                    2092,
+                    1670,
+                    2131
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 14,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3154
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 20,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    165,
+                    1300,
+                    201
+                ],
+                "angle": 0,
+                "content": "20"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1073,
+                    217,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    265,
+                    382,
+                    1239,
+                    709
+                ],
+                "angle": 0,
+                "content": "On views of the future international role of the European Union, a sizable majority of Americans believe the EU's global standing will be unaffected by the crisis, while about a fifth believe it will increase or decrease, respectively."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    265,
+                    785,
+                    1185,
+                    1036
+                ],
+                "angle": 0,
+                "content": "There is a partisan divide on this question as well, with Republicans less likely than Democrats to think the EU will have more influence."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    1295,
+                    409,
+                    2244,
+                    597
+                ],
+                "angle": 0,
+                "content": "Majorities among both parties think the EU's international influence will be unaffected by the coronavirus outbreak"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1295,
+                    613,
+                    2269,
+                    759
+                ],
+                "angle": 0,
+                "content": "% who say the EU will have _ influence in world affairs after the coronavirus outbreak compared to before the outbreak"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1348,
+                    805,
+                    2208,
+                    1234
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1297,
+                    1277,
+                    1856,
+                    1313
+                ],
+                "angle": 0,
+                "content": "Note: No answer responses not shown."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1300,
+                    1320,
+                    2187,
+                    1356
+                ],
+                "angle": 0,
+                "content": "Source: Survey of U.S. adults conducted April 29-May 5, 2020."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1303,
+                    1362,
+                    2249,
+                    1399
+                ],
+                "angle": 0,
+                "content": "\"Americans Give Higher Ratings to South Korea and Germany Than"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1303,
+                    1402,
+                    1785,
+                    1442
+                ],
+                "angle": 0,
+                "content": "U.S. for Dealing With Coronavirus\""
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1303,
+                    1461,
+                    1667,
+                    1501
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 12,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3151
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 21,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    165,
+                    1300,
+                    201
+                ],
+                "angle": 0,
+                "content": "21"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1071,
+                    217,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    267,
+                    339,
+                    887,
+                    419
+                ],
+                "angle": 0,
+                "content": "Acknowledgments"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    265,
+                    518,
+                    2200,
+                    577
+                ],
+                "angle": 0,
+                "content": "This report is a collaborative effort based on the input and analysis of the following individuals."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    270,
+                    656,
+                    1048,
+                    706
+                ],
+                "angle": 0,
+                "content": "Nida Asheer, Communications Associate"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    272,
+                    722,
+                    1096,
+                    778
+                ],
+                "angle": 0,
+                "content": "James Bell, Vice President, Global Strategy"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    272,
+                    792,
+                    833,
+                    844
+                ],
+                "angle": 0,
+                "content": "Nick Bertoni, Panel Manager"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    272,
+                    858,
+                    1009,
+                    907
+                ],
+                "angle": 0,
+                "content": "Alexandra Castillo, Research Associate"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    272,
+                    924,
+                    925,
+                    973
+                ],
+                "angle": 0,
+                "content": "Jeremiah Cha, Research Assistant"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    272,
+                    993,
+                    1040,
+                    1042
+                ],
+                "angle": 0,
+                "content": "Aidan Connaughton, Research Assistant"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    272,
+                    1059,
+                    1173,
+                    1108
+                ],
+                "angle": 0,
+                "content": "Stefan S. Cornibert, Communications Manager"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    272,
+                    1125,
+                    1050,
+                    1174
+                ],
+                "angle": 0,
+                "content": "Claudia Deane, Vice President, Research"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    272,
+                    1191,
+                    861,
+                    1240
+                ],
+                "angle": 0,
+                "content": "Kat Devlin, Research Associate"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    272,
+                    1257,
+                    1106,
+                    1306
+                ],
+                "angle": 0,
+                "content": "Carroll Doherty, Director, Political Research"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    272,
+                    1323,
+                    874,
+                    1376
+                ],
+                "angle": 0,
+                "content": "Moira Fagan, Research Analyst"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    272,
+                    1392,
+                    986,
+                    1442
+                ],
+                "angle": 0,
+                "content": "Josh Ferno, Assistant Panel Manager"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    272,
+                    1458,
+                    951,
+                    1508
+                ],
+                "angle": 0,
+                "content": "Janell Fetterolf, Research Associate"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    272,
+                    1524,
+                    1025,
+                    1574
+                ],
+                "angle": 0,
+                "content": "Shannon Greenwood, Digital Producer"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    272,
+                    1590,
+                    943,
+                    1643
+                ],
+                "angle": 0,
+                "content": "Christine Huang, Research Analyst"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    272,
+                    1656,
+                    1341,
+                    1709
+                ],
+                "angle": 0,
+                "content": "Michael Keegan, Senior Information Graphics Designer"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    272,
+                    1722,
+                    747,
+                    1775
+                ],
+                "angle": 0,
+                "content": "David Kent, Copy Editor"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    272,
+                    1791,
+                    984,
+                    1841
+                ],
+                "angle": 0,
+                "content": "Nicholas O. Kent, Research Assistant"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    272,
+                    1857,
+                    1249,
+                    1907
+                ],
+                "angle": 0,
+                "content": "Jocelyn Kiley, Associate Director, Political Research"
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    272,
+                    1923,
+                    1027,
+                    1973
+                ],
+                "angle": 0,
+                "content": "Colin Lahiff, Communications Associate"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    272,
+                    1993,
+                    838,
+                    2042
+                ],
+                "angle": 0,
+                "content": "Arnold Lau, Research Analyst"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    272,
+                    2059,
+                    1127,
+                    2108
+                ],
+                "angle": 0,
+                "content": "Gar Meng Leong, Communications Associate"
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    272,
+                    2125,
+                    961,
+                    2171
+                ],
+                "angle": 0,
+                "content": "Clark Letterman, Senior Researcher"
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    272,
+                    2191,
+                    1137,
+                    2240
+                ],
+                "angle": 0,
+                "content": "Gracie Martinez, Administrative Coordinator"
+            },
+            {
+                "block_id": 28,
+                "type": "text",
+                "bbox": [
+                    272,
+                    2257,
+                    1040,
+                    2310
+                ],
+                "angle": 0,
+                "content": "Martha McRoy, Research Methodologist"
+            },
+            {
+                "block_id": 29,
+                "type": "text",
+                "bbox": [
+                    272,
+                    2326,
+                    884,
+                    2372
+                ],
+                "angle": 0,
+                "content": "J.J. Moncus, Research Assistant"
+            },
+            {
+                "block_id": 30,
+                "type": "text",
+                "bbox": [
+                    272,
+                    2392,
+                    953,
+                    2438
+                ],
+                "angle": 0,
+                "content": "Mara Mordecai, Research Assistant"
+            },
+            {
+                "block_id": 31,
+                "type": "text",
+                "bbox": [
+                    272,
+                    2458,
+                    1609,
+                    2508
+                ],
+                "angle": 0,
+                "content": "Patrick Moynihan, Associate Director, International Research Methods"
+            },
+            {
+                "block_id": 32,
+                "type": "text",
+                "bbox": [
+                    272,
+                    2524,
+                    1045,
+                    2574
+                ],
+                "angle": 0,
+                "content": "Stacy Pancratz, Research Methodologist"
+            },
+            {
+                "block_id": 33,
+                "type": "text",
+                "bbox": [
+                    272,
+                    2590,
+                    1450,
+                    2640
+                ],
+                "angle": 0,
+                "content": "Jacob Poushter, Associate Director, Global Attitudes Research"
+            },
+            {
+                "block_id": 34,
+                "type": "text",
+                "bbox": [
+                    272,
+                    2656,
+                    1091,
+                    2706
+                ],
+                "angle": 0,
+                "content": "Shannon Schumacher, Research Associate"
+            },
+            {
+                "block_id": 35,
+                "type": "text",
+                "bbox": [
+                    272,
+                    2725,
+                    879,
+                    2772
+                ],
+                "angle": 0,
+                "content": "Laura Silver, Senior Researcher"
+            },
+            {
+                "block_id": 36,
+                "type": "text",
+                "bbox": [
+                    272,
+                    2791,
+                    851,
+                    2841
+                ],
+                "angle": 0,
+                "content": "Alec Tyson, Senior Researcher"
+            },
+            {
+                "block_id": 37,
+                "type": "text",
+                "bbox": [
+                    272,
+                    2857,
+                    946,
+                    2904
+                ],
+                "angle": 0,
+                "content": "Ted Van Green, Research Assistant"
+            },
+            {
+                "block_id": 38,
+                "type": "text",
+                "bbox": [
+                    272,
+                    2923,
+                    1224,
+                    2973
+                ],
+                "angle": 0,
+                "content": "Richard Wike, Director, Global Attitudes Research"
+            },
+            {
+                "block_id": 39,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1453,
+                    3154
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 22,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    165,
+                    1300,
+                    201
+                ],
+                "angle": 0,
+                "content": "22"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1073,
+                    217,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    270,
+                    379,
+                    711,
+                    462
+                ],
+                "angle": 0,
+                "content": "Methodology"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    267,
+                    498,
+                    1593,
+                    570
+                ],
+                "angle": 0,
+                "content": "The American Trends Panel survey methodology"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    265,
+                    617,
+                    2259,
+                    877
+                ],
+                "angle": 0,
+                "content": "The American Trends Panel (ATP), created by Pew Research Center, is a nationally representative panel of randomly selected U.S. adults. Panelists participate via self-administered web surveys. Panelists who do not have internet access at home are provided with a tablet and wireless internet connection. The panel is being managed by Ipsos."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    265,
+                    947,
+                    2254,
+                    1075
+                ],
+                "angle": 0,
+                "content": "Data in this report is drawn from the panel wave conducted April 29 to May 5, 2020. A total of 10,957 panelists responded out of 13,459 who were sampled, for a response rate of \\(81\\%\\). This does"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1085,
+                    910,
+                    2079
+                ],
+                "angle": 0,
+                "content": "not include 10 panelists who were removed from the data due to extremely high rates of refusal or straightlining. The cumulative response rate accounting for nonresponse to the recruitment surveys and attrition is \\(4.5\\%\\). The break-off rate among panelists who logged on to the survey and completed at least one item is \\(1.6\\%\\). The margin of sampling error for the full sample of 10,957 respondents is plus or minus 1.4 percentage points."
+            },
+            {
+                "block_id": 8,
+                "type": "table",
+                "bbox": [
+                    948,
+                    1221,
+                    2266,
+                    1788
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Recruitment dates</td><td>Mode</td><td>Invited</td><td>Joined</td><td>Active \npanelists \nremaining</td></tr><tr><td>Jan. 23 to March 16, 2014</td><td>Landline/ \ncell RDD</td><td>9,809</td><td>5,338</td><td>2,310</td></tr><tr><td>Aug. 27 to Oct. 4, 2015</td><td>Landline/ \ncell RDD</td><td>6,004</td><td>2,976</td><td>1,335</td></tr><tr><td>April 25 to June 4, 2017</td><td>Landline/ \ncell RDD</td><td>3,905</td><td>1,628</td><td>685</td></tr><tr><td>Aug. 8 to Oct. 31, 2018</td><td>ABS/web</td><td>9,396</td><td>8,778</td><td>6,411</td></tr><tr><td>Aug. 19 to Nov. 30, 2019</td><td>ABS/web</td><td>5,900</td><td>4,720</td><td>4,686</td></tr><tr><td></td><td>Total</td><td>35,014</td><td>23,440</td><td>15,427</td></tr></table>",
+                "caption": "American Trends Panel recruitment surveys"
+            },
+            {
+                "block_id": 9,
+                "type": "table_footnote",
+                "bbox": [
+                    948,
+                    1795,
+                    2259,
+                    1920
+                ],
+                "angle": 0,
+                "content": "Note: Approximately once per year, panelists who have not participated in multiple consecutive waves or who did not complete an annual profiling survey are removed from the panel. Panelists also become inactive if they ask to be removed from the panel."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    953,
+                    1937,
+                    1323,
+                    1976
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    265,
+                    2148,
+                    2269,
+                    2343
+                ],
+                "angle": 0,
+                "content": "This study featured a stratified random sample from the ATP. The sampling strata were defined by the following variables: age, race, ethnicity, education, country of birth (among Hispanics), internet status, party affiliation, voter registration and volunteerism."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    262,
+                    2415,
+                    2269,
+                    2745
+                ],
+                "angle": 0,
+                "content": "The ATP was created in 2014, with the first cohort of panelists invited to join the panel at the end of a large, national, landline and cellphone random-digit-dial survey that was conducted in both English and Spanish. Two additional recruitments were conducted using the same method in 2015 and 2017, respectively. Across these three surveys, a total of 19,718 adults were invited to join the ATP, of which 9,942 agreed to participate."
+            },
+            {
+                "block_id": 13,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3151
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 23,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    165,
+                    1300,
+                    201
+                ],
+                "angle": 0,
+                "content": "23"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1073,
+                    221,
+                    1476,
+                    260
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    265,
+                    382,
+                    2266,
+                    1171
+                ],
+                "angle": 0,
+                "content": "In August 2018, the ATP switched from telephone to address-based recruitment. Invitations were sent to a random, address-based sample (ABS) of households selected from the U.S. Postal Service's Delivery Sequence File. In each household, the adult with the next birthday was asked to go online to complete a survey, at the end of which they were invited to join the panel. For a random half-sample of invitations, households without internet access were instructed to return a postcard. These households were contacted by telephone and sent a tablet if they agreed to participate. A total of 9,396 were invited to join the panel, and 8,778 agreed to join the panel and completed an initial profile survey. The same recruitment procedure was carried out on August 19, 2019, from which a total of 5,900 were invited to join the panel and 4,720 agreed to join the panel and completed an initial profile survey. Of the 23,440 individuals who have ever joined the ATP, 15,427 remained active panelists and continued to receive survey invitations at the time this survey was conducted."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1250,
+                    2221,
+                    1508
+                ],
+                "angle": 0,
+                "content": "The U.S. Postal Service's Delivery Sequence File has been estimated to cover as much as \\(98\\%\\) of the population, although some studies suggest that the coverage could be in the low \\(90\\%\\) range.\\(^{1}\\) The American Trends Panel never uses breakout routers or chains that direct respondents to additional surveys."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    270,
+                    2884,
+                    1665,
+                    2923
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup> AAPOR Task Force on Address-based Sampling. 2016. \"AAPOR Report: Address-based Sampling.\""
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3111,
+                    1456,
+                    3151
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 24,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    165,
+                    1300,
+                    201
+                ],
+                "angle": 0,
+                "content": "24"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1073,
+                    221,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    267,
+                    382,
+                    510,
+                    445
+                ],
+                "angle": 0,
+                "content": "Weighting"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    265,
+                    475,
+                    1583,
+                    801
+                ],
+                "angle": 0,
+                "content": "The ATP data was weighted in a multistep process that begins with a base weight incorporating the respondents' original selection probability. The next step in the weighting uses an iterative technique that aligns the sample to population benchmarks on the dimensions listed in the accompanying table."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    265,
+                    874,
+                    1588,
+                    1069
+                ],
+                "angle": 0,
+                "content": "Sampling errors and test of statistical significance take into account the effect of weighting. Interviews are conducted in both English and Spanish."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    265,
+                    1141,
+                    1586,
+                    1336
+                ],
+                "angle": 0,
+                "content": "In addition to sampling error, one should bear in mind that question wording and practical difficulties in conducting surveys can introduce error or bias into the findings of opinion polls."
+            },
+            {
+                "block_id": 7,
+                "type": "table",
+                "bbox": [
+                    1644,
+                    607,
+                    2272,
+                    1877
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Variable</td><td>Benchmark source</td></tr><tr><td>Gender</td><td rowspan=\"2\">2018 American \nCommunity \nSurvey</td></tr><tr><td>Age</td></tr><tr><td>Education</td><td></td></tr><tr><td>Race/Hispanic \norigin</td><td></td></tr><tr><td>Country of birth \namong Hispanics</td><td></td></tr><tr><td>Years lived in the \nUnited States \namong Hispanics</td><td></td></tr><tr><td>Home internet \naccess</td><td></td></tr><tr><td>Region x \nMetropolitan status</td><td>2019 CPS March \nSupplement</td></tr><tr><td>Volunteerism</td><td>2017 CPS \nVolunteering &amp; \nCivic Life \nSupplement</td></tr><tr><td>Voter registration</td><td>2018 CPS Voting \nand Registration \nSupplement</td></tr><tr><td>Party affiliation</td><td>Average of the \nthree most recent \nPew Research \nCenter telephone \nsurveys.</td></tr></table>",
+                "caption": "Weighting dimensions"
+            },
+            {
+                "block_id": 8,
+                "type": "table_footnote",
+                "bbox": [
+                    1642,
+                    1894,
+                    2261,
+                    2102
+                ],
+                "angle": 0,
+                "content": "Note: Estimates from the ACS are based on non-institutionalized adults. Voter registration is calculated using procedures from Hur, Achen (2013) and rescaled to include the total U.S. adult population."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1644,
+                    2121,
+                    2009,
+                    2158
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 10,
+                "type": "footer",
+                "bbox": [
+                    1093,
+                    3108,
+                    1456,
+                    3151
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    },
+    {
+        "page_id": 25,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    165,
+                    1300,
+                    198
+                ],
+                "angle": 0,
+                "content": "25"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    1073,
+                    221,
+                    1476,
+                    257
+                ],
+                "angle": 0,
+                "content": "PEW RESEARCH CENTER"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    270,
+                    382,
+                    2264,
+                    508
+                ],
+                "angle": 0,
+                "content": "The following table shows the unweighted sample sizes and the error attributable to sampling that would be expected at the \\(95\\%\\) level of confidence for different groups in the survey:"
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    402,
+                    564,
+                    2139,
+                    937
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Group</td><td>Unweighted sample size</td><td>Weighted %</td><td>Plus or minus ...</td></tr><tr><td>Total sample</td><td>10,957</td><td></td><td>1.4 percentage points</td></tr><tr><td>Rep/Lean Rep</td><td>4,437</td><td>44</td><td>2.1 percentage points</td></tr><tr><td>Dem/Lean Dem</td><td>6,182</td><td>52</td><td>2.0 percentage points</td></tr></table>"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    275,
+                    1072,
+                    1920,
+                    1131
+                ],
+                "angle": 0,
+                "content": "Sample sizes and sampling errors for other subgroups are available upon request."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    275,
+                    1207,
+                    895,
+                    1263
+                ],
+                "angle": 0,
+                "content": "© Pew Research Center, 2020"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1099,
+                    3111,
+                    1450,
+                    3151
+                ],
+                "angle": 0,
+                "content": "www.pewresearch.org"
+            }
+        ]
+    }
+]

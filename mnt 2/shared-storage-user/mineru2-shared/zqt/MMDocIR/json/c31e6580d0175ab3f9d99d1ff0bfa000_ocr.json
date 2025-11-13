@@ -1,0 +1,1353 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    354,
+                    859,
+                    2631,
+                    1260
+                ],
+                "angle": 0,
+                "content": "Medical Informatics and HIT Systems"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1185,
+                    1449,
+                    1812,
+                    1534
+                ],
+                "angle": 0,
+                "content": "David Lubliner"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    215,
+                    184,
+                    2778,
+                    371
+                ],
+                "angle": 0,
+                "content": "What is wrong with this picture?"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    333,
+                    492,
+                    2652,
+                    2045
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1200,
+                    182,
+                    1806,
+                    351
+                ],
+                "angle": 0,
+                "content": "Outline"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    165,
+                    627,
+                    2682,
+                    780
+                ],
+                "angle": 0,
+                "content": "What kinds of HIT systems are there?"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    168,
+                    823,
+                    2430,
+                    981
+                ],
+                "angle": 0,
+                "content": "What major trends are emerging?"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    168,
+                    1019,
+                    2490,
+                    1167
+                ],
+                "angle": 0,
+                "content": "What are the benefits to adoption?"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    168,
+                    1208,
+                    2475,
+                    1359
+                ],
+                "angle": 0,
+                "content": "What are the barriers to adoption?"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    165,
+                    1401,
+                    2694,
+                    1552
+                ],
+                "angle": 0,
+                "content": "What is the current state of adoption?"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    168,
+                    1595,
+                    1923,
+                    1739
+                ],
+                "angle": 0,
+                "content": "- How can you learn more?"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    165,
+                    627,
+                    2694,
+                    1739
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    804,
+                    184,
+                    2193,
+                    389
+                ],
+                "angle": 0,
+                "content": "HIT Applications"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    171,
+                    474,
+                    1245,
+                    711
+                ],
+                "angle": 0,
+                "content": "Patient registration/ demographics"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    168,
+                    738,
+                    1263,
+                    843
+                ],
+                "angle": 0,
+                "content": "Insurance validation"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    168,
+                    884,
+                    1032,
+                    996
+                ],
+                "angle": 0,
+                "content": "- Billing systems"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    168,
+                    1026,
+                    1338,
+                    1145
+                ],
+                "angle": 0,
+                "content": "- Appointment systems"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    168,
+                    1172,
+                    1350,
+                    1525
+                ],
+                "angle": 0,
+                "content": "- Computerized Physician Order Entry (CPOE)"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    168,
+                    1552,
+                    1002,
+                    1658
+                ],
+                "angle": 0,
+                "content": "EMR/EHR/CPR"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    168,
+                    1694,
+                    1203,
+                    1813
+                ],
+                "angle": 0,
+                "content": "Pharmacy systems"
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    168,
+                    474,
+                    1350,
+                    1813
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1545,
+                    474,
+                    2286,
+                    589
+                ],
+                "angle": 0,
+                "content": "Lab systems"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1545,
+                    621,
+                    2484,
+                    733
+                ],
+                "angle": 0,
+                "content": "- Imaging systems"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1551,
+                    760,
+                    2307,
+                    864
+                ],
+                "angle": 0,
+                "content": "- Telemedicine"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1551,
+                    906,
+                    2502,
+                    1008
+                ],
+                "angle": 0,
+                "content": "Patient education"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1551,
+                    1053,
+                    2502,
+                    1165
+                ],
+                "angle": 0,
+                "content": "- Decision Support"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1551,
+                    1197,
+                    2517,
+                    1305
+                ],
+                "angle": 0,
+                "content": "- Library resources"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1551,
+                    1343,
+                    2067,
+                    1437
+                ],
+                "angle": 0,
+                "content": "- Sensors"
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    1545,
+                    474,
+                    2517,
+                    1437
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1110,
+                    184,
+                    1893,
+                    357
+                ],
+                "angle": 0,
+                "content": "Sad Facts"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    162,
+                    481,
+                    2709,
+                    936
+                ],
+                "angle": 0,
+                "content": "Medical errors account for more deaths than breast cancer, AlDs and motorcycle accidents."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    165,
+                    990,
+                    2547,
+                    1280
+                ],
+                "angle": 0,
+                "content": "- US has highest HC costs per capita in world"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    165,
+                    1343,
+                    2667,
+                    1651
+                ],
+                "angle": 0,
+                "content": "- US has worst outcomes of industrialized nations. (infant mortality, lifespan, etc.)"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    165,
+                    1694,
+                    2814,
+                    2004
+                ],
+                "angle": 0,
+                "content": "Healthcare is 10-15 yrs behind business in adoption of IT"
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    162,
+                    481,
+                    2814,
+                    2004
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    258,
+                    108,
+                    2739,
+                    236
+                ],
+                "angle": 0,
+                "content": "Some Hospitals are using Tablet Capture Devices"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    171,
+                    474,
+                    1062,
+                    695
+                ],
+                "angle": 0,
+                "content": "- Microsoft Office OneNote"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    171,
+                    740,
+                    1122,
+                    839
+                ],
+                "angle": 0,
+                "content": "- Windows Journal"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    171,
+                    884,
+                    1338,
+                    1100
+                ],
+                "angle": 0,
+                "content": "- Microsoft Educational Pack for Tablet PC"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    171,
+                    1147,
+                    1308,
+                    1365
+                ],
+                "angle": 0,
+                "content": "- Microsoft Experience Pack for Tablet PC"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    171,
+                    1413,
+                    900,
+                    1523
+                ],
+                "angle": 0,
+                "content": "- Sticky Notes"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    171,
+                    1552,
+                    960,
+                    1667
+                ],
+                "angle": 0,
+                "content": "- Snipping Tool"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    171,
+                    474,
+                    1338,
+                    1667
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1590,
+                    380,
+                    2937,
+                    2166
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    450,
+                    189,
+                    2541,
+                    344
+                ],
+                "angle": 0,
+                "content": "Electronic Medical Records"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    1116,
+                    434,
+                    2892,
+                    1932
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    606,
+                    184,
+                    2391,
+                    378
+                ],
+                "angle": 0,
+                "content": "Projected IT Priorities"
+            },
+            {
+                "block_id": 1,
+                "type": "image_caption",
+                "bbox": [
+                    993,
+                    580,
+                    1917,
+                    666
+                ],
+                "angle": 0,
+                "content": "(Today vs. Next Two Years)"
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    240,
+                    783,
+                    2583,
+                    2038
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 9"
+            },
+            {
+                "block_id": 4,
+                "type": "image_footnote",
+                "bbox": [
+                    657,
+                    2115,
+                    2301,
+                    2169
+                ],
+                "angle": 0,
+                "content": "Source: \\(17^{th}\\) Annual HIMSS Leadership Survey Sponsored by ACS HealthCare Solutions"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    428,
+                    74,
+                    2574,
+                    452
+                ],
+                "angle": 0,
+                "content": "Top Business Issues Facing HealthCare"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1206,
+                    571,
+                    1989,
+                    659
+                ],
+                "angle": 0,
+                "content": "(2006 vs. 2005 Results)"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    2562,
+                    571,
+                    2799,
+                    641
+                ],
+                "angle": 0,
+                "content": "Figure 10"
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    324,
+                    769,
+                    2781,
+                    1908
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image_footnote",
+                "bbox": [
+                    1703,
+                    1939,
+                    2637,
+                    2018
+                ],
+                "angle": 0,
+                "content": "2005 Results 2006 Results"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    654,
+                    2115,
+                    2304,
+                    2173
+                ],
+                "angle": 0,
+                "content": "Source: \\(17^{th}\\) Annual HIMSS Leadership Survey Sponsored by ACS HealthCare Solutions"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    369,
+                    74,
+                    2628,
+                    492
+                ],
+                "angle": 0,
+                "content": "Most Significant Barriers to Barriers to Implementing IT"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1143,
+                    578,
+                    1920,
+                    668
+                ],
+                "angle": 0,
+                "content": "(2006 vs. 2005 Results)"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    2490,
+                    580,
+                    2727,
+                    648
+                ],
+                "angle": 0,
+                "content": "Figure 11"
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    252,
+                    773,
+                    2613,
+                    1917
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image_footnote",
+                "bbox": [
+                    1691,
+                    1946,
+                    2610,
+                    2027
+                ],
+                "angle": 0,
+                "content": "2005 Results 2006 Results"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    654,
+                    2115,
+                    2304,
+                    2173
+                ],
+                "angle": 0,
+                "content": "Source: \\(17^{th}\\) Annual HIMSS Leadership Survey Sponsored by ACS HealthCare Solutions"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    339,
+                    184,
+                    2646,
+                    389
+                ],
+                "angle": 0,
+                "content": "Most Important Applications"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1095,
+                    578,
+                    1872,
+                    661
+                ],
+                "angle": 0,
+                "content": "(2006 vs. 2005 Results)"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    2445,
+                    578,
+                    2685,
+                    648
+                ],
+                "angle": 0,
+                "content": "Figure 12"
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    212,
+                    783,
+                    2769,
+                    1908
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image_footnote",
+                "bbox": [
+                    1623,
+                    1946,
+                    2559,
+                    2020
+                ],
+                "angle": 0,
+                "content": "2005 Results 2006 Results"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    654,
+                    2115,
+                    2301,
+                    2169
+                ],
+                "angle": 0,
+                "content": "Source: \\(17^{\\text{th}}\\) Annual HIMSS Leadership Survey Sponsored by ACS HealthCare Solutions"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    215,
+                    90,
+                    2784,
+                    468
+                ],
+                "angle": 0,
+                "content": "Top Security Concerns of Computerized Medical Information"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1089,
+                    549,
+                    1872,
+                    636
+                ],
+                "angle": 0,
+                "content": "(2006 vs. 2005 Results)"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    2424,
+                    594,
+                    2661,
+                    661
+                ],
+                "angle": 0,
+                "content": "Figure 14"
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    186,
+                    792,
+                    2535,
+                    1932
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image_footnote",
+                "bbox": [
+                    1668,
+                    1962,
+                    2595,
+                    2040
+                ],
+                "angle": 0,
+                "content": "2005 Results 2006 Results"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    654,
+                    2115,
+                    2304,
+                    2173
+                ],
+                "angle": 0,
+                "content": "Source: \\(17^{th}\\) Annual HIMSS Leadership Survey Sponsored by ACS HealthCare Solutions"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    930,
+                    184,
+                    2061,
+                    371
+                ],
+                "angle": 0,
+                "content": "Security Tools"
+            },
+            {
+                "block_id": 1,
+                "type": "image_caption",
+                "bbox": [
+                    1104,
+                    564,
+                    2022,
+                    645
+                ],
+                "angle": 0,
+                "content": "(Today vs. Next Two Years)"
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    351,
+                    760,
+                    2850,
+                    2018
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 15"
+            },
+            {
+                "block_id": 4,
+                "type": "image_footnote",
+                "bbox": [
+                    657,
+                    2115,
+                    2301,
+                    2166
+                ],
+                "angle": 0,
+                "content": "Source: \\(17^{th}\\) Annual HIMSS Leadership Survey Sponsored by ACS HealthCare Solutions"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    378,
+                    184,
+                    2619,
+                    378
+                ],
+                "angle": 0,
+                "content": "Technology Adoption Curve"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    348,
+                    432,
+                    2664,
+                    2022
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    648,
+                    74,
+                    2343,
+                    481
+                ],
+                "angle": 0,
+                "content": "Technology Adoption (Next Two Years)"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1062,
+                    567,
+                    1842,
+                    652
+                ],
+                "angle": 0,
+                "content": "(2006 vs. 2005 Results)"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    2412,
+                    571,
+                    2649,
+                    636
+                ],
+                "angle": 0,
+                "content": "Figure 17"
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    180,
+                    769,
+                    2718,
+                    1908
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image_footnote",
+                "bbox": [
+                    1554,
+                    1930,
+                    2487,
+                    2027
+                ],
+                "angle": 0,
+                "content": "2005 Results 2006 Results"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    654,
+                    2115,
+                    2301,
+                    2169
+                ],
+                "angle": 0,
+                "content": "Source: \\(17^{\\text{th}}\\) Annual HIMSS Leadership Survey Sponsored by ACS HealthCare Solutions"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    390,
+                    184,
+                    2616,
+                    351
+                ],
+                "angle": 0,
+                "content": "Current Web Site Functions"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1074,
+                    594,
+                    1854,
+                    681
+                ],
+                "angle": 0,
+                "content": "(2006 vs. 2005 Results)"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    2424,
+                    600,
+                    2661,
+                    668
+                ],
+                "angle": 0,
+                "content": "Figure 19"
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    198,
+                    792,
+                    2721,
+                    1921
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image_footnote",
+                "bbox": [
+                    1578,
+                    1971,
+                    2502,
+                    2036
+                ],
+                "angle": 0,
+                "content": "2005 Results 2006 Results"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    657,
+                    2115,
+                    2301,
+                    2169
+                ],
+                "angle": 0,
+                "content": "Source: \\(17^{th}\\) Annual HIMSS Leadership Survey Sponsored by ACS HealthCare Solutions"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    756,
+                    184,
+                    2244,
+                    357
+                ],
+                "angle": 0,
+                "content": "Intranet Functions"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    336,
+                    760,
+                    2769,
+                    2018
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 21"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    654,
+                    2115,
+                    2304,
+                    2173
+                ],
+                "angle": 0,
+                "content": "Source: \\(17^{th}\\) Annual HIMSS Leadership Survey Sponsored by ACS HealthCare Solutions"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    306,
+                    184,
+                    2688,
+                    378
+                ],
+                "angle": 0,
+                "content": "2006 Health IT Staffing Needs"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    333,
+                    657,
+                    2493,
+                    1908
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    657,
+                    2115,
+                    2301,
+                    2169
+                ],
+                "angle": 0,
+                "content": "Source: \\(17^{th}\\) Annual HIMSS Leadership Survey Sponsored by ACS HealthCare Solutions"
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1272,
+                    189,
+                    1730,
+                    342
+                ],
+                "angle": 0,
+                "content": "Goals"
+            }
+        ]
+    },
+    {
+        "page_id": 19,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    666,
+                    195,
+                    2340,
+                    384
+                ],
+                "angle": 0,
+                "content": "\"Wiring\" Healthcare"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    81,
+                    508,
+                    1368,
+                    645
+                ],
+                "angle": 0,
+                "content": "Current system fragments patient information and creates redundant, inefficient efforts"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    60,
+                    773,
+                    1410,
+                    2045
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1665,
+                    510,
+                    2910,
+                    659
+                ],
+                "angle": 0,
+                "content": "Future system will consolidate information and provide a foundation for unifying efforts"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1524,
+                    738,
+                    2892,
+                    2160
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    }
+]

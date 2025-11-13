@@ -1,0 +1,3933 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    2118,
+                    129,
+                    3049,
+                    352
+                ],
+                "angle": 0,
+                "content": "retail TouchPoints"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    326,
+                    604,
+                    2953,
+                    1432
+                ],
+                "angle": 0,
+                "content": "Impact of Store Networks and WiFi on Customer Experience"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    121,
+                    1939,
+                    272,
+                    2073
+                ],
+                "angle": 0,
+                "content": "0"
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    278,
+                    1955,
+                    764,
+                    2054
+                ],
+                "angle": 0,
+                "content": "EarthLink"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    873,
+                    1869,
+                    1094,
+                    2128
+                ],
+                "angle": 0,
+                "content": "#"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1110,
+                    1924,
+                    1526,
+                    2066
+                ],
+                "angle": 0,
+                "content": "AirTight"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1145,
+                    2066,
+                    1475,
+                    2102
+                ],
+                "angle": 0,
+                "content": "NETWORKS"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    1836,
+                    1920,
+                    2137,
+                    2136
+                ],
+                "angle": 0,
+                "content": "\\( \\therefore m : x = 1 \\) 或 \\( {3x} + {4y} + 1 = 0 \\)"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    2147,
+                    1963,
+                    3100,
+                    2083
+                ],
+                "angle": 0,
+                "content": "ConnectedStore"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    419,
+                    220,
+                    2774,
+                    396
+                ],
+                "angle": 0,
+                "content": "Welcome Webinar Attendees"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    1184,
+                    441,
+                    2176,
+                    1108
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    1110,
+                    1113,
+                    2262,
+                    1939
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "GoToWebinar"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    521,
+                    2169,
+                    1100,
+                    2248
+                ],
+                "angle": 0,
+                "content": "ConnectedStore"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    2563,
+                    2148,
+                    3148,
+                    2284
+                ],
+                "angle": 0,
+                "content": "retail TouchPoints"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    339,
+                    220,
+                    2867,
+                    396
+                ],
+                "angle": 0,
+                "content": "Follow This Webinar On Twitter"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    137,
+                    969,
+                    3001,
+                    1260
+                ],
+                "angle": 0,
+                "content": "ConnectedStore"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    694,
+                    1440,
+                    2262,
+                    1528
+                ],
+                "angle": 0,
+                "content": "Retail TouchPoints: @RTouchPoints"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    700,
+                    1540,
+                    2086,
+                    1632
+                ],
+                "angle": 0,
+                "content": "Earthlink: @Earthlink"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    697,
+                    1648,
+                    2035,
+                    1747
+                ],
+                "angle": 0,
+                "content": "AirTight Networks: @Airtight"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    697,
+                    1754,
+                    2131,
+                    1852
+                ],
+                "angle": 0,
+                "content": "IHL Group: @gregbuzek"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    521,
+                    2169,
+                    1113,
+                    2248
+                ],
+                "angle": 0,
+                "content": "ConnectedStore"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    2560,
+                    2145,
+                    3148,
+                    2287
+                ],
+                "angle": 0,
+                "content": "retail TouchPoints"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    582,
+                    225,
+                    2614,
+                    391
+                ],
+                "angle": 0,
+                "content": "About Retail TouchPoints"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    105,
+                    681,
+                    979,
+                    775
+                ],
+                "angle": 0,
+                "content": "\\(\\checkmark\\) Launched in 2007"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    105,
+                    840,
+                    1219,
+                    936
+                ],
+                "angle": 0,
+                "content": "Over 28,000 subscribers"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    105,
+                    1003,
+                    1760,
+                    1425
+                ],
+                "angle": 0,
+                "content": "To provide executives with relevant, insightful content across a variety of digital medium"
+            },
+            {
+                "block_id": 4,
+                "type": "list",
+                "bbox": [
+                    105,
+                    681,
+                    1760,
+                    1425
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    182,
+                    1699,
+                    1680,
+                    1891
+                ],
+                "angle": 0,
+                "content": "Free subscription to our weekly newsletter: www.RETAILTOUCHPOINTS.COM/SIGNUP"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1833,
+                    604,
+                    3049,
+                    1824
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    521,
+                    2172,
+                    1107,
+                    2248
+                ],
+                "angle": 0,
+                "content": "ConnectedStore"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    2563,
+                    2150,
+                    3148,
+                    2287
+                ],
+                "angle": 0,
+                "content": "retail TouchPoints"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    188,
+                    228,
+                    905,
+                    391
+                ],
+                "angle": 0,
+                "content": "Panelists"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2422,
+                    117,
+                    2697,
+                    168
+                ],
+                "angle": 0,
+                "content": "MODERATOR"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    2396,
+                    201,
+                    2713,
+                    518
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    2726,
+                    266,
+                    3120,
+                    424
+                ],
+                "angle": 0,
+                "content": "Debbie Hauss  \nEditor-in-Chief  \nRetail TouchPoints"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    393,
+                    724,
+                    1081,
+                    1408
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Greg Buzek Founder & President IHL Group"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1382,
+                    643,
+                    1888,
+                    1406
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Kevin McCauley  \nDirector of Retail Market Development  \nAirTight Networks"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    2147,
+                    780,
+                    2998,
+                    1351
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Greg Griffiths  \nVice President of Product  \nAlliances  \nEarthLink"
+            },
+            {
+                "block_id": 10,
+                "type": "footer",
+                "bbox": [
+                    521,
+                    2172,
+                    1107,
+                    2248
+                ],
+                "angle": 0,
+                "content": "ConnectedStore"
+            },
+            {
+                "block_id": 11,
+                "type": "footer",
+                "bbox": [
+                    2566,
+                    2150,
+                    3148,
+                    2284
+                ],
+                "angle": 0,
+                "content": "retail TouchPoints"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    2230,
+                    132,
+                    2828,
+                    441
+                ],
+                "angle": 0,
+                "content": "IHL"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2233,
+                    456,
+                    2972,
+                    511
+                ],
+                "angle": 0,
+                "content": "HARD DATA,SMART DECISIONS"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    441,
+                    844,
+                    2758,
+                    1214
+                ],
+                "angle": 0,
+                "content": "Impact of Store Networks and WiFi on Customer Experience"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1132,
+                    1279,
+                    2073,
+                    1384
+                ],
+                "angle": 0,
+                "content": "Greg Buzek President"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    1705,
+                    2109,
+                    1888,
+                    2316
+                ],
+                "angle": 0,
+                "content": "#"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1897,
+                    2145,
+                    2243,
+                    2263
+                ],
+                "angle": 0,
+                "content": "Airtight"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1929,
+                    2265,
+                    2188,
+                    2296
+                ],
+                "angle": 0,
+                "content": "NETWORKS"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    2428,
+                    2138,
+                    2572,
+                    2272
+                ],
+                "angle": 0,
+                "content": "#"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    2576,
+                    2155,
+                    3072,
+                    2253
+                ],
+                "angle": 0,
+                "content": "EarthLink"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    243,
+                    196,
+                    1932,
+                    516
+                ],
+                "angle": 0,
+                "content": "Fundamental Change in Store Architecture"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    240,
+                    657,
+                    1670,
+                    859
+                ],
+                "angle": 0,
+                "content": "- POS being driven by Distributed Order Management"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    240,
+                    900,
+                    1312,
+                    991
+                ],
+                "angle": 0,
+                "content": "One version of the truth"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    240,
+                    1041,
+                    1811,
+                    1238
+                ],
+                "angle": 0,
+                "content": "- Enabling Associate and Consumers via WiFi and Mobile"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    240,
+                    1284,
+                    1744,
+                    1377
+                ],
+                "angle": 0,
+                "content": "- Centralized Returns/Return Fraud"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    240,
+                    1423,
+                    1408,
+                    1620
+                ],
+                "angle": 0,
+                "content": "- Ship from Store and other Omni-Channel trends"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    240,
+                    1665,
+                    1632,
+                    1773
+                ],
+                "angle": 0,
+                "content": "- Beacons and Internet of Things"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    240,
+                    657,
+                    1811,
+                    1773
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1766,
+                    216,
+                    3046,
+                    2095
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    803,
+                    722,
+                    2384,
+                    1226
+                ],
+                "angle": 0,
+                "content": "Infrastructure Survey Results"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    246,
+                    278,
+                    2153,
+                    456
+                ],
+                "angle": 0,
+                "content": "Respondent Demographics"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    316,
+                    710,
+                    1497,
+                    1886
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Respondents by segment"
+            },
+            {
+                "block_id": 3,
+                "type": "image_footnote",
+                "bbox": [
+                    188,
+                    1946,
+                    444,
+                    2004
+                ],
+                "angle": 0,
+                "content": "Hospitality"
+            },
+            {
+                "block_id": 4,
+                "type": "image_footnote",
+                "bbox": [
+                    518,
+                    1946,
+                    1020,
+                    2004
+                ],
+                "angle": 0,
+                "content": "Food, Drug, Conv, Mass"
+            },
+            {
+                "block_id": 5,
+                "type": "image_footnote",
+                "bbox": [
+                    1088,
+                    1946,
+                    1772,
+                    2004
+                ],
+                "angle": 0,
+                "content": "General Merchandise & Specialty"
+            },
+            {
+                "block_id": 6,
+                "type": "image_footnote",
+                "bbox": [
+                    1545,
+                    2020,
+                    2048,
+                    2073
+                ],
+                "angle": 0,
+                "content": "$500M - $1 Billion, 19%"
+            },
+            {
+                "block_id": 7,
+                "type": "image_footnote",
+                "bbox": [
+                    2131,
+                    2020,
+                    2646,
+                    2073
+                ],
+                "angle": 0,
+                "content": "Under $500 Million, 30%"
+            },
+            {
+                "block_id": 8,
+                "type": "image_footnote",
+                "bbox": [
+                    2723,
+                    2020,
+                    3148,
+                    2073
+                ],
+                "angle": 0,
+                "content": "Over $1 Billion, 51%"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    153,
+                    2102,
+                    470,
+                    2275
+                ],
+                "angle": 0,
+                "content": "IHL"
+            },
+            {
+                "block_id": 10,
+                "type": "footer",
+                "bbox": [
+                    156,
+                    2275,
+                    544,
+                    2311
+                ],
+                "angle": 0,
+                "content": "HARD DATA,SMART DECISIONS"
+            },
+            {
+                "block_id": 11,
+                "type": "footer",
+                "bbox": [
+                    1894,
+                    2131,
+                    2896,
+                    2191
+                ],
+                "angle": 0,
+                "content": "Source: IHL Group Store Infrastructure Survey 2015"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    179,
+                    144,
+                    2336,
+                    300
+                ],
+                "angle": 0,
+                "content": "Status of Infrastructure Update %"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    217,
+                    542,
+                    2873,
+                    2198
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Store Infrastructure Technology Update Timeframe"
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    259,
+                    2152,
+                    649,
+                    2188
+                ],
+                "angle": 0,
+                "content": "HARD DATA SMART DECISIONS"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    1894,
+                    2136,
+                    2892,
+                    2188
+                ],
+                "angle": 0,
+                "content": "Source: IHL Group Store Infrastructure Survey 2015"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    195,
+                    146,
+                    1680,
+                    288
+                ],
+                "angle": 0,
+                "content": "Who Has WiFi Installed"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    230,
+                    602,
+                    2704,
+                    1980
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "\\(\\%\\) RESPONDENTS USING WIFIATSTORES"
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    256,
+                    1989,
+                    572,
+                    2150
+                ],
+                "angle": 0,
+                "content": "iHL"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    262,
+                    2155,
+                    646,
+                    2188
+                ],
+                "angle": 0,
+                "content": "HARD DATA SMART DECISIONS"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1894,
+                    2131,
+                    2896,
+                    2191
+                ],
+                "angle": 0,
+                "content": "Source: IHL Group Store Infrastructure Survey 2015"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    195,
+                    144,
+                    1932,
+                    300
+                ],
+                "angle": 0,
+                "content": "In-Store Wi-Fi Use Strategy"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    1161,
+                    422,
+                    2035,
+                    511
+                ],
+                "angle": 0,
+                "content": "How do you use Wi-Fi?"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1571,
+                    530,
+                    1651,
+                    607
+                ],
+                "angle": 0,
+                "content": "%"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    889,
+                    660,
+                    2326,
+                    748
+                ],
+                "angle": 0,
+                "content": "- Both Company use and customer WiFi access"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    892,
+                    775,
+                    1619,
+                    856
+                ],
+                "angle": 0,
+                "content": "Just for Company Use"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    892,
+                    895,
+                    1504,
+                    964
+                ],
+                "angle": 0,
+                "content": "Just Customer Use"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    889,
+                    660,
+                    2326,
+                    964
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "table",
+                "bbox": [
+                    214,
+                    996,
+                    2972,
+                    2126
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Overall</td><td>54</td><td>42</td><td>3</td></tr><tr><td>Food, Drug, Conv, Mass</td><td>22</td><td>78</td><td></td></tr><tr><td>General Merchandise &amp; Specialty</td><td>51</td><td>46</td><td>3</td></tr><tr><td>Hospitality</td><td>85</td><td>8</td><td>8</td></tr></table>"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    256,
+                    1992,
+                    572,
+                    2150
+                ],
+                "angle": 0,
+                "content": "iHL"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    262,
+                    2155,
+                    646,
+                    2188
+                ],
+                "angle": 0,
+                "content": "HARD DATA SMART DECISIONS"
+            },
+            {
+                "block_id": 10,
+                "type": "footer",
+                "bbox": [
+                    1894,
+                    2133,
+                    2896,
+                    2191
+                ],
+                "angle": 0,
+                "content": "Source: IHL Group Store Infrastructure Survey 2015"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    182,
+                    153,
+                    2275,
+                    312
+                ],
+                "angle": 0,
+                "content": "Analytics Usage of In-Store Wi-Fi"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    268,
+                    585,
+                    2915,
+                    2004
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "\\(\\%\\) RESPONDENTS USING WIFIATSTORES"
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    256,
+                    1987,
+                    572,
+                    2150
+                ],
+                "angle": 0,
+                "content": "iHL"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    259,
+                    2152,
+                    646,
+                    2188
+                ],
+                "angle": 0,
+                "content": "HARD DATA SMART DECISIONS"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1894,
+                    2131,
+                    2896,
+                    2191
+                ],
+                "angle": 0,
+                "content": "Source: IHL Group Store Infrastructure Survey 2015"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    176,
+                    165,
+                    2444,
+                    312
+                ],
+                "angle": 0,
+                "content": "Differentiated Use of In-Store Wi-Fi"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    220,
+                    679,
+                    2966,
+                    1972
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Are you doing promotions to customers over Wi-Fi? %"
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    256,
+                    1987,
+                    572,
+                    2150
+                ],
+                "angle": 0,
+                "content": "iHL"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    262,
+                    2155,
+                    646,
+                    2188
+                ],
+                "angle": 0,
+                "content": "HARD DATA SMART DECISIONS"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1894,
+                    2131,
+                    2896,
+                    2191
+                ],
+                "angle": 0,
+                "content": "Source: IHL Group Store Infrastructure Survey 2015"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    185,
+                    124,
+                    2160,
+                    261
+                ],
+                "angle": 0,
+                "content": "Wi-Fi Vendor Selection Criteria"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    268,
+                    648,
+                    2953,
+                    2114
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Top Criteria (1-5, 5 Critical)"
+            },
+            {
+                "block_id": 3,
+                "type": "image_footnote",
+                "bbox": [
+                    1894,
+                    2131,
+                    2896,
+                    2191
+                ],
+                "angle": 0,
+                "content": "Source: IHL Group Store Infrastructure Survey 2015"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    256,
+                    1982,
+                    572,
+                    2150
+                ],
+                "angle": 0,
+                "content": "IHL"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    262,
+                    2155,
+                    646,
+                    2188
+                ],
+                "angle": 0,
+                "content": "HARD DATA SMART DECISIONS"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    201,
+                    158,
+                    1843,
+                    312
+                ],
+                "angle": 0,
+                "content": "IT Spend on Data Security"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    256,
+                    460,
+                    2924,
+                    1824
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>% of IT Budget is on Data Security</td><td>% Data Security taken up by PCI</td></tr><tr><td>Overall</td><td>14.1%</td><td>37.7%</td></tr><tr><td>Tier 1 (Over 1B)</td><td>13.8%</td><td>32.6%</td></tr><tr><td>Tier 2 (500m-1B)</td><td>13.3%</td><td>40.6%</td></tr><tr><td>Tier 3 (&lt;500m)</td><td>15.1%</td><td>42.3%</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    256,
+                    1982,
+                    572,
+                    2150
+                ],
+                "angle": 0,
+                "content": "IHL"
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    262,
+                    2157,
+                    646,
+                    2186
+                ],
+                "angle": 0,
+                "content": "HARD DATA SMART DECISIONS"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    1894,
+                    2131,
+                    2892,
+                    2186
+                ],
+                "angle": 0,
+                "content": "Source: IHL Group Store Infrastructure Survey 2015"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    563,
+                    451,
+                    960,
+                    837
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    1206,
+                    1795,
+                    2921,
+                    1999
+                ],
+                "angle": 0,
+                "content": "The BIG Dilemma"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1219,
+                    2013,
+                    2864,
+                    2119
+                ],
+                "angle": 0,
+                "content": "More Security or More Guest Access?"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    160,
+                    153,
+                    1529,
+                    312
+                ],
+                "angle": 0,
+                "content": "Secure Guest Wi-Fi"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    2163,
+                    0,
+                    3200,
+                    864
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    220,
+                    2004,
+                    662,
+                    2181
+                ],
+                "angle": 0,
+                "content": "AirTight"
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    169,
+                    153,
+                    1513,
+                    292
+                ],
+                "angle": 0,
+                "content": "Secure Guest Wi-Fi"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    169,
+                    336,
+                    2083,
+                    451
+                ],
+                "angle": 0,
+                "content": "What can you learn from your customers?"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    2163,
+                    0,
+                    3200,
+                    859
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    220,
+                    2004,
+                    652,
+                    2176
+                ],
+                "angle": 0,
+                "content": "AirTight"
+            }
+        ]
+    },
+    {
+        "page_id": 19,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    169,
+                    153,
+                    1513,
+                    295
+                ],
+                "angle": 0,
+                "content": "Secure Guest Wi-Fi"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    169,
+                    336,
+                    2083,
+                    451
+                ],
+                "angle": 0,
+                "content": "What can you learn from your customers?"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    185,
+                    609,
+                    752,
+                    710
+                ],
+                "angle": 0,
+                "content": "Engagement"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    185,
+                    724,
+                    1014,
+                    804
+                ],
+                "angle": 0,
+                "content": "Does this man need help?"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    185,
+                    820,
+                    950,
+                    892
+                ],
+                "angle": 0,
+                "content": "Do you know his name?"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    185,
+                    916,
+                    1123,
+                    991
+                ],
+                "angle": 0,
+                "content": "Do you even know he's here?"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    224,
+                    2008,
+                    368,
+                    2172
+                ],
+                "angle": 0,
+                "content": "#"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    380,
+                    2042,
+                    646,
+                    2128
+                ],
+                "angle": 0,
+                "content": "Airtight"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    400,
+                    2131,
+                    604,
+                    2155
+                ],
+                "angle": 0,
+                "content": "NETWORKS"
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    2163,
+                    0,
+                    3200,
+                    859
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 20,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    169,
+                    153,
+                    1513,
+                    300
+                ],
+                "angle": 0,
+                "content": "Secure Guest Wi-Fi"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    169,
+                    336,
+                    2083,
+                    451
+                ],
+                "angle": 0,
+                "content": "What can you learn from your customers?"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    185,
+                    609,
+                    752,
+                    710
+                ],
+                "angle": 0,
+                "content": "Engagement"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    185,
+                    724,
+                    1014,
+                    804
+                ],
+                "angle": 0,
+                "content": "Does this man need help?"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    185,
+                    820,
+                    950,
+                    892
+                ],
+                "angle": 0,
+                "content": "Do you know his name?"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    185,
+                    916,
+                    1123,
+                    991
+                ],
+                "angle": 0,
+                "content": "Do you even know he's here?"
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    185,
+                    1101,
+                    688,
+                    1200
+                ],
+                "angle": 0,
+                "content": "Integration"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    185,
+                    1209,
+                    1347,
+                    1490
+                ],
+                "angle": 0,
+                "content": "What if your Wi-Fi could feed this information into your POS, CRM, and loyalty systems?"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    224,
+                    2008,
+                    368,
+                    2172
+                ],
+                "angle": 0,
+                "content": "#"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    380,
+                    2042,
+                    643,
+                    2128
+                ],
+                "angle": 0,
+                "content": "AirTight"
+            },
+            {
+                "block_id": 10,
+                "type": "footer",
+                "bbox": [
+                    396,
+                    2131,
+                    604,
+                    2155
+                ],
+                "angle": 0,
+                "content": "NETWORKS"
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    2163,
+                    0,
+                    3200,
+                    859
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 21,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    160,
+                    156,
+                    1516,
+                    300
+                ],
+                "angle": 0,
+                "content": "Secure Guest Wi-Fi"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    160,
+                    336,
+                    2083,
+                    451
+                ],
+                "angle": 0,
+                "content": "What can you learn from your customers?"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    2163,
+                    0,
+                    3200,
+                    859
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    179,
+                    609,
+                    758,
+                    710
+                ],
+                "angle": 0,
+                "content": "Engagement"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    176,
+                    722,
+                    1014,
+                    804
+                ],
+                "angle": 0,
+                "content": "Does this man need help?"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    185,
+                    818,
+                    950,
+                    895
+                ],
+                "angle": 0,
+                "content": "Do you know his name?"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    185,
+                    914,
+                    1129,
+                    993
+                ],
+                "angle": 0,
+                "content": "Do you even know he's here?"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    179,
+                    1101,
+                    691,
+                    1200
+                ],
+                "angle": 0,
+                "content": "Integration"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    172,
+                    1209,
+                    1347,
+                    1490
+                ],
+                "angle": 0,
+                "content": "What if your Wi-Fi could feed this information into your POS, CRM, and loyalty systems?"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1315,
+                    624,
+                    2220,
+                    854
+                ],
+                "angle": 0,
+                "content": "Would knowing this make a difference?"
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    1388,
+                    1012,
+                    2768,
+                    1367
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Foot Traffic Trend per Day"
+            },
+            {
+                "block_id": 13,
+                "type": "image",
+                "bbox": [
+                    1398,
+                    1598,
+                    2777,
+                    2179
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "footer",
+                "bbox": [
+                    220,
+                    2008,
+                    649,
+                    2169
+                ],
+                "angle": 0,
+                "content": "AirTight"
+            }
+        ]
+    },
+    {
+        "page_id": 22,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    160,
+                    156,
+                    1516,
+                    300
+                ],
+                "angle": 0,
+                "content": "Secure Guest Wi-Fi"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    160,
+                    336,
+                    2083,
+                    451
+                ],
+                "angle": 0,
+                "content": "What can you learn from your customers?"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    2163,
+                    0,
+                    3200,
+                    859
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    179,
+                    609,
+                    758,
+                    710
+                ],
+                "angle": 0,
+                "content": "Engagement"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    176,
+                    722,
+                    1014,
+                    804
+                ],
+                "angle": 0,
+                "content": "Does this man need help?"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    185,
+                    818,
+                    950,
+                    895
+                ],
+                "angle": 0,
+                "content": "Do you know his name?"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    185,
+                    914,
+                    1129,
+                    993
+                ],
+                "angle": 0,
+                "content": "Do you even know he's here?"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    179,
+                    1101,
+                    691,
+                    1200
+                ],
+                "angle": 0,
+                "content": "Integration"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    172,
+                    1209,
+                    1347,
+                    1490
+                ],
+                "angle": 0,
+                "content": "What if your Wi-Fi could feed this information into your POS, CRM, and loyalty systems?"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1315,
+                    624,
+                    2220,
+                    854
+                ],
+                "angle": 0,
+                "content": "Would knowing this make a difference?"
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    1388,
+                    1012,
+                    2768,
+                    1367
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Foot Traffic Trend per Day"
+            },
+            {
+                "block_id": 13,
+                "type": "image",
+                "bbox": [
+                    1398,
+                    1598,
+                    2777,
+                    2179
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "footer",
+                "bbox": [
+                    220,
+                    2008,
+                    649,
+                    2169
+                ],
+                "angle": 0,
+                "content": "AirTight"
+            }
+        ]
+    },
+    {
+        "page_id": 23,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    160,
+                    148,
+                    1376,
+                    321
+                ],
+                "angle": 0,
+                "content": "Stumbling Blocks"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    0,
+                    499,
+                    1715,
+                    2400
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    1715,
+                    0,
+                    3200,
+                    2400
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 24,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    169,
+                    153,
+                    1369,
+                    316
+                ],
+                "angle": 0,
+                "content": "Stumbling Blocks"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    169,
+                    343,
+                    1107,
+                    451
+                ],
+                "angle": 0,
+                "content": "What can go wrong?"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    0,
+                    525,
+                    1715,
+                    2397
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    1715,
+                    0,
+                    3200,
+                    2400
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 25,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    169,
+                    153,
+                    1369,
+                    316
+                ],
+                "angle": 0,
+                "content": "Stumbling Blocks"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    169,
+                    343,
+                    1107,
+                    451
+                ],
+                "angle": 0,
+                "content": "What can go wrong?"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    0,
+                    525,
+                    1715,
+                    2400
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    1804,
+                    0,
+                    3200,
+                    2400
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 26,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    160,
+                    153,
+                    1376,
+                    316
+                ],
+                "angle": 0,
+                "content": "Stumbling Blocks"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    163,
+                    338,
+                    1113,
+                    456
+                ],
+                "angle": 0,
+                "content": "What can go wrong?"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    0,
+                    525,
+                    1715,
+                    2400
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    1804,
+                    0,
+                    3200,
+                    2400
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 27,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    160,
+                    153,
+                    1376,
+                    316
+                ],
+                "angle": 0,
+                "content": "Stumbling Blocks"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    163,
+                    338,
+                    1113,
+                    456
+                ],
+                "angle": 0,
+                "content": "What can go wrong?"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    0,
+                    513,
+                    1715,
+                    2400
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    1715,
+                    0,
+                    3200,
+                    2400
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 28,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    246,
+                    268,
+                    1248,
+                    436
+                ],
+                "angle": 0,
+                "content": "The Roadmap"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    246,
+                    441,
+                    2051,
+                    559
+                ],
+                "angle": 0,
+                "content": "How to maximize your new guest Wi-Fi"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    108,
+                    1063,
+                    790,
+                    1147
+                ],
+                "angle": 0,
+                "content": "Secure your Wi-Fi"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    108,
+                    1152,
+                    927,
+                    1336
+                ],
+                "angle": 0,
+                "content": "Ensure your network is safe from wireless intrusions and complies with PCI rules"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    163,
+                    1317,
+                    1312,
+                    2400
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    1392,
+                    2116,
+                    2153,
+                    2203
+                ],
+                "angle": 0,
+                "content": "Observe your space"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1388,
+                    2208,
+                    3033,
+                    2335
+                ],
+                "angle": 0,
+                "content": "Presence analytics can show you how many mobile users are in or near your store, how long they stay, and how often they come back"
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1939,
+                    604,
+                    3094,
+                    1579
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    2268,
+                    1639,
+                    2822,
+                    1723
+                ],
+                "angle": 0,
+                "content": "Close the loop"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    2268,
+                    1725,
+                    2992,
+                    1917
+                ],
+                "angle": 0,
+                "content": "Integrate Wi-Fi analytics and guest data with your other in-store information systems"
+            }
+        ]
+    },
+    {
+        "page_id": 29,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    118,
+                    960,
+                    1699,
+                    1420
+                ],
+                "angle": 0,
+                "content": "Impact on Store Network"
+            },
+            {
+                "block_id": 1,
+                "type": "footer",
+                "bbox": [
+                    2214,
+                    2054,
+                    2406,
+                    2227
+                ],
+                "angle": 0,
+                "content": "#"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    2422,
+                    2078,
+                    3107,
+                    2205
+                ],
+                "angle": 0,
+                "content": "EarthLink"
+            }
+        ]
+    },
+    {
+        "page_id": 30,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    172,
+                    170,
+                    2963,
+                    321
+                ],
+                "angle": 0,
+                "content": "Applications drive the customer experience"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    188,
+                    530,
+                    960,
+                    835
+                ],
+                "angle": 0,
+                "content": "Appealing Visually interactive technologies, digital signage, free Wi-Fi"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    137,
+                    1111,
+                    704,
+                    1188
+                ],
+                "angle": 0,
+                "content": "Easy transactions"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    137,
+                    1219,
+                    790,
+                    1408
+                ],
+                "angle": 0,
+                "content": "Self-service and automation, fast checkout, call routing, reliable access to services"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1030,
+                    597,
+                    2124,
+                    1711
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    380,
+                    1692,
+                    927,
+                    1862
+                ],
+                "angle": 0,
+                "content": "Connection with other customers"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    380,
+                    1900,
+                    1014,
+                    2023
+                ],
+                "angle": 0,
+                "content": "Access to reviews, connection via social media"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    2224,
+                    530,
+                    2729,
+                    602
+                ],
+                "angle": 0,
+                "content": "Personalization"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    2224,
+                    648,
+                    2806,
+                    842
+                ],
+                "angle": 0,
+                "content": "Quick access to customer data/records, mobile workers, informed staff"
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    2428,
+                    1125,
+                    2864,
+                    1293
+                ],
+                "angle": 0,
+                "content": "Customercommitment"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    2425,
+                    1322,
+                    3084,
+                    1516
+                ],
+                "angle": 0,
+                "content": "On-site employee training, protection of customer data, disaster recovery"
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    2185,
+                    1720,
+                    3091,
+                    1807
+                ],
+                "angle": 0,
+                "content": "Products/service availability"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    2185,
+                    1828,
+                    2844,
+                    2090
+                ],
+                "angle": 0,
+                "content": "Data analytics, real time access to a single view of data, information to support decision making"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    124,
+                    2280,
+                    176,
+                    2320
+                ],
+                "angle": 0,
+                "content": "31"
+            }
+        ]
+    },
+    {
+        "page_id": 31,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    176,
+                    165,
+                    2611,
+                    321
+                ],
+                "angle": 0,
+                "content": "WAN performance drives applications"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    419,
+                    439,
+                    2716,
+                    2136
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "page_number",
+                "bbox": [
+                    124,
+                    2280,
+                    172,
+                    2318
+                ],
+                "angle": 0,
+                "content": "32"
+            }
+        ]
+    },
+    {
+        "page_id": 32,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    172,
+                    165,
+                    2275,
+                    321
+                ],
+                "angle": 0,
+                "content": "Application Visibility and Control"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    288,
+                    590,
+                    950,
+                    669
+                ],
+                "angle": 0,
+                "content": "Application Visibility"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    288,
+                    676,
+                    1155,
+                    866
+                ],
+                "angle": 0,
+                "content": "Provides customers with a full understanding of bandwidth usage at the application level for each location."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    1737,
+                    590,
+                    2371,
+                    669
+                ],
+                "angle": 0,
+                "content": "Application Control"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1737,
+                    676,
+                    2694,
+                    866
+                ],
+                "angle": 0,
+                "content": "Provides customers with the ability to dynamically adjusts network behavior and resources to application traffic demand."
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    160,
+                    1082,
+                    1193,
+                    1778
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "table",
+                "bbox": [
+                    1312,
+                    1046,
+                    1929,
+                    1778
+                ],
+                "angle": 0,
+                "content": "<table><tr><td colspan=\"2\">Enterprise Applications</td></tr><tr><td>Application name</td><td>Criticality</td></tr><tr><td>SAP</td><td>Top</td></tr><tr><td>IP Telephony</td><td>Top</td></tr><tr><td>Telepresence</td><td>High</td></tr><tr><td>Logistics/Citrix</td><td>High</td></tr><tr><td>File Sharing</td><td>Medium</td></tr><tr><td>Salesforce.com</td><td>Medium</td></tr><tr><td>Office 365</td><td>Medium</td></tr><tr><td>Sharepoint</td><td>Medium</td></tr><tr><td>Skype</td><td>Low</td></tr><tr><td>YouTube/Facebook</td><td>Low</td></tr></table>"
+            },
+            {
+                "block_id": 7,
+                "type": "table",
+                "bbox": [
+                    2028,
+                    986,
+                    3001,
+                    1824
+                ],
+                "angle": 0,
+                "content": "<table><tr><td colspan=\"5\">Application Perf, Objectives (per flow)</td></tr><tr><td>Bw (kbps)</td><td>Delay (ms)</td><td>Jitter (ms)</td><td>Loss (%)</td><td>Etc.</td></tr><tr><td>50</td><td>50-200</td><td>n/a</td><td>1-3</td><td></td></tr><tr><td>80</td><td>50-100</td><td>25-50</td><td>0-1</td><td></td></tr><tr><td>2,000</td><td>50-100</td><td>40-80</td><td>0-1</td><td></td></tr><tr><td>20</td><td>50-200</td><td>n/a</td><td>1-5</td><td></td></tr><tr><td>400</td><td>200-800</td><td>n/a</td><td>1-5</td><td></td></tr><tr><td>50</td><td>200-800</td><td>n/a</td><td>1-5</td><td></td></tr><tr><td>400</td><td>200-800</td><td>n/a</td><td>1-5</td><td></td></tr><tr><td>400</td><td>100-400</td><td>n/a</td><td>1-5</td><td></td></tr><tr><td>0</td><td>n/a</td><td>n/a</td><td>n/a</td><td></td></tr><tr><td>400</td><td>200-1000</td><td>n/a</td><td>1-5</td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></table>"
+            },
+            {
+                "block_id": 8,
+                "type": "page_number",
+                "bbox": [
+                    124,
+                    2280,
+                    172,
+                    2318
+                ],
+                "angle": 0,
+                "content": "33"
+            }
+        ]
+    },
+    {
+        "page_id": 33,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    185,
+                    172,
+                    1724,
+                    321
+                ],
+                "angle": 0,
+                "content": "Dynamic WAN Selection"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    236,
+                    662,
+                    1014,
+                    739
+                ],
+                "angle": 0,
+                "content": "Dynamic WAN Selection"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    230,
+                    748,
+                    1299,
+                    1070
+                ],
+                "angle": 0,
+                "content": "Automatically chooses the best access for each application flow to maximize the delivered performance and continuity, while optimizing the usage of each available network at the same time"
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    1478,
+                    396,
+                    2873,
+                    2162
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "page_number",
+                "bbox": [
+                    121,
+                    2275,
+                    182,
+                    2318
+                ],
+                "angle": 0,
+                "content": "34"
+            }
+        ]
+    },
+    {
+        "page_id": 34,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    182,
+                    170,
+                    1955,
+                    300
+                ],
+                "angle": 0,
+                "content": "EarthLink Secure Storefront"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    220,
+                    379,
+                    2963,
+                    2124
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "page_number",
+                "bbox": [
+                    131,
+                    2282,
+                    172,
+                    2316
+                ],
+                "angle": 0,
+                "content": "35"
+            }
+        ]
+    },
+    {
+        "page_id": 35,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    227,
+                    1087,
+                    2211,
+                    1596
+                ],
+                "angle": 0,
+                "content": "What about Customer Loyalty?"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    230,
+                    1620,
+                    2905,
+                    1819
+                ],
+                "angle": 0,
+                "content": "How does WiFi lend itself to Customer Loyalty and what type of increase does it have on sales?"
+            }
+        ]
+    },
+    {
+        "page_id": 36,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    172,
+                    165,
+                    2979,
+                    321
+                ],
+                "angle": 0,
+                "content": "Customer Wi-Fi's Influence on Loyalty/Sales"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    256,
+                    456,
+                    2924,
+                    1773
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>What percentage say customer Wi-Fi increases customer loyalty by segment</td><td>% Saying impact on Customer Loyalty</td><td>% Increase in Sales</td></tr><tr><td>Overall</td><td>28%</td><td>2%</td></tr><tr><td>General Merchandise</td><td>22%</td><td>2.2%</td></tr><tr><td>Food, Drug, Conv, Mass</td><td>0%</td><td>.3%</td></tr><tr><td>Hospitality</td><td>61%</td><td>2.7%</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    256,
+                    1987,
+                    572,
+                    2150
+                ],
+                "angle": 0,
+                "content": "iHL"
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    262,
+                    2157,
+                    646,
+                    2186
+                ],
+                "angle": 0,
+                "content": "HARD DATA SMART DECISIONS"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    1894,
+                    2131,
+                    2896,
+                    2188
+                ],
+                "angle": 0,
+                "content": "Source: IHL Group Store Infrastructure Survey 2015"
+            }
+        ]
+    },
+    {
+        "page_id": 37,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    172,
+                    124,
+                    1888,
+                    451
+                ],
+                "angle": 0,
+                "content": "Employee Wi-Fi Impact on Customer Loyalty/Sales"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    256,
+                    525,
+                    2924,
+                    1850
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>What percentage say employee access to Wi-Fi increases customer loyalty by segment</td><td>% Saying impact on Customer Loyalty</td><td>% Increase in Sales</td></tr><tr><td>Overall</td><td>48%</td><td>3.4%</td></tr><tr><td>General Merchandise</td><td>53%</td><td>4.3%</td></tr><tr><td>Food, Drug, Conv, Mass</td><td>11%</td><td>.6%</td></tr><tr><td>Hospitality</td><td>61%</td><td>2.5%</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    256,
+                    1982,
+                    572,
+                    2150
+                ],
+                "angle": 0,
+                "content": "IHL"
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    262,
+                    2157,
+                    646,
+                    2186
+                ],
+                "angle": 0,
+                "content": "HARD DATA SMART DECISIONS"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    1894,
+                    2131,
+                    2896,
+                    2191
+                ],
+                "angle": 0,
+                "content": "Source: IHL Group Store Infrastructure Survey 2015"
+            }
+        ]
+    },
+    {
+        "page_id": 38,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    166,
+                    98,
+                    1996,
+                    427
+                ],
+                "angle": 0,
+                "content": "Impact on Sales/Profitability for Average Retailer"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    256,
+                    525,
+                    2899,
+                    1584
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Average increases after customer and associate WiFi added.</td><td>Avg. Sales Increase %</td><td>Avg. EBITA % \nRev BEFORE \nWiFi/Mobile</td><td>Avg. EBITA % \nRev AFTER \nWiFi/Mobile</td><td>Increase % \nin EBITA</td></tr><tr><td>Overall</td><td>3.4%</td><td>5.5%</td><td>6.4%</td><td>17.3%</td></tr><tr><td>General Merchandise</td><td>6.5%</td><td>6.2%</td><td>8.2%</td><td>32.1%</td></tr><tr><td>Food, Drug, Conv, Mass</td><td>.9%</td><td>4.8%</td><td>5.1%</td><td>5.8%</td></tr><tr><td>Hospitality</td><td>5.2%</td><td>6.1%</td><td>7.2%</td><td>17.4%</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    259,
+                    1641,
+                    2889,
+                    1720
+                ],
+                "angle": 0,
+                "content": "GMS retailers can add on average 2 more points to EBITA with WiFi and what that enables."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    412,
+                    1747,
+                    1708,
+                    1819
+                ],
+                "angle": 0,
+                "content": "- Leveling the playing field on information"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    416,
+                    1824,
+                    1728,
+                    1891
+                ],
+                "angle": 0,
+                "content": "- Upsell opportunities/Offers to customers"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    416,
+                    1891,
+                    2105,
+                    1965
+                ],
+                "angle": 0,
+                "content": "- Does not include any increase due to increased loyalty"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    412,
+                    1747,
+                    2105,
+                    1965
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    256,
+                    1987,
+                    572,
+                    2150
+                ],
+                "angle": 0,
+                "content": "iHL"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    262,
+                    2152,
+                    649,
+                    2188
+                ],
+                "angle": 0,
+                "content": "HARD DATA SMART DECISIONS"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    1894,
+                    2133,
+                    2896,
+                    2191
+                ],
+                "angle": 0,
+                "content": "Source: IHL Group Store Infrastructure Survey 2015"
+            }
+        ]
+    },
+    {
+        "page_id": 39,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    172,
+                    158,
+                    2944,
+                    321
+                ],
+                "angle": 0,
+                "content": "What about an Average Retailer ($Millions)"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    259,
+                    451,
+                    2963,
+                    1375
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Average increases after customer and associate WiFi added.</td><td>Avg. Sales</td><td>Avg. Sales Increase $</td><td>Avg. EBITA BEFORE WiFi/Mobile</td><td>Avg. EBITA AFTER WiFi/Mobile</td><td>Increase in EBITA</td></tr><tr><td>General Merchandise</td><td>$850M</td><td>$55.2M</td><td>$52.7M</td><td>$74.1M</td><td>$21.4M</td></tr><tr><td>Food, Drug, Conv, Mass</td><td>$8,000M</td><td>$72.0M</td><td>$384.0M</td><td>$410M</td><td>$26.1M</td></tr><tr><td>Hospitality</td><td>$1,100M</td><td>$57.2M</td><td>$67.1M</td><td>$83M</td><td>$15.8M</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    259,
+                    1497,
+                    2531,
+                    1581
+                ],
+                "angle": 0,
+                "content": "Survey Respondents by Segment applied to average retailer sizes per segment"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    419,
+                    1617,
+                    2006,
+                    1692
+                ],
+                "angle": 0,
+                "content": "Dependent on efficiency of the supporting systems"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    256,
+                    1987,
+                    572,
+                    2150
+                ],
+                "angle": 0,
+                "content": "iHL"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    262,
+                    2157,
+                    646,
+                    2186
+                ],
+                "angle": 0,
+                "content": "HARD DATA SMART DECISIONS"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1894,
+                    2131,
+                    2896,
+                    2191
+                ],
+                "angle": 0,
+                "content": "Source: IHL Group Store Infrastructure Survey 2015"
+            }
+        ]
+    },
+    {
+        "page_id": 40,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    230,
+                    285,
+                    1622,
+                    436
+                ],
+                "angle": 0,
+                "content": "Contact Information"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    220,
+                    698,
+                    601,
+                    900
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    694,
+                    698,
+                    1264,
+                    1272
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1417,
+                    722,
+                    1996,
+                    827
+                ],
+                "angle": 0,
+                "content": "- Greg Buzek"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1417,
+                    866,
+                    1897,
+                    955
+                ],
+                "angle": 0,
+                "content": "President"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1417,
+                    1003,
+                    2220,
+                    1094
+                ],
+                "angle": 0,
+                "content": "- +1-615-591-2955"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1417,
+                    1147,
+                    2422,
+                    1252
+                ],
+                "angle": 0,
+                "content": "- greg@ihlservices.com"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    1417,
+                    722,
+                    2422,
+                    1252
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 41,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    563,
+                    552,
+                    988,
+                    940
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    1036,
+                    612,
+                    2633,
+                    895
+                ],
+                "angle": 0,
+                "content": "EarthLink®"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    860,
+                    1389,
+                    1344,
+                    1932
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1392,
+                    1507,
+                    2336,
+                    1795
+                ],
+                "angle": 0,
+                "content": "AirTight®"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1481,
+                    1802,
+                    2182,
+                    1872
+                ],
+                "angle": 0,
+                "content": "NETWORKS"
+            }
+        ]
+    },
+    {
+        "page_id": 42,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    256,
+                    228,
+                    1635,
+                    379
+                ],
+                "angle": 0,
+                "content": "Contact Information"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    220,
+                    645,
+                    598,
+                    832
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    761,
+                    585,
+                    1286,
+                    1060
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1417,
+                    609,
+                    1913,
+                    696
+                ],
+                "angle": 0,
+                "content": "- Greg Buzek"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1417,
+                    736,
+                    1830,
+                    811
+                ],
+                "angle": 0,
+                "content": "President"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1417,
+                    852,
+                    2099,
+                    928
+                ],
+                "angle": 0,
+                "content": "- +1-615-591-2955"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1417,
+                    981,
+                    2268,
+                    1063
+                ],
+                "angle": 0,
+                "content": "- greg@ihlservices.com"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    1417,
+                    609,
+                    2268,
+                    1063
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    83,
+                    1327,
+                    310,
+                    1584
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    326,
+                    1380,
+                    758,
+                    1519
+                ],
+                "angle": 0,
+                "content": "AirTight"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1521,
+                    688,
+                    1560
+                ],
+                "angle": 0,
+                "content": "NETWORKS"
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    844,
+                    1178,
+                    1216,
+                    1740
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    57,
+                    2020,
+                    195,
+                    2148
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    201,
+                    2037,
+                    691,
+                    2131
+                ],
+                "angle": 0,
+                "content": "EarthLink"
+            },
+            {
+                "block_id": 14,
+                "type": "image",
+                "bbox": [
+                    726,
+                    1903,
+                    1318,
+                    2304
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1459,
+                    1243,
+                    2115,
+                    1334
+                ],
+                "angle": 0,
+                "content": "Kevin McCauley"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1459,
+                    1370,
+                    2883,
+                    1459
+                ],
+                "angle": 0,
+                "content": "Director of Retail Market Development"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1459,
+                    1500,
+                    2886,
+                    1588
+                ],
+                "angle": 0,
+                "content": "- kevin.mccauley@airtightnetworks.com"
+            },
+            {
+                "block_id": 18,
+                "type": "list",
+                "bbox": [
+                    1459,
+                    1243,
+                    2886,
+                    1588
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1504,
+                    1800,
+                    2064,
+                    1891
+                ],
+                "angle": 0,
+                "content": "- Greg Griffiths"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    1504,
+                    1924,
+                    2812,
+                    2008
+                ],
+                "angle": 0,
+                "content": "Vice President of Product Alliances"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    1504,
+                    2054,
+                    2304,
+                    2148
+                ],
+                "angle": 0,
+                "content": "- Ggriffths@elnk.com"
+            },
+            {
+                "block_id": 22,
+                "type": "list",
+                "bbox": [
+                    1504,
+                    1800,
+                    2812,
+                    2148
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 43,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    182,
+                    220,
+                    1600,
+                    410
+                ],
+                "angle": 0,
+                "content": "Q & A // Panelists"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    2422,
+                    120,
+                    2691,
+                    165
+                ],
+                "angle": 0,
+                "content": "MODERATOR"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    2396,
+                    201,
+                    2713,
+                    518
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    2726,
+                    266,
+                    3120,
+                    420
+                ],
+                "angle": 0,
+                "content": "Debbie Hauss  \nEditor-in-Chief  \nRetail TouchPoints"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    393,
+                    724,
+                    1081,
+                    1408
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Greg Buzek Founder & President IHL Group"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1382,
+                    643,
+                    1888,
+                    1406
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Kevin McCauley  \nDirector of Retail Market Development  \nAirTight Networks"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    2147,
+                    780,
+                    2998,
+                    1351
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Greg Griffiths Vice President of Product Alliances EarthLink"
+            },
+            {
+                "block_id": 10,
+                "type": "footer",
+                "bbox": [
+                    521,
+                    2172,
+                    1100,
+                    2248
+                ],
+                "angle": 0,
+                "content": "ConnectedStore"
+            },
+            {
+                "block_id": 11,
+                "type": "footer",
+                "bbox": [
+                    2566,
+                    2150,
+                    3148,
+                    2280
+                ],
+                "angle": 0,
+                "content": "retail TouchPoints"
+            }
+        ]
+    }
+]

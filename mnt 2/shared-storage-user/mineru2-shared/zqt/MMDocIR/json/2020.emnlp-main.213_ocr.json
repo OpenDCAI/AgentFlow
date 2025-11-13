@@ -1,0 +1,2816 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    600,
+                    284,
+                    1888,
+                    350
+                ],
+                "angle": 0,
+                "content": "COMET: A Neural Framework for MT Evaluation"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    518,
+                    491,
+                    1977,
+                    543
+                ],
+                "angle": 0,
+                "content": "Ricardo Rei Craig Stewart Ana C Farinha Alon Lavie"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1128,
+                    554,
+                    1371,
+                    603
+                ],
+                "angle": 0,
+                "content": "Unbabel AI"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    374,
+                    617,
+                    2123,
+                    670
+                ],
+                "angle": 0,
+                "content": "{ricardo.rei, craig.stewart, catarina.farinha, alon.lavie}@unbabel.com"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    652,
+                    929,
+                    850,
+                    978
+                ],
+                "angle": 0,
+                "content": "Abstract"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    357,
+                    1027,
+                    1153,
+                    1982
+                ],
+                "angle": 0,
+                "content": "We present COMET, a neural framework for training multilingual machine translation evaluation models which obtains new state-of-the-art levels of correlation with human judgements. Our framework leverages recent breakthroughs in cross-lingual pretrained language modeling resulting in highly multilingual and adaptable MT evaluation models that exploit information from both the source input and a target-language reference translation in order to more accurately predict MT quality. To showcase our framework, we train three models with different types of human judgements: Direct Assessments, Human-mediated Translation Edit Rate and Multidimensional Quality Metrics. Our models achieve new state-of-the-art performance on the WMT 2019 Metrics shared task and demonstrate robustness to high-performing systems."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    290,
+                    2027,
+                    650,
+                    2076
+                ],
+                "angle": 0,
+                "content": "1 Introduction"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2118,
+                    1215,
+                    2795
+                ],
+                "angle": 0,
+                "content": "Historically, metrics for evaluating the quality of machine translation (MT) have relied on assessing the similarity between an MT-generated hypothesis and a human-generated reference translation in the target language. Traditional metrics have focused on basic, lexical-level features such as counting the number of matching n-grams between the MT hypothesis and the reference translation. Metrics such as BLEU (Papineni et al., 2002) and METEOR (Lavie and Denkowski, 2009) remain popular as a means of evaluating MT systems due to their light-weight and fast computation."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2799,
+                    1220,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Modern neural approaches to MT result in much higher quality of translation that often deviates from monotonic lexical transfer between languages. For this reason, it has become increasingly evident that we can no longer rely on metrics such as BLEU to provide an accurate estimate of the quality of MT (Barrault et al., 2019)."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    929,
+                    2198,
+                    1662
+                ],
+                "angle": 0,
+                "content": "While an increased research interest in neural methods for training MT models and systems has resulted in a recent, dramatic improvement in MT quality, MT evaluation has fallen behind. The MT research community still relies largely on outdated metrics and no new, widely-adopted standard has emerged. In 2019, the WMT News Translation Shared Task received a total of 153 MT system submissions (Barrault et al., 2019). The Metrics Shared Task of the same year saw only 24 submissions, almost half of which were entrants to the Quality Estimation Shared Task, adapted as metrics (Ma et al., 2019)."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1666,
+                    2200,
+                    2059
+                ],
+                "angle": 0,
+                "content": "The findings of the above-mentioned task highlight two major challenges to MT evaluation which we seek to address herein (Ma et al., 2019). Namely, that current metrics struggle to accurately correlate with human judgement at segment level and fail to adequately differentiate the highest performing MT systems."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2059,
+                    2198,
+                    2788
+                ],
+                "angle": 0,
+                "content": "In this paper, we present COMET<sup>1</sup>, a PyTorch-based framework for training highly multilingual and adaptable MT evaluation models that can function as metrics. Our framework takes advantage of recent breakthroughs in cross-lingual language modeling (Artetxe and Schwenk, 2019; Devlin et al., 2019; Conneau and Lample, 2019; Conneau et al., 2019) to generate prediction estimates of human judgments such as Direct Assessments (DA) (Graham et al., 2013), Human-mediated Translation Edit Rate (HTER) (Snover et al., 2006) and metrics compliant with the Multidimensional Quality Metric framework (Lommel et al., 2014)."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2795,
+                    2198,
+                    3076
+                ],
+                "angle": 0,
+                "content": "Inspired by recent work on Quality Estimation (QE) that demonstrated that it is possible to achieve high levels of correlation with human judgements even without a reference translation (Fonseca et al., 2019), we propose a novel approach for incorpora"
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    1267,
+                    3097,
+                    2200,
+                    3188
+                ],
+                "angle": 0,
+                "content": "\\(^{1}\\)Crosslingual Optimized Metric for Evaluation of Translation."
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2685"
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    394,
+                    3301,
+                    2079,
+                    3399
+                ],
+                "angle": 0,
+                "content": "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing, pages 2685-2702, November 16-20, 2020. ©2020 Association for Computational Linguistics"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    263,
+                    1223,
+                    768
+                ],
+                "angle": 0,
+                "content": "ing the source-language input into our MT evaluation models. Traditionally only QE models have made use of the source input, whereas MT evaluation metrics rely instead on the reference translation. As in (Takahashi et al., 2020), we show that using a multilingual embedding space allows us to leverage information from all three inputs and demonstrate the value added by the source as input to our MT evaluation models."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    771,
+                    1220,
+                    1112
+                ],
+                "angle": 0,
+                "content": "To illustrate the effectiveness and flexibility of the COMET framework, we train three models that estimate different types of human judgements and show promising progress towards both better correlation at segment level and robustness to high-quality MT."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1115,
+                    1220,
+                    1290
+                ],
+                "angle": 0,
+                "content": "We will release both the COMET framework and the trained MT evaluation models described in this paper to the research community upon publication."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1333,
+                    818,
+                    1389
+                ],
+                "angle": 0,
+                "content": "2 Model Architectures"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1427,
+                    1228,
+                    2567
+                ],
+                "angle": 0,
+                "content": "Human judgements of MT quality usually come in the form of segment-level scores, such as DA, MQM and HTER. For DA, it is common practice to convert scores into relative rankings (DARR) when the number of annotations per segment is limited (Bojar et al., 2017b; Ma et al., 2018, 2019). This means that, for two MT hypotheses \\( h_i \\) and \\( h_j \\) of the same source \\( s \\), if the DA score assigned to \\( h_i \\) is higher than the score assigned to \\( h_j \\), \\( h_i \\) is regarded as a \"better\" hypothesis. To encompass these differences, our framework supports two distinct architectures: The Estimator model and the Translation Ranking model. The fundamental difference between them is the training objective. While the Estimator is trained to regress directly on a quality score, the Translation Ranking model is trained to minimize the distance between a \"better\" hypothesis and both its corresponding reference and its original source. Both models are composed of a cross-lingual encoder and a pooling layer."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2602,
+                    846,
+                    2662
+                ],
+                "angle": 0,
+                "content": "2.1 Cross-lingual Encoder"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2680,
+                    1218,
+                    3023
+                ],
+                "angle": 0,
+                "content": "The primary building block of all the models in our framework is a pretrained, cross-lingual model such as multilingual BERT (Devlin et al., 2019), XLM (Conneau and Lample, 2019) or XLM-RoBERTa (Conneau et al., 2019). These models contain several transformer encoder layers that are"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    263,
+                    2200,
+                    884
+                ],
+                "angle": 0,
+                "content": "trained to reconstruct masked tokens by uncovering the relationship between those tokens and the surrounding ones. When trained with data from multiple languages this pretrained objective has been found to be highly effective in cross-lingual tasks such as document classification and natural language inference (Conneau et al., 2019), generalizing well to unseen languages and scripts (Pires et al., 2019). For the experiments in this paper, we rely on XLM-RoBERTa (base) as our encoder model."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    894,
+                    2200,
+                    1245
+                ],
+                "angle": 0,
+                "content": "Given an input sequence \\( x = [x_0, x_1, \\ldots, x_n] \\), the encoder produces an embedding \\( e_j^{(\\ell)} \\) for each token \\( x_j \\) and each layer \\( \\ell \\in \\{0, 1, \\ldots, k\\} \\). In our framework, we apply this process to the source, MT hypothesis, and reference in order to map them into a shared feature space."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1311,
+                    1664,
+                    1371
+                ],
+                "angle": 0,
+                "content": "2.2 Pooling Layer"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1403,
+                    2205,
+                    2255
+                ],
+                "angle": 0,
+                "content": "The embeddings generated by the last layer of the pretrained encoders are usually used for fine-tuning models to new tasks. However, (Tenney et al., 2019) showed that different layers within the network can capture linguistic information that is relevant for different downstream tasks. In the case of MT evaluation, (Zhang et al., 2020) showed that different layers can achieve different levels of correlation and that utilizing only the last layer often results in inferior performance. In this work, we used the approach described in Peters et al. (2018) and pool information from the most important encoder layers into a single embedding for each token, \\( e_j \\), by using a layer-wise attention mechanism. This embedding is then computed as:"
+            },
+            {
+                "block_id": 11,
+                "type": "equation",
+                "bbox": [
+                    1592,
+                    2297,
+                    2193,
+                    2374
+                ],
+                "angle": 0,
+                "content": "\\[\n\\boldsymbol {e} _ {x _ {j}} = \\mu E _ {x _ {j}} ^ {\\top} \\boldsymbol {\\alpha} \\tag {1}\n\\]"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2438,
+                    2198,
+                    2960
+                ],
+                "angle": 0,
+                "content": "where \\(\\mu\\) is a trainable weight coefficient, \\(E_{j} = [e_{j}^{(0)}, e_{j}^{(1)}, \\ldots, e_{j}^{(k)}]\\) corresponds to the vector of layer embeddings for token \\(x_{j}\\), and \\(\\alpha = \\text{softmax}([\\alpha^{(1)}, \\alpha^{(2)}, \\ldots, \\alpha^{(k)}])\\) is a vector corresponding to the layer-wise trainable weights. In order to avoid overfitting to the information contained in any single layer, we used layer dropout (Kondratyuk and Straka, 2019), in which with a probability \\(p\\) the weight \\(\\alpha^{(i)}\\) is set to \\(-\\infty\\)."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2964,
+                    2198,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Finally, as in (Reimers and Gurevych, 2019), we apply average pooling to the resulting word embeddings to derive a sentence embedding for each segment."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    3055,
+                    1223,
+                    3188
+                ],
+                "angle": 0,
+                "content": "<sup>2</sup>In the WMT Metrics Shared Task, if the difference between the DA scores is not higher than 25 points, those segments are excluded from the DARR data."
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1295,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2686"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    320,
+                    333,
+                    1173,
+                    1122
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 1: Estimator model architecture. The source, hypothesis and reference are independently encoded using a pretrained cross-lingual encoder. The resulting word embeddings are then passed through a pooling layer to create a sentence embedding for each segment. Finally, the resulting sentence embeddings are combined and concatenated into one single vector that is passed to a feed-forward regressor. The entire model is trained by minimizing the Mean Squared Error (MSE)."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1754,
+                    734,
+                    1799
+                ],
+                "angle": 0,
+                "content": "2.3 Estimator Model"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1827,
+                    1215,
+                    2048
+                ],
+                "angle": 0,
+                "content": "Given a \\(d\\)-dimensional sentence embedding for the source, the hypothesis, and the reference, we adopt the approach proposed in RUSE (Shimanaka et al., 2018) and extract the following combined features:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    337,
+                    2090,
+                    1061,
+                    2143
+                ],
+                "angle": 0,
+                "content": "- Element-wise source product: \\( \\mathbf{h} \\odot \\mathbf{s} \\)"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    337,
+                    2181,
+                    1111,
+                    2234
+                ],
+                "angle": 0,
+                "content": "- Element-wise reference product: \\( \\mathbf{h} \\odot \\mathbf{r} \\)"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    337,
+                    2273,
+                    1215,
+                    2385
+                ],
+                "angle": 0,
+                "content": "- Absolute element-wise source difference: \\( |h - s| \\)"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    337,
+                    2424,
+                    1215,
+                    2532
+                ],
+                "angle": 0,
+                "content": "- Absolute element-wise reference difference: \\( |h - r| \\)"
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    337,
+                    2090,
+                    1215,
+                    2532
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2571,
+                    1215,
+                    2964
+                ],
+                "angle": 0,
+                "content": "These combined features are then concatenated to the reference embedding \\( \\pmb{r} \\) and hypothesis embedding \\( \\pmb{h} \\) into a single vector \\( \\pmb{x} = [h; r; h \\odot s; h \\odot r; |h - s|; |h - r|] \\) that serves as input to a feed-forward regressor. The strength of these features is in highlighting the differences between embeddings in the semantic feature space."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2967,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "The model is then trained to minimize the mean squared error between the predicted scores and quality assessments (DA, HTER or MQM). Figure 1 illustrates the proposed architecture."
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    1307,
+                    438,
+                    2153,
+                    1108
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 2: Translation Ranking model architecture. This architecture receives 4 segments: the source, the reference, a \"better\" hypothesis, and a \"worse\" one. These segments are independently encoded using a pretrained cross-lingual encoder and a pooling layer on top. Finally, using the triplet margin loss (Schroff et al., 2015) we optimize the resulting embedding space to minimize the distance between the \"better\" hypothesis and the \"anchors\" (source and reference)."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1757,
+                    2195,
+                    3108
+                ],
+                "angle": 0,
+                "content": "Note that we chose not to include the raw source embedding \\((s)\\) in our concatenated input. Early experimentation revealed that the value added by the source embedding as extra input features to our regressor was negligible at best. A variation on our HTER estimator model trained with the vector \\(x = [h; s; r; h \\odot s; h \\odot r; |h - s|; |h - r|]\\) as input to the feed-forward only succeed in boosting segment-level performance in 8 of the 18 language pairs outlined in section 5 below and the average improvement in Kendall's Tau in those settings was +0.0009. As noted in Zhao et al. (2020), while cross-lingual pretrained models are adaptive to multiple languages, the feature space between languages is poorly aligned. On this basis we decided in favor of excluding the source embedding on the intuition that the most important information comes from the reference embedding and reducing the feature space would allow the model to focus more on relevant information. This does not however negate the general value of the source to our model; where we include combination features such as \\(h \\odot s\\) and \\(|h - s|\\) we do note gains in correlation as explored further in section 5.5 below."
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2687"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    287,
+                    263,
+                    942,
+                    319
+                ],
+                "angle": 0,
+                "content": "2.4 Translation Ranking Model"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    336,
+                    1218,
+                    838
+                ],
+                "angle": 0,
+                "content": "Our Translation Ranking model (Figure 2) receives as input a tuple \\(\\chi = (s, h^{+}, h^{-}, r)\\) where \\(h^{+}\\) denotes an hypothesis that was ranked higher than another hypothesis \\(h^{-}\\). We then pass \\(\\chi\\) through our cross-lingual encoder and pooling layer to obtain a sentence embedding for each segment in the \\(\\chi\\). Finally, using the embeddings \\(\\{s, h^{+}, h^{-}, r\\}\\), we compute the triplet margin loss (Schroff et al., 2015) in relation to the source and reference:"
+            },
+            {
+                "block_id": 2,
+                "type": "equation",
+                "bbox": [
+                    354,
+                    845,
+                    1213,
+                    912
+                ],
+                "angle": 0,
+                "content": "\\[\nL (\\chi) = L (\\boldsymbol {s}, \\boldsymbol {h} ^ {+}, \\boldsymbol {h} ^ {-}) + L (\\boldsymbol {r}, \\boldsymbol {h} ^ {+}, \\boldsymbol {h} ^ {-}) \\quad (2)\n\\]"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    287,
+                    954,
+                    426,
+                    999
+                ],
+                "angle": 0,
+                "content": "where:"
+            },
+            {
+                "block_id": 4,
+                "type": "equation",
+                "bbox": [
+                    334,
+                    1031,
+                    1210,
+                    1168
+                ],
+                "angle": 0,
+                "content": "\\[\n\\begin{array}{l} L \\left(\\boldsymbol {s}, \\boldsymbol {h} ^ {+}, \\boldsymbol {h} ^ {-}\\right) = \\tag {3} \\\\ \\max  \\{0, d (\\boldsymbol {s}, \\boldsymbol {h} ^ {+}) - d (\\boldsymbol {s}, \\boldsymbol {h} ^ {-}) + \\epsilon \\} \\\\ \\end{array}\n\\]"
+            },
+            {
+                "block_id": 5,
+                "type": "equation",
+                "bbox": [
+                    334,
+                    1259,
+                    1210,
+                    1396
+                ],
+                "angle": 0,
+                "content": "\\[\n\\begin{array}{l} L \\left(\\boldsymbol {r}, \\boldsymbol {h} ^ {+}, \\boldsymbol {h} ^ {-}\\right) = \\tag {4} \\\\ \\max \\{0, d (\\pmb {r}, \\pmb {h} ^ {+}) - d (\\pmb {r}, \\pmb {h} ^ {-}) + \\epsilon \\} \\\\ \\end{array}\n\\]"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1431,
+                    1220,
+                    1820
+                ],
+                "angle": 0,
+                "content": "\\(d(\\pmb{u}, \\pmb{v})\\) denotes the euclidean distance between \\(\\pmb{u}\\) and \\(\\pmb{v}\\) and \\(\\epsilon\\) is a margin. Thus, during training the model optimizes the embedding space so the distance between the anchors (\\(s\\) and \\(r\\)) and the \"worse\" hypothesis \\(h^{-}\\) is greater by at least \\(\\epsilon\\) than the distance between the anchors and \"better\" hypothesis \\(h^{+}\\)."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1827,
+                    1215,
+                    2108
+                ],
+                "angle": 0,
+                "content": "During inference, the described model receives a triplet \\((s,\\hat{h},r)\\) with only one hypothesis. The quality score assigned to \\(\\hat{h}\\) is the harmonic mean between the distance to the source \\(d(\\boldsymbol {s},\\hat{\\boldsymbol{h}})\\) and the distance to the reference \\(d(\\boldsymbol {r},\\hat{\\boldsymbol{h}})\\):"
+            },
+            {
+                "block_id": 8,
+                "type": "equation",
+                "bbox": [
+                    419,
+                    2143,
+                    1213,
+                    2280
+                ],
+                "angle": 0,
+                "content": "\\[\nf (s, \\hat {h}, r) = \\frac {2 \\times d (\\boldsymbol {r} , \\hat {\\boldsymbol {h}}) \\times d (\\boldsymbol {s} , \\hat {\\boldsymbol {h}})}{d (\\boldsymbol {r} , \\hat {\\boldsymbol {h}}) + d (\\boldsymbol {s} , \\hat {\\boldsymbol {h}})} \\tag {5}\n\\]"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2308,
+                    1218,
+                    2469
+                ],
+                "angle": 0,
+                "content": "Finally, we convert the resulting distance into a similarity score bounded between 0 and 1 as follows:"
+            },
+            {
+                "block_id": 10,
+                "type": "equation",
+                "bbox": [
+                    496,
+                    2497,
+                    1210,
+                    2623
+                ],
+                "angle": 0,
+                "content": "\\[\n\\hat {f} (s, \\hat {h}, r) = \\frac {1}{1 + f (s , \\hat {h} , r)} \\tag {6}\n\\]"
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2652,
+                    560,
+                    2708
+                ],
+                "angle": 0,
+                "content": "3 Corpora"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2739,
+                    1218,
+                    3192
+                ],
+                "angle": 0,
+                "content": "To demonstrate the effectiveness of our described model architectures (section 2), we train three MT evaluation models where each model targets a different type of human judgment. To train these models, we use data from three different corpora: the QT21 corpus, the DARR from the WMT Metrics shared task (2017 to 2019) and a proprietary MQM annotated corpus."
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    263,
+                    1726,
+                    319
+                ],
+                "angle": 0,
+                "content": "3.1 The QT21 corpus"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    336,
+                    2195,
+                    954
+                ],
+                "angle": 0,
+                "content": "The QT21 corpus is a publicly available<sup>3</sup> dataset containing industry generated sentences from either an information technology or life sciences domains (Specia et al., 2017). This corpus contains a total of 173K tuples with source sentence, respective human-generated reference, MT hypothesis (either from a phrase-based statistical MT or from a neural MT), and post-edited MT (PE). The language pairs represented in this corpus are: English to German (en-de), Latvian (en-lt) and Czech (en-cs), and German to English (de-en)."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    957,
+                    2198,
+                    1634
+                ],
+                "angle": 0,
+                "content": "The HTER score is obtained by computing the translation edit rate (TER) (Snover et al., 2006) between the MT hypothesis and the corresponding PE. Finally, after computing the HTER for each MT, we built a training dataset \\( D = \\{s_i, h_i, r_i, y_i\\}_{n=1}^N \\), where \\( s_i \\) denotes the source text, \\( h_i \\) denotes the MT hypothesis, \\( r_i \\) the reference translation, and \\( y_i \\) the HTER score for the hypothesis \\( h_i \\). In this manner we seek to learn a regression \\( f(s, h, r) \\to y \\) that predicts the human-effort required to correct the hypothesis by looking at the source, hypothesis, and reference (but not the post-edited hypothesis)."
+            },
+            {
+                "block_id": 16,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    1673,
+                    1868,
+                    1729
+                ],
+                "angle": 0,
+                "content": "3.2 The WMT DARR corpus"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1746,
+                    2198,
+                    2595
+                ],
+                "angle": 0,
+                "content": "Since 2017, the organizers of the WMT News Translation Shared Task (Barrault et al., 2019) have collected human judgements in the form of adequacy DAs (Graham et al., 2013, 2014, 2017). These DAs are then mapped into relative rankings (DARR) (Ma et al., 2019). The resulting data for each year (2017-19) form a dataset \\( D = \\{s_i, h_i^+, h_i^-, r_i\\}_{n=1}^N \\) where \\( h_i^+ \\) denotes a \"better\" hypothesis and \\( h_i^- \\) denotes a \"worse\" one. Here we seek to learn a function \\( r(s, h, r) \\) such that the score assigned to \\( h_i^+ \\) is strictly higher than the score assigned to \\( h_i^- \\) (\\( r(s_i, h_i^+, r_i) > r(s_i, h_i^-, r_i) \\)). This data<sup>4</sup> contains a total of 24 high and low-resource language pairs such as Chinese to English (zh-en) and English to Gujarati (en-gu)."
+            },
+            {
+                "block_id": 18,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    2631,
+                    1741,
+                    2687
+                ],
+                "angle": 0,
+                "content": "3.3 The MQM corpus"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2704,
+                    2193,
+                    2816
+                ],
+                "angle": 0,
+                "content": "The MQM corpus is a proprietary internal database of MT-generated translations of customer support"
+            },
+            {
+                "block_id": 20,
+                "type": "page_footnote",
+                "bbox": [
+                    1267,
+                    2844,
+                    2193,
+                    2936
+                ],
+                "angle": 0,
+                "content": "3QT21 data: https://lindat.mff.cuni.cz/repository/xmlui/handle/11372/LRT-2390"
+            },
+            {
+                "block_id": 21,
+                "type": "page_footnote",
+                "bbox": [
+                    1267,
+                    2936,
+                    2198,
+                    3192
+                ],
+                "angle": 0,
+                "content": "4 The raw data for each year of the WMT Metrics shared task is publicly available in the results page (2019 example: http://www.statmt.org/wmt19/results.html). Note, however, that in the README files it is highlighted that this data is not well documented and the scripts occasionally require custom utilities that are not available."
+            },
+            {
+                "block_id": 22,
+                "type": "list",
+                "bbox": [
+                    1267,
+                    2844,
+                    2198,
+                    3192
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 23,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2688"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    266,
+                    1223,
+                    1508
+                ],
+                "angle": 0,
+                "content": "chat messages that were annotated according to the guidelines set out in Burchardt and Lommel (2014). This data contains a total of 12K tuples, covering 12 language pairs from English to: German (en-de), Spanish (en-es), Latin-American Spanish (en-es-latam), French (en-fr), Italian (en-it), Japanese (en-ja), Dutch (en-nl), Portuguese (en-pt), Brazilian Portuguese (en-pt-br), Russian (en-ru), Swedish (en-sv), and Turkish (en-tr). Note that in this corpus English is always seen as the source language, but never as the target language. Each tuple consists of a source sentence, a human-generated reference, a MT hypothesis, and its MQM score, derived from error annotations by one (or more) trained annotators. The MQM metric referred to throughout this paper is an internal metric defined in accordance with the MQM framework (Lommel et al., 2014) (MQM). Errors are annotated under an internal typology defined under three main error types; 'Style', 'Fluency' and 'Accuracy'. Our MQM scores range from \\(-\\infty\\) to 100 and are defined as:"
+            },
+            {
+                "block_id": 1,
+                "type": "equation",
+                "bbox": [
+                    322,
+                    1592,
+                    1215,
+                    1768
+                ],
+                "angle": 0,
+                "content": "\\[\n\\mathrm {M Q M} = 1 0 0 - \\frac {I _ {\\text {M i n o r}} + 5 \\times I _ {\\text {M a j o r}} + 1 0 \\times I _ {\\text {C r i t .}}}{\\text {S e n t e n c e L e n g t h} \\times 1 0 0} \\tag {7}\n\\]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1810,
+                    1215,
+                    1978
+                ],
+                "angle": 0,
+                "content": "where \\( I_{\\mathrm{Minor}} \\) denotes the number of minor errors, \\( I_{\\mathrm{Major}} \\) the number of major errors and \\( I_{\\mathrm{Crit.}} \\) the number of critical errors."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1982,
+                    1215,
+                    2546
+                ],
+                "angle": 0,
+                "content": "Our MQM metric takes into account the severity of the errors identified in the MT hypothesis, leading to a more fine-grained metric than HTER or DA. When used in our experiments, these values were divided by 100 and truncated at 0. As in section 3.1, we constructed a training dataset \\( D = \\{s_i, h_i, r_i, y_i\\}_{n=1}^N \\), where \\( s_i \\) denotes the source text, \\( h_i \\) denotes the MT hypothesis, \\( r_i \\) the reference translation, and \\( y_i \\) the MQM score for the hypothesis \\( h_i \\)."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2592,
+                    652,
+                    2648
+                ],
+                "angle": 0,
+                "content": "4 Experiments"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2683,
+                    1223,
+                    3195
+                ],
+                "angle": 0,
+                "content": "We train two versions of the Estimator model described in section 2.3: one that regresses on HTER (COMET-HTER) trained with the QT21 corpus, and another that regresses on our proprietary implementation of MQM (COMET-MQM) trained with our internal MQM corpus. For the Translation Ranking model, described in section 2.4, we train with the WMT DARR corpus from 2017 and 2018 (COMET-RANK). In this section, we introduce the training"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    266,
+                    2198,
+                    375
+                ],
+                "angle": 0,
+                "content": "setup for these models and corresponding evaluation setup."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    417,
+                    1679,
+                    470
+                ],
+                "angle": 0,
+                "content": "4.1 Training Setup"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    487,
+                    2198,
+                    1673
+                ],
+                "angle": 0,
+                "content": "The two versions of the Estimators (COMET- HTER/MQM) share the same training setup and hyper-parameters (details are included in the Appendices). For training, we load the pretrained encoder and initialize both the pooling layer and the feed-forward regressor. Whereas the layer-wise scalars \\(\\alpha\\) from the pooling layer are initially set to zero, the weights from the feed-forward are initialized randomly. During training, we divide the model parameters into two groups: the encoder parameters, that include the encoder model and the scalars from \\(\\alpha\\); and the regressor parameters, that include the parameters from the top feed-forward network. We apply gradual unfreezing and discriminative learning rates (Howard and Ruder, 2018), meaning that the encoder model is frozen for one epoch while the feed-forward is optimized with a learning rate of \\(3\\mathrm{e} - 5\\). After the first epoch, the entire model is fine-tuned but the learning rate for the encoder parameters is set to \\(1\\mathrm{e} - 5\\) in order to avoid catastrophic forgetting."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1676,
+                    2198,
+                    2010
+                ],
+                "angle": 0,
+                "content": "In contrast with the two Estimators, for the COMET-RANK model we fine-tune from the outset. Furthermore, since this model does not add any new parameters on top of XLM-RoBERTa (base) other than the layer scalars \\(\\alpha\\), we use one single learning rate of \\(1\\mathrm{e} - 5\\) for the entire model."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2055,
+                    1721,
+                    2108
+                ],
+                "angle": 0,
+                "content": "4.2 Evaluation Setup"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2125,
+                    2198,
+                    2631
+                ],
+                "angle": 0,
+                "content": "We use the test data and setup of the WMT 2019 Metrics Shared Task (Ma et al., 2019) in order to compare the COMET models with the top performing submissions of the shared task and other recent state-of-the-art metrics such as BERTSCORE and BLEURT. The evaluation method used is the official Kendall's Tau-like formulation, \\(\\tau\\), from the WMT 2019 Metrics Shared Task (Ma et al., 2019) defined as:"
+            },
+            {
+                "block_id": 12,
+                "type": "equation",
+                "bbox": [
+                    1438,
+                    2673,
+                    2193,
+                    2785
+                ],
+                "angle": 0,
+                "content": "\\[\n\\tau = \\frac {\\text {C o n c o r d a n t} - \\text {D i s c o r d a n t}}{\\text {C o n c o r d a n t} + \\text {D i s c o r d a n t}} \\tag {8}\n\\]"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2802,
+                    2195,
+                    3027
+                ],
+                "angle": 0,
+                "content": "where Concordant is the number of times a metric assigns a higher score to the “better” hypothesis \\( h^{+} \\) and Discordant is the number of times a metric assigns a higher score to the “worse” hypothesis"
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    1265,
+                    3058,
+                    2198,
+                    3188
+                ],
+                "angle": 0,
+                "content": "5To ease future research we will also provide, within our framework, detailed instructions and scripts to run other metrics such as CHRF, BLEU, BERTSCORE, and BLEURT"
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2689"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    382,
+                    491,
+                    2108,
+                    1038
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Metric</td><td>en-cs</td><td>en-de</td><td>en-fi</td><td>en-gu</td><td>en-kk</td><td>en-lt</td><td>en-ru</td><td>en-zh</td></tr><tr><td>BLEU</td><td>0.364</td><td>0.248</td><td>0.395</td><td>0.463</td><td>0.363</td><td>0.333</td><td>0.469</td><td>0.235</td></tr><tr><td>CHRF</td><td>0.444</td><td>0.321</td><td>0.518</td><td>0.548</td><td>0.510</td><td>0.438</td><td>0.548</td><td>0.241</td></tr><tr><td>YIISI-1</td><td>0.475</td><td>0.351</td><td>0.537</td><td>0.551</td><td>0.546</td><td>0.470</td><td>0.585</td><td>0.355</td></tr><tr><td>BERTSCORE (default)</td><td>0.500</td><td>0.363</td><td>0.527</td><td>0.568</td><td>0.540</td><td>0.464</td><td>0.585</td><td>0.356</td></tr><tr><td>BERTSCORE (xlmr-base)</td><td>0.503</td><td>0.369</td><td>0.553</td><td>0.584</td><td>0.536</td><td>0.514</td><td>0.599</td><td>0.317</td></tr><tr><td>COMET-HTER</td><td>0.524</td><td>0.383</td><td>0.560</td><td>0.552</td><td>0.508</td><td>0.577</td><td>0.539</td><td>0.380</td></tr><tr><td>COMET-MQM</td><td>0.537</td><td>0.398</td><td>0.567</td><td>0.564</td><td>0.534</td><td>0.574</td><td>0.615</td><td>0.378</td></tr><tr><td>COMET-RANK</td><td>0.603</td><td>0.427</td><td>0.664</td><td>0.611</td><td>0.693</td><td>0.665</td><td>0.580</td><td>0.449</td></tr></table>",
+                "caption": "Table 1: Kendall's Tau (\\(\\tau\\)) correlations on language pairs with English as source for the WMT19 Metrics DARR corpus. For BERTSCORE we report results with the default encoder model for a complete comparison, but also with XLM-RoBERTa (base) for fairness with our models. The values reported for YiSi-1 are taken directly from the shared task paper (Ma et al., 2019)."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1115,
+                    1213,
+                    1224
+                ],
+                "angle": 0,
+                "content": "\\(h^{-}\\) or the scores assigned to both hypotheses is the same."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1231,
+                    1215,
+                    1848
+                ],
+                "angle": 0,
+                "content": "As mentioned in the findings of (Ma et al., 2019), segment-level correlations of all submitted metrics were frustratingly low. Furthermore, all submitted metrics exhibited a dramatic lack of ability to correctly rank strong MT systems. To evaluate whether our new MT evaluation models better address this issue, we followed the described evaluation setup used in the analysis presented in (Ma et al., 2019), where correlation levels are examined for portions of the DARR data that include only the top 10, 8, 6 and 4 MT systems."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1894,
+                    535,
+                    1946
+                ],
+                "angle": 0,
+                "content": "5 Results"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1985,
+                    806,
+                    2041
+                ],
+                "angle": 0,
+                "content": "5.1 From English into X"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2062,
+                    1215,
+                    2852
+                ],
+                "angle": 0,
+                "content": "Table 1 shows results for all eight language pairs with English as source. We contrast our three COMET models against baseline metrics such as BLEU and CHRF, the 2019 task winning metric YIISI-1, as well as the more recent BERTSCORE. We observe that across the board our three models trained with the COMET framework outperform, often by significant margins, all other metrics. Our DARR Ranker model outperforms the two Estimators in seven out of eight language pairs. Also, even though the MQM Estimator is trained on only 12K annotated segments, it performs roughly on par with the HTER Estimator for most language-pairs, and outperforms all the other metrics in en-ru."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2890,
+                    806,
+                    2946
+                ],
+                "angle": 0,
+                "content": "5.2 From X into English"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2964,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Table 2 shows results for the seven to-English language pairs. Again, we contrast our three COMET models against baseline metrics such as BLEU and CHRF, the 2019 task winning metric YI SI-1, as"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1115,
+                    2200,
+                    1789
+                ],
+                "angle": 0,
+                "content": "well as the recently published metrics BERTSCORE and BLEURT. As in Table 1 the DARR model shows strong correlations with human judgements outperforming the recently proposed English-specific BLEURT metric in five out of seven language pairs. Again, the MQM Estimator shows surprising strong results despite the fact that this model was trained with data that did not include English as a target. Although the encoder used in our trained models is highly multilingual, we hypothesise that this powerful “zero-shot” result is due to the inclusion of the source in our models."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    1827,
+                    2111,
+                    1883
+                ],
+                "angle": 0,
+                "content": "5.3 Language pairs not involving English"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1901,
+                    2198,
+                    2346
+                ],
+                "angle": 0,
+                "content": "All three of our COMET models were trained on data involving English (either as a source or as a target). Nevertheless, to demonstrate that our metrics generalize well we test them on the three WMT 2019 language pairs that do not include English in either source or target. As can be seen in Table 3, our results are consistent with observations in Tables 1 and 2."
+            },
+            {
+                "block_id": 12,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    2385,
+                    2007,
+                    2441
+                ],
+                "angle": 0,
+                "content": "5.4 Robustness to High-Quality MT"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2459,
+                    2198,
+                    3192
+                ],
+                "angle": 0,
+                "content": "For analysis, we use the DARR corpus from the 2019 Shared Task and evaluate on the subset of the data from the top performing MT systems for each language pair. We included language pairs for which we could retrieve data for at least ten different MT systems (i.e. all but kk-en and gu-en). We contrast against the strong recently proposed BERTSCORE and BLEURT, with BLEU as a baseline. Results are presented in Figure 3. For language pairs where English is the target, our three models are either better or competitive with all others; where English is the source we note that in general our metrics exceed the performance of oth"
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1295,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2690"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    456,
+                    442,
+                    2039,
+                    1101
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Metric</td><td>de-en</td><td>fi-en</td><td>gu-en</td><td>kk-en</td><td>lt-en</td><td>ru-en</td><td>zh-en</td></tr><tr><td>BLEU</td><td>0.053</td><td>0.236</td><td>0.194</td><td>0.276</td><td>0.249</td><td>0.177</td><td>0.321</td></tr><tr><td>CHRF</td><td>0.123</td><td>0.292</td><td>0.240</td><td>0.323</td><td>0.304</td><td>0.115</td><td>0.371</td></tr><tr><td>YIISI-1</td><td>0.164</td><td>0.347</td><td>0.312</td><td>0.440</td><td>0.376</td><td>0.217</td><td>0.426</td></tr><tr><td>BERTSCORE (default)</td><td>0.190</td><td>0.354</td><td>0.292</td><td>0.351</td><td>0.381</td><td>0.221</td><td>0.432</td></tr><tr><td>BERTSCORE (xlmr-base)</td><td>0.171</td><td>0.335</td><td>0.295</td><td>0.354</td><td>0.356</td><td>0.202</td><td>0.412</td></tr><tr><td>BLEURT (base-128)</td><td>0.171</td><td>0.372</td><td>0.302</td><td>0.383</td><td>0.387</td><td>0.218</td><td>0.417</td></tr><tr><td>BLEURT (large-512)</td><td>0.174</td><td>0.374</td><td>0.313</td><td>0.372</td><td>0.388</td><td>0.220</td><td>0.436</td></tr><tr><td>COMET-HTER</td><td>0.185</td><td>0.333</td><td>0.274</td><td>0.297</td><td>0.364</td><td>0.163</td><td>0.391</td></tr><tr><td>COMET-MQM</td><td>0.207</td><td>0.343</td><td>0.282</td><td>0.339</td><td>0.368</td><td>0.187</td><td>0.422</td></tr><tr><td>COMET-RANK</td><td>0.202</td><td>0.399</td><td>0.341</td><td>0.358</td><td>0.407</td><td>0.180</td><td>0.445</td></tr></table>",
+                "caption": "Table 3: Kendall's Tau (\\(\\tau\\)) correlations on language pairs not involving English for the WMT19 Metrics DARR corpus."
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    292,
+                    1357,
+                    1233,
+                    1904
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Metric</td><td>de-cs</td><td>de-fr</td><td>fr-de</td></tr><tr><td>BLEU</td><td>0.222</td><td>0.226</td><td>0.173</td></tr><tr><td>CHRF</td><td>0.341</td><td>0.287</td><td>0.274</td></tr><tr><td>YISI-1</td><td>0.376</td><td>0.349</td><td>0.310</td></tr><tr><td>BERTSCORE (default)</td><td>0.358</td><td>0.329</td><td>0.300</td></tr><tr><td>BERTSCORE (xlmr-base)</td><td>0.386</td><td>0.336</td><td>0.309</td></tr><tr><td>COMET-HTER</td><td>0.358</td><td>0.397</td><td>0.315</td></tr><tr><td>COMET-MQM</td><td>0.386</td><td>0.367</td><td>0.296</td></tr><tr><td>COMET-RANK</td><td>0.389</td><td>0.444</td><td>0.331</td></tr></table>"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1989,
+                    1215,
+                    2167
+                ],
+                "angle": 0,
+                "content": "ers. Even the MQM Estimator, trained with only 12K segments, is competitive, which highlights the power of our proposed framework."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2210,
+                    992,
+                    2266
+                ],
+                "angle": 0,
+                "content": "5.5 The Importance of the Source"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2287,
+                    1225,
+                    3195
+                ],
+                "angle": 0,
+                "content": "To shed some light on the actual value and contribution of the source language input in our models' ability to learn accurate predictions, we trained two versions of our DARR Ranker model: one that uses only the reference, and another that uses both reference and source. Both models were trained using the WMT 2017 corpus that only includes language pairs from English (en-de, en-cs, en-fi, en-tr). In other words, while English was never observed as a target language during training for both variants of the model, the training of the second variant includes English source embeddings. We then tested these two model variants on the WMT 2018 corpus for these language pairs and for the reversed directions (with the exception of en-cs because cs-en does not exist for WMT 2018). The results in Table"
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1342,
+                    1164,
+                    2138,
+                    2634
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 3: Metrics performance over all and the top (10, 8, 6, and 4) MT systems."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2911,
+                    2200,
+                    3195
+                ],
+                "angle": 0,
+                "content": "4 clearly show that for the translation ranking architecture, including the source improves the overall correlation with human judgments. Furthermore, the inclusion of the source exposed the second variant of the model to English embeddings which is"
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1290,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2691"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    379,
+                    442,
+                    2108,
+                    705
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Metric</td><td>en-cs</td><td>en-de</td><td>en-fi</td><td>en-tr</td><td>cs-en</td><td>de-en</td><td>fi-en</td><td>tr-en</td></tr><tr><td>COMET-RANK (ref. only)</td><td>0.660</td><td>0.764</td><td>0.630</td><td>0.539</td><td>0.249</td><td>0.390</td><td>0.159</td><td>0.128</td></tr><tr><td>COMET-RANK</td><td>0.711</td><td>0.799</td><td>0.671</td><td>0.563</td><td>0.356</td><td>0.542</td><td>0.278</td><td>0.260</td></tr><tr><td>Δτ</td><td>0.051</td><td>0.035</td><td>0.041</td><td>0.024</td><td>0.107</td><td>0.155</td><td>0.119</td><td>0.132</td></tr></table>",
+                "caption": "Table 4: Comparison between COMET-RANK (section 2.4) and a reference-only version thereof on WMT18 data. Both models were trained with WMT17 which means that the reference-only model is never exposed to English during training."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    287,
+                    782,
+                    1213,
+                    898
+                ],
+                "angle": 0,
+                "content": "reflected in a higher \\(\\Delta \\tau\\) for the language pairs with English as a target."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    936,
+                    712,
+                    996
+                ],
+                "angle": 0,
+                "content": "6 Reproducibility"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1024,
+                    1220,
+                    1589
+                ],
+                "angle": 0,
+                "content": "We will release both the code-base of the COMET framework and the trained MT evaluation models described in this paper to the research community upon publication, along with the detailed scripts required in order to run all reported baselines. All the models reported in this paper were trained on a single Tesla T4 (16GB) GPU. Moreover, our framework builds on top of PyTorch Lightning (Falcon, 2019), a lightweight PyTorch wrapper, that was created for maximal flexibility and reproducibility."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1627,
+                    677,
+                    1683
+                ],
+                "angle": 0,
+                "content": "7 Related Work"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1715,
+                    1218,
+                    2501
+                ],
+                "angle": 0,
+                "content": "Classic MT evaluation metrics are commonly characterized as \\( n \\)-gram matching metrics because, using hand-crafted features, they estimate MT quality by counting the number and fraction of \\( n \\)-grams that appear simultaneous in a candidate translation hypothesis and one or more human-references. Metrics such as BLEU (Papineni et al., 2002), METEOR (Lavie and Denkowski, 2009), and CHRF (Popovic, 2015) have been widely studied and improved (Koehn et al., 2007; Popovic, 2017; Denkowski and Lavie, 2011; Guo and Hu, 2019), but, by design, they usually fail to recognize and capture semantic similarity beyond the lexical level."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2508,
+                    1220,
+                    3076
+                ],
+                "angle": 0,
+                "content": "In recent years, word embeddings (Mikolov et al., 2013; Pennington et al., 2014; Peters et al., 2018; Devlin et al., 2019) have emerged as a commonly used alternative to \\( n \\)-gram matching for capturing word semantics similarity. Embedding-based metrics like METEOR-VECTOR (Servan et al., 2016), BLEU2VEC (Tattar and Fishel, 2017), YI-SI-1 (Lo, 2019), MOVERSCORE (Zhao et al., 2019), and BERTSCORE (Zhang et al., 2020) create soft-alignments between reference and hypothesis"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    782,
+                    2198,
+                    1178
+                ],
+                "angle": 0,
+                "content": "in an embedding space and then compute a score that reflects the semantic similarity between those segments. However, human judgements such as DA and MQM, capture much more than just semantic similarity, resulting in a correlation upperbound between human judgements and the scores produced by such metrics."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1182,
+                    2200,
+                    2024
+                ],
+                "angle": 0,
+                "content": "Learnable metrics (Shimanaka et al., 2018; Mathur et al., 2019; Shimanaka et al., 2019) attempt to directly optimize the correlation with human judgments, and have recently shown promising results. BLEURT (Sellam et al., 2020), a learnable metric based on BERT (Devlin et al., 2019), claims state-of-the-art performance for the last 3 years of the WMT Metrics Shared task. Because BLEURT builds on top of English-BERT (Devlin et al., 2019), it can only be used when English is the target language which limits its applicability. Also, to the best of our knowledge, all the previously proposed learnable metrics have focused on optimizing DA which, due to a scarcity of annotators, can prove inherently noisy (Ma et al., 2019)."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2031,
+                    2198,
+                    2880
+                ],
+                "angle": 0,
+                "content": "Reference-less MT evaluation, also known as Quality Estimation (QE), has historically often regressed on HTER for segment-level evaluation (Bojar et al., 2013, 2014, 2015, 2016, 2017a). More recently, MQM has been used for document-level evaluation (Specia et al., 2018; Fonseca et al., 2019). By leveraging highly multilingual pretrained encoders such as multilingual BERT (Devlin et al., 2019) and XLM (Conneau and Lample, 2019), QE systems have been showing auspicious correlations with human judgements (Kepler et al., 2019a). Concurrently, the OpenKiwi framework (Kepler et al., 2019b) has made it easier for researchers to push the field forward and build stronger QE models."
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2929,
+                    2002,
+                    2981
+                ],
+                "angle": 0,
+                "content": "8 Conclusions and Future Work"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    3023,
+                    2198,
+                    3195
+                ],
+                "angle": 0,
+                "content": "In this paper we present COMET, a novel neural framework for training MT evaluation models that can serve as automatic metrics and easily be"
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    287,
+                    3097,
+                    1215,
+                    3188
+                ],
+                "angle": 0,
+                "content": "These will be hosted at: https://github.com/Unbabel/COMET"
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2692"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    266,
+                    1205,
+                    375
+                ],
+                "angle": 0,
+                "content": "adapted and optimized to different types of human judgements of MT quality."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    382,
+                    1210,
+                    771
+                ],
+                "angle": 0,
+                "content": "To showcase the effectiveness of our framework, we sought to address the challenges reported in the 2019 WMT Metrics Shared Task (Ma et al., 2019). We trained three distinct models which achieve new state-of-the-art results for segment-level correlation with human judgments, and show promising ability to better differentiate high-performing systems."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    778,
+                    1210,
+                    1112
+                ],
+                "angle": 0,
+                "content": "One of the challenges of leveraging the power of pretrained models is the burdensome weight of parameters and inference time. A primary avenue for future work on COMET will look at the impact of more compact solutions such as DistilBERT (Sanh et al., 2019)."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1122,
+                    1210,
+                    1515
+                ],
+                "angle": 0,
+                "content": "Additionally, whilst we outline the potential importance of the source text above, we note that our COMET-RANK model weighs source and reference differently during inference but equally in its training loss function. Future work will investigate the optimality of this formulation and further examine the interdependence of the different inputs."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    290,
+                    1571,
+                    692,
+                    1631
+                ],
+                "angle": 0,
+                "content": "Acknowledgments"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1669,
+                    1215,
+                    2062
+                ],
+                "angle": 0,
+                "content": "We are grateful to André Martins, Austin Matthews, Fabio Kepler, Daan Van Stigt, Miguel Vera, and the reviewers, for their valuable feedback and discussions. This work was supported in part by the P2020 Program through projects MAIA and Unbabel4EU, supervised by ANI under contract numbers 045909 and 042671, respectively."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    290,
+                    2171,
+                    533,
+                    2224
+                ],
+                "angle": 0,
+                "content": "References"
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2259,
+                    1215,
+                    2490
+                ],
+                "angle": 0,
+                "content": "Mikel Artetxe and Holger Schwenk. 2019. Massively multilingual sentence embeddings for zero-shot cross-lingual transfer and beyond. Transactions of the Association for Computational Linguistics, 7:597-610."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    2539,
+                    1215,
+                    3002
+                ],
+                "angle": 0,
+                "content": "Loic Barrault, Ondrej Bojar, Marta R. Costa-jussa, Christian Federmann, Mark Fishel, Yvette Graham, Barry Haddow, Matthias Huck, Philipp Koehn, Shervin Malmasi, Christof Monz, Mathias Müller, Santanu Pal, Matt Post, and Marcos Zampieri. 2019. Findings of the 2019 conference on machine translation (WMT19). In Proceedings of the Fourth Conference on Machine Translation (Volume 2: Shared Task Papers, Day 1), pages 1-61, Florence, Italy. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    290,
+                    3048,
+                    1215,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Ondrej Bojar, Christian Buck, Chris Callison-Burch, Christian Federmann, Barry Haddow, Philipp Koehn, Christof Monz, Matt Post, Radu Soricut, and"
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    290,
+                    2259,
+                    1215,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    1312,
+                    266,
+                    2195,
+                    501
+                ],
+                "angle": 0,
+                "content": "Lucia Specia. 2013. Findings of the 2013 Workshop on Statistical Machine Translation. In Proceedings of the Eighth Workshop on Statistical Machine Translation, pages 1-44, Sofia, Bulgaria. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    540,
+                    2195,
+                    954
+                ],
+                "angle": 0,
+                "content": "Ondrej Bojar, Christian Buck, Christian Federmann, Barry Haddow, Philipp Koehn, Johannes Leveling, Christof Monz, Pavel Pecina, Matt Post, Herve Saint-Amand, Radu Soricut, Lucia Specia, and Aleš Tamchyna. 2014. Findings of the 2014 workshop on statistical machine translation. In Proceedings of the Ninth Workshop on Statistical Machine Translation, pages 12-58, Baltimore, Maryland, USA. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    996,
+                    2195,
+                    1459
+                ],
+                "angle": 0,
+                "content": "Ondrej Bojar, Rajen Chatterjee, Christian Federmann, Yvette Graham, Barry Haddow, Shujian Huang, Matthias Huck, Philipp Koehn, Qun Liu, Varvara Logacheva, Christof Monz, Matteo Negri, Matt Post, Raphael Rubino, Lucia Specia, and Marco Turchi. 2017a. Findings of the 2017 conference on machine translation (WMT17). In Proceedings of the Second Conference on Machine Translation, pages 169-214, Copenhagen, Denmark. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1497,
+                    2195,
+                    2052
+                ],
+                "angle": 0,
+                "content": "Ondrej Bojar, Rajen Chatterjee, Christian Federmann, Yvette Graham, Barry Haddow, Matthias Huck, Antonio Jimeno Yepes, Philipp Koehn, Varvara Logacheva, Christof Monz, Matteo Negri, Aurélie Néveol, Mariana Neves, Martin Popel, Matt Post, Raphael Rubino, Carolina Scarton, Lucia Specia, Marco Turchi, Karin Verspoor, and Marcos Zampieri. 2016. Findings of the 2016 conference on machine translation. In Proceedings of the First Conference on Machine Translation: Volume 2, Shared Task Papers, pages 131-198, Berlin, Germany. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2090,
+                    2195,
+                    2508
+                ],
+                "angle": 0,
+                "content": "Ondrej Bojar, Rajen Chatterjee, Christian Federmann, Barry Haddow, Matthias Huck, Chris Hokamp, Philipp Koehn, Varvara Logacheva, Christof Monz, Matteo Negri, Matt Post, Carolina Scarton, Lucia Specia, and Marco Turchi. 2015. Findings of the 2015 workshop on statistical machine translation. In Proceedings of the Tenth Workshop on Statistical Machine Translation, pages 1-46, Lisbon, Portugal. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2546,
+                    2195,
+                    2823
+                ],
+                "angle": 0,
+                "content": "Ondrej Bojar, Yvette Graham, and Amir Kamran. 2017b. Results of the WMT17 metrics shared task. In Proceedings of the Second Conference on Machine Translation, pages 489-513, Copenhagen, Denmark. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2866,
+                    2195,
+                    3051
+                ],
+                "angle": 0,
+                "content": "Aljoscha Burchardt and Arle Lommel. 2014. Practical Guidelines for the Use of MQM in Scientific Research on Translation quality. (access date: 2020-05-26)."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    3094,
+                    2195,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Alexis Conneau, Kartikay Khandelwal, Naman Goyal, Vishrav Chaudhary, Guillaume Wenzek, Francisco"
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    1272,
+                    266,
+                    2195,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2693"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    334,
+                    270,
+                    1215,
+                    456
+                ],
+                "angle": 0,
+                "content": "Guzmán, Edouard Grave, Myle Ott, Luke Zettle-moyer, and Veselin Stoyanov. 2019. Unsupervised cross-lingual representation learning at scale. arXiv preprint arXiv:1911.02116."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    491,
+                    1220,
+                    768
+                ],
+                "angle": 0,
+                "content": "Alexis Conneau and Guillaume Lample. 2019. Crosslingual language model pretraining. In H. Wallach, H. Larochelle, A. Beygelzimer, F. d'Alché Buc, E. Fox, and R. Garnett, editors, Advances in Neural Information Processing Systems 32, pages 7059-7069. Curran Associates, Inc."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    803,
+                    1220,
+                    1083
+                ],
+                "angle": 0,
+                "content": "Michael Denkowski and Alon Lavie. 2011. Meteor 1.3: Automatic metric for reliable optimization and evaluation of machine translation systems. In Proceedings of the Sixth Workshop on Statistical Machine Translation, pages 85-91, Edinburgh, Scotland. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    1119,
+                    1220,
+                    1536
+                ],
+                "angle": 0,
+                "content": "Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2019. BERT: Pre-training of deep bidirectional transformers for language understanding. In Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers), pages 4171-4186, Minneapolis, Minnesota. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    1568,
+                    1215,
+                    1708
+                ],
+                "angle": 0,
+                "content": "WA Falcon. 2019. PyTorch Lightning: The lightweight PyTorch wrapper for high-performance AI research. GitHub."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    1746,
+                    1220,
+                    2073
+                ],
+                "angle": 0,
+                "content": "Erick Fonseca, Lisa Yankovskaya, André F. T. Martins, Mark Fishel, and Christian Federmann. 2019. Findings of the WMT 2019 shared tasks on quality estimation. In Proceedings of the Fourth Conference on Machine Translation (Volume 3: Shared Task Papers, Day 2), pages 1-10, Florence, Italy. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    2108,
+                    1220,
+                    2431
+                ],
+                "angle": 0,
+                "content": "Yvette Graham, Timothy Baldwin, Alistair Moffat, and Justin Zobel. 2013. Continuous measurement scales in human evaluation of machine translation. In Proceedings of the 7th Linguistic Annotation Workshop and Interoperability with Discourse, pages 33-41, Sofia, Bulgaria. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    2466,
+                    1220,
+                    2792
+                ],
+                "angle": 0,
+                "content": "Yvette Graham, Timothy Baldwin, Alistair Moffat, and Justin Zobel. 2014. Is machine translation getting better over time? In Proceedings of the 14th Conference of the European Chapter of the Association for Computational Linguistics, pages 443-451, Gothenburg, Sweden. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    2827,
+                    1220,
+                    3013
+                ],
+                "angle": 0,
+                "content": "Yvette Graham, Timothy Baldwin, Alistair Moffat, and Justin Zobel. 2017. Can machine translation systems be evaluated by the crowd alone. *Natural Language Engineering*, 23(1):330."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    3048,
+                    1220,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Yinuo Guo and Junfeng Hu. 2019. Meteor++ 2.0: Adopt syntactic level paraphrase knowledge into machine translation evaluation. In Proceedings of the"
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    295,
+                    270,
+                    1220,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    1322,
+                    270,
+                    2195,
+                    452
+                ],
+                "angle": 0,
+                "content": "Fourth Conference on Machine Translation (Volume 2: Shared Task Papers, Day 1), pages 501-506, Florence, Italy. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    491,
+                    2195,
+                    768
+                ],
+                "angle": 0,
+                "content": "Jeremy Howard and Sebastian Ruder. 2018. Universal language model fine-tuning for text classification. In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 328-339, Melbourne, Australia. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    803,
+                    2195,
+                    1213
+                ],
+                "angle": 0,
+                "content": "Fabio Kepler, Jonay Trénous, Marcos Treviso, Miguel Vera, Antonio Góis, M. Amin Farajian, Antonio V. Lopes, and André F. T. Martins. 2019a. Unbabel's participation in the WMT19 translation quality estimation shared task. In Proceedings of the Fourth Conference on Machine Translation (Volume 3: Shared Task Papers, Day 2), pages 78-84, Florence, Italy. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1252,
+                    2195,
+                    1578
+                ],
+                "angle": 0,
+                "content": "Fabio Kepler, Jonay Trénous, Marcos Treviso, Miguel Vera, and André F. T. Martins. 2019b. OpenKiwi: An open source framework for quality estimation. In Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics: System Demonstrations, pages 117-122, Florence, Italy. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1613,
+                    2195,
+                    2118
+                ],
+                "angle": 0,
+                "content": "Philipp Koehn, Hieu Hoang, Alexandra Birch, Chris Callison-Burch, Marcello Federico, Nicola Bertoldi, Brooke Cowan, Wade Shen, Christine Moran, Richard Zens, Chris Dyer, Ondrej Bojar, Alexandra Constantin, and Evan Herbst. 2007. Moses: Open source toolkit for statistical machine translation. In Proceedings of the 45th Annual Meeting of the Association for Computational Linguistics Companion Volume Proceedings of the Demo and Poster Sessions, pages 177-180, Prague, Czech Republic. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2153,
+                    2195,
+                    2525
+                ],
+                "angle": 0,
+                "content": "Dan Kondratyuk and Milan Straka. 2019. 75 languages, 1 model: Parsing universal dependencies universally. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP), pages 2779-2795, Hong Kong, China. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2560,
+                    2195,
+                    2697
+                ],
+                "angle": 0,
+                "content": "Alon Lavie and Michael Denkowski. 2009. The meteor metric for automatic evaluation of machine translation. Machine Translation, 23:105-115."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2736,
+                    2195,
+                    3058
+                ],
+                "angle": 0,
+                "content": "Chi-kiu Lo. 2019. YiSi - a unified semantic MT quality evaluation and estimation metric for languages with different levels of available resources. In Proceedings of the Fourth Conference on Machine Translation (Volume 2: Shared Task Papers, Day 1), pages 507-513, Florence, Italy. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    3094,
+                    2195,
+                    3188
+                ],
+                "angle": 0,
+                "content": "Arle Lommel, Aljoscha Burchardt, and Hans Uszkoreit. 2014. Multidimensional quality metrics (MQM): A"
+            },
+            {
+                "block_id": 20,
+                "type": "list",
+                "bbox": [
+                    1272,
+                    270,
+                    2195,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 21,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3234,
+                    1292,
+                    3276
+                ],
+                "angle": 0,
+                "content": "2694"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    334,
+                    270,
+                    1215,
+                    406
+                ],
+                "angle": 0,
+                "content": "framework for declaring and describing translation quality metrics. Tradumtica: technologies de la traducci, 0:455-463."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    445,
+                    1220,
+                    771
+                ],
+                "angle": 0,
+                "content": "Qingsong Ma, Ondrej Bojar, and Yvette Graham. 2018. Results of the WMT18 metrics shared task: Both characters and embeddings achieve good performance. In Proceedings of the Third Conference on Machine Translation: Shared Task Papers, pages 671-688, Belgium, Brussels. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    803,
+                    1220,
+                    1171
+                ],
+                "angle": 0,
+                "content": "Qingsong Ma, Johnny Wei, Ondrej Bojar, and Yvette Graham. 2019. Results of the WMT19 metrics shared task: Segment-level and strong MT systems pose big challenges. In Proceedings of the Fourth Conference on Machine Translation (Volume 2: Shared Task Papers, Day 1), pages 62-90, Florence, Italy. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    1210,
+                    1220,
+                    1532
+                ],
+                "angle": 0,
+                "content": "Nitika Mathur, Timothy Baldwin, and Trevor Cohn. 2019. Putting evaluation in context: Contextual embeddings improve machine translation evaluation. In Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics, pages 2799-2808, Florence, Italy. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    1568,
+                    1218,
+                    1845
+                ],
+                "angle": 0,
+                "content": "Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado, and Jeff Dean. 2013. Distributed representations of words and phrases and their compositionality. In Advances in Neural Information Processing Systems 26, pages 3111-3119. Curran Associates, Inc."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    1880,
+                    1220,
+                    2206
+                ],
+                "angle": 0,
+                "content": "Kishore Papineni, Salim Roukos, Todd Ward, and Wei-Jing Zhu. 2002. Bleu: a method for automatic evaluation of machine translation. In Proceedings of the 40th Annual Meeting of the Association for Computational Linguistics, pages 311-318, Philadelphia, Pennsylvania, USA. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    2241,
+                    1220,
+                    2518
+                ],
+                "angle": 0,
+                "content": "Jeffrey Pennington, Richard Socher, and Christopher Manning. 2014. Glove: Global vectors for word representation. In Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP), pages 1532-1543, Doha, Qatar. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    2553,
+                    1220,
+                    2967
+                ],
+                "angle": 0,
+                "content": "Matthew Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark, Kenton Lee, and Luke Zettlemoyer. 2018. Deep contextualized word representations. In Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers), pages 2227-2237, New Orleans, Louisiana. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    3002,
+                    1220,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Telmo Pires, Eva Schlinger, and Dan Garrette. 2019. How multilingual is multilingual BERT? In Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics, pages 4996-"
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    295,
+                    270,
+                    1220,
+                    3192
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    1322,
+                    270,
+                    2195,
+                    364
+                ],
+                "angle": 0,
+                "content": "5001, Florence, Italy. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    410,
+                    2195,
+                    641
+                ],
+                "angle": 0,
+                "content": "Maja Popovic. 2015. chrF: character n-gram f-score for automatic MT evaluation. In Proceedings of the Tenth Workshop on Statistical Machine Translation, pages 392–395, Lisbon, Portugal. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    687,
+                    2195,
+                    919
+                ],
+                "angle": 0,
+                "content": "Maja Popovic. 2017. \\(\\mathrm{chrF}++\\): words helping character n-grams. In Proceedings of the Second Conference on Machine Translation, pages 612-618, Copenhagen, Denmark. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    964,
+                    2195,
+                    1336
+                ],
+                "angle": 0,
+                "content": "Nils Reimers and Iryna Gurevych. 2019. SentenceBERT: Sentence embeddings using Siamese BERTnetworks. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP), pages 3982-3992, Hong Kong, China. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1382,
+                    2195,
+                    1571
+                ],
+                "angle": 0,
+                "content": "Victor Sanh, Lysandre Debut, Julien Chaumont, and Thomas Wolf. 2019. Distilbert, a distilled version of BERT: smaller, faster, cheaper and lighter. arXiv preprint arXiv:1910.01108."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1613,
+                    2195,
+                    1841
+                ],
+                "angle": 0,
+                "content": "F. Schroff, D. Kalenichenko, and J. Philbin. 2015. Facenet: A unified embedding for face recognition and clustering. In 2015 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pages 815-823."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1894,
+                    2195,
+                    2171
+                ],
+                "angle": 0,
+                "content": "Thibault Sellam, Dipanjan Das, and Ankur Parikh. 2020. BLEURT: Learning robust metrics for text generation. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics, pages 7881-7892, Online. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2217,
+                    2195,
+                    2588
+                ],
+                "angle": 0,
+                "content": "Christophe Servan, Alexandre Bérard, Zied Elloumi, Hervé Blanchon, and Laurent Besacier. 2016. Word2Vec vs DBnary: Augmenting METEOR using vector representations or lexical resources? In Proceedings of COLING 2016, the 26th International Conference on Computational Linguistics: Technical Papers, pages 1159-1168, Osaka, Japan. The COLING 2016 Organizing Committee."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2634,
+                    2195,
+                    2957
+                ],
+                "angle": 0,
+                "content": "Hiroki Shimanaka, Tomoyuki Kajiwara, and Mamoru Komachi. 2018. RUSE: Regressor using sentence embeddings for automatic machine translation evaluation. In Proceedings of the Third Conference on Machine Translation: Shared Task Papers, pages 751-758, Belgium, Brussels. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    3002,
+                    2195,
+                    3185
+                ],
+                "angle": 0,
+                "content": "Hiroki Shimanaka, Tomoyuki Kajiwara, and Mamoru Komachi. 2019. Machine Translation Evaluation with BERT Regressor. arXiv preprint arXiv:1907.12679."
+            },
+            {
+                "block_id": 20,
+                "type": "list",
+                "bbox": [
+                    1272,
+                    270,
+                    2195,
+                    3185
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 21,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3234,
+                    1292,
+                    3276
+                ],
+                "angle": 0,
+                "content": "2695"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    270,
+                    1218,
+                    501
+                ],
+                "angle": 0,
+                "content": "Matthew Snover, Bonnie Dorr, Richard Schwartz, Linnea Micciulla, and John Makhoul. 2006. A study of translation edit rate with targeted human annotation. In *In Proceedings of Association for Machine Translation in the Americas*, pages 223-231."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    536,
+                    1220,
+                    859
+                ],
+                "angle": 0,
+                "content": "Lucia Specia, Frédéric Blain, Varvara Logacheva, Ramón Astudillo, and André F. T. Martins. 2018. Findings of the WMT 2018 shared task on quality estimation. In Proceedings of the Third Conference on Machine Translation: Shared Task Papers, pages 689-709, Belgium, Brussels. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    894,
+                    1220,
+                    1171
+                ],
+                "angle": 0,
+                "content": "Lucia Specia, Kim Harris, Frédéric Blain, Aljoscha Burchardt, Viviven Macketanz, Inguna Skadina, Matteo Negri, , and Marco Turchi. 2017. Translation quality and productivity: A study on rich morphology languages. In Machine Translation Summit XVI, pages 55-71, Nagoya, Japan."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1210,
+                    1220,
+                    1529
+                ],
+                "angle": 0,
+                "content": "Kosuke Takahashi, Katsuhito Sudoh, and Satoshi Nakamura. 2020. Automatic machine translation evaluation using source language inputs and cross-lingual language model. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics, pages 3553–3558, Online. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1568,
+                    1218,
+                    1845
+                ],
+                "angle": 0,
+                "content": "Andre Tattar and Mark Fishel. 2017. bleu2vec: the painfully familiar metric on continuous vector space steroids. In Proceedings of the Second Conference on Machine Translation, pages 619-622, Copenhagen, Denmark. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1880,
+                    1220,
+                    2157
+                ],
+                "angle": 0,
+                "content": "Ian Tenney, Dipanjan Das, and Ellie Pavlick. 2019. BERT rediscovers the classical NLP pipeline. In Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics, pages 4593-4601, Florence, Italy. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2192,
+                    1218,
+                    2378
+                ],
+                "angle": 0,
+                "content": "Tianyi Zhang, Varsha Kishore, Felix Wu, Kilian Q. Weinberger, and Yoav Artzi. 2020. *Bertscore: Evaluating text generation with bert.* In *International Conference on Learning Representations*."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2413,
+                    1220,
+                    2785
+                ],
+                "angle": 0,
+                "content": "Wei Zhao, Goran Glavaš, Maxime Peyrard, Yang Gao, Robert West, and Steffen Eger. 2020. On the limitations of cross-lingual encoders as exposed by reference-free machine translation evaluation. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics, pages 1656–1671, Online. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2820,
+                    1220,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Wei Zhao, Maxime Peyrard, Fei Liu, Yang Gao, Christian M. Meyer, and Steffen Eger. 2019. MoverScore: Text generation evaluating with contextualized embeddings and earth mover distance. In Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP), pages 563-578, Hong"
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    292,
+                    270,
+                    1220,
+                    3192
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1314,
+                    270,
+                    2195,
+                    364
+                ],
+                "angle": 0,
+                "content": "Kong, China. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2696"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    292,
+                    263,
+                    632,
+                    322
+                ],
+                "angle": 0,
+                "content": "A Appendices"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    290,
+                    350,
+                    1215,
+                    631
+                ],
+                "angle": 0,
+                "content": "In Table 5 we list the hyper-parameters used to train our models. Before initializing these models a random seed was set to 3 in all libraries that perform \"random\" operations (torch, numpy, random and CUDA)."
+            },
+            {
+                "block_id": 2,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1290,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2697"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    416,
+                    557,
+                    2071,
+                    1266
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Hyper-parameter</td><td>COMET(Est-HTER/MQM)</td><td>COMET-RANK</td></tr><tr><td>Encoder Model</td><td>XLM-RoBERTa (base)</td><td>XLM-RoBERTa (base)</td></tr><tr><td>Optimizer</td><td>Adam (default parameters)</td><td>Adam (default parameters)</td></tr><tr><td>n frozen epochs</td><td>1</td><td>0</td></tr><tr><td>Learning rate</td><td>3e-05 and 1e-05</td><td>1e-05</td></tr><tr><td>Batch size</td><td>16</td><td>16</td></tr><tr><td>Loss function</td><td>MSE</td><td>Triplet Margin (ε = 1.0)</td></tr><tr><td>Layer-wise dropout</td><td>0.1</td><td>0.1</td></tr><tr><td>FP precision</td><td>32</td><td>32</td></tr><tr><td>Feed-Forward hidden units</td><td>2304,1152</td><td>-</td></tr><tr><td>Feed-Forward activations</td><td>Tanh</td><td>-</td></tr><tr><td>Feed-Forward dropout</td><td>0.1</td><td>-</td></tr></table>",
+                "caption": "Table 6: Statistics for the QT21 corpus."
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    667,
+                    1803,
+                    1821,
+                    2118
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>en-de</td><td>en-cs</td><td>en-lv</td><td>de-en</td></tr><tr><td>Total tuples</td><td>54000</td><td>42000</td><td>35474</td><td>41998</td></tr><tr><td>Avg. tokens (reference)</td><td>17.80</td><td>15.56</td><td>16.42</td><td>17.71</td></tr><tr><td>Avg. tokens (source)</td><td>16.70</td><td>17.37</td><td>18.39</td><td>17.18</td></tr><tr><td>Avg. tokens (MT)</td><td>17.65</td><td>15.64</td><td>16.42</td><td>17.78</td></tr></table>",
+                "caption": "Table 7: Statistics for the WMT 2017 DARR corpus."
+            },
+            {
+                "block_id": 5,
+                "type": "table",
+                "bbox": [
+                    607,
+                    2655,
+                    1880,
+                    2971
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>en-cs</td><td>en-de</td><td>en-fi</td><td>en-lv</td><td>en-tr</td></tr><tr><td>Total tuples</td><td>32810</td><td>6454</td><td>3270</td><td>3456</td><td>247</td></tr><tr><td>Avg. tokens (reference)</td><td>19.70</td><td>22.15</td><td>15.59</td><td>21.42</td><td>17.57</td></tr><tr><td>Avg. tokens (source)</td><td>22.37</td><td>23.41</td><td>21.73</td><td>26.08</td><td>22.51</td></tr><tr><td>Avg. tokens (MT)</td><td>19.45</td><td>22.58</td><td>16.06</td><td>22.18</td><td>17.25</td></tr></table>"
+            },
+            {
+                "block_id": 6,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "2698"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    632,
+                    898,
+                    940,
+                    2532
+                ],
+                "angle": 270,
+                "content": "<table><tr><td></td><td>de-en</td><td>fi-en</td><td>gu-en</td><td>kk-en</td><td>lt-en</td><td>ru-en</td><td>zh-en</td></tr><tr><td>Total tuples</td><td>85365</td><td>32179</td><td>20110</td><td>9728</td><td>21862</td><td>39852</td><td>31070</td></tr><tr><td>Avg. tokens (reference)</td><td>20.29</td><td>18.55</td><td>17.64</td><td>20.36</td><td>26.55</td><td>21.74</td><td>42.89</td></tr><tr><td>Avg. tokens (source)</td><td>18.44</td><td>12.49</td><td>21.92</td><td>16.32</td><td>20.32</td><td>18.00</td><td>7.57</td></tr><tr><td>Avg. tokens (MT)</td><td>20.22</td><td>17.76</td><td>17.02</td><td>19.68</td><td>25.25</td><td>21.80</td><td>39.70</td></tr></table>",
+                "caption": "Table 9: Statistics for the WMT 2019 DARR from-English and no-English language pairs."
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    1612,
+                    582,
+                    1917,
+                    2852
+                ],
+                "angle": 270,
+                "content": "<table><tr><td></td><td>en-cs</td><td>en-de</td><td>en-fi</td><td>en-gu</td><td>en-kk</td><td>en-lt</td><td>en-ru</td><td>en-zh</td><td>fr-de</td><td>de-cs</td><td>de-fr</td></tr><tr><td>Total tuples</td><td>27178</td><td>99840</td><td>31820</td><td>11355</td><td>18172</td><td>17401</td><td>24334</td><td>18658</td><td>1369</td><td>23194</td><td>4862</td></tr><tr><td>Avg. tokens (reference)</td><td>22.92</td><td>25.65</td><td>20.12</td><td>33.32</td><td>18.89</td><td>21.00</td><td>24.79</td><td>9.25</td><td>22.68</td><td>22.27</td><td>27.32</td></tr><tr><td>Avg. tokens (source)</td><td>24.98</td><td>24.97</td><td>25.23</td><td>24.32</td><td>23.78</td><td>24.46</td><td>24.45</td><td>24.39</td><td>28.60</td><td>25.22</td><td>21.36</td></tr><tr><td>Avg. tokens (MT)</td><td>22.60</td><td>24.98</td><td>19.69</td><td>32.97</td><td>19.92</td><td>20.97</td><td>23.37</td><td>6.83</td><td>23.36</td><td>21.89</td><td>25.68</td></tr></table>"
+            },
+            {
+                "block_id": 4,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3234,
+                    1290,
+                    3276
+                ],
+                "angle": 0,
+                "content": "2699"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    635,
+                    456,
+                    940,
+                    2971
+                ],
+                "angle": 270,
+                "content": "<table><tr><td></td><td>en-nl</td><td>en-sv</td><td>en-ja</td><td>en-de</td><td>en-ru</td><td>en-es</td><td>en-fr</td><td>en-it</td><td>en-pt-br</td><td>en-tr</td><td>en-pt</td><td>en-es-latam</td></tr><tr><td>Total tuples</td><td>2447</td><td>970</td><td>1590</td><td>2756</td><td>1043</td><td>259</td><td>1474</td><td>812</td><td>504</td><td>370</td><td>91</td><td>6</td></tr><tr><td>Avg. tokens (reference)</td><td>14.10</td><td>14.24</td><td>20.32</td><td>13.78</td><td>13.37</td><td>10.90</td><td>13.75</td><td>13.61</td><td>12.48</td><td>7.95</td><td>12.18</td><td>10.33</td></tr><tr><td>Avg. tokens (source)</td><td>14.23</td><td>15.31</td><td>13.69</td><td>13.76</td><td>13.94</td><td>11.23</td><td>12.85</td><td>14.22</td><td>12.46</td><td>10.36</td><td>13.45</td><td>12.33</td></tr><tr><td>Avg. tokens (MT)</td><td>13.66</td><td>13.91</td><td>17.84</td><td>13.41</td><td>13.19</td><td>10.88</td><td>13.59</td><td>13.02</td><td>12.19</td><td>7.99</td><td>12.21</td><td>10.17</td></tr></table>",
+                "caption": "Table 11: Statistics for the WMT 2018 DARR language pairs."
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    1612,
+                    350,
+                    1917,
+                    3076
+                ],
+                "angle": 270,
+                "content": "<table><tr><td></td><td>zh-en</td><td>en-zh</td><td>cs-en</td><td>fi-en</td><td>ru-en</td><td>tr-en</td><td>de-en</td><td>en-cs</td><td>en-de</td><td>en-et</td><td>en-fi</td><td>en-ru</td><td>en-tr</td><td>et-en</td></tr><tr><td>Total tuples</td><td>33357</td><td>28602</td><td>5110</td><td>15648</td><td>10404</td><td>8525</td><td>77811</td><td>5413</td><td>19711</td><td>32202</td><td>9809</td><td>22181</td><td>1358</td><td>56721</td></tr><tr><td>Avg. tokens (reference)</td><td>28.86</td><td>24.04</td><td>21.98</td><td>21.13</td><td>24.97</td><td>23.25</td><td>23.29</td><td>19.50</td><td>23.54</td><td>18.21</td><td>16.32</td><td>21.81</td><td>20.15</td><td>23.40</td></tr><tr><td>Avg. tokens (source)</td><td>23.86</td><td>28.27</td><td>18.67</td><td>15.03</td><td>21.37</td><td>18.80</td><td>21.95</td><td>22.67</td><td>24.82</td><td>23.47</td><td>22.82</td><td>25.24</td><td>24.37</td><td>18.15</td></tr><tr><td>Avg. tokens (MT)</td><td>27.45</td><td>14.94</td><td>21.79</td><td>20.46</td><td>25.25</td><td>22.80</td><td>22.64</td><td>19.73</td><td>23.74</td><td>18.37</td><td>17.15</td><td>21.86</td><td>19.61</td><td>23.52</td></tr></table>"
+            },
+            {
+                "block_id": 4,
+                "type": "page_number",
+                "bbox": [
+                    1195,
+                    3237,
+                    1290,
+                    3276
+                ],
+                "angle": 0,
+                "content": "2700"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    530,
+                    410,
+                    1260,
+                    1003
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    1275,
+                    410,
+                    1964,
+                    1006
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    555,
+                    1013,
+                    1280,
+                    1610
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    1280,
+                    1013,
+                    1942,
+                    1610
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    553,
+                    1617,
+                    1277,
+                    2213
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1282,
+                    1617,
+                    1947,
+                    2213
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    550,
+                    2220,
+                    1275,
+                    2816
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1282,
+                    2241,
+                    1945,
+                    2813
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Table 12: Metrics performance over all and the top (10,8, 6, and 4) MT systems for all from-English language pairs. The color scheme is as follows: — COMET-RANK, — COMET-HTER, — COMET-MQM, — BLEU, — BERTSCORE"
+            },
+            {
+                "block_id": 9,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3234,
+                    1287,
+                    3276
+                ],
+                "angle": 0,
+                "content": "2701"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    478,
+                    687,
+                    1242,
+                    1287
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    1312,
+                    691,
+                    1984,
+                    1287
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    488,
+                    1304,
+                    1220,
+                    1897
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    1277,
+                    1304,
+                    2026,
+                    1904
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    491,
+                    1918,
+                    1215,
+                    2515
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Table 13: Metrics performance over all and the top (10,8, 6, and 4) MT systems for all into-English language pairs. The color scheme is as follows: — COMET-RANK, — COMET-HTER, — COMET-MQM, — BLEU, — BERTSCORE , — BLEURT"
+            },
+            {
+                "block_id": 6,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3234,
+                    1295,
+                    3276
+                ],
+                "angle": 0,
+                "content": "2702"
+            }
+        ]
+    }
+]

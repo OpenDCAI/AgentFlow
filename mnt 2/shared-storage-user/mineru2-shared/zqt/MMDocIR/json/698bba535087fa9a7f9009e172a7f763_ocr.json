@@ -1,0 +1,2348 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    328,
+                    356,
+                    711,
+                    689
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    334,
+                    696,
+                    711,
+                    1445
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    795,
+                    861,
+                    1762,
+                    1029
+                ],
+                "angle": 0,
+                "content": "HAMILTON"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    910,
+                    1148,
+                    1660,
+                    1306
+                ],
+                "angle": 0,
+                "content": "COUNTY"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1833,
+                    359,
+                    2213,
+                    693
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1836,
+                    805,
+                    2213,
+                    1445
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    334,
+                    1452,
+                    1088,
+                    1821
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    336,
+                    1821,
+                    708,
+                    2191
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    714,
+                    1824,
+                    1088,
+                    2191
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1124,
+                    1683,
+                    2185,
+                    1788
+                ],
+                "angle": 0,
+                "content": "NEBRASKA HISTORIC"
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    1162,
+                    1874,
+                    2144,
+                    1980
+                ],
+                "angle": 0,
+                "content": "BUILDINGS SURVEY"
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    336,
+                    2194,
+                    708,
+                    2557
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    334,
+                    2564,
+                    708,
+                    2943
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "image",
+                "bbox": [
+                    714,
+                    2191,
+                    1088,
+                    2564
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "image",
+                "bbox": [
+                    1093,
+                    2191,
+                    1453,
+                    2564
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "image",
+                "bbox": [
+                    1458,
+                    2191,
+                    1838,
+                    2564
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "image",
+                "bbox": [
+                    823,
+                    2633,
+                    1716,
+                    2847
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "STATE HISTORICAL SOCIETY"
+            },
+            {
+                "block_id": 18,
+                "type": "image",
+                "bbox": [
+                    1836,
+                    2227,
+                    2213,
+                    2943
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": []
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    958,
+                    653,
+                    1591,
+                    739
+                ],
+                "angle": 0,
+                "content": "Hamilton County"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    823,
+                    745,
+                    1723,
+                    805
+                ],
+                "angle": 0,
+                "content": "Nebraska Historic Buildings Survey"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1119,
+                    920,
+                    1422,
+                    976
+                ],
+                "angle": 0,
+                "content": "Prepared for:"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    793,
+                    1036,
+                    1749,
+                    1102
+                ],
+                "angle": 0,
+                "content": "The Nebraska State Historical Society"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1124,
+                    1333,
+                    1417,
+                    1389
+                ],
+                "angle": 0,
+                "content": "Prepared by:"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1045,
+                    1448,
+                    1501,
+                    1501
+                ],
+                "angle": 0,
+                "content": "H. Jason Combs (PI)"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1109,
+                    1508,
+                    1440,
+                    1554
+                ],
+                "angle": 0,
+                "content": "Anne M. Bauer"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1114,
+                    1564,
+                    1433,
+                    1613
+                ],
+                "angle": 0,
+                "content": "John T. Bauer"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1053,
+                    1676,
+                    1494,
+                    1729
+                ],
+                "angle": 0,
+                "content": "501 West \\(28^{\\text{th}}\\) Street"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    994,
+                    1735,
+                    1552,
+                    1788
+                ],
+                "angle": 0,
+                "content": "Kearney, Nebraska 68845"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1114,
+                    1795,
+                    1433,
+                    1844
+                ],
+                "angle": 0,
+                "content": "(308) 236-5137"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1068,
+                    1854,
+                    1476,
+                    1907
+                ],
+                "angle": 0,
+                "content": "combshj@unk.edu"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1162,
+                    2369,
+                    1382,
+                    2422
+                ],
+                "angle": 0,
+                "content": "July 2009"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": []
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    298,
+                    359,
+                    731,
+                    415
+                ],
+                "angle": 0,
+                "content": "Executive Summary"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    298,
+                    471,
+                    2223,
+                    815
+                ],
+                "angle": 0,
+                "content": "The Nebraska State Historical Society (NSHS) contracted with H. Jason Combs (PI), Anne Bauer, and John Bauer to conduct a Nebraska Historic Buildings Survey (NeHBS) of Hamilton County. The survey was conducted in the summer and fall of 2008 to document properties that possess historic or architectural significance. Hamilton County was previously surveyed in 1984—at that time 546 properties were identified and recorded. The properties were resurveyed in addition to the 183 newly identified and documented properties."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    298,
+                    874,
+                    2208,
+                    1217
+                ],
+                "angle": 0,
+                "content": "Within the report, when a surveyed building is mentioned, its NeHBS site number follows its reference in the text (for example, HM01-114). These site numbers begin with an abbreviation for the county, HM for Hamilton County, and a two-digit number referring to its location with the county. Each community has a specific number, for instance, Marquette is \"06\" and rural sites are labeled \"00.\" The last three numbers refer to the building or structure with the NeHBS inventory."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    298,
+                    1277,
+                    2231,
+                    1623
+                ],
+                "angle": 0,
+                "content": "We would like to thank the following state and local organizations and individuals for their assistance: staff at the Plainsman Museum and the Aurora Public Library; citizens who participated in the public meetings and/or offered information during the reconnaissance survey; Jill Dolberg, Bob Puschendorf and Stacy Stupka-Burda of the Nebraska State Historic Preservation Office (NESHPO); and the staff of the Nebraska Historical Society Archives and Library."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    298,
+                    1676,
+                    2249,
+                    2082
+                ],
+                "angle": 0,
+                "content": "The NeHBS projects are administered by the NESHPO—a division of the NSHS. The NeHBS is funded in part with the assistance of a federal grant from the U.S. Department of the Interior, National Park Service. Regulations of the U.S. Department of the Interior strictly prohibit unlawful discrimination on the basis of race, color, national origin, age or handicap. Any person who believes he or she has been discriminated against in any program, activity or facility operated by a recipient of federal assistance should write to: Director, Office of Equal Opportunity, National Park Service, 1849 C Street NW, Washington, D.C. 20240."
+            },
+            {
+                "block_id": 5,
+                "type": "page_number",
+                "bbox": [
+                    2231,
+                    3045,
+                    2251,
+                    3082
+                ],
+                "angle": 0,
+                "content": "i"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    293,
+                    297,
+                    328,
+                    3019
+                ],
+                "angle": 0,
+                "content": "ii"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1076,
+                    300,
+                    1471,
+                    356
+                ],
+                "angle": 0,
+                "content": "Table of Contents"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    293,
+                    415,
+                    2126,
+                    471
+                ],
+                "angle": 0,
+                "content": "Executive Summary i"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    293,
+                    531,
+                    2126,
+                    587
+                ],
+                "angle": 0,
+                "content": "Chapter 1: Historical Overview of Hamilton County 1"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    293,
+                    594,
+                    2126,
+                    640
+                ],
+                "angle": 0,
+                "content": "Introduction 1"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    295,
+                    650,
+                    2129,
+                    702
+                ],
+                "angle": 0,
+                "content": "Hamilton County 2"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    295,
+                    706,
+                    2126,
+                    752
+                ],
+                "angle": 0,
+                "content": "Initial Settlement and Ethnic Clusters 3"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    295,
+                    762,
+                    2126,
+                    818
+                ],
+                "angle": 0,
+                "content": "Agriculture in Hamilton County 6"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    295,
+                    821,
+                    2126,
+                    874
+                ],
+                "angle": 0,
+                "content": "Hamilton County Towns 8"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    295,
+                    881,
+                    2154,
+                    930
+                ],
+                "angle": 0,
+                "content": "Selecting the County Seat of Government 10"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    295,
+                    937,
+                    2152,
+                    986
+                ],
+                "angle": 0,
+                "content": "Aurora, Nebraska 10"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    295,
+                    993,
+                    2152,
+                    1042
+                ],
+                "angle": 0,
+                "content": "Giltner, Nebraska 14"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    295,
+                    1052,
+                    2152,
+                    1102
+                ],
+                "angle": 0,
+                "content": "Hampton, Nebraska 15"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    295,
+                    1108,
+                    2152,
+                    1158
+                ],
+                "angle": 0,
+                "content": "Hordville, Nebraska 16"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    295,
+                    1164,
+                    2152,
+                    1217
+                ],
+                "angle": 0,
+                "content": "Marquette, Nebraska 17"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    295,
+                    1224,
+                    2152,
+                    1273
+                ],
+                "angle": 0,
+                "content": "Murphy, Nebraska 18"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    295,
+                    1280,
+                    2152,
+                    1333
+                ],
+                "angle": 0,
+                "content": "Phillips, Nebraska 18"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    295,
+                    1339,
+                    2152,
+                    1389
+                ],
+                "angle": 0,
+                "content": "Stockham, Nebraska 19"
+            },
+            {
+                "block_id": 17,
+                "type": "title",
+                "bbox": [
+                    293,
+                    1452,
+                    2152,
+                    1508
+                ],
+                "angle": 0,
+                "content": "Chapter 2: Survey Results 23"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    293,
+                    1511,
+                    2152,
+                    1560
+                ],
+                "angle": 0,
+                "content": "Objectives 23"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    295,
+                    1567,
+                    2152,
+                    1623
+                ],
+                "angle": 0,
+                "content": "Methodology 23"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    295,
+                    1626,
+                    2152,
+                    1679
+                ],
+                "angle": 0,
+                "content": "National Register of Historic Places 24"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    295,
+                    1686,
+                    2152,
+                    1735
+                ],
+                "angle": 0,
+                "content": "Survey Results 26"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    295,
+                    1742,
+                    2152,
+                    1788
+                ],
+                "angle": 0,
+                "content": "Illustrated Discussion of Historic Contexts 28"
+            },
+            {
+                "block_id": 23,
+                "type": "title",
+                "bbox": [
+                    293,
+                    1854,
+                    2152,
+                    1907
+                ],
+                "angle": 0,
+                "content": "Chapter 3: Recommendations 36"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    293,
+                    1913,
+                    2152,
+                    1963
+                ],
+                "angle": 0,
+                "content": "Recommendations 36"
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    295,
+                    1973,
+                    2152,
+                    2022
+                ],
+                "angle": 0,
+                "content": "Zion Lutheran Church 46"
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    295,
+                    2029,
+                    2152,
+                    2082
+                ],
+                "angle": 0,
+                "content": "Evaluation of Potentially Eligible Historic Districts 48"
+            },
+            {
+                "block_id": 27,
+                "type": "title",
+                "bbox": [
+                    293,
+                    2141,
+                    2152,
+                    2197
+                ],
+                "angle": 0,
+                "content": "Chapter 4: Preservation in Nebraska 51"
+            },
+            {
+                "block_id": 28,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2201,
+                    2152,
+                    2250
+                ],
+                "angle": 0,
+                "content": "Preservation in Nebraska 51"
+            },
+            {
+                "block_id": 29,
+                "type": "text",
+                "bbox": [
+                    295,
+                    2260,
+                    2152,
+                    2313
+                ],
+                "angle": 0,
+                "content": "Nebraska Historic Buildings Survey 51"
+            },
+            {
+                "block_id": 30,
+                "type": "text",
+                "bbox": [
+                    295,
+                    2316,
+                    2152,
+                    2366
+                ],
+                "angle": 0,
+                "content": "National Register of Historic Places 52"
+            },
+            {
+                "block_id": 31,
+                "type": "text",
+                "bbox": [
+                    295,
+                    2372,
+                    2152,
+                    2422
+                ],
+                "angle": 0,
+                "content": "Certified Local Governments 53"
+            },
+            {
+                "block_id": 32,
+                "type": "text",
+                "bbox": [
+                    295,
+                    2432,
+                    2152,
+                    2481
+                ],
+                "angle": 0,
+                "content": "Preservation Tax Incentives 54"
+            },
+            {
+                "block_id": 33,
+                "type": "text",
+                "bbox": [
+                    295,
+                    2488,
+                    2152,
+                    2541
+                ],
+                "angle": 0,
+                "content": "Valuation Incentive Program 54"
+            },
+            {
+                "block_id": 34,
+                "type": "text",
+                "bbox": [
+                    295,
+                    2547,
+                    2152,
+                    2597
+                ],
+                "angle": 0,
+                "content": "Federal Project Review 55"
+            },
+            {
+                "block_id": 35,
+                "type": "text",
+                "bbox": [
+                    295,
+                    2603,
+                    2152,
+                    2653
+                ],
+                "angle": 0,
+                "content": "Public Outreach and Education 56"
+            },
+            {
+                "block_id": 36,
+                "type": "text",
+                "bbox": [
+                    295,
+                    2663,
+                    2152,
+                    2709
+                ],
+                "angle": 0,
+                "content": "Nebraska Historic Preservation Office Contacts 57"
+            },
+            {
+                "block_id": 37,
+                "type": "page_number",
+                "bbox": [
+                    2210,
+                    3042,
+                    2251,
+                    3085
+                ],
+                "angle": 0,
+                "content": "111"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    293,
+                    297,
+                    2164,
+                    363
+                ],
+                "angle": 0,
+                "content": "Appendix A: Inventory of Surveyed Properties 58"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    293,
+                    415,
+                    2157,
+                    471
+                ],
+                "angle": 0,
+                "content": "References 67"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    293,
+                    531,
+                    2157,
+                    590
+                ],
+                "angle": 0,
+                "content": "Glossary 70"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    293,
+                    2996,
+                    334,
+                    3036
+                ],
+                "angle": 0,
+                "content": "iv"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    831,
+                    300,
+                    1713,
+                    422
+                ],
+                "angle": 0,
+                "content": "Chapter 1 Historical Overview of Hamilton County"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    290,
+                    504,
+                    576,
+                    554
+                ],
+                "angle": 0,
+                "content": "Introduction"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    567,
+                    1198,
+                    1491
+                ],
+                "angle": 0,
+                "content": "Many early explorers ventured through present-day Nebraska and the initial reviews were not positive. The famous Lewis and Clark expedition in the early 1800s declared that the land was unproductive, and just a few years later Zebulon Pike explored along the Republican River in 1806 and compared the plains in Nebraska to the deserts of Africa. Soon enough the label \"Great American Desert\" had been applied to much of the region. However, these negative assessments did not prevent other individuals from exploring the region and present-day Hamilton County."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1518,
+                    1203,
+                    2306
+                ],
+                "angle": 0,
+                "content": "Some of the first Europeans to cross Hamilton County were part of an Indian expedition led by General Stephen Kearney in 1835. The group traversed the territory between the Lincoln and Beaver Creeks, and J. P. Elliot—one of the explorers—later returned to settle in Hamilton County. A few years later in 1842, General John C. Fremont also crossed the county, a route later followed by the Moormons on their march west to present-day Utah (today this route would be just south of Interstate 80)."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2336,
+                    1198,
+                    2993
+                ],
+                "angle": 0,
+                "content": "Many of these intrepid explorers crossed land occupied and/or claimed by Native Americans. In general, Nebraska was divided into two groups—the village dwellers in the eastern half of the state and more nomadic Plains tribes in the west. The Pawnees settled in villages along the Loup, Platte, and Republican Rivers and raised corn and other crops on the river terraces. Other groups occupying parts of eastern"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1331,
+                    501,
+                    2231,
+                    1095
+                ],
+                "angle": 0,
+                "content": "Nebraska and possibly Hamilton County were the Iowas, Omahas, Otos, Missourias, and the Poncas. The “decline of these eastern groups began well before white settlement of Nebraska” and the territory that included part of present-day Hamilton County was ceded to the government by the Native Americans in 1833, which was the first step in the pioneer settlement process.[4]"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1331,
+                    1122,
+                    2249,
+                    1980
+                ],
+                "angle": 0,
+                "content": "Negative assessments provided by many early explorers did not prevent the eventual tide of pioneers from entering Nebraska. As a result, the Nebraska Territory was organized in 1854 as having boundaries from the Missouri River to the Rocky Mountains including portions of several other present-day states. When Nebraska became the \\(37^{\\text{th}}\\) state in 1867, its boundaries were reduced to their present configuration. Today, Nebraska ranks \\(16^{\\text{th}}\\) in land area with 77,538 sq mi and \\(38^{\\text{th}}\\) in population at 1,711,263 (2000 census).<sup>5</sup>"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1331,
+                    2006,
+                    2249,
+                    2930
+                ],
+                "angle": 0,
+                "content": "The United States Public Land Survey enacted in 1785—also known as the Land Ordinance of 1785—established the township and range system and the grid-like pattern of square miles that is evident across Nebraska. Most of Nebraska was surveyed by the mid-1800s. The Public Land Survey system divides the land into townships, each township containing thirty-six sections; each section contains 640 acres or one-square mile. Pioneers making land claims in the 1800s were able to acquire parcels in a systematic fashion, usually in half- or quarter-sections. Today, Hamilton County"
+            },
+            {
+                "block_id": 8,
+                "type": "page_number",
+                "bbox": [
+                    2226,
+                    3045,
+                    2249,
+                    3085
+                ],
+                "angle": 0,
+                "content": "1"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    290,
+                    211,
+                    1170,
+                    267
+                ],
+                "angle": 0,
+                "content": "Hamilton County Historic Building Survey"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    288,
+                    300,
+                    1198,
+                    425
+                ],
+                "angle": 0,
+                "content": "covers parts of Townships 9 to 14 North and Ranges 5 to 8 West."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    458,
+                    1206,
+                    2171
+                ],
+                "angle": 0,
+                "content": "Two congressional acts in the mid-1800s tremendously impacted the state. The Transcontinental Railroad Act and the Homestead Act, both passed in 1862, transformed the Nebraska landscape. The Union Pacific Railroad traverses 472 miles from Omaha to the Colorado border and was completed in less than three years. The railroad transformed Nebraska from a \"thinly populated corridor of westward expansion into a booming agricultural state that promised to become one of the leading food producers in the nation.\"[7] The Homestead Act provided pioneers 160 acres of land if they constructed a permanent structure and resided on the land for five years. The Act changed the landscape in dramatic fashion and started a \"great tide of emigration for the west and especially Nebraska.\"[8] By 1900 \"almost sixty-nine thousand people had acquired land in Nebraska under the Homestead Act—the largest number in any state in the Union.\"[9] However, nearly half (43 percent) of those who filed Homestead claims in Nebraska failed to secure title to the land."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    290,
+                    2204,
+                    680,
+                    2267
+                ],
+                "angle": 0,
+                "content": "Hamilton County"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2293,
+                    1173,
+                    2950
+                ],
+                "angle": 0,
+                "content": "The earliest settlement in Hamilton County occurred in conjunction with the early overland trails. In 1861, a group from Nebraska City decided to find a shorter route west to Fort Kearny by avoiding the long northward bend in the Platte River. A path was cut across present-day Hamilton County which rejoined the Oregon Trail approximately eight miles east of Kearney. The Nebraska City-Fort Kearny cut-off"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1331,
+                    300,
+                    2254,
+                    1755
+                ],
+                "angle": 0,
+                "content": "saved several miles and soon became a popular route—it was also referred to as the Old Fort Kearney Road and the Pike’s Peak Trail.\\(^{10}\\) Overland stations soon appeared in present-day Hamilton County. David Millspaw established a ranch in 1861 in Section 11, Township 10, Range 5.\\(^{11}\\) A year later, John Harris and Alfred Blue set up the “Deep Well Ranch” on Beaver Creek approximately 2.5 miles north of present-day Giltner, Nebraska. In 1863 an overland stage line followed this route and “Prairie Camp” was established as a relay station six miles west of the Millspaw Ranch. Another trail ran adjacent to the Platte River in northern Hamilton County and the earliest known ranch providing service to this trail was established in 1862 by J. T. Briggs.\\(^{12}\\) Little evidence of these routes remains today and even in the early 1920s it was noted that traces of the old trails were fast disappearing.\\(^{13}\\)"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1331,
+                    1782,
+                    2256,
+                    2570
+                ],
+                "angle": 0,
+                "content": "Hamilton County's boundaries were officially established in 1867 at the time of statehood (Figure 1) and the county was named for Alexander Hamilton, Secretary of the Treasury in President George Washington's cabinet. The county was not organized until 1870 following a general election held at John Harris' house near the Blue River. The first county seat was Orville City (8 miles south of Aurora), named in honor of Orville Westcott, son of C. O. Westcott, the county's first treasurer."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1331,
+                    2600,
+                    2261,
+                    2996
+                ],
+                "angle": 0,
+                "content": "In 1879, the first railroad line reached Hamilton County from York to Aurora. This Burlington & Missouri line later extended to Grand Island in 1884.[16] Other routes soon branched from Aurora north to Central City and southwest to Hastings. In 1890 a total of"
+            },
+            {
+                "block_id": 8,
+                "type": "page_number",
+                "bbox": [
+                    293,
+                    3042,
+                    323,
+                    3085
+                ],
+                "angle": 0,
+                "content": "2"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1377,
+                    211,
+                    2249,
+                    267
+                ],
+                "angle": 0,
+                "content": "Hamilton County Historic Building Survey"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    295,
+                    293,
+                    2228,
+                    1570
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 1. Location of Hamilton County and its communities."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1676,
+                    1173,
+                    2141
+                ],
+                "angle": 0,
+                "content": "66-1/3 miles of lines were in operation in Hamilton County. By 1927, Hamilton County had direct railroad connection from \"Aurora to Omaha, Lincoln, and other important cities of Nebraska,\" providing markets for farm products, \"especially livestock, dairy, and poultry products.\"17"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2168,
+                    1203,
+                    2953
+                ],
+                "angle": 0,
+                "content": "Several major automobile routes serve Hamilton County. State Highway 14 connects Central City to Aurora and continues on south, and US Highway 34 runs east to west from York to Grand Island across the county. Additionally, Interstate 80 bisects the county east to west across the county a few miles south of Aurora. Construction of Interstate 80 in Nebraska began in 1957 near Gretna and was completed in 1974 near Sidney for a total length of 455 miles across the state."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1331,
+                    1679,
+                    2249,
+                    2729
+                ],
+                "angle": 0,
+                "content": "Hamilton County is located in the southeastern part of the state in a physical region known as the Central Loess Plains. Andreas (1882) in the History of the State of Nebraska described this area as the “garden portion of the state.”<sup>18</sup> Hamilton County covers approximately 538 square miles and elevations range from 1,660 feet above sea level in the eastern portion to nearly 1,900 feet in the west. Much of Hamilton County’s territory is “level or undulating, sloping slightly toward the east, and is dissected by a few streams that flow eastward.”<sup>19</sup> The Platte River valley dominates the county’s northern boundary and is approximately 100 feet below the county’s general level.<sup>20</sup>"
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    1338,
+                    2762,
+                    2162,
+                    2814
+                ],
+                "angle": 0,
+                "content": "Initial Settlement and Ethnic Clusters"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1336,
+                    2854,
+                    2241,
+                    2979
+                ],
+                "angle": 0,
+                "content": "Hamilton County's first permanent settlement took place in June of 1866 on the"
+            },
+            {
+                "block_id": 8,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3045,
+                    2249,
+                    3085
+                ],
+                "angle": 0,
+                "content": "3"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    290,
+                    211,
+                    1170,
+                    267
+                ],
+                "angle": 0,
+                "content": "Hamilton County Historic Building Survey"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    300,
+                    1193,
+                    1151
+                ],
+                "angle": 0,
+                "content": "Blue River when Jarvil Chaffee set up a homestead in Section 34, Township 9, Range 6 (HM00-122). Chaffee's \"Homestead Certificate was signed by Ulysses S. Grant on May 1, 1872 after Mr. Chaffee had proved up on his land.\"[21] Following Chaffee were James Waddle and John Brown who both settled in Section 26, Township 9, Range 5 in the Farmer's Valley precinct in January of 1867.[22] These initial pioneers were the beginning of a flood of settlers who entered the county in the early 1870s."
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    295,
+                    1181,
+                    1203,
+                    1861
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Chaffee Monument (HM00-122)."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1989,
+                    1190,
+                    2910
+                ],
+                "angle": 0,
+                "content": "Although the railroads captured much of the overland freight traffic, pioneer overland travel continued and even intensified.[23] Hamilton County's population exploded in the late 1800s (Table 1). At the time of the 1870 census Hamilton County's population stood at 130. Ten years later that number had increased to 8,267 and in 1890 the county reached its highest population ever at 14,096. Since that peak Hamilton County's population has slowly declined, (Table 1). As the population surged in the late 1800s numerous rural school districts were created. Each district"
+            },
+            {
+                "block_id": 6,
+                "type": "table",
+                "bbox": [
+                    1361,
+                    438,
+                    2274,
+                    1316
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Census Year</td><td>Total Population</td></tr><tr><td>1870</td><td>130</td></tr><tr><td>1880</td><td>8,267</td></tr><tr><td>1890</td><td>14,096</td></tr><tr><td>1900</td><td>13,330</td></tr><tr><td>1910</td><td>13,459</td></tr><tr><td>1920</td><td>13,237</td></tr><tr><td>1930</td><td>12,159</td></tr><tr><td>1940</td><td>9,982</td></tr><tr><td>1950</td><td>8,778</td></tr><tr><td>1960</td><td>8,714</td></tr><tr><td>1970</td><td>8,867</td></tr><tr><td>1980</td><td>9,301</td></tr><tr><td>1990</td><td>8,862</td></tr><tr><td>2000</td><td>9,403</td></tr></table>",
+                "caption": "Table 1. Hamilton County Population, 1870-2000"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1338,
+                    1323,
+                    1881,
+                    1376
+                ],
+                "angle": 0,
+                "content": "Source: www.census.gov."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1333,
+                    1399,
+                    2228,
+                    2049
+                ],
+                "angle": 0,
+                "content": "represented a small geographical area and the first school was organized near Stockham in 1870 and by 1885 Hamilton County had ninety-eight organized districts.[24] By the early 1920s, there were over 100 districts in Hamilton County.[25] Currently only a handful of districts remain as a result of widespread consolidation, and few, if any, of the rural school houses remain."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1333,
+                    2085,
+                    2249,
+                    2943
+                ],
+                "angle": 0,
+                "content": "Most of the early settlers came from Missouri, Iowa, Illinois, Ohio, and the New England States. Later, immigrants came from Germany, Sweden, England, and Russia.[26] Geographically, these ethnic groups settled in clusters across the county. The “Danes settled principally in the northeastern part of the county; Swedes in the northwestern part; Irish, Bohemians, and Germans in the southwestern part; and Russian Mennonites in the southeastern part.”[27] There were “little enclaves of Czech people which have existed around Giltner,"
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    293,
+                    3042,
+                    323,
+                    3082
+                ],
+                "angle": 0,
+                "content": "4"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1379,
+                    211,
+                    2249,
+                    267
+                ],
+                "angle": 0,
+                "content": "Hamilton County Historic Building Survey"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    300,
+                    1193,
+                    821
+                ],
+                "angle": 0,
+                "content": "the flourishing Danish culture of the Kronborg area, the Swedish culture of Hordville and environs, the Russian German culture which extends west into Hamilton County from the Henderson [York County] region, and the Irish who settled west of Aurora in and around such Irish-name towns as Murphy.[28]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    854,
+                    1193,
+                    2039
+                ],
+                "angle": 0,
+                "content": "These ethnic groups were the basis for strong religious congregations and a number of rural church complexes. One of the biggest ethnic congregations found in northeastern Hamilton County were some 200 families in a Danish Lutheran Church (HM05-001).<sup>29</sup> Of all the groups the “Danes of Kronborg have perhaps retained the closest ties to a cultural past of the Scandinavian groups in the county. . . . Lives of the Danish immigrants around Kronborg centered on the congregation at St. John’s. From the beginning, a conscious effort was made to preserve a Danish heritage, both physically and spiritually.”<sup>30</sup> The St. John’s complex continues to dominate the area and serve as a focal point for the community."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2069,
+                    1203,
+                    2989
+                ],
+                "angle": 0,
+                "content": "Also in northeastern Hamilton County is the Zion Lutheran Church and School (HM00-045). Similar to other rural churches, Zion Lutheran has been the focal point of the surrounding German settlement for decades and is a noteworthy structure. The area was settled by Germans and the first church was erected in 1877. This church was replaced in 1885 with another structure which burned in 1896.[31] The present Zion Lutheran Church was dedicated in 1897 and is part of a rural religious complex, which includes a cemetery, church, parsonage, and school. The exterior"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1351,
+                    320,
+                    2256,
+                    993
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "St. John's Lutheran Church, Kronborg (HM05-001)."
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1343,
+                    1102,
+                    2233,
+                    2280
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Zion Lutheran Church (HM00-045)."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1336,
+                    2399,
+                    2246,
+                    2791
+                ],
+                "angle": 0,
+                "content": "of the church was altered in 1972 when a new foyer was added, but the interior retains much of its original character. A large U-shaped balcony wraps around three sides of the nave and pressed tin is found throughout the building."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1336,
+                    2811,
+                    2213,
+                    2996
+                ],
+                "angle": 0,
+                "content": "Another large ethnic cluster formed in the southeastern part of the county, where the Russian Mennonites constructed a"
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3045,
+                    2249,
+                    3085
+                ],
+                "angle": 0,
+                "content": "5"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    290,
+                    211,
+                    1170,
+                    267
+                ],
+                "angle": 0,
+                "content": "Hamilton County Historic Building Survey"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    300,
+                    1198,
+                    891
+                ],
+                "angle": 0,
+                "content": "church in 1887 at a cost of roughly $3,000. Other denominations and ethnic congregations include Baptist, Catholic, Methodist, Presbyterian, and United Brethren Churches.[32] Most of the country churches are no longer standing; however, many cemeteries remain and highlight the importance the rural congregations played in the life of Hamilton County."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    288,
+                    920,
+                    997,
+                    980
+                ],
+                "angle": 0,
+                "content": "Agriculture in Hamilton County"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1009,
+                    1208,
+                    2065
+                ],
+                "angle": 0,
+                "content": "Much like many Hamilton County citizens today, the early pioneers were engaged in agriculture. Vanek et al. (1985), contend that farming \"has always been the major occupation in Hamilton County.\" With the advantage of fertile soils, grain crops have dominated much of Hamilton County's agricultural history. An early account describes the soils in Hamilton County as similar to the \"finest garden mold, dark color, easily worked, and eminently productive. The soil in this county is from two to three feet deep, and when properly tilled has never been known to disappoint the husbandman, good and sure harvests being the result of honest labor.\"[33]"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2095,
+                    1195,
+                    2950
+                ],
+                "angle": 0,
+                "content": "Corn was the dominant crop even before widespread irrigation. Hamilton County in 1890 had 119,237 acres in corn—the most of any crop—and 48,960 acres in wheat, the next highest total.[34] Hamilton County today continues as an agricultural leader in Nebraska and the reliance on grain crops dominates. Currently in Nebraska the “eastern Corn Belt counties are not the largest corn producers in the state. Corn is concentrated in the irrigated central Platte Valley, the irrigated areas of Hamilton and York counties, and the northeast portion of"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1331,
+                    293,
+                    2236,
+                    627
+                ],
+                "angle": 0,
+                "content": "the state.”\\(^{35}\\) In 2002, Hamilton County ranked first in Nebraska in the value of crops produced, had the second highest number of acres in corn, and was seventh in popcorn production.\\(^{36}\\)"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1331,
+                    653,
+                    2244,
+                    2630
+                ],
+                "angle": 0,
+                "content": "Corn has long dominated the agricultural economy, but methods and the agricultural landscape have changed dramatically over the last century. As a result of mechanization the scale of farming in the United States has been altered, which has had “significant impacts on rural life.”<sup>37</sup> Hamilton County historian Bertha Bremer (1967) accurately points out that “power equipment has accelerated farming, and no longer are farm operators content with quarter sections of land, nor can they afford to operate on such a small scale due to increased costs of operation.”<sup>38</sup> Indeed, the number of farms has steadily declined since its peak in 1900 while the number of acres per farm has increased. In 1900, over 2,000 individual farms were located in Hamilton County and by the mid-1960s there were nearly 1,100 farm units (Table 2).<sup>39</sup> As for average size, in 1920 the average Hamilton County farm was 179.7 acres in size and typically ranged from 160 to 240 acres.<sup>40</sup> The most recent census of agriculture numbers reveal that the consolidation trend continues. In 1997, Hamilton County had 697 farms that averaged 507 acres in size. By 2002, the number of farms had declined to 603 and the average size had increased to 577 acres.<sup>41</sup>"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1331,
+                    2666,
+                    2249,
+                    2993
+                ],
+                "angle": 0,
+                "content": "Hamilton County annually receives approximately twenty-six inches of precipitation, sufficient for wheat, sorghum, and range grasses. For decades, this total has played a significant part in Hamilton"
+            },
+            {
+                "block_id": 8,
+                "type": "page_number",
+                "bbox": [
+                    293,
+                    3045,
+                    323,
+                    3085
+                ],
+                "angle": 0,
+                "content": "6"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1379,
+                    214,
+                    2249,
+                    270
+                ],
+                "angle": 0,
+                "content": "Hamilton County Historic Building Survey"
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    272,
+                    366,
+                    1071,
+                    1065
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Year</td><td>Number of Farms</td></tr><tr><td>1850</td><td>NA</td></tr><tr><td>1860</td><td>NA</td></tr><tr><td>1870</td><td>NA</td></tr><tr><td>1880</td><td>1,597</td></tr><tr><td>1890</td><td>2,039</td></tr><tr><td>1900</td><td>2,049</td></tr><tr><td>1910</td><td>1,944</td></tr><tr><td>1920</td><td>1,882</td></tr><tr><td>1930</td><td>1,766</td></tr><tr><td>1940</td><td>NA</td></tr><tr><td>1950</td><td>1,453</td></tr></table>",
+                "caption": "Table 2. Number of Farms, 1850-1950"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1072,
+                    828,
+                    1125
+                ],
+                "angle": 0,
+                "content": "Source: www.census.gov."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1148,
+                    1201,
+                    2527
+                ],
+                "angle": 0,
+                "content": "County's agricultural history. Irrigation canals and wells first appeared in the late 1930s in Hamilton County. The Aurora News editor spearheaded a campaign to get farmers interested in deepwell irrigation; in August 1940, it published a “picture of the Gilbert Benson farm where corn was estimated to make a yield of 80 bushels, and a dryland farm across the road that day pictured burned up corn three feet high.”\\(^{42}\\) Deepwell irrigation rapidly expanded in the county. By 1942, twenty-six systems were in place and in February 1955 the \\(500^{\\text{th}}\\) well was drilled on Helen Culbertson’s farm. At that time the county had a \\(500^{\\text{th}}\\) well celebration and the Aurora News-Register declared Hamilton County as “The Deepwell Irrigation Center of the Nation.”\\(^{43}\\) By the late 1960s, there were approximately 1,600 registered wells in Hamilton County irrigating over 100,000 acres."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2564,
+                    1198,
+                    2953
+                ],
+                "angle": 0,
+                "content": "In the early 1970s, center-pivot irrigation systems reached Hamilton County. As a result, “there has been a rapid conversion of rangeland to cropland since the introduction of center-pivot irrigation.”<sup>44</sup> By the late 1970s, approximately 89 percent"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1336,
+                    300,
+                    2244,
+                    693
+                ],
+                "angle": 0,
+                "content": "of the county’s area was cropland. Of that total, 81 percent was irrigated and 19 percent was dryfarmed.\\(^{45}\\) In the early 1980s, the number of irrigation wells had increased to over 2,600 for both center-pivot and gravity flow systems.\\(^{46}\\)"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1336,
+                    722,
+                    2256,
+                    1904
+                ],
+                "angle": 0,
+                "content": "Today, Hamilton County still relies heavily on ground water for irrigation. \"Large supplies of ground water are available to wells from the Quaternary deposits\" and that depth for sufficient supplies ranges from \"5 feet in the alluvium near the Platte River to 135 feet on the uplands northeast of Hordville.\"[47] Generally, ground water resources are available between eighty and one-hundred feet in most parts of the uplands.[48] According to the Nebraska Department of Natural Resources (NDNR 2008), Hamilton County currently has 3,361 irrigation wells that water just over 400,000 acres. This number is inflated as some acres are reported for more than one well because the county only covers roughly 344,000 acres."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1336,
+                    1940,
+                    2256,
+                    2989
+                ],
+                "angle": 0,
+                "content": "Hamilton County also has a long history of farm cooperatives which are still evident in the cultural landscape. In the early 1900s, the populist agrarian movement resulted in the formation of a number of local grain cooperatives. A “general demand for better grain markets, which was the result of the excessive margins that were taken by grain dealers in this as well as in other counties, was the impelling force in the organization of the present companies.”[49] The first farmers’ elevator, located in Hordville, incorporated in 1906 and by 1915 all Hamilton County communities had elevators—Aurora (1908), Marquette (1909), Stockham (1910), Phillips"
+            },
+            {
+                "block_id": 9,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3042,
+                    2251,
+                    3085
+                ],
+                "angle": 0,
+                "content": "7"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    290,
+                    211,
+                    1165,
+                    267
+                ],
+                "angle": 0,
+                "content": "Hamilton County Historic Building Survey"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    300,
+                    1208,
+                    953
+                ],
+                "angle": 0,
+                "content": "(1910), Hampton (1910), and Giltner (1915). In 1921, Burr and Buck (1921) claim that \"Hamilton is the only county in Nebraska, or probably in any other state, that has a farmers' elevator at every railroad station.\"[50] Today, grain elevators in Hamilton County's communities can be seen for miles away, are the largest structures, and serve as one of each town's focal points (HM02-020, HM04-023, and HM06-032)."
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    295,
+                    983,
+                    1206,
+                    1963
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Grain Elevator, Giltner (HM02-023)."
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    295,
+                    2075,
+                    1206,
+                    2758
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Grain Elevator, Hordville (HM04-023)."
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1343,
+                    300,
+                    2256,
+                    1504
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Grain Elevator, Marquette (HM06-032)."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1338,
+                    1623,
+                    1881,
+                    1683
+                ],
+                "angle": 0,
+                "content": "Hamilton County Towns"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1336,
+                    1712,
+                    2249,
+                    2894
+                ],
+                "angle": 0,
+                "content": "Like many regions in the Midwest and Great Plains, many of the county's original towns are no longer present. These small communities have been moved or replaced as populations have shifted in relation to changing economic issues and changing transportation patterns. Baltensperger contends that \"town development became heavily dependent on rail connections, as a town without a rail line was not a town for long.\"[51] For example, J. F. and T. H. Glover founded the town of Hamilton—which briefly campaigned for the county seat—just a few miles from Aurora. It was an \"active, lively place\" in 1874-75 but after locating the county seat in Aurora most of the businesses and houses were moved to the more \"successful rival.\"[52]"
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    295,
+                    3045,
+                    323,
+                    3085
+                ],
+                "angle": 0,
+                "content": "8"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1377,
+                    211,
+                    2249,
+                    267
+                ],
+                "angle": 0,
+                "content": "Hamilton County Historic Building Survey"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    1175,
+                    821
+                ],
+                "angle": 0,
+                "content": "Most other early settlements have long disappeared. Early towns included Alvin, Avon, Buckeye, Bunker Hill, Cedar Valley, Leonard, Lerton, Mirimichi, Orville City, Otis, Penn, Shiloh, Stockham, St. Joe, and Williamsport.[53] Of the towns that remain Giltner, Hampton, Marquette, Murphy, and Phillips are located on the railroad.[54]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    854,
+                    1198,
+                    1508
+                ],
+                "angle": 0,
+                "content": "Similar to the grid pattern of sections across the rural landscape, Hamilton County's towns were also platted as a series of square blocks. Additionally, most of the communities—especially the railroad towns—are designed as T-Towns. In early town planning Main Street often began at the tracks \"creating an arrangement in which the railroad formed the bar of a T-shaped configuration.\"[55]"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1541,
+                    1198,
+                    1996
+                ],
+                "angle": 0,
+                "content": "In regard to population, Hamilton County's towns have demonstrated a number of trends (Table 3). Five of the seven rural communities peaked in population between 1900 and 1940, which is typical of most small towns in the Midwest and Great Plains. However, four of those"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1356,
+                    313,
+                    2213,
+                    1184
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "image_footnote",
+                "bbox": [
+                    1341,
+                    1188,
+                    2159,
+                    1287
+                ],
+                "angle": 0,
+                "content": "Bromfield, Nebraska's \"T-Town\" Plat (Dunham 1888)."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1336,
+                    1353,
+                    2256,
+                    2009
+                ],
+                "angle": 0,
+                "content": "five have demonstrated recent population gains which runs contrary to popular notions that small towns are on the verge of disappearing. Furthermore, Aurora peaked in population at the most recent census in 2000 with 4,225 citizens and has steadily increased since 1940 (Table 3). However, as farm consolidation continues it is most likely that Hamilton County's towns, outside of Aurora, will struggle to maintain their"
+            },
+            {
+                "block_id": 8,
+                "type": "table",
+                "bbox": [
+                    362,
+                    2118,
+                    2170,
+                    2946
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Year</td><td>Aurora</td><td>Giltner</td><td>Hampton</td><td>Hordville</td><td>Marquette</td><td>Phillips</td><td>Stockham</td></tr><tr><td>1890</td><td>1,862</td><td>195</td><td>430</td><td>NA</td><td>261</td><td>NA</td><td>211</td></tr><tr><td>1900</td><td>1,921</td><td>282</td><td>367</td><td>NA</td><td>210</td><td>186</td><td>169</td></tr><tr><td>1910</td><td>2,630</td><td>410</td><td>383</td><td>NA</td><td>290</td><td>274</td><td>189</td></tr><tr><td>1920</td><td>2,962</td><td>387</td><td>457</td><td>191</td><td>305</td><td>274</td><td>239</td></tr><tr><td>1930</td><td>2,715</td><td>355</td><td>369</td><td>175</td><td>318</td><td>221</td><td>211</td></tr><tr><td>1940</td><td>2,419</td><td>325</td><td>310</td><td>160</td><td>245</td><td>205</td><td>197</td></tr><tr><td>1950</td><td>2,455</td><td>284</td><td>289</td><td>116</td><td>218</td><td>190</td><td>82</td></tr><tr><td>1960</td><td>2,576</td><td>293</td><td>331</td><td>128</td><td>210</td><td>192</td><td>69</td></tr><tr><td>1970</td><td>3,180</td><td>408</td><td>387</td><td>147</td><td>239</td><td>341</td><td>65</td></tr><tr><td>1980</td><td>3,717</td><td>400</td><td>419</td><td>155</td><td>303</td><td>405</td><td>68</td></tr><tr><td>1990</td><td>3,810</td><td>367</td><td>432</td><td>164</td><td>281</td><td>316</td><td>64</td></tr><tr><td>2000</td><td>4,225</td><td>389</td><td>439</td><td>150</td><td>282</td><td>336</td><td>60</td></tr></table>",
+                "caption": "Table 3. Hamilton County Population by City, 1890-2000"
+            },
+            {
+                "block_id": 9,
+                "type": "table_footnote",
+                "bbox": [
+                    369,
+                    2950,
+                    887,
+                    3003
+                ],
+                "angle": 0,
+                "content": "Source: www.census.gov."
+            },
+            {
+                "block_id": 10,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3045,
+                    2249,
+                    3085
+                ],
+                "angle": 0,
+                "content": "9"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    290,
+                    211,
+                    1170,
+                    267
+                ],
+                "angle": 0,
+                "content": "Hamilton County Historic Building Survey"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    300,
+                    1193,
+                    762
+                ],
+                "angle": 0,
+                "content": "current populations. Pat Dinslage (1992) in the Grand Island Independent discusses population issues in Hordville (population 150) and Polk (population 322) and contends that both “are dependent upon the surrounding farming community” and likely to see continued population declines."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    288,
+                    788,
+                    1188,
+                    851
+                ],
+                "angle": 0,
+                "content": "Selecting the County Seat of Government"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    881,
+                    1206,
+                    2993
+                ],
+                "angle": 0,
+                "content": "Great Plains scholar Bradley Baltensperger (1985) contends that “disputes over county seats were the wars of frontier Nebraska. Fraudulent elections to select a county seat might be followed by theft of the county records, showdowns, court battles, and more thefts of records.”[56] To a large degree, Hamilton County’s eventual selection of Aurora matches Baltensperger’s description. Orville City, which had been surveyed and recorded in 1870 and located on the West Blue River, was selected in 1871 as Hamilton County’s first seat of government. That distinction would not last long. Soon after establishing Orville City in the county’s southeastern portion as the county seat, a group of citizens started to protest the selection, calling for a more central location. In the “first election Aurora received over two-thirds of the votes cast, which was the necessary majority at that time, but the commissioners would not order the removal” because the results were deemed illegal.[57] Another vote was held in 1874, where 399-1/2 votes were required for victory. In that contest Aurora collected 399 votes, Hamilton 147, and Orville City just 53. By law, Aurora had failed to meet the required number; however, Aurora “imprudently organized a company of some 150 of her citizens and friends and went to Orville City, and by violence and force took"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1331,
+                    300,
+                    2259,
+                    2214
+                ],
+                "angle": 0,
+                "content": "possession of the county court house and loaded up the records and safes and brought them to Aurora.\\(^{58}\\) A “write of mandamus compelled them to be taken back to the county seat the following spring.”\\(^{59}\\) Soon thereafter, Darius Wilcox (one of Aurora’s original town founders) visited Lincoln and successfully lobbied the state legislature to change the requirement to three-fifths of votes cast to change county seats. In May a special election was called, although by this time Hamilton, Nebraska, was making a legitimate challenge for the county seat. County historian Bremer (1967) refers to Hamilton as Aurora’s “bitter enemy” and the “strongest contender in the three-cornered contest” for county seat.\\(^{60}\\) In the May election Aurora won by a small majority and in June another election was held and Hamilton won by a slim margin. The fifth and final vote based on a pure majority (half plus one) was held in October of 1875. At this election, Aurora received 481 votes and Hamilton 400; hence, Aurora officially became the seat of government in early 1876. Soon after the election Hamilton and Orville both merged with Aurora, and Hamilton quickly became a “deserted village.”\\(^{61}\\)"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    1338,
+                    2247,
+                    1746,
+                    2303
+                ],
+                "angle": 0,
+                "content": "Aurora, Nebraska"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1331,
+                    2333,
+                    2254,
+                    2993
+                ],
+                "angle": 0,
+                "content": "In 1871, David Stone represented a group of men (James Doremus, S. Lewis, Robert Miller, J. Ray, Nathaniel Thorpe, and Darius Wilcox) from Lucas County, Iowa, who wished to establish a town in Hamilton County. Stone was chosen to visit the area and secure land for the new community. The town company ran into problems and dissolved; however, Robert Miller and Nathaniel Thorpe continued with the plan"
+            },
+            {
+                "block_id": 7,
+                "type": "page_number",
+                "bbox": [
+                    298,
+                    3042,
+                    349,
+                    3088
+                ],
+                "angle": 0,
+                "content": "10"
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1377,
+                    211,
+                    2249,
+                    267
+                ],
+                "angle": 0,
+                "content": "Hamilton County Historic Building Survey"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    288,
+                    300,
+                    1170,
+                    686
+                ],
+                "angle": 0,
+                "content": "and headed west. Coming to a point on Lincoln Creek where two cottonwood trees stood like “sentinels on the banks” they choose the site for what would become Aurora. Today this location is part of Streeter Park (HM01-243)."
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    295,
+                    716,
+                    1201,
+                    1293
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Lincoln Creek, Aurora. Courtesy of the Nebraska State Historical Society."
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    295,
+                    1461,
+                    1178,
+                    2125
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Streeter Park Entrance,Aurora (HM01-243)."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2244,
+                    1198,
+                    2834
+                ],
+                "angle": 0,
+                "content": "In August 1871 David Stone erected the \"first frame building in the town, a store and residence, in which he opened the first stock of general merchandise brought to the new place.\"[62] Additionally, the town itself is named for Stone's hometown, Aurora, Illinois, and not for the \"Aurora borealis, which was very luminous at that time, as some suppose.\"[63]"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2864,
+                    1170,
+                    2989
+                ],
+                "angle": 0,
+                "content": "After acquiring the county seat Aurora was incorporated on July 3, 1877. John"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1333,
+                    300,
+                    2249,
+                    561
+                ],
+                "angle": 0,
+                "content": "Helms, General Delevan Bates, W. H. Streeter, John Raben, and Harry Kemper were appointed trustees—Helms served as president and W. L. Whittemore was clerk.[64]"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1333,
+                    590,
+                    2249,
+                    2240
+                ],
+                "angle": 0,
+                "content": "Two years later (1879) the Burlington and Missouri Railroad came to town, which proved to be a major turning point in the community's history. The Burlington and Missouri River Railroad had announced plans for a line from York on west through Aurora and Hamilton County. The stipulation was that the town had to provide \\(72,000 for the project (\\)48,000 of which was due when the line reached Aurora). A vote to raise the bond was held and of the 1,194 votes cast, 956 were in favor and only 238 opposed. As a result of the overwhelming support, the railroad lowered the bond amount to $50,000.[65] Soon Aurora was connected to other cities via rail and telegraph lines. When the railroad \"ran its first regular train into the town October 14, 1879, a great forward stride was made, and a period of activity ensued which rapidly carried the town into rank with her neighbors in surrounding counties.\"[66] Within a decade the railroad had extended lines from Aurora west to Grand Island (1884) and north to Central City (1886).[67]"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1343,
+                    2263,
+                    2256,
+                    2861
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Aurora Opera House. Courtesy of the Nebraska State Historical Society."
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    2205,
+                    3042,
+                    2249,
+                    3085
+                ],
+                "angle": 0,
+                "content": "11"
+            }
+        ]
+    },
+    {
+        "page_id": 19,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    290,
+                    211,
+                    1170,
+                    267
+                ],
+                "angle": 0,
+                "content": "Hamilton County Historic Building Survey"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    300,
+                    1193,
+                    956
+                ],
+                "angle": 0,
+                "content": "In the late 1800s and early 1900s, Aurora blossomed as Hamilton County’s primary city, dominating both business and government affairs. Bradford (1979) states that the “business life of Aurora in the late nineteenth century was extremely vital and, of course, influenced the extent and the demand of the cultural life.”[68] Early enterprises included a cigar factory, a broom factory, and a washing machine company.[69]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    986,
+                    1173,
+                    2432
+                ],
+                "angle": 0,
+                "content": "These were not individual efforts; leading citizens often joined forces to help Aurora prosper. Furse (2004) in the Aurora News-Register points out that Aurora has a long history of community spirit and economic development. An excellent example is the Temple Craft Association formed in 1888 by thirty-one men to promote Aurora's business community; the Temple Craft building remains and is located on the southwest corner of \\(12^{\\text{th}}\\) and M Streets in Aurora (HM01-186).<sup>70</sup> Fourteen of Aurora's leading business men pledged $25,000 in capital for the project and the associations' bylaws stated that the \"object of the project was to encourage building, improvement and to promote the material prosperity of Aurora.\"<sup>71</sup> This association was just one catalyst impacting Aurora's business community which ultimately spurred others to invest in the community."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2468,
+                    1206,
+                    2857
+                ],
+                "angle": 0,
+                "content": "In addition to the associations and factories, banks and mercantile establishments dominated Aurora's business community. The Hamilton County Bank was established in 1877 by George Wildish; Wildish was later bought out by W. H."
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1343,
+                    297,
+                    2256,
+                    976
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Temple Craft Building, Aurora (HM01-186)."
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1343,
+                    1089,
+                    2256,
+                    1689
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Parade in Aurora following “M” Street. Courtesy of the Nebraska State Historical Society."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1333,
+                    1854,
+                    2249,
+                    2976
+                ],
+                "angle": 0,
+                "content": "Streeter in 1886.\\(^{72}\\) In 1883, Streeter along with E. J. Hainer and W. I. Farley had established the Farmers' and Merchants' Bank; Streeter later withdrew in 1886 to head the Hamilton County Bank. T. E. Williams arrived in Aurora in 1888 from Eau Claire, Wisconsin to accept the position of cashier in the Farmers' and Merchants' Bank.\\(^{73}\\) Several banks (Aurora Banking Company, Hamilton County Bank, Farmer's and Merchants' Bank) merged over the next decade and First National Bank appeared in 1898. W. H. Streeter was the president and remained in that capacity until his death in 1907, at which time T. E. Williams was elected president, a position he held until his retirement in 1917.\\(^{74}\\)"
+            },
+            {
+                "block_id": 9,
+                "type": "page_number",
+                "bbox": [
+                    298,
+                    3042,
+                    344,
+                    3085
+                ],
+                "angle": 0,
+                "content": "12"
+            }
+        ]
+    }
+]

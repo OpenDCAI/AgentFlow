@@ -1,0 +1,522 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    290,
+                    310,
+                    520,
+                    491
+                ],
+                "angle": 0,
+                "content": "LAW"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    290,
+                    491,
+                    726,
+                    669
+                ],
+                "angle": 0,
+                "content": "LIBRARY"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    293,
+                    669,
+                    724,
+                    712
+                ],
+                "angle": 0,
+                "content": "LIBRARY OF CONGRESS"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    522,
+                    1125,
+                    2014,
+                    1386
+                ],
+                "angle": 0,
+                "content": "Bans on Trading of Stocks by Legislators Around the World"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    693,
+                    1692,
+                    1851,
+                    1762
+                ],
+                "angle": 0,
+                "content": "Albania • Armenia • Belarus • Croatia • Egypt"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    670,
+                    1762,
+                    1874,
+                    1824
+                ],
+                "angle": 0,
+                "content": "Georgia • Greece • Guyana • Israel • Kazakhstan"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    619,
+                    1828,
+                    1927,
+                    1887
+                ],
+                "angle": 0,
+                "content": "Kosovo • Latvia • Poland • Russia • Slovakia • South"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    872,
+                    1897,
+                    1677,
+                    1953
+                ],
+                "angle": 0,
+                "content": "Korea • Turkmenistan • Ukraine"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1104,
+                    2220,
+                    1440,
+                    2280
+                ],
+                "angle": 0,
+                "content": "March 2022"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1025,
+                    2633,
+                    1522,
+                    2682
+                ],
+                "angle": 0,
+                "content": "LL File No. 2022-021033"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1065,
+                    2692,
+                    1473,
+                    2739
+                ],
+                "angle": 0,
+                "content": "LRA-D-PUB-002621"
+            },
+            {
+                "block_id": 11,
+                "type": "footer",
+                "bbox": [
+                    673,
+                    3045,
+                    1871,
+                    3098
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress, Global Legal Research Directorate"
+            },
+            {
+                "block_id": 12,
+                "type": "footer",
+                "bbox": [
+                    780,
+                    3098,
+                    1769,
+                    3151
+                ],
+                "angle": 0,
+                "content": "(202) 707-5080 \\(\\cdot\\) law@loc.gov \\(\\cdot\\) http://www.law.gov"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    578,
+                    1455,
+                    1963,
+                    1765
+                ],
+                "angle": 0,
+                "content": "This report is provided for reference purposes only. It does not constitute legal advice and does not represent the official opinion of the United States Government. The information provided reflects research undertaken as of the date of writing. It has not been updated."
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    313,
+                    297,
+                    2238,
+                    392
+                ],
+                "angle": 0,
+                "content": "Bans on Trading of Stocks by Legislators around the World"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    1065,
+                    498,
+                    1486,
+                    577
+                ],
+                "angle": 0,
+                "content": "Introduction"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    298,
+                    689,
+                    2249,
+                    805
+                ],
+                "angle": 0,
+                "content": "This chart lists countries where trading (either buying or selling) of stock of individual companies by legislators is either completely or partially banned during their term in office."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    298,
+                    858,
+                    2249,
+                    1085
+                ],
+                "angle": 0,
+                "content": "We include as complete bans jurisdictions that require all stocks be held in a blind trust during legislators' terms. One jurisdiction, Greece, imposes a complete ban on trading stocks, while Albania, Armenia, Belarus, Kosovo, and Turkmenistan require that all stocks be held in a blind trust."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    298,
+                    1145,
+                    2249,
+                    1432
+                ],
+                "angle": 0,
+                "content": "Included in the partial ban category are those countries with a trading ban or divestment or blind trust requirement on certain types of stocks (Russia, Slovakia), where a ban is subject to stipulated exceptions (Egypt), where a ban applies in case of a conflict of interest (Georgia, Guyana, Latvia, Slovakia), or where a ban applies at a certain percentage of a company's shares or monetary value (Croatia, Israel, Kazakhstan, Poland, and South Korea)."
+            },
+            {
+                "block_id": 5,
+                "type": "table",
+                "bbox": [
+                    293,
+                    1577,
+                    2272,
+                    2956
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Total Ban</td><td>Partial Ban</td><td>Comment/Citation</td></tr><tr><td>Albania</td><td>✓</td><td></td><td>Anything other than passive ownership of shares is prohibited for public officials. Officials must transfer the right of active ownership of the shares or parts of capital they own to another, unrelated person. \n(Law on Prevention of the Conflicts of Interests in the Exercise of Public Functions, No. 9367, adopted on Apr. 7, 2005, published in the Official Journal, No. 31, May 11, 2005, art. 22(2) (c), art. 24 (1), art. 38 (1) (c), (i), https://perma.cc/DD3T-A825.)</td></tr><tr><td>Armenia</td><td>✓</td><td></td><td>Persons holding a public office are required to transfer their stocks and shares to trust management within one month after election. \n(Law of the Republic of Armenia on Public Service, No. ZR-205, adopted as of March 23, 2018, last amended on Feb. 7, 2020, art. 31, para. 10, https://perma.cc/45LH-X8X2(unofficial translation).)</td></tr><tr><td>Belarus</td><td>✓</td><td></td><td>Civil servants must not hold shares for the period of performing their duties in the state service. Shares and stocks</td></tr></table>"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    693,
+                    148,
+                    1851,
+                    207
+                ],
+                "angle": 0,
+                "content": "Bans on Trading of Stocks by Legislators around the World"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    293,
+                    290,
+                    2272,
+                    2989
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Total Ban</td><td>Partial Ban</td><td>Comment/Citation</td></tr><tr><td></td><td></td><td></td><td>owned by civil servants must be transferred to a state-controlled trust.(Law on Public Service in the Republic of Belarus, the Public Service Law, No. 204-3 of 14 June 2003, last amended on July 23, 2019, art. 22, para. 3, https://perma.cc/G6LZ-LWQJ (in Russian).)</td></tr><tr><td>Croatia</td><td></td><td>✓</td><td>Members of Parliament are required to transfer to a trust shares or stocks of a company if they constitute more than 0.5% of the company&#x27;s shares or stocks.(Law on Prevention of Conflicts of Interest, adopted Feb. 11, 2011, last amended in 2015, art. 16(1), https://perma.cc/B8ST-XQG7.)</td></tr><tr><td>Egypt</td><td></td><td>✓</td><td>Presidential Decree promulgating Law No. 46 of 2014 stipulates that members of the Council of Representatives must not purchase stocks or shares, directly or indirectly, in companies during their membership in the Council.However, members may increase their capital in a company or investment project that they owned before their membership of the Council of Representatives.(Law No. 46 of 2014, art. 41, al-Jarīdah al-Rasmīyah [official Gazette], vol. 23 (annex), 5 June 2014, https://perma.cc/RQ4L-5ERH.)</td></tr><tr><td>Georgia</td><td></td><td>✓</td><td>Legislators are prohibited from owning stock in enterprises they may control in the course of their legislative work. While possession of stocks and shares is allowed by the Rules of Parliamentary Procedure, members of Parliament must not be involved in regular management of their assets.(Law of Georgia on Conflict of Interest and Corruption in Public Service, No. 982-IS, adopted on Oct. 17, 1997, last amended on Dec. 30, 2021, art. 13 para. 12, https://perma.cc/P66A-YKNP, Rules of Procedure of the Parliament of Georgia, art. 7, paras. 2, 3, adopted Dec. 27, 2018, https://perma.cc/W9C8-9738.)</td></tr><tr><td>Greece</td><td>✓</td><td></td><td>Article 32 of Law 2843/2000 prohibits members of the government, deputy ministers and general or special secretaries of ministries from conducting “stock market transactions [not including] cash sales, and purchasing or</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "2"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    693,
+                    148,
+                    1851,
+                    207
+                ],
+                "angle": 0,
+                "content": "Bans on Trading of Stocks by Legislators around the World"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    293,
+                    290,
+                    2272,
+                    2851
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Total Ban</td><td>Partial Ban</td><td>Comment/Citation</td></tr><tr><td></td><td></td><td></td><td>selling shares of mutual funds.” Covered persons must notify the president of the Capital Market Commission of their accounts, who will monitor them for violations.\nArticle 13 of Law 3213/2003 extends this prohibition to members of the Hellenic Parliament.\nIf a violation is detected under article 32 of Law 2843/2000, the president of the Capital Market Commission must report the fact to a special audit committee composed of select members of parliament, judiciary, and high bureaucrats.\n(Law 2843/2000 on the Modernization of Stock Exchange Transactions, Listing of Investment Companies in Seafaring Shipping on the Athens Stock Exchange and other provisions, art. 32, Government Gazette [E.K.E.D.] 2000, A:219, https://perma.cc/UGK3-VMQR; Law 3213/2003 on the Declaration and Control of Property Status of Deputies, Public Officials and Employees, Owners of Mass Media and other Categories of Persons, arts. 3A, 13, E.K.E.D. 2003, A:309, as amended, https://perma.cc/7RSV-7HGG.)</td></tr><tr><td>Guyana</td><td></td><td>✓</td><td>A person in public life “must refuse or relinquish any . . . shareholdings . . . which creates or is likely to create a conflict of interest.”\n(Revised Code of Conduct for Public Officers Order 10 of 2017 § 4 (3)(c), Guyana Official Gazette Cap. 26:01, Legal Supp. B (June 13, 2017), https://perma.cc/R3DY-95UM.)</td></tr><tr><td>Israel</td><td></td><td>✓</td><td>A Knesset member (KM) who is a “controlling shareholder” of a corporation (e.g., holding 50% or more of stock) must sell or lease the shares within six months of commencement of term; a KM “having an interest” in a company (e.g. controlling 5% or more of stock or having the right to appoint a director) is required to sell the shares or transfer them to a blind trust until the end of the term.\n(Ethics Committee Decision 5/18 Regarding Holding of Shares and Prohibition of Serving as a Director in Business Company §§ 5 c, 6 (June 17, 2009), https://perma.cc/8ZLH-YUTE.)</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    293,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "3"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    693,
+                    148,
+                    1851,
+                    207
+                ],
+                "angle": 0,
+                "content": "Bans on Trading of Stocks by Legislators around the World"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    293,
+                    290,
+                    2272,
+                    2989
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Total Ban</td><td>Partial Ban</td><td>Comment/Citation</td></tr><tr><td>Kazakhstan</td><td></td><td>✓</td><td>While members of Parliament are allowed to trade shares, stocks and other securities, they cannot acquire more than 5% of voting shares of a commercial organization.\n(The Law on Combating Corruption of the Republic of Kazakhstan, No. 410-IV LRK, adopted on Nov. 18, 2015, art. 13.1(2), https://perma.cc/WS29-UQMX.)</td></tr><tr><td>Kosovo</td><td>✓</td><td></td><td>Members of the Parliament “cannot actively exercise his or her ownership rights over shares or parts of capital of a commercial company” and must transfer their securities for management to “another trusted person.”\n(Law on Prevention of Conflict of Interest in the Exercise of Public Function of the Republic of Kosovo, No. 04/L-051, in force since May 12, 2018, art. 14, para. 1, art. 16, para. 3, https://perma.cc/NM76-LLJH.)</td></tr><tr><td>Latvia</td><td></td><td>✓</td><td>Members of the legislature and their relatives are prohibited from acquiring and trading shares and stocks of companies working on government contracts during their term in office and two years thereafter.\n(Law on Prevention of Conflict of Interest in Activities of Public Officials of the Republic of Latvia, Par Interesu Konflikta Noveršanu Valsts Amatpersonu Darbībā, adopted on Apr. 25, 2002, last amended on Jan. 21, 2021, art. 10, https://perma.cc/G8PB-Q7S8, https://perma.cc/M7HJ-PJYM (in English).)</td></tr><tr><td>Poland</td><td></td><td>✓</td><td>Members of Parliament are required to transfer to a trust shares or stocks of companies with the participation of state or municipalities if they own more than 10% of these securities.\n(Act on Exercising the Mandate of Deputy and Senator, adopted on May 9, 1996, last amended in 2006, No. 104, item 708, Dz. U. 1996, No. 73, art. 34, para. 4, https://perma.cc/Z9RH-S4FN.)</td></tr><tr><td>Russia</td><td></td><td>✓</td><td>Ownership of and operations with foreign financial instruments are prohibited for legislators and their family members. Foreign securities must be eliminated from one’s investments before the owner is registered as a candidate for legislative elections.</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "4"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    693,
+                    148,
+                    1851,
+                    207
+                ],
+                "angle": 0,
+                "content": "Bans on Trading of Stocks by Legislators around the World"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    293,
+                    290,
+                    2272,
+                    2989
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Total Ban</td><td>Partial Ban</td><td>Comment/Citation</td></tr><tr><td></td><td></td><td></td><td>(Federal Law No. 13-FZ of July 5, 1999, on the Status of Senators of the Russian Federation and Status of Members of the State Duma of the Federal Assembly of the Russian Federation (last amended Dec. 21, 2021), Sobranie Zakanodatel&#x27;stva Rossiiskoi Federatsii (SZ RF) 1999, No. 28, Item 3466 (official publication), https://perma.cc/Q3Q2-EFWB (in Russian).)</td></tr><tr><td>Slovakia</td><td></td><td>✓</td><td>Members of the Slovak National Council (legislature) are prohibited during the term of their office from acquiring bearer shares other than by inheritance. Also, within one year after leaving office, former legislators cannot be shareholders of entities if, during their last two years in office, they made decisions that benefited these entities.\n(Constitutional Act on the Protection of Public Interest by the Performance of Offices of Public Officials of the Republic of Slovakia, No. 357/2004, art. 4(2)e, art. 8(1)c, https://perma.cc/6GX7-6YXP.)</td></tr><tr><td>South Korea</td><td></td><td>✓</td><td>When the aggregate value of all stocks owned by a member of the National Assembly exceeds 30 million won (approximately US$25,000), the member must sell the relevant stocks or conclude a contract on blind trust of stocks.\n(Public Service Ethics Act, Act No. 3520, Dec. 31, 1981, as amended by Act No. 17754, Dec. 22, 2020, art. 14-4, https://elaw.klri.re.kr/eng_Service/lawView.do?hseq=56279 &amp;lang=ENG.)</td></tr><tr><td>Turkmenistan</td><td>✓</td><td></td><td>While performing their duties, civil servants must transfer their shares, stocks, and ownership rights into a trust.\n(Law On Combating Corruption of the Republic of Turkmenistan, in force since May 5, 2016, art. 11, para. 13, art. 12, para. 2, https://perma.cc/9Y89-N9F3 (in Russian).)</td></tr><tr><td>Ukraine</td><td></td><td>✓</td><td>The chairperson of the Verkhovna Rada of Ukraine, his or her first deputy, and the deputy chairperson are required to transfer their securities to a financial institution that will manage these financial instruments while the owners are in office, within one month following the election. Such contracts cannot be made with financial institutions where family members of the Verkhovna Rada officials are</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "5"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    693,
+                    151,
+                    1848,
+                    204
+                ],
+                "angle": 0,
+                "content": "Bans on Trading of Stocks by Legislators around the World"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    293,
+                    290,
+                    2272,
+                    877
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Country</td><td>Total Ban</td><td>Partial Ban</td><td>Comment/Citation</td></tr><tr><td></td><td></td><td></td><td>employed. Provisions restricting the ownership rights of regular members of the legislature have not been located.\n(Law of Ukraine on Prevention Corruption, No. 1700-VII, adopted on Oct. 14, 2014, last amended on Nov. 17, 2021, art. 36, paras. 1, 3, 4, https://perma.cc/RL7M-8GMD (unofficial translation).)</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3102,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "6"
+            }
+        ]
+    }
+]

@@ -1,0 +1,1927 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    396,
+                    284,
+                    2091,
+                    357
+                ],
+                "angle": 0,
+                "content": "Compositional Questions Do Not Necessitate Multi-hop Reasoning"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    607,
+                    431,
+                    1888,
+                    785
+                ],
+                "angle": 0,
+                "content": "Sewon Min\\*, Eric Wallace\\*, Sameer Singh\\*, Matt Gardner\\*, Hannaneh Hajishirzi\\*, Luke Zettlemoyer\\*  \n\\(^{1}\\)University of Washington  \n\\(^{2}\\)Allen Institute for Artificial Intelligence  \n\\(^{3}\\)University of California, Irvine  \nsewon@cs.washington.edu, ericw@allenai.org"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    654,
+                    929,
+                    846,
+                    978
+                ],
+                "angle": 0,
+                "content": "Abstract"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1017,
+                    1143,
+                    2213
+                ],
+                "angle": 0,
+                "content": "Multi-hop reading comprehension (RC) questions are challenging because they require reading and reasoning over multiple paragraphs. We argue that it can be difficult to construct large multi-hop RC datasets. For example, even highly compositional questions can be answered with a single hop if they target specific entity types, or the facts needed to answer them are redundant. Our analysis is centered on HOTPOTQA, where we show that single-hop reasoning can solve much more of the dataset than previously thought. We introduce a single-hop BERT-based RC model that achieves 67 F1—comparable to state-of-the-art multi-hop models. We also design an evaluation setting where humans are not shown all of the necessary paragraphs for the intended multi-hop reasoning but can still answer over \\(80\\%\\) of questions. Together with detailed error analysis, these results suggest there should be an increasing focus on the role of evidence in multi-hop reasoning and possibly even a shift towards information retrieval style evaluations with large and diverse evidence collections."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    290,
+                    2252,
+                    650,
+                    2304
+                ],
+                "angle": 0,
+                "content": "1 Introduction"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2339,
+                    1218,
+                    3125
+                ],
+                "angle": 0,
+                "content": "Multi-hop reading comprehension (RC) requires reading and aggregating information over multiple pieces of textual evidence (Welbl et al., 2017; Yang et al., 2018; Talmor and Berant, 2018). In this work, we argue that it can be difficult to construct large multi-hop RC datasets. This is because multi-hop reasoning is a characteristic of both the question and the provided evidence; even highly compositional questions can be answered with a single hop if they target specific entity types, or the facts needed to answer them are redundant. For example, the question in Figure 1 is compositional: a plausible solution is to find \"What animal's habitat was the Réserve Naturelle Lomako Yokokala"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1295,
+                    936,
+                    2170,
+                    1354
+                ],
+                "angle": 0,
+                "content": "Question: What is the former name of the animal whose habitat the Reserve Naturelle Lomako Yokokala was established to protect?   \nParagraph 5: The Lomako Forest Reserve is found in Democratic Republic of the Congo. It was established in 1991 especially to protect the habitat of the Bonobo apes.   \nParagraph 1: The bonobo (\"Pan paniscus\"), formerly called the pygmy chimpanzee and less often, the dwarf or gracile chimpanzee, is an endangered great ape and one of the two species making up the genus \"Pan\"."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1378,
+                    2198,
+                    1729
+                ],
+                "angle": 0,
+                "content": "Figure 1: A HOTPOTQA example designed to require reasoning across two paragraphs. Eight spurious additional paragraphs (not shown) are provided to increase the task difficulty. However, since only one of the ten paragraphs is about an animal, one can immediately locate the answer in Paragraph 1 using one hop. The full example is provided in Appendix A."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1796,
+                    2198,
+                    2076
+                ],
+                "angle": 0,
+                "content": "established to protect?”, and then answer “What is the former name of that animal?”. However, when considering the evidence paragraphs, the question is solvable in a single hop by finding the only paragraph that describes an animal."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2101,
+                    2198,
+                    2946
+                ],
+                "angle": 0,
+                "content": "Our analysis is centered on HOTPOTQA (Yang et al., 2018), a dataset of mostly compositional questions. In its RC setting, each question is paired with two gold paragraphs, which should be needed to answer the question, and eight distractor paragraphs, which provide irrelevant evidence or incorrect answers. We show that single-hop reasoning can solve much more of this dataset than previously thought. First, we design a single-hop QA model based on BERT (Devlin et al., 2018), which, despite having no ability to reason across paragraphs, achieves performance competitive with the state of the art. Next, we present an evaluation demonstrating that humans can solve over \\(80\\%\\) of questions when we withhold one of the gold paragraphs."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2967,
+                    2195,
+                    3192
+                ],
+                "angle": 0,
+                "content": "To better understand these results, we present a detailed analysis of why single-hop reasoning works so well. We show that questions include redundant facts which can be ignored when com-"
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    362,
+                    3143,
+                    679,
+                    3188
+                ],
+                "angle": 0,
+                "content": "*Equal Contribution."
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "4249"
+            },
+            {
+                "block_id": 13,
+                "type": "footer",
+                "bbox": [
+                    416,
+                    3301,
+                    2054,
+                    3399
+                ],
+                "angle": 0,
+                "content": "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics, pages 4249-4257 Florence, Italy, July 28 - August 2, 2019. ©2019 Association for Computational Linguistics"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    266,
+                    1215,
+                    603
+                ],
+                "angle": 0,
+                "content": "puting the answer, and that the fine-grained entity types present in the provided paragraphs in the RC setting often provide a strong signal for answering the question, e.g., there is only one animal in the given paragraphs in Figure 1, allowing one to immediately locate the answer using one hop."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    606,
+                    1223,
+                    1631
+                ],
+                "angle": 0,
+                "content": "This analysis shows that more carefully chosen distractor paragraphs would induce questions that require multi-hop reasoning. We thus explore an alternative method for collecting distractors based on adversarial paragraph selection. Although this appears to mitigate the problem, a single-hop model re-trained on these distractors can recover most of the original single-hop accuracy, indicating that these distractors are still insufficient. Another method is to consider very large distractor sets such as all of Wikipedia or the entire Web, as done in open-domain HOTPOTQA and ComplexWebQuestions (Talmor and Berant, 2018). However, this introduces additional computational challenges and/or the need for retrieval systems. Finding a small set of distractors that induce multi-hop reasoning remains an open challenge that is worthy of follow up work."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1676,
+                    677,
+                    1729
+                ],
+                "angle": 0,
+                "content": "2 Related Work"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1778,
+                    1215,
+                    2395
+                ],
+                "angle": 0,
+                "content": "Large-scale RC datasets (Hermann et al., 2015; Rajpurkar et al., 2016; Joshi et al., 2017) have enabled rapid advances in neural QA models (Seo et al., 2017; Xiong et al., 2018; Yu et al., 2018; Devlin et al., 2018). To foster research on reasoning across multiple pieces of text, multi-hop QA has been introduced (Kočisky et al., 2018; Talmor and Berant, 2018; Yang et al., 2018). These datasets contain compositional or \"complex\" questions. We demonstrate that these questions do not necessitate multi-hop reasoning."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2402,
+                    1223,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Existing multi-hop QA datasets are constructed using knowledge bases, e.g., WIKIHOP (Welbl et al., 2017) and COMPLEXWEBQUESTIONS (Talmor and Berant, 2018), or using crowd workers, e.g., HOTPOTQA (Yang et al., 2018). WIKIHOP questions are posed as triples of a relation and a head entity, and the task is to determine the tail entity of the relationship. COMPLEXWEBQUESTIONS consists of open-domain compositional questions, which are constructed by increasing the complexity of SPARQL queries from WEBQUESTIONS (Berant et al., 2013). We focus on HOTPOTQA, which consists of multi-hop questions written to require reasoning over two para"
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1290,
+                    266,
+                    2183,
+                    554
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 2: Our model, single-paragraph BERT, reads and scores each paragraph independently. The answer from the paragraph with the lowest \\( y_{\\mathrm{empty}} \\) score is chosen as the final answer."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    855,
+                    1716,
+                    908
+                ],
+                "angle": 0,
+                "content": "graphs from Wikipedia."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    912,
+                    2198,
+                    1301
+                ],
+                "angle": 0,
+                "content": "Parallel research from Chen and Durrett (2019) presents similar findings on HOTPOTQA. Our work differs because we conduct human analysis to understand why questions are solvable using single-hop reasoning. Moreover, we show that selecting distractor paragraphs is difficult using current retrieval methods."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1354,
+                    1818,
+                    1413
+                ],
+                "angle": 0,
+                "content": "3 Single-paragraph QA"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1445,
+                    2193,
+                    1557
+                ],
+                "angle": 0,
+                "content": "This section shows the performance of a single-hop model on HOTPOTQA."
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1599,
+                    1746,
+                    1655
+                ],
+                "angle": 0,
+                "content": "3.1 Model Description"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1673,
+                    2198,
+                    1901
+                ],
+                "angle": 0,
+                "content": "Our model, single-paragraph BERT, scores and answers each paragraph independently (Figure 2). We then select the answer from the paragraph with the best score, similar to Clark and Gardner (2018).<sup>1</sup>"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1901,
+                    2198,
+                    2181
+                ],
+                "angle": 0,
+                "content": "The model receives a question \\( Q = [q_{1}, \\dots, q_{m}] \\) and a single paragraph \\( P = [p_{1}, \\dots, p_{n}] \\) as input. Following Devlin et al. (2018), \\( S = [q_{1}, \\dots, q_{m}, [\\mathrm{SEP}], p_{1}, \\dots, p_{n}] \\), where [SEP] is a special token, is fed into BERT:"
+            },
+            {
+                "block_id": 14,
+                "type": "equation",
+                "bbox": [
+                    1426,
+                    2224,
+                    2039,
+                    2294
+                ],
+                "angle": 0,
+                "content": "\\[\nS ^ {\\prime} = \\mathrm {B E R T} (S) \\in \\mathbb {R} ^ {h \\times (m + n + 1)},\n\\]"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2339,
+                    2193,
+                    2511
+                ],
+                "angle": 0,
+                "content": "where \\( h \\) is the hidden dimension of BERT. Next, a classifier uses max-pooling and learned parameters \\( W_{1} \\in \\mathbb{R}^{h \\times 4} \\) to generate four scalars:"
+            },
+            {
+                "block_id": 16,
+                "type": "equation",
+                "bbox": [
+                    1314,
+                    2557,
+                    2148,
+                    2623
+                ],
+                "angle": 0,
+                "content": "\\[\n[ y _ {\\mathrm {s p a n}}; y _ {\\mathrm {y e s}}; y _ {\\mathrm {n o}}; y _ {\\mathrm {e m p t y}} ] = W _ {1} \\mathrm {m a x p o o l} (S ^ {\\prime}),\n\\]"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2669,
+                    2198,
+                    3065
+                ],
+                "angle": 0,
+                "content": "where \\( y_{\\mathrm{span}}, y_{\\mathrm{yes}}, y_{\\mathrm{no}} \\) and \\( y_{\\mathrm{empty}} \\) indicate the answer is either a span, yes, no, or no answer. An extractive paragraph span, span, is obtained separately following Devlin et al. (2018). The final model outputs are a scalar value \\( y_{\\mathrm{empty}} \\) and a text of either span, yes or no, based on which of \\( y_{\\mathrm{span}}, y_{\\mathrm{yes}}, y_{\\mathrm{no}} \\) has the largest value."
+            },
+            {
+                "block_id": 18,
+                "type": "page_footnote",
+                "bbox": [
+                    1267,
+                    3097,
+                    2198,
+                    3192
+                ],
+                "angle": 0,
+                "content": "\\(^{1}\\)Full details in Appendix B. Code available at https: //github.com/shmsw25/single-hop-rc."
+            },
+            {
+                "block_id": 19,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1295,
+                    3279
+                ],
+                "angle": 0,
+                "content": "4250"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    332,
+                    256,
+                    1183,
+                    792
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Model</td><td>Distractor F1</td><td>Open F1</td></tr><tr><td>Single-paragraph BERT*</td><td>67.08</td><td>38.40</td></tr><tr><td>BiDAF*</td><td>58.28</td><td>34.36</td></tr><tr><td>BiDAF</td><td>58.99</td><td>32.89</td></tr><tr><td>GRN</td><td>66.71</td><td>36.48</td></tr><tr><td>QFE</td><td>68.06</td><td>38.06</td></tr><tr><td>DFGN + BERT</td><td>68.49</td><td>-</td></tr><tr><td>MultiQA</td><td>-</td><td>40.23</td></tr><tr><td>DecompRC</td><td>69.63</td><td>40.65</td></tr><tr><td>BERT Plus</td><td>69.76</td><td>-</td></tr><tr><td>Cognitive Graph</td><td>-</td><td>48.87</td></tr></table>",
+                "caption": "Table 1: F1 scores on HOTPOTQA. * indicates the result is on the validation set; the other results are on the hidden test set shown in the official leaderboard."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1045,
+                    1218,
+                    1276
+                ],
+                "angle": 0,
+                "content": "For a particular HOTPOTQA example, we run single-paragraph BERT on each paragraph in parallel and select the answer from the paragraph with the smallest \\( y_{\\mathrm{empty}} \\)."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1336,
+                    682,
+                    1389
+                ],
+                "angle": 0,
+                "content": "3.2 Model Results"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1431,
+                    1215,
+                    1543
+                ],
+                "angle": 0,
+                "content": "HotPotQA has two settings: a distractor setting and an open-domain setting."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1627,
+                    1215,
+                    2136
+                ],
+                "angle": 0,
+                "content": "Distractor Setting The HOTPOTQA distractor setting pairs the two paragraphs the question was written for (gold paragraphs) with eight spurious paragraphs selected using TF-IDF similarity with the question (distractors). Our single-paragraph BERT model achieves 67.08 F1, comparable to the state-of-the-art (Table 1). This indicates the majority of HOTPOTQA questions are answerable in the distractor setting using a single-hop model."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2220,
+                    1215,
+                    2501
+                ],
+                "angle": 0,
+                "content": "Open-domain Setting The HOTPOTQA open-domain setting (Fullwiki) does not provide a set of paragraphs—all of Wikipedia is considered. We follow Chen et al. (2017) and retrieve paragraphs using bigram TF-IDF similarity with the question."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2511,
+                    1215,
+                    3076
+                ],
+                "angle": 0,
+                "content": "We use the single-paragraph BERT model trained in the distractor setting. We also fine-tune the model using incorrect paragraphs selected by the retrieval system. In particular, we retrieve 30 paragraphs and select the eight paragraphs with the lowest \\( y_{\\text{empty}} \\) scores predicted by the trained model. Single-paragraph BERT achieves 38.06 F1 in the open-domain setting (Table 1). This shows that the open-domain setting is challenging for our single-hop model and is worthy of future study."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    259,
+                    2076,
+                    382
+                ],
+                "angle": 0,
+                "content": "4 Compositional Questions Are Not Always Multi-hop"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    406,
+                    2198,
+                    694
+                ],
+                "angle": 0,
+                "content": "This section provides a human analysis of HOTPOTQA to understand what phenomena enable single-hop answer solutions. HOTPOTQA contains two question types, Bridge and Comparison, which we evaluate separately."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    729,
+                    1984,
+                    782
+                ],
+                "angle": 0,
+                "content": "4.1 Categorizing Bridge Questions"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    799,
+                    2195,
+                    1361
+                ],
+                "angle": 0,
+                "content": "Bridge questions consist of two paragraphs linked by an entity (Yang et al., 2018), e.g., Figure 1. We first investigate single-hop human performance on HOTPOTQA bridge questions using a human study consisting of NLP graduate students. Humans see the paragraph that contains the answer span and the eight distractor paragraphs, but do not see the other gold paragraph. As a baseline, we show a different set of people the same questions in their standard ten paragraph form."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1364,
+                    2195,
+                    1817
+                ],
+                "angle": 0,
+                "content": "On a sample of 200 bridge questions from the validation set, human accuracy shows marginal degradation when using only one hop: humans obtain 87.37 F1 using all ten paragraphs and 82.06 F1 when using only nine (where they only see a single gold paragraph). This indicates humans, just like models, are capable of solving bridge questions using only one hop."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1817,
+                    2198,
+                    2041
+                ],
+                "angle": 0,
+                "content": "Next, we manually categorize what enables single-hop answers for 100 bridge validation examples (taking into account the distractor paragraphs), and place questions into four categories (Table 2)."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2083,
+                    2198,
+                    2424
+                ],
+                "angle": 0,
+                "content": "Multi-hop \\(27 \\%\\)of questions require multi- hop reasoning. The first example of Table 2 requires locating the university where “Ralph Hefferline” was a psychology professor, and multiple universities are provided as distractors. Therefore, the answer cannot be determined in one hop."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2466,
+                    2198,
+                    3030
+                ],
+                "angle": 0,
+                "content": "Weak Distractors \\(35\\%\\) of questions allow single-hop answers in the distractor setting, mostly by entity type matching. Consider the question in the second row of Table 2: in the ten provided paragraphs, only one actress has a government position. Thus, the question is answerable without considering the film \"Kiss and Tell.\" These examples may become multi-hop in the open-domain setting, e.g., there are numerous actresses with a government position on Wikipedia."
+            },
+            {
+                "block_id": 16,
+                "type": "page_footnote",
+                "bbox": [
+                    1265,
+                    3058,
+                    2198,
+                    3192
+                ],
+                "angle": 0,
+                "content": "<sup>3</sup>It is possible that a single-hop model can do well by randomly guessing between two or three well-typed options, but we do not evaluate that strategy here."
+            },
+            {
+                "block_id": 17,
+                "type": "page_footnote",
+                "bbox": [
+                    342,
+                    3139,
+                    828,
+                    3188
+                ],
+                "angle": 0,
+                "content": "2Results as of March 4th, 2019."
+            },
+            {
+                "block_id": 18,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1287,
+                    3279
+                ],
+                "angle": 0,
+                "content": "4251"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    320,
+                    256,
+                    2170,
+                    677
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Type</td><td>Question</td><td>%</td></tr><tr><td>Multi-hop</td><td>Ralph Hefferline was a psychology professor at a university that is located in what city?</td><td>27</td></tr><tr><td>Weak distractors</td><td>What government position was held by the woman who portrayed Corliss Archer in the film Kiss and Tell?</td><td>35</td></tr><tr><td>Redundant evidence</td><td>Kaiser Ventures corporation was founded by an American industrialist who became known as the father of modern American shipbuilding?</td><td>26</td></tr><tr><td>Non-compositional 1-hop</td><td>When was Poison&#x27;s album ‘Shut Up, Make Love’ released?</td><td>8</td></tr></table>",
+                "caption": "Table 2: We categorize bridge questions while taking the paragraphs into account. We exclude \\(4\\%\\) of questions that we found to have incorrect or ambiguous answer annotations. See Section 4.1 for details on question types."
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    416,
+                    852,
+                    2074,
+                    1133
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Type</td><td>Question</td><td>%</td><td>F1</td></tr><tr><td>Multi-hop</td><td>Who was born first, Arthur Conan Doyle or Penelope Lively?</td><td>45</td><td>54.46</td></tr><tr><td>Context-dependent</td><td>Are Hot Rod and the Memory of Our People both magazines?</td><td>36</td><td>56.16</td></tr><tr><td>Single-hop</td><td>Which writer was from England, Henry Roth or Robert Erskine Childers?</td><td>17</td><td>70.54</td></tr></table>",
+                "caption": "Table 3: We automatically categorize comparison questions using rules (2% cannot be automatically categorized). Single-paragraph BERT achieves near chance accuracy on multi-hop questions but exploits single-hop ones."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1350,
+                    1215,
+                    1739
+                ],
+                "angle": 0,
+                "content": "To further investigate entity type matching, we reduce the question to the first five tokens starting from the wh-word, following Sugawara et al. (2018). Although most of these reduced questions appear void of critical information, the F1 score of single-paragraph BERT only degrades about 15 F1 from 67.08 to 52.13."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1782,
+                    1215,
+                    2290
+                ],
+                "angle": 0,
+                "content": "Redundant Evidence \\(26 \\%\\)of questions are compositional but are solvable using only part of the question. For instance, in the third example of Table 2 there is only a single founder of “Kaiser Ventures.” Thus, one can ignore the condition on “American industrialist” and “father of modern American shipbuilding.” This category differs from the weak distractors category because its questions are single- hop regardless of the distractors."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2339,
+                    1215,
+                    2567
+                ],
+                "angle": 0,
+                "content": "Non-compositional Single-hop \\(8 \\%\\)of questions are non- compositional and single-hop. In the last example of Table 2, one sentence contains all of the information needed to answer correctly."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2609,
+                    1113,
+                    2662
+                ],
+                "angle": 0,
+                "content": "4.2 Categorizing Comparison Questions"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2683,
+                    1215,
+                    3076
+                ],
+                "angle": 0,
+                "content": "Comparison questions require quantitative or logical comparisons between two quantities or events. We create rules (Appendix C) to group comparison questions into three categories: questions which require multi-hop reasoning (multi-hop), may require multi-hop reasoning (context-dependent), and require single-hop reasoning (single-hop)."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    285,
+                    3080,
+                    1215,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Many comparison questions are multi-hop or context-dependent multi-hop, and single-paragraph"
+            },
+            {
+                "block_id": 10,
+                "type": "table",
+                "bbox": [
+                    1406,
+                    1340,
+                    2064,
+                    1634
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\">Evaluation Data</td><td colspan=\"2\">Training Data</td></tr><tr><td>Original</td><td>Adversarial</td></tr><tr><td>Original</td><td>67.08</td><td>59.12</td></tr><tr><td>Adversarial</td><td>46.84</td><td>60.10</td></tr><tr><td>+ Type</td><td>40.73</td><td>58.42</td></tr></table>",
+                "caption": "Table 4: We train on HOTPOTQA using standard distractors (Original) or using adversarial distractors (Adversarial). The model is then tested on the original distractors, adversarial distractors, or adversarial distractors with filtering by entity type (+ Type)."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1982,
+                    2193,
+                    2206
+                ],
+                "angle": 0,
+                "content": "BERT achieves near chance accuracy on these types of questions (Table 3).<sup>4</sup> This shows that most comparison questions are not solvable by our single-hop model."
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2248,
+                    2061,
+                    2308
+                ],
+                "angle": 0,
+                "content": "5 Can We Find Better Distractors?"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2339,
+                    2195,
+                    2680
+                ],
+                "angle": 0,
+                "content": "In Section 4.1, we identify that \\(35\\%\\) of bridge examples are solvable using single-hop reasoning due to weak distractor paragraphs. Here, we attempt to automatically correct these examples by choosing new distractor paragraphs which are likely to trick our single-paragraph model."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2711,
+                    2195,
+                    3108
+                ],
+                "angle": 0,
+                "content": "Adversarial Distractors We select the top-50 first paragraphs of Wikipedia pages using TF-IDF similarity with the question, following the original HOTPOTQA setup. Next, we use single-paragraph BERT to adversarially select the eight distractor paragraphs from these 50 candidates. In particular, we feed each paragraph to the model and select"
+            },
+            {
+                "block_id": 16,
+                "type": "page_footnote",
+                "bbox": [
+                    1319,
+                    3139,
+                    2170,
+                    3192
+                ],
+                "angle": 0,
+                "content": "4 Comparison questions test mainly binary relationships."
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "4252"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    266,
+                    1215,
+                    487
+                ],
+                "angle": 0,
+                "content": "the paragraphs with the lowest \\( y_{\\text{empty}} \\) score (i.e., the paragraphs that the model thinks contain the answer). These paragraphs are dissimilar to the original distractors—there is a \\( 9.82\\% \\) overlap."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    491,
+                    1215,
+                    827
+                ],
+                "angle": 0,
+                "content": "We report the F1 score of single-paragraph BERT on these new distractors in Table 4: the accuracy declines from 67.08 F1 to 46.84 F1. However, when the same procedure is done on the training set and the model is re-trained, the accuracy increases to 60.10 F1 on the adversarial distractors."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    859,
+                    1215,
+                    1420
+                ],
+                "angle": 0,
+                "content": "Type Distractors We also experiment with filtering the initial list of 50 paragraph to ones whose entity type (e.g., person) matches that of the gold paragraphs. This can help to eliminate the entity type bias described in Section 4.1. As shown in Table 4, the original model's accuracy degrades significantly (drops to 40.73 F1). However, similar to the previous setup, the model trained on the adversarially selected distractors can recover most of its original accuracy (increases to 58.42 F1)."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1424,
+                    1220,
+                    1761
+                ],
+                "angle": 0,
+                "content": "These results show that single-paragraph BERT can struggle when the distribution of the distractors changes (e.g., using adversarial selection rather than only TF-IDF). Moreover, the model can somewhat recover its original accuracy when re-trained on distractors from the new distribution."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1803,
+                    640,
+                    1855
+                ],
+                "angle": 0,
+                "content": "6 Conclusions"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1890,
+                    1215,
+                    2227
+                ],
+                "angle": 0,
+                "content": "In summary, we demonstrate that question compositionality is not a sufficient condition for multi-hop reasoning. Instead, future datasets must carefully consider what evidence they provide in order to ensure multi-hop reasoning is required. There are at least two different ways to achieve this."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2259,
+                    1215,
+                    3048
+                ],
+                "angle": 0,
+                "content": "Open-domain Questions Our single-hop model struggles in the open-domain setting. We largely attribute this to the insufficiencies of standard TF-IDF retrieval for multi-hop questions. For example, we fail to retrieve the paragraph about “Bonobo apes” in Figure 1, because the question does not contain terms about “Bonobo apes.” Table 5 shows that the model achieves 39.12 F1 given 500 retrieved paragraphs, but achieves 53.12 F1 when additional two gold paragraphs are given, demonstrating the significant effect of failure to retrieve gold paragraphs. In this context, we suggest that future work can explore better retrieval methods for multi-hop questions."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    287,
+                    3080,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Retrieving Strong Distractors Another way to ensure multi-hop reasoning is to select strong dis"
+            },
+            {
+                "block_id": 8,
+                "type": "table",
+                "bbox": [
+                    1431,
+                    256,
+                    2036,
+                    547
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Setting</td><td>F1</td></tr><tr><td>Distractor</td><td>67.08</td></tr><tr><td>Open-domain 10 Paragraphs</td><td>38.40</td></tr><tr><td>Open-domain 500 Paragraphs</td><td>39.12</td></tr><tr><td>+ Gold Paragraph</td><td>53.12</td></tr></table>",
+                "caption": "Table 5: The accuracy of single-paragraph BERT in different open-domain retrieval settings. TF-IDF often fails to retrieve the gold paragraphs even when using 500 candidates."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    845,
+                    2198,
+                    1634
+                ],
+                "angle": 0,
+                "content": "tractor paragraphs. For example, we found \\(35\\%\\) of bridge questions are currently single-hop but may become multi-hop when combined with stronger distractors (Section 4.1). However, as we demonstrate in Section 5, selecting strong distractors for RC questions is non-trivial. We suspect this is also due to the insufficiencies of standard TF-IDF retrieval for multi-hop questions. In particular, Table 5 shows that single-paragraph BERT achieves 53.12 F1 even when using 500 distractors (rather than eight), indicating that 500 distractors are still insufficient. In this end, future multi-hop RC datasets can develop improved methods for distractor collection."
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    1680,
+                    1697,
+                    1736
+                ],
+                "angle": 0,
+                "content": "Acknowledgements"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1771,
+                    2198,
+                    2104
+                ],
+                "angle": 0,
+                "content": "This research was supported by ONR (N00014-18-1-2826, N00014-17-S-B001), NSF (IIS-1616112, IIS-1252835, IIS-1562364), ARO (W911NF-16-1-0121), an Allen Distinguished Investigator Award, Samsung GRO and gifts from Allen Institute for AI, Google, and Amazon."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2108,
+                    2198,
+                    2329
+                ],
+                "angle": 0,
+                "content": "The authors would like to thank Shi Feng, Nikhil Kandpal, Victor Zhong, the members of AllenNLP and UW NLP, and the anonymous reviewers for their valuable feedback."
+            },
+            {
+                "block_id": 14,
+                "type": "title",
+                "bbox": [
+                    1270,
+                    2431,
+                    1515,
+                    2483
+                ],
+                "angle": 0,
+                "content": "References"
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    1267,
+                    2511,
+                    2193,
+                    2655
+                ],
+                "angle": 0,
+                "content": "Jonathan Berant, Andrew Chou, Roy Frostig, and Percy Liang. 2013. Semantic parsing on freebase from question-answer pairs. In EMNLP."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1267,
+                    2690,
+                    2195,
+                    2834
+                ],
+                "angle": 0,
+                "content": "Danqi Chen, Adam Fisch, Jason Weston, and Antoine Bordes. 2017. Reading wikipedia to answer open-domain questions. In ACL."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1267,
+                    2869,
+                    2195,
+                    3009
+                ],
+                "angle": 0,
+                "content": "Jifan Chen and Greg Durrett. 2019. Understanding dataset design choices for multi-hop reasoning. In NAACL."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1267,
+                    3048,
+                    2195,
+                    3185
+                ],
+                "angle": 0,
+                "content": "Christopher Clark and Matt Gardner. 2018. Simple and effective multi-paragraph reading comprehension. In ACL."
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    1267,
+                    2511,
+                    2195,
+                    3185
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "4253"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    270,
+                    1215,
+                    452
+                ],
+                "angle": 0,
+                "content": "Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2018. BERT: Pre-training of deep bidirectional transformers for language understanding. In NAACL."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    487,
+                    1215,
+                    673
+                ],
+                "angle": 0,
+                "content": "Karl Moritz Hermann, Tomas Kocisky, Edward Grefenstette, Lasse Espeholt, Will Kay, Mustafa Suleyman, and Phil Blunsom. 2015. Teaching machines to read and comprehend. In NIPS."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    708,
+                    1215,
+                    894
+                ],
+                "angle": 0,
+                "content": "Mandar Joshi, Eunsol Choi, Daniel S Weld, and Luke Zettlemoyer. 2017. TriviaQA: A large scale distantly supervised challenge dataset for reading comprehension. In ACL."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    929,
+                    1213,
+                    1024
+                ],
+                "angle": 0,
+                "content": "Diederik P Kingma and Jimmy Ba. 2015. Adam: A method for stochastic optimization. In ICLR."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1059,
+                    1215,
+                    1245
+                ],
+                "angle": 0,
+                "content": "Tomáš Kočisky, Jonathan Schwarz, Phil Blunsom, Chris Dyer, Karl Moritz Hermann, Gábor Melis, and Edward Grefenstette. 2018. The NarrativeQA reading comprehension challenge. TACL."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1276,
+                    1215,
+                    1508
+                ],
+                "angle": 0,
+                "content": "Adam Paszke, Sam Gross, Soumith Chintala, Gregory Chanan, Edward Yang, Zachary DeVito, Zeming Lin, Alban Desmaison, Luca Antiga, and Adam Lerer. 2017. Automatic differentiation in PyTorch. In NIPS Autodiff Workshop."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1543,
+                    1213,
+                    1683
+                ],
+                "angle": 0,
+                "content": "Pranav Rajpurkar, Jian Zhang, Konstantin Lopyrev, and Percy Liang. 2016. SQuAD: 100,000+ questions for machine comprehension of text. In EMNLP."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1718,
+                    1213,
+                    1859
+                ],
+                "angle": 0,
+                "content": "Minjoon Seo, Aniruddha Kembhavi, Ali Farhadi, and Hannaneh Hajishirzi. 2017. Bidirectional attention flow for machine comprehension. In ICLR."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1894,
+                    1215,
+                    2031
+                ],
+                "angle": 0,
+                "content": "Saku Sugawara, Kentaro fInui, Satoshi Sekine, and Akiko Aizawa. 2018. What makes reading comprehension questions easier? In EMNLP."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2066,
+                    1215,
+                    2203
+                ],
+                "angle": 0,
+                "content": "Alon Talmor and Jonathan Berant. 2018. The web as a knowledge-base for answering complex questions. In *NAACL*."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2241,
+                    1215,
+                    2420
+                ],
+                "angle": 0,
+                "content": "Johannes Welbl, Pontus Stenetorp, and Sebastian Riedel. 2017. Constructing Datasets for Multi-hop Reading Comprehension Across Documents. In TACL."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2462,
+                    1215,
+                    2599
+                ],
+                "angle": 0,
+                "content": "Caiming Xiong, Victor Zhong, and Richard Socher. 2018. DCN+: Mixed objective and deep residual coattention for question answering. In ICLR."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2634,
+                    1215,
+                    2866
+                ],
+                "angle": 0,
+                "content": "Zhilin Yang, Peng Qi, Saizheng Zhang, Yoshua Bengio, William W Cohen, Ruslan Salakhutdinov, and Christopher D Manning. 2018. HotpotQA: A dataset for diverse, explainable multi-hop question answering. In EMNLP."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2901,
+                    1215,
+                    3125
+                ],
+                "angle": 0,
+                "content": "Adams Wei Yu, David Dohan, Minh-Thang Luong, Rui Zhao, Kai Chen, Mohammad Norouzi, and Quoc V. Le. 2018. Qanet: Combining local convolution with global self-attention for reading comprehension. In ICLR."
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    292,
+                    270,
+                    1215,
+                    3125
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3234,
+                    1292,
+                    3276
+                ],
+                "angle": 0,
+                "content": "4254"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    287,
+                    263,
+                    1012,
+                    319
+                ],
+                "angle": 0,
+                "content": "A Example Distractor Question"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    287,
+                    364,
+                    1215,
+                    477
+                ],
+                "angle": 0,
+                "content": "We present the full example from Figure 1 below. Paragraphs 1 and 5 are the two gold paragraphs."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    287,
+                    526,
+                    1215,
+                    694
+                ],
+                "angle": 0,
+                "content": "Question What is the former name of the animal whose habitat the Réserve Naturelle Lomako Yokokala was established to protect?"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    287,
+                    747,
+                    850,
+                    799
+                ],
+                "angle": 0,
+                "content": "Answer pygmy chimpanzee"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    848,
+                    1223,
+                    1469
+                ],
+                "angle": 0,
+                "content": "(Gold Paragraph) Paragraph 1 The bonobo (or ; “Pan paniscus”), formerly called the pygmy chimpanzee and less often, the dwarf or gracile chimpanzee, is an endangered great ape and one of the two species making up the genus “Pan”; the other is “Pan troglodytes”, or the common chimpanzee. Although the name “chimpanzee” is sometimes used to refer to both species together, it is usually understood as referring to the common chimpanzee, whereas “Pan paniscus” is usually referred to as the bonobo."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1518,
+                    1215,
+                    1971
+                ],
+                "angle": 0,
+                "content": "Paragraph 2 The Carrière des Nerviens Regional Nature Reserve (in French “Réserve naturelle régionale de la carrière des Nerviens”) is a protected area in the Nord-Pas-de-Calais region of northern France. It was established on 25 May 2009 to protect a site containing rare plants and covers just over 3 ha. It is located in the municipalities of Bavay and Saint-Waast in the Nord department."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2020,
+                    1215,
+                    2417
+                ],
+                "angle": 0,
+                "content": "Paragraph 3 Céreste (Occitan: “Ceirésta”) is a commune in the Alpes-de-Haute-Provence department in southeastern France. It is known for its rich fossil beds in fine layers of “Calcaire de Campagne Calavon” limestone, which are now protected by the Parc naturel régional du Luberon and the Réserve naturelle géologique du Luberon."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2466,
+                    1215,
+                    2855
+                ],
+                "angle": 0,
+                "content": "Paragraph 4 The Grand Cote National Wildlife Refuge (French: “Réserve Naturelle Faunique Nationale du Grand-Cote”) was established in 1989 as part of the North American Waterfowl Management Plan. It is a 6000 acre reserve located in Avoyelles Parish, near Marksville, Louisiana, in the United States."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2911,
+                    1215,
+                    3188
+                ],
+                "angle": 0,
+                "content": "(Gold Paragraph) Paragraph 5 The Lomako Forest Reserve is found in Democratic Republic of the Congo. It was established in 1991 especially to protect the habitat of the Bonobo apes. This site covers \\(3,601.88 \\mathrm{~km}^{2}\\)."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    263,
+                    2195,
+                    880
+                ],
+                "angle": 0,
+                "content": "Paragraph 6 Guadeloupe National Park (French: \"Parc national de la Guadeloupe\") is a national park in Guadeloupe, an overseas department of France located in the Leeward Islands of the eastern Caribbean region. The Grand Cul-de-Sac Marin Nature Reserve (French: \"Réserve Naturelle du Grand Cul-de-Sac Marin\") is a marine protected area adjacent to the park and administered in conjunction with it. Together, these protected areas comprise the Guadeloupe Archipelago (French: \"l'Archipel de la Guadeloupe\") biosphere reserve."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    919,
+                    2200,
+                    1540
+                ],
+                "angle": 0,
+                "content": "Paragraph 7 La Désirade National Nature Reserve (French: “Réserve naturelle nationale de La Désirade”) is a reserve in Désirade Island in Guadeloupe. Established under the Ministerial Decree No. 2011-853 of 19 July 2011 for its special geological features it has an area of 62 ha. The reserve represents the geological heritage of the Caribbean tectonic plate, with a wide spectrum of rock formations, the outcrops of volcanic activity being remnants of the sea level oscillations. It is one of thirty three geosites of Guadeloupe."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1575,
+                    2198,
+                    1964
+                ],
+                "angle": 0,
+                "content": "Paragraph 8 La Tortue ou l'Ecale or Ile Tortue is a small rocky islet off the northeastern coast of Saint Barthelemy in the Caribbean. Its highest point is \\(35\\mathrm{m}\\) above sea level. Referencing tortoises, it forms part of the Reserve naturelle nationale de Saint-Barthelemy with several of the other northern islets of St Barts."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2006,
+                    2195,
+                    2283
+                ],
+                "angle": 0,
+                "content": "Paragraph 9 Nature Reserve of Saint Bartholomew (Réserve Naturelle de Saint-Barthelemy) is a nature reserve of Saint Barthélemy (RNN 132), French West Indies, an overseas collectivity of France."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2322,
+                    2195,
+                    2715
+                ],
+                "angle": 0,
+                "content": "Paragraph 10 Ile Fourchue, also known as Ile Fourche is an island between Saint-Barthelemy and Saint Martin, belonging to the Collectivity of Saint Barthelemy. The island is privately owned. The only inhabitants are some goats. The highest point is 103 meter above sea level. It is situated within Reserve naturelle nationale de Saint-Barthelemy."
+            },
+            {
+                "block_id": 14,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2760,
+                    1761,
+                    2816
+                ],
+                "angle": 0,
+                "content": "B Full Model Details"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2852,
+                    2195,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Single-paragraph BERT is a pipeline which first retrieves a single paragraph using a classifier and then selects the associated answer. Formally, the model receives a question \\( Q = [q_{1}, \\dots, q_{m}] \\) and a single paragraph \\( P = [p_{1}, \\dots, p_{n}] \\) as input. The question and paragraph are merged into a single"
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "4255"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    535,
+                    280,
+                    1972,
+                    1052
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 3: Single-paragraph BERT reads and scores each paragraph independently. The answer from the paragraph with the lowest \\( y^{\\mathrm{empty}} \\) score is chosen as the final answer."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1294,
+                    1218,
+                    1462
+                ],
+                "angle": 0,
+                "content": "sequence, \\( S = [q_1, \\ldots, q_m, [\\mathrm{SEP}], p_1, \\ldots, p_n] \\), where [SEP] is a special token indicating the boundary. The sequence is fed into BERT-BASE:"
+            },
+            {
+                "block_id": 3,
+                "type": "equation",
+                "bbox": [
+                    446,
+                    1504,
+                    1056,
+                    1575
+                ],
+                "angle": 0,
+                "content": "\\[\nS ^ {\\prime} = \\mathrm {B E R T} (S) \\in \\mathbb {R} ^ {h \\times (m + n + 1)},\n\\]"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1613,
+                    1220,
+                    1789
+                ],
+                "angle": 0,
+                "content": "where \\( h \\) is the hidden dimension of BERT. Next, a classifier uses max-pooling and learned parameters \\( W_{1} \\in \\mathbb{R}^{h \\times 4} \\) to generate four scalars:"
+            },
+            {
+                "block_id": 5,
+                "type": "equation",
+                "bbox": [
+                    334,
+                    1827,
+                    1168,
+                    1894
+                ],
+                "angle": 0,
+                "content": "\\[\n[ y _ {\\mathrm {s p a n}}; y _ {\\mathrm {y e s}}; y _ {\\mathrm {n o}}; y _ {\\mathrm {e m p t y}} ] = W _ {1} \\mathrm {m a x p o o l} (S ^ {\\prime}),\n\\]"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    287,
+                    1936,
+                    1213,
+                    2045
+                ],
+                "angle": 0,
+                "content": "where \\( y_{\\mathrm{span}}, y_{\\mathrm{yes}}, y_{\\mathrm{no}} \\) and \\( y_{\\mathrm{empty}} \\) indicate the answer is either a span, yes, no, or no answer."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2048,
+                    1218,
+                    2160
+                ],
+                "angle": 0,
+                "content": "A candidate answer span is then computed separately from the classifier. We define"
+            },
+            {
+                "block_id": 8,
+                "type": "equation",
+                "bbox": [
+                    508,
+                    2203,
+                    989,
+                    2266
+                ],
+                "angle": 0,
+                "content": "\\[\np _ {\\mathrm {s t a r t}} = \\mathrm {S o f t m a x} (W _ {2} S ^ {\\prime})\n\\]"
+            },
+            {
+                "block_id": 9,
+                "type": "equation",
+                "bbox": [
+                    516,
+                    2273,
+                    989,
+                    2336
+                ],
+                "angle": 0,
+                "content": "\\[\np _ {\\mathrm {e n d}} = \\mathrm {S o f t m a x} (W _ {3} S ^ {\\prime}),\n\\]"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2378,
+                    1215,
+                    2494
+                ],
+                "angle": 0,
+                "content": "where \\(W_{2}, W_{3} \\in \\mathbb{R}^{h}\\) are learned parameters. Then, \\(y_{\\mathrm{start}}\\) and \\(y_{\\mathrm{end}}\\) are obtained:"
+            },
+            {
+                "block_id": 11,
+                "type": "equation",
+                "bbox": [
+                    444,
+                    2532,
+                    1056,
+                    2634
+                ],
+                "angle": 0,
+                "content": "\\[\ny _ {\\mathrm {s t a r t}}, y _ {\\mathrm {e n d}} = \\underset {i \\leq j} {\\arg \\max} p _ {\\mathrm {s t a r t}} ^ {i} p _ {\\mathrm {e n d}} ^ {j}\n\\]"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2680,
+                    1215,
+                    2795
+                ],
+                "angle": 0,
+                "content": "where \\( p_{\\mathrm{start}}^i \\) and \\( p_{\\mathrm{end}}^j \\) indicate the \\( i \\)-th element of \\( p_{\\mathrm{start}} \\) and \\( j \\)-th element of \\( p_{\\mathrm{end}} \\), respectively."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2799,
+                    1215,
+                    2967
+                ],
+                "angle": 0,
+                "content": "We now have four scalar values \\( y_{\\mathrm{span}} \\), \\( y_{\\mathrm{yes}} \\), \\( y_{\\mathrm{no}} \\), and \\( y_{\\mathrm{empty}} \\) and a span from the paragraph span \\( = [S_{y_{\\mathrm{start}}}, \\ldots, S_{y_{\\mathrm{end}}}] \\)."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2971,
+                    1215,
+                    3195
+                ],
+                "angle": 0,
+                "content": "For HOTPOTQA, the input is a question and \\(N\\) context paragraphs. We create a batch of size \\(N\\), where each entry is a question and a single paragraph. Denote the output from \\(i\\)-th entry as"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1290,
+                    2195,
+                    1406
+                ],
+                "angle": 0,
+                "content": "\\(y_{\\mathrm{span}}^i, y_{\\mathrm{yes}}^i, y_{\\mathrm{no}}^i, y_{\\mathrm{empty}}^i\\) and \\(\\mathrm{span}^i\\). The final answer is selected as:"
+            },
+            {
+                "block_id": 16,
+                "type": "equation",
+                "bbox": [
+                    1473,
+                    1459,
+                    1935,
+                    1529
+                ],
+                "angle": 0,
+                "content": "\\[\n{j} {=} {\\operatorname {a r g m i n} _ {i} (y _ {\\mathrm {e m p t y}} ^ {i})}\n\\]"
+            },
+            {
+                "block_id": 17,
+                "type": "equation",
+                "bbox": [
+                    1411,
+                    1536,
+                    2014,
+                    1599
+                ],
+                "angle": 0,
+                "content": "\\[\n{y _ {\\mathrm {m a x}}} = {\\max (y _ {\\mathrm {s p a n}} ^ {j}, y _ {\\mathrm {y e s}} ^ {j}, y _ {\\mathrm {n o}} ^ {j})}\n\\]"
+            },
+            {
+                "block_id": 18,
+                "type": "equation",
+                "bbox": [
+                    1362,
+                    1613,
+                    2098,
+                    1817
+                ],
+                "angle": 0,
+                "content": "\\[\n\\begin{array}{r l r} {\\mathrm {a n s w e r}} & = & {\\left\\{ \\begin{array}{l l} {\\mathrm {s p a n} ^ {j}} & {\\mathrm {i f} y _ {\\mathrm {s p a n}} ^ {j} = y _ {\\mathrm {m a x}}} \\\\ {\\mathrm {y} \\in \\mathsf {S}} & {\\mathrm {i f} y _ {\\mathrm {y e s}} ^ {j} = y _ {\\mathrm {m a x}}} \\\\ {\\mathrm {n} \\circ} & {\\mathrm {i f} y _ {\\mathrm {n o}} ^ {j} = y _ {\\mathrm {m a x}}} \\end{array} \\right.} \\end{array}\n\\]"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1869,
+                    2190,
+                    1989
+                ],
+                "angle": 0,
+                "content": "During training, \\( y_{\\mathrm{empty}}^i \\) is set to 0 for the paragraph which contains the answer span and 1 otherwise."
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2024,
+                    2200,
+                    2476
+                ],
+                "angle": 0,
+                "content": "Implementation Details We use PyTorch (Paszke et al., 2017) based on Hugging Face's implementation. We use Adam (Kingma and Ba, 2015) with learning rate \\(5 \\times 10^{-5}\\). We lowercase the input and set the maximum sequence length \\(|S|\\) to 300. If a sequence is longer than 300, we split it into multiple sequences and treat them as different examples."
+            },
+            {
+                "block_id": 21,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2525,
+                    2143,
+                    2585
+                ],
+                "angle": 0,
+                "content": "C Categorizing Comparison Questions"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2620,
+                    2198,
+                    3016
+                ],
+                "angle": 0,
+                "content": "This section describes how we categorize comparison questions. We first identify ten question operations that sufficiently cover comparison questions (Table 6). Next, for each question, we extract the two entities under comparison using the Spacy\\(^{6}\\) NER tagger on the question and the two HOTPOTQA supporting facts. Using these extracted"
+            },
+            {
+                "block_id": 23,
+                "type": "page_footnote",
+                "bbox": [
+                    1267,
+                    3051,
+                    2044,
+                    3146
+                ],
+                "angle": 0,
+                "content": "5https://github.com/huggingface/pytorch-pretrained-BERT"
+            },
+            {
+                "block_id": 24,
+                "type": "page_footnote",
+                "bbox": [
+                    1324,
+                    3146,
+                    1726,
+                    3192
+                ],
+                "angle": 0,
+                "content": "\\(^{6}\\)https://spacy.io/"
+            },
+            {
+                "block_id": 25,
+                "type": "list",
+                "bbox": [
+                    1267,
+                    3051,
+                    2044,
+                    3192
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 26,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1295,
+                    3279
+                ],
+                "angle": 0,
+                "content": "4256"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    451,
+                    270,
+                    803,
+                    319
+                ],
+                "angle": 0,
+                "content": "Operation & Example"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    458,
+                    333,
+                    803,
+                    378
+                ],
+                "angle": 0,
+                "content": "Numerical Questions"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    458,
+                    378,
+                    2022,
+                    466
+                ],
+                "angle": 0,
+                "content": "Operations: Is greater / Is smaller / Which is greater / Which is smaller Example (Which is smaller): Who was born first, Arthur Conan Doyle or Penelope Lively?"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    461,
+                    484,
+                    756,
+                    526
+                ],
+                "angle": 0,
+                "content": "Logical Questions"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    461,
+                    526,
+                    1654,
+                    613
+                ],
+                "angle": 0,
+                "content": "Operations: And / Or / Which is true Example (And): Are Hot Rod and the Memory of Our People both magazines?"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    463,
+                    631,
+                    736,
+                    673
+                ],
+                "angle": 0,
+                "content": "String Questions"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    461,
+                    673,
+                    1932,
+                    761
+                ],
+                "angle": 0,
+                "content": "Operations: Is equal / Not equal / Intersection Example (Is equal): Are Cardinal Health and Kansas City Southern located in the same state?"
+            },
+            {
+                "block_id": 8,
+                "type": "table",
+                "bbox": [
+                    290,
+                    869,
+                    2193,
+                    1957
+                ],
+                "angle": 0,
+                "content": "<table><tr><td colspan=\"2\">Algorithm 1 Algorithm for Identifying Question Operations</td></tr><tr><td colspan=\"2\">1: procedure CATEGORIZE(question, entity1, entity2)</td></tr><tr><td colspan=\"2\">2: coordination, preconjunct ← f(question, entity1, entity2)</td></tr><tr><td colspan=\"2\">3: Determine if the question is either question or both question from coordination and preconjunct</td></tr><tr><td colspan=\"2\">4: head entity ← fhead(question, entity1, entity2)</td></tr><tr><td colspan=\"2\">5: if more, most, later, last, latest, longer, larger, younger, newer, taller, higher in question then</td></tr><tr><td colspan=\"2\">6: if head entity exists then discrete_operation ← Which is greater</td></tr><tr><td colspan=\"2\">7: else discrete_operation ← Is greater</td></tr><tr><td colspan=\"2\">8: else if less, earlier, earliest, first, shorter, smaller, older, closer in question then</td></tr><tr><td colspan=\"2\">9: if head entity exists then discrete_operation ← Which is smaller</td></tr><tr><td colspan=\"2\">10: else discrete_operation ← Is smaller</td></tr><tr><td colspan=\"2\">11: else if head entity exists then</td></tr><tr><td colspan=\"2\">12: discrete_operation ← Which is true</td></tr><tr><td colspan=\"2\">13: else if question is not yes/no question and asks for the property in common then</td></tr><tr><td colspan=\"2\">14: discrete_operation ← Intersection</td></tr><tr><td colspan=\"2\">15: else if question is yes/no question then</td></tr><tr><td colspan=\"2\">16: Determine if question asks for logical comparison or string comparison</td></tr><tr><td colspan=\"2\">17: if question asks for logical comparison then</td></tr><tr><td colspan=\"2\">18: if either question then discrete_operation ← Or</td></tr><tr><td colspan=\"2\">19: else if both question then discrete_operation ← And</td></tr><tr><td colspan=\"2\">20: else if question asks for string comparison then</td></tr><tr><td colspan=\"2\">21: if asks for same? then discrete_operation ← Is equal</td></tr><tr><td colspan=\"2\">22: else if asks for difference? then discrete_operation ← Not equal</td></tr><tr><td colspan=\"2\">23: return discrete_operation</td></tr></table>",
+                "caption": "Table 6: The question operations used for categorizing comparison questions."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2045,
+                    1213,
+                    2153
+                ],
+                "angle": 0,
+                "content": "entities, we identify the suitable question operation following Algorithm 1."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2157,
+                    1215,
+                    3051
+                ],
+                "angle": 0,
+                "content": "Based on the identified operation, questions are classified into multi-hop, context-dependent multi-hop, or single-hop. First, numerical questions are always multi-hop (e.g., first example of Table 6). Next, the operations And, Or, Is equal, and Not equal are context-dependent multi-hop. For instance, in the second example of Table 6, if \"Hot Rod\" is not a magazine, one can immediately answer No. Finally, the operations Which is true and Intersection are single-hop because they can be answered using one paragraph regardless of the context. For instance, in the third example of Table 6, if Henry Roth's paragraph explains he is from England, one can answer Henry Roth, otherwise, the answer is Robert Erskine Childers."
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    1193,
+                    3230,
+                    1292,
+                    3279
+                ],
+                "angle": 0,
+                "content": "4257"
+            }
+        ]
+    }
+]

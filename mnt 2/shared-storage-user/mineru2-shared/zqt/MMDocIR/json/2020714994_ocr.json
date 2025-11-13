@@ -1,0 +1,949 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    293,
+                    310,
+                    520,
+                    491
+                ],
+                "angle": 0,
+                "content": "LAW"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    290,
+                    495,
+                    726,
+                    673
+                ],
+                "angle": 0,
+                "content": "LIBRARY"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    293,
+                    673,
+                    724,
+                    716
+                ],
+                "angle": 0,
+                "content": "LIBRARY OF CONGRESS"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    589,
+                    1270,
+                    2047,
+                    1791
+                ],
+                "angle": 0,
+                "content": "Israel: Scope and Duration of Amendments Regulating the Tenure and Operation of a Rotating Government"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1134,
+                    1854,
+                    1415,
+                    1927
+                ],
+                "angle": 0,
+                "content": "May 2020"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1025,
+                    2623,
+                    1522,
+                    2673
+                ],
+                "angle": 0,
+                "content": "LL File No. 2020-019108"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1065,
+                    2682,
+                    1481,
+                    2729
+                ],
+                "angle": 0,
+                "content": "LRA-D-PUB-002400"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    645,
+                    3039,
+                    1904,
+                    3095
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress, Global Legal Research Directorate"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    459,
+                    3095,
+                    2083,
+                    3154
+                ],
+                "angle": 0,
+                "content": "(202) 707-5080 (phone) • (866) 550-0442 (fax) • law@loc.gov • http://www.law.gov"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    578,
+                    1455,
+                    1963,
+                    1765
+                ],
+                "angle": 0,
+                "content": "This report is provided for reference purposes only. It does not constitute legal advice and does not represent the official opinion of the United States Government. The information provided reflects research undertaken as of the date of writing. It has not been updated."
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    290,
+                    303,
+                    563,
+                    372
+                ],
+                "angle": 0,
+                "content": "Contents"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    293,
+                    491,
+                    2254,
+                    557
+                ],
+                "angle": 0,
+                "content": "I. Background. 1"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    293,
+                    607,
+                    2256,
+                    666
+                ],
+                "angle": 0,
+                "content": "II. Amendment Law Application 2"
+            },
+            {
+                "block_id": 3,
+                "type": "list",
+                "bbox": [
+                    293,
+                    491,
+                    2256,
+                    666
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    722,
+                    2254,
+                    778
+                ],
+                "angle": 0,
+                "content": "A. General Provisions on Rotation Governments 2"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    367,
+                    834,
+                    2256,
+                    897
+                ],
+                "angle": 0,
+                "content": "B. Temporary Provisions 2"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    364,
+                    722,
+                    2256,
+                    897
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    290,
+                    950,
+                    2254,
+                    1009
+                ],
+                "angle": 0,
+                "content": "III. Effectiveness and Possibility of Amending the Amendment Law 3"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1062,
+                    2254,
+                    1181
+                ],
+                "angle": 0,
+                "content": "IV. Likelihood of a Last-Minute Amendment Before the Inauguration of the 35th Government and Temporary Enforcement of the Amendment Law............ 4"
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    290,
+                    950,
+                    2254,
+                    1181
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    323,
+                    297,
+                    2223,
+                    471
+                ],
+                "angle": 0,
+                "content": "Israel: Scope and Duration of Amendments Regulating the Tenure and Operation of a Rotating Government"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    991,
+                    495,
+                    1555,
+                    607
+                ],
+                "angle": 0,
+                "content": "Ruth Levush Senior Foreign Law Specialist"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    293,
+                    726,
+                    2249,
+                    1052
+                ],
+                "angle": 0,
+                "content": "SUMMARY On May 7, 2020, the Knesset (Israel's parliament) adopted legislation amending the Basic Law: The Government and the Basic Law: The Knesset to provide a legal basis for the establishment of a rotating government as an alternative form of government in Israel (Amendment Law). In addition to provisions applicable to future rotating governments, the legislation contains provisions that will exclusively apply to the upcoming 35th government."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    568,
+                    1105,
+                    2249,
+                    1432
+                ],
+                "angle": 0,
+                "content": "The Amendment Law requires a majority of 70 of the 120 Members of the Knesset to amend its provisions. A last-minute amendment to provide for a four-year term for the 35th government, instead of a three-year term, contrary to provisions otherwise applicable under Basic Law: The Government, is theoretically possible. Considering the relative size of the parliamentary groups currently serving in the 23rd Knesset, obtaining the required support for such an amendment would pose a great challenge."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    298,
+                    1547,
+                    632,
+                    1607
+                ],
+                "angle": 0,
+                "content": "I. Background"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    295,
+                    1663,
+                    2249,
+                    2062
+                ],
+                "angle": 0,
+                "content": "On May 7, 2020, the Knesset adopted the Basic Law: The Government (Amendment No. 8 and Temporary Provision) (hereafter Amendment Law).<sup>1</sup> The Amendment Law includes legislative amendments to Basic Law: The Government<sup>2</sup> and to Basic Law: The Knesset.<sup>3</sup> The Amendment Law was intended to provide a legislative basis for the establishment of a “rotating government” as an alternative form of government in Israel, and to secure implementation of the coalition agreement signed by the Likud and the Blue and White parties on April 20, 2020,<sup>4</sup> on formation of the 35th Israeli government.<sup>5</sup>"
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2379,
+                    2172,
+                    2484
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup> Basic Law: The Government (Amendment No. 8 and Temporary Provision), Sefer HaHukim [SH] (official gazette) No. 2795 p. 34, https://perma.cc/N54E-UXVT (in Hebrew)."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2501,
+                    2223,
+                    2607
+                ],
+                "angle": 0,
+                "content": "2 Basic Law: The Government, SH 5761 No. 1780 p. 158, as amended, https://perma.cc/GJF2-BL3Q (unofficial English translation)."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2626,
+                    2164,
+                    2729
+                ],
+                "angle": 0,
+                "content": "3 Basic Law: The Knesset, SH 5718 No. 244, p. 69, as amended, https://perma.cc/XLD6-WQWQ (unofficial English translation)."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2748,
+                    2159,
+                    2854
+                ],
+                "angle": 0,
+                "content": "<sup>4</sup> Coalition Agreement for Constituting an Emergency National Unity Government between the Likud and Blue and White Parliamentary Groups, YNET News (Apr. 20, 2020), https://perma.cc/22UQ-XUFT."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2871,
+                    2213,
+                    2976
+                ],
+                "angle": 0,
+                "content": "<sup>5</sup> Raul Wootlife, *Government Swearing-In Pushed Off to Thursday against Backdrop of Pompeo Visit*, Times of Israel (Mar. 16, 2020), https://perma.cc/2NEK-2DXH."
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    295,
+                    2379,
+                    2223,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "footer",
+                "bbox": [
+                    298,
+                    3095,
+                    864,
+                    3148
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    2226,
+                    3102,
+                    2249,
+                    3138
+                ],
+                "angle": 0,
+                "content": "1"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    367,
+                    148,
+                    2177,
+                    198
+                ],
+                "angle": 0,
+                "content": "Israel: Scope and Duration of Amendments Regulating the Tenure and Operation of a Rotating Government"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2254,
+                    478
+                ],
+                "angle": 0,
+                "content": "While increasing proportional Knesset Members' (MKs') support for the new government by combining both parties' MKs, the support of additional parties will be required to reach a majority of 61 of the 120 total MKs in a Knesset vote of confidence in the new government.[6]"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    288,
+                    531,
+                    1060,
+                    597
+                ],
+                "angle": 0,
+                "content": "II. Amendment Law Application"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    643,
+                    2256,
+                    933
+                ],
+                "angle": 0,
+                "content": "The Amendment Law recognizes a rotating government as an optional “composition of the government.”<sup>7</sup> It contains provisions regulating the establishment and operation of rotating governments. These provisions apply to future possible rotating governments, as well as to the upcoming rotating government that is scheduled to be introduced in the Knesset on Thursday, May 14, 2020.<sup>8</sup>"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    986,
+                    2254,
+                    1108
+                ],
+                "angle": 0,
+                "content": "In addition, the Amendment Law also includes provisions that are temporary in nature, to be applied only to the upcoming 35th government.[9]"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1158,
+                    1333,
+                    1214
+                ],
+                "angle": 0,
+                "content": "A. General Provisions on Rotation Governments"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1270,
+                    2256,
+                    1557
+                ],
+                "angle": 0,
+                "content": "Sections 1 through 4 of the Amendment Law regulate the establishment of a rotation government, procedures for swearing in the Prime Minister (PM) and alternate PM, appointment of ministers and deputy ministers, prime ministerial removal, and implications of a Knesset vote of no-confidence in the government on the government's tenure and on the PM and alternate PM positions.[10]"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1613,
+                    844,
+                    1673
+                ],
+                "angle": 0,
+                "content": "B. Temporary Provisions"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1729,
+                    2254,
+                    2075
+                ],
+                "angle": 0,
+                "content": "Specific provisions in the Amendment Law amend Basic Law: The Government only for the duration of the 35th government. They apply to procedures governing the appointment of ministers and the increase in the number of deputy ministers as compared with the number otherwise authorized under the Basic Law: The Government. Additional provisions further regulate the roles of the PM and alternate PM in an interim government following a vote of no-confidence against the 35th government before the completion of its term.[11]"
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2356,
+                    2159,
+                    2607
+                ],
+                "angle": 0,
+                "content": "\\( {}^{6} \\) In accordance with Basic Law: The Government \\( §3,{}^{\\prime \\prime } \\) [t]he Government holds office by virtue of the confidence of the Knesset.\" For the proportional size of parliamentary groups in the 23rd Knesset see Parliamentary Groups Currently Serving [in the 23rd Knesset], The Knesset, https://perma.cc/8R6Y-JF5Y (in Hebrew). For information on the role of parliamentary groups see About Parliamentary Group, The Knesset, https://perma.cc/YV8Q-XU9S."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2626,
+                    1568,
+                    2679
+                ],
+                "angle": 0,
+                "content": "<sup>7</sup> Amendment Law § 1, amending Basic Law: the Government § 5 (a)-(b)."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2699,
+                    752,
+                    2748
+                ],
+                "angle": 0,
+                "content": "\\(^{8}\\) Amendment Law §§ 1-4."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2775,
+                    494,
+                    2824
+                ],
+                "angle": 0,
+                "content": "9 Id. §5-6."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2851,
+                    504,
+                    2900
+                ],
+                "angle": 0,
+                "content": "10 Id. \\(\\S\\S 1-4\\)"
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2923,
+                    456,
+                    2973
+                ],
+                "angle": 0,
+                "content": "11Id. \\(\\S 5\\)"
+            },
+            {
+                "block_id": 15,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2356,
+                    2159,
+                    2973
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "2"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    367,
+                    148,
+                    2177,
+                    201
+                ],
+                "angle": 0,
+                "content": "Israel: Scope and Duration of Amendments Regulating the Tenure and Operation of a Rotating Government"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2254,
+                    590
+                ],
+                "angle": 0,
+                "content": "The Amendment Law also amends the Basic Law: The Knesset exclusively for the duration of the tenure of the 23rd Knesset<sup>12</sup> that was sworn in on March 16, 2020,<sup>13</sup> the confidence of which is necessary for the 35th government's tenure. Under section 8 of Basic Law: The Knesset, \"[t]he term of office of the Knesset shall be four years from the day on which it is elected.\" Instead, section 6(1) of the Amendment Law provides for a limited three-year term for the 23rd Knesset.<sup>14</sup>"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    640,
+                    2256,
+                    1049
+                ],
+                "angle": 0,
+                "content": "The Amendment Law specifies that the Knesset could vote for an earlier dissolution by adopting legislation with the support of a majority of its members, in accordance with section 34 of Basic Law: The Knesset. Early dissolution of the 23rd Knesset by legislation, however, is subject to the requirement that if dissolution legislation is adopted with the support of at least ten MKs who were, at the time of the 35th government's inauguration, from the parliamentary groups affiliated with the PM in office at the time of dissolution, the PM's tenure must end, and the alternate PM then serves as an interim government PM until a new government is formed.[15]"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    283,
+                    1098,
+                    1869,
+                    1164
+                ],
+                "angle": 0,
+                "content": "III. Effectiveness and Possibility of Amending the Amendment Law"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1214,
+                    2254,
+                    1620
+                ],
+                "angle": 0,
+                "content": "Under Basic Law: The Government, a majority of 61 of the 120 MKs is generally required for any \"decisions of the Knesset plenum in the first, second and third readings\" to adopt any changes in the law, either explicit or by implication.[16] A similar majority is required under Basic Law: The Knesset for changing the electoral system and for dissolution of the Knesset before expiration of its term.[17] An extension of the Knesset term beyond the completion of its term under conditions enumerated by the Basic Law: The Government and amending the Basic Law by emergency regulations require a supermajority of 80 of the 120 MKs.[18]"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1669,
+                    2254,
+                    1963
+                ],
+                "angle": 0,
+                "content": "The Amendment Law requires a majority of 70 of the 120 MKs to amend its provisions. This requirement applies for the duration of the 23rd Knesset. Therefore, the specific provisions that were amended by the Amendment Law either in Basic Law: The Government or in Basic Law: The Knesset will not be subject to further amendment during the term of the 23rd Knesset, except under this special majority.[19]"
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2352,
+                    1892,
+                    2409
+                ],
+                "angle": 0,
+                "content": "\\(^{12}\\) Id. § 6, introducing Basic Law: The Knesset (Amendment No. 48) (Temporary Provision)."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2428,
+                    1861,
+                    2531
+                ],
+                "angle": 0,
+                "content": "<sup>13</sup> In Surreal Scenes, Knesset Sworn in 3 Members at a Time Amid Virus Crisis, Times of Israel, https://perma.cc/J39Y-TXST."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2554,
+                    1415,
+                    2607
+                ],
+                "angle": 0,
+                "content": "\\(^{14}\\) Amendment Law § 6, adding Basic Law: The Knesset § 8A(1)."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2626,
+                    1093,
+                    2679
+                ],
+                "angle": 0,
+                "content": "\\(^{15}\\) Id., adding Basic Law: The Knesset § 8A(3)."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2702,
+                    963,
+                    2755
+                ],
+                "angle": 0,
+                "content": "16 Basic Law: The Government \\(\\S 44(a)\\)"
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2778,
+                    925,
+                    2824
+                ],
+                "angle": 0,
+                "content": "17 Basic Law: The Knesset \\(\\S\\S 4\\& 34\\)"
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2851,
+                    617,
+                    2900
+                ],
+                "angle": 0,
+                "content": "\\(^{18}\\) Id. §§ 9A, 44-45."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2927,
+                    714,
+                    2973
+                ],
+                "angle": 0,
+                "content": "19 Amendment Law § 7."
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2352,
+                    1892,
+                    2973
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3154
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2251,
+                    3141
+                ],
+                "angle": 0,
+                "content": "3"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    369,
+                    148,
+                    2177,
+                    198
+                ],
+                "angle": 0,
+                "content": "Israel: Scope and Duration of Amendments Regulating the Tenure and Operation of a Rotating Government"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    298,
+                    300,
+                    2249,
+                    419
+                ],
+                "angle": 0,
+                "content": "IV. Likelihood of a Last-Minute Amendment Before the Inauguration of the 35th Government and Temporary Enforcement of the Amendment Law"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    298,
+                    475,
+                    2249,
+                    702
+                ],
+                "angle": 0,
+                "content": "Considering the special majority required and the relative size of the parliamentary groups currently serving in the 23rd Knesset,[20] a last-minute amendment to provide for a four-year term for the 35th government, instead of a three-year-term, contrary to provisions under the Amendment Law, would pose a great challenge if proposed."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    298,
+                    759,
+                    2249,
+                    874
+                ],
+                "angle": 0,
+                "content": "As explained, some of the changes introduced by the Amendment Law will only last for the duration of the 35th government while others may apply to future governments."
+            },
+            {
+                "block_id": 4,
+                "type": "page_footnote",
+                "bbox": [
+                    298,
+                    2923,
+                    1591,
+                    2976
+                ],
+                "angle": 0,
+                "content": "20 Parliamentary Groups Currently Serving [in the 23rd Knesset], supra note 6."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    298,
+                    3095,
+                    864,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 6,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3102,
+                    2249,
+                    3138
+                ],
+                "angle": 0,
+                "content": "4"
+            }
+        ]
+    }
+]

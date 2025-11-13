@@ -1,0 +1,3693 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    293,
+                    310,
+                    520,
+                    491
+                ],
+                "angle": 0,
+                "content": "LAW"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    290,
+                    495,
+                    726,
+                    669
+                ],
+                "angle": 0,
+                "content": "LIBRARY"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    293,
+                    673,
+                    721,
+                    716
+                ],
+                "angle": 0,
+                "content": "LIBRARY OF CONGRESS"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    563,
+                    1128,
+                    1978,
+                    1369
+                ],
+                "angle": 0,
+                "content": "Repatriation of Immigration Detainees' Remains"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    629,
+                    1692,
+                    1917,
+                    1900
+                ],
+                "angle": 0,
+                "content": "Canada • France • Germany • Greece • Israel • Italy  \nJapan • Mexico • Portugal • Sweden  \nUnited Kingdom"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1068,
+                    2085,
+                    1476,
+                    2158
+                ],
+                "angle": 0,
+                "content": "February 2023"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1025,
+                    2593,
+                    1522,
+                    2646
+                ],
+                "angle": 0,
+                "content": "LL File No. 2023-021989"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1065,
+                    2649,
+                    1481,
+                    2699
+                ],
+                "angle": 0,
+                "content": "LRA-D-PUB-002599"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    673,
+                    3029,
+                    1871,
+                    3075
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress, Global Legal Research Directorate"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    499,
+                    3078,
+                    2045,
+                    3135
+                ],
+                "angle": 0,
+                "content": "(202) 707-5080 (phone) • (866) 550-0442 (fax) • law@loc.gov • http://www.law.gov"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    578,
+                    1455,
+                    1963,
+                    1765
+                ],
+                "angle": 0,
+                "content": "This report is provided for reference purposes only. It does not constitute legal advice and does not represent the official opinion of the United States Government. The information provided reflects research undertaken as of the date of writing. It has not been updated."
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    290,
+                    303,
+                    563,
+                    372
+                ],
+                "angle": 0,
+                "content": "Contents"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    293,
+                    495,
+                    2256,
+                    557
+                ],
+                "angle": 0,
+                "content": "Comparative Summary 1"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    293,
+                    610,
+                    2254,
+                    663
+                ],
+                "angle": 0,
+                "content": "Canada 2"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    293,
+                    726,
+                    2254,
+                    778
+                ],
+                "angle": 0,
+                "content": "France. 4"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    290,
+                    838,
+                    2254,
+                    894
+                ],
+                "angle": 0,
+                "content": "Germany 8"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    290,
+                    953,
+                    2254,
+                    1006
+                ],
+                "angle": 0,
+                "content": "Greece 9"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1065,
+                    2254,
+                    1122
+                ],
+                "angle": 0,
+                "content": "Israel. 10"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1181,
+                    2254,
+                    1237
+                ],
+                "angle": 0,
+                "content": "Italy 12"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1293,
+                    2254,
+                    1353
+                ],
+                "angle": 0,
+                "content": "Japan 14"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1405,
+                    2254,
+                    1461
+                ],
+                "angle": 0,
+                "content": "Mexico. 15"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1521,
+                    2254,
+                    1580
+                ],
+                "angle": 0,
+                "content": "Portugal 16"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1633,
+                    2254,
+                    1689
+                ],
+                "angle": 0,
+                "content": "Sweden 17"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1749,
+                    2254,
+                    1808
+                ],
+                "angle": 0,
+                "content": "United Kingdom 18"
+            },
+            {
+                "block_id": 13,
+                "type": "list",
+                "bbox": [
+                    288,
+                    495,
+                    2256,
+                    1808
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    892,
+                    303,
+                    1652,
+                    392
+                ],
+                "angle": 0,
+                "content": "Comparative Summary"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    991,
+                    409,
+                    1555,
+                    524
+                ],
+                "angle": 0,
+                "content": "Ruth Levush Senior Foreign Law Specialist"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    293,
+                    653,
+                    2254,
+                    884
+                ],
+                "angle": 0,
+                "content": "This report addresses the responsibility for covering the costs of repatriating the remains of foreign nationals who died in immigration detention to their home countries in the following jurisdictions: Canada, France, Germany, Greece, Italy, Israel, Japan, Mexico, Portugal, Sweden, and the United Kingdom (UK)."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    293,
+                    937,
+                    2254,
+                    1168
+                ],
+                "angle": 0,
+                "content": "International law does not appear to require states to pay for repatriation of foreign detainees to their home countries. A Council of Europe treaty, the Agreement on the Transfer of Corpors,[1] establishes a set of rules for the transport of human remains across the international borders of ratifying countries, but does not address the costs of repatriation."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    293,
+                    1224,
+                    2254,
+                    1791
+                ],
+                "angle": 0,
+                "content": "A review of domestic laws in all the jurisdictions surveyed has identified only one country, the UK, as having adopted specific orders authorizing contribution to costs associated with repatriation of remains of foreign nationals who died in immigration detention. Under the Detention Services Order 08/2014, published by the British Home Office, the Head of Detention Operations, subject to approval by the Home Office Finance Team, may provide an amount of up to £3,000 (approximately US$3,700) for foreign nationals who die in immigration detention facilities. In accordance with HM Prison & Probation Service, Management of Prisoners at Risk of Harm to Self, to Others and From Others (Safer Custody), prisons may offer up to £1,200 (approximately US$1,485) for foreign nationals who die in prison while detained under immigration powers."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    293,
+                    1848,
+                    2254,
+                    2079
+                ],
+                "angle": 0,
+                "content": "It appears common that, in the absence of a provision such as that of the UK to cover repatriation expenses, the costs associated with repatriation are borne by the family of the foreign national or by the consulate. If repatriation does not take place, the remains of persons who die while in custody are buried or cremated in the countries where the death occurred."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2128,
+                    2254,
+                    2699
+                ],
+                "angle": 0,
+                "content": "The attached jurisdictional surveys provide information on additional aspects of handling death of detainees in immigration custody. These include requirements for notification of death to family members and to foreign consulates (e.g., Canada, Japan); obligations of municipalities and regional administrations regarding burial of detainees dying within their boundaries (e.g., France, Greece, Japan, Sweden); and procedures for repatriation (e.g., Italy, Portugal). The survey on France includes information on the ability of family members of those who are detained there to request financial funeral assistance from local authorities. The Germany survey describes how foreigners who are present there and are subject to a final deportation order can receive financial assistance for their deceased relatives' burial if they are unable to afford burial costs under conditions enumerated under the German Asylum Seekers Benefits Act."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    298,
+                    2923,
+                    2065,
+                    2976
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup> Agreement on the Transfer of Corpses, Oct. 26, 1973, E.T.S. No. 80, https://perma.cc/EU4W-G6DS."
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    293,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 9,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3102,
+                    2249,
+                    3141
+                ],
+                "angle": 0,
+                "content": "1"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1139,
+                    303,
+                    1405,
+                    376
+                ],
+                "angle": 0,
+                "content": "Canada"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1050,
+                    409,
+                    1496,
+                    521
+                ],
+                "angle": 0,
+                "content": "Michael Chalupovitsch Foreign Law Specialist"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    643,
+                    2256,
+                    877
+                ],
+                "angle": 0,
+                "content": "There does not appear to be a policy regarding financial assistance for repatriating the remains of people who die in immigration detention facilities in Canada. The Canada Border Services Agency (CBSA), which is responsible for immigration detention in Canada, operates Immigration Holding Centres (IHCs) and also subcontracts detention to provincial detention centers.<sup>1</sup>"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    930,
+                    2256,
+                    1221
+                ],
+                "angle": 0,
+                "content": "The IHCs operate under the National Immigration Detention Standards, which cover safety, security, order, care, activities, and administration.2 Section 4.6 of the standards concerns the \"Death or serious injury of an individual detained pursuant to the Immigration and Refugee Protection Act (IRPA)\" and applies to the death of persons detained in IHCs, non-CBSA detention facilities, and hospitals."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1270,
+                    2256,
+                    1508
+                ],
+                "angle": 0,
+                "content": "Section 4.6 states that the standards require compliance with the Protocol Regarding the Death of an Individual Detained Pursuant to [IRPA] (Protocol), the CBSA Guidelines for Responding to a Serious Incident and Death in CBSA Custody or Control. Neither of these policies are publicly available."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1554,
+                    752,
+                    1613
+                ],
+                "angle": 0,
+                "content": "The Protocol provides"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1666,
+                    2103,
+                    1768
+                ],
+                "angle": 0,
+                "content": "a. Instruction and operational guidance for CBSA staff and contracted service providers working within an IHC or providing transportation services"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1772,
+                    2103,
+                    1917
+                ],
+                "angle": 0,
+                "content": "b. Guidance on situations where death occurs at a hospital, in a hearing room or any prehearing holding area, or during transfer between any of these locations where an individual is detained"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1927,
+                    2103,
+                    2082
+                ],
+                "angle": 0,
+                "content": "c. Instruction and operational guidance for CBSA staff in situations where a death occurs in a non-CBSA facility (in other words, federal, provincial or municipal correctional facility) where the deceased was detained pursuant to the IRPA.<sup>3</sup>"
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    436,
+                    1666,
+                    2103,
+                    2082
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2138,
+                    2256,
+                    2428
+                ],
+                "angle": 0,
+                "content": "In the event of a death of a person in immigration detention, the CBSA is required to inform the person's next-of-kin and the Canadian Red Cross, the agency that monitors the immigration detention program. After an investigation is completed into the circumstances of the death, the CBSA returns foreign identity documents to the relevant embassy or consulate and places the title to the grave of the person, if given an indigent burial, in the file."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2527,
+                    2244,
+                    2676
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup> Arrests, Detentions and Removals, Can. Border Servs. Agency, https://perma.cc/8W2J-VQ3F; Samer Muscati & Hanna Gros, Immigration Detention Campaign Focuses on Canada's Federal Government, Hum. Rts. Watch (Nov. 14, 2022), https://perma.cc/A89Y-VGXK."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2699,
+                    1904,
+                    2755
+                ],
+                "angle": 0,
+                "content": "\\(^{2}\\) National Immigration Standards, Can. Border Servs. Agency, https://perma.cc/CY38-2JMD."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2775,
+                    507,
+                    2821
+                ],
+                "angle": 0,
+                "content": "3 Id. s. 4.6.4."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2851,
+                    614,
+                    2897
+                ],
+                "angle": 0,
+                "content": "4 Id. s. 4.6.5.1.a.i.c."
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2923,
+                    581,
+                    2970
+                ],
+                "angle": 0,
+                "content": "5 Id. s. 4.6.5.2.c.i."
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2527,
+                    2244,
+                    2970
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 18,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "2"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    716,
+                    155,
+                    1830,
+                    198
+                ],
+                "angle": 0,
+                "content": "Repatriation of Immigration Detainees' Remains: Canada"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    298,
+                    300,
+                    2261,
+                    584
+                ],
+                "angle": 0,
+                "content": "In 2018, CBC News conducted an investigative report on a Nigerian citizen who had died in CBSA custody and whose body remained at a Canadian funeral home for three weeks.6 The person's next-of-kin asked for financial help from the Canadian government to return the body to Nigeria for burial. In response to journalist inquiries, the minister of Public Safety refused to comment on the possibility, or if there was a policy in place regarding repatriation."
+            },
+            {
+                "block_id": 2,
+                "type": "page_footnote",
+                "bbox": [
+                    298,
+                    2877,
+                    2261,
+                    2973
+                ],
+                "angle": 0,
+                "content": "\\(^{6}\\) Ronna Syed, Body of Nigerian Man Who Died in CBSA Custody Remains in Limbo 3 Weeks Later, CBC News (Sept. 1, 2018), https://perma.cc/PP89-55ZH."
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    298,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 4,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3102,
+                    2249,
+                    3141
+                ],
+                "angle": 0,
+                "content": "3"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1162,
+                    306,
+                    1384,
+                    376
+                ],
+                "angle": 0,
+                "content": "France"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1139,
+                    409,
+                    1405,
+                    455
+                ],
+                "angle": 0,
+                "content": "Laure Le Gall"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1042,
+                    465,
+                    1504,
+                    521
+                ],
+                "angle": 0,
+                "content": "Foreign Law Consultant"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    288,
+                    650,
+                    2261,
+                    983
+                ],
+                "angle": 0,
+                "content": "SUMMARY No French regulations govern the repatriation of foreign detainees' remains specifically. The family bears the costs of transportation of remains outside of France. If the deceased had no family, or the family does not claim the remains or cannot afford funeral expenses, the municipality of the place of death must pay for them. However, this financial support does not extend to costs incurred by transporting of the remains outside France."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1102,
+                    650,
+                    1158
+                ],
+                "angle": 0,
+                "content": "I. Introduction"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1221,
+                    2256,
+                    1399
+                ],
+                "angle": 0,
+                "content": "While the question of responsibility for paying the costs of repatriating the remains of a detained foreigner to the deceased's country of origin is not addressed in French legislation directly, three major French codes contain relevant provisions. These are"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    290,
+                    1452,
+                    1282,
+                    1511
+                ],
+                "angle": 0,
+                "content": "- the Civil Code (Code Civil), adopted in \\(1804^{1}\\);"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1534,
+                    2254,
+                    1653
+                ],
+                "angle": 0,
+                "content": "- the Code of Territorial Authorities (Code Général des Collectivités Territoriales), adopted in the late 1990s, which governs the powers granted to local authorities<sup>2</sup> and;"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1679,
+                    2256,
+                    1791
+                ],
+                "angle": 0,
+                "content": "- the Penitentiary Code, which entered into force on May 1, 2022, which gathers all the regulations dealing with custody.<sup>3</sup>"
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    288,
+                    1452,
+                    2256,
+                    1791
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1851,
+                    2256,
+                    1973
+                ],
+                "angle": 0,
+                "content": "II. Absence of Financial Support for the Repatriation of the Foreign National Deceased in Custody"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2026,
+                    2256,
+                    2319
+                ],
+                "angle": 0,
+                "content": "We have not found any specific French regulation governing the repatriation of the remains of a foreign national who died in custody in France. Similarly, the Penitentiary Code and the Code of Criminal Procedure do not contain a distinct set of rules only applicable to foreigners, apart from certain rights granted essentially for practical purposes or to guarantee the right to a fair trial, such as the right to an interpreter.[4]"
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2649,
+                    1504,
+                    2706
+                ],
+                "angle": 0,
+                "content": "\\(^{1}\\) Code civil (Civil Code), Legifrance, https://perma.cc/GJM8-FZEC."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2725,
+                    1841,
+                    2824
+                ],
+                "angle": 0,
+                "content": "\\(^{2}\\) Code général des collectivités territoriales (Code of Territorial Authorities), Legifrance, https://perma.cc/5AC7-Y2V5."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2847,
+                    1797,
+                    2904
+                ],
+                "angle": 0,
+                "content": "\\(^{3}\\) Code pénitentiaire (Penitentiary Code), Legifrance, https://perma.cc/YM73-PXRW."
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2923,
+                    900,
+                    2973
+                ],
+                "angle": 0,
+                "content": "4 Penitentiary Code, art. D. 216-11."
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2649,
+                    1841,
+                    2973
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 18,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3102,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "4"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    767,
+                    151,
+                    1777,
+                    198
+                ],
+                "angle": 0,
+                "content": "Repatriation of Immigration Detainees' Remains: France"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    288,
+                    300,
+                    2256,
+                    485
+                ],
+                "angle": 0,
+                "content": "As a result, we can assume that foreigners in custody in France are treated like national detainees. Article D. 216-10 of the Penitentiary Code states that prisoners of foreign nationality are subject to the same regime as national prisoners in their criminal category, for example.[5]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    528,
+                    2256,
+                    696
+                ],
+                "angle": 0,
+                "content": "In addition, French nationals remain subject to French law while incarcerated and so do foreigners. In case of death, a death certificate must be issued in compliance with the provisions of articles 79, 84, and 85 of the Civil Code.[6]"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    752,
+                    2256,
+                    927
+                ],
+                "angle": 0,
+                "content": "Articles L. 2223-1 to L.2223-51 and R. 2213-1-1 to R. 2213-50 of the Code of Territorial Authorities provide the rules applicable to any funeral organized on French territory (funeral homes, burials, cremations, etc.).<sup>7</sup>"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    983,
+                    2256,
+                    1221
+                ],
+                "angle": 0,
+                "content": "In French law, heirs must cover the funeral expenses, regardless of the existence or absence of an emotional connection with the deceased. If the deceased's family does not have sufficient resources or if the dead had no family, the municipality of the place of death must pay the funeral expenses and organize the funeral."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1267,
+                    2256,
+                    1508
+                ],
+                "angle": 0,
+                "content": "We have not found any official regulation addressing specifically the question of who should bear the cost of repatriation of the remains of a foreign national to his home country. However, a factsheet (fiche pratique) from the official website of the French Administration<sup>10</sup> provides the following:"
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2501,
+                    2187,
+                    2613
+                ],
+                "angle": 0,
+                "content": "<sup>5</sup> Penitentiary Code, art. D. 216-10, \"les personnes détenues de nationalité étrangère sont soumises au même régime que les personnes détenues de nationalité française appartenant à leur catégorie PENALE.\""
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2626,
+                    879,
+                    2679
+                ],
+                "angle": 0,
+                "content": "6 Penitentiary Code, art. L. 214-8."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2699,
+                    1861,
+                    2755
+                ],
+                "angle": 0,
+                "content": "\\(^{7}\\) Code of Territorial Authorities, arts. L. 2223-1 to L.2223-51 and R. 2213-1-1 to R. 2213-50."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2775,
+                    670,
+                    2824
+                ],
+                "angle": 0,
+                "content": "Civil Code, art. 806."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2847,
+                    1068,
+                    2900
+                ],
+                "angle": 0,
+                "content": "\\(^{9}\\) Code of Territorial Authorities, L. 2223-27."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2923,
+                    1772,
+                    2976
+                ],
+                "angle": 0,
+                "content": "<sup>10</sup> Transport d'une Personne Decédée, Service-Public.fr, https://perma.cc/T68L-2BRW."
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2501,
+                    2187,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3095,
+                    2256,
+                    3141
+                ],
+                "angle": 0,
+                "content": "5"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    767,
+                    148,
+                    1782,
+                    207
+                ],
+                "angle": 0,
+                "content": "Repatriation of Immigration Detainees' Remains: France"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    293,
+                    356,
+                    2254,
+                    1514
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>In French (website screenshot)</td><td>Translation</td></tr><tr><td>Transport d&#x27;une personne décédéeVérifié le 23 septembre 2022 - Direction de l&#x27;information légale et administrative (Premier Ministre)Si vous étés confronté au transport d&#x27;une personne décédée, sachez qu&#x27;il est soumis à certaines règes.Elles changent selon que le corps est transporté uniquement en France ou qu&#x27;il transite par l&#x27;étranger.Les démarches sont accomplies par l&#x27;entreprise de pompes funèbres ou par la personne la plus proche du défunt.Nous vousprésentons les informations à retenir.</td><td>Transportation of a deceased personVerified on September 23, 2022 - Legal and Administrative Information Directorate (Prime Minister)The carriage of a deceased person is subject to certain rules. They change depending on whether the body is transported within the French territory or whether it passes through the foreigner. This can be done by the person closest to the deceased or by the company of funeral services.In France / Between two countries or overseasThe body of the deceased leaves France for another countryThe rules depend on the country of destination.The costs of repatriating the body (or ashes) of the deceased are the responsibility of the family. Check if an insurance policy can cover the cost (repatriation insurance or insurance linked to a bank card, home insurance or civil liability).</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1564,
+                    2254,
+                    1745
+                ],
+                "angle": 0,
+                "content": "The same rule therefore applies to French and foreign nationals, making families responsible for the costs induced by the repatriation of remains. Families are not eligible for financial aid should they decide to transport the body across international borders."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1795,
+                    2254,
+                    1973
+                ],
+                "angle": 0,
+                "content": "Indeed, France does not offer any financial support to the families of its own citizens deceased abroad. The Consulate General of France in Washington, D.C., indicates on its website that in the event of the death of a French national in the Washington consular district"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    433,
+                    2022,
+                    2111,
+                    2286
+                ],
+                "angle": 0,
+                "content": "the various expenses related to the death (funeral expenses, repatriation of the body or ashes, return to France of personal effects except for administrative documents issued by an official authority, and except in exceptional cases) are never paid by the State, and must be paid either by the family or close friends or by the employer or by an insurance company.[11]"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2339,
+                    1851,
+                    2399
+                ],
+                "angle": 0,
+                "content": "However, \"in exceptional cases,\" the administration may allow financial aid."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2451,
+                    2254,
+                    2633
+                ],
+                "angle": 0,
+                "content": "The financial aid offered by article L. 2223-27 of the Code of Territorial Authorities only applies to funeral expenses and does not extend to transportation fees. No exception exists for foreign nationals placed in French custody."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2874,
+                    2218,
+                    2979
+                ],
+                "angle": 0,
+                "content": "11 Decès: Transport de Corps ou de Cendres, La France aux États-Unis: Consulat Général de France à Washington, https://perma.cc/66SK-BT6S."
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3154
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 9,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3102,
+                    2251,
+                    3141
+                ],
+                "angle": 0,
+                "content": "6"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    767,
+                    151,
+                    1777,
+                    198
+                ],
+                "angle": 0,
+                "content": "Repatriation of Immigration Detainees' Remains: France"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2254,
+                    478
+                ],
+                "angle": 0,
+                "content": "We have not found any element indicating that France would require the deceased's consulate to pay to repatriate the remains. It would appear the payment by the consulate of transportation costs would depend on the laws of the deceased's country of origin."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    288,
+                    531,
+                    1397,
+                    587
+                ],
+                "angle": 0,
+                "content": "III. International Conventions in Related Areas"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    646,
+                    2256,
+                    818
+                ],
+                "angle": 0,
+                "content": "France is a party to two international conventions that address repatriation policies in contexts that do not apply to the remains of persons who die in immigration detention but which may be of general interest."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    874,
+                    2254,
+                    1102
+                ],
+                "angle": 0,
+                "content": "Under article 116 of the 1949 Geneva Convention Relative to the Treatment of Prisoners of War, which applies in cases of armed conflict between nations, the detaining power has to cover the costs up to its international borders.[12] From this point, the power on which the prisoner depends is responsible for the further costs of repatriation or transfer to the neutral country.[13]"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1158,
+                    2254,
+                    1494
+                ],
+                "angle": 0,
+                "content": "The Convention on the Transfer of Sentenced Persons, adopted by the Council of Europe in 1983, which concerns the transfer of living persons deprived of liberty for criminal offenses, provides in its article 17, \"any costs incurred in the application of this Convention shall be borne by the administering State, except costs incurred exclusively in the territory of the sentencing State.\" The administering State is defined as \"the State to which the sentenced person may be, or has been, transferred in order to serve his sentence.\""
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1557,
+                    2254,
+                    1791
+                ],
+                "angle": 0,
+                "content": "These two conventions adopt a similar position on the costs of repatriation of prisoners of war and persons serving criminal sentences. Such costs shall be borne by the state or authority requesting the transfer. The country where the prisoner is located is generally not responsible for these costs, except those incurred exclusively in their territory."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1841,
+                    2256,
+                    2181
+                ],
+                "angle": 0,
+                "content": "Another Council of Europe treaty deals with the transportation of deceased persons between signatory countries. This is the 1973 Agreement on the Transfer of Corpses.[16] However, this agreement does not contain any rules on the costs of repatriation. It only establishes a set of rules for the transport of human remains across international borders (laissez-passer, characteristics of the coffin, and additional precautions to be taken when death was due to certain infectious diseases)."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2527,
+                    2187,
+                    2630
+                ],
+                "angle": 0,
+                "content": "<sup>12</sup> Geneva Convention Relative to the Treatment of Prisoners of War, art. 116, Aug. 12, 1949, 75 U.N.T.S. 135, https://perma.cc/RZR3-ZR2B."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2653,
+                    382,
+                    2696
+                ],
+                "angle": 0,
+                "content": "13 Id."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2725,
+                    1848,
+                    2824
+                ],
+                "angle": 0,
+                "content": "\\(^{14}\\) Convention on the Transfer of Sentenced Persons, art. 17, Mar. 21, 1983, E.T.S. No. 112, https://perma.cc/4DR9-YS62."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2851,
+                    489,
+                    2894
+                ],
+                "angle": 0,
+                "content": "15 Id. art. 1."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2923,
+                    2078,
+                    2976
+                ],
+                "angle": 0,
+                "content": "<sup>16</sup> Agreement on the Transfer of Corpses, Oct. 26, 1973, E.T.S. No. 80, https://perma.cc/EU4W-G6DS."
+            },
+            {
+                "block_id": 13,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2527,
+                    2187,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3095,
+                    2256,
+                    3141
+                ],
+                "angle": 0,
+                "content": "7"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1114,
+                    303,
+                    1430,
+                    392
+                ],
+                "angle": 0,
+                "content": "Germany"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1055,
+                    409,
+                    1491,
+                    528
+                ],
+                "angle": 0,
+                "content": "Jenny Gesley  \nForeign Law Specialist"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    646,
+                    2264,
+                    1224
+                ],
+                "angle": 0,
+                "content": "German law does not appear to specifically address expenses for repatriation outside of Germany of remains of foreign nationals who die in immigration custody. However, the German Residence Act (Aufenthaltsgesetz, AufenthG) provides that the foreign national is generally liable for costs arising in connection with the enforcement of a geographic restriction, refusal of entry, removal, or deportation.<sup>1</sup> The costs include transportation and travel costs within Germany and up to the final destination, administrative costs related to preparing and enforcing the measure, including the costs of custody awaiting deportation, and costs arising from escorting persons to their country of origin.<sup>2</sup> It is irrelevant whether the deportation was successful.<sup>3</sup> It seems therefore likely that the costs for repatriation of remains would have to be borne by the family of the foreign national if they are claiming the remains or by the consulate if the family declines to claim them."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1270,
+                    2266,
+                    1848
+                ],
+                "angle": 0,
+                "content": "If the family cannot afford the costs, they could be covered as miscellaneous expenses under the German Asylum Seekers Benefits Act.4 The Asylum Seekers Benefits Act generally applies to foreigners who are present in Germany and are subject to a final deportation order; however, benefits are limited to what is sufficient to provide for an existential minimum living standard.5 The explanatory memorandum to the Act lists costs arising from a death as an example of extraordinary circumstances that could give rise to a claim as miscellaneous expenses.6 Income and assets of the foreigner must be used before benefits under the Asylum Seekers Benefits Act can be claimed.7 However, the fact that the foreigner was receiving benefits under the Asylum Seekers Benefits Act does not preclude a claim against the foreigner for costs arising from deportation.8"
+            },
+            {
+                "block_id": 4,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2158,
+                    2180,
+                    2310
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup> Aufenthaltsgesetz [AufenthG], Feb. 25, 2008, Bundesgesetzblatt [BGBl.] I at 162, as amended, § 66, para. 1, https://perma.cc/CB78-YNQ7 (original), https://perma.cc/5Z3D-DNZ9 (English translation, updated through Feb. 17, 2020)."
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2329,
+                    601,
+                    2382
+                ],
+                "angle": 0,
+                "content": "2 Id. § 67, para. 1."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2402,
+                    2164,
+                    2504
+                ],
+                "angle": 0,
+                "content": "<sup>3</sup> See, for example, Oberverwaltungsgericht [OVG] Greifswald, Aug. 2, 2012, docket no. 2 O 48/12, para. 5, https://perma.cc/63Q8-VTQD."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2527,
+                    1989,
+                    2630
+                ],
+                "angle": 0,
+                "content": "<sup>4</sup> Asylbewerberleistungsgesetz [AsylbLG], Aug. 5, 1997, BGBl. I at 2022, as amended, § 6, para. 1, https://perma.cc/MTU7-YEEW."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2653,
+                    772,
+                    2706
+                ],
+                "angle": 0,
+                "content": "\\(^{5}\\)Id. \\(\\S 1\\), para. 1, no. 5, \\(\\S 1a\\)."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2725,
+                    1297,
+                    2778
+                ],
+                "angle": 0,
+                "content": "\\(^{6}\\) BT-Drs. 13/2746, at 16, https://perma.cc/DG6G-YA8E."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2801,
+                    701,
+                    2854
+                ],
+                "angle": 0,
+                "content": "AsylbLG, § 7, para. 1."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2874,
+                    1828,
+                    2976
+                ],
+                "angle": 0,
+                "content": "<sup>8</sup> See, e.g., Oberverwaltungsgericht [OVG] Bautzen, July 9, 2010, docket no. 3 A 123/09, https://perma.cc/C8R4-85DC."
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2158,
+                    2180,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "8"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1152,
+                    306,
+                    1392,
+                    376
+                ],
+                "angle": 0,
+                "content": "Greece"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1093,
+                    409,
+                    1453,
+                    465
+                ],
+                "angle": 0,
+                "content": "Kayahan Cantekin"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1058,
+                    468,
+                    1489,
+                    524
+                ],
+                "angle": 0,
+                "content": "Foreign Law Specialist"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    643,
+                    2254,
+                    765
+                ],
+                "angle": 0,
+                "content": "Greek law appears not to specifically regulate the repatriation of bodily remains of foreign nationals who have died in immigration detention."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    818,
+                    2256,
+                    990
+                ],
+                "angle": 0,
+                "content": "Reports from international organizations and non-governmental observers suggest that repatriation services are only offered by private funeral organizers and that public funds are not made available for the service.<sup>1</sup>"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1042,
+                    2256,
+                    1620
+                ],
+                "angle": 0,
+                "content": "While public funds do not appear to be available for repatriation of the remains of migrants, they may be available for the burial of deceased migrants under certain circumstances. The burial and exhumation costs for deceased persons who have refugee status or who have applied for refugee status or are otherwise destitute may be covered by the municipality in which the death occurs, or where municipal funds are not available, by the regional administration.2 To make the funds available, the municipal or regional council must adopt a reasoned decision that incorporates a declaration by the relative of the deceased that the relevant expenditures cannot be covered by them, or a finding that no relatives of the deceased who could cover the costs have been located.3 This provision does not authorize the funding of repatriation of remains, but only burial in a local cemetery and exhumation of the body.4"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1669,
+                    2254,
+                    1904
+                ],
+                "angle": 0,
+                "content": "Greece is party to the Council of Europe Agreement on the Transfer of Corpors, which harmonizes the maximum administrative requirements for the transfer of bodily remains between parties to the Convention.5 The Convention does not cover the matter of repatriation costs."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2432,
+                    2228,
+                    2577
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup> See Registration of a Death, UNHCR website, https://perma.cc/BDH3-PAQ3; Ben Attia et al., Missing Migrants: Management of Dead Bodies in Lesbos – Greece Country Report 22 (Aug. 2016), https://perma.cc/N2K8-8GYY."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2600,
+                    1879,
+                    2656
+                ],
+                "angle": 0,
+                "content": "\\(^{2}\\) Law 4483/2017, E.K.E.D. 2017, A:107, art. 78, https://perma.cc/C9VM-XW3S (in Greek)."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2676,
+                    377,
+                    2722
+                ],
+                "angle": 0,
+                "content": "3 Id."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2748,
+                    2210,
+                    2904
+                ],
+                "angle": 0,
+                "content": "4 Exhumation of the remains after three years of burial for transfer of the bones to an ossuary is a widespread practice in Greece. See e.g., Chloe Hadjimatheou, Why Greeks are Exhuming Their Parents, BBC News (Nov. 26, 2015), https://perma.cc/78FN-E5LB."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2923,
+                    2080,
+                    2976
+                ],
+                "angle": 0,
+                "content": "Agreement on the Transfer of Corpses, Oct. 26, 1973, ETS No. 080, https://perma.cc/N2CM-NYQY."
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2432,
+                    2228,
+                    2976
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3095,
+                    2256,
+                    3141
+                ],
+                "angle": 0,
+                "content": "9"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1178,
+                    303,
+                    1366,
+                    372
+                ],
+                "angle": 0,
+                "content": "Israel"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    991,
+                    409,
+                    1555,
+                    521
+                ],
+                "angle": 0,
+                "content": "Ruth Levush Senior Foreign Law Specialist"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    293,
+                    643,
+                    2249,
+                    867
+                ],
+                "angle": 0,
+                "content": "Israeli law does not appear to address coverage for expenses associated with repatriation of bodies of foreign nationals who die while in the custody of immigration authorities. A search for reported cases involving death in immigration detention facilities has not indicated any relevant cases."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    293,
+                    930,
+                    2249,
+                    1263
+                ],
+                "angle": 0,
+                "content": "Government policies, however, govern the repatriation of bodies of members of terrorist organizations who died while in Israel Defense Forces (IDF) custody or in the perpetration of terrorist attacks. Such policies take into account the repatriation of Israeli nationals held by terrorist organizations for the purpose of a prisoner exchange. The Hamas terrorist organization is currently holding captive Israelis Avera Mengistu and Hisham al-Sayed, as well as the bodies of IDF soldiers Hadar Goldin and Oron Shaul.[1]"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    293,
+                    1326,
+                    2249,
+                    1435
+                ],
+                "angle": 0,
+                "content": "In a landmark decision rendered by the Supreme Court on September 9, 2019, the high court held that"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    446,
+                    1498,
+                    2101,
+                    1805
+                ],
+                "angle": 0,
+                "content": "The holding the bodies of terrorists in accordance with a cabinet decision, intended for negotiating the return of IDF soldiers and fallen soldiers and Israeli civilians held by the terrorist organizations, clearly fulfills the objective of maintaining the security of the state, being a significant means of advancing such negotiations. The fact that this is a temporary measure also reflects on the authority of the military commander to order the possession of the bodies.[2]"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    293,
+                    1864,
+                    2249,
+                    2092
+                ],
+                "angle": 0,
+                "content": "On September 3, 2020, Israel's security cabinet approved a new policy that allows Israel to keep the bodies of all Palestinians suspected of having committed terrorist attacks, regardless of whether they were affiliated with the Hamas terror group. According to then-Defense Minister Benny Gantz, the new policy is intended to help bring back Israeli captives.<sup>3</sup>"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    293,
+                    2145,
+                    2249,
+                    2260
+                ],
+                "angle": 0,
+                "content": "On January 16, 2023, six members of the Knesset (Israel's parliament) filed a private member bill proposing to prohibit the return of suspected terrorists' bodies,"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    446,
+                    2316,
+                    2101,
+                    2471
+                ],
+                "angle": 0,
+                "content": "... if at the time the terrorist organization held an Israeli citizen or his body and as long as they were not returned to the Israeli government, unless permitted by the Prime Minister, for special reasons.[4]"
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2550,
+                    2019,
+                    2649
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup> TOI Staff, Cabinet Okays Policy to Hold Bodies of All Alleged Attackers, Times of Israel (Sept. 3, 2020), https://perma.cc/ZW4X-ASF7."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2673,
+                    2187,
+                    2775
+                ],
+                "angle": 0,
+                "content": "2 Additional Hearing 10190/17 IDF Commander in Judea and Samaria v. Muhamad Alian, Israel Jud. Auth., https://perma.cc/293J-3L7A (in Hebrew)."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2798,
+                    724,
+                    2844
+                ],
+                "angle": 0,
+                "content": "3 TOI Staff, supra note 1."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2874,
+                    2221,
+                    2970
+                ],
+                "angle": 0,
+                "content": "4 Fight Against Terrorism Bill (Amendment - Prohibition on the Return of the Bodies of Terrorists), 5783-2023, Knesset website, https://perma.cc/APJ9-2WUV (in Hebrew)."
+            },
+            {
+                "block_id": 13,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2550,
+                    2221,
+                    2970
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "footer",
+                "bbox": [
+                    293,
+                    3095,
+                    867,
+                    3148
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    2203,
+                    3095,
+                    2249,
+                    3138
+                ],
+                "angle": 0,
+                "content": "10"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    734,
+                    151,
+                    1810,
+                    204
+                ],
+                "angle": 0,
+                "content": "Repatriation of Immigration Detainees' Remains: Israel"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    298,
+                    356,
+                    2249,
+                    524
+                ],
+                "angle": 0,
+                "content": "Considering the context of prisoner exchange transactions, the Israeli government would likely cover expenses associated with repatriation of bodies of members of terrorist organizations returned under such circumstances."
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    298,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2203,
+                    3095,
+                    2249,
+                    3141
+                ],
+                "angle": 0,
+                "content": "11"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1193,
+                    303,
+                    1354,
+                    389
+                ],
+                "angle": 0,
+                "content": "Italy"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    956,
+                    409,
+                    1593,
+                    524
+                ],
+                "angle": 0,
+                "content": "Dante Figueroa Senior Legal Information Analyst"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    643,
+                    2254,
+                    818
+                ],
+                "angle": 0,
+                "content": "We did not find any legislation directly addressing the issue of rimpatrio (repatriation) expenses for returning the remains of foreigners who die while in the custody of Italian immigration authorities to their countries of origin. No reported cases were found, either."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    874,
+                    2256,
+                    1164
+                ],
+                "angle": 0,
+                "content": "Regarding repatriation of foreigners' remains in general, Italy is a party to the 1937 International Arrangement Concerning the Conveyance of Corpses (the Berlin Arrangement),<sup>1</sup> which is valid only for the signatory countries. The convention specifies the maximum requirements that may be imposed on repatriation of the remains of a signatory party national who dies in Italy. However, it does not regulate who must bear the cost of repatriation."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1214,
+                    2254,
+                    1560
+                ],
+                "angle": 0,
+                "content": "Another multilateral instrument is the Council of Europe's Agreement on the Transfer of Corpses of 1973 (1973 Agreement), which has not been ratified by Italy.2 Article 9 of the 1973 Agreement \"provides that any Contracting Party to it which is also a Party to the Berlin Arrangement may, in order to ensure the acceptance of the transport by a State involved in this transport, but which is a Party to the Berlin Arrangement only, request another State Party to the European Agreement to comply with the relevant provisions of the Berlin Arrangement.\"3"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1613,
+                    2254,
+                    1841
+                ],
+                "angle": 0,
+                "content": "To repatriate the remains of a citizen of a country that is not a Berlin Arrangement signatory who died in Italian territory, interested parties must contact the respective Italian prefecture, which establishes the costs to be paid by them.4 Interested parties must submit the following documents to the prefecture:"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1900,
+                    2244,
+                    2006
+                ],
+                "angle": 0,
+                "content": "- authorization from the consular authority of the country where the remains will be transported,"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2042,
+                    2246,
+                    2148
+                ],
+                "angle": 0,
+                "content": "- document from the respective local health authority where the remains are located certifying compliance with current health laws and the absence of infectious diseases, and"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2181,
+                    2244,
+                    2286
+                ],
+                "angle": 0,
+                "content": "- any other documents and declarations that the Ministry of Health prescribes in relation to specific situations.<sup>5</sup>"
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    285,
+                    1900,
+                    2246,
+                    2286
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2352,
+                    2187,
+                    2412
+                ],
+                "angle": 0,
+                "content": "In addition, the following documents must be submitted for the transport of a corpse abroad:"
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2478,
+                    2068,
+                    2574
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup> International Arrangement Concerning the Conveyance of Corpses, Feb. 10, 1937, 4391 L.N.T.S. 313, https://perma.cc/D2BU-6BJJ."
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2603,
+                    2040,
+                    2649
+                ],
+                "angle": 0,
+                "content": "\\( {}^{2} \\) Agreement on the Transfer of Corpses,Oct. 26,1973,ETS No. 080,https://perma.cc/H76Q-5EDE."
+            },
+            {
+                "block_id": 13,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2676,
+                    2108,
+                    2722
+                ],
+                "angle": 0,
+                "content": "3 Explanatory Report to Agreement on the Transfer of Corpses, para. 7, https://perma.cc/P7KS-AZYQ."
+            },
+            {
+                "block_id": 14,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2748,
+                    2223,
+                    2841
+                ],
+                "angle": 0,
+                "content": "\\(^{4}\\) Rimpatrio di salme [Repatriation of Corpses], Ministry For. Aff. & Int'l Cooperation, https://perma.cc/5HXG-8D3K."
+            },
+            {
+                "block_id": 15,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2874,
+                    2215,
+                    2963
+                ],
+                "angle": 0,
+                "content": "\\( {}^{5} \\) Presidential Decree No. 285 of Sept. 10,1990,Mortuary Police Regulations,art. 29,https://perma.cc/QD6K-R73A."
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2478,
+                    2223,
+                    2963
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 18,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "12"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    742,
+                    148,
+                    1797,
+                    207
+                ],
+                "angle": 0,
+                "content": "Repatriation of Immigration Detainees' Remains: Italy"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    359,
+                    2198,
+                    415
+                ],
+                "angle": 0,
+                "content": "- request for authorization from the mayor of the municipality in which the death occurred,"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    288,
+                    442,
+                    2251,
+                    557
+                ],
+                "angle": 0,
+                "content": "- certificate from the Pathological Anatomy Office that guarantees that the body of the deceased has undergone anti-putrefactive treatment, and"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    288,
+                    584,
+                    2256,
+                    693
+                ],
+                "angle": 0,
+                "content": "- stamped death extract and the authorization for the body to leave the country issued by the Civil Status Office.[6]"
+            },
+            {
+                "block_id": 4,
+                "type": "list",
+                "bbox": [
+                    285,
+                    359,
+                    2256,
+                    693
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    755,
+                    2256,
+                    924
+                ],
+                "angle": 0,
+                "content": "If it is necessary to employ a third party to transport a corpse, the municipalities of departure and arrival may impose a fixed fee that does not exceed local transportation costs.[7] The body must be enclosed in two containers, one of metal and the other of solid wooden boards.[8]"
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2772,
+                    1792,
+                    2824
+                ],
+                "angle": 0,
+                "content": "<sup>6</sup> Ministry of Health Circular No. 24 of 1993, art. 8.2-3, https://perma.cc/FEK7-YNL8."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2851,
+                    1782,
+                    2900
+                ],
+                "angle": 0,
+                "content": "7 Presidential Decree No. 285 of Sept. 10, 1990, Mortuary Police Regulations, art. 19.3."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2927,
+                    527,
+                    2970
+                ],
+                "angle": 0,
+                "content": "\\(^{8}\\) Id. art. 30.1."
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    285,
+                    2772,
+                    1792,
+                    2970
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2251,
+                    3141
+                ],
+                "angle": 0,
+                "content": "13"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1173,
+                    306,
+                    1371,
+                    392
+                ],
+                "angle": 0,
+                "content": "Japan"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    991,
+                    409,
+                    1555,
+                    521
+                ],
+                "angle": 0,
+                "content": "Sayuri Umeda Senior Foreign Law Specialist"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    643,
+                    2254,
+                    1049
+                ],
+                "angle": 0,
+                "content": "The Rule of Detainee Treatment states that, when a detainee dies in a detention facility, the director of the facility must promptly notify the relatives or cohabitants of the person about the date and time of death, the name of the illness, and the cause of death. The director must also notify them that the facility will hand over the body and belongings to them.<sup>1</sup> It does not appear that the Japanese government pays expenses for repatriation of remains outside of Japan. When there is no one to take the body, the director must ask the mayor of the municipality where the facility is located to have the remains buried or cremated.<sup>2</sup>"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1102,
+                    2254,
+                    1336
+                ],
+                "angle": 0,
+                "content": "The Act on Graveyards and Burial states that, when there is no one to take the body, the mayor of the municipality where the deceased died is responsible for the burial or cremation.3 The expenses for the burial or cremation are paid by the municipality in accordance with the Act on the Handling of Sick and Deceased Travelers.4"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1386,
+                    2254,
+                    1617
+                ],
+                "angle": 0,
+                "content": "If the traveler carried cash and valuables, the municipality is compensated with them. If the traveler did not have cash or valuables, or their amount is not enough to cover the expenses, the mayor charges the expenses to the traveler's heir or a person who had responsibility for the traveler's care.[5]"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1669,
+                    2254,
+                    1791
+                ],
+                "angle": 0,
+                "content": "Communication with the family of a deceased detainee outside Japan is conducted through the embassy of the country of which the deceased was a citizen.[6]"
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2352,
+                    2103,
+                    2461
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup> Rule of Detainee Treatment, Ministry of Justice (MOJ) Regulation No. 59 of 1981, as amended by MOJ Regulation No. 7 of 2021, art. 42, para. 2, https://perma.cc/7ZSS-KWZE (in Japanese)."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2478,
+                    640,
+                    2534
+                ],
+                "angle": 0,
+                "content": "2Id.art.42,para.3."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2550,
+                    1920,
+                    2659
+                ],
+                "angle": 0,
+                "content": "3 Act on Graveyards and Burial, Act No. 48 of 1948, as amended by Act No. 68 of 2022, art. 9, https://perma.cc/69HH-W5EG (in Japanese)."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2676,
+                    2221,
+                    2781
+                ],
+                "angle": 0,
+                "content": "4 Act on the Handling of Sick and Deceased Travelers, Act No. 93 of 1899, as amended by Act No. 109 of 1986, art. 15, para. 1, https://perma.cc/9VTA-9E2Z (in Japanese)."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2801,
+                    497,
+                    2851
+                ],
+                "angle": 0,
+                "content": "5Id.art.11."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2874,
+                    2006,
+                    2979
+                ],
+                "angle": 0,
+                "content": "\\(^{6}\\) Judiciary Committee Minutes No. 18, 204th Diet (Apr. 28, 2021), Yutaka Matsumoto's statement, https://perma.cc/8QNE-QRC6 (in Japanese)."
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2352,
+                    2221,
+                    2979
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "14"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1150,
+                    303,
+                    1397,
+                    376
+                ],
+                "angle": 0,
+                "content": "Mexico"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    991,
+                    409,
+                    1555,
+                    521
+                ],
+                "angle": 0,
+                "content": "Gustavo Guerra Senior Foreign Law Specialist"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    298,
+                    643,
+                    2249,
+                    815
+                ],
+                "angle": 0,
+                "content": "A search of relevant legal and regulatory sources did not reveal information specifically addressing the issue of the party responsible for the expense of repatriating the remains of foreign nationals who die while in custody at Mexico's immigration detention facilities."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    298,
+                    871,
+                    2249,
+                    1151
+                ],
+                "angle": 0,
+                "content": "According to an investigative report conducted by a news organization, the Mexican government has transferred to American and Guatemalan consular foreign authorities in Mexico the dead bodies of two of their citizens (one American, one Guatemalan) who died while in custody in immigration facilities in recent years. Other migrants who have died while in custody have been buried in Mexico."
+            },
+            {
+                "block_id": 4,
+                "type": "page_footnote",
+                "bbox": [
+                    298,
+                    2798,
+                    2164,
+                    2897
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup> Montserrat Peralta, Ocho migrantes han fallecido en estaciones del INM en los últimos tres años, Latinus (Jan. 2, 2022), https://perma.cc/ZW9G-URSJ."
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2927,
+                    369,
+                    2966
+                ],
+                "angle": 0,
+                "content": "2 Id."
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    293,
+                    3095,
+                    867,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 7,
+                "type": "page_number",
+                "bbox": [
+                    2203,
+                    3095,
+                    2249,
+                    3141
+                ],
+                "angle": 0,
+                "content": "15"
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1127,
+                    303,
+                    1417,
+                    392
+                ],
+                "angle": 0,
+                "content": "Portugal"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    989,
+                    409,
+                    1555,
+                    521
+                ],
+                "angle": 0,
+                "content": "Eduardo Soares Senior Foreign Law Specialist"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    643,
+                    2264,
+                    1280
+                ],
+                "angle": 0,
+                "content": "Decree-Law No. 411, of December 30, 1998, establishes the legal regime for the removal, transport, burial, exhumation, transfer, and cremation of corpses of national or foreign citizens, as well as certain acts from the list above that relate to bones, ashes, dead fetuses, and anatomical pieces. This decree also addresses changing the location of a cemetery.\\(^{1}\\) For the transport to a foreign country of a corpse whose death has been verified in Portugal, and for the transport to Portugal of a corpse whose death has been verified in a foreign country, the provisions contained in the International Arrangement Concerning the Transport of Corpses, signed in Berlin on February 10, 1937,\\(^{2}\\) as approved by Decree-Law No. 417 of 1 September 1, 1970,\\(^{3}\\) and the Council of Europe Agreement on the Transfer of Corpses of October 26, 1973,\\(^{4}\\) as approved by Decree No. 31 of April 16, 1979, are applied.\\(^{5}\\) These multilateral instruments do not regulate the costs of such transport, however."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1326,
+                    2261,
+                    1504
+                ],
+                "angle": 0,
+                "content": "Decree-Law No. 411, Decree-Law No. 417, and Decree No. 31 are silent regarding financial assistance for repatriating the remains of people who die in immigration detention facilities in Portugal. Further research did not reveal any other law or policy in this regard."
+            },
+            {
+                "block_id": 4,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2524,
+                    2096,
+                    2633
+                ],
+                "angle": 0,
+                "content": "\\(^{1}\\) Decreto-Lei No. 411/98, de 30 de Dezembro, as amended by Lei No. 14/2-16, de 9 de Junho, art. 1(1), https://perma.cc/K39Q-6NS8."
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2649,
+                    2073,
+                    2755
+                ],
+                "angle": 0,
+                "content": "2 International Arrangement Concerning the Conveyance of Corpses, Feb. 10, 1937, 4391 L.N.T.S. 313, https://perma.cc/D2BU-6BJJ."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2772,
+                    1644,
+                    2831
+                ],
+                "angle": 0,
+                "content": "<sup>3</sup> Decreto-Lei No. 417/70, de 1 de Setembro, https://perma.cc/QTZ7-LAAV."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2847,
+                    2065,
+                    2907
+                ],
+                "angle": 0,
+                "content": "<sup>4</sup> Agreement on the Transfer of Corpses, Oct. 26, 1973, E.T.S. No. 80, https://perma.cc/EU4W-G6DS."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2923,
+                    1491,
+                    2979
+                ],
+                "angle": 0,
+                "content": "\\(^{5}\\) Decreto No. 31/79, de 16 de Abril, https://perma.cc/UZC3-ENS5."
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2524,
+                    2096,
+                    2979
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "16"
+            }
+        ]
+    },
+    {
+        "page_id": 19,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1134,
+                    303,
+                    1407,
+                    376
+                ],
+                "angle": 0,
+                "content": "Sweden"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1122,
+                    409,
+                    1489,
+                    524
+                ],
+                "angle": 0,
+                "content": "Elin Hofverberg  \neign Law Specialist"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    640,
+                    2261,
+                    990
+                ],
+                "angle": 0,
+                "content": "Swedish law does not appear to address specifically expenses associated with repatriation of bodies of foreign nationals who die while in the custody of Swedish authorities, including immigration authorities. Similarly, we have not been able to locate official policy documents on repatriation of deceased foreigners held in Swedish detention facilities. During the COVID-19 pandemic, at least one person died in the custody of the Migration Authority, as reported by Aftonbladet.\\(^{1}\\) Information on what happened to his remains has not been located."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1039,
+                    2256,
+                    1557
+                ],
+                "angle": 0,
+                "content": "More broadly, nonresident foreigners who die in Sweden are not entitled to a burial in Sweden, and costs for repatriation must be borne by the deceased's estate, family members of the deceased, or the foreign consulate.2 It appears likely that this rule applies also to nonresidents who die in custody. While foreigners who are residents of Sweden and registered in the population registry (folkbokförda) have a right to be buried in Sweden, they are not entitled to cost reimbursement for repatriation of remains back to their home country.3 Moreover, the estate of the deceased is responsible for the costs associated with the burial.4 When the estate cannot cover the burial costs, the municipality is responsible for aiding any deceased resident who cannot pay for his or her burial costs.5"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1607,
+                    2254,
+                    1732
+                ],
+                "angle": 0,
+                "content": "Unclaimed bodies of foreign nationals who are not residents in Sweden are buried in the municipality where the death occurred at the expense of the relevant municipality.[6]"
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2451,
+                    1930,
+                    2557
+                ],
+                "angle": 0,
+                "content": "\\(^{1}\\) Sophie Stigfur, Coronautbrott på Migrationsverkets Förvar - en död, Aftonbladet (Apr. 18, 2020), https://perma.cc/Q2BX-A78Z."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2574,
+                    2111,
+                    2682
+                ],
+                "angle": 0,
+                "content": "2 See 9 ch. 6 § Begravningslag [Burial Act] (SFS 1990:1144), https://perma.cc/G3G3-7F28. See also Moa Kärnstrand, Sä Fraktar du Kistan Utomlands, Råd och Rön (Feb. 13, 2019), https://perma.cc/6V72-3CQY."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2699,
+                    752,
+                    2755
+                ],
+                "angle": 0,
+                "content": "3 9 ch. 6 § Begravningslag."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2775,
+                    530,
+                    2824
+                ],
+                "angle": 0,
+                "content": "4 Id. 5 ch. 2 §."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2847,
+                    2231,
+                    2904
+                ],
+                "angle": 0,
+                "content": "5 2 ch. 1 § and 4 ch. 1 § Socialtjänstlagen [Social Services Act] (SFS), (2001:453), https://perma.cc/Y9EG-E3RH."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2923,
+                    754,
+                    2979
+                ],
+                "angle": 0,
+                "content": "\\(5 \\mathrm{ch.} 2 \\S\\) Begravningslag."
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2451,
+                    2231,
+                    2979
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "17"
+            }
+        ]
+    },
+    {
+        "page_id": 20,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    994,
+                    303,
+                    1552,
+                    386
+                ],
+                "angle": 0,
+                "content": "United Kingdom"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    991,
+                    409,
+                    1555,
+                    521
+                ],
+                "angle": 0,
+                "content": "Clare Feikert-Ahalt Senior Foreign Law Specialist"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    293,
+                    650,
+                    2256,
+                    1036
+                ],
+                "angle": 0,
+                "content": "SUMMARY The government of the United Kingdom (UK) will contribute costs up to a certain amount, which appears to be £3,000 (approximately US$3,700) for foreign nationals who die in immigration detention and £1,200 (approximately US$1,485) for foreign nationals who die in prison while detained under immigration powers, towards the cost of a funeral, cremation or the repatriation of their remains to their country of origin. This is provided by orders that govern how prisons and immigration detention facilities are run, and does not appear to have a statutory basis."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    298,
+                    1158,
+                    650,
+                    1211
+                ],
+                "angle": 0,
+                "content": "I. Introduction"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    295,
+                    1273,
+                    2256,
+                    1617
+                ],
+                "angle": 0,
+                "content": "There does not appear to be any law that requires the government to pay the costs to repatriate the remains of a foreign national who has died in immigration detention, or in prison if the detention was under immigration powers. There are orders that are policy and guidance documents and govern how prisons and immigration detention facilities are run, which state the government should contribute certain costs towards a funeral, cremation, or the repatriation of remains. There does not appear to be a statutory basis for the payment of these costs."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    298,
+                    1676,
+                    1603,
+                    1739
+                ],
+                "angle": 0,
+                "content": "II. Death of Foreign Nationals in Immigration Detention"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    295,
+                    1798,
+                    2256,
+                    1973
+                ],
+                "angle": 0,
+                "content": "The procedure that immigration authorities must follow when a foreign national dies in immigration custody is contained in the *Detention Services Order* 08/2014, published by the Home Office. This document provides mandatory instructions that must be followed by"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    446,
+                    2026,
+                    2103,
+                    2234
+                ],
+                "angle": 0,
+                "content": "all staff operating in immigration removal centres (IRCs), pre-departure accommodation (PDA), residential short-term holding facilities (RSTHFs), and escort staff about their responsibilities if an individual dies in an immigration detention facility, in hospital or under escort (including when under bed watch).<sup>1</sup>"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    298,
+                    2290,
+                    2256,
+                    2402
+                ],
+                "angle": 0,
+                "content": "It does not apply to foreign nationals who die after being detained in prison under immigration powers, or those detained at the border."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    298,
+                    2461,
+                    1371,
+                    2517
+                ],
+                "angle": 0,
+                "content": "A death in immigration detention is considered to be"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    446,
+                    2574,
+                    2103,
+                    2781
+                ],
+                "angle": 0,
+                "content": "[a]ny death of an individual while detained under immigration powers in an IRC, residential short-term holding facility (RSTHF), pre-departure accommodation (PDA) or under escort, or [a]fter leaving detention if the death was as a result of an incident occurring while detained or where there is some credible information that the death might"
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    298,
+                    2874,
+                    2004,
+                    2976
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup> Home Office, Detention Services Order 08/2014: Death in Immigration Detention ¶ 1 (rev. July 2021), https://perma.cc/2R43-PEQY."
+            },
+            {
+                "block_id": 12,
+                "type": "footer",
+                "bbox": [
+                    298,
+                    3095,
+                    867,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    2205,
+                    3095,
+                    2249,
+                    3141
+                ],
+                "angle": 0,
+                "content": "18"
+            }
+        ]
+    },
+    {
+        "page_id": 21,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    622,
+                    148,
+                    1927,
+                    207
+                ],
+                "angle": 0,
+                "content": "Repatriation of Immigration Detainees' Remains: United Kingdom"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    433,
+                    300,
+                    2108,
+                    518
+                ],
+                "angle": 0,
+                "content": "have resulted from their period of detention and the Home Office has been informed. This excludes deaths that occurred after the individual has left detention (and is not under escort) and the cause of death was unrelated to the detention period, or occurred outside the direct control of the state (for example, a road traffic accident).<sup>2</sup>"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    564,
+                    2254,
+                    683
+                ],
+                "angle": 0,
+                "content": "If a foreign national dies in immigration detention, the relevant Foreign, Commonwealth & Development Office, embassy, or high commission<sup>3</sup> and next of kin must be notified.<sup>4</sup>"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    735,
+                    2256,
+                    1250
+                ],
+                "angle": 0,
+                "content": "The Detention Services Order notes that the Home Office will pay funeral or cremation costs within the UK, to cover funeral director's fees, a hearse, a simple coffin, cremation, or burial fees and fees for a Minister, of up to £3,000 (approximately US\\(3,700). In cases where the next of kin wishes to repatriate the body, or cremated remains, to the foreign national's country of origin, the Home Office will pay up to £3,000 (approximately US\\)3,700) towards this. These expenses must be as authorized by the Head of Detention Operations and approved by the Home Office Finance Team as a one-off expenditure. The Head of Detention Operations appears to have discretion to provide further funds towards the funeral costs and repatriation of foreign nationals, but the limits of this discretion are not provided in the detention services order."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1306,
+                    1445,
+                    1372
+                ],
+                "angle": 0,
+                "content": "III. Death of Foreign Nationals in Prison Custody"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1422,
+                    2254,
+                    1706
+                ],
+                "angle": 0,
+                "content": "In cases where a prisoner dies in custody, the prison is required to follow the procedures contained in PSI 09/2014: (Restricted) Incident Management. This document is restricted and not publicly available. The procedures listed in PSI 64/2011: Management of Prisoners at Risk of Harm to Self, to Others and From Others (Safer Custody) require the following individuals be notified of a death in custody:"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    438,
+                    1762,
+                    711,
+                    1808
+                ],
+                "angle": 0,
+                "content": "the police"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1815,
+                    2103,
+                    1966
+                ],
+                "angle": 0,
+                "content": "- next-of-kin and any other person the prisoner has reasonably nominated to be informed. Where no known next of kin is identified, prisons must take reasonable steps to trace any family members"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    438,
+                    1973,
+                    739,
+                    2016
+                ],
+                "angle": 0,
+                "content": "the coroner"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2022,
+                    2103,
+                    2128
+                ],
+                "angle": 0,
+                "content": "- the Deputy Director of Custody, the Director of High Security Prisons, the Deputy Director of Contracted Prisons, Head of Prisoner Escort Custody Services as applicable"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2135,
+                    1772,
+                    2181
+                ],
+                "angle": 0,
+                "content": "- Press Office, making clear whether next-of-kin have been informed."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2184,
+                    1746,
+                    2234
+                ],
+                "angle": 0,
+                "content": "National Operations Unit by telephone and later on NOMIS/IRS.8"
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    436,
+                    1762,
+                    2103,
+                    2234
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    288,
+                    2428,
+                    451,
+                    2478
+                ],
+                "angle": 0,
+                "content": "2 Id. 4."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2501,
+                    545,
+                    2554
+                ],
+                "angle": 0,
+                "content": "3Id. 19-20."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2577,
+                    466,
+                    2626
+                ],
+                "angle": 0,
+                "content": "4Id. 15."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2653,
+                    466,
+                    2702
+                ],
+                "angle": 0,
+                "content": "5Id. 54."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2725,
+                    466,
+                    2778
+                ],
+                "angle": 0,
+                "content": "\\(^{6}\\) Id. ¶ 57."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    290,
+                    2798,
+                    466,
+                    2851
+                ],
+                "angle": 0,
+                "content": "7Id. 59."
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    288,
+                    2428,
+                    545,
+                    2851
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2874,
+                    2244,
+                    2979
+                ],
+                "angle": 0,
+                "content": "\\(^{8}\\) HM Prison & Probation Service, Management of Prisoners at Risk of Harm to Self, to Others and From Others (Safer Custody) PSI 64/2011, at 44 (rev. July 5, 2021), https://perma.cc/7Q74-2B7E."
+            },
+            {
+                "block_id": 21,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3095,
+                    872,
+                    3154
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 22,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2256,
+                    3141
+                ],
+                "angle": 0,
+                "content": "19"
+            }
+        ]
+    },
+    {
+        "page_id": 22,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    622,
+                    151,
+                    1927,
+                    204
+                ],
+                "angle": 0,
+                "content": "Repatriation of Immigration Detainees' Remains: United Kingdom"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    288,
+                    300,
+                    2261,
+                    419
+                ],
+                "angle": 0,
+                "content": "This list is not exhaustive and the complete procedure is contained in PSI 09/2014 (Restricted) Incident Management, but this is unavailable to the public."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    471,
+                    2261,
+                    699
+                ],
+                "angle": 0,
+                "content": "In cases of foreign national prisoners, the embassy of their country of citizenship must be notified and the prison must offer to pay reasonable repatriation costs of the body or ashes of the prisoner. PSI 64/2011: Management of Prisoners at Risk of Harm to Self, to Others and From Others (Safer Custody) provides"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    433,
+                    749,
+                    2111,
+                    1065
+                ],
+                "angle": 0,
+                "content": "[t]he average cost of the simple repatriation of a body from the UK to another country is £1,200 [approximately US$1,485] excluding the freight charge which will vary depending on the destination. Simple repatriation includes a zinc lined coffin, international embalming and transfer to the airport. It is down to the discretion of Governors as to whether costs such as freight charges, transfer of the body from the receiving airport, and any family travel, are met."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1112,
+                    2106,
+                    1217
+                ],
+                "angle": 0,
+                "content": "If the ashes are not to be sent as freight, Governor/Director's may wish to consider paying for a member of the family to collect the ashes.[9]"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1267,
+                    2264,
+                    1613
+                ],
+                "angle": 0,
+                "content": "If a foreign national prisoner does not have any identifiable next-of-kin, or where the next-of-kin has disowned the body, the coroner informs the local authority who has an statutory obligation to dispose of the body.[10] The prison, if requested by the local authority, may make a contribution towards the cost of disposal of the body that is typically around £1,000 (approximately US$1,235). If the prisoner has died in hospital, the hospital may be asked to contribute to the local authorities costs."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1666,
+                    2259,
+                    1904
+                ],
+                "angle": 0,
+                "content": "If the next of kin requests a funeral in the UK, the governor of the prison is required to \"offer to pay a contribution towards reasonable [specified] funeral expenses of up to £3,000 [approximately US$3,700].\"11 This does not apply if the family has a pre-paid funeral or can claim a grant from another government department."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2775,
+                    474,
+                    2821
+                ],
+                "angle": 0,
+                "content": "9 Id. at 54."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2847,
+                    1810,
+                    2904
+                ],
+                "angle": 0,
+                "content": "10 Public Health (Control of Disease) Act 1984, c. § 46(2), https://perma.cc/6SFJ-D2L8."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    295,
+                    2923,
+                    1239,
+                    2976
+                ],
+                "angle": 0,
+                "content": "11 HM Prison & Probation Service, supra note 8, at 46."
+            },
+            {
+                "block_id": 10,
+                "type": "footer",
+                "bbox": [
+                    288,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    2200,
+                    3095,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "20"
+            }
+        ]
+    }
+]

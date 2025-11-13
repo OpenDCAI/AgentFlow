@@ -1,0 +1,3691 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1053,
+                    151,
+                    1494,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    191,
+                    323,
+                    561,
+                    689
+                ],
+                "angle": 0,
+                "content": "DEPARTMENT OF STATE"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    910,
+                    429,
+                    1634,
+                    504
+                ],
+                "angle": 0,
+                "content": "Joint Regional Strategy"
+            },
+            {
+                "block_id": 3,
+                "type": "header",
+                "bbox": [
+                    1981,
+                    320,
+                    2356,
+                    693
+                ],
+                "angle": 0,
+                "content": "UNITED STATES AGENCY INTERNATIONAL DEVELOPMENT"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    555,
+                    1214,
+                    1991,
+                    1422
+                ],
+                "angle": 0,
+                "content": "State Department Bureau of South and Central Asia USAID Asia Bureau"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1053,
+                    2580,
+                    1499,
+                    2630
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    907,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 10, 2022"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3095,
+                    1489,
+                    3141
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    1053,
+                    151,
+                    1494,
+                    207
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    441,
+                    405,
+                    948,
+                    471
+                ],
+                "angle": 0,
+                "content": "Table of Contents"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    344,
+                    537,
+                    2249,
+                    594
+                ],
+                "angle": 0,
+                "content": "1. Executive Statement and Mission Statement 1"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    344,
+                    627,
+                    2249,
+                    683
+                ],
+                "angle": 0,
+                "content": "2. Bureau Strategic Framework 4"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    344,
+                    712,
+                    2249,
+                    768
+                ],
+                "angle": 0,
+                "content": "3. Bureau Goals and Objectives 6"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    344,
+                    798,
+                    2249,
+                    858
+                ],
+                "angle": 0,
+                "content": "4. Bureau Cross-Cutting Management Objective 35"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    344,
+                    537,
+                    2249,
+                    858
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    907,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 10, 2022"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    1058,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 1 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    364,
+                    306,
+                    1685,
+                    376
+                ],
+                "angle": 0,
+                "content": "1. Executive Statement and Mission Statement"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    438,
+                    2246,
+                    1141
+                ],
+                "angle": 0,
+                "content": "The U.S. Department of State's Bureau of South and Central Asian Affairs (SCA Bureau) and the United States Agency for International Development's (USAID) Bureau for Asia (Asia Bureau) advance U.S. foreign policy objectives in South and Central Asia (SCA) through diplomacy, development assistance, advocacy, and messaging in the interests of the American people, their security, and economic prosperity. We endeavor to make progress in our mission objectives by defining, implementing, and tracking through SCA Bureau and Asia Bureau's Joint Regional Strategy (JRS) priority goals and objectives. We have five primary policy goals and one management objective, in line with the Administration's strategic foreign policy vision:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1207,
+                    1598,
+                    1260
+                ],
+                "angle": 0,
+                "content": "1. Address global challenges through regional cooperation;"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1296,
+                    1930,
+                    1353
+                ],
+                "angle": 0,
+                "content": "2. Strengthen transparent, accountable democratic governance and values;"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1389,
+                    2126,
+                    1537
+                ],
+                "angle": 0,
+                "content": "3. Support inclusive and equitable economic growth and an equitable, clean, resilient energy future;"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1574,
+                    1244,
+                    1626
+                ],
+                "angle": 0,
+                "content": "4. Enhance regional stability and security;"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1666,
+                    1517,
+                    1716
+                ],
+                "angle": 0,
+                "content": "5. Advance India's development as a global leader; and"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    359,
+                    1755,
+                    2198,
+                    1900
+                ],
+                "angle": 0,
+                "content": "6. Align personnel and manage resources to implement strategic priorities and to ensure effectiveness and accountability."
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    359,
+                    1207,
+                    2198,
+                    1900
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1970,
+                    2249,
+                    2943
+                ],
+                "angle": 0,
+                "content": "As the world navigates the COVID-19 pandemic, SCA also faces other challenges, including increasing climate threats from global warming and the need to reduce greenhouse gas emissions and develop clean energy technologies; supply chain resiliency; terrorism; cyber threats; and humanitarian and refugee crises. At one point in the pandemic, India led the world in both COVID-19 cases and deaths. Yet, India is also a leading producer of vaccines, while several SCA countries export much needed personal protective equipment. State and USAID will work through regional diplomatic platforms such as the Quad (Australia, India, Japan, and the United States), the C5+1 (Kazakhstan, Kyrgyz Republic, Tajikistan, Turkmenistan, Uzbekistan, and the United States), and the Economic Partnership Group (India, Israel, United Arab Emirates, and the United States) to strengthen regional and global cooperation to tackle the world's biggest challenges."
+            },
+            {
+                "block_id": 12,
+                "type": "footer",
+                "bbox": [
+                    288,
+                    3029,
+                    882,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 13,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    211
+                ],
+                "angle": 0,
+                "content": "Page 2 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2244,
+                    1465
+                ],
+                "angle": 0,
+                "content": "On the democratic front, measures from Freedom House and The Economist's Intelligence Unit reported global democratic declines over the past several years, including within SCA countries. Some SCA countries have experienced increasing intolerance to religious freedom and marginalization of minority faith communities. There have also been increasing restrictions and decreasing protections on media freedom in several SCA countries. In some parts of our region, beginning in 2020, the coronavirus pandemic also exacerbated an erosion of civil liberties. According to the 2021 Freedom of the World Report, three countries in the region have become less free, and none of the SCA countries are currently rated as \"Free.\" Half of the countries in the region are listed as \"Not Free,\" highlighting democratic challenges within SCA. The United States is also concerned about the regression of women's, girls', and minority rights in Afghanistan and other countries. To counter regional illiberalism, SCA and Asia Bureaus will support civil society, independent media, judicial reform, a rules-based order, transparency, and accountability to defend against authoritarianism and corruption."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1524,
+                    2238,
+                    2504
+                ],
+                "angle": 0,
+                "content": "The Administration has prioritized a foreign policy for the middle-class that makes life better, safer, and fairer for Americans. It features signature initiatives to rebuild U.S. partnerships and our standing in the world. The focus of the G7 Build Back Better World initiative is to realize economic benefits for Americans and the people of South and Central Asia. India is poised to become the world's most populous country by 2027 and has a substantial, growing middle class. Pre-pandemic, India and Bangladesh had among the highest rates of economic growth in the world and there are encouraging indications of a solid post-pandemic recovery. We will partner with friends and allies to help finance high-quality, environmentally sustainable infrastructure; promote regional connectivity, including intra-regional and cross-border trade; develop supply chain resiliency; technological development; renewable energy development; and legal and regulatory reforms."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1063,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    211
+                ],
+                "angle": 0,
+                "content": "Page 3 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2254,
+                    1283
+                ],
+                "angle": 0,
+                "content": "SCA has faced ongoing threats to its regional stability, including terrorism; violent extremism; border and maritime security challenges; and nuclear proliferation. The Taliban takeover of Afghanistan and ISIS-K's resurgence in-country could further add to destabilizing factors throughout SCA. Most immediately, countries bordering Afghanistan – Pakistan, Tajikistan, Uzbekistan, and Turkmenistan – may bear the brunt of violent extremism or counterterrorist threats and have to manage an influx of refugees. Additionally, terrorist groups outside of Afghanistan, including Pakistan-based Lashkar-e-Tayyiba continue to have the ability to conduct attacks in the region. Humanitarian issues will remain a concern in the region, especially given the situation in Afghanistan. The United States and other stakeholders will provide humanitarian and other aid to help the Afghan people and security and other assistance and to maintain stability."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1339,
+                    2261,
+                    2415
+                ],
+                "angle": 0,
+                "content": "COVID-19 and the climate crisis have proven that global challenges can only be addressed effectively through collaborative leadership. In SCA, this will mean coordination with regional leaders and regional and multilateral organizations to cooperatively tackle regional health challenges; climate change; humanitarian and natural disasters; and economic crises. In 2021, India took a global leadership role on climate by pledging to produce 500 gigawatts of renewable energy by 2030. In addition, regional fora such as the Quad, C5+1, and the Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation (BIMSTEC) have initiated programs to confront cyber and technology challenges; provide supply chain resiliency; strengthen economic connectivity; and foster health information sharing. Consistent with the Interim National Security Strategic Guidance, State and USAID will increase engagement with, and support the strengthening of, regional and multilateral organizations to address each of the JRS goals and objectives."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 4 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    362,
+                    306,
+                    1249,
+                    376
+                ],
+                "angle": 0,
+                "content": "2. Bureau Strategic Framework"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    288,
+                    442,
+                    2024,
+                    511
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 1: Address global challenges through regional cooperation."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    362,
+                    584,
+                    2134,
+                    726
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.1: Improve regional efforts and strengthen resilience to health challenges."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    362,
+                    768,
+                    2198,
+                    907
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.2: Advance approaches to mitigate and adapt to the climate crisis across sectors in collaboration with governments and partners."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    362,
+                    956,
+                    2136,
+                    1095
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.3: Provide timely, critical assistance to prepare and respond to international disasters and humanitarian crises in the region."
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    362,
+                    584,
+                    2198,
+                    1095
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1191,
+                    2231,
+                    1359
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 2: Strengthen transparent, accountable democratic governance and values."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1438,
+                    2182,
+                    1584
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.1: Reduce corruption; increase transparency, accountability, and efficacy in governance including legislative, judicial, and executive branches."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1623,
+                    2233,
+                    1765
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.2: Support the development, capacity, and resilience of civil society and independent media as safeguards of democracy."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1808,
+                    2215,
+                    1953
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.3: Promote and protect the rights of women and marginalized and underrepresented populations as members of an inclusive democratic society."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1996,
+                    2238,
+                    2141
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.4: Strengthen democratic institutions of governance capable of withstanding authoritarian influence and pressures to undermine democratic processes."
+            },
+            {
+                "block_id": 13,
+                "type": "list",
+                "bbox": [
+                    362,
+                    1438,
+                    2238,
+                    2141
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2230,
+                    2198,
+                    2402
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 3: Support inclusive, equitable economic growth and an equitable, clean, resilient energy future."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    362,
+                    2478,
+                    2177,
+                    2706
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.1: Strengthen transportation, commercial ties, clean energy, and energy connectivity within the region by increasing cooperation, partnerships, and trade."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    362,
+                    2755,
+                    2116,
+                    2894
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.2: Increase equitable labor force participation for women and marginalized communities above existing participation levels."
+            },
+            {
+                "block_id": 17,
+                "type": "list",
+                "bbox": [
+                    362,
+                    2478,
+                    2177,
+                    2894
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 18,
+                "type": "footer",
+                "bbox": [
+                    288,
+                    3032,
+                    882,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 19,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 5 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    362,
+                    306,
+                    2182,
+                    455
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.3: Improve the policy-enabling environment to expand equitable economic growth and cooperation."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    491,
+                    2231,
+                    643
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.4: Facilitate the adoption of U.S. technological innovations to advance economic competitiveness and environmentally sustainable, equitable growth."
+            },
+            {
+                "block_id": 4,
+                "type": "list",
+                "bbox": [
+                    362,
+                    306,
+                    2231,
+                    643
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    288,
+                    726,
+                    1614,
+                    792
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 4: Enhance regional security and stability."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    362,
+                    867,
+                    2244,
+                    1108
+                ],
+                "angle": 0,
+                "content": "- **Objective 4.1:** Strengthen the capacity of South and Central Asian allies and partners to independently manage their own security challenges and support a rules-based regional and international order."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1145,
+                    2241,
+                    1386
+                ],
+                "angle": 0,
+                "content": "- **Objective 4.2:** Strengthen the capacity of South and Central Asian allies and partners to counter and manage threats from violent extremist organizations, legitimate non-state actors, cyberattacks, and protect the free flow of information."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1422,
+                    2198,
+                    1570
+                ],
+                "angle": 0,
+                "content": "- Objective 4.3: Strengthen the capacity of South and Central Asian allies and partners' law enforcement, border security, and maritime security."
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    362,
+                    867,
+                    2244,
+                    1570
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1656,
+                    1823,
+                    1722
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 5: Advance India's development as a global leader."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1798,
+                    2182,
+                    1947
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.1: Support India's role as a global partner to advance democratic processes, values, and institutions."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    362,
+                    1983,
+                    2228,
+                    2135
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.2: Strengthen India's defense capacity to deter PRC aggression and partner with the United States to uphold a free and open Indo-Pacific."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    362,
+                    2168,
+                    2177,
+                    2412
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.3: Support India's infrastructure, human capital, and investment climate to drive regional and global economic development and intra-regional trade; support leadership in global health; and promote diverse and resilient supply chains."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    362,
+                    2445,
+                    1846,
+                    2504
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.4: Support India's leadership on climate change."
+            },
+            {
+                "block_id": 15,
+                "type": "list",
+                "bbox": [
+                    362,
+                    1798,
+                    2228,
+                    2504
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "title",
+                "bbox": [
+                    285,
+                    2590,
+                    2154,
+                    2871
+                ],
+                "angle": 0,
+                "content": "Bureau Cross-Cutting Management Objective 6: Align personnel and manage resources to implement strategic priorities and to ensure effectiveness and accountability."
+            },
+            {
+                "block_id": 17,
+                "type": "footer",
+                "bbox": [
+                    288,
+                    3029,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 18,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 6 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    364,
+                    306,
+                    1249,
+                    376
+                ],
+                "angle": 0,
+                "content": "3. Bureau Goals and Objectives"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    288,
+                    442,
+                    2024,
+                    511
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 1: Address global challenges through regional cooperation."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    600,
+                    2249,
+                    1392
+                ],
+                "angle": 0,
+                "content": "- Bureau Goal 1 Description: Countries worldwide are facing a myriad of challenges, including the COVID-19 pandemic, natural disasters, climate change, and economic fallout. Many of these challenges are transboundary, both in their origin and in their potential solutions. Therefore, this strategy asserts a regional approach is necessary to address these challenges. This requires the United States to strengthen and enhance cooperation with our regional diplomatic frameworks such as the Quad, C5+1, and Indo-Pacific partners. A regional approach also warrants enhanced cooperation with international organizations, such as UN agencies, multilateral development banks, and regional institutions, including the Indian Ocean Rim Association."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1471,
+                    2228,
+                    1534
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 1.1: Improve regional efforts and strengthen resilience to health challenges."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1600,
+                    2210,
+                    2303
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.1 Justification and Linkages: As stated in the Administration’s Interim National Security Strategic Guidance, responding to the public health and economic crises unleashed by COVID-19 is of vital interest. Although disease burdens vary across SCA, many countries lack sufficiently robust public health systems or economies to enable an easy return to pre-COVID-19 conditions. The pandemic has eroded some of the gains from the United States’ decades-long efforts to improve SCA countries’ public health and health security infrastructure. Further efforts are needed to restore and improve public health capacity and prevent future outbreaks."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    433,
+                    2329,
+                    2205,
+                    2943
+                ],
+                "angle": 0,
+                "content": "Strengthening and building resilient health systems also supports countries' capacities to manage and respond to negative consequences of health crises on economic productivity. Promoting public-private partnerships between local governments and private sector actors will increase country-level ownership and leverage technical and financial resources. This will result in system-level solutions; greater country capacity for policymaking, monitoring, and accountability; and improved application of technology."
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    288,
+                    3029,
+                    887,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    211
+                ],
+                "angle": 0,
+                "content": "Page 7 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    364,
+                    303,
+                    2249,
+                    2755
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.1 Risk Considerations: Weakened health infrastructure due to the COVID-19 pandemic hinders the region's ability to respond to other ongoing public health challenges, as well as new outbreaks. Afghanistan and Pakistan are the only remaining countries with wild polio virus. India has the world's highest incidence of tuberculosis (TB) accounting for more than a quarter of the global TB burden, and the largest burden of multi-drug-resistant TB. Region-wide, non-communicable diseases are the leading cause of morbidity and mortality. This puts an enormous burden on health care financing and lost labor participation. Furthermore, the humanitarian and economic consequences of the COVID-19 pandemic have deepened challenges to alleviating poverty; improving food security; advancing gender equality; building prosperity; attracting investment; ensuring domestic security and stability; advancing political and socioeconomic reforms; and strengthening democratic structures. Neither South Asia nor Central Asia have regional organizations to build regional capacity, information sharing, epidemiological surveillance, convergence of regulations, or other public health functions. Gaps are filled to some extent by the World Health Organization's (WHO) regional offices covering South Asia, Afghanistan and Pakistan, and Central Asia. But there is no routine or formal system to exchange epidemiological data within or across sub-regions. As a result of this dearth of appropriate institutions/mechanisms, a regional approach remains challenging despite progress in the pharmaceuticals regulatory domain at the regional level in South Asia. The USG will encourage organizations (such as the WHO) and others with regional offices to strengthen information sharing. State and USAID will also work to strengthen existing regional platforms (C5+1 and CDRI), as well as increase multilateral and bilateral engagement with SCA to increase public health capacity in the region, to strengthen the region's resilience, and to mitigate the risks associated with both the pandemic and weakened health infrastructure. Only with progress along these tracks will SCA be able to rebound from losses in other sectors."
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 8 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    288,
+                    303,
+                    2198,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 1.2: Advance approaches to mitigate and adapt to the climate crisis across sectors in collaboration with governments and partners."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    508,
+                    2249,
+                    2963
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.2 Justification and Linkages: Climate change poses an immediate threat to the security and prosperity of the United States and its partners. Addressing the climate crisis is a national security and foreign policy priority for the United States as outlined in the Interim National Security Strategic Guidance; the Executive Order on Tackling the Climate Crisis at Home and Abroad; and the 2022-2026 Joint Strategic Plan Objectives 1.2, 2.2, and 2.3. SCA countries are some of the most vulnerable to impacts of climate change; face increased water shortages; ocean acidification; sea-level rise; loss of habitats and environmental destruction; increased exposure to zoonotic diseases and pathogens; climate-driven migration; food insecurity, lack of resilient infrastructure; and risks of conflict. The World Bank estimates climate change will push 40 million people in South Asia to migrate within their own countries by 2050 from areas with lower water availability and crop productivity, including those affected by rising sea levels and storm surges. SCA countries are also grappling with how to promote sustainable economic development without exacerbating these vulnerabilities. Rapid population growth and development are driving increased demand for energy, water, food, and transportation, thereby increasing both carbon emissions and air pollution and reducing available water supplies. The region is home to the world's third largest greenhouse gas emitter. It also has both large producers and growing consumers of fossil fuels, so mitigation measures must accompany adaptation measures to limit the global temperature rise to 1.5 degrees Celsius. Consistent with the United States' priority of tackling the climate crisis and because climate impacts respect no national borders, the United States will work with SCA countries and institutions, bilaterally and multilaterally such as through C5+1 and the Coalition for Disaster Resilient Infrastructure (CRDI), as well as with the private sector, to strengthen capacity and mobilize resources to accelerate implementation of climate adaptation, resilience, and mitigation measures across sectors from climate-smart agriculture to clean energy deployment."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1994,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 9 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    369,
+                    300,
+                    2215,
+                    1283
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.2 Risk Considerations: The inability to mitigate SCA countries' capacity and adaptability to the climate crisis will impact SCA's economies; livelihoods; regional security and stability; and hinder global efforts to avoid the most catastrophic impacts of climate change. Also, ambitious climate policies should not exacerbate economic and social inequalities. The United States is leveraging its diplomatic, financial, technical, and development tools. It is working bilaterally and multilaterally with institutions and the private sector, to support partners' efforts to mitigate and adapt to climate change, while ensuring a just and equitable transition. Climate adaptation, resilience, and mitigation considerations, including possible risks, will also be integrated across all SCA policy planning, decision making, programming, and operations."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1359,
+                    1991,
+                    1514
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 1.3: Provide timely, critical assistance to prepare and respond to international disasters and humanitarian crises in the region."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1577,
+                    2249,
+                    2649
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.3 Justification and Linkages: Strengthening regional alliances, institutions, and agreements is necessary to respond to national and regional disasters, humanitarian crises and other global challenges. Promoting the sovereignty and independence of our partner countries is a cornerstone of the Interim National Security Strategic Guidance, the Central Asia Strategy, and the Indo-Pacific Strategy. As such, strengthening SCA partner capacity to be resilient to national, regional, and international crises (such as the coronavirus pandemic or the impacts of climate change) and humanitarian crises (such as acute, life-threatening food insecurity to over 23 million Afghans and the influx of Afghans to neighboring countries in the aftermath of the Taliban takeover) are essential to support their timely and critical assistance to not only prepare, but also to prevent, mitigate and reduce the negative impacts of natural and manmade disasters, as well as humanitarian crises in the region."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 10 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    369,
+                    297,
+                    2244,
+                    2201
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 1.3 Risk Considerations: South Asia is home to numerous large-scale refugee populations, including approximately one million Rohingya refugees in Bangladesh, 1.4 million Afghan refugees in Pakistan, and about 780,000 Afghan refugees in Iran. Another 5.5 million people are internally displaced inside Afghanistan. Many Afghan refugees have lived in Pakistan for nearly 40 years, making it one of the largest and most protracted refugee populations in the world. The Government of Burma should create conditions that enable the safe, dignified, and voluntary return of Rohingya refugees. Until that occurs, it is in the United States' interests – and a reflection of our core values – to provide urgent, life-saving humanitarian assistance to Rohingya refugees residing in Bangladesh. With the Taliban's ascension to power in Afghanistan, over an estimated 116,000 Afghans have fled to neighboring countries, placing an additional burden on host-country communities. It is also in the United States' interest to assist the SCA host countries and their impacted communities whose livelihoods, services, and natural environments have been negatively affected by the sudden and large population influx. The United States must work with partners in the region to support the basic needs of refugees, so that they can peacefully co-exist with host-country communities for the duration of their stay and resist dangers of radicalization to violence. Disasters and crises exacerbate gender inequalities, affecting women and girls. Women experience higher loss of life and greater loss of resources including livelihoods, education, health, security, among other areas and are at greater risk of sexual exploitation, gender-based violence, and abuse."
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 11 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    283,
+                    306,
+                    2236,
+                    471
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 2: Strengthen transparent, accountable democratic governance and values."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    567,
+                    2249,
+                    2102
+                ],
+                "angle": 0,
+                "content": "- Bureau Goal 2 Description: SCA countries' relationship with democracy is varied and complicated. Overall, the region is experiencing a resurgence of illiberalism and rise in authoritarianism in recent years. India, the world's largest democracy, has backslid from \"free\" to \"partly free\" for the first time since 1997 according to the most recent Freedom in the World Report.\\(^{1}\\) Neighboring Pakistan, ranked as \"partly free,\" struggles to balance power between elected civilian government and the military. Central Asia, in contrast, is home to the region's most oppressive governing systems, with little space for criticism or opposition. SCA ranks second lowest globally on political stability, control of corruption, government effectiveness, and the rule of law.\\(^{2}\\) Entrenched corruption is pervasive in many SCA countries, which impedes democratic progress and is exploited by actors – either foreign powers or extremist elements – for political gains. Many SCA countries are dependent on regional powers such as Russia, People's Republic of China, and India for security, economic growth, and maintaining the political status-quo. Citizens of SCA experience limited human rights and civil freedoms, and many religious and racial minorities are marginalized, exploited, and often oppressed. The region is also host to some of the most globally challenging environments for women (Afghanistan) and other minority groups such as LGBTQI+ (Central Asia)."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2158,
+                    2221,
+                    2682
+                ],
+                "angle": 0,
+                "content": "The U.S. government will work with and build more allies and partners to advance human rights, improve good governance, increase access to equitable justice, promote rights-based rule of law, and support democratic progress. For the U.S. government, strong, inclusive, and equitable democracies make for strong regional partners, contribute to regional stability, promote regional trade and economic growth. South Asia lacks strong regional organizations dedicated to political and economic"
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2857,
+                    1456,
+                    2930
+                ],
+                "angle": 0,
+                "content": "\\(^{1}\\) https://freedomhouse.org/countries/freedom-world/scores"
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2937,
+                    1448,
+                    3006
+                ],
+                "angle": 0,
+                "content": "2 https://info.worldbank.org/governance/wgi/Home/Reports"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    288,
+                    2857,
+                    1456,
+                    3006
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    887,
+                    3092
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    211
+                ],
+                "angle": 0,
+                "content": "Page 12 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    436,
+                    303,
+                    2228,
+                    640
+                ],
+                "angle": 0,
+                "content": "cooperation, so regional capacity in the space for democracy, human rights, and governance must be fostered. Central Asia also lacks significant indigenous regional organizations dedicated to regional cooperation. While there is increasing cooperation through the C5+1 platform for other sectors, it does not include objectives for this goal."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    719,
+                    2249,
+                    867
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 2.1: Reduce corruption; increase transparency, accountability, and efficacy in governance (including the legislative, judicial, and executive branches)."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    933,
+                    2254,
+                    2194
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.1 Justification and Linkages: Transparency and accountability, rights-based rule of law, and good governance are the core of democratic sustainability. When absent, corruption can flourish, eroding confidence in democracy and governing institutions, wasting public resources, and exacerbating inequalities. Corruption aids authoritarianism in SCA by facilitating predatory lending practices and coercive manipulation by foreign powers for political, financial, and security gains. Support for freedom of information laws and open-government initiatives are critical to increase transparency, equity, and accountability of governing institutions. Citizen-centered governance where institutions and processes are open and transparent, informed by citizens' views, and address peoples' needs is important for an effective and functioning society. Rule of law where law enforcement and judicial institutions, laws and procedures are respectful of all people regardless of background, sects, religion, sex, gender, or ethnicity, builds confidence in governing bodies and fosters security and prosperity."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    433,
+                    2250,
+                    2231,
+                    2673
+                ],
+                "angle": 0,
+                "content": "This objective supports JSP Strategic Objectives 3.1. Democracy & Governance, and 3.3. Combating Corruption. It also supports the implementation of the U.S. Strategy on Countering Corruption. Corruption is a core national security interest, as well as addressed in the USG's Indo-Pacific Strategy and Central Asia Strategy for good governance."
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1486,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    211
+                ],
+                "angle": 0,
+                "content": "Page 13 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    369,
+                    303,
+                    2254,
+                    1749
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.1 Risk Considerations: Authoritarian tendencies and democratic backsliding in the region, a lack of political will to address systemic corruption, and the COVID-19 pandemic exacerbated social and political divides. These factors present significant risks to democracy in the region. Weak governance and a lack of rights-based rule of law erode the social contract between citizens and their governments, and can lead to instability, rise in extremism, and contribute to economic decline. The aftermath of the return of the Taliban to power in Afghanistan will have spillover effects across the region and are expected to exacerbate the risks to democracy, human rights, and good governance in neighboring countries. In addition, the U.S. government's moral authority in combating corruption has been severely degraded in the region by the legacy of corrupt practices associated with the former Afghan government. Similarly, the United States' history of domestic racial discrimination, lack of political inclusion, and shortage of equitable justice puts into question U.S. credibility in promoting democracy and undermines the concept of democracy as a system worth replicating. These dynamics are skillfully exploited by regional competitors, including the Russian government and the People's Republic of China."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1798,
+                    2215,
+                    2138
+                ],
+                "angle": 0,
+                "content": "Efforts will strengthen responsive and accountable democratic institutions that deliver for citizens at national and sub-national levels. U.S. diplomatic and development assistance will promote accountable, responsive, equitable, and inclusive institutions, strengthen rights-based rule of law and equitable access to justice."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3029,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 14 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    288,
+                    300,
+                    2182,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 2.2: Support the development, capacity, and resilience of civil society and independent media as safeguards of democracy."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    514,
+                    2244,
+                    1861
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.2 Justification and Linkages: Civil society and media have vital roles in promoting and sustaining democracies. They serve as watchdogs to keep governments accountable; provide and disseminate evidence-based information for the public; and empower communities to participate in decision-making processes. Civil society also serves as a conduit between those governing and those governed, advocates for communities, provide crucial services where governments lack capacity; and provide governments with data and expertise to develop and implement effective policy and services. Media organizations report on issues of public interest and in so doing shape public opinion on critical issues of governance and social values, encourage dissent, and mitigate censorship and self-censorship. Across the region, media and civil society organizations play a crucial role in balancing the information landscape and countering disinformation used to discredit democratic processes, institutions, and values. In some countries, the media and civil society, while targets of internal and external authoritarian actors, are also in a position to confront authoritarian tendencies and prevent democratic backsliding."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1923,
+                    2195,
+                    2442
+                ],
+                "angle": 0,
+                "content": "Objective 2.2 supports the Interim National Security Strategic Guidance’s priority of defending democratic values, and JSP Strategic Objectives 3.1. Democracy & Governance, 3.2: Equity & Inclusion, and 3.3. Combating Corruption. It also supports the USG’s Central Asia Strategy so that citizens can provide meaningful input on key public policy issues, enhancing governments’ responsiveness to their citizens, and the Indo-Pacific Strategy, which supports a vibrant civil society."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    211
+                ],
+                "angle": 0,
+                "content": "Page 15 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    369,
+                    300,
+                    2228,
+                    1283
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.2 Risk Considerations: Democratic backsliding, restrictive regulatory frameworks, intimidation, threats, and coercion are shrinking the space for independent civil society and free media to operate in SCA. Civil society and media lack resources necessary to remain independent and sustain their work. They struggle to develop and incorporate technical skills necessary to operate effectively and safely in digital ecosystems, and regularly put themselves and their organizations in harm’s way to hold the private sector and governments accountable. The COVID-19 pandemic has afforded governments in the region, in the name of public safety, the opportunity to further limit civil society and media’s ability to gather data, investigate, conduct outreach, organize, and access resources. The U.S. government remains committed to the long-term promotion and protection of free civil society and independent media."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1339,
+                    2236,
+                    2046
+                ],
+                "angle": 0,
+                "content": "The U.S. government will help build resilient and open information environments; promote information integrity and support counter disinformation/propaganda efforts; advocate for development of technology that respects democracy and human rights; and empower civil society and peaceful social movements. Diplomatic and development efforts will also assist independent civil society and media organizations build their financial, physical, technological, and psychological resilience to national and external coercion and intimidation, serve as watchdogs, and expose corruption and the abuse of power."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3029,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 16 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    288,
+                    300,
+                    2083,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 2.3: Promote and protect the rights of women and marginalized and underrepresented populations as members of an inclusive democratic society."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    514,
+                    2249,
+                    2135
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.3 Justification and Linkages: According to the United Nations, 4.5 million girls in South Asia are likely to never return to school and are at risk due to lack of access to reproductive and sexual health and information services. The World Bank also estimates that in South Asia only 23.6 percent of women participate in the workforce versus 80 percent for men. The lack of representation of girls in education and the workforce hinders their ability to fully participate in a democratic society. Equal rights for all members of society, regardless of socio-economic background, religious affiliation, sect, sexual orientation, gender, or ethnicity are essential for democracy to flourish. Inclusive and respectful governing systems are more inclined to ensure an equitable distribution of wealth, equal access to civil services, and opportunities for broad sweeping political participation. Democratic societies that fail to include women, minorities, and other marginalized groups in governance, either inadvertently or by design, struggle to achieve their full potential. Protections must be in place to prevent the ruling elites from dominating and infringing upon civil rights, while guaranteeing equitable access and inclusive participation. Governments must similarly nurture environments free of threats and intimidation that enable effective advocacy for the rights of women, marginalized and underrepresented groups, while ensuring the safety and protection of activists."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2201,
+                    2210,
+                    2537
+                ],
+                "angle": 0,
+                "content": "This objective advances the Interim National Security Strategic Guidance's call for gender equality and equitable and inclusive growth; JSP Strategic Objective 3.2. Equity and Inclusion; and the Indo-Pacific Strategy's support for women's empowerment and the rights of the underrepresented."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 17 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    369,
+                    300,
+                    2249,
+                    1376
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.3 Risk Considerations: The U.S. government determined that systemic inequality is a “national security threat that leads to: economic, health, and education disparities; violence; violent extremism; corruption; opportunities for disinformation; restrictions of freedoms; and human rights violations,” as outlined in the Joint Strategic Plan. In South and Central Asia, the greatest threats to democracy and human rights are resurgent authoritarianism and spreading extremism, both of which can give states justification to use force, intimidation, and coercion to suppress individual freedoms in the name of security. Domestic and foreign power brokers also exploit cultural and ethnic divisions within societies for political ends, further challenging community cohesion. In some regions, radical interpretation of policy and expressions of religious, cultural, and ethnic identity further divide communities and promote exclusivity, often at the expense of marginalized or underrepresented groups."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1435,
+                    2231,
+                    2501
+                ],
+                "angle": 0,
+                "content": "The U.S. government through its diplomatic and development efforts promotes inclusion across race, ethnicity, caste, gender, gender identity and sexual orientation, religion, disability, age, economic status/class, national origin, and other aspects of identity or communities. Governments and some portions of society in SCA undermine calls for women's and LGBTQI+ rights and political participation as Western cultural imports that threaten traditional societal values. Mindful of risks, U.S. advocacy for underrepresented groups must be conducted in a conscientious manner that neither discourages political backlash nor increases the vulnerability of the very groups it seeks to protect. Efforts will support human rights defenders and activists committed to the protection of marginalized individuals across the region. Both USAID and State are committed to operationalizing the two foundational principles of “do no harm” and “do nothing about them without them” in their development and diplomatic efforts."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1486,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 19,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 18 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2119,
+                    544
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 2.4: Strengthen democratic institutions of governance capable of withstanding authoritarian influence and pressure by strategic competitors to undermine democratic processes."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    610,
+                    2249,
+                    1857
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.4 Justification and Linkages: Elections in SCA are a fundamental human right that form the backbone of the democratic process. When freely and fairly executed, they provide expansive political participation, reduce the likelihood of political violence, and build confidence in governance by effectively addressing public interests. Free and fair elections, however, are only one of the many inter-connected government and societal institutions necessary to sustain a dynamic democratic culture. These include vibrant civil society, an independent judiciary, free media, and opportunity for broad participation in an inclusive political process. U.S support for democratic development in the region aims to bolster the capacity and resilience of these vital institutions of democratic governance and ensure their ability to withstand foreign and domestic challenges to their operations. This objective supports JSP Strategic Objective 3.1: Democracy & Governance (Joint), as well as goals emphasized in the Interim National Security Strategic Guidance. It also supports the Indo-Pacific Strategy and the Central Asia Strategy, which seek to defend democratic institutions."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1890,
+                    2261,
+                    2785
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 2.4 Risk Considerations: In several sub-regions of South and Central Asia, the pillars of democracy are in peril. Domestic and foreign, governmental and non-state actors are challenging societal commitment and political will for democracy and the resilience of democratic institutions. Specifically, the Russian government's authoritarian influence over Central Asian governments and the PRC's predatory investments in infrastructure across the region threaten state sovereignty while suppressing political participation and individual freedoms. Corrupt ruling elites, military and intelligence services' meddling in elections, and political influence of extremist groups inhibit political competition, the conduct of free and fair elections, and representative governing institutions from fulfilling their obligations to society."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 20,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 19 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    306,
+                    2126,
+                    478
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 3: Support inclusive, equitable economic growth and equitable, clean, resilient energy future."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    567,
+                    2254,
+                    2366
+                ],
+                "angle": 0,
+                "content": "- Bureau Goal 3 Description: Supporting sustained, equitable, and inclusive growth for both SCA and the United States is key to achieving economic gains for the middle class and building back better from the COVID-19 pandemic. Rapidly expanding markets in SCA present an opportunity for equitable economic development through sustained, private sector-led growth. Actions to ensure reliable, affordable clean energy access for SCA countries as they develop momentum around transitioning to clean energy sources will also support sustainable and environmentally conscious economic growth in SCA and the United States. Increased access to markets, fair and transparent regulatory frameworks, an enabling environment conducive to investment, regional connectivity and cross-border trade, and increased labor force participation, particularly among women and marginalized communities who have historically experienced market exclusion, will support increased prosperity through private sector-led growth. South Asia lacks strong regional organizations dedicated to political and economic cooperation and therefore lags in intra-regional integration. Central Asia also lacks significant indigenous regional organizations dedicated to regional cooperation, though there is increasing cooperation through the C5+1 platform. Some nascent sub-regional organizations in South Asia also hold promise and could be further developed. Organizations like IORA support women's economic empowerment in South Asia, and the mandates for BIMSTEC and SAARC mandate include economic cooperation and other regional priorities."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 21,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 20 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    288,
+                    303,
+                    2124,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 3.1: Strengthen transportation, commercial ties, and clean energy, and energy connectivity within the region by increasing cooperation, partnerships, and trade."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    521,
+                    2218,
+                    1854
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.1 Justification and Linkages: The SCA region is characterized by relatively low levels of intraregional trade and connectivity, a result of historical events and other factors. Ongoing territorial disputes are common, with disagreements breaking out into outright armed conflict on an episodic basis. As a result, most SCA economies conduct the majority of their trade with countries outside the region. For example, the United States is India's biggest trading partner, while Indian trade with neighboring Pakistan and Bangladesh is minimal. The World Bank estimates potential intra-regional trade in South Asia is \\(67 billion USD versus the current actual trade of \\)23 billion USD, and the gap is growing every year. This shortfall makes it difficult to address other problems facing the region, including poverty (33 percent of the world's poor reside in South Asia), and child nutrition (40 percent of the world's stunted children). USAID's South Asia Regional Initiative engages the South Asian bilateral governments, and regional BIMSTEC and South Asian Association for Regional Cooperation (SAARC), to advance regional energy integration and cross-border electricity trade."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    433,
+                    1923,
+                    2231,
+                    2352
+                ],
+                "angle": 0,
+                "content": "Objective 3.1 supports JSP Strategic Objectives 2.1 and 2.3, as well the Interim National Security Strategic Guidance's prioritization of economic prosperity and opportunity and resilience against strategic competition. Economic prosperity and regional connectedness are similarly prioritized under the Indo-Pacific Strategy and Central Asia Strategy."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    364,
+                    2415,
+                    2236,
+                    2847
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.1 Risk Considerations: As noted above, the SCA region's regional organizations need greater capacity to support intra-regional integration. Regional linkages are critical to reducing costs of trade, expanding cross-border investment, and improving intra-regional prosperity. Domestic demand for goods and services is usually insufficient to significantly expand production, employment, and incomes."
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 22,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 21 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    303,
+                    2254,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 3.2: Increase equitable labor force participation for women and marginalized communities above existing participation levels."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    521,
+                    2246,
+                    1310
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.2 Justification and Linkages: While some progress has been made in recent years, improving women's role in the South and Central Asia labor force remains a challenge. In South Asia, 23.6 percent of females are in the labor force versus 80 percent of males. In Central Asia, 47 percent of females are active in the labor force versus 64 percent of males. The low level of participation by women is due to lack of education, lack of capital, and cultural attitudes. This objective advances the Interim National Security Strategic Guidance's support for gender equality and women's economic empowerment and Indo-Pacific Strategy's support for inclusive economic growth and human rights."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1346,
+                    2228,
+                    2135
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.2 Risk Considerations: Women's participation in cross-border markets fosters entrepreneurship, but participation has been limited by current sociocultural context. Support from local institutions, such as cross-border market management, is crucial but is not always forthcoming. Women's participation is deterred not only by the socio-cultural environment but also by poor infrastructure. Poor basic infrastructure (e.g., lack of toilets, lack of running water, and poor approach roads to markets) exert a disproportionate effect on women, as do the cost of maintaining a vending card (license) for selling at a market (most women do not have a steady income)."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3088
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 23,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 22 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2244,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 3.3: Improve the policy enabling environment to expand equitable economic growth and cooperation."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    514,
+                    2241,
+                    2230
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.3 Justification and Linkages: The United States is the largest single-export market for South Asia, indicating great potential for increased economic and investment linkages. Although there is increasing interest among U.S. companies to invest in the SCA region, structural barriers and weak regulatory frameworks curtail the full potential for foreign investment in the region. Increasing economic linkages between the United States and SCA is critical to support the positive economic agenda for the Indo-Pacific region. Improving the enabling environment by advocating for inclusive and transparent regulatory environments and procurement practices will limit corruption and non-transparent business transactions and strengthen rules-based markets and intellectual property protection. In turn, these actions will support economic goals within the IPS, including leveling the playing field for qualified private sector investment in infrastructure; technology; clean energy; climate conscious food and water security; resilient agriculture technology; and digital economy sectors. Transparent, rules-based and open markets will increase opportunities for U.S. investment and trade in the region and create an environment that supports quality private sector investment opportunities that support complementary JRS objectives, such as increasing regional connectivity through high quality infrastructure investment and investment in technological solutions to support SCA countries' clean energy transition."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    367,
+                    2257,
+                    2195,
+                    2960
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.3 Risk Considerations: The risk to not achieving this objective is that U.S. trade and investment in SCA does not reach its full potential. Increased economic linkages between the United States and SCA would also provide a basis for increased cooperation in non-economic areas, such as political engagement. Additionally, because South Asia is one of the least economically integrated regions in the world, improving the enabling environment to support intra- and inter-regional connectivity through trade could have outsized gains in a region currently under-connected."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    288,
+                    3029,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 24,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    211
+                ],
+                "angle": 0,
+                "content": "Page 23 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    288,
+                    300,
+                    2152,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 3.4: Facilitate the adoption of U.S. technological innovations to advance economic competitiveness and environmentally sustainable, equitable growth."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    504,
+                    2249,
+                    1772
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.4 Justification and Linkages: SCA is highly vulnerable to climate change impacts and continues to rely on fossil fuels for energy generation. Climate impacts in SCA, such as high levels of air pollution from automobile combustion and flooding from rising sea levels, create social and economic costs, including negative health effects for people and stalled economic activity. However, multiple SCA countries have strong potential for renewable energy generation and have updated their Nationally Determined Contributions (NDC) to include an increase in the utilization of renewable energy as a means to increase their climate ambitions and contribution to limiting warming to no more than 1.5 degrees Celsius above pre-industrial levels. To achieve this goal, SCA countries will need increasing access to innovative, decarbonized energy systems. U.S. companies are at the forefront of clean energy technology innovations and can provide solutions to the increased clean energy demand center of SCA, which will have both climate-related and economic benefits for SCA and the United States. This objective also supports the State-USAID JSP Strategic Objective 2.3."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1798,
+                    2249,
+                    2593
+                ],
+                "angle": 0,
+                "content": "Increasing the use of clean energy technology in the SCA region – particularly by U.S. companies, which is vital to providing sustainable solutions to growing energy demand in the face of the climate crisis. The objective follows with the Interim National Security Strategic Guidance's intent to seize opportunities presented by technological advances, as well as the Indo-Pacific Strategy's priority to combat climate change. Supporting the adoption of U.S. technological innovations in SCA has the multipronged benefit of leveraging technology to improve lives around the world, as well as increase economic opportunities for SCA and the U.S. and strengthen U.S. companies' competitiveness relative to other potential suppliers, such as the PRC."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3088
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 25,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 24 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    369,
+                    300,
+                    2256,
+                    1376
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 3.4 Risk Considerations: The risks to not achieving this objective are high. The necessity of transitioning from fossil fuels as a primary energy source to renewables is increasingly clear as global warming's impacts disrupt traditional livelihoods and natural ecosystems that sustain all living beings' survival. This is a critical moment for U.S. companies to gain market share in renewable and clean energy technologies which will continue to experience increased global demand in the upcoming decades. The United States' global competitors, including the PRC, are also potential suppliers of renewable and clean energy technologies. Thus supporting U.S. competitiveness in this sector will be critical for sustainable, clean energy generation; economic competitiveness in the growing clean energy field; and U.S. national security by ensuring that the United States does not lose leverage over the production of sensitive technologies to its strategic competitors."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1452,
+                    1614,
+                    1521
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 4: Enhance regional security and stability."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1610,
+                    2254,
+                    2310
+                ],
+                "angle": 0,
+                "content": "- Bureau Goal 4 Description: Empowering SCA partners and allies to achieve a peaceful, secure, and stable region is a top U.S. priority. Because security threats today are more ideologically diverse and geographically diffuse, the United States remains committed to building the capacity and resilience of SCA partners to address these threats – from growing violent extremism, terrorist threats, transnational criminal organizations, porous and insecure borders, and malicious cyberattacks to climate change, pandemics, WMD proliferation, and increasingly aggressive actions by the PRC and Russia."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    433,
+                    2376,
+                    2195,
+                    2808
+                ],
+                "angle": 0,
+                "content": "Consistent with the Administration's goal of making multilateralism a pillar of U.S. foreign policy, we seek to advance objectives in Goal 4 through regional diplomatic platforms such as the C5+1, as well as bilateral and multilateral security exercises. To this end, we will work with our partners in Central Asia to share burdens and address regional issues, including stability in Afghanistan."
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3029,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 26,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1968,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 25 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    436,
+                    303,
+                    2228,
+                    999
+                ],
+                "angle": 0,
+                "content": "We will promote India's standing as a global security partner to advance a shared vision of a free, open, inclusive, peaceful, and secure Indo-Pacific region. We will align our multilateral engagements with bilateral relations through the QUAD initiative. In addition, in line with a prior Indo-Pacific strategy's fourth objective of enhancing regional security, and in support of the Bay of Bengal initiative, we will build on our partnerships with Sri Lanka, Maldives, Nepal, and Bangladesh to uphold international norms, better detect threats, share information, and respond collectively to piracy, terrorism, and trafficking of drugs, weapons, and precursor materials."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1069,
+                    2244,
+                    1399
+                ],
+                "angle": 0,
+                "content": "Four of the top ten UN peacekeeping troop-contributing countries are in the SCA region. We will leverage the determination of Bangladesh, Nepal, India, and Pakistan to support ongoing UN peacekeeping operations and work with local communities and security forces to promote lasting peace."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1468,
+                    2195,
+                    1709
+                ],
+                "angle": 0,
+                "content": "We will safeguard the lives and interests of the United States and our SCA allies and partners through capacity building to prevent and contain the use of nuclear weapons and to address transregional WMD challenges."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1775,
+                    2215,
+                    2293
+                ],
+                "angle": 0,
+                "content": "Goal 4 aligns seamlessly with the other key goals: Goal 1 (Address global challenges through regional cooperation), Goal 2 (Strengthen transparent, accountable governance, and democratic values), and Goal 5 (Advance India's development as a global leader) reinforce and amplify our Goal 4 security objectives in SCA by promoting transparency, accountable governance, democratic values, and India's standing as the largest democracy in the world."
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3029,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 27,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 26 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2249,
+                    537
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 4.1: Strengthen the capacity of South and Central Asian allies and partners to independently manage their own security challenges and support a rules-based regional and international order."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    610,
+                    2244,
+                    1626
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 4.1 Justification and Linkages: SCA is home to about one-fourth of the world's population, is one of the most volatile regions in the world due to the convergence of great power competition; border and territorial disputes between nuclear-armed India, Pakistan, and the PRC; threats from violent extremists and transnational criminal organizations; maritime disputes, and democratic backsliding. The United States must cooperate and provide assistance to SCA partners to address these common security challenges. This objective advances the Interim National Security Strategic Guidance and Indo-Pacific Strategy in encouraging security in the face of strategic competitors. It also supports the Central Asia Strategy's prioritization for protecting national sovereignty, border security, and combating terrorist threats."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    367,
+                    1683,
+                    2228,
+                    2574
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 4.1 Risk Considerations: South Asian maritime countries are increasingly aware of maritime security and domain awareness challenges in the Indian Ocean region as sea-borne trade and piracy threats have increased. Achieving this objective requires cooperation in targeted areas, including preventing the trafficking of technology, weapons, and precursor materials that contribute to the proliferation of WMD; strengthening the capacity to address vulnerabilities in the cyber domains and defend networks and systems from malicious cyber actors; and pursuing confidence building measures within and among states to prevent or resolve conflicts. There is a risk that SCA nations lack the political will to sufficiently invest in their own security investments to benefit a stable regional order."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 28,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 27 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    303,
+                    2254,
+                    544
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 4.2: Strengthen the capacity of South and Central Asian allies and partners to counter and manage threats from legitimate non-state actors, terrorist organizations, cyberattacks, and protect the free flow of information."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    607,
+                    2254,
+                    2511
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 4.2 Justification and Linkages: SCA faces a variety of threats from non-state actors, to include terrorists, violent extremists, ethnonationalists, transnational organized criminals, and narcotics and human traffickers. It is critical for the U.S. to invest in security cooperation and rights-based security sector reform, strengthening the capacity of SCA partner countries to counter the threats from non-state actors. Al-Qaeda remains present in SCA, while Islamic State Khorasan (ISIS-K) is increasing attacks in Taliban-governed Afghanistan and may in the near future pose a threat to the U.S. homeland. Meanwhile, the growing presence of Islamic State affiliates throughout SCA presents an enduring challenge. The United States remains committed to collaborating with our SCA partners to prevent and counter threats from non-state actors and to prevent Afghanistan from being used as a launching pad for international terrorism from groups such as AQIS and LeT and to ensure violence from Afghanistan does not spillover to neighboring countries. Threats against minority communities throughout the region are often inadequately addressed by majoritarian governments, and some violent extremist organizations (VEOs) or ethnonationalist groups exploit those gaps. At the same time, the United States will center a rights-based approach to ensure that the tools and capabilities provided to SCA partners and allies are focused against legitimate threats, and not deployed against peaceful protesters, journalists, or other actors who do not present a threat. This objective supports the security priorities of the Interim National Security Strategic Guidance, Indo-Pacific Strategy, and Central Asia Strategy's security objectives."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 29,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 28 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    369,
+                    300,
+                    2246,
+                    1095
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 4.2 Risk Considerations: The security situation in SCA may undergo significant shifts following the August 2021 withdrawal of U.S. and North Atlantic Treaty Organization (NATO) forces from Afghanistan. This raises new questions about the evolution of terrorism, violent extremism, and organized crime in SCA – including questions as to what extent the Taliban takeover will increase the risk of terrorism and inspire other violent extremists, prompt a new wave of Central Asian foreign fighters to mobilize, or produce other spillover conflict effects in neighboring states. Non-state actors have the potential to act as catalysts or spoilers, leading to potentially larger-scale interstate conflict."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1174,
+                    2215,
+                    1329
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 4.3: Strengthen the capacity of South and Central Asian allies and partners' law enforcement, border security, and maritime security."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1392,
+                    2246,
+                    2280
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 4.3 Justification and Linkages: Capable and rights-respecting law enforcement and security forces are central to the national sovereignty and territorial integrity of SCA countries, as well as regional security. Building the capacity of these organizations, to provide security while respecting democracy and human rights, are cornerstones of the Administration's Interim National Security Strategic Guidance, the Indo-Pacific Strategy, and the Central Asia Strategy. U.S. efforts in SCA will build the capacity of national and local security forces, law enforcement, and the justice sector so that countries can secure their land, airports, and maritime borders and protect their populations from criminal organizations, known and suspected terrorists, illicit traffickers, and authoritarian influence."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    364,
+                    2310,
+                    2231,
+                    2732
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 4.3 Risk Considerations: To achieve this objective, we will take steps to minimize and manage risks. Risks include, but are not limited, to: local perception of U.S. initiatives; disinformation and outside influence potentially undermining cooperation on areas of mutual interest; and challenges with effective messaging before, during, and after initiatives."
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3029,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 30,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 29 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    288,
+                    306,
+                    1828,
+                    372
+                ],
+                "angle": 0,
+                "content": "Bureau Goal 5: Advance India's development as a global leader."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    458,
+                    2249,
+                    1626
+                ],
+                "angle": 0,
+                "content": "- Bureau Goal 5 Description: The Administration's Interim National Security Strategic Guidance calls for deepening our partnership with India, whose development as a global leader is key to advancing core U.S. interests in the Indo-Pacific region. The United Nations projects that India will be the world's most populous country by 2027. India is already the world's largest democracy and has the world's sixth largest economy with a substantial and growing middle-class. As the country contends with and seeks to rebound from the COVID-19 pandemic, India's economy has the potential to drive regional economic growth, reduce poverty, and increase stability. India will play a critical role in achieving a secure and prosperous Indo-Pacific region that is able to underpin a regional architecture that promotes good governance, transparency, and accountability. This includes its participation in the Quad across key development objectives. This supports the Joint Strategic Plan goal of promoting global prosperity and shaping an international environment in which the United States can thrive."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1646,
+                    2254,
+                    2722
+                ],
+                "angle": 0,
+                "content": "Moreover, fostering India's leadership on climate change is critical to limiting global temperature rise to 1.5 degrees Celsius. India's large market share and robust manufacturing capacity can make substantial contributions to diversifying supply chains to decrease reliance on authoritarian regimes by providing essential goods such as pharmaceuticals, clean energy technologies, and other critical technologies, materials, and services. Furthermore, addressing gender inequalities and supporting marginalized populations in India is an important step towards achieving inclusive development and prosperity. Currently, low and declining levels of women in the labor force; low levels of women's leadership; restrictive cultural norms; and high levels of gender-based violence are significant barriers to equality. Additionally, challenges faced by marginalized populations including LGBTI individuals and persons with disabilities limit their access to resources and affect their well-being."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 31,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 30 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    288,
+                    300,
+                    2040,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 5.1: Support India's role as a global partner to advance democratic processes, values, and institutions."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    518,
+                    2228,
+                    1590
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.1 Justification and Linkages: Continued U.S. support for India's democracy will advance the Joint Strategic Plan goal to strengthen democratic institutions, uphold universal values, and promote human dignity across the region. As the world's most populous democracy, India has an important role to play as a bulwark against the global spread of authoritarianism. India can serve as a model of democracy for developing nations by showing that it is possible to respect fundamental rights and freedoms, including the right of the people to elect their government, while also delivering economic growth, security, and stability. Championing political participation of under-represented groups, including women and marginalized populations, and the promotion of human rights will further strengthen India's leadership as a democracy. Stronger democratic institutions in India will also serve to provide greater protections for human rights, gender equality, inclusion, and religious freedom."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1617,
+                    2256,
+                    2871
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.1 Risk Considerations: The risk to democracies around the world is that citizens will lose confidence in elected governments to maintain a functioning and stable society that will provide for the needs of the people. The concerning activities of strategic competitors and the economic and humanitarian disasters brought by COVID-19 and climate change combined have put Indian democracy under pressure, although India's democracy and institutions remain robust. There are indications of democratic backsliding in India, most notably ethno-nationalism. In addition to an enduring caste system and gender-based violence. It is further possible that a slow economic recovery from COVID could lead to increased economic inequality and hamper objectives related to human rights and women's economic empowerment. Moreover, increasing regulation of digital technology and expression challenges civil society, media, and democratic institutions, while growing nationalism and religious intolerance create risks to internal stability. Instability in Afghanistan could create further challenges, such as an increase in violent extremism or a refugee crisis."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 32,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 31 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2244,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 5.2: Strengthen India's defense capacity to deter PRC aggression and partner with the United States to uphold a free and open Indo-Pacific."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    521,
+                    2256,
+                    2049
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.2 Justification and Linkages: India is a critical Indo-Pacific partner with a shared commitment to uphold the rule of law, freedom of navigation, democratic values, and free and fair trade. President Biden pledged that the United States will \"maintain a strong military presence in the Indo-Pacific.\" Strengthening Indian defense capabilities and our strategic partnership with the Indian military will advance the Interim National Security Strategic Guidance goal of promoting favorable distribution of global power to deter and prevent adversaries from directly threatening the United States and our allies, inhibiting access to the global commons, or dominating key regions such as the Indo-Pacific. The PRC has rapidly become more assertive, particularly in the Indo-Pacific. It is the only competitor capable of combining its economic, diplomatic, military, and technological power to mount a sustained challenge to a stable and open international system globally and in the Indo-Pacific. Beijing has invested heavily in efforts meant to check U.S. strengths and prevent us from defending our interests and allies around the world. As state and non-state actors pose an increasing threat to security, cybersecurity, and infrastructure, we must work with India to improve our ability to secure and defend our interconnected networks, systems, and critical infrastructure."
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 33,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 32 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    369,
+                    300,
+                    2228,
+                    1465
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.2 Risk Considerations: Insufficient political will by countries to cooperate regionally will weaken defense objectives and efforts. The United States is committed to work with India to strengthen its defense capacity to uphold a free and open Indo-Pacific and to deter aggression and instability along its borders. Moreover, there is a risk of ineffective implementation of laws, policies, regulations, or standards developed to promote open, interoperable, reliable and secure digital infrastructure in India. Furthermore, terrorist and radicalization threats increasing or shifting with the changing environment in Afghanistan would pose challenges and risk to this objective. India also lacks a National Action Plan on Women, Peace, and Security (WPS), thereby lacking a clear approach or commitment to WPS which has strong negative implications for India's overall security and defense capacity domestically and in the Indo-Pacific region. To mitigate these risks, the U.S. will focus on prioritizing strong partnerships, such as the Quad, with India to accomplish the strengthening of its defense capacity."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1541,
+                    2009,
+                    1696
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 5.3: Support India's efforts to drive regional and global economic development, intra-regional trade, and promote diverse and resilient supply chains."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1758,
+                    2249,
+                    2831
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.3 Justification and Linkages: Increasing economic growth and connectivity is an objective in the Indo-Pacific Strategy. There is a pressing need in the Indo-Pacific region for investment, particularly in infrastructure and human capital. Support for connectivity and commerce is particularly critical in India, where intra-regional economic activity is low. The United States and India, along with close partners like the Quad partners have a role to play in improving the overall standards for the financing and development of infrastructure in India. There is an opportunity to drive investment to support economic empowerment for women and marginalized groups, particularly following economic hardships faced as a result of the pandemic, which disproportionately affected these groups. We welcome India's continued growth and development out of the COVID-19 pandemic to lead the creation of new and sustainable markets for the United States, region, and globe."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 34,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    211
+                ],
+                "angle": 0,
+                "content": "Page 33 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    369,
+                    297,
+                    2256,
+                    2115
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.3 Risk Considerations: There is a risk that inconsistent and/or weak regulatory environments could weaken economic development and intra-regional trade to promote diverse and resilient supply chains. High tariffs, subsidies, localization policies, restrictions on foreign investment, and concerns over intellectual property rights are impediments to full development of the U.S.-India trade relationship. India has the highest tariffs of any major economy and has long been one of the most protected. The United States withdrew India's GSP eligibility in 2019 due to India's failure to provide equitable and reasonable access to its markets. Moreover, recovery from the pandemic has slowed economic growth and increased economic inequality among women and marginalized communities, which poses risk to any initiative to drive improvements in regional economic development. In India, pre-pandemic, female labor force participation rates had been declining for more than a decade, hovering around 27 percent, well below global norms. According to the World Bank, if even half of Indian women were in the labor force, the annual pace of economic growth would rise by 1.5 percentage points. Low levels of women's labor force participation across the country poses risk to successful, equitable, and sustainable economic development directly, and indirectly, impacts on community development and national security. Until hurdles related to women's workforce participation are addressed, supply chain diversification will be at risk. Furthermore, climate change threatens efforts to improve infrastructure, human capital, and economic development generally."
+            },
+            {
+                "block_id": 3,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3029,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 35,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 34 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    303,
+                    2106,
+                    455
+                ],
+                "angle": 0,
+                "content": "Bureau Objective 5.4: Support India's leadership on climate change including advancing mitigation, adaptation, and resilience measures."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    514,
+                    2256,
+                    2049
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.4 Justification and Linkages: As the world's third largest emitter of greenhouse gases, and the single largest driver of energy demand growth globally through 2040, as well as a climate vulnerable country, India will need to play a leading role in addressing the climate crisis. Fostering India's leadership on developing and deploying climate mitigation, adaptation, and resilience measures in India and globally supports the priorities of the Interim National Security Strategic Guidance, the Executive Order on Tackling the Climate Crisis at Home and Abroad, and the 2022-2026 Joint Strategic Plan objectives 1.2 and 2.2. India is one of the largest markets for climate technologies such as renewable energy and climate-smart infrastructure and can play a key role in demonstrating, scaling, and driving down the costs of the innovative solutions needed to address and adapt to climate change. India's leadership can demonstrate how the world can align swift climate action with inclusive and resilient economic development. The United States will work bilaterally with India and multilaterally through mechanisms such as the Quad and CRDI to catalyze India's climate leadership by supporting India to achieve its domestic climate commitments and encourage India to be a partner in advancing clean energy transitions and adaptation measures globally."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    367,
+                    2082,
+                    2233,
+                    2966
+                ],
+                "angle": 0,
+                "content": "- Bureau Objective 5.4 Risk Considerations: India and the world are already grappling with the impacts of climate change and the instability these impacts are causing. Keeping in reach the goal of limiting global temperature rise to 1.5 degrees Celsius is necessary to avoid the worst impacts of climate change. Instability in energy markets, political dynamics, slower than anticipated economic recovery, and inability to access the level of technical and financial resources needed can hinder India's ability to pursue ambitious climate action at home and abroad. Without India's continued and elevated climate leadership on reducing greenhouse gas emissions and advancing innovative clean energy and adaptation solutions, global efforts to halt the worst impacts of climate change will fall short."
+            },
+            {
+                "block_id": 5,
+                "type": "footer",
+                "bbox": [
+                    288,
+                    3032,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 6,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1489,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    },
+    {
+        "page_id": 36,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    1060,
+                    151,
+                    1496,
+                    204
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1966,
+                    151,
+                    2254,
+                    207
+                ],
+                "angle": 0,
+                "content": "Page 35 of 35"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    359,
+                    306,
+                    1705,
+                    376
+                ],
+                "angle": 0,
+                "content": "4. Bureau Cross-Cutting Management Objective"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    442,
+                    2205,
+                    726
+                ],
+                "angle": 0,
+                "content": "Bureau Cross-Cutting Management Objective 6.1: Align personnel and manage resources to implement strategic priorities and to ensure effectiveness and accountability."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    364,
+                    808,
+                    2024,
+                    874
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Objective 6.1 Justification and Linkages:"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    436,
+                    900,
+                    2246,
+                    1788
+                ],
+                "angle": 0,
+                "content": "The management objective reflects priorities outlined in the Interim National Security Strategic Guidance, the Joint Strategic Plan, and the Functional Bureau Strategies of the Department of State's Bureaus of Budget and Planning, Diplomatic Security, Human Resources, Information Resource Management, and Overseas Building Operations. The Interim NSS specifies the need to \"invest in our national security workforce, institutions, and partnerships, inspire a new generation to public service, ensure our workforce represents the diversity of our country, and modernize our decision-making processes. It also supports the State-USAID JSP's Goal 4 of revitalizing the diplomatic and development workforce and infrastructure, by aligning workforce plans, resources for diplomatic and security operations, and the need for safe and secure facilities."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1818,
+                    2236,
+                    2154
+                ],
+                "angle": 0,
+                "content": "- Bureau Cross-Cutting Management Objective 6.1 Risk Considerations: The risk considerations are insufficient resources required to support the diplomatic and development workforce and infrastructure required to align workforce plans, resources for diplomatic and security operations, and the need for safe and secure facilities."
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    290,
+                    3029,
+                    884,
+                    3085
+                ],
+                "angle": 0,
+                "content": "Approved: February 7, 2022"
+            },
+            {
+                "block_id": 8,
+                "type": "footer",
+                "bbox": [
+                    1055,
+                    3092,
+                    1491,
+                    3144
+                ],
+                "angle": 0,
+                "content": "FOR PUBLIC RELEASE"
+            }
+        ]
+    }
+]

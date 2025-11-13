@@ -1,0 +1,6285 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    624,
+                    1125,
+                    1705,
+                    1290
+                ],
+                "angle": 0,
+                "content": "FORMWORK"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    614,
+                    1339,
+                    2000,
+                    1486
+                ],
+                "angle": 0,
+                "content": "A STUDY OF ITS VARIOUS TYPES, MATERIALS AND CONSTRUCTION TECHNIQUES"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    2310,
+                    0,
+                    3200,
+                    1335
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    2332,
+                    1364,
+                    3196,
+                    1765
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    476,
+                    180,
+                    1904,
+                    275
+                ],
+                "angle": 0,
+                "content": "INTRODUCTION TO FORMWORK"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    473,
+                    358,
+                    969,
+                    414
+                ],
+                "angle": 0,
+                "content": "What is Formwork?"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    470,
+                    424,
+                    2060,
+                    680
+                ],
+                "angle": 0,
+                "content": "Formwork in construction is the use of support structures and moulds to create structures out of concrete which is poured into the moulds. Formwork can be made using moulds out of steel, wood, aluminium and/or prefabricated forms."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    470,
+                    743,
+                    2041,
+                    939
+                ],
+                "angle": 0,
+                "content": "Formwork is an ancillary construction, used as a mould for a structure. Into this mould, fresh concrete is placed only to harden subsequently."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    470,
+                    1000,
+                    1961,
+                    1188
+                ],
+                "angle": 0,
+                "content": "The construction of formwork takes time and involves expenditure up to 20 to \\(25\\%\\) of the cost of the structure or even more."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    470,
+                    1256,
+                    2073,
+                    1450
+                ],
+                "angle": 0,
+                "content": "The operation of removing the formwork is known as stripping. Stripped formwork can be reused. Reusable forms are known as panel forms and non-usable are called stationary forms."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    486,
+                    1512,
+                    2051,
+                    1576
+                ],
+                "angle": 0,
+                "content": "Formwork is designed according to The ACI document SP-4."
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    2192,
+                    0,
+                    3200,
+                    910
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    2198,
+                    968,
+                    3200,
+                    1666
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    528,
+                    93,
+                    2092,
+                    167
+                ],
+                "angle": 0,
+                "content": "A good formwork should satisfy the following requirements:"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    524,
+                    190,
+                    2080,
+                    257
+                ],
+                "angle": 0,
+                "content": "Strong enough to withstand all types of dead and live loads"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    524,
+                    284,
+                    3017,
+                    414
+                ],
+                "angle": 0,
+                "content": "Rigidly constructed and efficiently propped and braced both horizontally and vertically, so as to retain its shape"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    524,
+                    451,
+                    2444,
+                    518
+                ],
+                "angle": 0,
+                "content": "The joints in the formwork should be fight against leakage of cement grout"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    524,
+                    547,
+                    2953,
+                    675
+                ],
+                "angle": 0,
+                "content": "Construction of formwork should permit removal of various parts in desired sequences without damage to the concrete"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    528,
+                    707,
+                    2902,
+                    772
+                ],
+                "angle": 0,
+                "content": "Material of the formwork should be cheap, easily available and should be suitable for reuse"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    524,
+                    804,
+                    3001,
+                    871
+                ],
+                "angle": 0,
+                "content": "The formwork should be set accurately to the desired line and levels should have plane surface."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    528,
+                    907,
+                    1017,
+                    970
+                ],
+                "angle": 0,
+                "content": "As light as possible"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    524,
+                    1000,
+                    2819,
+                    1067
+                ],
+                "angle": 0,
+                "content": "Material of the formwork should not warp or get distorted when exposed to the elements"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    528,
+                    1099,
+                    1148,
+                    1159
+                ],
+                "angle": 0,
+                "content": "Should rest on firm base"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    537,
+                    1195,
+                    2739,
+                    1260
+                ],
+                "angle": 0,
+                "content": "The following points are to be kept in view to effect economy in the cost of formwork:"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    537,
+                    1292,
+                    3068,
+                    1422
+                ],
+                "angle": 0,
+                "content": "The plan of the building should imply minimum number of variations in the size of rooms, floor area etc. so as to permit reuse of the formwork repeatedly."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    537,
+                    1454,
+                    2627,
+                    1521
+                ],
+                "angle": 0,
+                "content": "Design should be perfect to use slender sections only in a most economical way."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    537,
+                    1551,
+                    3091,
+                    1677
+                ],
+                "angle": 0,
+                "content": "Minimum sawing and cutting of wooden pieces should be made to enable reuse of the material a number of times. The quantity of surface finish depends on the quality of the formwork."
+            },
+            {
+                "block_id": 14,
+                "type": "list",
+                "bbox": [
+                    537,
+                    1195,
+                    3091,
+                    1677
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    531,
+                    205,
+                    1846,
+                    298
+                ],
+                "angle": 0,
+                "content": "CATEGORIES OF FORMWORK"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    588,
+                    381,
+                    3046,
+                    664
+                ],
+                "angle": 0,
+                "content": "Conventional: The formwork is built on site out of timber and plywood or moisture-resistant particleboard. It is easy to produce but time-consuming for larger structures, and the plywood facing has a relatively short lifespan. It is still used extensively where the labour costs are lower than the costs for procuring reusable formwork. It is also the most flexible type of formwork, so even where other systems are in use, complicated sections may use it."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    588,
+                    698,
+                    3024,
+                    864
+                ],
+                "angle": 0,
+                "content": "Modern-Day Formworks: This formwork systems are mostly modular, which are designed for speed and efficiency. They are designed to provide increased accuracy and minimize waste in construction and most have enhanced health and safety features built-in. The main types of formwork systems in use now are:"
+            },
+            {
+                "block_id": 3,
+                "type": "list",
+                "bbox": [
+                    588,
+                    381,
+                    3046,
+                    864
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    624,
+                    896,
+                    1132,
+                    955
+                ],
+                "angle": 0,
+                "content": "Table form/flying form"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    620,
+                    986,
+                    1203,
+                    1045
+                ],
+                "angle": 0,
+                "content": "System column formwork"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    620,
+                    1076,
+                    1004,
+                    1134
+                ],
+                "angle": 0,
+                "content": "Horizontal panel"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    624,
+                    1168,
+                    832,
+                    1224
+                ],
+                "angle": 0,
+                "content": "Slip form"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    624,
+                    1256,
+                    902,
+                    1305
+                ],
+                "angle": 0,
+                "content": "Tunnel form"
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    620,
+                    986,
+                    1203,
+                    1305
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    588,
+                    1344,
+                    3110,
+                    1738
+                ],
+                "angle": 0,
+                "content": "Engineered/Pre-fabricated Formworks: This formwork is built out of prefabricated modules with a metal frame (usually steel or aluminium) and covered on the application (concrete) side with material having the wanted surface structure (steel, aluminium, timber, etc.). The two major advantages of formwork systems, compared to traditional timber formwork, are speed of construction and lower life-cycle costs (barring major force, the frame is almost indestructible, while the covering if made of wood; may have to be replaced after a few – or a few dozen – uses, but if the covering is made with steel or aluminium the form can achieve up to two thousand uses depending on care and the applications)."
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    665,
+                    187,
+                    1414,
+                    288
+                ],
+                "angle": 0,
+                "content": "MATERIALS USED"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    662,
+                    387,
+                    1657,
+                    464
+                ],
+                "angle": 0,
+                "content": "Formwork are mainly of two types"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    755,
+                    471,
+                    1152,
+                    531
+                ],
+                "angle": 0,
+                "content": "Steel formwork"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    755,
+                    541,
+                    1251,
+                    604
+                ],
+                "angle": 0,
+                "content": "Wooden formwork"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    662,
+                    675,
+                    1433,
+                    747
+                ],
+                "angle": 0,
+                "content": "Steel formwork is made of"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    755,
+                    757,
+                    1068,
+                    819
+                ],
+                "angle": 0,
+                "content": "Steel sheets"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    755,
+                    833,
+                    1036,
+                    894
+                ],
+                "angle": 0,
+                "content": "Angle Iron"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    755,
+                    905,
+                    972,
+                    963
+                ],
+                "angle": 0,
+                "content": "Tee Iron"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    662,
+                    1040,
+                    1532,
+                    1112
+                ],
+                "angle": 0,
+                "content": "Wooden formwork consists of"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    755,
+                    1125,
+                    911,
+                    1186
+                ],
+                "angle": 0,
+                "content": "Props"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    755,
+                    1197,
+                    1139,
+                    1251
+                ],
+                "angle": 0,
+                "content": "Planks battens"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    755,
+                    1269,
+                    972,
+                    1330
+                ],
+                "angle": 0,
+                "content": "Ledgers"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    755,
+                    1341,
+                    995,
+                    1402
+                ],
+                "angle": 0,
+                "content": "Sheeting"
+            },
+            {
+                "block_id": 13,
+                "type": "image",
+                "bbox": [
+                    1913,
+                    127,
+                    2499,
+                    835
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "image",
+                "bbox": [
+                    2537,
+                    129,
+                    3139,
+                    824
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Wooden formwork"
+            },
+            {
+                "block_id": 16,
+                "type": "image",
+                "bbox": [
+                    1913,
+                    988,
+                    2502,
+                    1639
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "image",
+                "bbox": [
+                    2537,
+                    984,
+                    3139,
+                    1636
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Steel Formwork"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    720,
+                    216,
+                    1241,
+                    284
+                ],
+                "angle": 0,
+                "content": "Timber formwork:"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    720,
+                    349,
+                    1737,
+                    540
+                ],
+                "angle": 0,
+                "content": "Most common material used for bracing the member, hence called as the traditional formwork."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    720,
+                    604,
+                    1737,
+                    991
+                ],
+                "angle": 0,
+                "content": "- can easily be cut to size on site. Joist are replaced with engineered wood beams and supports are replaced with metal props. This makes this method more systematic and reusable."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    720,
+                    1056,
+                    1705,
+                    1117
+                ],
+                "angle": 0,
+                "content": "Various sizes of members of timber"
+            },
+            {
+                "block_id": 4,
+                "type": "list",
+                "bbox": [
+                    720,
+                    349,
+                    1737,
+                    1117
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "table",
+                "bbox": [
+                    764,
+                    1146,
+                    1955,
+                    1796
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Sheeting for slabs, beam, column side and beam bottom</td><td>25 mm to 40mm thick</td></tr><tr><td>Joints, ledges</td><td>50 x 70 mm to 50 x 150 mm</td></tr><tr><td>Posts</td><td>75 x 100mm to 100 x 100 mm</td></tr></table>"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    624,
+                    214,
+                    886,
+                    282
+                ],
+                "angle": 0,
+                "content": "Plywood"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    620,
+                    342,
+                    1731,
+                    660
+                ],
+                "angle": 0,
+                "content": "- This is by far the most common material used for the facing panel. It is easily cut to shape on site, and if handled and stored carefully, it can be used many times."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    620,
+                    727,
+                    1715,
+                    923
+                ],
+                "angle": 0,
+                "content": "A standard plywood thickness on site is 18mm. This is usually sufficient for most pours."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    624,
+                    984,
+                    1673,
+                    1179
+                ],
+                "angle": 0,
+                "content": "However, if the formwork is curved, a thinner plywood is used to facilitate bending."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    620,
+                    1242,
+                    1744,
+                    1499
+                ],
+                "angle": 0,
+                "content": "- Thicker plywood may be used when the weight of concrete causes a standard thickness plywood to bow out, distorting the concrete face."
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    620,
+                    342,
+                    1744,
+                    1499
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1859,
+                    0,
+                    3200,
+                    1800
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    684,
+                    180,
+                    1148,
+                    246
+                ],
+                "angle": 0,
+                "content": "Steel formwork:"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    684,
+                    316,
+                    1689,
+                    577
+                ],
+                "angle": 0,
+                "content": "- Steel forms are stronger, durable and have longer life than timber formwork and their reuses are more in number"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    688,
+                    640,
+                    1651,
+                    837
+                ],
+                "angle": 0,
+                "content": "- Steel forms can be installed and dismantled with greater ease and speed."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    688,
+                    896,
+                    1683,
+                    1150
+                ],
+                "angle": 0,
+                "content": "- The quality of exposed concrete surface by using steel forms is good and such surfaces need no further treatment."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    688,
+                    1216,
+                    1587,
+                    1346
+                ],
+                "angle": 0,
+                "content": "- Steel formwork does not absorb moisture from concrete."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    688,
+                    1411,
+                    1619,
+                    1540
+                ],
+                "angle": 0,
+                "content": "- Steel formwork does not shrink or warp"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    684,
+                    316,
+                    1689,
+                    1540
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1859,
+                    0,
+                    3200,
+                    1800
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    646,
+                    522,
+                    1276,
+                    597
+                ],
+                "angle": 0,
+                "content": "Aluminium formwork"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    646,
+                    664,
+                    1702,
+                    802
+                ],
+                "angle": 0,
+                "content": "- Often used in pre-fabricated formwork, that is put together on site."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    646,
+                    858,
+                    1702,
+                    1054
+                ],
+                "angle": 0,
+                "content": "Aluminium is strong and light, and consequently fewer supports and ties are required."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    646,
+                    1116,
+                    1702,
+                    1375
+                ],
+                "angle": 0,
+                "content": "The lighter sections will deflect more, but this can be avoided by simply following the manufacturers recommendations."
+            },
+            {
+                "block_id": 4,
+                "type": "list",
+                "bbox": [
+                    646,
+                    664,
+                    1702,
+                    1375
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    700,
+                    403,
+                    1193,
+                    471
+                ],
+                "angle": 0,
+                "content": "Plastic formwork"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    700,
+                    541,
+                    1737,
+                    806
+                ],
+                "angle": 0,
+                "content": "Glass reinforced plastics (GRP) and vacuum formed plastics are used when complicated concrete shapes are required (e.g. waffle floors)."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    700,
+                    865,
+                    1696,
+                    1123
+                ],
+                "angle": 0,
+                "content": "- Although vacuum formed plastics will always need support, GRP can be fabricated with integral bearers making it self supporting."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    700,
+                    1182,
+                    1715,
+                    1445
+                ],
+                "angle": 0,
+                "content": "- Like steel, plastic formwork can be re-used many times, as long as care is taken not to scour the surface whilst vibrating the concrete."
+            },
+            {
+                "block_id": 4,
+                "type": "list",
+                "bbox": [
+                    700,
+                    541,
+                    1737,
+                    1445
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    691,
+                    743,
+                    2179,
+                    1008
+                ],
+                "angle": 0,
+                "content": "PROCESS OF FORMWORK CONSTRUCTION"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    691,
+                    1049,
+                    2294,
+                    1130
+                ],
+                "angle": 0,
+                "content": "FORMWORK FOR VARIOUS STRUCTURAL MEMBERS"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    691,
+                    1220,
+                    1366,
+                    1278
+                ],
+                "angle": 0,
+                "content": "Construction of formwork:"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    691,
+                    1305,
+                    1900,
+                    1373
+                ],
+                "angle": 0,
+                "content": "This normally involves the following operations:"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    694,
+                    1387,
+                    1625,
+                    1458
+                ],
+                "angle": 0,
+                "content": "1. Propping and centering"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    694,
+                    1474,
+                    1264,
+                    1542
+                ],
+                "angle": 0,
+                "content": "2.Shuttering"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    694,
+                    1558,
+                    1520,
+                    1621
+                ],
+                "angle": 0,
+                "content": "3. Provision of camber"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    694,
+                    1641,
+                    1839,
+                    1710
+                ],
+                "angle": 0,
+                "content": "4. Cleaning and surface treatment"
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    694,
+                    1387,
+                    1839,
+                    1710
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    512,
+                    196,
+                    1558,
+                    288
+                ],
+                "angle": 0,
+                "content": "FORMWORK FOR WALL"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    588,
+                    525,
+                    953,
+                    586
+                ],
+                "angle": 0,
+                "content": "It consists of"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    716,
+                    604,
+                    1248,
+                    669
+                ],
+                "angle": 0,
+                "content": "- Timber sheeting"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    716,
+                    678,
+                    1184,
+                    741
+                ],
+                "angle": 0,
+                "content": "Vertical posts"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    716,
+                    750,
+                    1369,
+                    806
+                ],
+                "angle": 0,
+                "content": "Horizontal members"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    716,
+                    824,
+                    1024,
+                    874
+                ],
+                "angle": 0,
+                "content": "RACKERS"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    716,
+                    894,
+                    979,
+                    946
+                ],
+                "angle": 0,
+                "content": "Stakes"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    716,
+                    964,
+                    1036,
+                    1029
+                ],
+                "angle": 0,
+                "content": "- Wedges"
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    716,
+                    604,
+                    1369,
+                    1029
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    588,
+                    1105,
+                    1852,
+                    1290
+                ],
+                "angle": 0,
+                "content": "After completing one side of formwork reinforcement is provided at the place then the second side formwork is provided."
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1964,
+                    235,
+                    3148,
+                    1634
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    441,
+                    190,
+                    2550,
+                    327
+                ],
+                "angle": 0,
+                "content": "Wall Formworks and its components"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    684,
+                    550,
+                    3014,
+                    1553
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    512,
+                    192,
+                    1737,
+                    293
+                ],
+                "angle": 0,
+                "content": "FORMWORK FOR COLUMN"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    774,
+                    320,
+                    1590,
+                    1107
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Column Fourteenth (Square Column)"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    633,
+                    1245,
+                    1395,
+                    1310
+                ],
+                "angle": 0,
+                "content": "- It consists of the following"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    752,
+                    1323,
+                    1292,
+                    1380
+                ],
+                "angle": 0,
+                "content": "Side & End Planks"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    752,
+                    1402,
+                    972,
+                    1456
+                ],
+                "angle": 0,
+                "content": "- Yoke"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    752,
+                    1477,
+                    1116,
+                    1531
+                ],
+                "angle": 0,
+                "content": "- Nut & Bolts"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    752,
+                    1323,
+                    1292,
+                    1531
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    636,
+                    1555,
+                    1523,
+                    1681
+                ],
+                "angle": 0,
+                "content": "Two end & two side planks are joined by the yokes and bolts."
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    1625,
+                    307,
+                    2384,
+                    1067
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1628,
+                    1067,
+                    2387,
+                    1720
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Plan"
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    2390,
+                    0,
+                    3200,
+                    869
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "image",
+                "bbox": [
+                    2390,
+                    869,
+                    3200,
+                    1800
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    396,
+                    88,
+                    1347,
+                    156
+                ],
+                "angle": 0,
+                "content": "Erection sequence for a column"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    390,
+                    219,
+                    2179,
+                    352
+                ],
+                "angle": 0,
+                "content": "Prior to positioning column formwork check that steel for the column has been inspected and cleared for casting."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    390,
+                    414,
+                    2022,
+                    477
+                ],
+                "angle": 0,
+                "content": "- Position formwork for the column from predetermined grids."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    390,
+                    478,
+                    2176,
+                    603
+                ],
+                "angle": 0,
+                "content": "- Plumb formwork both ways and securely support using adjustable steel props."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    393,
+                    606,
+                    1673,
+                    669
+                ],
+                "angle": 0,
+                "content": "- The propping angle should be \\( {45}^{ \\circ  } \\) to the floor."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    393,
+                    673,
+                    2169,
+                    790
+                ],
+                "angle": 0,
+                "content": "- Ensure the steel props are safely secured to the column formwork and the"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    390,
+                    414,
+                    2176,
+                    790
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    460,
+                    797,
+                    2137,
+                    864
+                ],
+                "angle": 0,
+                "content": "floor and that adjustment for pushing and pulling is operational."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    393,
+                    865,
+                    1955,
+                    928
+                ],
+                "angle": 0,
+                "content": "- Set out the positions of column clamps from a storey rod."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    393,
+                    928,
+                    2176,
+                    1047
+                ],
+                "angle": 0,
+                "content": "- Transfer the column clamp positions from the storey rod onto colun mn formwork."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    393,
+                    1056,
+                    2105,
+                    1119
+                ],
+                "angle": 0,
+                "content": "Use nails to support the arms of column clamps while wedging."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    393,
+                    1119,
+                    2070,
+                    1182
+                ],
+                "angle": 0,
+                "content": "- Position and wedge the bottom, middle and top clamps sets."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    393,
+                    1186,
+                    1574,
+                    1245
+                ],
+                "angle": 0,
+                "content": "- Check the formwork at the top for square."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    393,
+                    1249,
+                    1980,
+                    1310
+                ],
+                "angle": 0,
+                "content": "- Position and wedge the remainder of the column clamps."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    393,
+                    1312,
+                    2086,
+                    1434
+                ],
+                "angle": 0,
+                "content": "- Using a plumb bob suspended from a gauge block plumb the column."
+            },
+            {
+                "block_id": 15,
+                "type": "list",
+                "bbox": [
+                    393,
+                    865,
+                    2176,
+                    1434
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    393,
+                    1501,
+                    2208,
+                    1697
+                ],
+                "angle": 0,
+                "content": "When all the column formwork is securely propped a final check must be made for plumb and column alignment before and immediately after the concrete has been poured and vibrated."
+            },
+            {
+                "block_id": 17,
+                "type": "image",
+                "bbox": [
+                    2252,
+                    252,
+                    3180,
+                    1157
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "COLUMN CLAMPS IN POSITION"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    2236,
+                    1386,
+                    3193,
+                    1558
+                ],
+                "angle": 0,
+                "content": "Column clamps are created to give extra external support to the formwork from avoiding circularing of the column"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    428,
+                    0,
+                    1443,
+                    972
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    1507,
+                    23,
+                    2256,
+                    865
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Small column box \\( < {300}\\mathrm{\\;{mm}} \\) ."
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    2419,
+                    86,
+                    3180,
+                    754
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "ADJUSTABLE STEEL CLAMPS"
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    508,
+                    1081,
+                    1113,
+                    1533
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(·）"
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1174,
+                    1108,
+                    2249,
+                    1506
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(b)"
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    2396,
+                    946,
+                    3116,
+                    1188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    2396,
+                    1209,
+                    3145,
+                    1672
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Adjustable steel clamps"
+            },
+            {
+                "block_id": 12,
+                "type": "image_caption",
+                "bbox": [
+                    1590,
+                    1699,
+                    2108,
+                    1747
+                ],
+                "angle": 0,
+                "content": "Bolts through timber yokes"
+            },
+            {
+                "block_id": 13,
+                "type": "image_footnote",
+                "bbox": [
+                    2422,
+                    1674,
+                    3132,
+                    1728
+                ],
+                "angle": 0,
+                "content": "Arms ready to interlock around column note positions of returned ends"
+            },
+            {
+                "block_id": 14,
+                "type": "image_footnote",
+                "bbox": [
+                    2422,
+                    1737,
+                    3113,
+                    1764
+                ],
+                "angle": 0,
+                "content": "TEMPORARY SUPPORT FOR COLUMN CLAMP"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    435,
+                    180,
+                    2198,
+                    270
+                ],
+                "angle": 0,
+                "content": "CIRCULAR AND OCTAGONAL COLUMNNS"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    448,
+                    307,
+                    1222,
+                    369
+                ],
+                "angle": 0,
+                "content": "Circular column formwork"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    444,
+                    406,
+                    1849,
+                    536
+                ],
+                "angle": 0,
+                "content": "Fabricated steel, usually two piece, and often with a hinge."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    444,
+                    568,
+                    1859,
+                    694
+                ],
+                "angle": 0,
+                "content": "Fibre cement pipes which are left in place as permanent formwork."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    444,
+                    730,
+                    1868,
+                    977
+                ],
+                "angle": 0,
+                "content": "Timber sheathing tied with standard column clamps. Corners need to have infill pieces. Alternatively, metal strap can be used without the need for corner infills."
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    444,
+                    307,
+                    1868,
+                    977
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    2384,
+                    338,
+                    3084,
+                    878
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Fabricated steel with bolted joints."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    2412,
+                    966,
+                    3040,
+                    1008
+                ],
+                "angle": 0,
+                "content": "Vertical steel two piece form column"
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    1459,
+                    1027,
+                    1961,
+                    1400
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1459,
+                    1414,
+                    1958,
+                    1787
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    1971,
+                    1148,
+                    2364,
+                    1746
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    2553,
+                    1099,
+                    2953,
+                    1686
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Vertical Timber sheathing column"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    512,
+                    201,
+                    1971,
+                    293
+                ],
+                "angle": 0,
+                "content": "COLUMN BRACING FORMWORK"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    604,
+                    367,
+                    1936,
+                    435
+                ],
+                "angle": 0,
+                "content": "- Column formwork bracing performs two functions:"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    604,
+                    468,
+                    2723,
+                    592
+                ],
+                "angle": 0,
+                "content": "- It must maintain the accuracy of the column form position and plumb so that it is within tolerance."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    595,
+                    626,
+                    2723,
+                    824
+                ],
+                "angle": 0,
+                "content": "- Withstand results of forces acting on either the column formwork or the bracing. The forces may be wind or impact. These impact forces can occur from the collision of concrete buckets or cranes hoisting materials"
+            },
+            {
+                "block_id": 4,
+                "type": "list",
+                "bbox": [
+                    595,
+                    367,
+                    2723,
+                    824
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    19,
+                    954,
+                    1084,
+                    1796
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1145,
+                    1107,
+                    2092,
+                    1742
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    2291,
+                    1020,
+                    3107,
+                    1751
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    483,
+                    198,
+                    1539,
+                    293
+                ],
+                "angle": 0,
+                "content": "FORMWORK FOR BEAM"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    460,
+                    381,
+                    2118,
+                    453
+                ],
+                "angle": 0,
+                "content": "Beam soffit must be thickened timber or strengthened plywood."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    460,
+                    541,
+                    2099,
+                    671
+                ],
+                "angle": 0,
+                "content": "Beam sides 18mm plywood or 25mm boards, with studs (cleats) at 500 to 600mm centres."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    463,
+                    705,
+                    1955,
+                    777
+                ],
+                "angle": 0,
+                "content": "Deep beams (over 600mm) should have walkers and ties."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    463,
+                    802,
+                    2064,
+                    871
+                ],
+                "angle": 0,
+                "content": "Use angle fillets in the beam side to soffit joint where possible."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    460,
+                    900,
+                    2105,
+                    1026
+                ],
+                "angle": 0,
+                "content": "Allowance must be made for height adjustment of the props or falsework."
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    460,
+                    381,
+                    2118,
+                    1026
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    412,
+                    1108,
+                    1984,
+                    1171
+                ],
+                "angle": 0,
+                "content": "Erection sequence for constructing beam formwork includes"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    419,
+                    1206,
+                    1056,
+                    1272
+                ],
+                "angle": 0,
+                "content": "- Position of sole plates;"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    419,
+                    1303,
+                    1648,
+                    1368
+                ],
+                "angle": 0,
+                "content": "- Marking out and setting heights for falseworks;"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    416,
+                    1400,
+                    2150,
+                    1526
+                ],
+                "angle": 0,
+                "content": "- Assemble and position props, adjustable head jacks, falseworks, bearers and Spreaders;"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    416,
+                    1562,
+                    1673,
+                    1623
+                ],
+                "angle": 0,
+                "content": "- Construct and erect side walls and beam soffit."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    419,
+                    1661,
+                    1040,
+                    1724
+                ],
+                "angle": 0,
+                "content": "- Position of sole plates"
+            },
+            {
+                "block_id": 13,
+                "type": "list",
+                "bbox": [
+                    416,
+                    1206,
+                    2150,
+                    1724
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "image",
+                "bbox": [
+                    2204,
+                    19,
+                    3193,
+                    1792
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 19,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    476,
+                    198,
+                    1753,
+                    293
+                ],
+                "angle": 0,
+                "content": "FORMWORK FOR STAIrcase"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    473,
+                    379,
+                    1817,
+                    442
+                ],
+                "angle": 0,
+                "content": "- Points to consider when designing stair form work :"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    473,
+                    477,
+                    1859,
+                    669
+                ],
+                "angle": 0,
+                "content": "Stair formwork must support the weight of concrete. The weight of the throat of the stair and the steps will have to be supported."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    473,
+                    702,
+                    1852,
+                    892
+                ],
+                "angle": 0,
+                "content": "Because of the slope of the stair, some of the force is transmitted sideways. All formwork must be well tied together to prevent sidewalk movement."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    473,
+                    927,
+                    1929,
+                    1053
+                ],
+                "angle": 0,
+                "content": "Consider the finish of the stair treads and type of nosing. Space may have to be left for purpose made nosing."
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1145,
+                    1179,
+                    2022,
+                    1765
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    2089,
+                    39,
+                    3148,
+                    414
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    2051,
+                    455,
+                    3196,
+                    1798
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 20,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    521,
+                    205,
+                    1337,
+                    298
+                ],
+                "angle": 0,
+                "content": "SUSPENDED SLABS"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    518,
+                    610,
+                    1974,
+                    736
+                ],
+                "angle": 0,
+                "content": "Suspended floor slabs can be constructed using cast insitu, precast units or a combination of both."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    518,
+                    801,
+                    1990,
+                    997
+                ],
+                "angle": 0,
+                "content": "Whichever method is used, it is important to support the proposed method of construction using a combination of timber or steel bearers and adjustable shoring."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    518,
+                    1058,
+                    1849,
+                    1249
+                ],
+                "angle": 0,
+                "content": "The spacing and type of support system required is determined by the load imposed during the construction process."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    518,
+                    1315,
+                    1913,
+                    1506
+                ],
+                "angle": 0,
+                "content": "Manufacturers provide tables to assist in the selection and spacing of adjustable shoring systems."
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    2048,
+                    10,
+                    3120,
+                    878
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Standard slab formwork"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    2035,
+                    1130,
+                    3120,
+                    1294
+                ],
+                "angle": 0,
+                "content": "The erection sequence for constructing a suspended floor slab includes:"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    2041,
+                    1324,
+                    2960,
+                    1389
+                ],
+                "angle": 0,
+                "content": "Determining the bearer spacing;"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    2041,
+                    1422,
+                    2787,
+                    1485
+                ],
+                "angle": 0,
+                "content": "- Erecting bearers and joists;"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    2041,
+                    1522,
+                    2592,
+                    1585
+                ],
+                "angle": 0,
+                "content": "Fixing the sheeting;"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    2041,
+                    1620,
+                    2752,
+                    1679
+                ],
+                "angle": 0,
+                "content": "- Preparation for concrete."
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    2041,
+                    1324,
+                    2960,
+                    1679
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 21,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    454,
+                    187,
+                    979,
+                    282
+                ],
+                "angle": 0,
+                "content": "SOLEPLATE"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    432,
+                    577,
+                    2016,
+                    711
+                ],
+                "angle": 0,
+                "content": "The purpose of a sole plate is to transfer vertical load from one vertical support member to the foundation"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    432,
+                    739,
+                    1955,
+                    934
+                ],
+                "angle": 0,
+                "content": "The vertical support requires a base plate fitted to help distribute the load to the sole plate, which is usually a sleeper."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    432,
+                    963,
+                    1936,
+                    1153
+                ],
+                "angle": 0,
+                "content": "If the sole plate is positioned on natural ground, it is important the ground is graded and consolidated to a level surface."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    432,
+                    1189,
+                    2000,
+                    1389
+                ],
+                "angle": 0,
+                "content": "The objective is to achieve maximum bearing beneath sole plate. Once sole plates are positioned and firmly bedded they should be checked for level."
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    432,
+                    577,
+                    2016,
+                    1389
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    2035,
+                    415,
+                    3171,
+                    1323
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Form Work for concrete Beams & Slabs"
+            }
+        ]
+    },
+    {
+        "page_id": 22,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    499,
+                    813,
+                    1145,
+                    975
+                ],
+                "angle": 0,
+                "content": "CURING"
+            }
+        ]
+    },
+    {
+        "page_id": 23,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    547,
+                    259,
+                    1817,
+                    709
+                ],
+                "angle": 0,
+                "content": "Curing is the process in which the concrete is protected from loss of moisture and kept within a reasonable temperature range. The result of this process is increased strength and decreased permeability. Curing is also a key player in mitigating cracks in the concrete, which severely impacts durability"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    534,
+                    741,
+                    1814,
+                    874
+                ],
+                "angle": 0,
+                "content": "The length of adequate curing time is dependent on the following factors:"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    537,
+                    901,
+                    1052,
+                    968
+                ],
+                "angle": 0,
+                "content": "Mixture proportions"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    537,
+                    1000,
+                    1017,
+                    1065
+                ],
+                "angle": 0,
+                "content": "Specified strength"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    537,
+                    1099,
+                    1500,
+                    1164
+                ],
+                "angle": 0,
+                "content": "Size and shape of concrete member"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    540,
+                    1198,
+                    1286,
+                    1258
+                ],
+                "angle": 0,
+                "content": "Ambient weather conditions"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    537,
+                    1294,
+                    1244,
+                    1357
+                ],
+                "angle": 0,
+                "content": "Future exposure conditions"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    534,
+                    1486,
+                    1510,
+                    1555
+                ],
+                "angle": 0,
+                "content": "Deshuttering is a process after curing"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1932,
+                    0,
+                    3200,
+                    946
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 24,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    473,
+                    201,
+                    1312,
+                    309
+                ],
+                "angle": 0,
+                "content": "DESHUTTERING"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    403,
+                    435,
+                    3094,
+                    585
+                ],
+                "angle": 0,
+                "content": "DESHUTTERING in simple means, the process of removing the shuttering (Formwork for Concrete)."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    406,
+                    617,
+                    1721,
+                    687
+                ],
+                "angle": 0,
+                "content": "Order and method of removing formwork:"
+            },
+            {
+                "block_id": 3,
+                "type": "list",
+                "bbox": [
+                    403,
+                    435,
+                    3094,
+                    687
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    483,
+                    723,
+                    3078,
+                    864
+                ],
+                "angle": 0,
+                "content": "Shuttering forming vertical faces of walls, beams & column sides should be removed first. Shuttering forming sofit to slab should be removed next."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    406,
+                    896,
+                    2166,
+                    1080
+                ],
+                "angle": 0,
+                "content": "shuttering forming soffit to beams, girders or other heavily loaded members should be removed in the end."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    406,
+                    1218,
+                    1046,
+                    1285
+                ],
+                "angle": 0,
+                "content": "Factors considered :"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    473,
+                    1323,
+                    1888,
+                    1393
+                ],
+                "angle": 0,
+                "content": "Concreting is done under normal circumstances"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    473,
+                    1427,
+                    1721,
+                    1497
+                ],
+                "angle": 0,
+                "content": "Cement used is Ordinary Portland Cement"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    473,
+                    1535,
+                    1209,
+                    1605
+                ],
+                "angle": 0,
+                "content": "Adequate curing is done"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    473,
+                    1638,
+                    1897,
+                    1708
+                ],
+                "angle": 0,
+                "content": "Ambient temperature is not fall below 15 degree"
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    2163,
+                    874,
+                    3200,
+                    1800
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 25,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    480,
+                    225,
+                    1529,
+                    324
+                ],
+                "angle": 0,
+                "content": "DESHUTTERING AGENTS"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    633,
+                    561,
+                    2352,
+                    633
+                ],
+                "angle": 0,
+                "content": "There are chances of concrete sticking to the formwork"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    633,
+                    669,
+                    2377,
+                    741
+                ],
+                "angle": 0,
+                "content": "Hence deshuttering agents are used to ease the process"
+            },
+            {
+                "block_id": 3,
+                "type": "list",
+                "bbox": [
+                    633,
+                    561,
+                    2377,
+                    741
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    636,
+                    876,
+                    1366,
+                    954
+                ],
+                "angle": 0,
+                "content": "Dosage / Coverage:"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    633,
+                    1083,
+                    2883,
+                    1231
+                ],
+                "angle": 0,
+                "content": "Dilution ratio: KEM MRA 2: water at 1:10. Coverage: 1600 sq. ft. depending on conditions of formwork"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    633,
+                    1369,
+                    2848,
+                    1512
+                ],
+                "angle": 0,
+                "content": "KEM MRA 1 - 25 / 30 mi²½ / liter depending upon the porosity and usage condition of the substrate"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    633,
+                    876,
+                    2883,
+                    1512
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 26,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    441,
+                    216,
+                    1612,
+                    307
+                ],
+                "angle": 0,
+                "content": "TRADITIONAL FORMWORK"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    451,
+                    547,
+                    1891,
+                    759
+                ],
+                "angle": 0,
+                "content": "Timber form work was used traditionally later it got replaced with modern materials due to its limitations and cost factors"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    448,
+                    797,
+                    1891,
+                    943
+                ],
+                "angle": 0,
+                "content": "Formwork is built on site with timber and ply or moisture resistant particle board."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    448,
+                    975,
+                    1785,
+                    1110
+                ],
+                "angle": 0,
+                "content": "It is easier to produce but the time taken is more"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    448,
+                    1155,
+                    1904,
+                    1224
+                ],
+                "angle": 0,
+                "content": "Extensively used where the labor costs are low"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    448,
+                    1258,
+                    1635,
+                    1326
+                ],
+                "angle": 0,
+                "content": "It is the most flexible type of formwork"
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    448,
+                    547,
+                    1904,
+                    1326
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1977,
+                    313,
+                    3196,
+                    1191
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1984,
+                    1218,
+                    2812,
+                    1506
+                ],
+                "angle": 0,
+                "content": "Usually timber in the form of plywood, planking, batten and joist are used as the basic material."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1984,
+                    1544,
+                    2889,
+                    1753
+                ],
+                "angle": 0,
+                "content": "Human workers need to enter into every corner to perform the formwork installation works"
+            }
+        ]
+    },
+    {
+        "page_id": 27,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    486,
+                    835,
+                    2416,
+                    937
+                ],
+                "angle": 0,
+                "content": "EXPLORING NEW FORMWORK TECHNIQUES"
+            }
+        ]
+    },
+    {
+        "page_id": 28,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    521,
+                    120,
+                    1312,
+                    189
+                ],
+                "angle": 0,
+                "content": "SLIPFORM TECHNOLOGY"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    524,
+                    198,
+                    1001,
+                    264
+                ],
+                "angle": 0,
+                "content": "INTRODUCTION:"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    518,
+                    333,
+                    1929,
+                    527
+                ],
+                "angle": 0,
+                "content": "Method of vertically extruding a reinforced concrete section and is suitable for construction of core walls in high-rise structures - lift shafts, stair shafts, towers."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    518,
+                    590,
+                    1961,
+                    847
+                ],
+                "angle": 0,
+                "content": "The formwork rises continuously, at a rate of about 300 mm per hour, supporting itself on the core and not relying on support or access from other parts of the building or permanent works."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    518,
+                    909,
+                    1977,
+                    1103
+                ],
+                "angle": 0,
+                "content": "- Allows for the continuous pouring of concrete into walls of a structure and only stops when the full required height of the structure has been reached."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    518,
+                    1164,
+                    1955,
+                    1546
+                ],
+                "angle": 0,
+                "content": "The height of the formwork is designed in such a way that while the top of the formwork is being filled by concrete the lowest layer of concrete poured earlier has already gained an initial set. When the formwork is moved upwards the concrete that is then exposed remains firm."
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    518,
+                    333,
+                    1977,
+                    1546
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    2118,
+                    0,
+                    3200,
+                    1607
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "CHEUNG KONG"
+            },
+            {
+                "block_id": 9,
+                "type": "image_caption",
+                "bbox": [
+                    2460,
+                    1697,
+                    2694,
+                    1756
+                ],
+                "angle": 0,
+                "content": "CENTRE"
+            }
+        ]
+    },
+    {
+        "page_id": 29,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    467,
+                    10,
+                    835,
+                    72
+                ],
+                "angle": 0,
+                "content": "PROCEDURE:"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    460,
+                    142,
+                    2131,
+                    270
+                ],
+                "angle": 0,
+                "content": "Assembly can only start once the foundations are in place and the wall starter is in correct alignment."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    463,
+                    333,
+                    1830,
+                    401
+                ],
+                "angle": 0,
+                "content": "- Slipform shuttering is aligned with the help of yokes."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    463,
+                    462,
+                    1641,
+                    527
+                ],
+                "angle": 0,
+                "content": "Horizontal crossbeams connect these yokes."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    460,
+                    590,
+                    1891,
+                    718
+                ],
+                "angle": 0,
+                "content": "- Hydraulic jacks are attached to these crossbeams for simultaneous upward movement."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    463,
+                    779,
+                    1817,
+                    846
+                ],
+                "angle": 0,
+                "content": "- Height of the slipform ranges from 1.1 to 1.5 metres."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    463,
+                    909,
+                    1939,
+                    1035
+                ],
+                "angle": 0,
+                "content": "- Yokes and crossbeams also used to support the working platform"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    463,
+                    1103,
+                    2035,
+                    1166
+                ],
+                "angle": 0,
+                "content": "-Structure should be rigid and shape maintained at all times."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    460,
+                    1231,
+                    2073,
+                    1357
+                ],
+                "angle": 0,
+                "content": "- Make sure there is no lag or else it prevents the structure from free upward movement"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    460,
+                    1422,
+                    1638,
+                    1481
+                ],
+                "angle": 0,
+                "content": "It is also possible to reduce wall thicknesses"
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    460,
+                    142,
+                    2131,
+                    1481
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    460,
+                    1490,
+                    1798,
+                    1681
+                ],
+                "angle": 0,
+                "content": "as the construction gains height and arrangements have to be made in the slipform structure that will enable such reduction at regular intervals."
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    2073,
+                    439,
+                    2902,
+                    1332
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    2982,
+                    541,
+                    3123,
+                    581
+                ],
+                "angle": 0,
+                "content": "Top Deck"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    2956,
+                    653,
+                    3152,
+                    693
+                ],
+                "angle": 0,
+                "content": "Lattice Girder"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    2972,
+                    766,
+                    3116,
+                    810
+                ],
+                "angle": 0,
+                "content": "Yoke Leg"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    2947,
+                    880,
+                    3155,
+                    919
+                ],
+                "angle": 0,
+                "content": "Working Deck"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    3008,
+                    990,
+                    3091,
+                    1026
+                ],
+                "angle": 0,
+                "content": "Panel"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    2947,
+                    1099,
+                    3152,
+                    1143
+                ],
+                "angle": 0,
+                "content": "Hanging Deck"
+            }
+        ]
+    },
+    {
+        "page_id": 30,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    684,
+                    205,
+                    2198,
+                    1414
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    2297,
+                    320,
+                    2793,
+                    394
+                ],
+                "angle": 0,
+                "content": "Concrete Supplier"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    2412,
+                    442,
+                    2675,
+                    514
+                ],
+                "angle": 0,
+                "content": "Top Deck"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    2371,
+                    559,
+                    2713,
+                    624
+                ],
+                "angle": 0,
+                "content": "Lattice Truss"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    2473,
+                    680,
+                    2611,
+                    743
+                ],
+                "angle": 0,
+                "content": "Yoke"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    2425,
+                    797,
+                    2662,
+                    860
+                ],
+                "angle": 0,
+                "content": "Lift Jack"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    2345,
+                    918,
+                    2739,
+                    991
+                ],
+                "angle": 0,
+                "content": "Working Deck"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    2339,
+                    1036,
+                    2745,
+                    1101
+                ],
+                "angle": 0,
+                "content": "Concrete Form"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    2348,
+                    1155,
+                    2739,
+                    1231
+                ],
+                "angle": 0,
+                "content": "Hanging Deck"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1228,
+                    1440,
+                    2406,
+                    1506
+                ],
+                "angle": 0,
+                "content": "ERECTION OF A TOWER USING SLIPFORM"
+            }
+        ]
+    },
+    {
+        "page_id": 31,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    643,
+                    370,
+                    1430,
+                    437
+                ],
+                "angle": 0,
+                "content": "HORIZONTAL FORMWORK :"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    640,
+                    514,
+                    1555,
+                    775
+                ],
+                "angle": 0,
+                "content": "- Slipform methods of construction can also be adapted to horizontal structures and are used for paving, canals, and tunneling."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    640,
+                    837,
+                    1612,
+                    1096
+                ],
+                "angle": 0,
+                "content": "- The technique is more in use for structures that have continuous walls like silos, chimneys, and piers for very tall bridges."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    640,
+                    1155,
+                    1632,
+                    1665
+                ],
+                "angle": 0,
+                "content": "- It has also been successfully used for construction of buildings, although this requires the manner of leaving inserts for openings like doors and windows to be decided well in advance, as well as also any necessary inserts to support floor slabs after the walls are constructed."
+            },
+            {
+                "block_id": 4,
+                "type": "list",
+                "bbox": [
+                    640,
+                    514,
+                    1632,
+                    1665
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1673,
+                    606,
+                    3193,
+                    1519
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 32,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    560,
+                    108,
+                    1001,
+                    171
+                ],
+                "angle": 0,
+                "content": "ADVANTAGES:"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    556,
+                    253,
+                    2156,
+                    498
+                ],
+                "angle": 0,
+                "content": "- A major cost of concrete structure construction is the required formwork to retain the concrete till it can be safely de-shuttered and be able to support itself and other imposed loads."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    560,
+                    511,
+                    2057,
+                    630
+                ],
+                "angle": 0,
+                "content": "The formwork needs to be continually removed to newer locations and then re-erected."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    560,
+                    639,
+                    2019,
+                    756
+                ],
+                "angle": 0,
+                "content": "- Continuous use of manpower and lifting equipment like cranes."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    556,
+                    765,
+                    2150,
+                    954
+                ],
+                "angle": 0,
+                "content": "- In the case of slipform building, the formwork is erected only once and remains intact until the entire structure is completed."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    556,
+                    1083,
+                    1680,
+                    1207
+                ],
+                "angle": 0,
+                "content": "- Great reduction in the cost of formwork as well as time saving for re-erection."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    560,
+                    1215,
+                    956,
+                    1270
+                ],
+                "angle": 0,
+                "content": "- Cost effective"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    560,
+                    1276,
+                    1702,
+                    1405
+                ],
+                "angle": 0,
+                "content": "- Saving onto the labour cost otherwise used for intermittent concreting operations."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    556,
+                    1405,
+                    1823,
+                    1596
+                ],
+                "angle": 0,
+                "content": "The reduction in the movement of formwork and workers also leads to far more safe working conditions that also make it a major advantage."
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    556,
+                    253,
+                    2156,
+                    1596
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    2224,
+                    448,
+                    3196,
+                    1467
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 33,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    720,
+                    259,
+                    1145,
+                    338
+                ],
+                "angle": 0,
+                "content": "PRECAUTIONS"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    720,
+                    406,
+                    2624,
+                    567
+                ],
+                "angle": 0,
+                "content": "Concrete is continuously protected against loss of moisture and rapid temperature changes for 7 days"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    720,
+                    621,
+                    2617,
+                    709
+                ],
+                "angle": 0,
+                "content": "- Unhardened concrete is protected from rain and flowing water"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    720,
+                    770,
+                    1516,
+                    849
+                ],
+                "angle": 0,
+                "content": "- Prevent plastic shrinkage"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    720,
+                    912,
+                    2233,
+                    995
+                ],
+                "angle": 0,
+                "content": "- Plastic cracks are filled by injection of epoxy resin."
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    720,
+                    406,
+                    2624,
+                    995
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    233,
+                    1035,
+                    1638,
+                    1800
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1673,
+                    1049,
+                    2044,
+                    1800
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    2054,
+                    1049,
+                    3200,
+                    1800
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 34,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    678,
+                    255,
+                    1401,
+                    468
+                ],
+                "angle": 0,
+                "content": "RELATION BETWEEN CONCRETE SETTING TIME AND SLIPFORM RATE:"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    678,
+                    543,
+                    1504,
+                    691
+                ],
+                "angle": 0,
+                "content": "It is calculated by using the following equation:"
+            },
+            {
+                "block_id": 2,
+                "type": "equation",
+                "bbox": [
+                    678,
+                    763,
+                    1280,
+                    835
+                ],
+                "angle": 0,
+                "content": "\\[\nV s = (h 1 - h 1) / (t s - t t)\n\\]"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    684,
+                    837,
+                    854,
+                    885
+                ],
+                "angle": 0,
+                "content": "Where"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    684,
+                    896,
+                    1478,
+                    1537
+                ],
+                "angle": 0,
+                "content": "Vs - slipform rate (mm / h)  \nH1 = the distance from the top of the slipform panel to the average curing front (mm)  \nH2 = The distance from the top of the slipform panel to average freeboard (mm)  \nTs = setting time (h)  \nTt = Time from mixing concrete to placing"
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1702,
+                    394,
+                    3171,
+                    1474
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 35,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    540,
+                    72,
+                    1443,
+                    144
+                ],
+                "angle": 0,
+                "content": "TUNNEL FORMWORK SYSTEM"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    537,
+                    221,
+                    2569,
+                    365
+                ],
+                "angle": 0,
+                "content": "- Tunnel formwork system allows the contractor to cast walls and slabs in one operation in a daily cycle."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    540,
+                    367,
+                    2464,
+                    509
+                ],
+                "angle": 0,
+                "content": "It combines the speed, quality and accuracy of factory/off-site production with the flexibility and economy of in-situ construction"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    544,
+                    514,
+                    2246,
+                    585
+                ],
+                "angle": 0,
+                "content": "- Recognized as a modern method of construction (MMC)."
+            },
+            {
+                "block_id": 4,
+                "type": "list",
+                "bbox": [
+                    537,
+                    221,
+                    2569,
+                    585
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    470,
+                    669,
+                    2755,
+                    1744
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 36,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    534,
+                    91,
+                    2633,
+                    378
+                ],
+                "angle": 0,
+                "content": "The result is a cellular reinforced structure, the surfaces of which are sufficiently high quality to require only minimal finishing for direct decoration, while the end walls and facades are easily completed with thermally insulated units that can be clad as required."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    534,
+                    450,
+                    2601,
+                    594
+                ],
+                "angle": 0,
+                "content": "The system creates an efficient load-bearing structure for use in a wide variety of applications."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    534,
+                    666,
+                    2649,
+                    874
+                ],
+                "angle": 0,
+                "content": "It is particularly effective in projects suited to repetitive cellular construction such as residential blocks, hotels, student accommodation, barracks and prisons."
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    528,
+                    878,
+                    2611,
+                    1697
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 37,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    505,
+                    165,
+                    985,
+                    237
+                ],
+                "angle": 0,
+                "content": "ADVANTAGES:"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    505,
+                    316,
+                    652,
+                    378
+                ],
+                "angle": 0,
+                "content": "Cost"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    502,
+                    388,
+                    1683,
+                    680
+                ],
+                "angle": 0,
+                "content": "cost-effective, high quality construction, generating significant savings in time and costs over alternative methods without compromising on design"
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    1747,
+                    0,
+                    3200,
+                    734
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    505,
+                    752,
+                    752,
+                    817
+                ],
+                "angle": 0,
+                "content": "Building"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    502,
+                    822,
+                    2550,
+                    1038
+                ],
+                "angle": 0,
+                "content": "The repetitive nature of the system and the use of prefabricated forms and reinforcing mats/cages simplifies the whole construction process, producing a smooth and fast operation"
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    505,
+                    1110,
+                    729,
+                    1180
+                ],
+                "angle": 0,
+                "content": "Quality"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    499,
+                    1182,
+                    2563,
+                    1616
+                ],
+                "angle": 0,
+                "content": "Quality is enhanced despite the speed of construction. The precise, even steel face of the formwork creates a smooth, high quality finish capable of receiving direct decoration with the minimum of preparation (a skim coat may be required). This reduces the requirement for following trades, thus providing additional cost savings and speeding the entire process."
+            }
+        ]
+    },
+    {
+        "page_id": 38,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    550,
+                    205,
+                    755,
+                    273
+                ],
+                "angle": 0,
+                "content": "Design"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    547,
+                    277,
+                    2400,
+                    493
+                ],
+                "angle": 0,
+                "content": "The large bays constructed provide exceptional flexibility in the design and layout of the building and allow a high degree of freedom in the final appearance."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    550,
+                    565,
+                    736,
+                    633
+                ],
+                "angle": 0,
+                "content": "Safety"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    547,
+                    637,
+                    2422,
+                    923
+                ],
+                "angle": 0,
+                "content": "Integral working platforms and edge protection systems. The repetitive, predictable nature of the tasks involved encourages familiarity with operations. The minimal requirement for tools and equipment further reduces the risk of accidents on site."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    550,
+                    995,
+                    934,
+                    1065
+                ],
+                "angle": 0,
+                "content": "Sustainability"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    547,
+                    1069,
+                    2505,
+                    1209
+                ],
+                "angle": 0,
+                "content": "The in-situ casting of units on site and the local availability of ready-mixed concrete supplies reduce transportation impacts."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    547,
+                    1211,
+                    2435,
+                    1351
+                ],
+                "angle": 0,
+                "content": "Just-in-time deliveries and near zero wastage produce an overall tidier site with associated cost savings and safety benefits."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    547,
+                    1355,
+                    2505,
+                    1571
+                ],
+                "angle": 0,
+                "content": "Concrete's thermal mass coupled with correct insulation and boiler design minimises heating costs and can even reduce air-conditioning requirements."
+            }
+        ]
+    },
+    {
+        "page_id": 39,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    595,
+                    147,
+                    1113,
+                    217
+                ],
+                "angle": 0,
+                "content": "GENERAL FACTS :"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    588,
+                    289,
+                    2611,
+                    577
+                ],
+                "angle": 0,
+                "content": "Tunnel formwork come in half units and in the form of an inverted \"L\" which are bolted together at the top to form each tunnel. The inbuilt wheels and the jacks help the formwork move in and out of the position and adjusted to the final height."
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    588,
+                    590,
+                    2486,
+                    1184
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    588,
+                    1215,
+                    2624,
+                    1648
+                ],
+                "angle": 0,
+                "content": "The factory-made steel formwork can be re-used up to 600 times and it can suit a variety of module sizes. This makes the method of construction very versatile and extremely economical. Tunnel-form work allows a 24-hour construction cycle to be achieved and thus the buildability of in-situ concrete is improved by choosing this type of formwork."
+            }
+        ]
+    },
+    {
+        "page_id": 40,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    595,
+                    108,
+                    1776,
+                    176
+                ],
+                "angle": 0,
+                "content": "The Casting Process of Tunnel Formwork:"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    595,
+                    180,
+                    2451,
+                    394
+                ],
+                "angle": 0,
+                "content": "1) Stage One: Prefabricated Wall reinforcement is placed by crane along the entire wing prior to casting the kickers (used to position wall formwork)."
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    697,
+                    397,
+                    2528,
+                    919
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    608,
+                    1024,
+                    2489,
+                    1173
+                ],
+                "angle": 0,
+                "content": "2) Stage Two: Two and a half tunnel is craned into place, bolted together and ties are added."
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    646,
+                    1200,
+                    2550,
+                    1744
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 41,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    572,
+                    95,
+                    1839,
+                    160
+                ],
+                "angle": 0,
+                "content": "3) Stage Three: The wall concrete is poured."
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    624,
+                    253,
+                    2486,
+                    784
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    588,
+                    896,
+                    1964,
+                    964
+                ],
+                "angle": 0,
+                "content": "4) Stage Four: The slab reinforcements are fixed"
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    560,
+                    1083,
+                    2588,
+                    1656
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 42,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    556,
+                    162,
+                    2611,
+                    453
+                ],
+                "angle": 0,
+                "content": "5) Stage 5: The slab concrete is placed. The formwork system provides for a pour to be wrapped in tarpaulins and for the use of butane heaters to maintain a sufficiently high temperature for the concrete to reach its striking strength overnight."
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    604,
+                    453,
+                    2515,
+                    986
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    598,
+                    1044,
+                    2105,
+                    1121
+                ],
+                "angle": 0,
+                "content": "6) Stage 6: The tunnel-forms are removed next day."
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    550,
+                    1191,
+                    2464,
+                    1728
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 43,
+        "ocr_results": [
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    630,
+                    385,
+                    2528,
+                    927
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "7) Stage 7: The process is repeated for the next two bays."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    627,
+                    1029,
+                    2380,
+                    1238
+                ],
+                "angle": 0,
+                "content": "Tunnel form can produce strong and durable in-situ cellular structures. This method of construction can achieve time savings up to \\(25\\%\\) with cost savings of \\(15\\%\\)."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    627,
+                    1245,
+                    2467,
+                    1458
+                ],
+                "angle": 0,
+                "content": "Since the concrete finish is very good, the requirement for post construction trades such as plasterers and electricians are greatly reduced."
+            }
+        ]
+    },
+    {
+        "page_id": 44,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    537,
+                    28,
+                    2659,
+                    1602
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "COMPONENTS OF TUNNEL FORMWORK"
+            }
+        ]
+    },
+    {
+        "page_id": 45,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    582,
+                    129,
+                    1539,
+                    203
+                ],
+                "angle": 0,
+                "content": "COLUMN SYSTEM FORMWORK"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    486,
+                    313,
+                    1878,
+                    1461
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1907,
+                    316,
+                    2723,
+                    1677
+                ],
+                "angle": 0,
+                "content": "The column formwork systems now available are normally modular in nature and allow quick assembly and erection on-site while minimizing labor and crane time. They are available in steel, aluminium and even cardboard (not reusable but recycled) and have a variety of internal face surfaces depending on the concrete finish required. Innovations have led to adjustable, reusable column forms which can be clamped on-site to give different column sizes."
+            }
+        ]
+    },
+    {
+        "page_id": 46,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    582,
+                    109,
+                    819,
+                    171
+                ],
+                "angle": 0,
+                "content": "Benefits"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    588,
+                    181,
+                    1990,
+                    248
+                ],
+                "angle": 0,
+                "content": "- Increased speed and efficiency in construction"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    588,
+                    255,
+                    2051,
+                    390
+                ],
+                "angle": 0,
+                "content": "The requirement of skilled labor is reduced due to the"
+            },
+            {
+                "block_id": 3,
+                "type": "list",
+                "bbox": [
+                    588,
+                    181,
+                    2051,
+                    390
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    588,
+                    397,
+                    1753,
+                    469
+                ],
+                "angle": 0,
+                "content": "simplicity of assembly and disassembly."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    588,
+                    471,
+                    2134,
+                    608
+                ],
+                "angle": 0,
+                "content": "Metal column forms can be assembled and erected more easily than traditional formwork."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    588,
+                    613,
+                    2032,
+                    680
+                ],
+                "angle": 0,
+                "content": "- Disposable forms come ready assembled to site."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    588,
+                    687,
+                    1792,
+                    754
+                ],
+                "angle": 0,
+                "content": "High quality surface finishes are possible."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    588,
+                    757,
+                    2134,
+                    824
+                ],
+                "angle": 0,
+                "content": "The highly engineered nature of the metal formwork"
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    588,
+                    613,
+                    2134,
+                    824
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    588,
+                    833,
+                    723,
+                    896
+                ],
+                "angle": 0,
+                "content": "syste"
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    748,
+                    874,
+                    1622,
+                    1762
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1641,
+                    831,
+                    2147,
+                    891
+                ],
+                "angle": 0,
+                "content": "to the formwork."
+            },
+            {
+                "block_id": 13,
+                "type": "image",
+                "bbox": [
+                    1868,
+                    552,
+                    2796,
+                    1737
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 47,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    598,
+                    142,
+                    793,
+                    212
+                ],
+                "angle": 0,
+                "content": "Safety"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    595,
+                    216,
+                    1692,
+                    633
+                ],
+                "angle": 0,
+                "content": "- Metal formwork systems can have integral ready-to-use concreting platforms with guard rails and access equipment including ladders. This reduces the need for independent access."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    595,
+                    644,
+                    1737,
+                    928
+                ],
+                "angle": 0,
+                "content": "- For systems with disposable formwork, working platforms for concreting have to be erected separately to allow safe access to the top of the column forms."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    595,
+                    934,
+                    1744,
+                    1290
+                ],
+                "angle": 0,
+                "content": "- Formwork systems are available which need to be worked only from one side. This could be an important safety consideration for columns situated at building edges and corners."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    598,
+                    1294,
+                    1744,
+                    1427
+                ],
+                "angle": 0,
+                "content": "Metal systems typically provide robust assemblies."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    595,
+                    1436,
+                    1769,
+                    1648
+                ],
+                "angle": 0,
+                "content": "Assembly process is simple allowing site operatives to become familiar with health and safety aspects."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    598,
+                    1654,
+                    1628,
+                    1792
+                ],
+                "angle": 0,
+                "content": "- Normally these formwork systems require minimal use of power tools."
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    595,
+                    644,
+                    1769,
+                    1792
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1852,
+                    99,
+                    2803,
+                    1769
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 48,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    656,
+                    129,
+                    1270,
+                    192
+                ],
+                "angle": 0,
+                "content": "Other considerations"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    652,
+                    201,
+                    2492,
+                    559
+                ],
+                "angle": 0,
+                "content": "Column forms are designed for specific maximum concrete pressures. The concrete placement rates have to be adjusted to keep the concrete pressure within the specified limits. The assembled formwork has to be restrained at the base properly to avoid displacement, and grout loss during"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    633,
+                    631,
+                    2064,
+                    1598
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "SCAFFOLD FOR COLUMN"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    2118,
+                    577,
+                    2627,
+                    1710
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 49,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    480,
+                    855,
+                    1776,
+                    950
+                ],
+                "angle": 0,
+                "content": "PREFABRICATED FORMWORK"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    1862,
+                    307,
+                    3200,
+                    1800
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 50,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    435,
+                    237,
+                    1833,
+                    302
+                ],
+                "angle": 0,
+                "content": "ADVANTAGES OF PRE- FABRICATED FORMWORK"
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    0,
+                    550,
+                    1251,
+                    964
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    0,
+                    977,
+                    1241,
+                    1800
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1443,
+                    633,
+                    2521,
+                    693
+                ],
+                "angle": 0,
+                "content": "- Very little on-site skilled labor needed."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1443,
+                    702,
+                    3180,
+                    822
+                ],
+                "angle": 0,
+                "content": "- The ability to reuse forms either as a large section or as individual units."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1443,
+                    829,
+                    3177,
+                    950
+                ],
+                "angle": 0,
+                "content": "- All prefabricated systems are designed for light as well as heavy construction."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1443,
+                    957,
+                    3180,
+                    1081
+                ],
+                "angle": 0,
+                "content": "- Contractors can bid almost any type of work; straight, battered, curved or cut-up."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1443,
+                    1087,
+                    3180,
+                    1207
+                ],
+                "angle": 0,
+                "content": "- Prefab forms may be set in any combination, horizontally and vertically, to any wall height."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1443,
+                    1215,
+                    3180,
+                    1461
+                ],
+                "angle": 0,
+                "content": "- On high walls, one side of forms can be erected and ties placed; then the close-out side can be erected during placement, minimizing concrete drop and assuring effective vibration."
+            },
+            {
+                "block_id": 9,
+                "type": "list",
+                "bbox": [
+                    1443,
+                    633,
+                    3180,
+                    1461
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 51,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    0,
+                    0,
+                    1251,
+                    1042
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "G ANG F O R M I N G"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    16,
+                    1056,
+                    1241,
+                    1783
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    1884,
+                    79,
+                    3132,
+                    334
+                ],
+                "angle": 0,
+                "content": "In a prefab system the contractor can remove and replace forms at any point. This simplifies erection and stripping, which can be started at any location."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1884,
+                    367,
+                    3132,
+                    626
+                ],
+                "angle": 0,
+                "content": "To allow for a casting pocket, a panel is simply removed and replaced maintenance of forms can be a tiresome task, but well-maintained forms mean more reuses."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1884,
+                    658,
+                    3132,
+                    912
+                ],
+                "angle": 0,
+                "content": "A big advance in prefab forming has been the development of gang forming, which is simply defined as the grouping together and moving of a number of forms as a single unit."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1884,
+                    946,
+                    3132,
+                    1204
+                ],
+                "angle": 0,
+                "content": "The success of gang forming is due to the development of easy-to-use hard w a re and ties, made especially for this forming technique."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    1884,
+                    1236,
+                    3132,
+                    1684
+                ],
+                "angle": 0,
+                "content": "Since pre forms are pre - engineered and precision made, they offer the best materials available and work equally well on all jobs, resulting in lower cost per use. Although prefabricated forms work well on any size job, the small job is a good way to introduce the system to the workmen."
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    1884,
+                    367,
+                    3132,
+                    1684
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 52,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    463,
+                    228,
+                    905,
+                    307
+                ],
+                "angle": 0,
+                "content": "DRAWBACKS"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    364,
+                    358,
+                    870,
+                    419
+                ],
+                "angle": 0,
+                "content": "High cost factor"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    364,
+                    426,
+                    1641,
+                    613
+                ],
+                "angle": 0,
+                "content": "- Greater transportation cost, due to the large pieces, where as the regular formwork can be transported easily."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    364,
+                    617,
+                    1680,
+                    736
+                ],
+                "angle": 0,
+                "content": "- Too many pieces involved in the pre fabricated formwork"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    364,
+                    743,
+                    1753,
+                    869
+                ],
+                "angle": 0,
+                "content": "- Pre fabricated formwork, leave poor finishes at the joints of the forming members."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    364,
+                    873,
+                    1609,
+                    934
+                ],
+                "angle": 0,
+                "content": "- Prefab formwork deflect during placement."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    364,
+                    937,
+                    1712,
+                    1058
+                ],
+                "angle": 0,
+                "content": "The first cause of deflection is the rate of placing, which is usually too fast."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1067,
+                    1702,
+                    1314
+                ],
+                "angle": 0,
+                "content": "If recommended placing rates are followed and there is good supervision of placement and vibrating, the problem of deflection can be controlled."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1321,
+                    1667,
+                    1508
+                ],
+                "angle": 0,
+                "content": "- With many prefab systems, panels can be removed at different locations and used as casting pockets."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1513,
+                    1673,
+                    1702
+                ],
+                "angle": 0,
+                "content": "- This procedure avoids dropping the concrete a great distance and helps to maintain a more constant rate of placement."
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    364,
+                    358,
+                    1753,
+                    1702
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "image",
+                "bbox": [
+                    2044,
+                    448,
+                    3171,
+                    1474
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 53,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    441,
+                    66,
+                    969,
+                    192
+                ],
+                "angle": 0,
+                "content": "- POINTS OF DIFFERENTIATION"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    1075,
+                    66,
+                    1504,
+                    190
+                ],
+                "angle": 0,
+                "content": "CONVENTIONAL METHOD"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    1747,
+                    66,
+                    2118,
+                    190
+                ],
+                "angle": 0,
+                "content": "MODERN DAY METHOD"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    2323,
+                    66,
+                    2966,
+                    127
+                ],
+                "angle": 0,
+                "content": "PREFABRICATED METHOD"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    441,
+                    320,
+                    934,
+                    385
+                ],
+                "angle": 0,
+                "content": "MATERIAL USED"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1075,
+                    320,
+                    1612,
+                    518
+                ],
+                "angle": 0,
+                "content": "TIMBER ( Plywood Or moisture-resistant Particleboard)."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1747,
+                    320,
+                    2073,
+                    451
+                ],
+                "angle": 0,
+                "content": "STEEL AND ALUMINIUM."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    2323,
+                    320,
+                    2988,
+                    511
+                ],
+                "angle": 0,
+                "content": "Frame of ALUMINIUM covered with ALUMINIUM OR TIMBER"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    441,
+                    615,
+                    927,
+                    741
+                ],
+                "angle": 0,
+                "content": "TIME CONSUMPTION"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1072,
+                    640,
+                    1440,
+                    901
+                ],
+                "angle": 0,
+                "content": "VERY TIME CONSUMING. (For large structures.)"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1747,
+                    640,
+                    2195,
+                    901
+                ],
+                "angle": 0,
+                "content": "DESIGNED FOR\nSPEED AND\nEFFICIENCY.\n(mostly modular)"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    2323,
+                    640,
+                    2998,
+                    896
+                ],
+                "angle": 0,
+                "content": "Work happens simultaneously with construction hence saves time"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    528,
+                    972,
+                    784,
+                    1033
+                ],
+                "angle": 0,
+                "content": "LIFE SPAN"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1072,
+                    961,
+                    1603,
+                    1152
+                ],
+                "angle": 0,
+                "content": "The plywood facing has a relatively SHORT LIFE SPAN."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1750,
+                    961,
+                    2240,
+                    1022
+                ],
+                "angle": 0,
+                "content": "LONGER LIFE SPAN"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    2323,
+                    961,
+                    3033,
+                    1220
+                ],
+                "angle": 0,
+                "content": "The frame is very durable (If made of metal n aluminium can be used for 2000 times)"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    441,
+                    1265,
+                    739,
+                    1326
+                ],
+                "angle": 0,
+                "content": "- USED IN"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1072,
+                    1279,
+                    1606,
+                    1537
+                ],
+                "angle": 0,
+                "content": "The labour costs are LOWER than the costs for procuring reusable formwork."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1747,
+                    1283,
+                    2278,
+                    1537
+                ],
+                "angle": 0,
+                "content": "The labour costs are higher than the costs for procuring reusable formwork."
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    2323,
+                    1283,
+                    3062,
+                    1476
+                ],
+                "angle": 0,
+                "content": "The labour costs are HIGHER than the costs for procuring reusable formwork."
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    441,
+                    1558,
+                    809,
+                    1621
+                ],
+                "angle": 0,
+                "content": "FLEXIBILITY"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    1091,
+                    1602,
+                    1475,
+                    1665
+                ],
+                "angle": 0,
+                "content": "MOST FLEXIBLE"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    1750,
+                    1600,
+                    2102,
+                    1665
+                ],
+                "angle": 0,
+                "content": "LESS FLEXIBLE."
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    2323,
+                    1600,
+                    3033,
+                    1731
+                ],
+                "angle": 0,
+                "content": "There is NO FLEXIBILITY after making the formwork"
+            }
+        ]
+    },
+    {
+        "page_id": 54,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    508,
+                    201,
+                    2169,
+                    322
+                ],
+                "angle": 0,
+                "content": "Time of Removal of formwork"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    691,
+                    439,
+                    2953,
+                    1722
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Sr.\nNo</td><td>Structural Member</td><td>OPC\n(Ordinary Portland Cement)</td><td>Rapid Hardening\nCement</td></tr><tr><td>1</td><td>Beam sides, walls &amp; Columns</td><td>2-3 Days</td><td>2 Days</td></tr><tr><td>2</td><td>Slab (Vertical Supports remains intact)</td><td>4 Days</td><td>3 Days</td></tr><tr><td>3</td><td>Slab (Complete Formwork removal)</td><td>10 Days</td><td>5 Days</td></tr><tr><td>4</td><td>Beams (Removal of Sheeting, Props remains intact)</td><td>8 Days</td><td>5 Days</td></tr><tr><td>5</td><td>Beams &amp; Arches (Complete formwork removal) (up to 6 m span)</td><td>14 Days</td><td>5-8 Days</td></tr><tr><td>6</td><td>Beams &amp; Arches (Complete formwork removal) (more than 6 m span)</td><td>21 Days</td><td>8-10 Days</td></tr></table>"
+            }
+        ]
+    },
+    {
+        "page_id": 55,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    441,
+                    842,
+                    2115,
+                    975
+                ],
+                "angle": 0,
+                "content": "FAILURE OF FORMWORK"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    2291,
+                    1575,
+                    3059,
+                    1659
+                ],
+                "angle": 0,
+                "content": "12.09.2006 10:53"
+            }
+        ]
+    },
+    {
+        "page_id": 56,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    499,
+                    68,
+                    1878,
+                    264
+                ],
+                "angle": 0,
+                "content": "Formwork failures are the cause of many accidents and failures that occur during concrete construction which usually happen when fresh concrete is placed"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    499,
+                    297,
+                    1923,
+                    493
+                ],
+                "angle": 0,
+                "content": "Generally some unexpected event causes one member to fail, then others become overloaded or misaligned and the entire formwork structure collapses"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    502,
+                    520,
+                    1494,
+                    590
+                ],
+                "angle": 0,
+                "content": "Improper stripping and shore removal"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    505,
+                    621,
+                    1046,
+                    689
+                ],
+                "angle": 0,
+                "content": "Inadequate bracing"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    505,
+                    718,
+                    755,
+                    777
+                ],
+                "angle": 0,
+                "content": "Vibration"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    505,
+                    813,
+                    1702,
+                    882
+                ],
+                "angle": 0,
+                "content": "Unstable soil under mugsills, shoring not plumb"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    505,
+                    912,
+                    1648,
+                    977
+                ],
+                "angle": 0,
+                "content": "Inadequate control of concrete placement"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    505,
+                    1008,
+                    1462,
+                    1071
+                ],
+                "angle": 0,
+                "content": "Lack of attention to formwork details"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    505,
+                    1105,
+                    1855,
+                    1231
+                ],
+                "angle": 0,
+                "content": "Inadequate cross bracing and horizontal bracing of shores"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    505,
+                    1267,
+                    1875,
+                    1393
+                ],
+                "angle": 0,
+                "content": "Forms sometime collapse when their shores/ jack are displaced by the vibration caused by:"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    512,
+                    1431,
+                    892,
+                    1495
+                ],
+                "angle": 0,
+                "content": "passing traffic"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    512,
+                    1528,
+                    1881,
+                    1594
+                ],
+                "angle": 0,
+                "content": "movement of workers & equipment on the formwork"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    512,
+                    1623,
+                    1782,
+                    1686
+                ],
+                "angle": 0,
+                "content": "the effect of vibrating concrete to consolidate it"
+            },
+            {
+                "block_id": 13,
+                "type": "image",
+                "bbox": [
+                    1961,
+                    54,
+                    3200,
+                    853
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "image",
+                "bbox": [
+                    1958,
+                    896,
+                    3200,
+                    1733
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 57,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    508,
+                    223,
+                    1430,
+                    316
+                ],
+                "angle": 0,
+                "content": "SAFETY PRECAUTION"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    675,
+                    644,
+                    2435,
+                    784
+                ],
+                "angle": 0,
+                "content": "Material used for the construction of formwork must fulfill the specification."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    688,
+                    815,
+                    1712,
+                    885
+                ],
+                "angle": 0,
+                "content": "Formwork is fixed firmly & properly"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    678,
+                    918,
+                    2486,
+                    1051
+                ],
+                "angle": 0,
+                "content": "Construction area must be protected to prevent vandalism of formwork."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    675,
+                    1085,
+                    2659,
+                    1224
+                ],
+                "angle": 0,
+                "content": "Warning sign must be put up at the area where the formwork is fixed to prevent entrance of people that may damage the formwork."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    678,
+                    1256,
+                    2540,
+                    1326
+                ],
+                "angle": 0,
+                "content": "The formwork must be inspected before the concrete is poured."
+            },
+            {
+                "block_id": 6,
+                "type": "list",
+                "bbox": [
+                    675,
+                    644,
+                    2659,
+                    1326
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 58,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    428,
+                    205,
+                    2681,
+                    300
+                ],
+                "angle": 0,
+                "content": "STRIKING, MAINTENANCE, STORAGE OF FORMWORK"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    649,
+                    574,
+                    960,
+                    637
+                ],
+                "angle": 0,
+                "content": "Striking:"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    736,
+                    642,
+                    2758,
+                    1020
+                ],
+                "angle": 0,
+                "content": "As column and beam side formwork will be removed before beam and slab soffit formwork, provision must be made for easy removal and in the correct order. If beam and slab soffit formwork is to be removed before the concrete has achieved working strength, permanent propping or shoring is required. Take care to avoid damage to formwork which is to be re used. Eight or more uses may be obtained from timber formwork."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    646,
+                    1058,
+                    2755,
+                    1249
+                ],
+                "angle": 0,
+                "content": "- Maintenance Clean forms with stiff brush and clean cold water. Use scrapers only as a last resort. Keep forms well oiled to prevent delamination of plywood or rusting of steel and always oil the edges."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    646,
+                    1283,
+                    2755,
+                    1474
+                ],
+                "angle": 0,
+                "content": "Storage of forms Any formwork with steel components should be stored in the dry. Avoid direct sunlight on timber forms. Store clear of the ground without twist or bend, and keep free of dirt."
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    646,
+                    1058,
+                    2755,
+                    1474
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 59,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    694,
+                    1053,
+                    1702,
+                    1218
+                ],
+                "angle": 0,
+                "content": "THANK YOU"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    588,
+                    1256,
+                    1222,
+                    1339
+                ],
+                "angle": 0,
+                "content": "ZEUS PITHAWALLA(37)"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    592,
+                    1355,
+                    1184,
+                    1438
+                ],
+                "angle": 0,
+                "content": "GARIMA RAJPUT(38)"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    592,
+                    1454,
+                    1164,
+                    1531
+                ],
+                "angle": 0,
+                "content": "MANASVI RANE(39)"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1436,
+                    1256,
+                    2192,
+                    1339
+                ],
+                "angle": 0,
+                "content": "RITHIKA RAVISHANKAR(40)"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1433,
+                    1355,
+                    1980,
+                    1436
+                ],
+                "angle": 0,
+                "content": "SHIVALISANAP(41)"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1433,
+                    1454,
+                    1907,
+                    1531
+                ],
+                "angle": 0,
+                "content": "SUVOJIT SEN(43)"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    2275,
+                    1260,
+                    2704,
+                    1339
+                ],
+                "angle": 0,
+                "content": "EKTA SHAH(44)"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    2278,
+                    1355,
+                    2864,
+                    1436
+                ],
+                "angle": 0,
+                "content": "RAJESH SHELAKE(45)"
+            }
+        ]
+    }
+]

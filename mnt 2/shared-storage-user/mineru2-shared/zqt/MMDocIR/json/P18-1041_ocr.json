@@ -1,0 +1,2011 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    322,
+                    280,
+                    2165,
+                    420
+                ],
+                "angle": 0,
+                "content": "Baseline Needs More Love: On Simple Word-Embedding-Based Models and Associated Pooling Mechanisms"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    444,
+                    505,
+                    2024,
+                    568
+                ],
+                "angle": 0,
+                "content": "Dinghan Shen\\(^{1}\\), Guoyin Wang\\(^{1}\\), Wenlin Wang\\(^{1}\\), Martin Renqiang Min\\(^{2}\\)"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    374,
+                    575,
+                    2118,
+                    638
+                ],
+                "angle": 0,
+                "content": "Qinliang Su\\(^{3}\\), Yizhe Zhang\\(^{4}\\), Chunyuan Li\\(^{1}\\), Ricardo Henao\\(^{1}\\), Lawrence Carin\\(^{1}\\)"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    220,
+                    638,
+                    2282,
+                    698
+                ],
+                "angle": 0,
+                "content": "\\(^{1}\\) Duke University \\(^{2}\\) NEC Laboratories America \\(^{3}\\) Sun Yat-sen University \\(^{4}\\) Microsoft Research"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    927,
+                    712,
+                    1565,
+                    764
+                ],
+                "angle": 0,
+                "content": "dinghan.shen@duke.edu"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    652,
+                    926,
+                    850,
+                    978
+                ],
+                "angle": 0,
+                "content": "Abstract"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    357,
+                    1027,
+                    1143,
+                    2609
+                ],
+                "angle": 0,
+                "content": "Many deep learning architectures have been proposed to model the compositionality in text sequences, requiring a substantial number of parameters and expensive computations. However, there has not been a rigorous evaluation regarding the added value of sophisticated compositional functions. In this paper, we conduct a point-by-point comparative study between Simple Word-Embedding-based Models (SWEMs), consisting of parameter-free pooling operations, relative to word-embedding-based RNN/CNN models. Surprisingly, SWEMs exhibit comparable or even superior performance in the majority of cases considered. Based upon this understanding, we propose two additional pooling strategies over learned word embeddings: (i) a max-pooling operation for improved interpretability; and (ii) a hierarchical pooling operation, which preserves spatial (\\(n\\)-gram) information within text sequences. We present experiments on 17 datasets encompassing three tasks: (i) (long) document classification; (ii) text sequence matching; and (iii) short text tasks, including classification and tagging."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    290,
+                    2652,
+                    650,
+                    2701
+                ],
+                "angle": 0,
+                "content": "1 Introduction"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2739,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Word embeddings, learned from massive unstructured text data, are widely-adopted building blocks for Natural Language Processing (NLP). By representing each word as a fixed-length vector, these embeddings can group semantically similar words, while implicitly encoding rich linguistic regularities and patterns (Bengio et al., 2003; Mikolov et al., 2013; Pennington et al., 2014)."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    929,
+                    2195,
+                    1603
+                ],
+                "angle": 0,
+                "content": "Leveraging the word-embedding construct, many deep architectures have been proposed to model the compositionality in variable-length text sequences. These methods range from simple operations like addition (Mitchell and Lapata, 2010; Iyyer et al., 2015), to more sophisticated compositional functions such as Recurrent Neural Networks (RNNs) (Tai et al., 2015; Sutskever et al., 2014), Convolutional Neural Networks (CNNs) (Kalchbrenner et al., 2014; Kim, 2014; Zhang et al., 2017a) and Recursive Neural Networks (Socher et al., 2011a)."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1610,
+                    2195,
+                    2795
+                ],
+                "angle": 0,
+                "content": "Models with more expressive compositional functions, e.g., RNNs or CNNs, have demonstrated impressive results; however, they are typically computationally expensive, due to the need to estimate hundreds of thousands, if not millions, of parameters (Parikh et al., 2016). In contrast, models with simple compositional functions often compute a sentence or document embedding by simply adding, or averaging, over the word embedding of each sequence element obtained via, e.g., word2vec (Mikolov et al., 2013), or GloVe (Pennington et al., 2014). Generally, such a Simple Word-Embedding-based Model (SWEM) does not explicitly account for spatial, word-order information within a text sequence. However, they possess the desirable property of having significantly fewer parameters, enjoying much faster training, relative to RNN- or CNN-based models. Hence, there is a computation-vs.-expressiveness tradeoff regarding how to model the compositionality of a text sequence."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2799,
+                    2195,
+                    3192
+                ],
+                "angle": 0,
+                "content": "In this paper, we conduct an extensive experimental investigation to understand when, and why, simple pooling strategies, operated over word embeddings alone, already carry sufficient information for natural language understanding. To account for the distinct nature of various NLP tasks that may require different semantic features, we"
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    1200,
+                    3230,
+                    1285,
+                    3279
+                ],
+                "angle": 0,
+                "content": "440"
+            },
+            {
+                "block_id": 13,
+                "type": "footer",
+                "bbox": [
+                    327,
+                    3301,
+                    2151,
+                    3399
+                ],
+                "angle": 0,
+                "content": "Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Long Papers), pages 440-450 Melbourne, Australia, July 15 - 20, 2018. ©2018 Association for Computational Linguistics"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    266,
+                    1215,
+                    884
+                ],
+                "angle": 0,
+                "content": "compare SWEM-based models with existing recurrent and convolutional networks in a point-by-point manner. Specifically, we consider 17 datasets, including three distinct NLP tasks: document classification (Yahoo news, Yelp reviews, etc.), natural language sequence matching (SNLI, WikiQA, etc.) and (short) sentence classification/tagging (Stanford sentiment treebank, TREC, etc.). Surprisingly, SWEMs exhibit comparable or even superior performance in the majority of cases considered."
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    887,
+                    1215,
+                    2241
+                ],
+                "angle": 0,
+                "content": "In order to validate our experimental findings, we conduct additional investigations to understand to what extent the word-order information is utilized/required to make predictions on different tasks. We observe that in text representation tasks, many words (e.g., stop words, or words that are not related to sentiment or topic) do not meaningfully contribute to the final predictions (e.g., sentiment label). Based upon this understanding, we propose to leverage a max-pooling operation directly over the word embedding matrix of a given sequence, to select its most salient features. This strategy is demonstrated to extract complementary features relative to the standard averaging operation, while resulting in a more interpretable model. Inspired by a case study on sentiment analysis tasks, we further propose a hierarchical pooling strategy to abstract and preserve the spatial information in the final representations. This strategy is demonstrated to exhibit comparable empirical results to LSTM and CNN on tasks that are sensitive to word-order features, while maintaining the favorable properties of not having compositional parameters, thus fast training."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2248,
+                    1215,
+                    2929
+                ],
+                "angle": 0,
+                "content": "Our work presents a simple yet strong baseline for text representation learning that is widely ignored in benchmarks, and highlights the general computation-vs.-expressiveness tradeoff associated with appropriately selecting compositional functions for distinct NLP problems. Furthermore, we quantitatively show that the word-embedding-based text classification tasks can have the similar level of difficulty regardless of the employed models, using the subspace training (Li et al., 2018) to constrain the trainable parameters. Thus, according to Occam's razor, simple models are preferred."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2978,
+                    677,
+                    3037
+                ],
+                "angle": 0,
+                "content": "2 Related Work"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    287,
+                    3080,
+                    1215,
+                    3195
+                ],
+                "angle": 0,
+                "content": "A fundamental goal in NLP is to develop expressive, yet computationally efficient compositional"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    266,
+                    2195,
+                    1620
+                ],
+                "angle": 0,
+                "content": "functions that can capture the linguistic structure of natural language sequences. Recently, several studies have suggested that on certain NLP applications, much simpler word-embedding-based architectures exhibit comparable or even superior performance, compared with more-sophisticated models using recurrence or convolutions (Parikh et al., 2016; Vaswani et al., 2017). Although complex compositional functions are avoided in these models, additional modules, such as attention layers, are employed on top of the word embedding layer. As a result, the specific role that the word embedding plays in these models is not emphasized (or explicit), which distracts from understanding how important the word embeddings alone are to the observed superior performance. Moreover, several recent studies have shown empirically that the advantages of distinct compositional functions are highly dependent on the specific task (Mitchell and Lapata, 2010; Iyyer et al., 2015; Zhang et al., 2015a; Wieting et al., 2015; Arora et al., 2016). Therefore, it is of interest to study the practical value of the additional expressiveness, on a wide variety of NLP problems."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1669,
+                    2195,
+                    3195
+                ],
+                "angle": 0,
+                "content": "SWEMs bear close resemblance to Deep Averaging Network (DAN) (Iyyer et al., 2015) or fastText (Joulin et al., 2016), where they show that average pooling achieves promising results on certain NLP tasks. However, there exist several key differences that make our work unique. First, we explore a series of pooling operations, rather than only average-pooling. Specifically, a hierarchical pooling operation is introduced to incorporate spatial information, which demonstrates superior results on sentiment analysis, relative to average pooling. Second, our work not only explores when simple pooling operations are enough, but also investigates the underlying reasons, i.e., what semantic features are required for distinct NLP problems. Third, DAN and fastText only focused on one or two problems at a time, thus a comprehensive study regarding the effectiveness of various compositional functions on distinct NLP tasks, e.g., categorizing short sentence/long documents, matching natural language sentences, has heretofore been absent. In response, our work seeks to perform a comprehensive comparison with respect to simple-vs.-complex compositional functions, across a wide range of NLP problems, and reveals some general rules for rationally selecting models to tackle different tasks."
+            },
+            {
+                "block_id": 7,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3234,
+                    1277,
+                    3279
+                ],
+                "angle": 0,
+                "content": "441"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    287,
+                    263,
+                    774,
+                    322
+                ],
+                "angle": 0,
+                "content": "3 Models & training"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    340,
+                    1215,
+                    1013
+                ],
+                "angle": 0,
+                "content": "Consider a text sequence represented as \\( X \\) (either a sentence or a document), composed of a sequence of words: \\( \\{w_1, w_2, \\dots, w_L\\} \\), where \\( L \\) is the number of tokens, i.e., the sentence/document length. Let \\( \\{v_1, v_2, \\dots, v_L\\} \\) denote the respective word embeddings for each token, where \\( v_l \\in \\mathbb{R}^K \\). The compositional function, \\( X \\to z \\), aims to combine word embeddings into a fixed-length sentence/document representation \\( z \\). These representations are then used to make predictions about sequence \\( X \\). Below, we describe different types of functions considered in this work."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1048,
+                    972,
+                    1101
+                ],
+                "angle": 0,
+                "content": "3.1 Recurrent Sequence Encoder"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1108,
+                    1210,
+                    1448
+                ],
+                "angle": 0,
+                "content": "A widely adopted compositional function is defined in a recurrent manner: the model successively takes word vector \\( v_{t} \\) at position \\( t \\), along with the hidden unit \\( h_{t-1} \\) from the last position \\( t - 1 \\), to update the current hidden unit via \\( h_{t} = f(v_{t}, h_{t-1}) \\), where \\( f(\\cdot) \\) is the transition function."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1448,
+                    1215,
+                    2069
+                ],
+                "angle": 0,
+                "content": "To address the issue of learning long-term dependencies, \\( f(\\cdot) \\) is often defined as Long Short-Term Memory (LSTM) (Hochreiter and Schmidhuber, 1997), which employs gates to control the flow of information abstracted from a sequence. We omit the details of the LSTM and refer the interested readers to the work by Graves et al. (2013) for further explanation. Intuitively, the LSTM encodes a text sequence considering its word-order information, but yields additional compositional parameters that must be learned."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2104,
+                    1046,
+                    2157
+                ],
+                "angle": 0,
+                "content": "3.2 Convolutional Sequence Encoder"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2174,
+                    1215,
+                    3188
+                ],
+                "angle": 0,
+                "content": "The Convolutional Neural Network (CNN) architecture (Kim, 2014; Collobert et al., 2011; Gan et al., 2017; Zhang et al., 2017b; Shen et al., 2018) is another strategy extensively employed as the compositional function to encode text sequences. The convolution operation considers windows of \\( n \\) consecutive words within the sequence, where a set of filters (to be learned) are applied to these word windows to generate corresponding feature maps. Subsequently, an aggregation operation (such as max-pooling) is used on top of the feature maps to abstract the most salient semantic features, resulting in the final representation. For most experiments, we consider a single-layer CNN text model. However, Deep CNN text models have also been developed (Conneau et al., 2016), and are considered in a few of our experiments."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    263,
+                    2017,
+                    371
+                ],
+                "angle": 0,
+                "content": "3.3 Simple Word-Embedding Model (SWEM)"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    382,
+                    2195,
+                    831
+                ],
+                "angle": 0,
+                "content": "To investigate the raw modeling capacity of word embeddings, we consider a class of models with no additional compositional parameters to encode natural language sequences, termed SWEMs. Among them, the simplest strategy is to compute the element-wise average over word vectors for a given sequence (Wieting et al., 2015; Adi et al., 2016):"
+            },
+            {
+                "block_id": 9,
+                "type": "equation",
+                "bbox": [
+                    1592,
+                    848,
+                    2193,
+                    999
+                ],
+                "angle": 0,
+                "content": "\\[\nz = \\frac {1}{L} \\sum_ {i = 1} ^ {L} v _ {i}. \\tag {1}\n\\]"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1034,
+                    2195,
+                    1487
+                ],
+                "angle": 0,
+                "content": "The model in (1) can be seen as an average pooling operation, which takes the mean over each of the \\(K\\) dimensions for all word embeddings, resulting in a representation \\(z\\) with the same dimension as the embedding itself, termed here SWEM-aver. Intuitively, \\(z\\) takes the information of every sequence element into account via the addition operation."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1518,
+                    2193,
+                    2024
+                ],
+                "angle": 0,
+                "content": "Max Pooling Motivated by the observation that, in general, only a small number of key words contribute to final predictions, we propose another SWEM variant, that extracts the most salient features from every word-embedding dimension, by taking the maximum value along each dimension of the word vectors. This strategy is similar to the max-over-time pooling operation in convolutional neural networks (Collobert et al., 2011):"
+            },
+            {
+                "block_id": 12,
+                "type": "equation",
+                "bbox": [
+                    1421,
+                    2073,
+                    2193,
+                    2132
+                ],
+                "angle": 0,
+                "content": "\\[\nz = \\operatorname {M a x - p o o l i n g} \\left(v _ {1}, v _ {2}, \\dots , v _ {L}\\right). \\tag {2}\n\\]"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2174,
+                    2193,
+                    2736
+                ],
+                "angle": 0,
+                "content": "We denote this model variant as SWEM-max. Here the \\(j\\)-th component of \\(z\\) is the maximum element in the set \\(\\{v_{1j}, \\ldots, v_{Lj}\\}\\), where \\(v_{1j}\\) is, for example, the \\(j\\)-th component of \\(v_{1}\\). With this pooling operation, those words that are unimportant or unrelated to the corresponding tasks will be ignored in the encoding process (as the components of the embedding vectors will have small amplitude), unlike SWEM-aver where every word contributes equally to the representation."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2739,
+                    2195,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Considering that SWEM-aver and SWEM-max are complementary, in the sense of accounting for different types of information from text sequences, we also propose a third SWEM variant, where the two abstracted features are concatenated together to form the sentence embeddings, denoted here as SWEM-concat. For all SWEM variants, there are no additional compositional parameters to be"
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3234,
+                    1282,
+                    3279
+                ],
+                "angle": 0,
+                "content": "442"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    292,
+                    256,
+                    1205,
+                    442
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Model</td><td>Parameters</td><td>Complexity</td><td>Sequential Ops</td></tr><tr><td>CNN</td><td>n·K·d</td><td>O(n·L·K·d)</td><td>O(1)</td></tr><tr><td>LSTM</td><td>4·d·(K+d)</td><td>O(L·d2+L·K·d)</td><td>O(L)</td></tr><tr><td>SWEM</td><td>0</td><td>O(L·K)</td><td>O(1)</td></tr></table>",
+                "caption": "Table 1: Comparisons of CNN, LSTM and SWEM architectures. Columns correspond to the number of compositional parameters, computational complexity and sequential operations, respectively."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    287,
+                    785,
+                    1213,
+                    901
+                ],
+                "angle": 0,
+                "content": "learned. As a result, the models only exploit intrinsic word embedding information for predictions."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    285,
+                    936,
+                    1213,
+                    1669
+                ],
+                "angle": 0,
+                "content": "Hierarchical Pooling Both SWEM-aver and SWEM-max do not take word-order or spatial information into consideration, which could be useful for certain NLP applications. So motivated, we further propose a hierarchical pooling layer. Let \\( v_{i:i+n-1} \\) refer to the local window consisting of \\( n \\) consecutive words words, \\( v_i, v_{i+1}, \\ldots, v_{i+n-1} \\). First, an average-pooling is performed on each local window, \\( v_{i:i+n-1} \\). The extracted features from all windows are further down-sampled with a global max-pooling operation on top of the representations for every window. We call this approach SWEM-hier due to its layered pooling."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1673,
+                    1213,
+                    2241
+                ],
+                "angle": 0,
+                "content": "This strategy preserves the local spatial information of a text sequence in the sense that it keeps track of how the sentence/document is constructed from individual word windows, i.e., \\( n \\)-grams. This formulation is related to bag-of-\\( n \\)-grams method (Zhang et al., 2015b). However, SWEM-hier learns fixed-length representations for the \\( n \\)-grams that appear in the corpus, rather than just capturing their occurrences via count features, which may potentially advantageous for prediction purposes."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2280,
+                    1200,
+                    2336
+                ],
+                "angle": 0,
+                "content": "3.4 Parameters & Computation Comparison"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2343,
+                    1213,
+                    2908
+                ],
+                "angle": 0,
+                "content": "We compare CNN, LSTM and SWEM wrt their parameters and computational speed. \\( K \\) denotes the dimension of word embeddings, as above. For the CNN, we use \\( n \\) to denote the filter width (assumed constant for all filters, for simplicity of analysis, but in practice variable \\( n \\) is commonly used). We define \\( d \\) as the dimension of the final sequence representation. Specifically, \\( d \\) represents the dimension of hidden units or the number of filters in LSTM or CNN, respectively."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2911,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "We first examine the number of compositional parameters for each model. As shown in Table 1, both the CNN and LSTM have a large number of parameters, to model the semantic compositionality of text sequences, whereas SWEM has no such"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    263,
+                    2195,
+                    884
+                ],
+                "angle": 0,
+                "content": "parameters. Similar to Vaswani et al. (2017), we then consider the computational complexity and the minimum number of sequential operations required for each model. SWEM tends to be more efficient than CNN and LSTM in terms of computation complexity. For example, considering the case where \\( K = d \\), SWEM is faster than CNN or LSTM by a factor of \\( nd \\) or \\( d \\), respectively. Further, the computations in SWEM are highly parallelizable, unlike LSTM that requires \\( O(L) \\) sequential steps."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    943,
+                    1630,
+                    1003
+                ],
+                "angle": 0,
+                "content": "4 Experiments"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1034,
+                    2193,
+                    1599
+                ],
+                "angle": 0,
+                "content": "We evaluate different compositional functions on a wide variety of supervised tasks, including document categorization, text sequence matching (given a sentence pair, \\(X_{1}, X_{2}\\), predict their relationship, \\(y\\)) as well as (short) sentence classification. We experiment on 17 datasets concerning natural language understanding, with corresponding data statistics summarized in the Supplementary Material. Our code will be released to encourage future research."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1606,
+                    2193,
+                    2848
+                ],
+                "angle": 0,
+                "content": "We use GloVe word embeddings with \\( K = 300 \\) (Pennington et al., 2014) as initialization for all our models. Out-Of-Vocabulary (OOV) words are initialized from a uniform distribution with range \\([-0.01, 0.01]\\). The GloVe embeddings are employed in two ways to learn refined word embeddings: (i) directly updating each word embedding during training; and (ii) training a 300-dimensional Multilayer Perceptron (MLP) layer with ReLU activation, with GloVe embeddings as input to the MLP and with output defining the refined word embeddings. The latter approach corresponds to learning an MLP model that adapts GloVe embeddings to the dataset and task of interest. The advantages of these two methods differ from dataset to dataset. We choose the better strategy based on their corresponding performances on the validation set. The final classifier is implemented as an MLP layer with dimension selected from the set [100, 300, 500, 1000], followed by a sigmoid or softmax function, depending on the specific task."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2852,
+                    2193,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Adam (Kingma and Ba, 2014) is used to optimize all models, with learning rate selected from the set \\([1 \\times 10^{-3}, 3 \\times 10^{-4}, 2 \\times 10^{-4}, 1 \\times 10^{-5}]\\) (with cross-validation used to select the appropriate parameter for a given dataset and task). Dropout regularization (Srivastava et al., 2014) is"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3234,
+                    1280,
+                    3279
+                ],
+                "angle": 0,
+                "content": "443"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    550,
+                    256,
+                    1915,
+                    803
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Model</td><td>Yahoo! Ans.</td><td>AG News</td><td>Yelp P.</td><td>Yelp F.</td><td>DBpedia</td></tr><tr><td>Bag-of-means*</td><td>60.55</td><td>83.09</td><td>87.33</td><td>53.54</td><td>90.45</td></tr><tr><td>Small word CNN*</td><td>69.98</td><td>89.13</td><td>94.46</td><td>58.59</td><td>98.15</td></tr><tr><td>Large word CNN*</td><td>70.94</td><td>91.45</td><td>95.11</td><td>59.48</td><td>98.28</td></tr><tr><td>LSTM*</td><td>70.84</td><td>86.06</td><td>94.74</td><td>58.17</td><td>98.55</td></tr><tr><td>Deep CNN (29 layer)†</td><td>73.43</td><td>91.27</td><td>95.72</td><td>64.26</td><td>98.71</td></tr><tr><td>fastText‡</td><td>72.0</td><td>91.5</td><td>93.8</td><td>60.4</td><td>98.1</td></tr><tr><td>fastText (bigram)‡</td><td>72.3</td><td>92.5</td><td>95.7</td><td>63.9</td><td>98.6</td></tr><tr><td>SWEM-aver</td><td>73.14</td><td>91.71</td><td>93.59</td><td>60.66</td><td>98.42</td></tr><tr><td>SWEM-max</td><td>72.66</td><td>91.79</td><td>93.25</td><td>59.63</td><td>98.24</td></tr><tr><td>SWEM-concat</td><td>73.53</td><td>92.66</td><td>93.76</td><td>61.11</td><td>98.57</td></tr><tr><td>SWEM-hier</td><td>73.48</td><td>92.48</td><td>95.81</td><td>63.79</td><td>98.54</td></tr></table>",
+                "caption": "Table 2: Test accuracy on (long) document classification tasks, in percentage. Results marked with * are reported in Zhang et al. (2015b), with † are reported in Conneau et al. (2016), and with ‡ are reported in Joulin et al. (2016)."
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    416,
+                    1038,
+                    2071,
+                    1354
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Politics</td><td>Science</td><td>Computer</td><td>Sports</td><td>Chemistry</td><td>Finance</td><td>Geoscience</td></tr><tr><td>philipdru</td><td>coulomb</td><td>system32</td><td>billups</td><td>sio2 (SiO2)</td><td>proprietorship</td><td>fossil</td></tr><tr><td>justices</td><td>differentiable</td><td>cobol</td><td>midfield</td><td>nonmetal</td><td>ameritrade</td><td>zoos</td></tr><tr><td>impeached</td><td>paranormal</td><td>agp</td><td>sportblogs</td><td>pka</td><td>retailing</td><td>farming</td></tr><tr><td>impeachment</td><td>converge</td><td>dhcp</td><td>mickelson</td><td>chemistry</td><td>mlm</td><td>volcanic</td></tr><tr><td>neocons</td><td>antimatter</td><td>win98</td><td>juventus</td><td>quarks</td><td>budgeting</td><td>ecosystem</td></tr></table>",
+                "caption": "Table 3: Top five words with the largest values in a given word-embedding dimension (each column corresponds to a dimension). The first row shows the (manually assigned) topic for words in each column."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1554,
+                    1213,
+                    1778
+                ],
+                "angle": 0,
+                "content": "employed on the word embedding layer and final MLP layer, with dropout rate selected from the set \\([0.2, 0.5, 0.7]\\). The batch size is selected from [2, 8, 32, 128, 512]."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1820,
+                    905,
+                    1876
+                ],
+                "angle": 0,
+                "content": "4.1 Document Categorization"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1890,
+                    1213,
+                    3076
+                ],
+                "angle": 0,
+                "content": "We begin with the task of categorizing documents (with approximately 100 words in average per document). We follow the data split in Zhang et al. (2015b) for comparability. These datasets can be generally categorized into three types: topic categorization (represented by Yahoo! Answer and AG news), sentiment analysis (represented by Yelp Polarity and Yelp Full) and ontology classification (represented by DBpedia). Results are shown in Table 2. Surprisingly, on topic prediction tasks, our SWEM model exhibits stronger performances, relative to both LSTM and CNN compositional architectures, this by leveraging both the average and max-pooling features from word embeddings. Specifically, our SWEM-concat model even outperforms a 29-layer deep CNN model (Conneau et al., 2016), when predicting topics. On the ontology classification problem (DBpedia dataset), we observe the same trend, that SWEM exhibits comparable or even superior results, relative to CNN or LSTM models."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    287,
+                    3080,
+                    1213,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Since there are no compositional parameters in SWEM, our models have an order of mag-"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1554,
+                    2193,
+                    2059
+                ],
+                "angle": 0,
+                "content": "nitude fewer parameters (excluding embeddings) than LSTM or CNN, and are considerably more computationally efficient. As illustrated in Table 4, SWEM-concat achieves better results on Yahoo! Answer than CNN/LSTM, with only 61K parameters (one-tenth the number of LSTM parameters, or one-third the number of CNN parameters), while taking a fraction of the training time relative to the CNN or LSTM."
+            },
+            {
+                "block_id": 9,
+                "type": "table",
+                "bbox": [
+                    1458,
+                    2094,
+                    2002,
+                    2301
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Model</td><td>Parameters</td><td>Speed</td></tr><tr><td>CNN</td><td>541K</td><td>171s</td></tr><tr><td>LSTM</td><td>1.8M</td><td>598s</td></tr><tr><td>SWEM</td><td>61K</td><td>63s</td></tr></table>",
+                "caption": "Table 4: Speed & Parameters on Yahoo! Answer dataset."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2459,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "Interestingly, for the sentiment analysis tasks, both CNN and LSTM compositional functions perform better than SWEM, suggesting that word-order information may be required for analyzing sentiment orientations. This finding is consistent with Pang et al. (2002), where they hypothesize that the positional information of a word in text sequences may be beneficial to predict sentiment. This is intuitively reasonable since, for instance, the phrase \"not really good\" and \"really not good\" convey different levels of negative sentiment, while being different only by their word orderings. Contrary to SWEM, CNN and"
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3234,
+                    1282,
+                    3276
+                ],
+                "angle": 0,
+                "content": "444"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    285,
+                    263,
+                    1223,
+                    771
+                ],
+                "angle": 0,
+                "content": "LSTM models can both capture this type of information via convolutional filters or recurrent transition functions. However, as suggested above, such word-order patterns may be much less useful for predicting the topic of a document. This may be attributed to the fact that word embeddings alone already provide sufficient topic information of a document, at least when the text sequences considered are relatively long."
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    287,
+                    799,
+                    1039,
+                    855
+                ],
+                "angle": 0,
+                "content": "4.1.1 Interpreting model predictions"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    866,
+                    1215,
+                    2220
+                ],
+                "angle": 0,
+                "content": "Although the proposed SWEM-max variant generally performs a slightly worse than SWEM-aver, it extracts complementary features from SWEM-aver, and hence in most cases SWEM-concat exhibits the best performance among all SWEM variants. More importantly, we found that the word embeddings learned from SWEM-max tend to be sparse. We trained our SWEM-max model on the Yahoo datasets (randomly initialized). With the learned embeddings, we plot the values for each of the word embedding dimensions, for the entire vocabulary. As shown in Figure 1, most of the values are highly concentrated around zero, indicating that the word embeddings learned are very sparse. On the contrary, the GloVe word embeddings, for the same vocabulary, are considerably denser than the embeddings learned from SWEM-max. This suggests that the model may only depend on a few key words, among the entire vocabulary, for predictions (since most words do not contribute to the max-pooling operation in SWEM-max). Through the embedding, the model learns the important words for a given task (those words with non-zero embedding components)."
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    374,
+                    2269,
+                    1091,
+                    2806
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 1: Histograms for learned word embeddings (randomly initialized) of SWEM-max and GloVe embeddings for the same vocabulary, trained on the Yahoo! Answer dataset."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    287,
+                    3080,
+                    1215,
+                    3192
+                ],
+                "angle": 0,
+                "content": "In this regard, the nature of max-pooling process gives rise to a more interpretable model. For"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    263,
+                    2195,
+                    1564
+                ],
+                "angle": 0,
+                "content": "a document, only the word with largest value in each embedding dimension is employed for the final representation. Thus, we suspect that semantically similar words may have large values in some shared dimensions. So motivated, after training the SWEM-max model on the Yahoo dataset, we selected five words with the largest values, among the entire vocabulary, for each word embedding dimension (these words are selected preferentially in the corresponding dimension, by the max operation). As shown in Table 3, the words chosen wrt each embedding dimension are indeed highly relevant and correspond to a common topic (the topics are inferred from words). For example, the words in the first column of Table 3 are all political terms, which could be assigned to the Politics & Government topic. Note that our model can even learn locally interpretable structure that is not explicitly indicated by the label information. For instance, all words in the fifth column are Chemistry-related. However, we do not have a chemistry label in the dataset, and regardless they should belong to the Science topic."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    1613,
+                    1868,
+                    1669
+                ],
+                "angle": 0,
+                "content": "4.2 Text Sequence Matching"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1694,
+                    2193,
+                    2823
+                ],
+                "angle": 0,
+                "content": "To gain a deeper understanding regarding the modeling capacity of word embeddings, we further investigate the problem of sentence matching, including natural language inference, answer sentence selection and paraphrase identification. The corresponding performance metrics are shown in Table 5. Surprisingly, on most of the datasets considered (except WikiQA), SWEM demonstrates the best results compared with those with CNN or the LSTM encoder. Notably, on SNLI dataset, we observe that SWEM-max performs the best among all SWEM variants, consistent with the findings in Nie and Bansal (2017); Conneau et al. (2017), that max-pooling over BiLSTM hidden units outperforms average pooling operation on SNLI dataset. As a result, with only \\(120\\mathrm{K}\\) parameters, our SWEM-max achieves a test accuracy of \\(83.8\\%\\), which is very competitive among state-of-the-art sentence encoding-based models (in terms of both performance and number of parameters)\\(^1\\)."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2827,
+                    2193,
+                    3051
+                ],
+                "angle": 0,
+                "content": "The strong results of the SWEM approach on these tasks may stem from the fact that when matching natural language sentences, it is sufficient in most cases to simply model the word-level"
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    1267,
+                    3101,
+                    2190,
+                    3192
+                ],
+                "angle": 0,
+                "content": "See leaderboard at https://nlp.stanford.edu/projects/snli/ for details."
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3234,
+                    1280,
+                    3279
+                ],
+                "angle": 0,
+                "content": "445"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    458,
+                    256,
+                    2031,
+                    631
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\">Model</td><td rowspan=\"2\">SNLI</td><td colspan=\"2\">MultiNLI</td><td rowspan=\"2\" colspan=\"2\">WikiQA</td><td rowspan=\"2\">Quora</td><td rowspan=\"2\" colspan=\"2\">MSRP</td></tr><tr><td>Matched</td><td>Mismatched</td></tr><tr><td></td><td>Acc.</td><td>Acc.</td><td>Acc.</td><td>MAP</td><td>MRR</td><td>Acc.</td><td>Acc.</td><td>F1</td></tr><tr><td>CNN</td><td>82.1</td><td>65.0</td><td>65.3</td><td>0.6752</td><td>0.6890</td><td>79.60</td><td>69.9</td><td>80.9</td></tr><tr><td>LSTM</td><td>80.6</td><td>66.9*</td><td>66.9*</td><td>0.6820</td><td>0.6988</td><td>82.58</td><td>70.6</td><td>80.5</td></tr><tr><td>SWEM-aver</td><td>82.3</td><td>66.5</td><td>66.2</td><td>0.6808</td><td>0.6922</td><td>82.68</td><td>71.0</td><td>81.1</td></tr><tr><td>SWEM-max</td><td>83.8</td><td>68.2</td><td>67.7</td><td>0.6613</td><td>0.6717</td><td>82.20</td><td>70.6</td><td>80.8</td></tr><tr><td>SWEM-concat</td><td>83.3</td><td>67.9</td><td>67.6</td><td>0.6788</td><td>0.6908</td><td>83.03</td><td>71.5</td><td>81.3</td></tr></table>",
+                "caption": "Table 5: Performance of different models on matching natural language sentences. Results with * are for Bidirectional LSTM, reported in Williams et al. (2017). Our reported results on MultiNLI are only trained MultiNLI training set (without training data from SNLI). For MSRP dataset, we follow the setup in Hu et al. (2014) and do not use any additional features."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    947,
+                    1215,
+                    1399
+                ],
+                "angle": 0,
+                "content": "alignments between two sequences (Parikh et al., 2016). From this perspective, word-order information becomes much less useful for predicting relationship between sentences. Moreover, considering the simpler model architecture of SWEM, they could be much easier to be optimized than LSTM or CNN-based models, and thus give rise to better empirical results."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1434,
+                    1195,
+                    1487
+                ],
+                "angle": 0,
+                "content": "4.2.1 Importance of word-order information"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1501,
+                    1215,
+                    2522
+                ],
+                "angle": 0,
+                "content": "One possible disadvantage of SWEM is that it ignores the word-order information within a text sequence, which could be potentially captured by CNN- or LSTM-based models. However, we empirically found that except for sentiment analysis, SWEM exhibits similar or even superior performance as the CNN or LSTM on a variety of tasks. In this regard, one natural question would be: how important are word-order features for these tasks? To this end, we randomly shuffle the words for every sentence in the training set, while keeping the original word order for samples in the test set. The motivation here is to remove the word-order features from the training set and examine how sensitive the performance on different tasks are to word-order information. We use LSTM as the model for this purpose since it can captures word-order information from the original training set."
+            },
+            {
+                "block_id": 5,
+                "type": "table",
+                "bbox": [
+                    419,
+                    2539,
+                    1079,
+                    2729
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Datasets</td><td>Yahoo</td><td>Yelp P.</td><td>SNLI</td></tr><tr><td>Original</td><td>72.78</td><td>95.11</td><td>78.02</td></tr><tr><td>Shuffled</td><td>72.89</td><td>93.49</td><td>77.68</td></tr></table>",
+                "caption": "Table 6: Test accuracy for LSTM model trained on original/shuffled training set."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    287,
+                    2911,
+                    1215,
+                    3195
+                ],
+                "angle": 0,
+                "content": "The results on three distinct tasks are shown in Table 6. Somewhat surprisingly, for Yahoo and SNLI datasets, the LSTM model trained on shuffled training set shows comparable accuracies to those trained on the original dataset, indicating"
+            },
+            {
+                "block_id": 8,
+                "type": "table",
+                "bbox": [
+                    1272,
+                    940,
+                    2183,
+                    1410
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Negative:</td><td>Friendly staff and nice selection of vegetarian options. Food is just okay, not great. Makes me wonder why everyone likes food fight so much.</td></tr><tr><td>Positive:</td><td>The store is small, but it carries specialties that are difficult to find in Pittsburgh. I was particularly excited to find middle eastern chili sauce and chocolate covered turkish delights.</td></tr></table>",
+                "caption": "Table 7: Test samples from Yelp Polarity dataset for which LSTM gives wrong predictions with shuffled training data, but predicts correctly with the original training set."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    1725,
+                    2193,
+                    2122
+                ],
+                "angle": 0,
+                "content": "that word-order information does not contribute significantly on these two problems, i.e., topic categorization and textual entailment. However, on the Yelp polarity dataset, the results drop noticeably, further suggesting that word-order does matter for sentiment analysis (as indicated above from a different perspective)."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2125,
+                    2193,
+                    2525
+                ],
+                "angle": 0,
+                "content": "Notably, the performance of LSTM on the Yahoo dataset with a shuffled training set is very close to our results with SWEM, indicating that the main difference between LSTM and SWEM may be due to the ability of the former to capture word-order features. Both observations are in consistent with our experimental results in the previous section."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2571,
+                    2195,
+                    3195
+                ],
+                "angle": 0,
+                "content": "Case Study To understand what type of sentences are sensitive to word-order information, we further show those samples that are wrongly predicted because of the shuffling of training data in Table 7. Taking the first sentence as an example, several words in the review are generally positive, i.e. friendly, nice, okay, great and likes. However, the most vital features for predicting the sentiment of this sentence could be the phrase/sentence 'is just okay', 'not great' or 'makes me wonder why everyone likes', which cannot be captured without"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3234,
+                    1285,
+                    3279
+                ],
+                "angle": 0,
+                "content": "446"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "table",
+                "bbox": [
+                    533,
+                    235,
+                    1940,
+                    771
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Model</td><td>MR</td><td>SST-1</td><td>SST-2</td><td>Subj</td><td>TREC</td></tr><tr><td>RAE (Socher et al., 2011b)</td><td>77.7</td><td>43.2</td><td>82.4</td><td>-</td><td>-</td></tr><tr><td>MV-RNN (Socher et al., 2012)</td><td>79.0</td><td>44.4</td><td>82.9</td><td>-</td><td>-</td></tr><tr><td>LSTM (Tai et al., 2015)</td><td>-</td><td>46.4</td><td>84.9</td><td>-</td><td>-</td></tr><tr><td>RNN (Zhao et al., 2015)</td><td>77.2</td><td>-</td><td>-</td><td>93.7</td><td>90.2</td></tr><tr><td>Constituency Tree-LSTM (Tai et al., 2015)</td><td>-</td><td>51.0</td><td>88.0</td><td>-</td><td>-</td></tr><tr><td>Dynamic CNN (Kalchbrenner et al., 2014)</td><td>-</td><td>48.5</td><td>86.8</td><td>-</td><td>93.0</td></tr><tr><td>CNN (Kim, 2014)</td><td>81.5</td><td>48.0</td><td>88.1</td><td>93.4</td><td>93.6</td></tr><tr><td>DAN-ROOT (Iyyer et al., 2015)</td><td>-</td><td>46.9</td><td>85.7</td><td>-</td><td>-</td></tr><tr><td>SWEM-aver</td><td>77.6</td><td>45.2</td><td>83.9</td><td>92.5</td><td>92.2</td></tr><tr><td>SWEM-max</td><td>76.9</td><td>44.1</td><td>83.6</td><td>91.2</td><td>89.0</td></tr><tr><td>SWEM-concat</td><td>78.2</td><td>46.1</td><td>84.3</td><td>93.0</td><td>91.8</td></tr></table>",
+                "caption": "Table 8: Test accuracies with different compositional functions on (short) sentence classifications."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    285,
+                    905,
+                    1213,
+                    1076
+                ],
+                "angle": 0,
+                "content": "considering word-order features. It is worth noting the hints for predictions in this case are actually \\( n \\)-gram phrases from the input document."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    287,
+                    1122,
+                    1074,
+                    1178
+                ],
+                "angle": 0,
+                "content": "4.3 SWEM-hier for sentiment analysis"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1199,
+                    1215,
+                    2045
+                ],
+                "angle": 0,
+                "content": "As demonstrated in Section 4.2.1, word-order information plays a vital role for sentiment analysis tasks. However, according to the case study above, the most important features for sentiment prediction may be some key \\( n \\)-gram phrase/words from the input document. We hypothesize that incorporating information about the local word-order, i.e., \\( n \\)-gram features, is likely to largely mitigate the limitations of the above three SWEM variants. Inspired by this observation, we propose using another simple pooling operation termed as hierarchical (SWEM-hier), as detailed in Section 3.3. We evaluate this method on the two document-level sentiment analysis tasks and the results are shown in the last row of Table 2."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2052,
+                    1215,
+                    2501
+                ],
+                "angle": 0,
+                "content": "SWEM-hier greatly outperforms the other three SWEM variants, and the corresponding accuracies are comparable to the results of CNN or LSTM (Table 2). This indicates that the proposed hierarchical pooling operation manages to abstract spatial (word-order) information from the input sequence, which is beneficial for performance in sentiment analysis tasks."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2550,
+                    917,
+                    2606
+                ],
+                "angle": 0,
+                "content": "4.4 Short Sentence Processing"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2627,
+                    1215,
+                    3188
+                ],
+                "angle": 0,
+                "content": "We now consider sentence-classification tasks (with approximately 20 words on average). We experiment on three sentiment classification datasets, i.e., MR, SST-1, SST-2, as well as subjectivity classification (Subj) and question classification (TREC). The corresponding results are shown in Table 8. Compared with CNN/LSTM compositional functions, SWEM yields inferior accuracies on sentiment analysis datasets, consistent with our observation in the case of document cat"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    908,
+                    2195,
+                    1694
+                ],
+                "angle": 0,
+                "content": "egorization. However, SWEM exhibits comparable performance on the other two tasks, again with much less parameters and faster training. Further, we investigate two sequence tagging tasks: the standard CoNLL2000 chunking and CoNLL2003 NER datasets. Results are shown in the Supplementary Material, where LSTM and CNN again perform better than SWEMs. Generally, SWEM is less effective at extracting representations from short sentences than from long documents. This may be due to the fact that for a shorter text sequence, word-order features tend to be more important since the semantic information provided by word embeddings alone is relatively limited."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1697,
+                    2198,
+                    2143
+                ],
+                "angle": 0,
+                "content": "Moreover, we note that the results on these relatively small datasets are highly sensitive to model regularization techniques due to the overfitting issues. In this regard, one interesting future direction may be to develop specific regularization strategies for the SWEM framework, and thus make them work better on small sentence classification datasets."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    1267,
+                    2185,
+                    1582,
+                    2238
+                ],
+                "angle": 0,
+                "content": "5 Discussion"
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    2273,
+                    2046,
+                    2329
+                ],
+                "angle": 0,
+                "content": "5.1 Comparison via subspace training"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2346,
+                    2193,
+                    2852
+                ],
+                "angle": 0,
+                "content": "We use subspace training (Li et al., 2018) to measure the model complexity in text classification problems. It constrains the optimization of the trainable parameters in a subspace of low dimension \\(d\\), the intrinsic dimension \\(d_{\\mathrm{int}}\\) defines the minimum \\(d\\) that yield a good solution. Two models are studied: the SWEM-max variant, and the CNN model including a convolutional layer followed by a FC layer. We consider two settings:"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    2855,
+                    2193,
+                    3192
+                ],
+                "angle": 0,
+                "content": "(1) The word embeddings are randomly initialized, and optimized jointly with the model parameters. We show the performance of direct and subspace training on AG News dataset in Figure 2 (a)(b). The two models trained via direct method share almost identical performance on training and"
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3234,
+                    1280,
+                    3276
+                ],
+                "angle": 0,
+                "content": "447"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "image",
+                "bbox": [
+                    282,
+                    256,
+                    739,
+                    533
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 1,
+                "type": "image",
+                "bbox": [
+                    751,
+                    252,
+                    1208,
+                    529
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    282,
+                    543,
+                    746,
+                    869
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    756,
+                    543,
+                    1210,
+                    869
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "(c) Testing on AG News"
+            },
+            {
+                "block_id": 5,
+                "type": "image_caption",
+                "bbox": [
+                    788,
+                    884,
+                    1178,
+                    936
+                ],
+                "angle": 0,
+                "content": "(d)Testing on Yelp P."
+            },
+            {
+                "block_id": 6,
+                "type": "image_caption",
+                "bbox": [
+                    287,
+                    950,
+                    1213,
+                    1115
+                ],
+                "angle": 0,
+                "content": "Figure 2: Performance of subspace training. Word embeddings are optimized in (a)(b), and frozen in (c)(d)."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1147,
+                    1213,
+                    1704
+                ],
+                "angle": 0,
+                "content": "testing. The subspace training yields similar accuracy with direct training for very small \\( d \\), even when model parameters are not trained at all (\\( d = 0 \\)). This is because the word embeddings have the full degrees of freedom to adjust to achieve good solutions, regardless of the employed models. SWEM seems to have an easier loss landscape than CNN for word embeddings to find the best solutions. According to Occam's razor, simple models are preferred, if all else are the same."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1715,
+                    1215,
+                    2501
+                ],
+                "angle": 0,
+                "content": "(2) The pre-trained GloVe are frozen for the word embeddings, and only the model parameters are optimized. The results on testing datasets of AG News and Yelp P. are shown in Figure 2 (c)(d), respectively. SWEM shows significantly higher accuracy than CNN for a large range of low subspace dimension, indicating that SWEM is more parameter-efficient to get a decent solution. In Figure 2(c), if we set the performance threshold as \\(80\\%\\) testing accuracy, SWEM exhibits a lower \\(d_{\\mathrm{int}}\\) than CNN on AG News dataset. However, in Figure 2(d), CNN can leverage more trainable parameters to achieve higher accuracy when \\(d\\) is large."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    287,
+                    2557,
+                    731,
+                    2606
+                ],
+                "angle": 0,
+                "content": "5.2 Linear classifiers"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    285,
+                    2627,
+                    1215,
+                    3188
+                ],
+                "angle": 0,
+                "content": "To further investigate the quality of representations learned from SWEMs, we employ a linear classifier on top of the representations for prediction, instead of a non-linear MLP layer as in the previous section. It turned out that utilizing a linear classifier only leads to a very small performance drop for both Yahoo! Ans. (from \\(73.53\\%\\) to \\(73.18\\%\\)) and Yelp P. datasets (from \\(93.76\\%\\) to \\(93.66\\%\\)). This observation highlights that SWEMs are able to extract robust and infor"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    266,
+                    2188,
+                    375
+                ],
+                "angle": 0,
+                "content": "mative sentence representations despite their simplicity."
+            },
+            {
+                "block_id": 12,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    410,
+                    1947,
+                    466
+                ],
+                "angle": 0,
+                "content": "5.3 Extension to other languages"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    473,
+                    2193,
+                    1375
+                ],
+                "angle": 0,
+                "content": "We have also tried our SWEM-concat and SWEM-hier models on Sogou news corpus (with the same experimental setup as (Zhang et al., 2015b)), which is a Chinese dataset represented by Pinyin (a phonetic romanization of Chinese). SWEM-concat yields an accuracy of \\(91.3\\%\\), while SWEM-hier (with a local window size of 5) obtains an accuracy of \\(96.2\\%\\) on the test set. Notably, the performance of SWEM-hier is comparable to the best accuracies of CNN \\((95.6\\%)\\) and LSTM \\((95.2\\%)\\), as reported in (Zhang et al., 2015b). This indicates that hierarchical pooling is more suitable than average/max pooling for Chinese text classification, by taking spatial information into account. It also implies that Chinese is more sensitive to local word-order features than English."
+            },
+            {
+                "block_id": 14,
+                "type": "title",
+                "bbox": [
+                    1265,
+                    1399,
+                    1615,
+                    1452
+                ],
+                "angle": 0,
+                "content": "6 Conclusions"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1262,
+                    1462,
+                    2193,
+                    2080
+                ],
+                "angle": 0,
+                "content": "We have performed a comparative study between SWEM (with parameter-free pooling operations) and CNN or LSTM-based models, to represent text sequences on 17 NLP datasets. We further validated our experimental findings through additional exploration, and revealed some general rules for rationally selecting compositional functions for distinct problems. Our findings regarding when (and why) simple pooling operations are enough for text sequence representations are summarized as follows:"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2094,
+                    2193,
+                    2371
+                ],
+                "angle": 0,
+                "content": "- Simple pooling operations are surprisingly effective at representing longer documents (with hundreds of words), while recurrent/convolitional compositional functions are most effective when constructing representations for short sentences."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2385,
+                    2188,
+                    2662
+                ],
+                "angle": 0,
+                "content": "- Sentiment analysis tasks are more sensitive to word-order features than topic categorization tasks. However, a simple hierarchical pooling layer proposed here achieves comparable results to LSTM/CNN on sentiment analysis tasks."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2676,
+                    2188,
+                    2950
+                ],
+                "angle": 0,
+                "content": "- To match natural language sentences, e.g., textual entailment, answer sentence selection, etc., simple pooling operations already exhibit similar or even superior results, compared to CNN and LSTM."
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1265,
+                    2967,
+                    2188,
+                    3188
+                ],
+                "angle": 0,
+                "content": "- In SWEM with max-pooling operation, each individual dimension of the word embeddings contains interpretable semantic patterns, and groups together words with a common theme or topic."
+            },
+            {
+                "block_id": 20,
+                "type": "list",
+                "bbox": [
+                    1265,
+                    2094,
+                    2193,
+                    3188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 21,
+                "type": "page_number",
+                "bbox": [
+                    1203,
+                    3234,
+                    1280,
+                    3276
+                ],
+                "angle": 0,
+                "content": "448"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    292,
+                    263,
+                    535,
+                    315
+                ],
+                "angle": 0,
+                "content": "References"
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    343,
+                    1213,
+                    526
+                ],
+                "angle": 0,
+                "content": "Yossi Adi, Einat Kermany, Yonatan Belinkov, Ofer Lavi, and Yoav Goldberg. 2016. Fine-grained analysis of sentence embeddings using auxiliary prediction tasks. *ICLR*."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    564,
+                    1210,
+                    705
+                ],
+                "angle": 0,
+                "content": "Sanjeev Arora, Yingyu Liang, and Tengyu Ma. 2016. A simple but tough-to-beat baseline for sentence embeddings. In *ICLR*."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    740,
+                    1210,
+                    880
+                ],
+                "angle": 0,
+                "content": "Yoshua Bengio, Réjean Ducharme, Pascal Vincent, and Christian Jauvin. 2003. A neural probabilistic language model. JMLR, 3(Feb):1137-1155."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    919,
+                    1210,
+                    1105
+                ],
+                "angle": 0,
+                "content": "Ronan Collobert, Jason Weston, Léon Bottou, Michael Karlen, Koray Kavukcuoglu, and Pavel Kuksa. 2011. Natural language processing (almost) from scratch. JMLR, 12(Aug):2493-2537."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    1140,
+                    1210,
+                    1322
+                ],
+                "angle": 0,
+                "content": "Alexis Conneau, Douwe Kiela, Holger Schwenk, Loic Barrault, and Antoine Bordes. 2017. Supervised learning of universal sentence representations from natural language inference data. EMNLP."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    1361,
+                    1210,
+                    1547
+                ],
+                "angle": 0,
+                "content": "Alexis Conneau, Holger Schwenk, Loïc Barrault, and Yann Lecun. 2016. Very deep convolutional networks for natural language processing. arXiv preprint arXiv:1606.01781."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    1585,
+                    1210,
+                    1771
+                ],
+                "angle": 0,
+                "content": "Zhe Gan, Yunchen Pu, Ricardo Henao, Chunyuan Li, Xiaodong He, and Lawrence Carin. 2017. Learning generic sentence representations using convolutional neural networks. In EMNLP, pages 2380-2390."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    1806,
+                    1210,
+                    2038
+                ],
+                "angle": 0,
+                "content": "Alex Graves, Navdeep Jaitly, and Abdel-rahman Mohamed. 2013. Hybrid speech recognition with deep bidirectional LSTM. In Automatic Speech Recognition and Understanding (ASRU), 2013 IEEE Workshop on, pages 273–278. IEEE."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    2073,
+                    1210,
+                    2213
+                ],
+                "angle": 0,
+                "content": "Sepp Hochreiter and Jürgen Schmidhuber. 1997. Long short-term memory. Neural computation, 9(8):1735-1780."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    2252,
+                    1210,
+                    2438
+                ],
+                "angle": 0,
+                "content": "Baotian Hu, Zhengdong Lu, Hang Li, and Qingcai Chen. 2014. Convolutional neural network architectures for matching natural language sentences. In NIPS, pages 2042-2050."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    2473,
+                    1210,
+                    2659
+                ],
+                "angle": 0,
+                "content": "Mohit Iyyer, Varun Manjunatha, Jordan Boyd-Graber, and Hal Daumé III. 2015. Deep unordered composition rivals syntactic methods for text classification. In ACL, volume 1, pages 16 81–1691."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    2694,
+                    1210,
+                    2837
+                ],
+                "angle": 0,
+                "content": "Armand Joulin, Edouard Grave, Piotr Bojanowski, and Tomas Mikolov. 2016. Bag of tricks for efficient text classification. arXiv preprint arXiv:1607.01759."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    2869,
+                    1210,
+                    3055
+                ],
+                "angle": 0,
+                "content": "Nal Kalchbrenner, Edward Grefenstette, and Phil Blunsom. 2014. A convolutional neural network for modelling sentences. arXiv preprint arXiv:1404.2188."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    295,
+                    3094,
+                    1210,
+                    3185
+                ],
+                "angle": 0,
+                "content": "Yoon Kim. 2014. Convolutional neural networks for sentence classification. EMNLP."
+            },
+            {
+                "block_id": 15,
+                "type": "list",
+                "bbox": [
+                    295,
+                    343,
+                    1213,
+                    3185
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    270,
+                    2190,
+                    403
+                ],
+                "angle": 0,
+                "content": "Diederik Kingma and Jimmy Ba. 2014. Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    442,
+                    2190,
+                    631
+                ],
+                "angle": 0,
+                "content": "Chunyuan Li, Heerad Farkhoor, Rosanne Liu, and Jason Yosinski. 2018. Measuring the intrinsic dimension of objective landscapes. In International Conference on Learning Representations."
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    663,
+                    2190,
+                    852
+                ],
+                "angle": 0,
+                "content": "Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado, and Jeff Dean. 2013. Distributed representations of words and phrases and their compositionality. In NIPS, pages 3111-3119."
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    884,
+                    2190,
+                    1024
+                ],
+                "angle": 0,
+                "content": "Jeff Mitchell and Mirella Lapata. 2010. Composition in distributional models of semantics. Cognitive science, 34(8):1388-1429."
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1059,
+                    2190,
+                    1199
+                ],
+                "angle": 0,
+                "content": "Yixin Nie and Mohit Bansal. 2017. Shortcut-stacked sentence encoders for multi-domain inference. arXiv preprint arXiv:1708.02312."
+            },
+            {
+                "block_id": 21,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1234,
+                    2190,
+                    1417
+                ],
+                "angle": 0,
+                "content": "Bo Pang, Lillian Lee, and Shivakumar Vaithyanathan. 2002. Thumbs up?: sentiment classification using machine learning techniques. In EMNLP, pages 79-86. ACL."
+            },
+            {
+                "block_id": 22,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1455,
+                    2190,
+                    1599
+                ],
+                "angle": 0,
+                "content": "Ankur P Parikh, Oscar Täckström, Dipanjan Das, and Jakob Uszkoreit. 2016. A decomposable attention model for natural language inference. EMNLP."
+            },
+            {
+                "block_id": 23,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1631,
+                    2190,
+                    1775
+                ],
+                "angle": 0,
+                "content": "Jeffrey Pennington, Richard Socher, and Christopher Manning. 2014. Glove: Global vectors for word representation. In *EMNLP*, pages 1532–1543."
+            },
+            {
+                "block_id": 24,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    1806,
+                    2190,
+                    1992
+                ],
+                "angle": 0,
+                "content": "Dinghan Shen, Martin Renqiang Min, Yitong Li, and Lawrence Carin. 2017. Adaptive convolutional filter generation for natural language understanding. arXiv preprint arXiv:1709.08294."
+            },
+            {
+                "block_id": 25,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2027,
+                    2190,
+                    2210
+                ],
+                "angle": 0,
+                "content": "Dinghan Shen, Yizhe Zhang, Ricardo Henao, Qinliang Su, and Lawrence Carin. 2018. Deconvolutional latent-variable model for text sequence matching. AAAI."
+            },
+            {
+                "block_id": 26,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2248,
+                    2190,
+                    2480
+                ],
+                "angle": 0,
+                "content": "Richard Socher, Brody Huval, Christopher D Manning, and Andrew Y Ng. 2012. Semantic compositionality through recursive matrix-vector spaces. In EMNLP, pages 1201-1211. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 27,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2511,
+                    2190,
+                    2701
+                ],
+                "angle": 0,
+                "content": "Richard Socher, Cliff C Lin, Chris Manning, and Andrew Y Ng. 2011a. Parsing natural scenes and natural language with recursive neural networks. In ICML, pages 129-136."
+            },
+            {
+                "block_id": 28,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    2736,
+                    2190,
+                    2967
+                ],
+                "angle": 0,
+                "content": "Richard Socher, Jeffrey Pennington, Eric H Huang, Andrew Y Ng, and Christopher D Manning. 2011b. Semi-supervised recursive autoencoders for predicting sentiment distributions. In EMNLP, pages 151-161. Association for Computational Linguistics."
+            },
+            {
+                "block_id": 29,
+                "type": "ref_text",
+                "bbox": [
+                    1272,
+                    3002,
+                    2190,
+                    3185
+                ],
+                "angle": 0,
+                "content": "Nitish Srivastava, Geoffrey E Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan Salakhutdinov. 2014. Dropout: a simple way to prevent neural networks from overfitting. JMLR, 15(1):1929-1958."
+            },
+            {
+                "block_id": 30,
+                "type": "list",
+                "bbox": [
+                    1272,
+                    270,
+                    2190,
+                    3185
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 31,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3234,
+                    1280,
+                    3276
+                ],
+                "angle": 0,
+                "content": "449"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    270,
+                    1210,
+                    406
+                ],
+                "angle": 0,
+                "content": "Ilya Sutskever, Oriol Vinyals, and Quoc V Le. 2014. Sequence to sequence learning with neural networks. In NIPS, pages 3104-3112."
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    442,
+                    1210,
+                    627
+                ],
+                "angle": 0,
+                "content": "Kai Sheng Tai, Richard Socher, and Christopher D Manning. 2015. Improved semantic representations from tree-structured long short-term memory networks. arXiv preprint arXiv:1503.00075."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    663,
+                    1210,
+                    845
+                ],
+                "angle": 0,
+                "content": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Lukasz Kaiser, and Illia Polosukhin. 2017. Attention is all you need. NIPS."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    880,
+                    1210,
+                    1020
+                ],
+                "angle": 0,
+                "content": "John Wieting, Mohit Bansal, Kevin Gimpel, and Karen Livescu. 2015. Towards universal paraphrastic sentence embeddings. *ICLR*."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1055,
+                    1210,
+                    1241
+                ],
+                "angle": 0,
+                "content": "Adina Williams, Nikita Nangia, and Samuel R Bowman. 2017. A broad-coverage challenge corpus for sentence understanding through inference. arXiv preprint arXiv:1704.05426."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1276,
+                    1210,
+                    1645
+                ],
+                "angle": 0,
+                "content": "Shiliang Zhang, Hui Jiang, Mingbin Xu, Junfeng Hou, and Lirong Dai. 2015a. The fixed-size ordinally-forgetting encoding method for neural network language models. In Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing (Volume 2: Short Papers), volume 2, pages 495-500."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1680,
+                    1210,
+                    1820
+                ],
+                "angle": 0,
+                "content": "Xiang Zhang, Junbo Zhao, and Yann LeCun. 2015b. Character-level convolutional networks for text classification. In NIPS, pages 649-657."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    1855,
+                    1210,
+                    2034
+                ],
+                "angle": 0,
+                "content": "Yizhe Zhang, Zhe Gan, Kai Fan, Zhi Chen, Ricardo Henao, Dinghan Shen, and Lawrence Carin. 2017a. Adversarial feature matching for text generation. In ICML."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2073,
+                    1210,
+                    2255
+                ],
+                "angle": 0,
+                "content": "Yizhe Zhang, Dinghan Shen, Guoyin Wang, Zhe Gan, Ricardo Henao, and Lawrence Carin. 2017b. Deconvolutional paragraph representation learning. NIPS."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    292,
+                    2294,
+                    1210,
+                    2434
+                ],
+                "angle": 0,
+                "content": "Han Zhao, Zhengdong Lu, and Pascal Poupart. 2015. Self-adaptive hierarchical sentence model. In *IJCAI*, pages 4069–4076."
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    292,
+                    270,
+                    1210,
+                    2434
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    1205,
+                    3234,
+                    1280,
+                    3276
+                ],
+                "angle": 0,
+                "content": "450"
+            }
+        ]
+    }
+]

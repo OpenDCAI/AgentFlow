@@ -86,12 +86,11 @@ class Environment(ABC):
         # Configuration
         self.config = {
             "openai_api_key": openai_api_key or os.environ.get("OPENAI_API_KEY", ""),
-            "openai_api_url": openai_api_url or os.environ.get("OPENAI_API_URL", os.environ.get("OPENAI_API_BASE", "")),
-            **kwargs
-        }
-        self.config = {
-            "openai_api_key": openai_api_key or os.environ.get("OPENAI_API_KEY", ""),
-            "openai_api_url": openai_api_url or os.environ.get("OPENAI_API_URL", os.environ.get("OPENAI_API_BASE", "")),
+            "openai_api_url": openai_api_url
+            or os.environ.get("OPENAI_API_URL")
+            or os.environ.get("OPENAI_API_BASE")
+            or os.environ.get("OPENAI_BASE_URL")
+            or "",
             "enable_terminal_bench": enable_terminal_bench,
             "terminal_bench_images": kwargs.get("terminal_bench_images", ["tbench/ubuntu:latest"]),
             "container_timeout": kwargs.get("container_timeout", 300),
@@ -122,7 +121,7 @@ class Environment(ABC):
         if not self.config["openai_api_key"]:
             print("Warning: OPENAI_API_KEY is not set. Some tools may not work properly.")
         if not self.config["openai_api_url"]:
-            print("Warning: OPENAI_API_URL or OPENAI_API_BASE is not set. Some tools may not work properly.")
+            print("Warning: OPENAI_API_URL / OPENAI_API_BASE / OPENAI_BASE_URL is not set. Some tools may not work properly.")
 
     def _initialize_config(self):
         """Initialize configuration, including Docker and Virtual Machine."""
@@ -461,11 +460,12 @@ class DocEnvironment(Environment):
         """Initialize Document Agent specific tools. Tools now use internal hardcoded paths."""
         
         self.register_tool(DocCheckTool())
-        ocr_tool = DocOCRTool(
-            model_path=self.config.get("ocr_model_path"), 
-            backend_type=self.config.get("ocr_backend_type", "transformers")
-        )
-        self.register_tool(ocr_tool)
+        if not self.config.get("skip_doc_ocr", False):
+            ocr_tool = DocOCRTool(
+                model_path=self.config.get("ocr_model_path"), 
+                backend_type=self.config.get("ocr_backend_type", "transformers")
+            )
+            self.register_tool(ocr_tool)
         self.register_tool(SearchKeywordTool())
         self.register_tool(GetPageOCRTool())
         self.register_tool(GetPageImageTool())
@@ -475,9 +475,13 @@ class DocEnvironment(Environment):
             api_key = api_key.strip()
         else:
             api_key = None
-        api_base = (self.config.get("openai_api_url") or 
-                   os.environ.get("OPENAI_API_BASE") or 
-                   os.environ.get("OPENAI_API_URL") or None)
+        api_base = (
+            self.config.get("openai_api_url")
+            or os.environ.get("OPENAI_API_BASE")
+            or os.environ.get("OPENAI_API_URL")
+            or os.environ.get("OPENAI_BASE_URL")
+            or None
+        )
         if api_base and api_base.strip():
             api_base = api_base.strip()
         else:

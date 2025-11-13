@@ -1,0 +1,569 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    487,
+                    46,
+                    2057,
+                    105
+                ],
+                "angle": 0,
+                "content": "Case 1:24-cr-00032-MV Document 126 Filed 02/24/24 Page 1 of 3"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    844,
+                    297,
+                    1705,
+                    415
+                ],
+                "angle": 0,
+                "content": "UNITED STATES DISTRICT COURT DISTRICT OF NEW MEXICO"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    290,
+                    471,
+                    1020,
+                    531
+                ],
+                "angle": 0,
+                "content": "UNITED STATES OF AMERICA,"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    589,
+                    587,
+                    780,
+                    643
+                ],
+                "angle": 0,
+                "content": "Plaintiff,"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    288,
+                    712,
+                    359,
+                    752
+                ],
+                "angle": 0,
+                "content": "VS."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1777,
+                    702,
+                    2221,
+                    755
+                ],
+                "angle": 0,
+                "content": "No. 24-CR-0032 MV"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    288,
+                    818,
+                    726,
+                    874
+                ],
+                "angle": 0,
+                "content": "FRANCISCO DIAZ,"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    589,
+                    933,
+                    821,
+                    986
+                ],
+                "angle": 0,
+                "content": "Defendant."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    795,
+                    1049,
+                    1749,
+                    1105
+                ],
+                "angle": 0,
+                "content": "MEMORANDUM OPINION AND ORDER"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    285,
+                    1161,
+                    2259,
+                    1458
+                ],
+                "angle": 0,
+                "content": "THIS MATTER is before the Court on the United States' Motion to use Photographs in Opening Statement. Doc. 122. Having considered the briefs and relevant law, and being otherwise fully informed, the Court finds that the motion is well-taken and will be granted."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    1081,
+                    1508,
+                    1463,
+                    1560
+                ],
+                "angle": 0,
+                "content": "BACKGROUND"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1623,
+                    2108,
+                    1683
+                ],
+                "angle": 0,
+                "content": "The government seeks to introduce the following exhibits in its opening statement:"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1742,
+                    1537,
+                    1798
+                ],
+                "angle": 0,
+                "content": "Exhibit 3B, an aerial photograph of 7 Josephine Road."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1805,
+                    1897,
+                    1857
+                ],
+                "angle": 0,
+                "content": "Exhibit 4D, a photograph of the gate and driveway of 7 Josephine Road."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1864,
+                    1670,
+                    1917
+                ],
+                "angle": 0,
+                "content": "Exhibit 6F, a photograph of Mr. Diaz in his master bedroom."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1927,
+                    1792,
+                    1983
+                ],
+                "angle": 0,
+                "content": "- Exhibit 7A, a photograph of the door to the master bedroom closet."
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    364,
+                    1989,
+                    1869,
+                    2046
+                ],
+                "angle": 0,
+                "content": "- Exhibit 7E, a photograph of a white powdery substance in plastic bags."
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    364,
+                    2049,
+                    1445,
+                    2102
+                ],
+                "angle": 0,
+                "content": "Exhibit 9A, a cropped photograph of a blue scale."
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    364,
+                    2112,
+                    2027,
+                    2164
+                ],
+                "angle": 0,
+                "content": "Exhibit 11A, a photograph of the cabinet in Mr. Diaz's master bedroom closet."
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    364,
+                    2171,
+                    2126,
+                    2227
+                ],
+                "angle": 0,
+                "content": "Exhibit 11B, a photograph of a drawer from the cabinet, which contains two pistols."
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    364,
+                    2234,
+                    1787,
+                    2286
+                ],
+                "angle": 0,
+                "content": "- Exhibit 11C, a photograph of a magazine on a shelf on the cabinet."
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    364,
+                    2293,
+                    1662,
+                    2349
+                ],
+                "angle": 0,
+                "content": "Exhibits 11D, 11F, 11G, close up photographs of the pistols."
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    364,
+                    2356,
+                    1463,
+                    2409
+                ],
+                "angle": 0,
+                "content": "Exhibit 11I, a photograph of a box of ammunition."
+            },
+            {
+                "block_id": 23,
+                "type": "text",
+                "bbox": [
+                    364,
+                    2415,
+                    1813,
+                    2471
+                ],
+                "angle": 0,
+                "content": "Exhibit 14G, a photograph of plastic wrappers and inositol powder."
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    364,
+                    2478,
+                    2205,
+                    2583
+                ],
+                "angle": 0,
+                "content": "- Exhibit 21D, a photograph of two plastic baggies with a white powdery substance and a scale."
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    364,
+                    2597,
+                    1407,
+                    2653
+                ],
+                "angle": 0,
+                "content": "Exhibit 25C, a photograph of a plastic gun case."
+            },
+            {
+                "block_id": 26,
+                "type": "list",
+                "bbox": [
+                    364,
+                    1742,
+                    2205,
+                    2653
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 27,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2768,
+                    2249,
+                    3003
+                ],
+                "angle": 0,
+                "content": "<sup>1</sup> The government's motion states that it intends to introduce Exhibit 14G but has a repeat picture of Exhibit 7E under the label \"Exhibit 14G.\" The Court assumes that this is an error and that the government intends to introduce 14G, which is a photograph of plastic wrappers and inositol powder."
+            },
+            {
+                "block_id": 28,
+                "type": "page_number",
+                "bbox": [
+                    1259,
+                    3039,
+                    1285,
+                    3085
+                ],
+                "angle": 0,
+                "content": "1"
+            },
+            {
+                "block_id": 29,
+                "type": "footer",
+                "bbox": [
+                    147,
+                    3144,
+                    334,
+                    3177
+                ],
+                "angle": 0,
+                "content": "AUTHENTICATED"
+            },
+            {
+                "block_id": 30,
+                "type": "footer",
+                "bbox": [
+                    153,
+                    3177,
+                    334,
+                    3204
+                ],
+                "angle": 0,
+                "content": "U.S. GOVERNMENT INFORMATION"
+            },
+            {
+                "block_id": 31,
+                "type": "footer",
+                "bbox": [
+                    153,
+                    3204,
+                    334,
+                    3230
+                ],
+                "angle": 0,
+                "content": "INFORMATIONC"
+            },
+            {
+                "block_id": 32,
+                "type": "footer",
+                "bbox": [
+                    275,
+                    3217,
+                    334,
+                    3247
+                ],
+                "angle": 0,
+                "content": "GPC"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    484,
+                    42,
+                    2060,
+                    105
+                ],
+                "angle": 0,
+                "content": "Case 1:24-cr-00032-MV Document 126 Filed 02/24/24 Page 2 of 3"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2261,
+                    594
+                ],
+                "angle": 0,
+                "content": "Doc. 122. The defense objects to the use of exhibits during the government's opening statement because the exhibits have not been admitted into evidence and there is a risk that their use would be misleading to the jury and unfairly prejudicial to Mr. Diaz. Doc. 123 at 3."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    1111,
+                    643,
+                    1430,
+                    702
+                ],
+                "angle": 0,
+                "content": "DISCUSSION"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    759,
+                    2269,
+                    2088
+                ],
+                "angle": 0,
+                "content": "\"There are no federal statutes or rules dealing with opening statements.\" United States v. Salovitz, 701 F.2d 17, 20 (2d Cir. 1983). Accordingly, it is within the trial court's discretion to permit or limit the use of demonstratives or exhibits during opening statements. \"Generally, the prosecuting attorney, in his or her opening statement to the jury, may outline the facts which he or she in good faith expects to prove.\" 23A C.J. S. Criminal Procedure and Rights of Accused § 1734. When counsel chooses to present exhibits in opening statement, they do so \"at their own peril,\" because if they are unable to lay a proper foundation for the exhibit during the course of the trial, \"the court will have to give the jury a curative instruction regarding the photograph.\" Stella v. Davis County, No. 18-CV-002, 2022 WL 270642, at *6 (D. Utah, July 12, 2022). Furthermore, the Court may restrict the use of exhibits during opening if it finds that doing so would be unfairly prejudicial or misleading. United States v. Tompkins, No. 07-CR-227, 2012 WL 1357701, at *2 (N.D. Ill. Apr. 19, 2012)."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2141,
+                    2261,
+                    2897
+                ],
+                "angle": 0,
+                "content": "Here the Court finds that the government may use the proposed exhibits in its opening statement. With respect to Exhibits 3B, 4D, 7A, 7E, 11A, 11B, and 21D, the defense has not objected to the admissibility of these exhibits. As such, counsel can fairly expect that these exhibits will come into evidence during the trial and can present them during opening statement. The Court has already found that Exhibits 9A, 11D, 11G, 11F, 14G and 25C, as well as the cropped version of 11I, are relevant and admissible. Thus, the government can also fairly expect that these exhibits will come into evidence and can present them during opening statement. However, the government"
+            },
+            {
+                "block_id": 5,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    3039,
+                    1290,
+                    3085
+                ],
+                "angle": 0,
+                "content": "2"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    484,
+                    49,
+                    2057,
+                    105
+                ],
+                "angle": 0,
+                "content": "Case 1:24-cr-00032-MV Document 126 Filed 02/24/24 Page 3 of 3"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    285,
+                    300,
+                    2261,
+                    1171
+                ],
+                "angle": 0,
+                "content": "is reminded that they cannot refer to the plastic wrappers depicted in Exhibit 14G as “kilo wrappers.” The Court has reserved ruling on Exhibits 6F and 11C, pending the government’s ability to lay a foundation for these exhibits. Nevertheless, the Court finds that it would not be unfairly prejudicial or misleading for the government to use Exhibits 6F and 11C in its opening statement, as the government expects to be able to establish their relevance. Of course, if they are unable to do so, the Court will issue a curative instruction. Lastly, any potential prejudice to Mr. Diaz will be cured by the Court’s preliminary instruction to the jury that opening statements are not evidence and should not be considered as such."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    288,
+                    1336,
+                    2068,
+                    1399
+                ],
+                "angle": 0,
+                "content": "IT IS THEREFORE ORDERED THAT: The Motion to Use Photographs in Opening"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1452,
+                    951,
+                    1514
+                ],
+                "angle": 0,
+                "content": "Statement [Doc. 122] is granted."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    288,
+                    1683,
+                    1173,
+                    1739
+                ],
+                "angle": 0,
+                "content": "ENTERED this 24th day of February 2024."
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1218,
+                    1732,
+                    2221,
+                    2085
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    3039,
+                    1290,
+                    3085
+                ],
+                "angle": 0,
+                "content": "3"
+            }
+        ]
+    }
+]

@@ -1,0 +1,1476 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    357,
+                    46,
+                    2187,
+                    105
+                ],
+                "angle": 0,
+                "content": "Case 2:16-md-02740-JTM-MBN Document 16813 Filed 02/23/24 Page 1 of 14"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    739,
+                    396,
+                    1810,
+                    528
+                ],
+                "angle": 0,
+                "content": "UNITED STATES DISTRICT COURT EASTERN DISTRICT OF LOUISIANA"
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    285,
+                    590,
+                    1994,
+                    990
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>IN RE: TAXOTERE (DOCETAXEL)</td><td>)</td><td>MDL No. 16-2740</td></tr><tr><td>PRODUCTS LIABILITY</td><td></td><td></td></tr><tr><td>LITIGATION</td><td>)</td><td>SECTION: “H” (5)</td></tr><tr><td></td><td>)</td><td></td></tr><tr><td>This document relates to:</td><td>)</td><td></td></tr><tr><td>All cases listed in Exhibit A</td><td>)</td><td></td></tr></table>"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    925,
+                    1115,
+                    1616,
+                    1178
+                ],
+                "angle": 0,
+                "content": "ORDER AND REASONS"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1214,
+                    2261,
+                    1570
+                ],
+                "angle": 0,
+                "content": "Before the Court is a Motion to Dismiss Pursuant to Rule 25 filed by Defendants sanofi-aventis U.S. LLC and Sanofi U.S. Services Inc. (collectively \"Sanofi\") (Rec. Doc. 16564). For the following reasons, the Motion is DENIED."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    1042,
+                    1702,
+                    1501,
+                    1765
+                ],
+                "angle": 0,
+                "content": "BACKGROUND"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1798,
+                    2264,
+                    2451
+                ],
+                "angle": 0,
+                "content": "Plaintiffs in this multidistrict litigation (\"MDL\") are suing several pharmaceutical companies, including Sanofi, that manufactured and/or distributed a chemotherapy drug, Taxotere or docetaxel,[1] that Plaintiffs were administered for the treatment of cancer. Plaintiffs allege that the drug caused permanent chemotherapy-induced alopecia (\"PCIA\"). Plaintiffs bring various claims, including failure to warn, negligent misrepresentation, and fraudulent misrepresentation."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2484,
+                    2256,
+                    2649
+                ],
+                "angle": 0,
+                "content": "On November 20, 2023, Sanofi filed the instant Motion to Dismiss requesting the dismissal of 47 cases in which each plaintiff has passed away,"
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2844,
+                    2251,
+                    2956
+                ],
+                "angle": 0,
+                "content": "1 Docetaxel is the generic version of Taxotere, although the Court uses the term \"generic\" loosely."
+            },
+            {
+                "block_id": 9,
+                "type": "footer",
+                "bbox": [
+                    147,
+                    3144,
+                    336,
+                    3177
+                ],
+                "angle": 0,
+                "content": "AUTHENTICATED"
+            },
+            {
+                "block_id": 10,
+                "type": "footer",
+                "bbox": [
+                    153,
+                    3177,
+                    334,
+                    3204
+                ],
+                "angle": 0,
+                "content": "U.S. GOVERNMENT INFORMATION"
+            },
+            {
+                "block_id": 11,
+                "type": "footer",
+                "bbox": [
+                    275,
+                    3217,
+                    336,
+                    3247
+                ],
+                "angle": 0,
+                "content": "GPC"
+            },
+            {
+                "block_id": 12,
+                "type": "footer",
+                "bbox": [
+                    339,
+                    3135,
+                    418,
+                    3270
+                ],
+                "angle": 0,
+                "content": "3"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    354,
+                    42,
+                    2190,
+                    112
+                ],
+                "angle": 0,
+                "content": "Case 2:16-md-02740-JTM-MBN Document 16813 Filed 02/23/24 Page 2 of 14"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2264,
+                    577
+                ],
+                "angle": 0,
+                "content": "but the proper party has not filed a motion to substitute.\\(^2\\) Notably, many cases identified by Sanofi have proceeded in this MDL for years without a plaintiff, and several plaintiffs passed away as far back as 2017.\\(^3\\)"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    594,
+                    2269,
+                    1257
+                ],
+                "angle": 0,
+                "content": "In its Motion, Sanofi alleges that dismissal is proper under Federal Rule of Civil Procedure 25 because, despite the filing of Suggestions of Death more than 90 days prior to the filing of Sanofi's Motion, no motions to substitute have been filed, no motions for extension of time have been brought under Rule 6(b), and no showings of excusable neglect under Rule 6(b) have been made.4 Counsel for Deborah Allen,5 Ruth Duff,6 and Eleanor Risch,7 filed Oppositions to Sanofi's Motion."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    963,
+                    1376,
+                    1586,
+                    1445
+                ],
+                "angle": 0,
+                "content": "LAW AND ANALYSIS"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1475,
+                    2264,
+                    2039
+                ],
+                "angle": 0,
+                "content": "Federal Rule of Civil Procedure 25 states that if a party dies and the claim is not extinguished, a suggestion of death must be served on parties in accordance with Rule 5 and on non-parties in accordance with Rule 4.[8] While Rule 25 “does not identify the ‘non-party’ upon whom the statement noting the death must be served, most courts have construed Rule 25(a) as imposing a general obligation on the noticing party to serve notice upon a deceased party's"
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2244,
+                    721,
+                    2296
+                ],
+                "angle": 0,
+                "content": "\\(^{2}\\) Rec. Doc. 16564-2."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2343,
+                    387,
+                    2395
+                ],
+                "angle": 0,
+                "content": "3 Id."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2442,
+                    675,
+                    2501
+                ],
+                "angle": 0,
+                "content": "4 Rec. Doc. 16564."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2544,
+                    675,
+                    2600
+                ],
+                "angle": 0,
+                "content": "5 Rec. Doc. 16592."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2643,
+                    675,
+                    2699
+                ],
+                "angle": 0,
+                "content": "\\(^{6}\\) Rec. Doc. 16591."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2745,
+                    675,
+                    2798
+                ],
+                "angle": 0,
+                "content": "7 Rec. Doc. 16590."
+            },
+            {
+                "block_id": 11,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2841,
+                    2256,
+                    2956
+                ],
+                "angle": 0,
+                "content": "Sampson v. ASC Indus., 780 F.3d 679, 681 (5th Cir. 2015) (citing Fed. R. Civ. P. 25(a) (emphasis in original))."
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2244,
+                    2256,
+                    2956
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    3036,
+                    1290,
+                    3078
+                ],
+                "angle": 0,
+                "content": "2"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    357,
+                    42,
+                    2190,
+                    105
+                ],
+                "angle": 0,
+                "content": "Case 2:16-md-02740-JTM-MBN Document 16813 Filed 02/23/24 Page 3 of 14"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    656
+                ],
+                "angle": 0,
+                "content": "successor or representative.”9 Additionally, determining (1) if a deceased party's claim has been “extinguished” or has “survived,” and (2) who is a “proper party” for substitution if the claim has survived, are both questions of state law.[10]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    693,
+                    2266,
+                    1940
+                ],
+                "angle": 0,
+                "content": "Thus, under Rule 25, the suggesting party must personally serve other parties and nonparty successors or representatives of the deceased with a suggestion of death.[11] As such, although a party may be served the suggestion of death by service on his or her attorney, \"service on the attorney for the plaintiff-decedent's estate will not suffice as service on the estate.\"[12] \"[P]ersonal service of the suggestion of death alerts the nonparty to the consequences of death for a pending suit, signaling the need for action to preserve the claim if so desired.\"[13] Thus, \"service of the notice of death on the personal representative for a deceased plaintiff's estate is generally required, even where it is difficult to determine who the personal representative is.\"[14] The Fifth Circuit has held that personal service is required even where the representative of the estate has actual notice of both the death of the plaintiff and the filing of a motion for substitution.[15]"
+            },
+            {
+                "block_id": 3,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2042,
+                    2254,
+                    2154
+                ],
+                "angle": 0,
+                "content": "<sup>9</sup> Major v. Plaquemines Clay Co., LLC, No. 13-5000, 2020 WL 13888746, at *2 (E.D. La. July 17, 2020) (Currault, J.)."
+            },
+            {
+                "block_id": 4,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2191,
+                    1695,
+                    2257
+                ],
+                "angle": 0,
+                "content": "<sup>10</sup> See In re Baycol Prods. Litig., 616 F.3d 778, 785 (8th Cir. 2010)."
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2293,
+                    2159,
+                    2359
+                ],
+                "angle": 0,
+                "content": "Sampson, 780 F.3d at 681 (citing Barlow v. Ground, 39 F.3d 231, 233 (9th Cir. 1994))."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2395,
+                    2251,
+                    2501
+                ],
+                "angle": 0,
+                "content": "Sampson, 780 F.3d at 681 (citing Grandbouche v. Lovell, 913 F.2d 835, 837 (10th Cir. 1990))."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    293,
+                    2544,
+                    2251,
+                    2649
+                ],
+                "angle": 0,
+                "content": "\\(^{13}\\) Sampson, 780 F.3d at 681(citing Fariss v. Lynchburg Foundry, 769 F.2d 958, 961 (4th Cir. 1985))."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2692,
+                    2256,
+                    2904
+                ],
+                "angle": 0,
+                "content": "14 Id. As the Fifth Circuit explained, \"[i]n some instances, it may prove more difficult to determine whom to serve, but it is generally appropriate to require the serving party to shoulder that burden, rather than permitting the absence of notice to decedent's representative to lead to forfeiture of the action.\" Id."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2943,
+                    2231,
+                    3003
+                ],
+                "angle": 0,
+                "content": "Sampson, 780 F.3d at 682 (citing Ransom v. Brennan, 437 F.2d 513, 515 (5th Cir. 1971))."
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2042,
+                    2256,
+                    3003
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    3036,
+                    1290,
+                    3078
+                ],
+                "angle": 0,
+                "content": "3"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    357,
+                    42,
+                    2190,
+                    105
+                ],
+                "angle": 0,
+                "content": "Case 2:16-md-02740-JTM-MBN Document 16813 Filed 02/23/24 Page 4 of 14"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2261,
+                    858
+                ],
+                "angle": 0,
+                "content": "Further, “following the service of the statement noting death, a motion for substitution of the proper party must be made within ninety days or the action must be dismissed.”<sup>16</sup> In Sampson v. ASC Industries, the Fifth Circuit held that the 90-day clock did not begin to run on the deceased plaintiff's action until the suggestion of death was personally served on the deceased plaintiff's estate pursuant to Rule 4.<sup>17</sup>"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    887,
+                    2256,
+                    1346
+                ],
+                "angle": 0,
+                "content": "Finally, Federal Rule of Civil Procedure 6 allows the representative or counsel to petition the court for an extension, for good cause, before the filing deadline has passed.[18] After the time to file has expired, a representative or counsel may move for additional time, but only “if the party failed to act because of excusable neglect.”[19]"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    364,
+                    1379,
+                    1683,
+                    1445
+                ],
+                "angle": 0,
+                "content": "1. Plaintiffs for Whom Sanofi's Motion is Moot"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1475,
+                    2264,
+                    2128
+                ],
+                "angle": 0,
+                "content": "Shortly after Sanofi filed the instant Motion, counsel for Plaintiffs Bonnie Whitehurst, Maxine Doss, Margaret Jeszenska, Sandra Morales, Eugenia Williams, and JoAnn Tullis filed Motions to Substitute.[20] Sanofi subsequently informed the Court that, in the interest of cooperation, Sanofi was withdrawing its request to dismiss those Plaintiffs.[21] Accordingly, Sanofi's Motion as to Plaintiffs Whitehurst, Doss, Jeszenka, Morales, Williams and Tullis is denied as moot."
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2392,
+                    2050,
+                    2455
+                ],
+                "angle": 0,
+                "content": "Sampson, 780 F.3d at 681 (citing FED. R. Civ. P. 25(a)(1) (emphasis in original))."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2491,
+                    907,
+                    2557
+                ],
+                "angle": 0,
+                "content": "17 Sampson, 780 F.3d at 683."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2593,
+                    963,
+                    2659
+                ],
+                "angle": 0,
+                "content": "18 See FED. R. CIV. P. 6(b)(1)(A)."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2692,
+                    882,
+                    2758
+                ],
+                "angle": 0,
+                "content": "19 FED. R. CIV. P. 6(b)(1)(B)."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2795,
+                    1481,
+                    2854
+                ],
+                "angle": 0,
+                "content": "20 Rec. Docs. 16579, 16584, 16585, 16586, 16597, 16604."
+            },
+            {
+                "block_id": 10,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2890,
+                    1379,
+                    2956
+                ],
+                "angle": 0,
+                "content": "21 Sanofi maintains that the Motions are untimely."
+            },
+            {
+                "block_id": 11,
+                "type": "list",
+                "bbox": [
+                    288,
+                    2392,
+                    2050,
+                    2956
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    3039,
+                    1290,
+                    3078
+                ],
+                "angle": 0,
+                "content": "4"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    354,
+                    46,
+                    2190,
+                    105
+                ],
+                "angle": 0,
+                "content": "Case 2:16-md-02740-JTM-MBN Document 16813 Filed 02/23/24 Page 5 of 14"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    362,
+                    300,
+                    1996,
+                    369
+                ],
+                "angle": 0,
+                "content": "2. Plaintiffs Deborah Allen, Ruth Duff, and Eleanor Risch"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    399,
+                    2254,
+                    768
+                ],
+                "angle": 0,
+                "content": "Plaintiffs Allen, Duff, and Risch, (listed in Exhibit A), filed Oppositions to Sanofi's Motion.[22] Plaintiffs' sole argument is that because Sanofi has not shown that Sanofi served any non-party successors or representatives of the deceased, the 90-day period under Rule 25 has not yet commenced.[23]"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    792,
+                    2256,
+                    1349
+                ],
+                "angle": 0,
+                "content": "At the outset, as Sanofi points out, it is Plaintiffs' counsels' burden, (as the suggesting parties), to serve the decedents' representatives—not Sanofi's. However, absent proof of personal service on non-party successors or personal representatives, if any exist, the Court cannot grant Sanofi's Motion under Sampson v. ASC Industries, as it is unclear whether the 90-day period has commenced."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1494,
+                    2254,
+                    2511
+                ],
+                "angle": 0,
+                "content": "22 Generally, it is unclear whether counsel for the deceased plaintiffs may even oppose Sanofi's Motion (or otherwise file on behalf of the decedent). However, since counsel in this MDL have, at the direction of this Court, historically filed suggestions of death and motions to substitute (as they are likely the first parties to be apprised of the death of their clients) the Court will consider the Oppositions. District courts disagree as whether an attorney for a deceased plaintiff may file a suggestion of death on behalf of the deceased plaintiff. As Judge Duval in the Eastern District explained, \"[i]t has been held that the attorney for the deceased party may not make the suggestion of death since he is not himself a party to the action and, since his authority to represent the deceased terminates on the death, he is not a 'representative of the deceased party' of the sort contemplated in the rule.\" Behler v. Nautical Offshore, No. 03-1681, 2004 WL 2491612, at *1 (E.D. La. 2004) (quoting 7C WRIGHT, MILLER, KANE, & MARCUS, FED. PRAC. AND PROC. § 1955 at 545 (3d ed., April 2023 update)). Other district courts have held the opposite. See, e.g., Jones v. Inlet Marina, Inc., 204 F.R.D. 238, 240 (E.D. N.Y. Nov. 30, 2001) (noting that it \"is permissible for the former attorney of the decedent to file the suggestion of death, even though the attorney-client relationship ceased\"). Notably, the MDL court in In re Aredia & Zometa issued a case management order requiring counsel for the deceased plaintiffs to file a suggestion of death within 60 days of the death of the plaintiff. No. 3:06-md-01760 (M.D. Tenn. July 28, 2006), ECF No. 89, 103. The order also mandated that the 90-day time period run from the initial filing of the suggestion of death—thereby modifying the deadline under Sampson. See id."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    2547,
+                    2254,
+                    2864
+                ],
+                "angle": 0,
+                "content": "This Court agrees that, in the MDL context, counsel for the decedents should bear the burden of filing suggestions of death and locating representatives for the deceased, given the sheer number of cases and the need to streamline proceedings. Notably, at the July 11, 2023 Show Cause Hearing, this Court ordered counsel for several deceased plaintiffs to file suggestions of death and/or motions for substitution; counsel often responded that counsel was in contact with the decedent's heirs. See infra note 35."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    2894,
+                    1022,
+                    2953
+                ],
+                "angle": 0,
+                "content": "23 Rec. Docs. 16623, 16625, 16627."
+            },
+            {
+                "block_id": 7,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    3039,
+                    1290,
+                    3078
+                ],
+                "angle": 0,
+                "content": "5"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    357,
+                    42,
+                    2190,
+                    105
+                ],
+                "angle": 0,
+                "content": "Case 2:16-md-02740-JTM-MBN Document 16813 Filed 02/23/24 Page 6 of 14"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2264,
+                    1059
+                ],
+                "angle": 0,
+                "content": "Sanofi argues that \"counsel for the decedent, rather than Sanofi, was the suggesting party and presumably complied with the service requirements set forth under the Federal Rules,\" and that, if Plaintiff's counsel \"did not do so, the Opposition fails to properly allege any failure of service on the Plaintiff's representatives or estate.\"[24] However, the Fifth Circuit in Sampson appeared to caution against making such a presumption.[25] Accordingly, the Motion is denied without prejudice as to Plaintiffs Allen, Duff, and Risch. Sanofi may re-urge its Motion once proof of service is filed into the record."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    359,
+                    1085,
+                    2103,
+                    1151
+                ],
+                "angle": 0,
+                "content": "3. Cases in Which No Response to Sanofi's Motion Was Filed."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1181,
+                    2264,
+                    1643
+                ],
+                "angle": 0,
+                "content": "For the same reasons, Sanofi's Motion must be denied as to the 38 remaining Plaintiffs identified in Exhibit A who did not respond to Sanofi's Motion.[26] Sanofi alleges that Suggestions of Death were filed as to those Plaintiffs and that more than 90 days have passed since service of those Suggestions of Death with no substitution of a successor or representative.[27]"
+            },
+            {
+                "block_id": 4,
+                "type": "page_footnote",
+                "bbox": [
+                    288,
+                    1745,
+                    790,
+                    1798
+                ],
+                "angle": 0,
+                "content": "24 Rec. Doc. 16625 at 3."
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    1844,
+                    2264,
+                    2712
+                ],
+                "angle": 0,
+                "content": "25 In Sampson, the district court below relied in part on the Fifth Circuit decision Ransom v. Brennan in support of its holding that Rule 4 service was not required. Sampson v. ASC Indus., 780 F.3d 679, 682 (5th Cir. 2015) (citing Ransom v. Brennan, 437 F.2d 513 (5th Cir. 1971)). In Ransom v. Brennan, the Fifth Circuit held that Rule 4 service on the executrix of an estate was required to grant a motion for substitution, even if the executrix had notice of the motion for substitution. Sampson, 780 F.3d at 682 (citing Ransom, 437 F.2d at 519). However, with regard to whether service of the notice of the defendant's death was ever perfected, the Ransom court simply stated that the defendant's attorney suggested the defendant's death on the record. Sampson, 780 F.3d at 682-83 (citing Ransom, 437 F.2d at 515). In distinguishing Ransom from the case before them, the Sampson court explained that while \"the Ransom court seemed to accept that the deceased-defendant's attorney properly suggested the defendant's death, the issue of what constituted proper service for the notice of death was not before the court.\" Id. The Sampson court also chastised the district court for making an \"inferential leap\" by way of assuming, (absent any evidence in the record), that no representative of the deceased defendant's estate was in existence when the suggestion was filed, and therefore personal service was not required to trigger Rule 25's 90-day time period."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2745,
+                    1869,
+                    2808
+                ],
+                "angle": 0,
+                "content": "26 Likewise, no nonparties made an appearance to oppose Sanofi's Motion."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    285,
+                    2844,
+                    2256,
+                    2956
+                ],
+                "angle": 0,
+                "content": "\\(^{27}\\) Rec. Doc. 16564-1 at 2 (citing Cortez v. Lamorak Ins. Co., No. 20-cv-2389, 2022 WL 1595837, at *2 (E.D. La. May 19, 2022))."
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    283,
+                    1745,
+                    2264,
+                    2956
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    3036,
+                    1290,
+                    3078
+                ],
+                "angle": 0,
+                "content": "6"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    357,
+                    42,
+                    2190,
+                    105
+                ],
+                "angle": 0,
+                "content": "Case 2:16-md-02740-JTM-MBN Document 16813 Filed 02/23/24 Page 7 of 14"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    300,
+                    2264,
+                    1151
+                ],
+                "angle": 0,
+                "content": "At most, many Certificates of Service on Plaintiffs' Suggestions of Death indicate that counsel of record was served via the Court's CM/ECF system in accordance with Federal Rule of Civil Procedure 5.[28] The Certificates make no mention, however, of service of the appropriate nonparties pursuant to Federal Rule of Civil Procedure 4. While the Court is inclined to dismiss Plaintiffs' cases (as they have remained stalled for years) the Court is constrained by the Fifth Circuit's decision in Sampson v. ASC Industries.[29] Accordingly, Sanofi's Motion is denied without prejudice as to Plaintiffs identified in Exhibit A.[30]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1181,
+                    2256,
+                    2039
+                ],
+                "angle": 0,
+                "content": "Nevertheless, the Court finds it appropriate to enter an order requiring counsel for Plaintiffs to identify and serve the appropriate nonparties, if any, under Rule 25. On numerous occasions, this Court has emphasized the need for Plaintiffs' counsel to proceed with the Rule 25 process.[31] While there is no specification in Rule 25 as to when a suggestion of death should be filed, (or when it should be personally served on a nonparty), given the advanced stage of this litigation and the number of stalled cases proceeding without a plaintiff, this Court ordered counsel for several Plaintiffs to file suggestions of death at the July 11, 2023 Show Cause Hearing.[32] Many of the cases that Sanofi now"
+            },
+            {
+                "block_id": 3,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2141,
+                    2147,
+                    2204
+                ],
+                "angle": 0,
+                "content": "28 Rec. Doc. 16564-2 (listing record document cites for Plaintiffs' Suggestions of Death)."
+            },
+            {
+                "block_id": 4,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2244,
+                    2254,
+                    2402
+                ],
+                "angle": 0,
+                "content": "29 See, e.g., Webb v. Town of St. Joseph, No. 3:12-02644, 2016 WL 2726648, at *1 (W. D. La. May 9, 2016) (citing Sampson, 780 F.3d at 683) (noting that, absent proof of service in the record, there was “no evidence that the 90-day clock has begun to tick”)."
+            },
+            {
+                "block_id": 5,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2442,
+                    2256,
+                    2752
+                ],
+                "angle": 0,
+                "content": "30 It is unclear whether the Rule 4 service requirement may be waived in certain cases. See Webb, No. 3:12-02644, 2016 WL 2726648, at *1–2 (citing Atkins v. City of Chicago, 547 F.3d 869, 873-74 (7th Cir. 2008) (recognizing an exception to personal service under Rule 25)). However, no party has argued that Rule 4 service is not required, and other district courts in Louisiana have noted that such an argument is contrary to Sampson and the plain text of Federal Rule of Civil Procedure 25. See Webb, No. 3:12-02644, 2016 WL 2726648, at *1–2."
+            },
+            {
+                "block_id": 6,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2795,
+                    2256,
+                    2904
+                ],
+                "angle": 0,
+                "content": "31 Sanofi also alleges that it began filing Suggestions of Death after Plaintiffs' counsels' repeated failure to do so. Rec. Doc. 16623 at 1, n.1."
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    290,
+                    2943,
+                    696,
+                    2999
+                ],
+                "angle": 0,
+                "content": "32 Rec. Doc. 16199."
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2141,
+                    2256,
+                    2999
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    3036,
+                    1290,
+                    3078
+                ],
+                "angle": 0,
+                "content": "7"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    357,
+                    42,
+                    2190,
+                    105
+                ],
+                "angle": 0,
+                "content": "Case 2:16-md-02740-JTM-MBN Document 16813 Filed 02/23/24 Page 8 of 14"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    283,
+                    303,
+                    2264,
+                    577
+                ],
+                "angle": 0,
+                "content": "requests be dismissed were identified as non-compliant and addressed at the Hearing.[33] Notably, at the Hearing, counsel informed the Court that they were in contact with representatives for the deceased.[34]"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    283,
+                    594,
+                    2256,
+                    1059
+                ],
+                "angle": 0,
+                "content": "Counsel for Plaintiffs have had nearly seven months since the Show Cause Hearing—and in many cases, years since the death of their clients—to comply with the requirements of Rule 25.[35] Accordingly, counsel for any Plaintiff listed in Exhibit A will be required to effect personal service on the proper nonparties under Rule 25."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    1060,
+                    1181,
+                    1486,
+                    1250
+                ],
+                "angle": 0,
+                "content": "CONCLUSION"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1280,
+                    2266,
+                    1643
+                ],
+                "angle": 0,
+                "content": "For the foregoing reasons, Sanofi's Motion is DENIED. IT IS ORDERED that the Motion is DENIED AS MOOT with respect to Plaintiffs Bonnie Whitehurst, Maxine Doss, Margaret Jeszenska, Sandra Morales, Eugenia Williams, and JoAnn Tullis."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1669,
+                    2256,
+                    1933
+                ],
+                "angle": 0,
+                "content": "IT IS FURTHER ORDERED that the Motion is DENIED WITHOUT PREJUDICE as to Plaintiffs identified in Exhibit A. The Motion may be re-urged once proof of service is filed into the record."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    283,
+                    1960,
+                    2256,
+                    2128
+                ],
+                "angle": 0,
+                "content": "IT IS FURTHER ORDERED that counsel for Plaintiffs identified in Exhibit A shall:"
+            },
+            {
+                "block_id": 7,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2395,
+                    736,
+                    2448
+                ],
+                "angle": 0,
+                "content": "33 Rec. Doc. 16564-2."
+            },
+            {
+                "block_id": 8,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2494,
+                    2256,
+                    2755
+                ],
+                "angle": 0,
+                "content": "34 Rec. Doc. 16199 at 76:25-77:1 (counsel for Sandra Lemarr stated that \"we are in touch with her heirs and can [file a suggestion of death]\"; id. at 36:1-3 (counsel for Deborah Allen stated that he contacted Deborah Allen's family); id. at 109:7-21 (counsel for Jean A. Brand noted that she was working with the family of the decedent to obtain probate documents and would follow up in 30 days)."
+            },
+            {
+                "block_id": 9,
+                "type": "page_footnote",
+                "bbox": [
+                    283,
+                    2795,
+                    2256,
+                    3003
+                ],
+                "angle": 0,
+                "content": "35 Additionally, in the Wave 2 Transfer Order, the Court deferred the transfer of cases in which no substitution was made and reiterated that \"if a representative plaintiff does not appear within the timeframe allowed by Federal Rule of Civil Procedure 25, these cases will be dismissed.\" Rec. Doc. 16519 at 1."
+            },
+            {
+                "block_id": 10,
+                "type": "list",
+                "bbox": [
+                    283,
+                    2395,
+                    2256,
+                    3003
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    3039,
+                    1290,
+                    3078
+                ],
+                "angle": 0,
+                "content": "8"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    357,
+                    46,
+                    2190,
+                    105
+                ],
+                "angle": 0,
+                "content": "Case 2:16-md-02740-JTM-MBN Document 16813 Filed 02/23/24 Page 9 of 14"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    438,
+                    300,
+                    2264,
+                    567
+                ],
+                "angle": 0,
+                "content": "1. File, within SEVEN (7) DAYS from entry of this Order, proof of service of the suggestion of death if service of the suggestion of death has been effected."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    436,
+                    594,
+                    2256,
+                    956
+                ],
+                "angle": 0,
+                "content": "2. If such service has not been effected, counsel shall have FIFTEEN (15) DAYS from the entry of this Order to serve the suggestion of death in accordance with the requirements of Rules 4 and 25 and file proof of such service into the record."
+            },
+            {
+                "block_id": 3,
+                "type": "list",
+                "bbox": [
+                    436,
+                    300,
+                    2264,
+                    956
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    288,
+                    986,
+                    2264,
+                    1151
+                ],
+                "angle": 0,
+                "content": "Failure to comply with this Order shall result in the dismissal of Plaintiffs' cases."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1280,
+                    1892,
+                    1349
+                ],
+                "angle": 0,
+                "content": "New Orleans, Louisiana, this 23rd day of February, 2024."
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1178,
+                    1432,
+                    2233,
+                    1765
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    3036,
+                    1292,
+                    3078
+                ],
+                "angle": 0,
+                "content": "9"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    344,
+                    46,
+                    2200,
+                    105
+                ],
+                "angle": 0,
+                "content": "Case 2:16-md-02740-JTM-MBN Document 16813 Filed 02/23/24 Page 10 of 14"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    836,
+                    323,
+                    1718,
+                    462
+                ],
+                "angle": 0,
+                "content": "EXHIBIT A"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    344,
+                    49,
+                    2200,
+                    105
+                ],
+                "angle": 0,
+                "content": "Case 2:16-md-02740-JTM-MBN Document 16813 Filed 02/23/24 Page 11 of 14"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    321,
+                    290,
+                    2414,
+                    2910
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Plaintiff</td><td>Case No.</td><td>Filing Date</td><td>Counsel</td><td>Suggestion of Death Filed</td><td>SOD Rec. Doc. #</td><td>Date of Death</td></tr><tr><td>Lemarr, Sandra†</td><td>2:17-cv-03739</td><td>4/21/2017</td><td>Davis &amp; Crump, PC</td><td>8/9/2023</td><td>16285</td><td>12/2/2017</td></tr><tr><td>Terry, Toneka†</td><td>2:17-cv-01637</td><td>2/27/2017</td><td>Pendley Baudin &amp; Coffin LLP</td><td>6/28/2023</td><td>16026</td><td>None identified in SOD</td></tr><tr><td>Hammond, Vickie S†</td><td>2:17-cv-17516</td><td>12/19/2017</td><td>Fears Nachawat i, PLLC</td><td>6/15/2023</td><td>15980</td><td>None identified in SOD</td></tr><tr><td>Campbell, Faith C†</td><td>2:18-cv-07921</td><td>8/20/2018</td><td>Pendley Baudin &amp; Coffin LLP</td><td>6/28/2023</td><td>16027</td><td>None identified in SOD</td></tr><tr><td>Allen, Deborah* †</td><td>2:19-cv-14597</td><td>12/12/2019</td><td>Niemeyer Grebel &amp; Kruse LLC</td><td>8/3/2023</td><td>16258</td><td>10/25/2020</td></tr><tr><td>Perez, Vera†</td><td>2:18-cv-11885</td><td>11/29/2018</td><td>Bachus &amp; Schanker LLC</td><td>3/20/2023</td><td>15698</td><td>10/26/2020</td></tr><tr><td>Brand, Jean A*†</td><td>2:17-cv-06250</td><td>6/28/2017</td><td>Bachus &amp; Schanker LLC</td><td>8/2/2023</td><td>16241</td><td>12/19/2020</td></tr><tr><td>Washington, Joann†</td><td>2:17-cv-15143</td><td>12/6/2017</td><td>Atkins &amp; Markoff</td><td>6/30/2023</td><td>16042</td><td>4/29/2020</td></tr><tr><td>Kamali, Donna</td><td>2:19-cv-14169</td><td>12/6/2019</td><td>TorHoerman Law LLC</td><td>6/21/2022</td><td>14301</td><td>3/21/2021</td></tr><tr><td>Stillwell, Juanita</td><td>2:17-cv-17723</td><td>12/22/2017</td><td>McGartla nd Law Firm PLLC</td><td>5/9/2023</td><td>15820</td><td>None identified in SOD</td></tr><tr><td>Polete, Rebecca G.*</td><td>2:17-cv-08767</td><td>9/8/2017</td><td>Watts Guerra Craft LLP</td><td>8/12/2022</td><td>14513</td><td>1/27/2022</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "page_number",
+                "bbox": [
+                    1262,
+                    3154,
+                    1285,
+                    3194
+                ],
+                "angle": 0,
+                "content": "1"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    344,
+                    49,
+                    2200,
+                    105
+                ],
+                "angle": 0,
+                "content": "Case 2:16-md-02740-JTM-MBN Document 16813 Filed 02/23/24 Page 12 of 14"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    219,
+                    293,
+                    2414,
+                    2884
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Lawrence, Sharon L</td><td>2:17-cv-06807</td><td>7/17/2017</td><td>McGartland Law Firm PLLC</td><td>5/9/2023</td><td>15821</td><td>None identified in SOD</td></tr><tr><td>Pointer, Barbara</td><td>2:17-cv-12101</td><td>11/8/2017</td><td>McGartland Law Firm PLLC</td><td>7/26/2021</td><td>13142</td><td>None identified in SOD</td></tr><tr><td>Labrot, Deane†</td><td>2:17-cv-18007</td><td>12/30/2017</td><td>Bachus &amp; Schanker LLC</td><td>3/20/2023</td><td>15697</td><td>2/20/2019</td></tr><tr><td>Tomblin, Alice</td><td>2:17-cv-10519</td><td>10/11/2017</td><td>Lowe Law Group</td><td>4/25/2022</td><td>14100</td><td>4/9/2019</td></tr><tr><td>Rutledge, Elaine†</td><td>2:17-cv-14521</td><td>12/4/2017</td><td>Brown and Crouppen, PC</td><td>7/7/2023</td><td>16114</td><td>None identified in SOD</td></tr><tr><td>Lee, Wanda</td><td>2:17-cv-09658</td><td>9/26/2017</td><td>McGartland Law Firm PLLC</td><td>8/8/2023</td><td>16279</td><td>None identified in SOD</td></tr><tr><td>Hernandez, Faith†</td><td>2:18-cv-13427</td><td>12/11/2018</td><td>Bachus &amp; Schanker LLC</td><td>3/20/2023</td><td>15700</td><td>5/5/2020</td></tr><tr><td>Ramsey, Jamie</td><td>2:19-cv-13902</td><td>11/26/2019</td><td>Fears Nachawati, PLLC</td><td>8/25/2022</td><td>14554</td><td>6/10/2020</td></tr><tr><td>White, Patricia</td><td>2:18-cv-11641</td><td>11/28/2018</td><td>Bachus &amp; Schanker LLC</td><td>9/28/2022</td><td>14754</td><td>6/20/2020</td></tr><tr><td>Wright, Druscilla*</td><td>2:17-cv-15209</td><td>12/6/2017</td><td>Atkins &amp; Markoff</td><td>8/3/2023</td><td>16249</td><td>10/1/2020</td></tr><tr><td>Green, Arlene†</td><td>2:17-cv-10107</td><td>10/4/2017</td><td>Bachus &amp; Schanker LLC</td><td>3/20/2023</td><td>15696</td><td>12/3/2020</td></tr><tr><td>Duff, Ruth A*</td><td>2:17-cv-15673</td><td>12/7/2017</td><td>Niemeyer, Grebel &amp; Kruse LLC</td><td>8/3/2023</td><td>16257</td><td>1/13/2021</td></tr><tr><td>Coleman, Ada*</td><td>2:17-cv-14032</td><td>12/1/2017</td><td>Davis &amp; Crump, PC</td><td>7/28/2023</td><td>16224</td><td>2/14/2021</td></tr><tr><td>Bird, Susan E*</td><td>2:17-cv-14203</td><td>12/4/2017</td><td>Atkins &amp; Markoff</td><td>8/3/2023</td><td>16253</td><td>3/5/2021</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "page_number",
+                "bbox": [
+                    1259,
+                    3154,
+                    1290,
+                    3194
+                ],
+                "angle": 0,
+                "content": "2"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    344,
+                    49,
+                    2200,
+                    105
+                ],
+                "angle": 0,
+                "content": "Case 2:16-md-02740-JTM-MBN Document 16813 Filed 02/23/24 Page 13 of 14"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    219,
+                    290,
+                    2419,
+                    2917
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Gaston, Mary†</td><td>2:17-cv-07121</td><td>7/26/2017</td><td>Bachus &amp; Schanker LLC</td><td>3/20/2023</td><td>15695</td><td>3/13/2021</td></tr><tr><td>Hunt, MarlaK</td><td>2:19-cv-02292</td><td>3/12/2019</td><td>Lowe Law Group</td><td>4/26/2022</td><td>14119</td><td>8/22/2021</td></tr><tr><td>Deppe, Linda*</td><td>2:17-cv-15574</td><td>12/7/2017</td><td>Goldenberg Heller &amp; Antognoli, P.C.</td><td>7/13/2023</td><td>16168</td><td>10/3/2021</td></tr><tr><td>Hawks, Barbara*</td><td>2:19-cv-12576</td><td>9/12/2019</td><td>Bachus &amp; Schanker LLC</td><td>8/2/2023</td><td>16242</td><td>10/8/2022</td></tr><tr><td>Dials, Ernestine†</td><td>2:19-cv-13769</td><td>11/22/2019</td><td>Bachus &amp; Schanker LLC</td><td>3/20/2023</td><td>15694</td><td>5/28/2022</td></tr><tr><td>Bass, Sheila*</td><td>2:19-cv-13112</td><td>10/11/2019</td><td>Bachus &amp; Schanker LLC</td><td>8/1/2023</td><td>16236</td><td>None identified in SOD</td></tr><tr><td>Chernauskas, Carol*</td><td>2:19-cv-14411</td><td>12/10/2019</td><td>Atkins &amp; Markoff</td><td>8/3/2023</td><td>16252</td><td>10/12/2018</td></tr><tr><td>Cooks, Frankie*</td><td>2:17-cv-14240</td><td>12/4/2017</td><td>Atkins &amp; Markoff</td><td>8/3/2023</td><td>16251</td><td>7/26/2022</td></tr><tr><td>Logan, Mattie*</td><td>2:19-cv-06151</td><td>4/1/2019</td><td>Murray Law Firm</td><td>8/2/2023</td><td>16243</td><td>5/16/2023</td></tr><tr><td>Mcfarland, Karen*</td><td>2:17-cv-06231</td><td>6/28/2017</td><td>Pendley, Baudin &amp; Coffin, LLP</td><td>8/2/2023</td><td>16244</td><td>None identified in SOD</td></tr><tr><td>Patrick, Tracey*</td><td>2:17-cv-15654</td><td>12/7/2017</td><td>Andrews Thornton Higgins Razmara, LLP</td><td>8/3/2023</td><td>16254</td><td>10/6/2022</td></tr><tr><td>Risch, Eleanor*</td><td>2:17-cv-08946</td><td>9/12/2017</td><td>Niemeyer Grebel &amp; Kruse LLC</td><td>8/3/2023</td><td>16259</td><td>2/9/2023</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "page_number",
+                "bbox": [
+                    1259,
+                    3154,
+                    1290,
+                    3194
+                ],
+                "angle": 0,
+                "content": "3"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    344,
+                    49,
+                    2200,
+                    105
+                ],
+                "angle": 0,
+                "content": "Case 2:16-md-02740-JTM-MBN Document 16813 Filed 02/23/24 Page 14 of 14"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    219,
+                    290,
+                    2422,
+                    1122
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Schlaepfer, \nReba*</td><td>2:17-cv-12926</td><td>11/21/2017</td><td>Pendley, Baudin &amp; Coffin, L.L.P.</td><td>8/2/2023</td><td>16248</td><td>None identified in SOD</td></tr><tr><td>Smith, \nFrances*</td><td>2:17-cv-13654</td><td>11/29/2017</td><td>Robins Kaplan LLP</td><td>7/19/2023</td><td>16193</td><td>None identified in SOD</td></tr><tr><td>Wahlgren, \nRoselyne*</td><td>2:18-cv-12598</td><td>12/6/2018</td><td>Atkins &amp; Markoff</td><td>8/3/2023</td><td>16250</td><td>3/25/2023</td></tr><tr><td>Williams, Denise*</td><td>2:17-cv-16621</td><td>12/11/2017</td><td>McSweeney/Langevin LLC</td><td>7/31/2023</td><td>16227</td><td>None identified in SOD</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "table_footnote",
+                "bbox": [
+                    298,
+                    1300,
+                    1162,
+                    1356
+                ],
+                "angle": 0,
+                "content": "* included in Wave 2 Non-Transfer Order"
+            },
+            {
+                "block_id": 3,
+                "type": "table_footnote",
+                "bbox": [
+                    295,
+                    1362,
+                    1433,
+                    1428
+                ],
+                "angle": 0,
+                "content": "\\(\\dagger\\) previously identified in PTO 22A non-compliance list"
+            },
+            {
+                "block_id": 4,
+                "type": "list",
+                "bbox": [
+                    295,
+                    1300,
+                    1433,
+                    1428
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "page_number",
+                "bbox": [
+                    1259,
+                    3154,
+                    1290,
+                    3194
+                ],
+                "angle": 0,
+                "content": "4"
+            }
+        ]
+    }
+]

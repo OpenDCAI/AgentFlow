@@ -5,7 +5,12 @@ import openai
 from tqdm import trange
 
 openai.api_key = os.environ.get("OPENAI_API_KEY", "")
-openai.base_url = os.environ.get("OPENAI_API_URL", os.environ.get("OPENAI_API_BASE", ""))
+openai.base_url = (
+    os.environ.get("OPENAI_API_URL")
+    or os.environ.get("OPENAI_API_BASE")
+    or os.environ.get("OPENAI_BASE_URL")
+    or ""
+)
 
 _FAISS_AVAILABLE = True
 try:

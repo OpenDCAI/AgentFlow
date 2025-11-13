@@ -1,0 +1,3969 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    650,
+                    468,
+                    1912,
+                    617
+                ],
+                "angle": 0,
+                "content": "RAR: Retrieving And Ranking Augmented MLLMs for Visual Recognition"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    586,
+                    699,
+                    1973,
+                    1102
+                ],
+                "angle": 0,
+                "content": "Ziyu Liu\\(^{1,4}\\), Zeyi Sun\\(^{2,4}\\), Yuhang Zang\\(^{4}\\), Wei Li\\(^{6}\\), Pan Zhang\\(^{4}\\), Xiaoyi Dong\\(^{4}\\), Yuanjun Xiong\\(^{5}\\), Dahua Lin\\(^{3,4}\\), Jiaqi Wang\\(^{\\dagger 4}\\)  \n\\(^{1}\\)Wuhan University \\(^{2}\\)Shanghai Jiao Tong University \\(^{3}\\)The Chinese University of Hong Kong \\(^{4}\\)Shanghai AI Laboratory \\(^{5}\\)MThreads, Inc. \\(^{6}\\)Nanyang Technological University  \n2020302121195@whu.edu.cn, szy2023@sjtu.edu.cn, {zangyuhang, zhangpan, dongxiaoyi, wangjiaqi} @pjlab.org.cn  \nhttps://github.com/Liuziyu77/RAR"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    668,
+                    1234,
+                    1917,
+                    2333
+                ],
+                "angle": 0,
+                "content": "Abstract. CLIP (Contrastive Language-Image Pre-training) uses contrastive learning from noise image-text pairs to excel at recognizing a wide array of candidates, yet its focus on broad associations hinders the precision in distinguishing subtle differences among fine-grained items. Conversely, Multimodal Large Language Models (MLLMs) excel at classifying fine-grained categories, thanks to their substantial knowledge from pre-training on web-level corpora. However, the performance of MLLMs declines with an increase in category numbers, primarily due to growing complexity and constraints of limited context window size. To synergize the strengths of both approaches and enhance the few-shot/zero-shot recognition abilities for datasets characterized by extensive and fine-grained vocabularies, this paper introduces RAR, a Retrieving And Ranking augmented method for MLLMs. We initially establish a multi-modal retriever based on CLIP to create and store explicit memory for different categories beyond the immediate context window. During inference, RAR retrieves the top-\\(k\\) similar results from the memory and uses MLLMs to rank and make the final predictions. Our proposed approach not only addresses the inherent limitations in fine-grained recognition but also preserves the model's comprehensive knowledge base, significantly boosting accuracy across a range of vision-language recognition tasks. Notably, our approach demonstrates a significant improvement in performance on 5 fine-grained visual recognition benchmarks, 11 few-shot image recognition datasets, and the 2 object detection datasets under the zero-shot recognition setting."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    668,
+                    2376,
+                    1874,
+                    2425
+                ],
+                "angle": 0,
+                "content": "Keywords: MLLM \\(\\cdot\\) Fine-Grained \\(\\cdot\\) Few-shot \\(\\cdot\\) Zero-shot Recognition"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    550,
+                    2514,
+                    958,
+                    2570
+                ],
+                "angle": 0,
+                "content": "1 Introduction"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2620,
+                    2009,
+                    2778
+                ],
+                "angle": 0,
+                "content": "The CLIP (Contrastive Language-Image Pre-training) [41] model and its diverse variants [8, 26, 45] provide flexible and robust performance across a wide array of visual-language understanding tasks. Despite its successes, we observe that"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    555,
+                    386,
+                    586,
+                    419
+                ],
+                "angle": 0,
+                "content": "2"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    693,
+                    382,
+                    946,
+                    425
+                ],
+                "angle": 0,
+                "content": "Ziyu Liu et al."
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    599,
+                    498,
+                    1203,
+                    1009
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    1213,
+                    498,
+                    1945,
+                    1006
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    599,
+                    1013,
+                    1943,
+                    1343
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Fig.1: Upper left: our motivation about the drawbacks of CLIP and MLLM. Our RAR can seamlessly integrate into MLLMs to improve the few-shot/zero-shot abilities on classification (upper right) and detection (bottom) datasets."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1557,
+                    2011,
+                    1808
+                ],
+                "angle": 0,
+                "content": "CLIP's performance begins to wane when faced with datasets characterized by vast vocabularies or fine-grained categories. As shown in the upper left of Fig. 1, the decline is largely attributable to the inherent ambiguity of language descriptions and the challenges posed by synonyms, which can confound the model's ability to distinguish between closely related but distinct classes."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1818,
+                    2014,
+                    2415
+                ],
+                "angle": 0,
+                "content": "Parallel to these developments, Multi-modal Large Language Models (MLLMs) have emerged as a powerful class of generative models, exemplified by the likes of GPT-4V [38] and analogous advancements [1-3, 6, 29, 40, 49, 55, 56, 60]. MLLMs, pre-trained on extensive corpora with substantial knowledge, demonstrate remarkable proficiency in identifying fine-grained categories when the total number of candidates remains manageable. Nevertheless, MLLMs' efficacy is similarly compromised in scenarios involving extensive vocabularies and fine-grained categorizations (upper left of Fig. 1). The core of the issue lies in MLLMs facing significant challenges in managing large context windows (e.g., maximum 2k tokens for LLaVA1.5 [28]), a critical requirement for accurate processing and interpreting tasks that demand a nuanced understanding of vast vocabularies and subtle distinctions."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2425,
+                    2011,
+                    2781
+                ],
+                "angle": 0,
+                "content": "To address these challenges, we propose augmenting standard MLLMs with our RAR, a retrieving-and-ranking augmented technique. Our RAR enables models to dynamically incorporate external knowledge into the processing and generation workflows. By augmenting MLLMs with external knowledge sources, we address challenges related to language ambiguity, synonym handling, and the limitations imposed by limited context windows when dealing with vast vocabularies. Our method uses the inherent strength of MLLMs in generalizing from"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    594,
+                    379,
+                    1866,
+                    425
+                ],
+                "angle": 0,
+                "content": "RAR: Retrieving And Ranking Augmented MLLMs for Visual Recognition"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1976,
+                    386,
+                    2006,
+                    419
+                ],
+                "angle": 0,
+                "content": "3"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    545,
+                    485,
+                    2009,
+                    1082
+                ],
+                "angle": 0,
+                "content": "existing knowledge while addressing their limitations in visual recognition. We first construct a multi-modal retriever that creates and stores multimodal embeddings for visual images and text descriptions. As shown in Fig. 1, upon receiving an input image at the inference stage, our approach retrieves the top-\\(k\\) class names most similar to the image. Subsequently, the MLLMs rank these retrieved candidate results as the final prediction results. To bolster the MLLMs' ranking performance, we explore fine-tuning with ranking format data or in-context learning examples without training. By integrating our retrieval-augmented design, our approach seeks to bridge the gap between the broad generalization capabilities of MLLMs and the need for precise, fine-grained categorization, offering a path forward that preserves the model's extensive knowledge base while significantly boosting its performance on downstream tasks."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1085,
+                    2009,
+                    1534
+                ],
+                "angle": 0,
+                "content": "To evaluate our method's efficacy, we conducted benchmarks in three areas: (1) fine-grained visual recognition across 5 benchmarks, (2) few-shot image recognition across 11 datasets, and (3) zero-shot object recognition on 2 object detection datasets with vast vocabularies (e.g., 13204 classes of V3Det [48]). As presented in the right part of Fig. 1, our findings reveal that our approach notably enhances few-shot learning abilities, yielding an average improvement of \\(6.2\\%\\) over 11 image classification datasets under the 4-shot setting. Furthermore, our method achieves a \\(6.4\\%\\) improvement on the LVIS dataset and a \\(1.5\\%\\) gain on the V3Det dataset in zero-shot object recognition performance."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1534,
+                    2009,
+                    1989
+                ],
+                "angle": 0,
+                "content": "In summary, our key contributions are outlined as follows: (1) We conduct an in-depth analysis of the strengths and weaknesses of VLMs and MLLMs in processing fine-grained datasets. (2) To enhance the fine-grained few-shot and zero-shot perception capabilities of MLLMs, we introduce RAR with a multimodal retriever and the inference pipeline based on retrieving and ranking. (3) Our RAR can be seamlessly integrated into various MLLMs in a plug-and-play manner. (4) Through rigorous testing across 11 classification datasets and 2 object detection datasets, we demonstrate that our method outperforms baselines on a variety of visual recognition tasks."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    550,
+                    2062,
+                    989,
+                    2118
+                ],
+                "angle": 0,
+                "content": "2 Related Work"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2174,
+                    2009,
+                    2778
+                ],
+                "angle": 0,
+                "content": "Contrastive Language-Image Pre-training (CLIP) [41] understands images and texts by contrastive learning from a vast amount of visual data paired with natural language descriptions. CLIP has robust capabilities in downstream tasks including image-text retrieval [54], zero-shot classification [12, 58], and open-vocabulary perception [13, 59]. Following CLIP, many subsequent vision-language models [8, 10, 18, 23, 24, 26, 33, 46, 53, 57] are proposed to further improve the vision-language understanding abilities. There are also works done to improve CLIP in zero-shot perception tasks [27, 42, 44, 52]. However, simple dot-product between two unimodality features can lead to sub-optimal results for fine-grained classification. In this paper, we demonstrate that CLIP faces challenges in making accurate zero-shot predictions for fine-grained classes, and how our proposed method can effectively re-rank these predictions to improve the accuracy."
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    555,
+                    386,
+                    586,
+                    419
+                ],
+                "angle": 0,
+                "content": "4"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    693,
+                    379,
+                    943,
+                    425
+                ],
+                "angle": 0,
+                "content": "Ziyu Liu et al."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    545,
+                    481,
+                    2009,
+                    1230
+                ],
+                "angle": 0,
+                "content": "Multimodal Large Language Models (MLLMs) such as GPT4V [38], represent a significant evolution in the landscape of Large Language Models (LLMs) by integrating visual images as input tokens alongside textual information. The integration is facilitated through the use of an additional vision encoder [41] and a bridging mechanism [1-3, 6, 29, 40, 49, 55, 56, 60]. MLLMs significantly enhance the interaction between humans and AI in more natural and intuitive ways and demonstrate remarkable capabilities in understanding and generating multi-modal content. Despite their prowess, our research uncovers a nuanced limitation: MLLMs tend to underperform in tasks requiring vast vocabularies, where distinguishing subtle differences among different categories is crucial. However, we prove that MLLMs exhibit a strong ability to excel in the re-ranking of top results obtained through vision-language models such as CLIP. Fine-R [31] first delves into leveraging MLLMs for fine-grained perception tasks by prompt design for better descriptions and attributes. We find a new way to prompt it with possible candidates to help screening and achieve better performance."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1234,
+                    2009,
+                    1831
+                ],
+                "angle": 0,
+                "content": "Retrieval-Augmented Generation (RAG) [21] refers to the solution of incorporating knowledge from external databases for LLMs, which helps reduce hallucination, continuous knowledge updates, and integration of domain-specific information. Specifically, RAG models first retrieve the relevant knowledge to the given text query from the external knowledge base and then augment the LLMs with the retrieved knowledge. In computer vision, some previous works explore retrieval-augmented approaches with VLMs for long-tailed classification [17,32], image-text retrieval [30] or image generation [54]. Different from previous works, our paper first designs a retrieval-augmented solution for MLLMs. Our research investigates how incorporating image-image retrieval, image-text retrieval, and an explicit memory component can enhance the zero-shot and few-shot capabilities of MLLMs."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    550,
+                    1900,
+                    971,
+                    1960
+                ],
+                "angle": 0,
+                "content": "3 Methodology"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1999,
+                    2006,
+                    2204
+                ],
+                "angle": 0,
+                "content": "We first provide the background information on CLIP, MLLMs, and retrieval augmentation in LLMs (Sec. 3.1). Then we present the multi-modal retriever (Sec. 3.2) module of RAR and how to apply RAR on downstream tasks via retrieving and ranking (Sec. 3.3)."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    550,
+                    2267,
+                    951,
+                    2313
+                ],
+                "angle": 0,
+                "content": "3.1 Preliminaries"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2343,
+                    2006,
+                    2547
+                ],
+                "angle": 0,
+                "content": "CLIP is a model combining an image encoder \\(\\varPhi_{\\mathrm{img}}\\) and a text encoder \\(\\varPhi_{\\mathrm{txt}}\\) that uses contrastive learning to understand and align images and text by training on a vast dataset gathered from the web. The core mechanism of CLIP involves mapping an input image \\(\\mathcal{I}\\) to its most semantically similar category \\(c \\in \\mathcal{C}\\):"
+            },
+            {
+                "block_id": 8,
+                "type": "equation",
+                "bbox": [
+                    877,
+                    2570,
+                    2006,
+                    2646
+                ],
+                "angle": 0,
+                "content": "\\[\np (y = c | \\mathbf {x}) = \\underset {c \\in \\mathcal {C}} {\\arg \\max} \\cos (\\varPhi_ {\\mathrm {i m g}} (\\mathcal {I}), \\varPhi_ {\\mathrm {t x t}} (c)), \\tag {1}\n\\]"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2673,
+                    2006,
+                    2778
+                ],
+                "angle": 0,
+                "content": "where \\(y\\) represents the predicted category, \\(\\mathcal{C}\\) refers to the whole categories list and \\(\\cos (\\cdot ,\\cdot)\\) denotes to the cosine similarity."
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    594,
+                    379,
+                    1866,
+                    432
+                ],
+                "angle": 0,
+                "content": "RAR: Retrieving And Ranking Augmented MLLMs for Visual Recognition"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1978,
+                    386,
+                    2004,
+                    419
+                ],
+                "angle": 0,
+                "content": "5"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    545,
+                    485,
+                    2009,
+                    841
+                ],
+                "angle": 0,
+                "content": "Multimodal Large Language Models such as GPT4V [38] learning to generate predictions over sequences of tokens that span both image and text modalities. The MLLM model \\( f \\), parameterized by weights \\( \\theta \\), conditioned on the input sequences \\( \\mathbf{x} = (x_{1},\\ldots ,x_{L_{in}}) \\) of length \\( L_{in} \\), which consist of both text tokens \\( \\mathbf{x}_{\\mathrm{txt}} \\) and visual tokens \\( \\mathbf{x}_{\\mathrm{img}} \\). The \\( \\mathbf{x}_{\\mathrm{img}} \\) are extracted from the input image \\( \\mathcal{I} \\) via the image encoder \\( \\varPhi_{\\mathrm{img}} \\). MLLM model forecast a sequence of output tokens \\( \\mathbf{y} = (y_{1},\\dots ,y_{L_{out}}) \\) of length \\( L_{out} \\) as follows:"
+            },
+            {
+                "block_id": 3,
+                "type": "equation",
+                "bbox": [
+                    619,
+                    874,
+                    2004,
+                    966
+                ],
+                "angle": 0,
+                "content": "\\[\np _ {\\theta} (\\mathbf {y} | \\mathbf {x}) = \\prod_ {l = 1} ^ {L _ {o u t}} p _ {\\theta} (y _ {l} | \\mathbf {x}, \\mathbf {y} _ {\\le l - 1}) = \\prod_ {l = 1} ^ {L _ {o u t}} \\operatorname {s o f t m a x} (f (\\mathbf {x}, \\mathbf {y} _ {\\le l - 1}; \\theta)) _ {y _ {l}}, \\qquad (2)\n\\]"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    545,
+                    999,
+                    1999,
+                    1098
+                ],
+                "angle": 0,
+                "content": "where \\(\\mathbf{y}_{\\leq l - 1} \\coloneqq (y_1, \\ldots, y_{l - 1})\\) refers to the mechanism that predicts the distribution of the next token considering all previously generated tokens."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1098,
+                    2009,
+                    1452
+                ],
+                "angle": 0,
+                "content": "Retrieval-Augmentation in Large Language Models introduces a retrieval module \\( R \\) with the LLM parameterized by \\( \\theta \\) for generation. The retrieval module \\( R \\) is designed to process an input sequence \\( \\mathbf{x} \\) against an external memory of documents \\( \\mathcal{M} \\), efficiently selecting a subset of documents \\( M \\subseteq \\mathcal{M} \\). The subset \\( M \\) is then fed along with the original input sequence \\( \\mathbf{x} \\) into the LLM \\( \\theta \\), which uses both the input and the context provided by retrieved results to generate the target output \\( \\mathbf{y} \\):"
+            },
+            {
+                "block_id": 6,
+                "type": "equation",
+                "bbox": [
+                    905,
+                    1485,
+                    2004,
+                    1574
+                ],
+                "angle": 0,
+                "content": "\\[\np _ {\\theta} (\\mathbf {y} | \\mathbf {x}, M) = \\prod_ {l = 1} ^ {L _ {o u t}} p _ {\\theta} \\left(y _ {l} | \\mathbf {x}, M, \\mathbf {y} _ {\\leq l - 1}\\right). \\tag {3}\n\\]"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    548,
+                    1640,
+                    1132,
+                    1686
+                ],
+                "angle": 0,
+                "content": "3.2 Multimodal Retriever"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1725,
+                    2009,
+                    2121
+                ],
+                "angle": 0,
+                "content": "The multimodal retriever is essentially responsible for querying a large multimodal external memory or database to find information relevant to the input query or context. In the process of multimodal retriever, the main challenge lies in efficiently encoding and storing a large volume of images/text embeddings for quick, accurate retrieval. Recognizing the main challenge, as shown in Fig. 2, we have developed a multi-modal retriever that creates and stores multimodal embeddings, with a focus on optimizing retrieval speed through index construction techniques."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2125,
+                    2009,
+                    2574
+                ],
+                "angle": 0,
+                "content": "Extracting the Multi-modal Embeddings. We use the CLIP model discussed in Sec. 3.1 to extract the multi-modal embeddings. Given a data sample \\((x_{i},c_{i})\\) from the dataset \\(\\mathcal{D}\\) containing the image \\(x_{i}\\) and class name \\(c_{i}\\), we use the CLIP image encoder \\(\\varPhi_{\\mathrm{img}}\\) to extract the image embedding \\(e_{\\mathrm{img}}\\in \\mathbb{R}^d\\) and the CLIP text encoder \\(\\varPhi_{\\mathrm{text}}\\) to extract the text embedding \\(e_{\\mathrm{text}}\\in \\mathbb{R}^d\\). The symbol \\(d\\) refers to the feature dimension (e.g., \\(d = 576\\) for CLIP ViT-B/16). The image and text embeddings are stored in the memory \\(\\mathcal{M}\\) for retrieval (will discuss in Sec. 3.3). In some zero-shot settings, the image embedding is not available and we merely store the text embedding into the memory."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2574,
+                    2009,
+                    2778
+                ],
+                "angle": 0,
+                "content": "Fast Retrieval Optimization. The brute force search is the common method for designing the retriever, which requires iteration over all vectors in the memory \\(\\mathcal{M}\\) to compute similarity scores (e.g., cosine similarity) and subsequently identify the top-\\(k\\) results. Although the brute force method is inherently straightforward,"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    555,
+                    386,
+                    586,
+                    419
+                ],
+                "angle": 0,
+                "content": "6"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    693,
+                    382,
+                    943,
+                    425
+                ],
+                "angle": 0,
+                "content": "Ziyu Liu et al."
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    609,
+                    511,
+                    1958,
+                    1234
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Fig. 2: Pipeline of RAR. (a) We design a multimodal retriever that extracts the image or text embeddings and stores embeddings in an external memory \\(\\mathcal{M}\\). (b) For the inference stage of downstream recognition tasks, we retrieve top-\\(k\\) categories from the memory and use MLLMs to refine the retrieved results as the final prediction through ranking."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1557,
+                    2011,
+                    1956
+                ],
+                "angle": 0,
+                "content": "its efficiency markedly diminishes as the dataset escalates to the magnitude of millions of embeddings. To enhance the speed of retrieval, we implement an index system that uses the HNSW(Hierarchical Navigable Small World) algorithm [35]. The adoption of the HNSW methodology facilitates a significant dimensionality reduction, thereby enabling the construction of a more condensed index. Specifically, vectors in a \\(\\mathbb{R}^d\\) space of dimension \\(d\\) are transformed into a reduced \\(\\frac{d}{9}\\) dimensional space. This reduction in dimensionality plays a pivotal role in enhancing the speed of the retrieval process."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1976,
+                    2011,
+                    2778
+                ],
+                "angle": 0,
+                "content": "Pre-processing for Detection Datasets. In object detection datasets, our methodology for extracting image embeddings \\( e_{\\mathrm{img}} \\) is slightly different from the approach discussed previously. As presented in Fig. 3, we apply two additional pre-processing steps: cropping and blurring. Some previous works have proposed similar methods in CLIP like [33, 53]. In the object detection dataset, an image typically contains multiple objects of varying sizes. Some objects may dominate a large portion of the image, whereas others occupy minimal space. Accordingly, our object detection procedure begins with cropping the image regions based on proposal bounding box coordinates, subsequently resizing the cropped region to a fixed proportion. Moreover, unlike image classification tasks the objects of interest generally appear large and centrally positioned, the objects within object detection datasets are smaller and their positions more varied. To help the MLLMs understand the objects to be detected, we employ a blurring technique on the non-target areas surrounding the objects of interest. The blurring strategy is designed to direct the MLLMs' focus toward the relevant objects, thereby facilitating their identification in object detection tasks."
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    596,
+                    379,
+                    1869,
+                    429
+                ],
+                "angle": 0,
+                "content": "RAR: Retrieving And Ranking Augmented MLLMs for Visual Recognition"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1976,
+                    386,
+                    2001,
+                    419
+                ],
+                "angle": 0,
+                "content": "7"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    599,
+                    478,
+                    1948,
+                    937
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Fig. 3: Extending our multimodal retriever to zero-shot recognition on object detection datasets such as LVIS [14] and V3Det [48]. Compared to the classification datasets, we apply the additional pre-processing techniques such as cropping and resizing to extract the image embeddings."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    548,
+                    1168,
+                    1507,
+                    1221
+                ],
+                "angle": 0,
+                "content": "3.3 Inference with Retrieving And Ranking"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1267,
+                    2037,
+                    1465
+                ],
+                "angle": 0,
+                "content": "After successfully constructing memory \\(\\mathcal{M}\\) by using our multimodal retriever, our next step is to integrate the memory with the retrieval process and use MLLMs to rank the retrieval results and enhance the performance in few-shot/zero-shot perception tasks."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1468,
+                    2011,
+                    1966
+                ],
+                "angle": 0,
+                "content": "For example, in the inference stage of the few-shot image classification task, we first use the visual encoder \\(\\varPhi_{\\mathrm{img}}\\) to process the input image and obtain the corresponding image embedding \\(\\hat{e}\\). The visual encoder is identical to the encoder used in our multi-modal retriever. The image embedding \\(\\hat{e}\\) is then navigated through the previously constructed memory index and ranked by similarity to identify the top-\\(k\\) related images. Consequently, memory \\(\\mathcal{M}\\) yields the names of the retrieved top-\\(k\\) categories, denoted as \\(\\{c_1, c_2, c_3, \\ldots, c_k\\}\\). The top-\\(k\\) retrieved results serve as a preliminary filter, narrowing down the vast possibilities to those most likely relevant, based on historical data and the semantic closeness of stored labels to the image content."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1970,
+                    2011,
+                    2220
+                ],
+                "angle": 0,
+                "content": "Since these cropped sub-images are usually small, CLIP's ability to extract features from these low-resolution images is limited. Therefore, in the object detection task, we do not perform image-to-image retrieval but use CLIP's inherent image-text interaction capabilities to conduct image-to-text retrieval. Finally, we also obtain the top-\\(k\\) category information with the highest similarity."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2220,
+                    2011,
+                    2669
+                ],
+                "angle": 0,
+                "content": "Following the retrieval phase, the retrieved category labels alongside image embedding \\(\\hat{e}\\) are integrated and sent to the MLLMs through our ranking prompt. The MLLMs, combining the internal knowledge and the retrieved information, make the final prediction of the image category. Our proposed inference process, using both the retrieval results from our memory bank and subsequent ranking by the MLLM, ensures a more accurate and contextually aware classification prediction. Our design represents a significant advancement in few-shot image classification, enabling our system to handle a wide variety of images and categories with high precision and flexibility."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2673,
+                    2011,
+                    2778
+                ],
+                "angle": 0,
+                "content": "Ranking Prompt Format. Fig. 4 presents our ranking prompt format. The process begins with the prompt 'Sort the optional categories: [class a,"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    555,
+                    386,
+                    581,
+                    419
+                ],
+                "angle": 0,
+                "content": "8"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    693,
+                    382,
+                    943,
+                    425
+                ],
+                "angle": 0,
+                "content": "Ziyu Liu et al."
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    609,
+                    475,
+                    1940,
+                    943
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Fig. 4: Ranking Prompt examples for few-shot image classification. The fine-grained image examples are from Stanford Cars [20]. We incorporate the initial top-\\(k\\) retrieved results (e.g., \\(k = 5\\)) into our ranking prompts and use the MLLMs to rank the retrieved results and make the final prediction."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1178,
+                    2009,
+                    1475
+                ],
+                "angle": 0,
+                "content": "class b, class c, class d, class e], which is dynamically generated to include the top-k class names retrieved from our multimodal retriever. Our method uses the MLLM's ability to rank these retrieved class names. Unlike traditional approaches that might rely solely on the initial retrieval order, our MLLM employs advanced linguistic and semantic analysis to assess the contextual appropriateness of each class name with the input image."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1478,
+                    2009,
+                    1874
+                ],
+                "angle": 0,
+                "content": "Fine-tuning for Ranking. When directly applying MLLMs to ranking the retrieved results, MLLMs may predict some errors such as beyond the given list or occasional misalignment. To fully exploit the ranking potential of MLLMs for downstream tasks, while avoiding the consumption of extensive computational resources for training MLLMs, we selected a small-scale classification dataset to fine-tune the MLLMs. The primary goal of fine-tuning was to enable MLLMs to improve their ranking ability such as following the format of prompts and returning results as required."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1877,
+                    2009,
+                    2171
+                ],
+                "angle": 0,
+                "content": "To create our fine-tuning data, we use the CLIP image encoder \\(\\varPhi_{\\mathrm{img}}\\) to extract the embeddings of two disjoint subsets of images \\(\\mathcal{D}_a\\) and \\(\\mathcal{D}_b\\), both drawn from the FGVC-Aircraft dataset. We provide the ablation studies in Sec. 4.5 about using different datasets to construct the fine-tuning data. Our observation reveals that the MLLM demonstrates robustness to the choice of fine-tuning datasets, with only marginal differences in performance outcomes."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2174,
+                    2009,
+                    2574
+                ],
+                "angle": 0,
+                "content": "For each image in \\(\\mathcal{D}_b\\), we apply the \\(k\\)-NN clustering algorithm to find the top 20 most similar images in \\(\\mathcal{D}_a\\) including their categories. Afterward, we select 16 sets from these 20 images, each set comprising \\(k\\) images, and retain those groups that contain images of the same category as \\(\\mathcal{D}_b\\). We then shuffled the category labels for these sets. Using the prompts shown in Fig. 4, we create a dataset comprising roughly 30,000 entries, with the original sequence of categories serving as the ground-truth label. In summary, we build the fine-tuning data aiming to bolster the MLLM's ranking performance."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2574,
+                    2009,
+                    2775
+                ],
+                "angle": 0,
+                "content": "In-Context Learning for Ranking. In-context learning presents a valuable alternative to fine-tuning with ranking examples, particularly due to its flexibility and lower requirement for specialized data preparation. While fine-tuning with ranking examples has proven to be highly effective, it necessitates a substantial"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    594,
+                    379,
+                    1866,
+                    432
+                ],
+                "angle": 0,
+                "content": "RAR: Retrieving And Ranking Augmented MLLMs for Visual Recognition"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1978,
+                    386,
+                    2006,
+                    419
+                ],
+                "angle": 0,
+                "content": "9"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    545,
+                    485,
+                    2009,
+                    1036
+                ],
+                "angle": 0,
+                "content": "amount of curated data and computational resources for training. In contrast, in-context learning uses the model's existing knowledge by providing it with specific examples directly within the input prompt, guiding the model to understand and execute the task of ranking without the need for explicit re-training. Here we elaborate on the application of in-context learning with MLLMs to rank the retrieved results. To effectively guide the MLLMs in comprehending the ranking task, we use the prompt format similar to Fig. 4 and integrate a specific ranking example into the prompts. Please refer to the Appendix B for our structured in-context learning prompt. Please refer to Sec. 4.5 for the ablation studies of discussing the difference between using fine-tuning or in-context learning for ranking."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    548,
+                    1112,
+                    958,
+                    1168
+                ],
+                "angle": 0,
+                "content": "4 Experiments"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1217,
+                    2009,
+                    1422
+                ],
+                "angle": 0,
+                "content": "In this section, we present our experiment step (Sec. 4.1) and conduct experiments on different tasks such as fine-grained visual recognition (Sec. 4.2), few-shot image recognition (Sec. 4.3) and zero-shot object recognition (Sec. 4.4). We also provide the ablation studies about our design choices (Sec. 4.5)."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    548,
+                    1491,
+                    1093,
+                    1544
+                ],
+                "angle": 0,
+                "content": "4.1 Experimental Setup"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1574,
+                    2006,
+                    1775
+                ],
+                "angle": 0,
+                "content": "Datasets and Evaluation Metrics. We follow previous work [31] to choose 5 datasets for fine-grained visual recognition (Bird-200 [47], Cars-196 [20], Dog-120 [19], Flower-102 [37], and Pet-37 [39]) and report the clustering accuracy (cACC) and semantic similarity accuracy (sACC) as evaluation metrics."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1778,
+                    2009,
+                    2072
+                ],
+                "angle": 0,
+                "content": "For few-shot image recognition, we select 11 datasets including general objects (ImageNet [7], Caltech101 [11]), textual (DTD [4]), scene objects (SUN397 [51]), satellite images (EuroSAT [15]), facial expressions (RAF-DB [25]), car types (Stanford Cars [20]) and fine-grained datasets (FGVC-Aircraft [34], Oxford Flowers [37], Food101 [37] and Oxford Pets [39]). We report the top-1 accuracy (\\%) for all these classification datasets."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2079,
+                    2009,
+                    2372
+                ],
+                "angle": 0,
+                "content": "Additionally, we also select two benchmarks for our zero-shot object recognition setting: (1) The LVIS [14] dataset that encompasses over 164,000 images and 1,203 categories. We report the \\(\\mathrm{AP_r}\\), \\(\\mathrm{AP_c}\\), \\(\\mathrm{AP_f}\\), and \\(\\mathrm{AP_{all}}\\) metrics for rare, common, frequent, and all categories. (2) V3Det [48] dataset encompasses an immense number of 13204 categories of real-world images. For V3Det, we report the standard mAP metric of the object detection task."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2376,
+                    2009,
+                    2775
+                ],
+                "angle": 0,
+                "content": "Implementation Details. We employ a frozen CLIP ViT B/16 model as the visual encoder \\(\\varPhi_{\\mathrm{img}}\\) to encode the input images and extract the corresponding image embeddings. For the retrieval process, we search the stored embeddings in memory \\(\\mathcal{M}\\) using the HNSW algorithm [35]. We use \\(k = 5\\) for the top- \\(k\\) results, with a solo exception \\(k = 4\\) in the 4-shot few-shot setting. To improve the ranking ability of MLLMs, we prepare 30k fine-tuning data from the FGVC-Aircraft dataset. In the fine-tuning process, we train the model with one epoch with a learning rate of \\(1e^{-5}\\) on our fine-tuning data and subsequently evaluate the"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    555,
+                    382,
+                    601,
+                    419
+                ],
+                "angle": 0,
+                "content": "10"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    693,
+                    379,
+                    943,
+                    425
+                ],
+                "angle": 0,
+                "content": "Ziyu Liu et al."
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    555,
+                    683,
+                    2006,
+                    970
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>Bird-200 cACC</td><td>sACC</td><td>Car-196 cACC</td><td>sACC</td><td>Dog-120 cACC</td><td>sACC</td><td>Flower-102 cACC</td><td>sACC</td><td>Pet-37 cACC</td><td>sACC</td><td>Average cACC</td><td>sACC</td></tr><tr><td>WordNet+CLIP</td><td>39.3</td><td>57.7</td><td>18.3</td><td>33.3</td><td>53.9</td><td>70.6</td><td>42.1</td><td>49.8</td><td>55.4</td><td>61.9</td><td>41.8</td><td>54.7</td></tr><tr><td>BLIP-2</td><td>30.9</td><td>56.8</td><td>43.1</td><td>57.9</td><td>39.0</td><td>58.6</td><td>61.9</td><td>59.1</td><td>61.3</td><td>60.5</td><td>47.2</td><td>58.6</td></tr><tr><td>CaSED</td><td>25.6</td><td>50.1</td><td>26.9</td><td>41.4</td><td>38.0</td><td>55.9</td><td>67.2</td><td>52.3</td><td>60.9</td><td>63.6</td><td>43.7</td><td>52.6</td></tr><tr><td>FineR</td><td>51.1</td><td>69.5</td><td>49.2</td><td>63.5</td><td>48.1</td><td>64.9</td><td>63.8</td><td>51.3</td><td>72.9</td><td>72.4</td><td>57.0</td><td>64.3</td></tr><tr><td>RAR (Ours)</td><td>51.6</td><td>69.5</td><td>53.2</td><td>63.6</td><td>50.0</td><td>65.2</td><td>63.7</td><td>53.2</td><td>74.1</td><td>74.8</td><td>58.5</td><td>65.3</td></tr></table>",
+                "caption": "Table 1: Fine-grained visual recognition across 5 datasets. We follow [31] to report the averaged clustering accuracy (cACC, %) and semantic similarity accuracy (sACC, %) results over 10 runs. The best and second-best results are colored Green and Red, respectively."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1085,
+                    2004,
+                    1237
+                ],
+                "angle": 0,
+                "content": "performance across additional datasets. We present the ablation studies about the hyper-parameters such as the value of \\( k \\) and the fine-tuning data source in the Sec. 4.5."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    548,
+                    1313,
+                    1359,
+                    1366
+                ],
+                "angle": 0,
+                "content": "4.2 Fine-Grained Visual Recognition"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1402,
+                    2004,
+                    1597
+                ],
+                "angle": 0,
+                "content": "We first evaluate our RAR on the fine-grained visual recognition setting defined in previous work [31]. We use only 3 unlabelled images per category to build our memory \\(\\mathcal{M}\\) for retrieving. Please refer to Appendix C for more implementation details."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1603,
+                    2009,
+                    2306
+                ],
+                "angle": 0,
+                "content": "Baselines. We follow [31] to select four representative methods as our baselines to compare with: WordNet [36]+CLIP, BLIP-2 [22], CaSED [5], and FineR [31]. Averaged Results over 5 Datasets. Tab. 1 summarizes the results and our RAR achieves the top performance on both the cACC (58.5%) and sACC (65.3%) metrics. The WordNet+CLIP and CaSED baselines rely solely on CLIP for class name retrieval, yet often yield inaccurate predictions. In contrast, our method adds the additional ranking process with MLLMs, which increases the likelihood of correctly predicting those accurate yet initially lower-ranked candidates and thereby boosting the performance. Besides, FineR uses MLLM (e.g., BLIP-2) for fine-grained recognition via multi-round questioning-answering processes, which may demand more computational resources and struggle to scale efficiently with large vocabulary datasets. Conversely, our approach first retrieves candidates and then lets MLLMs make predictions on the candidates, optimizing both accuracy and efficiency."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    548,
+                    2382,
+                    1275,
+                    2432
+                ],
+                "angle": 0,
+                "content": "4.3 Few-Shot Image Recognition"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2471,
+                    2006,
+                    2772
+                ],
+                "angle": 0,
+                "content": "The few-shot setting aims to enable a model to recognize new objects with only a few examples for each new category. Few-shot learning faces substantial challenges when applied to fine-grained datasets, which consist of numerous highly similar classes yet are accompanied by only a minimal amount of training data. Baselines. For few-shot image recognition, we introduce two baselines including CLIP and MLLMs. The first is the CLIP [41] model combined with \\( k \\)-NN to"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    594,
+                    379,
+                    1866,
+                    432
+                ],
+                "angle": 0,
+                "content": "RAR: Retrieving And Ranking Augmented MLLMs for Visual Recognition"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1960,
+                    386,
+                    2001,
+                    419
+                ],
+                "angle": 0,
+                "content": "11"
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    563,
+                    683,
+                    1999,
+                    1267
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\">Method</td><td colspan=\"7\">Common</td><td colspan=\"4\">Fine-Grained</td><td></td></tr><tr><td>ImageNet</td><td>Caltech101</td><td>RAF-DB</td><td>SUN397</td><td>EuroSAT</td><td>DTD</td><td>UCF-101</td><td>Flower102</td><td>StanfordCars</td><td>Food101</td><td>OxfordPets</td><td>Average</td></tr><tr><td>4-shot</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>CLIP+KNN</td><td>42.1</td><td>87.9</td><td>14.2</td><td>51.4</td><td>67.6</td><td>47.5</td><td>64.6</td><td>84.5</td><td>49.2</td><td>62.6</td><td>55.6</td><td>57.0</td></tr><tr><td>LLaVA1.5 Finetuning</td><td>-</td><td>88.4</td><td>24.9</td><td>-</td><td>48.2</td><td>46.6</td><td>58.9</td><td>13.2</td><td>-</td><td>66.4</td><td>28.9</td><td>-</td></tr><tr><td>RAR (LLaVA1.5)</td><td>51.0</td><td>92.1</td><td>27.7</td><td>58.8</td><td>74.8</td><td>53.9</td><td>69.6</td><td>80.4</td><td>54.4</td><td>71.4</td><td>60.9</td><td>63.2</td></tr><tr><td>Δ</td><td>+9.9</td><td>+4.2</td><td>+13.5</td><td>+7.4</td><td>+7.2</td><td>+6.4</td><td>+5.0</td><td>-4.1</td><td>+5.2</td><td>+8.8</td><td>+5.3</td><td>+6.2</td></tr><tr><td>8-shot</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>CLIP+KNN</td><td>47.6</td><td>90.6</td><td>28.2</td><td>56.8</td><td>72.8</td><td>53.2</td><td>68.3</td><td>89.5</td><td>56.1</td><td>68.3</td><td>61.8</td><td>63.0</td></tr><tr><td>LLaVA1.5 Finetuning</td><td>-</td><td>92.1</td><td>24.9</td><td>-</td><td>48.2</td><td>54.7</td><td>66.5</td><td>30.1</td><td>-</td><td>72.5</td><td>46.1</td><td>-</td></tr><tr><td>RAR (LLaVA1.5)</td><td>56.5</td><td>93.5</td><td>46.9</td><td>63.4</td><td>81.5</td><td>59.3</td><td>74.3</td><td>87.3</td><td>61.2</td><td>76.6</td><td>67.7</td><td>69.8</td></tr><tr><td>Δ</td><td>+8.9</td><td>+2.9</td><td>+18.7</td><td>+6.6</td><td>+8.7</td><td>+6.1</td><td>+6.0</td><td>-2.2</td><td>+5.1</td><td>+8.3</td><td>+5.9</td><td>+6.8</td></tr></table>",
+                "caption": "Table 2: Few-shot image classification across 11 datasets. We report the top-1 accuracy \\((\\%)\\) under the 4-shot and 8-shot settings. Here our RAR uses the LLaVA1.5 [28] as the MLLM to rank the retrieved results. The symbol \\(-\\) denotes to the LLaVA model fails to make the predictions due to the limited window size."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1362,
+                    2001,
+                    1461
+                ],
+                "angle": 0,
+                "content": "retrieve predictions based on few-shot examples. The second is the LLaVA model directly fine-tuning with LoRA [16] on few-shot examples."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1465,
+                    2009,
+                    2115
+                ],
+                "angle": 0,
+                "content": "Averaged Results on 11 Datasets. Tab. 2 summarizes the few-shot results on 11 datasets, including 4 fine-grained datasets. Compared to the CLIP initial retrieval results (top row), our RAR (third row) with ranking facilitates a notable increase in classification accuracy. On average, our approach boosts the top-1 accuracy from 57.0 to \\(63.2\\%\\) on the 4-shot setting, and from 63.0 to \\(69.8\\%\\) on the 8-shot setting. Such improvements illustrate the ranking process of MLLMs effectively uses a nuanced understanding of context and detail to better align predictions with ground truth. Additionally, we observe that LLaVA1.5 + finetuning (second row) baseline underperforms in datasets with large vocabularies such as ImageNet due to the constraint of MLLMs' context window. Thanks to the retrieved candidates, our RAR works for datasets with a vast set of categories and is a potent tool in refining classification decisions, proving particularly useful in handling the diverse and challenging landscape of image classification tasks."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    550,
+                    2187,
+                    1300,
+                    2240
+                ],
+                "angle": 0,
+                "content": "4.4 Zero-Shot Object Recognition"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2273,
+                    2001,
+                    2422
+                ],
+                "angle": 0,
+                "content": "Given the pre-existing object proposals such as ground-truth box annotations, the zero-shot object recognition task measures the model's capability of aligning regions with textual class descriptions."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2422,
+                    2006,
+                    2623
+                ],
+                "angle": 0,
+                "content": "Baselines. We select two representative papers CLIP [41] and RegionCLIP [57] and report their performances as the baseline results. Besides, we apply our method on a range of cutting-edge open-source MLLMs, including LLaVA1.5 [28], QWen-VL [2] and InternLM-XC2 [9]."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2623,
+                    2006,
+                    2778
+                ],
+                "angle": 0,
+                "content": "Main Results on LVIS. Tab. 3 presents the results that reveal notable improvements in all the metrics when applying our RAR. Specifically, when combining with the recent InternLM-XC2 [9] model, our approach yielded an 8.4 \\((\\%)\\)"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    555,
+                    382,
+                    601,
+                    419
+                ],
+                "angle": 0,
+                "content": "12"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    693,
+                    379,
+                    943,
+                    425
+                ],
+                "angle": 0,
+                "content": "Ziyu Liu et al."
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    591,
+                    587,
+                    1262,
+                    993
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>APr</td><td>APc</td><td>APf</td><td>APall</td></tr><tr><td>CLIP w/ box</td><td>40.6</td><td>53.1</td><td>59.2</td><td>48.7</td></tr><tr><td>CLIP w/ mask</td><td>40.8</td><td>53.5</td><td>59.6</td><td>49.2</td></tr><tr><td>RegionCLIP</td><td>50.1</td><td>50.1</td><td>51.7</td><td>50.7</td></tr><tr><td rowspan=\"2\">RAR (LLaVA1.5) \nΔ</td><td>58.7</td><td>57.9</td><td>54.4</td><td>56.2</td></tr><tr><td>+8.6</td><td>+7.8</td><td>+2.7</td><td>+5.5</td></tr><tr><td rowspan=\"2\">RAR (Qwen-VL) \nΔ</td><td>59.6</td><td>57.5</td><td>53.7</td><td>56.4</td></tr><tr><td>+9.5</td><td>+7.4</td><td>+2.0</td><td>+5.7</td></tr><tr><td rowspan=\"2\">RAR (InternLM-XC2) \nΔ</td><td>60.2</td><td>58.0</td><td>54.3</td><td>57.1</td></tr><tr><td>+10.1</td><td>+7.9</td><td>+2.6</td><td>+6.4</td></tr></table>",
+                "caption": "Table 4: Zero-shot object recognition on V3Det [48] validation set with 13,204 categories."
+            },
+            {
+                "block_id": 5,
+                "type": "table",
+                "bbox": [
+                    1315,
+                    640,
+                    2014,
+                    980
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>APs</td><td>APm</td><td>AP1</td><td>APall</td></tr><tr><td>CLIP w/ box</td><td>7.2</td><td>12.9</td><td>12.8</td><td>9.8</td></tr><tr><td rowspan=\"2\">RAR (LLaVA1.5) \nΔ</td><td>9.9</td><td>13.2</td><td>13.9</td><td>11.1</td></tr><tr><td>+2.7</td><td>+0.3</td><td>+1.1</td><td>+1.3</td></tr><tr><td rowspan=\"2\">RAR (Qwen-VL) \nΔ</td><td>9.6</td><td>12.7</td><td>13.7</td><td>10.8</td></tr><tr><td>+2.4</td><td>-0.2</td><td>+0.9</td><td>+1.0</td></tr><tr><td rowspan=\"2\">RAR (InternLM-XC2) \nΔ</td><td>10.1</td><td>13.1</td><td>14.5</td><td>11.3</td></tr><tr><td>+2.9</td><td>+0.2</td><td>+1.7</td><td>+1.5</td></tr></table>"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1069,
+                    2004,
+                    1217
+                ],
+                "angle": 0,
+                "content": "point increase over the CLIP baseline and a \\(6.4\\%\\) enhancement relative to RegionCLIP [57]. These advancements underscore the efficacy of using an external memory for retrieval assistance coupled with the ranking prowess of MLLMs."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1221,
+                    2009,
+                    2118
+                ],
+                "angle": 0,
+                "content": "Comparison with Rare Classes Results \\((\\mathbf{AP_r})\\). We find an interesting observation from the experimental results presented in Tab. 3. For the CLIP model, we observe a progressive increase in performance from \\(\\mathrm{AP_r}\\) through \\(\\mathrm{AP_c}\\) to \\(\\mathrm{AP_f}\\), which indicates a gradation in precision across varying class frequencies. However, employing our method yields a different trend, where the peak performance is achieved on \\(AP_r\\), surpassing the CLIP model by as much as 19.6 percentage points. This significant leap in performance suggests a substantial advantage of our method when it comes to rare categories. The integration of our RAR to MLLMs plays a pivotal role here, as it demonstrates a heightened ability to discriminate among the rare classes. Our observation could be attributed to the fact that our retrieving and reranking mechanism effectively pools relevant information from the external memory, providing the MLLMs with a richer context for rare class identification. Moreover, the ranking capability of MLLMs ensures that even the lesser-represented classes receive adequate attention during the classification process. Our RAR achieves a robust enhancement in the model's ability to discern and accurately classify objects that are infrequently encountered, addressing one of the significant challenges in long-tailed distribution datasets."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2121,
+                    2009,
+                    2719
+                ],
+                "angle": 0,
+                "content": "Main Results on V3Det. To further test the effectiveness of using MLLMs for ranking in scenarios with an extremely large number of fine-grained categories, we conducted additional experiments on V3Det [49]. The experimental results in Tab. 4 reveal that our RAR has achieved a commendable improvement in performance, surpassing the CLIP baseline by 1.5 percentage points in overall average precision \\((AP_{all})\\) with InternLM-XC2. Such an improvement is particularly significant given the complexity of the V3Det dataset, which presents a challenging array of 13,204 distinct classes. The MLLMs, with the aid of our retrieving and ranking mechanisms, have once again demonstrated their robust performance in the domain of object detection datasets. Using our retrieval-augmented approach allows MLLMs to navigate the extensive and fine-grained category landscape of V3Det effectively."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    550,
+                    2722,
+                    2006,
+                    2778
+                ],
+                "angle": 0,
+                "content": "Qualitative Results. Fig. 5 presents the visualization results about ranking"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    596,
+                    379,
+                    1869,
+                    429
+                ],
+                "angle": 0,
+                "content": "RAR: Retrieving And Ranking Augmented MLLMs for Visual Recognition"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1960,
+                    386,
+                    2004,
+                    419
+                ],
+                "angle": 0,
+                "content": "13"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    665,
+                    511,
+                    1830,
+                    858
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Fig. 5: Visualization of the ranking examples for zero-shot object recognition on LVIS [14] validation set. Given the top retrieved predictions, our RAR uses MLLMs to select the correct class names accurately."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1059,
+                    2009,
+                    1409
+                ],
+                "angle": 0,
+                "content": "examples of our approach on LVIS validation set. The CLIP&K-NN approach provides an extensive list of object predictions, albeit with the caveat that the most accurate label might not always emerge as the top-1 choice. The incorporation of MLLMs in our RAR significantly streamlines the prediction process, yielding more precise and relevant object labels. The visualization results demonstrate that our RAR meets the need for fine-grained and large vocabulary recognition."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    548,
+                    1488,
+                    1134,
+                    1537
+                ],
+                "angle": 0,
+                "content": "4.5 Ablation Experiments"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1574,
+                    2009,
+                    1970
+                ],
+                "angle": 0,
+                "content": "Effects of the parameter \\( k \\). We delve into the impact of the hyper-parameter \\( k \\) on few-shot image recognition setting, as detailed in Tab. 5. We report the results of RAR with the LLaVA1.5 as the MLLM. Our findings reveal that our RAR demonstrates a remarkable robustness to variations in \\( k \\), with only minor differences observed across a broad spectrum of values from 3 to 7. Such a consistency suggests that RAR's ability to generalize from a few examples is not significantly influenced by the choice of \\( k \\). Consequently, based on the averaged results, we select \\( k = 5 \\) as the default choice."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1973,
+                    2014,
+                    2422
+                ],
+                "angle": 0,
+                "content": "Different Fine-tuning data. We study the importance of using different fine-tuning datasets for ranking. We select two representative datasets: FGVC-Aircraft and Stanford-Cars as the data sources for constructing the fine-tuning data. Our selection is motivated by their diverse characteristics and relevance in visual recognition tasks, providing a comprehensive basis for fine-tuning. Subsequently, we fine-tune the RAR with different MLLMs (QWen-VL and InternLM-XC2) on these two datasets, aiming to investigate how different data sources influence performance. To thoroughly assess the impact of using different fine-tuning datasets, we evaluate the fine-tuned RAR across a diverse set of 10 additional datasets."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2425,
+                    2009,
+                    2775
+                ],
+                "angle": 0,
+                "content": "Tab. 6 presents the results. We observe that RAR is not sensitive to changes in the fine-tuning dataset for ranking, thereby confirming its viability as a generalizable and reliable method for enhancing the performance of MLLMs. The consistency in results, irrespective of the fine-tuning data source, underlines the robustness of our fine-tuning strategy. Despite these minor variations, the overall performance of using FGVC-Aircrafts (82.7%, top row) is higher than using StanfordCars (82.0%, second row) for QWen-VL, and we observe the same trend"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    555,
+                    382,
+                    601,
+                    419
+                ],
+                "angle": 0,
+                "content": "14"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    693,
+                    379,
+                    943,
+                    425
+                ],
+                "angle": 0,
+                "content": "Ziyu Liu et al."
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    599,
+                    475,
+                    1333,
+                    765
+                ],
+                "angle": 0,
+                "content": "<table><tr><td></td><td>k=3</td><td>k=4</td><td>k=5</td><td>k=6</td><td>k=7</td></tr><tr><td>DTD</td><td>70.27</td><td>71.34</td><td>71.93</td><td>71.93</td><td>71.99</td></tr><tr><td>Flowers102</td><td>96.18</td><td>95.57</td><td>95.62</td><td>95.66</td><td>95.57</td></tr><tr><td>Oxford-pets</td><td>80.21</td><td>80.38</td><td>79.91</td><td>79.72</td><td>79.42</td></tr><tr><td>Eurosat</td><td>92.38</td><td>92.48</td><td>93.28</td><td>92.52</td><td>92.59</td></tr><tr><td>Average</td><td>84.76</td><td>84.96</td><td>85.19</td><td>84.96</td><td>84.90</td></tr></table>",
+                "caption": "Table 5: Ablation studies about the selection of the hyperparameter \\( k \\) ."
+            },
+            {
+                "block_id": 5,
+                "type": "table",
+                "bbox": [
+                    561,
+                    937,
+                    1994,
+                    1369
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Method</td><td colspan=\"2\">Strategy</td><td colspan=\"7\">Common</td><td colspan=\"3\">Fine-Grained</td><td></td></tr><tr><td></td><td>Fine-tune</td><td>In-Context</td><td>ImageNet</td><td>Caltech101</td><td>RAF-DB</td><td>SUN397</td><td>EuroSAT</td><td>DTD</td><td>UCF101</td><td>Flower102</td><td>Food101</td><td>OxfordPets</td><td>Average</td></tr><tr><td rowspan=\"2\">RAR</td><td>F</td><td>X</td><td>75.8</td><td>95.5</td><td>66.0</td><td>72.7</td><td>90.7</td><td>72.5</td><td>81.4</td><td>97.5</td><td>88.1</td><td>87.2</td><td>82.7</td></tr><tr><td>S</td><td>X</td><td>75.3</td><td>94.9</td><td>65.1</td><td>73.1</td><td>88.1</td><td>71.0</td><td>81.1</td><td>95.8</td><td>88.3</td><td>87.0</td><td>82.0</td></tr><tr><td>(QWen-VL)</td><td>X</td><td>✓</td><td>72.0</td><td>93.4</td><td>63.6</td><td>65.6</td><td>86.2</td><td>66.8</td><td>76.5</td><td>95.6</td><td>84.7</td><td>82.3</td><td>78.7</td></tr><tr><td rowspan=\"2\">RAR</td><td>F</td><td>X</td><td>71.5</td><td>94.4</td><td>72.7</td><td>69.7</td><td>91.7</td><td>69.9</td><td>77.6</td><td>93.2</td><td>83.9</td><td>79.3</td><td>80.4</td></tr><tr><td>S</td><td>X</td><td>71.5</td><td>94.7</td><td>71.2</td><td>69.7</td><td>90.3</td><td>69.9</td><td>77.5</td><td>92.0</td><td>83.6</td><td>79.7</td><td>80.0</td></tr><tr><td>(InternLM-XC2)</td><td>X</td><td>✓</td><td>69.2</td><td>94.1</td><td>66.0</td><td>69.7</td><td>91.8</td><td>68.9</td><td>66.1</td><td>95.7</td><td>85.7</td><td>79.2</td><td>78.6</td></tr></table>",
+                "caption": "Table 6: Ablation studies about (1) using different datasets for fine-tuning and (2) fine-tuning vs. in-context learning. The symbols 'F' and 'S' stand for fine-tuning on the FGVC-Aircraft or Stanford-Cars datasets."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1455,
+                    2001,
+                    1551
+                ],
+                "angle": 0,
+                "content": "for InternLM-XC2. Based on our findings, we adopt the FGVC-Aircraft dataset as our preferred choice for fine-tuning."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1554,
+                    2009,
+                    2154
+                ],
+                "angle": 0,
+                "content": "Fine-tuning vs. In-Context Learning. We validate the effectiveness of fine-tuning the MLLM or just in-context learning (training-free) for ranking. The results are illustrated in Tab. 6. We select two distinct groups for comparison. The first group (top and fourth rows) involves models that are fine-tuned using the FGVC-Aircraft dataset, while the second group (third and bottom rows) consists of models with in-context learning prompts for ranking. The results show a consistent improvement in accuracy for the fine-tuned model across almost all datasets for both QWen-VL and InternLM-XC2. The notable enhancement in performance across a diverse range of datasets highlights the efficacy of our fine-tuning strategy. The results substantiate that fine-tuning the MLLM with target datasets like FGVC-Aircraft significantly bolsters the model's ranking capabilities."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    550,
+                    2224,
+                    918,
+                    2280
+                ],
+                "angle": 0,
+                "content": "5 Conclusion"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2323,
+                    2009,
+                    2775
+                ],
+                "angle": 0,
+                "content": "In this paper, we highlight the potential of combining retrieving and ranking with multi-modal large language models to revolutionize perception tasks such as fine-grained recognition, zero-shot image recognition, and few-shot object recognition. Motivated by the limited zero-shot/few-shot of CLIP and MLLMs on fine-grained datasets, our RAR designs the pipeline that uses MLLM to rank the retrieved results. Our proposed approach can be seamlessly integrated into various MLLMs for real-world applications where the variety and volume of categories continuously expand. Our method opens up new avenues for research in augmenting the MLLM's abilities with the retrieving-augmented solution and"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    594,
+                    379,
+                    1866,
+                    425
+                ],
+                "angle": 0,
+                "content": "RAR: Retrieving And Ranking Augmented MLLMs for Visual Recognition"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1960,
+                    386,
+                    2004,
+                    419
+                ],
+                "angle": 0,
+                "content": "15"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    545,
+                    485,
+                    2009,
+                    580
+                ],
+                "angle": 0,
+                "content": "could be beneficial for other tasks such as reasoning and generation in future works."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    550,
+                    669,
+                    823,
+                    722
+                ],
+                "angle": 0,
+                "content": "References"
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    576,
+                    778,
+                    2006,
+                    966
+                ],
+                "angle": 0,
+                "content": "1. Awadalla, A., Gao, I., Gardner, J., Hessel, J., Hanafy, Y., Zhu, W., Marathe, K., Bitton, Y., Gadre, S., Sagawa, S., Jitsev, J., Kornblith, S., Koh, P.W., Ilharco, G., Wortzman, M., Schmidt, L.: Openflamingo: An open-source framework for training large autoregressive vision-language models. arXiv.org (2023) 2, 4"
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    576,
+                    966,
+                    2006,
+                    1105
+                ],
+                "angle": 0,
+                "content": "2. Bai, J., Bai, S., Yang, S., Wang, S., Tan, S., Wang, P., Lin, J., Zhou, C., Zhou, J.: Qwen-VL: A frontier large vision-language model with versatile abilities. arXiv.org (2023) 2, 4, 11"
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    576,
+                    1105,
+                    2006,
+                    1247
+                ],
+                "angle": 0,
+                "content": "3. Chen, L., Li, J., Dong, X., Zhang, P., He, C., Wang, J., Zhao, F., Lin, D.: Sharegpt4v: Improving large multi-modal models with better captions. arXiv preprint arXiv:2311.12793 (2023) 2, 4"
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    576,
+                    1247,
+                    2006,
+                    1336
+                ],
+                "angle": 0,
+                "content": "4. Cimpoi, M., Maji, S., Kokkinos, I., Mohamed, S., Vedaldi, A.: Describing textures in the wild. In: CVPR (2014) 9, 19"
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    576,
+                    1336,
+                    2006,
+                    1428
+                ],
+                "angle": 0,
+                "content": "5. Conti, A., Fini, E., Mancini, M., Rota, P., Wang, Y., Ricci, E.: Vocabulary-free image classification. In: NeurIPS (2024) 10"
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    576,
+                    1428,
+                    2006,
+                    1570
+                ],
+                "angle": 0,
+                "content": "6. Dai, W., Li, J., Li, D., Tiong, A.M.H., Zhao, J., Wang, W., Li, B., Fung, P., Hoi, S.: Instructclip: Towards general-purpose vision-language models with instruction tuning (2023) 2, 4"
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    576,
+                    1570,
+                    2006,
+                    1663
+                ],
+                "angle": 0,
+                "content": "7. Deng, J., Dong, W., Socher, R., Li, L.J., Li, K., Fei-Fei, L.: ImageNet: A large-scale hierarchical image database. In: CVPR (2009) 9, 19"
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    576,
+                    1663,
+                    2006,
+                    1890
+                ],
+                "angle": 0,
+                "content": "8. Dong, X., Bao, J., Zheng, Y., Zhang, T., Chen, D., Yang, H., Zeng, M., Zhang, W., Yuan, L., Chen, D., Wen, F., Yu, N.: Maskclip: Masked self-distillation advances contrastive language-image pretraining. In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR). pp. 10995-11005 (June 2023) 1, 3"
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    576,
+                    1890,
+                    2006,
+                    2075
+                ],
+                "angle": 0,
+                "content": "9. Dong, X., Zhang, P., Zang, Y., Cao, Y., Wang, B., Ouyang, L., Wei, X., Zhang, S., Duan, H., Cao, M., et al.: InternLM-XComposer2: Mastering free-form text-image composition and comprehension in vision-language large model. arXiv preprint arXiv:2401.16420 (2024) 11"
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    576,
+                    2075,
+                    2006,
+                    2217
+                ],
+                "angle": 0,
+                "content": "10. Fang, Y., Wang, W., Xie, B., Sun, Q., Wu, L., Wang, X., Huang, T., Wang, X., Cao, Y.: EVA: Exploring the limits of masked visual representation learning at scale. In: CVPR (2023) 3"
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    576,
+                    2217,
+                    2006,
+                    2352
+                ],
+                "angle": 0,
+                "content": "1. Fei-Fei, L., Fergus, R., Perona, P.: Learning generative visual models from few training examples: An incremental bayesian approach tested on 101 object categories. In: CVPR workshop (2004) 9, 19"
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    576,
+                    2352,
+                    2006,
+                    2448
+                ],
+                "angle": 0,
+                "content": "2. Gao, P., Geng, S., Zhang, R., Ma, T., Fang, R., Zhang, Y., Li, H., Qiao, Y.: Clip-Adapter: Better vision-language models with feature adapters. IJCV (2023) 3"
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    576,
+                    2448,
+                    2006,
+                    2541
+                ],
+                "angle": 0,
+                "content": "3. Gu, X., Lin, T.Y., Kuo, W., Cui, Y.: Open-vocabulary object detection via vision and language knowledge distillation. In: ICLR (2022) 3"
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    576,
+                    2541,
+                    2006,
+                    2633
+                ],
+                "angle": 0,
+                "content": "4. Gupta, A., Dollar, P., Girshick, R.: LVIS: A dataset for large vocabulary instance segmentation. In: CVPR (2019) 7, 9, 12, 13, 26, 27, 28"
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    576,
+                    2633,
+                    2006,
+                    2772
+                ],
+                "angle": 0,
+                "content": "5. Helber, P., Bischke, B., Dengel, A., Borth, D.: Eurosat: A novel dataset and deep learning benchmark for land use and land cover classification. IEEE J. Sel. Top. Appl. Earth Obs. Remote Sens. (2019) 9, 19"
+            },
+            {
+                "block_id": 19,
+                "type": "list",
+                "bbox": [
+                    576,
+                    778,
+                    2006,
+                    2772
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    555,
+                    382,
+                    601,
+                    419
+                ],
+                "angle": 0,
+                "content": "16"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    693,
+                    379,
+                    943,
+                    425
+                ],
+                "angle": 0,
+                "content": "Ziyu Liu et al."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    555,
+                    485,
+                    2006,
+                    623
+                ],
+                "angle": 0,
+                "content": "16. Hu, E.J., Shen, Y., Wallis, P., Allen-Zhu, Z., Li, Y., Wang, S., Wang, L., Chen, W.: LoRA: Low-rank adaptation of large language models. arXiv preprint arXiv:2106.09685 (2021) 11"
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    555,
+                    623,
+                    2006,
+                    712
+                ],
+                "angle": 0,
+                "content": "17. Iscen, A., Fathi, A., Schmid, C.: Improving image recognition by retrieving from web-scale image-text data. In: CVPR (2023) 4"
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    555,
+                    712,
+                    2006,
+                    848
+                ],
+                "angle": 0,
+                "content": "18. Jia, C., Yang, Y., Xia, Y., Chen, Y.T., Parekh, Z., Pham, H., Le, Q., Sung, Y.H., Li, Z., Duerig, T.: Scaling up visual and vision-language representation learning with noisy text supervision. In: ICML (2021) 3"
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    555,
+                    848,
+                    2006,
+                    937
+                ],
+                "angle": 0,
+                "content": "19. Khosla, A., Jayadevaprakash, N., Yao, B., Li, F.F.: Novel dataset for fine-grained image categorization: Stanford dogs. In: CVPR workshop (2011) 9, 19"
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    937,
+                    2006,
+                    1026
+                ],
+                "angle": 0,
+                "content": "20. Krause, J., Stark, M., Deng, J., Fei-Fei, L.: 3d object representations for fine-grained categorization. In: ICCV workshops (2013) 8, 9, 19"
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    1026,
+                    2006,
+                    1161
+                ],
+                "angle": 0,
+                "content": "21. Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttler, H., Lewis, M., Yih, W.t., Rocktäschel, T., et al.: Retrieval-Augmented generation for knowledge-intensive nlp tasks. NeurIPS (2020) 4"
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    1161,
+                    2006,
+                    1293
+                ],
+                "angle": 0,
+                "content": "22. Li, J., Li, D., Savarese, S., Hoi, S.: BLIP-2: Bootstrapping language-image pretraining with frozen image encoders and large language models. In: ICML (2023) 10"
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    1293,
+                    2006,
+                    1386
+                ],
+                "angle": 0,
+                "content": "23. Li, J., Li, D., Xiong, C., Hoi, S.: BLIP: Bootstrapping language-image pre-training for unified vision-language understanding and generation. In: ICML (2022) 3"
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    1386,
+                    2006,
+                    1521
+                ],
+                "angle": 0,
+                "content": "24. Li, L.H., Zhang, P., Zhang, H., Yang, J., Li, C., Zhong, Y., Wang, L., Yuan, L., Zhang, L., Hwang, J.N., et al.: Grounded language-image pre-training. In: CVPR (2022) 3"
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    1521,
+                    2006,
+                    1610
+                ],
+                "angle": 0,
+                "content": "25. Li, S., Deng, W., Du, J.: Reliable crowdsourcing and deep locality-preserving learning for expression recognition in the wild. In: CVPR (2017) 9, 19"
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    1610,
+                    2006,
+                    1742
+                ],
+                "angle": 0,
+                "content": "26. Li, Y., Fan, H., Hu, R., Feichtenhofer, C., He, K.: Scaling language-image pretraining via masking. In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR). pp. 23390-23400 (June 2023) 1, 3"
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    1742,
+                    2006,
+                    1877
+                ],
+                "angle": 0,
+                "content": "27. Liang, F., Wu, B., Dai, X., Li, K., Zhao, Y., Zhang, H., Zhang, P., Vajda, P., Marculescu, D.: Open-vocabulary semantic segmentation with mask-adapted clip. In: CVPR (2023) 3"
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    1877,
+                    2006,
+                    1970
+                ],
+                "angle": 0,
+                "content": "28. Liu, H., Li, C., Li, Y., Lee, Y.J.: Improved baselines with visual instruction tuning. arXiv preprint arXiv:2310.03744 (2023) 2, 11, 24"
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    1970,
+                    2006,
+                    2055
+                ],
+                "angle": 0,
+                "content": "29. Liu, H., Li, C., Wu, Q., Lee, Y.J.: Visual instruction tuning. In: NeurIPS (2024) 2, 4"
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    2055,
+                    2006,
+                    2148
+                ],
+                "angle": 0,
+                "content": "30. Liu, H., Son, K., Yang, J., Liu, C., Gao, J., Lee, Y.J., Li, C.: Learning customized visual models with retrieval-augmented knowledge. In: CVPR (2023) 4"
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    2148,
+                    2006,
+                    2234
+                ],
+                "angle": 0,
+                "content": "31. Liu, M., Roy, S., Li, W., Zhong, Z., Sebe, N., Ricci, E.: Democratizing fine-grained visual recognition with large language models. In: ICLR (2024) 4, 9, 10, 22, 23"
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    2234,
+                    2006,
+                    2369
+                ],
+                "angle": 0,
+                "content": "32. Long, A., Yin, W., Ajanthan, T., Nguyen, V., Purkait, P., Garg, R., Blair, A., Shen, C., van den Hengel, A.: Retrieval augmented classification for long-tail visual recognition. In: CVPR (2022) 4"
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    2369,
+                    2006,
+                    2504
+                ],
+                "angle": 0,
+                "content": "33. Lüddecke, T., Ecker, A.: Image segmentation using text and image prompts. In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR). pp. 7086-7096 (June 2022) 3, 6"
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    2504,
+                    2006,
+                    2593
+                ],
+                "angle": 0,
+                "content": "34. Maji, S., Rahtu, E., Kannala, J., Blaschko, M., Vedaldi, A.: Fine-grained visual classification of aircraft. arXiv preprint arXiv:1306.5151 (2013) 9, 19"
+            },
+            {
+                "block_id": 21,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    2593,
+                    2006,
+                    2682
+                ],
+                "angle": 0,
+                "content": "35. Malkov, Y.A., Yashunin, D.A.: Efficient and robust approximate nearest neighbor search using hierarchical navigable small world graphs. TPAMI (2018) 6, 9"
+            },
+            {
+                "block_id": 22,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    2682,
+                    2006,
+                    2775
+                ],
+                "angle": 0,
+                "content": "36. Miller, G.A.: WordNet: a lexical database for english. Communications of the ACM (1995) 10"
+            },
+            {
+                "block_id": 23,
+                "type": "list",
+                "bbox": [
+                    553,
+                    485,
+                    2006,
+                    2775
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    596,
+                    379,
+                    1866,
+                    425
+                ],
+                "angle": 0,
+                "content": "RAR: Retrieving And Ranking Augmented MLLMs for Visual Recognition"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1960,
+                    386,
+                    2004,
+                    419
+                ],
+                "angle": 0,
+                "content": "17"
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    488,
+                    2001,
+                    577
+                ],
+                "angle": 0,
+                "content": "37. Nilsback, M.E., Zisserman, A.: Automated flower classification over a large number of classes. In: ICVGIP (2008) 9, 19"
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    580,
+                    2001,
+                    669
+                ],
+                "angle": 0,
+                "content": "38. OpenAI: GPT-4V(ison) system card (2023), https://openai.com/research/gpt-4v-system-card 2, 4, 5, 25"
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    673,
+                    2001,
+                    762
+                ],
+                "angle": 0,
+                "content": "39. Parkhi, O.M., Vedaldi, A., Zisserman, A., Jawahar, C.: Cats and dogs. In: CVPR (2012) 9, 19"
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    765,
+                    2001,
+                    854
+                ],
+                "angle": 0,
+                "content": "40. Peng, Z., Wang, W., Dong, L., Hao, Y., Huang, S., Ma, S., Wei, F.: Kosmos-2: Grounding multimodal large language models to the world. arXiv.org (2023) 2, 4"
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    858,
+                    2001,
+                    990
+                ],
+                "angle": 0,
+                "content": "41. Radford, A., Kim, J.W., Hallacy, C., Ramesh, A., Goh, G., Agarwal, S., Sastry, G., Askell, A., Mishkin, P., Clark, J., et al.: Learning transferable visual models from natural language supervision. In: ICML (2021) 1, 3, 4, 10, 11, 26, 27"
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    993,
+                    2001,
+                    1082
+                ],
+                "angle": 0,
+                "content": "42. Shtedritski, A., Rupprecht, C., Vedaldi, A.: What does clip know about a red circle? visual prompt engineering for vlms. arXiv preprint arXiv:2304.06712 (2023) 3"
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    1085,
+                    2001,
+                    1174
+                ],
+                "angle": 0,
+                "content": "43. Soomro, K., Zamir, A.R., Shah, M.: UCF101: A dataset of 101 human actions classes from videos in the wild. arXiv preprint arXiv:1212.0402 (2012) 19"
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    1178,
+                    2001,
+                    1359
+                ],
+                "angle": 0,
+                "content": "44. Subramanian, S., Merrill, W., Darrell, T., Gardner, M., Singh, S., Rohrbach, A.: Reclip: A strong zero-shot baseline for referring expression comprehension. In: Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). pp. 5198-5215 (2022) 3"
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    1359,
+                    2001,
+                    1448
+                ],
+                "angle": 0,
+                "content": "45. Sun, Q., Fang, Y., Wu, L., Wang, X., Cao, Y.: Eva-clip: Improved training techniques for clip at scale. arXiv preprint arXiv:2303.15389 (2023) 1"
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    1452,
+                    2001,
+                    1584
+                ],
+                "angle": 0,
+                "content": "46. Sun, Z., Fang, Y., Wu, T., Zhang, P., Zang, Y., Kong, S., Xiong, Y., Lin, D., Wang, J.: Alpha-CLIP: A clip model focusing on wherever you want. arXiv preprint arXiv:2312.03818 (2023) 3"
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    1587,
+                    2001,
+                    1676
+                ],
+                "angle": 0,
+                "content": "47. Wah, C., Branson, S., Welinder, P., Perona, P., Belongie, S.: Caltech-ucsd birds-200-2011 (2011) 9, 19"
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    1679,
+                    2001,
+                    1808
+                ],
+                "angle": 0,
+                "content": "48. Wang, J., Zhang, P., Chu, T., Cao, Y., Zhou, Y., Wu, T., Wang, B., He, C., Lin, D.: V3Det: Vast vocabulary visual detection dataset. In: ICCV (2023) 3, 7, 9, 12, 28"
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    1811,
+                    2001,
+                    1950
+                ],
+                "angle": 0,
+                "content": "49. Wang, W., Lv, Q., Yu, W., Hong, W., Qi, J., Wang, Y., Ji, J., Yang, Z., Zhao, L., Song, X., Xu, J., Xu, B., Li, J., Dong, Y., Ding, M., Tang, J.: Cogvlm: Visual expert for pretrained language models (2023) 2, 4, 12"
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    1953,
+                    2001,
+                    2082
+                ],
+                "angle": 0,
+                "content": "50. Wu, W., Yao, H., Zhang, M., Song, Y., Ouyang, W., Wang, J.: GPT4Vis: What can gpt-4 do for zero-shot visual recognition? arXiv preprint arXiv:2311.15732 (2023) 25"
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    2085,
+                    2001,
+                    2178
+                ],
+                "angle": 0,
+                "content": "51. Xiao, J., Hays, J., Ehinger, K.A., Oliva, A., Torralba, A.: SUN database: Large-scale scene recognition from abbey to zoo. In: CVPR (2010) 9, 19"
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    2181,
+                    2001,
+                    2316
+                ],
+                "angle": 0,
+                "content": "52. Xu, X., Xiong, T., Ding, Z., Tu, Z.: Masqclip for open-vocabulary universal image segmentation. In: Proceedings of the IEEE/CVF International Conference on Computer Vision. pp. 887-898 (2023) 3"
+            },
+            {
+                "block_id": 18,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    2316,
+                    2001,
+                    2405
+                ],
+                "angle": 0,
+                "content": "53. Yang, L., Wang, Y., Li, X., Wang, X., Yang, J.: Fine-grained visual prompting (2023) 3, 6"
+            },
+            {
+                "block_id": 19,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    2409,
+                    2001,
+                    2544
+                ],
+                "angle": 0,
+                "content": "54. Yasunaga, M., Aghajanyan, A., Shi, W., James, R., Leskovec, J., Liang, P., Lewis, M., Zettlemoyer, L., Yih, W.t.: Retrieval-augmented multimodal language modeling. In: ICML (2023) 3, 4"
+            },
+            {
+                "block_id": 20,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    2547,
+                    2001,
+                    2679
+                ],
+                "angle": 0,
+                "content": "55. Ye, Q., Xu, H., Xu, G., Ye, J., Yan, M., Zhou, Y., Wang, J., Hu, A., Shi, P., Shi, Y., et al.: MPLug-owl: Modularization empowers large language models with multimodality. arXiv.org (2023) 2, 4"
+            },
+            {
+                "block_id": 21,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    2682,
+                    2001,
+                    2775
+                ],
+                "angle": 0,
+                "content": "56. Zhang, P., Wang, X.D.B., Cao, Y., Xu, C., Ouyang, L., Zhao, Z., Ding, S., Zhang, S., Duan, H., Yan, H., et al.: Internl m-xcomposer: A vision-language large"
+            },
+            {
+                "block_id": 22,
+                "type": "list",
+                "bbox": [
+                    553,
+                    488,
+                    2001,
+                    2775
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    555,
+                    382,
+                    601,
+                    419
+                ],
+                "angle": 0,
+                "content": "18"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    693,
+                    379,
+                    943,
+                    425
+                ],
+                "angle": 0,
+                "content": "Ziyu Liu et al."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    614,
+                    488,
+                    2004,
+                    577
+                ],
+                "angle": 0,
+                "content": "model for advanced text-image comprehension and composition. arXiv preprint arXiv:2309.15112 (2023) 2, 4"
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    555,
+                    584,
+                    2006,
+                    716
+                ],
+                "angle": 0,
+                "content": "57. Zhong, Y., Yang, J., Zhang, P., Li, C., Codella, N., Li, L.H., Zhou, L., Dai, X., Yuan, L., Li, Y., et al.: RegionCLIP: Region-based language-image pretraining. In: CVPR (2022) 3, 11, 12"
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    555,
+                    719,
+                    2006,
+                    805
+                ],
+                "angle": 0,
+                "content": "58. Zhou, K., Yang, J., Loy, C.C., Liu, Z.: Learning to prompt for vision-language models. IJCV (2022) 3"
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    808,
+                    2006,
+                    900
+                ],
+                "angle": 0,
+                "content": "59. Zhou, X., Girdhar, R., Joulin, A., Krähenbuhl, P., Misra, I.: Detecting twenty-thousand classes using image-level supervision. In: ECCV (2022) 3"
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    553,
+                    900,
+                    2006,
+                    1036
+                ],
+                "angle": 0,
+                "content": "60. Zhu, D., Chen, J., Shen, X., Li, X., Elhoseiny, M.: MiniGPT-4: Enhancing vision-language understanding with advanced large language models. arXiv preprint arXiv:2304.10592 (2023) 2, 4"
+            },
+            {
+                "block_id": 7,
+                "type": "list",
+                "bbox": [
+                    553,
+                    488,
+                    2006,
+                    1036
+                ],
+                "angle": 0,
+                "content": null
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    594,
+                    379,
+                    1866,
+                    432
+                ],
+                "angle": 0,
+                "content": "RAR: Retrieving And Ranking Augmented MLLMs for Visual Recognition"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1960,
+                    386,
+                    2004,
+                    419
+                ],
+                "angle": 0,
+                "content": "19"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    545,
+                    485,
+                    2009,
+                    983
+                ],
+                "angle": 0,
+                "content": "In this appendix, we provide a series of detailed supporting materials to aid in a deeper understanding of our work. Firstly, in Appendix A, we introduce the fourteen image classification datasets involved in our experiments, including seven common datasets and seven fine-grained datasets, as well as two large-scale vocabulary detection datasets. Following that, in Appendix B, we provide detailed information on the prompts used in our RAR, as well as the prompts used in corresponding ablation studies. In Appendix C, we supplement details on the structure and experimental aspects of RAR, dividing the content into three sections: Fine-Grained Visual Recognition, Few-Shot Image Classification, and Zero-Shot Region Recognition."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    550,
+                    1085,
+                    1099,
+                    1145
+                ],
+                "angle": 0,
+                "content": "A Dataset Statistics"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1214,
+                    2011,
+                    1669
+                ],
+                "angle": 0,
+                "content": "In this section, we delve deeper into the specifics of the fourteen classification and two detection datasets employed in our research. The classification datasets encompass a wide range, from general categories that cover a broad spectrum of common objects to fine-grained types that focus on more specific, detailed distinctions within a particular category. The detection datasets, on the other hand, are extensive, encompassing tens of thousands of object categories. These datasets are designed to challenge the model's ability to identify and categorize objects from a vast array of possible classes. The long-tail nature of these datasets poses a significant challenge for our RAR model."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    550,
+                    1762,
+                    1160,
+                    1811
+                ],
+                "angle": 0,
+                "content": "A.1 Classification Datasets"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1871,
+                    2009,
+                    2270
+                ],
+                "angle": 0,
+                "content": "In the experimental part, we use a total of fourteen image classification datasets, including seven fine-grained classification datasets and seven common classification datasets. Fine-grained image classification datasets include: Bird-200 [47], Stanford Cars [20], Dog-120 [19], Oxford Flowers [37], Oxford Pets [39], FGVC-Aircraft [34], and Food101 [37]. Common image classification datasets include: ImageNet [7], Caltech101 [11], RAF-DB [25], Sun397 [51], Eurosat [15], DTD [4], and UCF-101 [43]. We present all the utilized datasets in Figure 1. And in Tab. 7, we list the statistics and sources of these datasets in detail."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2273,
+                    2011,
+                    2775
+                ],
+                "angle": 0,
+                "content": "In our fine-grained visual recognition experiments, we employed the following datasets: Bird-200, Stanford Cars, Dog-120, Flowers-102, and Oxford pets. In each dataset, we selected 3 images from the training set to construct our memory and conducted tests on the corresponding validation sets. In our few-shot image classification experiments, we used the FGVC-Aircraft dataset to build fine-tune data and tested our RAR model across eleven classification datasets: Stanford Cars, Flower-102, Oxford Pets, Food101, ImageNet, Caltech101, RAF-DB, Sun397, Eurosat, DTD, and UCF-101. We selected either 4 or 8 images from the training set of each dataset to place into memory, corresponding to 4-shot and 8-shot settings, respectively, and conducted tests across all validation sets."
+            }
+        ]
+    },
+    {
+        "page_id": 19,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    555,
+                    382,
+                    601,
+                    419
+                ],
+                "angle": 0,
+                "content": "20"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    693,
+                    379,
+                    946,
+                    425
+                ],
+                "angle": 0,
+                "content": "Ziyu Liu et al."
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    1208,
+                    524,
+                    1346,
+                    561
+                ],
+                "angle": 0,
+                "content": "Datasets"
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    624,
+                    627,
+                    747,
+                    745
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Food101"
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    780,
+                    627,
+                    895,
+                    745
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Stanford Cars"
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    933,
+                    627,
+                    1050,
+                    745
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Flower102"
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1083,
+                    627,
+                    1195,
+                    745
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "FGVC-Aircraft"
+            },
+            {
+                "block_id": 12,
+                "type": "image",
+                "bbox": [
+                    1236,
+                    627,
+                    1354,
+                    745
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Oxford pets"
+            },
+            {
+                "block_id": 14,
+                "type": "image",
+                "bbox": [
+                    1389,
+                    627,
+                    1504,
+                    745
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Dog-120"
+            },
+            {
+                "block_id": 16,
+                "type": "image",
+                "bbox": [
+                    1540,
+                    627,
+                    1657,
+                    745
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Bird-200"
+            },
+            {
+                "block_id": 19,
+                "type": "image",
+                "bbox": [
+                    624,
+                    858,
+                    747,
+                    976
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "SUN397"
+            },
+            {
+                "block_id": 21,
+                "type": "image",
+                "bbox": [
+                    782,
+                    861,
+                    897,
+                    976
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Eurosat"
+            },
+            {
+                "block_id": 23,
+                "type": "image",
+                "bbox": [
+                    938,
+                    858,
+                    1050,
+                    976
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Caltech101"
+            },
+            {
+                "block_id": 25,
+                "type": "image",
+                "bbox": [
+                    1086,
+                    858,
+                    1203,
+                    976
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "UCF101"
+            },
+            {
+                "block_id": 27,
+                "type": "image",
+                "bbox": [
+                    1236,
+                    858,
+                    1354,
+                    976
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "DTD"
+            },
+            {
+                "block_id": 29,
+                "type": "image",
+                "bbox": [
+                    1392,
+                    858,
+                    1504,
+                    976
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Imagenet"
+            },
+            {
+                "block_id": 31,
+                "type": "image",
+                "bbox": [
+                    1540,
+                    858,
+                    1657,
+                    976
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "RAF-DB"
+            },
+            {
+                "block_id": 34,
+                "type": "image",
+                "bbox": [
+                    1731,
+                    636,
+                    1920,
+                    792
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "LVIS"
+            },
+            {
+                "block_id": 36,
+                "type": "image",
+                "bbox": [
+                    1731,
+                    825,
+                    1917,
+                    983
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "V3Det"
+            },
+            {
+                "block_id": 38,
+                "type": "image_caption",
+                "bbox": [
+                    548,
+                    1131,
+                    2001,
+                    1224
+                ],
+                "angle": 0,
+                "content": "Fig. 6: Datsets used in our experiments. We select 14 classification datasets (7 fine-grained and 7 common) and 2 object detection datasets as our benchmarks."
+            },
+            {
+                "block_id": 40,
+                "type": "table",
+                "bbox": [
+                    627,
+                    1409,
+                    1927,
+                    2022
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Settings</td><td>Dataset</td><td>Categories</td><td>Evaluation Metrics</td><td>Source link</td></tr><tr><td rowspan=\"5\">Fine-Grained Visual Recog.</td><td>Bird-200</td><td>200</td><td>cACC, sACC</td><td rowspan=\"2\">Bird website Kaggle</td></tr><tr><td>Car-196</td><td>196</td><td>cACC, sACC</td></tr><tr><td>Dog-120</td><td>120</td><td>cACC, sACC</td><td>Tensorflow</td></tr><tr><td>Flower-102</td><td>102</td><td>cACC, sACC</td><td>Tensorflow</td></tr><tr><td>Pet-37</td><td>37</td><td>cACC, sACC</td><td>Tensorflow</td></tr><tr><td rowspan=\"9\">Few-Shot Image Recog.</td><td>RAF-DB</td><td>7</td><td>Accuracy</td><td>RAF-DB website Tensorflow</td></tr><tr><td>Eurosat</td><td>10</td><td>Accuracy</td><td>Tensorflow</td></tr><tr><td>DTD</td><td>47</td><td>Accuracy</td><td>Tensorflow</td></tr><tr><td>FGVC Aircraft</td><td>100</td><td>Accuracy</td><td>FGVC website Tensorflow</td></tr><tr><td>Caltech101</td><td>101</td><td>Accuracy</td><td>Tensorflow</td></tr><tr><td>Food101</td><td>101</td><td>Accuracy</td><td>Tensorflow</td></tr><tr><td>UCF-101</td><td>101</td><td>Accuracy</td><td>Tensorflow</td></tr><tr><td>SUN397</td><td>397</td><td>Accuracy</td><td>Tensorflow</td></tr><tr><td>ImageNet</td><td>1000</td><td>Accuracy</td><td>Tensorflow</td></tr><tr><td rowspan=\"2\">Zero-Shot Region Recog.</td><td>LVIS</td><td>1203</td><td>mAP</td><td>LVIS website</td></tr><tr><td>V3Det</td><td>13204</td><td>mAP</td><td>Github</td></tr></table>",
+                "caption": "Table 7: Statistics for the classification and detection datasets used in our three settings: fine-grained visual recognition, few-shot image recognition, and zero-shot region recognition."
+            },
+            {
+                "block_id": 41,
+                "type": "title",
+                "bbox": [
+                    550,
+                    2072,
+                    1083,
+                    2118
+                ],
+                "angle": 0,
+                "content": "A.2 Detection Datasets"
+            },
+            {
+                "block_id": 42,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2171,
+                    2009,
+                    2669
+                ],
+                "angle": 0,
+                "content": "In our Zero-Shot Region Recognition experiments, we utilized two large-scale vocabulary detection datasets, namely LVIS and V3Det. The LVIS dataset, developed by Facebook AI researchers, stands out with its extensive coverage, including 164,000 images and about 2,000,000 high-quality instance segmentation annotations that span over 1,000 object classes. This dataset is particularly notable for its long-tail distribution, which means it includes a large number of infrequent or rare object classes in addition to the common ones. This diversity challenges our model to recognize and differentiate between a wide array of objects, including those that are less common and hence more challenging to identify accurately."
+            },
+            {
+                "block_id": 43,
+                "type": "text",
+                "bbox": [
+                    548,
+                    2673,
+                    2006,
+                    2775
+                ],
+                "angle": 0,
+                "content": "The V3Det dataset complements LVIS by offering an even broader scope. With its 245,000 images distributed across an impressive 13,204 categories,"
+            }
+        ]
+    },
+    {
+        "page_id": 20,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    596,
+                    379,
+                    1866,
+                    429
+                ],
+                "angle": 0,
+                "content": "RAR: Retrieving And Ranking Augmented MLLMs for Visual Recognition"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1958,
+                    386,
+                    1999,
+                    419
+                ],
+                "angle": 0,
+                "content": "21"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    589,
+                    547,
+                    657,
+                    610
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    678,
+                    544,
+                    892,
+                    683
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    675,
+                    686,
+                    1175,
+                    910
+                ],
+                "angle": 0,
+                "content": "Please play the role of a classification expert, and sort the provided categories from high to low according to the top 5 similarity with the input image. Here are the optional categories: ['2012 Aston Martin V8 Vantage Convertible', '2012 Aston Martin Virage Coupe', '2012 Aston Martin Virage Convertible', '2012 Audi TTS Coupe', '2012 Aston Martin V8 Vantage Coupe']"
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1201,
+                    947,
+                    1262,
+                    1009
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    675,
+                    956,
+                    1144,
+                    1039
+                ],
+                "angle": 0,
+                "content": "Based on the input image and the provided categories, the sorting from high to low similarity with the car in the image is as follows:"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    678,
+                    1042,
+                    1065,
+                    1069
+                ],
+                "angle": 0,
+                "content": "1. 2012 Aston Martin V8 Vantage Coupe"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    680,
+                    1072,
+                    1020,
+                    1098
+                ],
+                "angle": 0,
+                "content": "2. 2012 Aston Martin Virage Coupe"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    680,
+                    1098,
+                    1114,
+                    1125
+                ],
+                "angle": 0,
+                "content": "3.2012 Aston Martin V8 Vantage Convertible"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    680,
+                    1128,
+                    1068,
+                    1155
+                ],
+                "angle": 0,
+                "content": "4. 2012 Aston Martin Virage Convertible"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    680,
+                    1155,
+                    920,
+                    1178
+                ],
+                "angle": 0,
+                "content": "5. 2012 Audi TTS Coupe"
+            },
+            {
+                "block_id": 12,
+                "type": "list",
+                "bbox": [
+                    675,
+                    956,
+                    1144,
+                    1178
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 13,
+                "type": "image",
+                "bbox": [
+                    1305,
+                    547,
+                    1366,
+                    610
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 14,
+                "type": "image",
+                "bbox": [
+                    1387,
+                    544,
+                    1598,
+                    683
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    1387,
+                    686,
+                    1866,
+                    825
+                ],
+                "angle": 0,
+                "content": "Please play the role of a classification expert, and sort the provided categories from high to low according to the top 5 similarity with the input image. Here are the optional categories: ['737-800', '757-300', '767-200', 'A340-300', 'MD-90']"
+            },
+            {
+                "block_id": 16,
+                "type": "image",
+                "bbox": [
+                    1912,
+                    864,
+                    1968,
+                    920
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    1387,
+                    871,
+                    1851,
+                    956
+                ],
+                "angle": 0,
+                "content": "Based on the input image and the provided categories, the sorting from high to low similarity with the aircraft in the image is as follows:"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    1387,
+                    956,
+                    1494,
+                    980
+                ],
+                "angle": 0,
+                "content": "1. 757-300"
+            },
+            {
+                "block_id": 19,
+                "type": "text",
+                "bbox": [
+                    1387,
+                    980,
+                    1494,
+                    1009
+                ],
+                "angle": 0,
+                "content": "2.767-200"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    1387,
+                    1009,
+                    1494,
+                    1036
+                ],
+                "angle": 0,
+                "content": "3.MD-90"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    1387,
+                    1039,
+                    1494,
+                    1062
+                ],
+                "angle": 0,
+                "content": "4.737-800"
+            },
+            {
+                "block_id": 22,
+                "type": "text",
+                "bbox": [
+                    1387,
+                    1065,
+                    1512,
+                    1089
+                ],
+                "angle": 0,
+                "content": "5.A340-300"
+            },
+            {
+                "block_id": 23,
+                "type": "list",
+                "bbox": [
+                    1387,
+                    956,
+                    1512,
+                    1089
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 24,
+                "type": "image",
+                "bbox": [
+                    1305,
+                    1128,
+                    1366,
+                    1188
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 25,
+                "type": "text",
+                "bbox": [
+                    1387,
+                    1138,
+                    1662,
+                    1171
+                ],
+                "angle": 0,
+                "content": "Why did you give this order?"
+            },
+            {
+                "block_id": 26,
+                "type": "image",
+                "bbox": [
+                    1912,
+                    1214,
+                    1968,
+                    1273
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 27,
+                "type": "text",
+                "bbox": [
+                    1384,
+                    1217,
+                    1879,
+                    1527
+                ],
+                "angle": 0,
+                "content": "The aircraft in the image is a Boeing 757, which is identifiable by its long fuselage, narrow-body, and characteristic nose shape. The -300 series has an extended fuselage compared to other variants, which appears to match the aircraft pictured. The 767-200 and MD-90 have some similarities but differ in specific design elements such as winglets and engine placement. The 737-800 is a shorter aircraft with a different wing design. The A340-300 is a wide-body aircraft with four engines, making it quite distinct from the 757-300."
+            },
+            {
+                "block_id": 28,
+                "type": "image",
+                "bbox": [
+                    596,
+                    1207,
+                    657,
+                    1270
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 29,
+                "type": "text",
+                "bbox": [
+                    678,
+                    1221,
+                    956,
+                    1247
+                ],
+                "angle": 0,
+                "content": "Why did you give this order?"
+            },
+            {
+                "block_id": 30,
+                "type": "text",
+                "bbox": [
+                    675,
+                    1303,
+                    1170,
+                    1498
+                ],
+                "angle": 0,
+                "content": "The car in the image is an Aston Martin, and its styling most closely resembles the Vantage model line. It's a coupe, not a convertible, so coupes have been ranked higher than convertibles. The Audi TTS Coupe, while also a coupe, is from a different manufacturer and thus has distinct styling cues that are less similar to the vehicle in the image."
+            },
+            {
+                "block_id": 31,
+                "type": "image",
+                "bbox": [
+                    1201,
+                    1293,
+                    1262,
+                    1349
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Fig. 7: GPT4V Example for Stanford Cars and FGVC Aircraft. Green for ground truth, blue for characteristics analyzed by GPT-4V."
+            },
+            {
+                "block_id": 33,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1712,
+                    2009,
+                    2013
+                ],
+                "angle": 0,
+                "content": "V3Det brings an unprecedented level of diversity to the table. The dataset includes 1,753,000 meticulously annotated bounding boxes, making it an invaluable resource for developing and testing detection algorithms capable of handling a wide variety of object types. Its large number of categories ensures that the dataset has a comprehensive representation of the visual world, making it an ideal testing ground for our Zero-Shot Region Recognition experiments."
+            },
+            {
+                "block_id": 34,
+                "type": "title",
+                "bbox": [
+                    548,
+                    2079,
+                    1068,
+                    2138
+                ],
+                "angle": 0,
+                "content": "B Prompt Formats"
+            },
+            {
+                "block_id": 35,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2174,
+                    2006,
+                    2323
+                ],
+                "angle": 0,
+                "content": "In this section, we delve into the detailed design of our prompts. We have crafted distinct prompts for various tasks to test the capabilities of the baseline model and our RAR model in visual recognition."
+            },
+            {
+                "block_id": 36,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2326,
+                    2006,
+                    2517
+                ],
+                "angle": 0,
+                "content": "In our RAR pipeline, the prompt primarily serves to merge the input image with the category information retrieved from memory. It guides MLLMs to rank the retrieved candidate object categories based on similarity. Our prompt format is as follows:"
+            },
+            {
+                "block_id": 37,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2527,
+                    2006,
+                    2673
+                ],
+                "angle": 0,
+                "content": "Please play the role of a classification expert, and sort the provided categories from high to low according to the {top-k} similarity with the input image. Here are the optional categories: {categories}."
+            },
+            {
+                "block_id": 38,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2673,
+                    2006,
+                    2778
+                ],
+                "angle": 0,
+                "content": "Here, \\(\\{\\mathrm{top - k}\\}\\) is replaced with the number of categories input. And \\(\\{\\mathrm{categories}\\}\\) is replaced with the top-k categories retrieved from memory."
+            }
+        ]
+    },
+    {
+        "page_id": 21,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    555,
+                    382,
+                    601,
+                    419
+                ],
+                "angle": 0,
+                "content": "22"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    693,
+                    379,
+                    943,
+                    425
+                ],
+                "angle": 0,
+                "content": "Ziyu Liu et al."
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    578,
+                    511,
+                    1976,
+                    1699
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Fig. 8: GPT4V Example for Flowers102, Pets37 and Food101. Green for ground truth, blue for characteristics analyzed by GPT-4V."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1857,
+                    2009,
+                    2006
+                ],
+                "angle": 0,
+                "content": "Additionally, to assess the visual recognition and ranking capabilities of MLLMs themselves, we have prepared a prompt with examples to serve as input for the model. Our structured in-context learning prompt is as follows:"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2006,
+                    2068,
+                    2300
+                ],
+                "angle": 0,
+                "content": "\"Please play the role of a classification expert, and sort the provided categories from high to low according to the top 5 similarity with the input image. Here are the optional categories:{categories}. Your answer should follow the following format, like: ['category A', 'category B', 'category C', 'category D', 'category E']. Only choose five categories, and no further information.\""
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2303,
+                    2006,
+                    2405
+                ],
+                "angle": 0,
+                "content": "When testing the RAR pipeline with MLLMs, \\(\\{\\text{categories}\\}\\) is replaced with all the category names of each dataset."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    548,
+                    2481,
+                    1759,
+                    2541
+                ],
+                "angle": 0,
+                "content": "C More Implemented Details and Experiments"
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    548,
+                    2587,
+                    1371,
+                    2643
+                ],
+                "angle": 0,
+                "content": "C.1 Fine-Grained Visual Recognition"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2673,
+                    2006,
+                    2775
+                ],
+                "angle": 0,
+                "content": "In the fine-grained visual recognition section, we first evaluate our RAR on the setting defined in previous work [31]. For each category in the five datasets,"
+            }
+        ]
+    },
+    {
+        "page_id": 22,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    596,
+                    379,
+                    1866,
+                    429
+                ],
+                "angle": 0,
+                "content": "RAR: Retrieving And Ranking Augmented MLLMs for Visual Recognition"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1958,
+                    386,
+                    2004,
+                    419
+                ],
+                "angle": 0,
+                "content": "23"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    609,
+                    491,
+                    1048,
+                    798
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 3,
+                "type": "image",
+                "bbox": [
+                    1068,
+                    491,
+                    1499,
+                    798
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    1519,
+                    491,
+                    1958,
+                    798
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    609,
+                    811,
+                    1048,
+                    1112
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1068,
+                    811,
+                    1504,
+                    1112
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    1524,
+                    811,
+                    1953,
+                    1112
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Fig. 9: Evaluation on CLIP+KNN for Caltech101, Flowers102, RAF-DB, Pets37, DTD and UCF101. We report the top-1, 5, 10, 15, 20 accuracy (\\%) under the 4-shot settings."
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    632,
+                    1428,
+                    1239,
+                    1848
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1290,
+                    1428,
+                    1912,
+                    1848
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Fig. 10: Evaluation on MLLMs for Caltech101, Flowers102. We report the test results using 10, 15, 20, 25, and 30 category names as inputs."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2135,
+                    2009,
+                    2389
+                ],
+                "angle": 0,
+                "content": "we select three unlabeled images to form a 3-shot setting. Then, we extract embeddings using the CLIP B/16 model and store them in memory. The labels for each image correspond to the predictions in [31]. We then test the validation set using the RAR pipeline and measure the results with Clustering Accuracy (cACC) and Semantic Similarity (sACC)."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2425,
+                    2009,
+                    2775
+                ],
+                "angle": 0,
+                "content": "Evaluation Metrics. In the fine-grained visual recognition section, we use two synergistic metrics: Clustering Accuracy (cACC) and Semantic Similarity (sACC) to evaluate our method, following [31]. Clustering Accuracy (cACC) mainly assesses the accuracy of clustering images within the same category, without considering the semantic relatedness of category labels. Complementing this, Semantic Similarity (sACC) measures the similarity between the names of categories in the clusters and the ground truth."
+            }
+        ]
+    },
+    {
+        "page_id": 23,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    555,
+                    382,
+                    601,
+                    419
+                ],
+                "angle": 0,
+                "content": "24"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    693,
+                    379,
+                    943,
+                    425
+                ],
+                "angle": 0,
+                "content": "Ziyu Liu et al."
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    558,
+                    815,
+                    1999,
+                    1907
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\">Method</td><td colspan=\"7\">Common</td><td colspan=\"4\">Fine-Grained</td><td></td></tr><tr><td>ImageNet</td><td>Caltech101</td><td>RAF-DB</td><td>SUN397</td><td>EuroSAT</td><td>DTD</td><td>UCF-101</td><td>Flower102</td><td>StanfordCars</td><td>Food101</td><td>OxfordPets</td><td>Average</td></tr><tr><td>1-shot</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>CLIP+KNN</td><td>29.2</td><td>75.9</td><td>11.3</td><td>37.7</td><td>53.9</td><td>35.1</td><td>47.8</td><td>66.7</td><td>32.6</td><td>45.3</td><td>41.3</td><td>43.3</td></tr><tr><td>LLaVA1.5 Finetuning</td><td>-</td><td>84.1</td><td>24.9</td><td>-</td><td>48.2</td><td>22.3</td><td>35.4</td><td>4.59</td><td>-</td><td>39.2</td><td>16.3</td><td>-</td></tr><tr><td rowspan=\"2\">RAR (LLaVA1.5) Δ</td><td>40.3</td><td>85.2</td><td>34.8</td><td>46.5</td><td>62.4</td><td>38.1</td><td>57.4</td><td>50.4</td><td>38.3</td><td>57.6</td><td>47.0</td><td>50.7</td></tr><tr><td>+10.5</td><td>+9.3</td><td>+23.5</td><td>+8.8</td><td>+8.5</td><td>+3.0</td><td>+9.6</td><td>-16.3</td><td>+5.7</td><td>+12.3</td><td>+5.7</td><td>+7.4</td></tr><tr><td>2-shot</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>CLIP+KNN</td><td>36.1</td><td>82.9</td><td>11.7</td><td>44.6</td><td>58.7</td><td>41.2</td><td>58.5</td><td>78.9</td><td>40.9</td><td>54.1</td><td>49.0</td><td>50.6</td></tr><tr><td>LLaVA1.5 Finetuning</td><td>-</td><td>53.1</td><td>24.9</td><td>-</td><td>48.2</td><td>22.3</td><td>38.7</td><td>10.03</td><td>-</td><td>38.2</td><td>16.3</td><td>-</td></tr><tr><td rowspan=\"2\">RAR (LLaVA1.5) Δ</td><td>46.8</td><td>89.2</td><td>27.9</td><td>53.1</td><td>68.6</td><td>47.9</td><td>66.5</td><td>54.7</td><td>45.9</td><td>65.4</td><td>54.7</td><td>57.4</td></tr><tr><td>+10.7</td><td>+6.3</td><td>+16.2</td><td>+8.5</td><td>+9.9</td><td>+6.7</td><td>+8.0</td><td>-24.2</td><td>+5.0</td><td>+11.3</td><td>+5.7</td><td>+6.8</td></tr><tr><td>4-shot</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>CLIP+KNN</td><td>42.1</td><td>87.9</td><td>14.2</td><td>51.4</td><td>67.6</td><td>47.5</td><td>64.6</td><td>84.5</td><td>49.2</td><td>62.6</td><td>55.6</td><td>57.0</td></tr><tr><td>LLaVA1.5 Finetuning</td><td>-</td><td>88.4</td><td>24.9</td><td>-</td><td>48.2</td><td>46.6</td><td>58.9</td><td>13.2</td><td>-</td><td>66.4</td><td>28.9</td><td>-</td></tr><tr><td rowspan=\"2\">RAR (LLaVA1.5) Δ</td><td>51.0</td><td>92.1</td><td>27.7</td><td>58.8</td><td>74.8</td><td>53.9</td><td>69.6</td><td>80.4</td><td>54.4</td><td>71.4</td><td>60.9</td><td>63.2</td></tr><tr><td>+9.9</td><td>+4.2</td><td>+13.5</td><td>+7.4</td><td>+7.2</td><td>+6.4</td><td>+5.0</td><td>-4.1</td><td>+5.2</td><td>+8.8</td><td>+5.3</td><td>+6.2</td></tr><tr><td>8-shot</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>CLIP+KNN</td><td>47.6</td><td>90.6</td><td>28.2</td><td>56.8</td><td>72.8</td><td>53.2</td><td>68.3</td><td>89.5</td><td>56.1</td><td>68.3</td><td>61.8</td><td>63.0</td></tr><tr><td>LLaVA1.5 Finetuning</td><td>-</td><td>92.1</td><td>24.9</td><td>-</td><td>48.2</td><td>54.7</td><td>66.5</td><td>30.1</td><td>-</td><td>72.5</td><td>46.1</td><td>-</td></tr><tr><td rowspan=\"2\">RAR (LLaVA1.5) Δ</td><td>56.5</td><td>93.5</td><td>46.9</td><td>63.4</td><td>81.5</td><td>59.3</td><td>74.3</td><td>87.3</td><td>61.2</td><td>76.6</td><td>67.7</td><td>69.8</td></tr><tr><td>+8.9</td><td>+2.9</td><td>+18.7</td><td>+6.6</td><td>+8.7</td><td>+6.1</td><td>+6.0</td><td>-2.2</td><td>+5.1</td><td>+8.3</td><td>+5.9</td><td>+6.8</td></tr><tr><td>16-shot</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>CLIP+KNN</td><td>52.0</td><td>92.4</td><td>35.0</td><td>61.2</td><td>78.7</td><td>57.5</td><td>70.6</td><td>92.1</td><td>63.2</td><td>71.8</td><td>68.3</td><td>67.5</td></tr><tr><td>LLaVA1.5 Finetuning</td><td>-</td><td>94.1</td><td>24.9</td><td>-</td><td>50.6</td><td>63</td><td>74.7</td><td>59.0</td><td>-</td><td></td><td>62.4</td><td>-</td></tr><tr><td rowspan=\"2\">RAR (LLaVA1.5) Δ</td><td>60.3</td><td>94.1</td><td>53.1</td><td>68.0</td><td>84.8</td><td>63.7</td><td>75.9</td><td>92.1</td><td>67.8</td><td>79.4</td><td>72.7</td><td>73.8</td></tr><tr><td>+8.3</td><td>+1.7</td><td>+18.1</td><td>+6.8</td><td>+6.1</td><td>+6.2</td><td>+5.3</td><td>+0.0</td><td>+4.6</td><td>+7.6</td><td>+4.4</td><td>+6.3</td></tr></table>",
+                "caption": "Table 8: Few-shot image classification across 11 datasets. We report the top-1 accuracy (\\%) under the 1-shot, 2-shot, 4-shot, 8-shot and 16-shot settings. The CLIP+KNN method does not utilize the text encoder of CLIP. Instead, we employ the visual encoder to extract image features, and then apply the KNN algorithm to these features. Here our RAR uses the LLaVA1.5 [28] as the MLLM to rank the retrieved results. The symbol ‘-’ denotes to the LLaVA model fails to make the predictions due to the limited window size."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    550,
+                    1993,
+                    1310,
+                    2046
+                ],
+                "angle": 0,
+                "content": "C.2 Few-Shot Image Classification"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2075,
+                    2009,
+                    2319
+                ],
+                "angle": 0,
+                "content": "In this section, we delve deeper into some intriguing observations and motivations behind our study. Additionally, we have included an array of expanded test results in this part, encompassing classification tests from 1-shot to 16-shot, tests for top-5 accuracy, and we have further expanded our memory to explore the potential capabilities of RAR."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2323,
+                    2009,
+                    2775
+                ],
+                "angle": 0,
+                "content": "More Discussion about Motivation. In the field of image classification, especially when facing the challenges of fine-grained image categorization, can MLLMs prove competent and effective? To further explore the potential of MLLMs in image classification tasks, we employed the GPT-4V model to test selected images from our fine-grained datasets. Initially, we used the CLIP+KNN method to select 5 candidate images and their categories for a single image, ensuring that these candidates are at the top-5 in similarity among all images in memory, thus guaranteeing minimal differences between the chosen categories. Additionally, we intentionally selected examples that CLIP failed to classify cor"
+            }
+        ]
+    },
+    {
+        "page_id": 24,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    594,
+                    379,
+                    1866,
+                    432
+                ],
+                "angle": 0,
+                "content": "RAR: Retrieving And Ranking Augmented MLLMs for Visual Recognition"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1958,
+                    382,
+                    2004,
+                    422
+                ],
+                "angle": 0,
+                "content": "25"
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    563,
+                    587,
+                    1994,
+                    980
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\">Method</td><td colspan=\"7\">Common</td><td colspan=\"4\">Fine-Grained</td><td></td></tr><tr><td>ImageNet</td><td>Caltech101</td><td>RAF-DB</td><td>SUN397</td><td>EuroSAT</td><td>DTD</td><td>UCF-101</td><td>Flower102</td><td>StanfordCars</td><td>Food101</td><td>OxfordPets</td><td>Average</td></tr><tr><td>CLIP+KNN</td><td>67.1</td><td>97.6</td><td>48.0</td><td>78.9</td><td>91.5</td><td>70.5</td><td>85.4</td><td>96.5</td><td>79.1</td><td>86.2</td><td>87.6</td><td>80.8</td></tr><tr><td>RAR (LLaVA1.5) Δ</td><td>69.7 +2.6</td><td>97.7 +0.1</td><td>53.8 +5.8</td><td>80.1 +1.2</td><td>92.5 +1.0</td><td>71.9 +1.4</td><td>86.2 +0.8</td><td>96.5 +0.0</td><td>79.1 +0.0</td><td>87.7 +1.5</td><td>88.1 +0.5</td><td>82.1 +1.3</td></tr></table>",
+                "caption": "Table 10: Evaluation on 11 datasets, reporting the top-1 accuracy. The GPT4V [38] results are copied from [50]."
+            },
+            {
+                "block_id": 5,
+                "type": "table",
+                "bbox": [
+                    563,
+                    1141,
+                    1994,
+                    1659
+                ],
+                "angle": 0,
+                "content": "<table><tr><td rowspan=\"2\">Method</td><td colspan=\"7\">Common</td><td colspan=\"4\">Fine-Grained</td><td></td></tr><tr><td>ImageNet</td><td>Caltech101</td><td>RAF-DB</td><td>SUN397</td><td>EuroSAT</td><td>DTD</td><td>UCF-101</td><td>Flower102</td><td>StanfordCars</td><td>Food101</td><td>OxfordPets</td><td>Average</td></tr><tr><td>GPT-4V</td><td>62.0</td><td>95.5</td><td>58.5</td><td>57.7</td><td>36.2</td><td>59.1</td><td>81.6</td><td>70.6</td><td>58.3</td><td>80.1</td><td>92.6</td><td>68.4</td></tr><tr><td rowspan=\"2\">RAR (LLaVA1.5) Δ</td><td>73.4</td><td>94.6</td><td>73.8</td><td>70.6</td><td>93.3</td><td>71.9</td><td>79.1</td><td>95.6</td><td>72.6</td><td>86.2</td><td>79.9</td><td>81.0</td></tr><tr><td>+11.4</td><td>-0.9</td><td>+15.3</td><td>+12.9</td><td>+57.1</td><td>+12.8</td><td>-2.5</td><td>+25.0</td><td>+14.3</td><td>+6.1</td><td>-12.7</td><td>+12.6</td></tr><tr><td rowspan=\"2\">RAR (Intern-IXC2) Δ</td><td>71.5</td><td>94.4</td><td>72.7</td><td>69.7</td><td>91.7</td><td>69.9</td><td>77.6</td><td>93.2</td><td>65.4</td><td>83.9</td><td>79.3</td><td>79.0</td></tr><tr><td>+9.5</td><td>-1.1</td><td>+14.2</td><td>+12.0</td><td>+55.5</td><td>+10.8</td><td>-4.0</td><td>+22.6</td><td>+7.1</td><td>+3.8</td><td>-13.3</td><td>+10.6</td></tr><tr><td rowspan=\"2\">RAR (Qwen-VL) Δ</td><td>75.8</td><td>95.5</td><td>66.0</td><td>72.7</td><td>90.7</td><td>72.5</td><td>81.4</td><td>97.5</td><td>81.6</td><td>87.2</td><td>88.1</td><td>82.6</td></tr><tr><td>+13.8</td><td>+0.0</td><td>+7.5</td><td>+5.0</td><td>+54.5</td><td>+13.4</td><td>-0.2</td><td>+26.9</td><td>+23.3</td><td>+7.1</td><td>-4.5</td><td>+14.2</td></tr></table>"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1765,
+                    2009,
+                    2112
+                ],
+                "angle": 0,
+                "content": "rectly, increasing the complexity of the task. Subsequently, we presented these images and categories to GPT-4V, utilizing the prompt described in Appendix B, prompting GPT-4V to rank all categories by similarity. During this process, we also requested GPT-4V to provide the rationale for its classifications, allowing us to analyze the specific role of MLLMs in classification tasks based on the reasons provided by GPT-4V. Fig. 7 and Fig. 8 presents several examples of five fine-grained classification datasets."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2118,
+                    2009,
+                    2669
+                ],
+                "angle": 0,
+                "content": "From the examples in Fig. 7 and Fig. 8, it is evident that GPT-4V is capable of effectively analyzing the main feature information of objects in images during fine-grained image classification tasks. For instance, it identifies key characteristics such as \"coupe\" (a two-door car), \"long fuselage\" (long body of an aircraft), and \"prominent ears\" (noticeably protruding ears), which are crucial for distinguishing between similar categories. Sometimes, these detailed aspects may be overlooked by the CLIP model, leading to classification errors. Therefore, adopting a method of initial retrieval followed by deeper analysis, firstly filtering through the numerous fine-grained categories and then using MLLMs for further examination to select the most accurate answer, proves to be an effective approach for fine-grained image classification tasks."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2673,
+                    2006,
+                    2772
+                ],
+                "angle": 0,
+                "content": "Simultaneously, we assessed CLIP's accuracy in handling a variety of classification datasets. We selected six datasets: Caltech101, Flower102, RAF-DB,"
+            }
+        ]
+    },
+    {
+        "page_id": 25,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    555,
+                    382,
+                    601,
+                    419
+                ],
+                "angle": 0,
+                "content": "26"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    693,
+                    379,
+                    943,
+                    425
+                ],
+                "angle": 0,
+                "content": "Ziyu Liu et al."
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    632,
+                    656,
+                    1932,
+                    1221
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Crop scale</td><td>Blurring|</td><td>1.0</td><td>1.2</td><td>1.4</td><td>1.6</td><td>1.8</td><td>2.0</td><td>2.2</td><td>2.4</td><td>2.6</td><td>2.8</td><td>3.0</td></tr><tr><td rowspan=\"2\">AP</td><td>✘</td><td>46.7</td><td>47.0</td><td>46.6</td><td>46.4</td><td>43.4</td><td>43.0</td><td>40.9</td><td>40.7</td><td>37.7</td><td>37.1</td><td>36.2</td></tr><tr><td>✓</td><td>47.9</td><td>51.3</td><td>52.2</td><td>53.9</td><td>53.3</td><td>52.9</td><td>52.6</td><td>51.8</td><td>51.2</td><td>50.3</td><td>49.8</td></tr><tr><td rowspan=\"2\">APs</td><td>✘</td><td>39.5</td><td>40.9</td><td>44.6</td><td>44.8</td><td>44.4</td><td>44.2</td><td>42.9</td><td>43.3</td><td>41.2</td><td>40.5</td><td>39.8</td></tr><tr><td>✓</td><td>33.6</td><td>35.2</td><td>41.4</td><td>43.2</td><td>45.6</td><td>46.3</td><td>46.7</td><td>46.9</td><td>47.4</td><td>47.4</td><td>47.3</td></tr><tr><td rowspan=\"2\">APm</td><td>✘</td><td>61.5</td><td>61.3</td><td>56.4</td><td>55.2</td><td>49.5</td><td>48.6</td><td>44.4</td><td>43.7</td><td>39.9</td><td>39.0</td><td>38.5</td></tr><tr><td>✓</td><td>63.5</td><td>64.2</td><td>66.1</td><td>68.3</td><td>65.2</td><td>64.2</td><td>63.4</td><td>62.2</td><td>61.0</td><td>59.2</td><td>58.6</td></tr><tr><td rowspan=\"2\">AP1</td><td>✘</td><td>59.1</td><td>57.2</td><td>51.1</td><td>50.1</td><td>45.6</td><td>44.4</td><td>41.4</td><td>40.9</td><td>38.0</td><td>37.8</td><td>37.2</td></tr><tr><td>✓</td><td>72.4</td><td>71.3</td><td>69.5</td><td>69.6</td><td>67.0</td><td>65.2</td><td>62.9</td><td>60.7</td><td>59.6</td><td>57.4</td><td>55.2</td></tr></table>",
+                "caption": "Table 11: Cropping ablation of CLIP [41] zero-shot classification on LVIS [14] with ground truth proposals. Different behaviors can be seen before and after blurring with respect to different object scales."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1336,
+                    2009,
+                    1640
+                ],
+                "angle": 0,
+                "content": "Pets37, DTD, and UCF101, and tested the CLIP+KNN method for top 1, 5, 10, 15, and 20 accuracy, with results presented in Fig. 9. We observed that as the top-k value increased, the classification accuracy improved rapidly, reaching over \\(90\\%\\) in four of the six datasets when top-k reached 10. This indicates that CLIP shows significant advantages as the number of predicted categories increases, complementing MLLMs' ability to discern among similar categories."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1650,
+                    2009,
+                    1947
+                ],
+                "angle": 0,
+                "content": "Following the experimental design in Fig. 9, we used MLLMs to rank categories when expanding the number of categories. We chose two datasets, Caltech101 and Flowers102, and used 10, 15, 20, 25, 30 categories as input to MLLMs, ensuring these included the correct category. As shown in Fig. 10, the distinction ability of MLLMs gradually decreased as the number of categories input into MLLMs increased."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1963,
+                    2009,
+                    2313
+                ],
+                "angle": 0,
+                "content": "Hence, we found that MLLMs and CLIP have complementary advantages in classification tasks. CLIP initially narrows down the correct answer to a smaller set through preliminary screening, while MLLMs can finely select the correct answer from this set. Our RAR combines the strengths of both CLIP and MLLMs, first finding likely correct candidates through CLIP and retrieval, and then accurately selecting the correct answer through MLLMs' ranking, thus achieving outstanding results across multiple classification datasets."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2326,
+                    2009,
+                    2775
+                ],
+                "angle": 0,
+                "content": "More Evaluation Results. In our few-shot image classification experiments, we employed the CLIP B/16 model to extract embeddings from n images in each category, which were then stored in memory for testing the accuracy of n-shot experiments. To accelerate retrieval speed, we initially use the HNSW algorithm to transform the original 576-dimensional vectors into 64-dimensional indices before storing the image embeddings in memory. HNSW is a commonly used Approximate Nearest Neighbor (ANN) algorithm, primarily aimed at quickly finding the k nearest elements to a query in a large set of candidates. To demonstrate the effectiveness of our method, we included results from 1-shot, 2-shot,"
+            }
+        ]
+    },
+    {
+        "page_id": 26,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    596,
+                    379,
+                    1866,
+                    425
+                ],
+                "angle": 0,
+                "content": "RAR: Retrieving And Ranking Augmented MLLMs for Visual Recognition"
+            },
+            {
+                "block_id": 1,
+                "type": "page_number",
+                "bbox": [
+                    1958,
+                    382,
+                    2004,
+                    419
+                ],
+                "angle": 0,
+                "content": "27"
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    578,
+                    524,
+                    1963,
+                    1402
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Fig.11: Metric curve visualization of CLIP [41] zero-shot classification on LVIS [14] with ground truth proposals. Different behaviors can be seen before and after blurring with respect to different object's scales."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1673,
+                    2001,
+                    1772
+                ],
+                "angle": 0,
+                "content": "and 16-shot experiments in the supplementary materials, alongside the results of 4-shot and 8-shot experiments, all of which are presented in Tab. 8."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1785,
+                    2009,
+                    2131
+                ],
+                "angle": 0,
+                "content": "From the 1-shot to 16-shot experiments, RAR's results showed an improvement over the CLIP+KNN method by \\(7.4\\%\\), \\(6.8\\%\\), \\(6.2\\%\\), \\(6.8\\%\\), and \\(6.3\\%\\) respectively, averaging a \\(6.7\\%\\) percentage point increase, and significantly outperforming the performance of the LLaVa model itself. This outcome demonstrates the excellence of RAR in image classification tasks (including fine-grained image classification), achieved by integrating the strengths of MLLMs and retrieval techniques."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2148,
+                    2009,
+                    2399
+                ],
+                "angle": 0,
+                "content": "Top-5 Accuracy Results. Moreover, in the experiments conducted for our paper, we selected the top 5 retrieved results for ranking. To test the scalability of this method, we conducted a new experiment using the top 10 retrieved results, ranking these ten categories and then assessing the accuracy of the top 5. In this experiment, we utilized a 4-shot setting, the result is shown in Tab. 9."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2409,
+                    2009,
+                    2610
+                ],
+                "angle": 0,
+                "content": "The final results demonstrate that although the top 5 accuracy achieved by \\(\\mathrm{CLIP + KNN}\\) was already high, our RAR method still managed to make comprehensive improvements on this basis. The average top 5 accuracy across eleven datasets increased by \\(1.3\\%\\)."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    545,
+                    2623,
+                    2009,
+                    2778
+                ],
+                "angle": 0,
+                "content": "Extension to the whole Training Set. To further explore the potential of RAR, we expanded the memory size to include all images from the training set stored in memory. We then compared the performance of RAR under this setup"
+            }
+        ]
+    },
+    {
+        "page_id": 27,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "page_number",
+                "bbox": [
+                    555,
+                    382,
+                    601,
+                    419
+                ],
+                "angle": 0,
+                "content": "28"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    693,
+                    379,
+                    943,
+                    425
+                ],
+                "angle": 0,
+                "content": "Ziyu Liu et al."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    545,
+                    485,
+                    1999,
+                    580
+                ],
+                "angle": 0,
+                "content": "with that of GPT-4V across multiple image classification datasets. The results are presented in Tab. 10."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    545,
+                    584,
+                    2009,
+                    887
+                ],
+                "angle": 0,
+                "content": "The results in Tab. 10 show that, regardless of whether the base model is LLaVa, Intern-IXC2, or Qwen-VL, RAR significantly outperforms GPT-4V in terms of accuracy. Across eleven datasets, the average precision of RAR exceeds that of GPT-4V by 12.5 percentage points. It is observed that even 7B MLLMs, when integrated into the RAR pipeline, far surpass the classification capabilities of GPT-4V across multiple image classification datasets."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    548,
+                    956,
+                    1315,
+                    1009
+                ],
+                "angle": 0,
+                "content": "C.3 Zero-Shot Region Recognition"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    545,
+                    1039,
+                    2011,
+                    1791
+                ],
+                "angle": 0,
+                "content": "We carefully study how to adapt CLIP and MLLMs pretrained on full images to region-level recognition tasks. Zero-shot LVIS [14] AP metric under different crop scales and object scales are reported in Fig. 11 and Tab. 11. Based on this experiment, we conclude with two major observations: Firstly, a proper amount of blurring can significantly improve classification accuracy. This trick can help leave enough context information while keeping the foreground object prominent. Secondly, for objects with different scales, different crop scales should be adapted to maximize classification accuracy. As shown in Fig. 11, after blurring, Different object scale AP curves behave differently with respect to crop scale. We contribute this phenomenon to the resolution shift of CLIP input images. Therefore, we make two adaptations for CLIP and MLLMs for region-level recognition: Gaussian blurring and adaptive crop scale. We adopt the hyperparameters of these two tricks on the LVIS training set and find these adaptions not only fit for the LVIS validation set but also other detection datasets like V3Det [48]."
+            }
+        ]
+    }
+]

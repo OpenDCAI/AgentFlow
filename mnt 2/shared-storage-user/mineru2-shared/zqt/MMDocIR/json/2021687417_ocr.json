@@ -1,0 +1,462 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    290,
+                    310,
+                    520,
+                    491
+                ],
+                "angle": 0,
+                "content": "LAW"
+            },
+            {
+                "block_id": 1,
+                "type": "header",
+                "bbox": [
+                    290,
+                    495,
+                    724,
+                    669
+                ],
+                "angle": 0,
+                "content": "LIBRARY"
+            },
+            {
+                "block_id": 2,
+                "type": "header",
+                "bbox": [
+                    293,
+                    673,
+                    721,
+                    712
+                ],
+                "angle": 0,
+                "content": "LIBRARY OF CONGRESS"
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    535,
+                    1128,
+                    2098,
+                    1359
+                ],
+                "angle": 0,
+                "content": "Net Zero Emissions Legislation Around the World"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    1045,
+                    1508,
+                    1496,
+                    1584
+                ],
+                "angle": 0,
+                "content": "September 2021"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    1020,
+                    2656,
+                    1519,
+                    2702
+                ],
+                "angle": 0,
+                "content": "LL File No. 2021-020617"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    1063,
+                    2709,
+                    1473,
+                    2755
+                ],
+                "angle": 0,
+                "content": "LRA-D-PUB-002566"
+            },
+            {
+                "block_id": 7,
+                "type": "footer",
+                "bbox": [
+                    420,
+                    3039,
+                    2126,
+                    3154
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress, Global Legal Research Directorate (202) 707-5080 (phone) • (866) 550-0442 (fax) • law@loc.gov • http://www.law.gov"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "text",
+                "bbox": [
+                    578,
+                    1455,
+                    1963,
+                    1765
+                ],
+                "angle": 0,
+                "content": "This report is provided for reference purposes only. It does not constitute legal advice and does not represent the official opinion of the United States Government. The information provided reflects research undertaken as of the date of writing. It has not been updated."
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "title",
+                "bbox": [
+                    459,
+                    300,
+                    2098,
+                    386
+                ],
+                "angle": 0,
+                "content": "Net Zero Emissions Legislation Around the World"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    701,
+                    405,
+                    1851,
+                    468
+                ],
+                "angle": 0,
+                "content": "Prepared by the Staff of the Global Legal Research Directorate"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    293,
+                    580,
+                    2254,
+                    1042
+                ],
+                "angle": 0,
+                "content": "This table shows the 39 jurisdictions around the world that the Law Library of Congress has identified as having a net zero emissions or climate neutrality goal enshrined in legislation. This includes the European Union and its 27 member states, where a June 2021 regulation sets 2050 as the target date for climate neutrality. Eight EU member states have passed their own legislation in addition to the directly applicable regulation, including two that have set an earlier target date. To date, 11 countries outside the EU have passed legislation containing a net zero emissions goal, with two setting a target date earlier than 2050. At least three other countries have introduced or are expressly developing legislation that includes the goal."
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    293,
+                    1148,
+                    2254,
+                    2910
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Jurisdiction</td><td>Enacted Laws</td><td>Proposed Laws</td></tr><tr><td>European Union (EU)</td><td>Regulation (EU) 2021/1119 (European Climate Law), art. 2, 2021 O.J. (L 243) 1, https://perma.cc/2GM3-9W99 (climate neutrality by 2050)</td><td></td></tr><tr><td>Austria</td><td>EU legislation applies</td><td></td></tr><tr><td>Belgium</td><td>EU legislation applies</td><td></td></tr><tr><td>Bulgaria</td><td>EU legislation applies</td><td></td></tr><tr><td>Canada</td><td>Canadian Net-Zero Emissions Accountability Act, S.C. 2021, c. 22, (Royal Assent June 29, 2021), https://perma.cc/MD3F-LL9E (net zero by 2050)</td><td></td></tr><tr><td>Chile</td><td></td><td>Climate Change Framework Law, § IV.2.a, https://perma.cc/G2VN-MLNG (net zero by 2050) (submitted to National Congress Jan. 10, 2020, https://www.gob.cl/en/news/government-unveils-climate-change-bill-designed-decrease-negative-impacts-climate-change-chile/)</td></tr><tr><td>Croatia</td><td>EU legislation applies</td><td></td></tr></table>"
+            },
+            {
+                "block_id": 4,
+                "type": "footer",
+                "bbox": [
+                    293,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 5,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3102,
+                    2249,
+                    3141
+                ],
+                "angle": 0,
+                "content": "1"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    777,
+                    151,
+                    1767,
+                    204
+                ],
+                "angle": 0,
+                "content": "Net Zero Emissions Legislation Around the World"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    293,
+                    290,
+                    2254,
+                    2953
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Jurisdiction</td><td>Enacted Laws</td><td>Proposed Laws</td></tr><tr><td>Cyprus</td><td>EU legislation applies</td><td></td></tr><tr><td>Czechia</td><td>EU legislation applies</td><td></td></tr><tr><td>Denmark</td><td>Climate Act (No. 965 of June 26, 2020) art. 1, https://perma.cc/RP3S-J7EF (English translation), https://perma.cc/54HQ-TXDU (Danish original) (climate neutrality by 2050)</td><td></td></tr><tr><td>Estonia</td><td>EU legislation applies</td><td></td></tr><tr><td>Fiji</td><td></td><td>Climate Change Bill 2021 cls 6(5) &amp; 38(1), https://perma.cc/B5SY-MDR2 (net zero by 2050) (introduced Aug. 19, 2021, with goal to enact before COP26, https://perma.cc/SBU7-4W2A)</td></tr><tr><td>Finland</td><td>EU legislation appliesSee also Klimatlag (FFS 609/2015), § 6, https://perma.cc/B7CL-J7B6</td><td></td></tr><tr><td>France</td><td>Code de l&#x27;énergie, art. L100-4, https://perma.cc/MBZ8-28GM, as amended by Loi n° 2019-1147 du 8 novembre 2019 relative à l&#x27;énergie et au climat, art. 1, Nov. 8, 2019, https://perma.cc/VF4A-LGYZ (net zero by 2050)</td><td></td></tr><tr><td>Germany</td><td>Bundes-Klimaschutzgesetz [KSG], Dec. 12, 2019, Bundesgesetzblatt [BGBl.] I at 2513, as amended, art. 3, para. 2, https://perma.cc/2RH2-V367 (climate neutrality by 2045)</td><td></td></tr><tr><td>Greece</td><td>EU legislation applies</td><td></td></tr><tr><td>Hungary</td><td>Law on Climate Policy: On the Declaration of a Climate Emergency, on Climate Protection, (T/7021), adopted on May 14, 2020, art. 3, § 4, https://perma.cc/683R-7U5M (climate neutrality by 2050)</td><td></td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    293,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "2"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    777,
+                    151,
+                    1769,
+                    207
+                ],
+                "angle": 0,
+                "content": "Net Zero Emissions Legislation Around the World"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    293,
+                    290,
+                    2254,
+                    2970
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Jurisdiction</td><td>Enacted Laws</td><td>Proposed Laws</td></tr><tr><td>Iceland</td><td>Climate Act (Lög um loftslagsmål, 2012 nr. 70 29. Júní, https://perma.cc/D4YF-9TF6 (legally binding emissions reductions for 2030; specifies that the government can issue further legally binding targets. Current policy is carbon neutrality by 2040, https://perma.cc/3ZK3-Y6G8.) Not an EU member state but has a 2019 Climate Agreement with the European Union, https://perma.cc/RJW5-ADLZ</td><td></td></tr><tr><td>Ireland</td><td>Climate Action and Low Carbon Development Act 2015, No. 46/2015, s 3(1), https://perma.cc/6Y4S-7KYN, as amended by the Climate Action and Low Carbon Development (Amendment) Act 2021, No. 32/2021, https://perma.cc/KTM6-FVNS (climate neutrality by 2050)</td><td></td></tr><tr><td>Italy</td><td>EU legislation applies</td><td></td></tr><tr><td>Japan</td><td>Amendment (Act No. 54 of 2021) of Act on Promotion of Global Warming Countermeasures, Act No. 117 of 1998, art. 2-2, https://perma.cc/7NLD-WPC8 (in Japanese) (net zero by 2050)</td><td></td></tr><tr><td>Latvia</td><td>EU legislation applies</td><td></td></tr><tr><td>Liechtenstein</td><td>Emissionshandelsgesetz [EHG], Sept. 19, 2012, Landesgesetzblatt-Nummer [LGBl.-Nr.] 2012.346, as amended, art. 4, para. 4, https://perma.cc/LZL3-HW64 (climate neutrality by 2050) Note: The climate neutrality goal might get codified in the CO2 Act instead when an amended version of the CO2 Act is passed</td><td></td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    293,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "3"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    777,
+                    151,
+                    1767,
+                    204
+                ],
+                "angle": 0,
+                "content": "Net Zero Emissions Legislation Around the World"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    293,
+                    290,
+                    2254,
+                    3003
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Jurisdiction</td><td>Enacted Laws</td><td>Proposed Laws</td></tr><tr><td>Lithuania</td><td>EU legislation applies</td><td></td></tr><tr><td>Luxembourg</td><td>Loi du 15 décembre 2020 relative au climat et modifiant la loi modifiée du 31 mai 1999 portant institution d&#x27;un fonds pour la protection de l&#x27;environnement, art. 4, Dec. 15, 2020, https://perma.cc/MWH3-9TFJ (net zero by 2050)</td><td></td></tr><tr><td>Maldives</td><td>Climate Emergency Act, Law No. 9/2021, https://www.gazette.gov.mv/ (net zero by 2030) (Press Release, President&#x27;s Office, President Ratifies Climate Emergency Act (May 18, 2021), https://perma.cc/W8WD-9WNJ)</td><td></td></tr><tr><td>Malta</td><td>EU legislation appliesSee also Climate Action Act, cap. 543, https://perma.cc/QWQ4-Y4GH</td><td></td></tr><tr><td>Netherlands</td><td>EU legislation applies</td><td></td></tr><tr><td>New Zealand</td><td>Climate Change Response Act 2002 s 5Q, https://perma.cc/8PT9-EXVP, inserted by Climate Change Response (Zero Carbon) Amendment Act 2019 s 8, https://perma.cc/F7JU-XCJV (net zero by 2050; except biogenic methane)</td><td></td></tr><tr><td>Norway</td><td>Lov om klimamål (klimaloven) (LOV-2017-06-16-60) § 4, https://perma.cc/47QH-6R3B (reduce emissions by 90-95% compared to 1990 by 2050)Not an EU member state but has a 2019 Climate Agreement with the European Union, https://perma.cc/RJW5-ADLZ</td><td></td></tr><tr><td>Poland</td><td>EU legislation applies</td><td></td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    293,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3098,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "4"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    777,
+                    151,
+                    1767,
+                    204
+                ],
+                "angle": 0,
+                "content": "Net Zero Emissions Legislation Around the World"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    293,
+                    290,
+                    2254,
+                    2953
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Jurisdiction</td><td>Enacted Laws</td><td>Proposed Laws</td></tr><tr><td>Portugal</td><td>EU legislation applies</td><td></td></tr><tr><td>Romania</td><td>EU legislation applies</td><td></td></tr><tr><td>Slovakia</td><td>EU legislation applies</td><td></td></tr><tr><td>Slovenia</td><td>EU legislation appliesSee also Resolution on Slovenia&#x27;s Long-Term Climate Strategy Until 2050, No. 801-08/21-5/, adopted by National Assembly on July 13, 2021, art. 3.2.2, https://perma.cc/2RL8-UG39</td><td></td></tr><tr><td>South Korea</td><td>Framework Act on Carbon Neutral and Green Growth to Respond to Climate Crisis, Act No. 18469, Sept. 24, 2021, art. 7(1), https://perma.cc/ZQ4A-9CP5 (in Korean) (carbon neutrality by 2050)</td><td></td></tr><tr><td>Spain</td><td>Ley 7/2021, de 20 de mayo, de cambio climático y transmisión energetica, art. 3-2, Boletin Oficial del Estado, May 21, 2021, https://perma.cc/53XX-LSPE (climate neutrality by 2050)</td><td></td></tr><tr><td>Sweden</td><td>Klimatlag (SFS 2017:720), § 3, https://perma.cc/V5HA-A333 (unofficial English translation), https://perma.cc/R4C5-WJPW (original Swedish version) (does not set specific timelines for emissions reductions, but government must review and set targets every four years. Official policy as of March 2021 is net zero emissions by 2045 (85% reduction compared to 1990), https://perma.cc/NS4A-ZVGB)</td><td></td></tr><tr><td>Taiwan</td><td></td><td>The premier recently tasked the Environmental Protection Administration with amending the Greenhouse Gas Reduction and Management Act to incorporate the</td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    293,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2223,
+                    3102,
+                    2249,
+                    3141
+                ],
+                "angle": 0,
+                "content": "5"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    777,
+                    151,
+                    1769,
+                    207
+                ],
+                "angle": 0,
+                "content": "Net Zero Emissions Legislation Around the World"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    293,
+                    290,
+                    2254,
+                    2917
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Jurisdiction</td><td>Enacted Laws</td><td>Proposed Laws</td></tr><tr><td></td><td></td><td>goal of net-zero carbon emissions by 2050, and rename the act the Climate Change Response Act. (Taiwan Working Toward Net-Zero Emissions by 2050, Overseas Community Aff. Council, Republic of China (Taiwan) (OCAC) (Sept. 2, 2021), https://perma.cc/F8FW-YQUK) \nIndividual members of the Legislative Yuan proposed their own bills for amending the act to include the 2050 net-zero emissions goal. (See e.g., Yuan Zong No. 1711, Member Proposal No. 25885 (Feb. 26, 2021), https://perma.cc/66FW-XLRU (in Chinese); Yuan Zong No. 1711, Member Proposal No. 26787 (May 27, 2021), https://perma.cc/U7RM-G2L9 (in Chinese))</td></tr><tr><td>Ukraine</td><td>Law of Ukraine on the Principles of Monitoring, Reporting, and Verification of Greenhouse Gas Emissions, No. 377-IX, adopted Dec. 12, 2019, in force since Jan. 1, 2021, (BBP), 2020, No. 22, p. 150, pmbl., https://perma.cc/8GN8-KEY2 (harmonizes Ukrainian legislation with standards of EU law (an obligation for Ukraine under the EU-Ukraine Association Agreement) and implements the provisions of Directives No. 2003/87/EC and No. 2004/101/EC)</td><td></td></tr><tr><td>United Kingdom of Great Britain and Northern Ireland</td><td>Climate Change Act 2008, c. 27, s 1(1), https://perma.cc/2HJ4-KNRJ, as inserted by the Climate Change Act 2008 (2050 Target Amendment) Order 2019, SI 2019/1056, https://perma.cc/43EM-ADDK (net zero by 2050)</td><td></td></tr></table>"
+            },
+            {
+                "block_id": 2,
+                "type": "footer",
+                "bbox": [
+                    293,
+                    3095,
+                    869,
+                    3151
+                ],
+                "angle": 0,
+                "content": "The Law Library of Congress"
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    2221,
+                    3102,
+                    2254,
+                    3141
+                ],
+                "angle": 0,
+                "content": "6"
+            }
+        ]
+    }
+]

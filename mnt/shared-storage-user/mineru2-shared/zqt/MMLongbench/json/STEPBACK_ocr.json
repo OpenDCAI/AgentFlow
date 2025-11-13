@@ -1,0 +1,3805 @@
+[
+    {
+        "page_id": 0,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    95,
+                    869,
+                    165
+                ],
+                "angle": 0,
+                "content": "Google DeepMind"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    438,
+                    326,
+                    2116,
+                    491
+                ],
+                "angle": 0,
+                "content": "TAKE A STEP BACK: EVOKING REASONING VIA ABSTRACTION IN LARGE LANGUAGE MODELS"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    474,
+                    561,
+                    1871,
+                    663
+                ],
+                "angle": 0,
+                "content": "Huaixiu Steven Zheng* Swaroop Mishra* Xinyun Chen Heng-Tze Cheng Ed H. Chi Quoc V Le Denny Zhou"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    464,
+                    673,
+                    790,
+                    726
+                ],
+                "angle": 0,
+                "content": "Google DeepMind"
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    1150,
+                    801,
+                    1397,
+                    851
+                ],
+                "angle": 0,
+                "content": "ABSTRACT"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    586,
+                    907,
+                    1966,
+                    1372
+                ],
+                "angle": 0,
+                "content": "We present STEP-BACK PROMPTING, a simple prompting technique that enables LLMs to do abstractions to derive high-level concepts and first principles from instances containing specific details. Using the concepts and principles to guide the reasoning steps, LLMs significantly improve their abilities in following a correct reasoning path towards the solution. We conduct experiments of STEP-BACK PROMPTING with PaLM-2L models and observe substantial performance gains on a wide range of challenging reasoning-intensive tasks including STEM, Knowledge QA, and Multi-Hop Reasoning. For instance, STEP-BACK PROMPTING improves PaLM-2L performance on MMLU Physics and Chemistry by \\(7\\%\\) and \\(11\\%\\), TimeQA by \\(27\\%\\), and MuSiQue by \\(7\\%\\)."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1432,
+                    2103,
+                    1534
+                ],
+                "angle": 0,
+                "content": "The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise. — Edsger W. Dijkstra"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    443,
+                    1646,
+                    864,
+                    1699
+                ],
+                "angle": 0,
+                "content": "1 INTRODUCTION"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    430,
+                    1752,
+                    2111,
+                    2085
+                ],
+                "angle": 0,
+                "content": "The field of natural language processing (NLP) is witnessing a ground-breaking revolution because of the Transformer-based (Vaswani et al. 2017) large language models (LLMs) (Devlin et al. 2018; Raffel et al. 2020; Brown et al. 2020; Anil et al. 2023). Scaling up the model size and pre-training corpus (Hoffmann et al. 2022; Chowdhery et al. 2022) has brought remarkable improvement in model capabilities and sample efficiency with insights from the scaling law (Kaplan et al. 2020; Hoffmann et al. 2022), as well as emergent abilities (Wei et al. 2022a) such as multi-step reasoning (Wei et al. 2022b; Zhou et al. 2022) and instruction following (Mishra et al. 2022b; Wei et al. 2021)."
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    471,
+                    2174,
+                    2080,
+                    2768
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 1: Strong Performance of STEP-BACK PROMPTING: our proposed Abstraction-and-Reasoning scheme leads to a substantial improvement in a wide range of challenging tasks in STEM, Knowledge QA and Multi-Hop Reasoning requiring complex (often multi-hop) reasoning."
+            },
+            {
+                "block_id": 11,
+                "type": "aside_text",
+                "bbox": [
+                    58,
+                    900,
+                    147,
+                    2313
+                ],
+                "angle": 270,
+                "content": "arXiv:2310.06117v1 [cs.LG] 9 Oct 2023"
+            },
+            {
+                "block_id": 12,
+                "type": "page_footnote",
+                "bbox": [
+                    492,
+                    3006,
+                    810,
+                    3052
+                ],
+                "angle": 0,
+                "content": "*Equal Contribution"
+            },
+            {
+                "block_id": 13,
+                "type": "page_number",
+                "bbox": [
+                    1259,
+                    3131,
+                    1285,
+                    3168
+                ],
+                "angle": 0,
+                "content": "1"
+            }
+        ]
+    },
+    {
+        "page_id": 1,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1818,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    436,
+                    343,
+                    2108,
+                    759
+                ],
+                "angle": 0,
+                "content": "Despite the great advancements, complex multi-step reasoning remains challenging for even the state-of-the-art LLMs. Lightman et al. (2023) show that process-supervision with step-by-step verification is a promising remedy to improve the correctness of intermediate reasoning steps. Techniques such as Chain-of-Thought prompting (Wei et al. 2022b) were introduced to produce a coherent series of intermediate reasoning steps to increase the success rate of following the right decoding path. Inspired by the fact that when faced with challenging tasks humans often step back and do abstractions to arrive at high-level concepts and principles to guide the process, we propose STEP-BACK PROMPTING to ground reasoning on abstractions to reduce the chance of making errors in the intermediate reasoning steps."
+            },
+            {
+                "block_id": 2,
+                "type": "image",
+                "bbox": [
+                    443,
+                    805,
+                    2103,
+                    1956
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 2: Illustration of STEP-BACK PROMPTING with two steps of Abstraction and Reasoning guided by concepts and principles. Top: an example of MMLU high-school physics (Hendrycks et al. 2020) where the first principle of Ideal Gas Law is retrieved via abstraction. Bottom: an example from TimeQA (Chen et al. 2021) where the high-level concept of education history is a result of the abstraction. Left: PaLM-2L (Anil et al. 2023) fails to answer the original question. Chain-of-Thought prompting (Wei et al. 2022b, Kojima et al. 2022) ran into errors during intermediate reasoning steps (highlighted as red). Right: PaLM-2L (Anil et al. 2023) successfully answers the question via STEP-BACK PROMPTING."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2428,
+                    2103,
+                    2890
+                ],
+                "angle": 0,
+                "content": "Among many of the cognitive skills, abstraction (Lachmy et al. 2022) is ubiquitous to humans' ability to process vast amount of information and derive general rules, and principles. For example, Kepler compressed thousands of measurements into Kepler's three laws of planetary motion which precisely describe the orbits of planets around the Sun (Russell 1964). In critical decision making, humans find abstraction to be helpful since it provides a broader view of the environment. This work explores how LLMs can tackle complex tasks involving many low-level details through a two-step process of abstraction-and-reasoning. The first step is to teach LLMs to step back, and derive high-level abstractions such as concepts and first principles from the specific example. The second step is to leverage the reasoning ability to ground the solution on the high-level concepts and first principles. We use few-shot exemplar demonstrations to execute STEP-BACK PROMPTING on LLMs."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2910,
+                    2103,
+                    3059
+                ],
+                "angle": 0,
+                "content": "We experiment across a range of tasks involving domain specific reasoning such as Physics and Chemistry, knowledge-intensive question answering requiring factual knowledge, multi-hop commonsense reasoning. We observe significant performance improvements (up to 27%) in PaLM-2L (Anil et al."
+            },
+            {
+                "block_id": 6,
+                "type": "page_number",
+                "bbox": [
+                    1259,
+                    3131,
+                    1285,
+                    3168
+                ],
+                "angle": 0,
+                "content": "2"
+            }
+        ]
+    },
+    {
+        "page_id": 2,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    438,
+                    108,
+                    1818,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    433,
+                    343,
+                    2108,
+                    669
+                ],
+                "angle": 0,
+                "content": "2023) demonstrating the efficacy of STEP-BACK PROMPTING in tackling complex tasks which are otherwise challenging due to the amount of details involved to reason through. Figure 1 shows a summary of all the key results presented in this paper. Some the tasks are very challenging: both PaLM-2L and GPT-4 achieve only \\(\\sim 40\\%\\) accuracy on TimeQA and MuSiQue. Chain-of-Thought prompting leads to a minor improvement on a few tasks, while STEP-BACK PROMPTING improves the performance of PaLM-2L across the board: \\(7\\%\\) and \\(11\\%\\) on MMLU Physics and Chemistry, \\(27\\%\\) on TimeQA, and \\(7\\%\\) on MuSiQue."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    436,
+                    689,
+                    2111,
+                    1059
+                ],
+                "angle": 0,
+                "content": "We conduct a variety of analysis and find that STEP-BACK PROMPTING has strong performance improvements (up to \\(36\\%\\)) over chain of thought (CoT) prompting (Wei et al., 2022b) and take a deep breathe (TDB) prompting (Yang et al., 2023). We perform a qualitative evaluation where we find that Step-Back fixes a large portion of errors of the base model (up to \\(\\sim 40\\%\\)) while introducing a small portion of new errors (\\(\\max \\sim 12\\%\\)). We also conduct an error analysis and find that majority of the errors made by STEP-BACK PROMPTING is attributed to the intrinsic limitations of reasoning capabilities of LLMs while abstraction skills are relatively easy to teach LLMs, pointing out the direction for future improvements of methods alike STEP-BACK PROMPTING."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    438,
+                    1135,
+                    1048,
+                    1181
+                ],
+                "angle": 0,
+                "content": "2 STEP-BACK PROMPTING"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1244,
+                    2108,
+                    1613
+                ],
+                "angle": 0,
+                "content": "STEP-BACK PROMPTING is motivated by the observation that many tasks contain a lot of details, and are hard for LLMs to retrieve relevant facts to tackle the task. As shown in the first example (top) in Figure 2 for a Physics question of “What happens to the pressure, \\( P \\), of an ideal gas if the temperature is increased by a factor of 2 and the volume is increased by a factor of 8 ?”, the LLM can deviate from the first principle of Ideal Gas Law when reasoning directly on the question. Similarly, a question of “Estella Leopold went to which school between Aug 1954 and Nov 1954?” is very hard to address directly given the detailed time range constraint. In both cases, taking a step back and asking a step-back question helps model to solve the problem effectively."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1633,
+                    2108,
+                    2095
+                ],
+                "angle": 0,
+                "content": "We define a step-back question as a derived question from the original question at a higher-level of abstraction. For instance, instead of directly asking “which school Estella Leopold went to during a specific period”, a step-back question (Figure 2 bottom) would ask about the “education history”, which is a high-level concept encompasses the original question. Answering the step-back question of “Estella Leopold’s education history” in this case will provide all the necessary information to reason about “which school Estella Leopold went to during a specific period”. The premise is that more often the step-back question is much easier to address than the original question. Grounding the reasoning on top of such abstractions helps to avoid reasoning errors in the intermediate steps such as the example shown in Figure 2 (left) from Chain-of-Thought. In short, STEP-BACK PROMPTING consists two simple steps:"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    438,
+                    2115,
+                    2103,
+                    2257
+                ],
+                "angle": 0,
+                "content": "- Abstraction: Instead of addressing the question directly, we first prompt the LLM to ask a generic step-back question about a higher-level concept or principles, and retrieve relevant facts about the high-level concept or principles."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2263,
+                    2103,
+                    2362
+                ],
+                "angle": 0,
+                "content": "- Reasoning: Grounded on the facts regarding high-level concept or principles, the LLM can reason about the solution to the original question. We term this Abstraction-grounded Reasoning."
+            },
+            {
+                "block_id": 8,
+                "type": "list",
+                "bbox": [
+                    436,
+                    2115,
+                    2103,
+                    2362
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2382,
+                    2108,
+                    2517
+                ],
+                "angle": 0,
+                "content": "In the following sections, we present an empirical study of STEP-BACK PROMPTING on a range of challenging tasks covering STEM, Knowledge QA and Multi-Hop Reasoning involving complex reasoning."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    438,
+                    2597,
+                    1020,
+                    2649
+                ],
+                "angle": 0,
+                "content": "3 EXPERIMENTAL SETUP"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2706,
+                    2103,
+                    2801
+                ],
+                "angle": 0,
+                "content": "Here we define the tasks and models we experiment with. We also describe our evaluation metric and the baselines we consider."
+            },
+            {
+                "block_id": 12,
+                "type": "title",
+                "bbox": [
+                    438,
+                    2867,
+                    668,
+                    2910
+                ],
+                "angle": 0,
+                "content": "3.1 TASKS"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2956,
+                    2103,
+                    3059
+                ],
+                "angle": 0,
+                "content": "We experiment with the following diverse tasks: (a) STEM, (b) Knowledge QA and (c) Multi-Hop Reasoning. We describe below the datasets we consider (see Appendix B for more details)."
+            },
+            {
+                "block_id": 14,
+                "type": "page_number",
+                "bbox": [
+                    1259,
+                    3131,
+                    1285,
+                    3168
+                ],
+                "angle": 0,
+                "content": "3"
+            }
+        ]
+    },
+    {
+        "page_id": 3,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    438,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "text",
+                "bbox": [
+                    553,
+                    343,
+                    2103,
+                    485
+                ],
+                "angle": 0,
+                "content": "• STEM: MMLU (Hendrycks et al. 2020) contains a series of benchmarks across diverse domains to evaluate model's language understanding. We consider the high school physics and chemistry portions of MMLU because of the deep reasoning involved."
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    553,
+                    495,
+                    2103,
+                    683
+                ],
+                "angle": 0,
+                "content": "- Knowledge QA: We consider TimeQA (Chen et al. 2021) since it contains complex queries that requires challenging time-sensitive knowledge. We also experiment with SituatedQA (Zhang & Choi 2021), another challenging open-retrieval QA dataset requiring model to answer questions given temporal or geographical contexts."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    553,
+                    696,
+                    2103,
+                    841
+                ],
+                "angle": 0,
+                "content": "- Multi-Hop Reasoning: We experiment with MuSiQue (Trivedi et al. 2022), a hard multihop reasoning dataset created via composable pairs of single-hop questions, and StrategyQA (Geva et al. 2021) with open-domain questions that demands some strategy to solve."
+            },
+            {
+                "block_id": 4,
+                "type": "list",
+                "bbox": [
+                    553,
+                    343,
+                    2103,
+                    841
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    441,
+                    891,
+                    706,
+                    937
+                ],
+                "angle": 0,
+                "content": "3.2 MODELS"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    436,
+                    973,
+                    2103,
+                    1072
+                ],
+                "angle": 0,
+                "content": "We use the following state of the art LLMs: PaLM-2L (Anil et al. 2023) and GPT-4 (OpenAI, 2023). We experiment with a variety of baselines with an instruction-tuned PaLM-2L model."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    441,
+                    1128,
+                    782,
+                    1171
+                ],
+                "angle": 0,
+                "content": "3.3 EVALUATION"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1214,
+                    2103,
+                    1452
+                ],
+                "angle": 0,
+                "content": "Conventional evaluation metric such as accuracy, F1 score has limitations specifically for evaluating the generations of state of the art LLMs since these models often generate long form answers which are hard to capture. We instead conduct evaluation using the PaLM2-L model where we few-shot prompt the model to identify equivalence between target answers and the model predictions. Few shot examples, prompts and other details we use for this evaluation are in Appendix C."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    441,
+                    1498,
+                    923,
+                    1544
+                ],
+                "angle": 0,
+                "content": "3.4 BASELINE METHODS"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    553,
+                    1570,
+                    2103,
+                    1663
+                ],
+                "angle": 0,
+                "content": "- PaLM-2L, PaLM-2L 1-shot: PaLM-2L is either queried directly with the question or has a single demonstration exemplar of question-answer included in the prompt."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    553,
+                    1676,
+                    2103,
+                    1910
+                ],
+                "angle": 0,
+                "content": "- PaLM-2L + CoT, PaLM-2L + CoT 1-shot: PaLM-2L model is queried with zero-shot CoT prompting (Kojima et al. 2022): “Let's think step by step” is appended to the question. For 1-shot, One demonstration example of a question and answer pair is provided in the prompt, where the answer is in the style of CoT (Wei et al. 2022b) with intermediate reasoning steps."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    553,
+                    1923,
+                    2103,
+                    2019
+                ],
+                "angle": 0,
+                "content": "• PaLM-2L + TDB: Zero-shot prompting with “Take a deep breath and work on this problem step-by-step.” (Yang et al. 2023) presupposed to the question."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    553,
+                    2029,
+                    2103,
+                    2125
+                ],
+                "angle": 0,
+                "content": "- PaLM-2L + RAG: For Sections 5 and 6 we use retrieval-augmented generation (RAG) where the relevant passage retrieved is used as context by the LLM."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    553,
+                    2138,
+                    1244,
+                    2184
+                ],
+                "angle": 0,
+                "content": "GPT-4: GPT-4 API is directly queried."
+            },
+            {
+                "block_id": 15,
+                "type": "list",
+                "bbox": [
+                    553,
+                    1570,
+                    2103,
+                    2184
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2227,
+                    2103,
+                    2329
+                ],
+                "angle": 0,
+                "content": "We do not use RAG for MMLU, because of the inherent reasoning nature of this benchmark contrary to the other fact-seeking datasets. All inferences are done using greedy decoding."
+            },
+            {
+                "block_id": 17,
+                "type": "title",
+                "bbox": [
+                    441,
+                    2389,
+                    673,
+                    2438
+                ],
+                "angle": 0,
+                "content": "4 STEM"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2491,
+                    2103,
+                    2676
+                ],
+                "angle": 0,
+                "content": "We evaluate STEP-BACK PROMPTING on STEM tasks (Hendrycks et al. 2020) to gauge the efficacy of our method on reasoning in highly-specialized domains. We explain below our experimental setup, result and analysis of applying STEP-BACK PROMPTING on the MMLU high-school Physics and Chemistry benchmarks."
+            },
+            {
+                "block_id": 19,
+                "type": "title",
+                "bbox": [
+                    441,
+                    2735,
+                    984,
+                    2778
+                ],
+                "angle": 0,
+                "content": "4.1 STEP-BACK PROMPTING"
+            },
+            {
+                "block_id": 20,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2821,
+                    2103,
+                    3055
+                ],
+                "angle": 0,
+                "content": "Questions in the MMLU benchmarks require deeper reasoning. Furthermore, they also require understanding and application of formulae which are often physics and chemistry principles and concepts. In this case, we first teach the model to do abstraction in the form of concepts and first principles such as Newton's first law of motion, Doppler effect, and Gibbs free energy etc. The implicit step-back question here is \"what are the physics or chemistry principles and concepts involved in"
+            },
+            {
+                "block_id": 21,
+                "type": "page_number",
+                "bbox": [
+                    1257,
+                    3131,
+                    1287,
+                    3168
+                ],
+                "angle": 0,
+                "content": "4"
+            }
+        ]
+    },
+    {
+        "page_id": 4,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    438,
+                    108,
+                    1818,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    657,
+                    577,
+                    1892,
+                    1023
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Method</td><td>MMLU Physics</td><td>MMLU Chemistry</td></tr><tr><td>PaLM-2L</td><td>66.4% (0.8%)</td><td>70.9% (0.9%)</td></tr><tr><td>PaLM-2L 1-shot</td><td>64% (1.6%)</td><td>75.6% (0.4%)</td></tr><tr><td>PaLM-2L + CoT</td><td>65% (2%)</td><td>75.3% (1.5%)</td></tr><tr><td>PaLM-2L + CoT 1-shot</td><td>61.5% (1.8%)</td><td>76.6% (1%)</td></tr><tr><td>PaLM-2L + TDB</td><td>65.7% (0.7%)</td><td>73.8% (1.1%)</td></tr><tr><td>PaLM-2L + Step-Back (ours)</td><td>73.2% (1.9%)</td><td>81.8% (1.4%)</td></tr><tr><td>GPT-4</td><td>70.3% (2.3%)</td><td>79.9% (1.0%)</td></tr></table>",
+                "caption": "Table 1: Strong performance of STEP-BACK PROMPTING on STEM tasks achieving state-of-the-art surpassing GPT-4. CoT: zero-shot Chain of Thought prompting (Kojima et al. 2022), TDB: Take a Deep Breathe prompting (Yang et al. 2023). The Table reports the average accuracy over 5 evaluation runs, with standard deviations in the parentheses."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1131,
+                    2103,
+                    1240
+                ],
+                "angle": 0,
+                "content": "solving this task?\". We provide demonstrations to teach the model to recite from its own knowledge relevant principles for solving the task (see Appendix D.1 for few-shot exemplars)."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    438,
+                    1290,
+                    714,
+                    1333
+                ],
+                "angle": 0,
+                "content": "4.2 RESULTS"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    433,
+                    1376,
+                    1241,
+                    2069
+                ],
+                "angle": 0,
+                "content": "Table 1 illustrates model performance across various setup. PaLM-2L baseline performance is \\(66.4\\%\\) and \\(70.9\\%\\) on Physics and Chemistry, respectively. We find that CoT and TDB zero-shot prompting do not significantly increase model performance which could be due to inherent hardness and deep reasoning associated with these tasks. In addition PaLM-2L 1-shot and PaLM-2L + CoT 1-shot do not improve against the baseline much, highlighting the challenge of demonstrating the reasoning steps to the model. In contrast, STEP-BACK PROMPTING significantly improves model performance: \\(+7\\%\\) and \\(+11\\%\\) compared to PaLM-2L, achieving state-of-the-art performance surpassing GPT-4."
+            },
+            {
+                "block_id": 6,
+                "type": "image",
+                "bbox": [
+                    1285,
+                    1389,
+                    2083,
+                    1861
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 3: Ablation study of STEP-BACK PROMPTING accuracy on MMLU high-school Physics against number of few shot exemplars: robust performance with respect to varying number of shots."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    438,
+                    2131,
+                    1025,
+                    2174
+                ],
+                "angle": 0,
+                "content": "4.3 ABLATION AND ANALYSIS"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2217,
+                    2103,
+                    2451
+                ],
+                "angle": 0,
+                "content": "Few-shot Ablation: First, in Figure 3 we observe that STEP-BACK PROMPTING is robust against number of few-shot exemplars of (question, principles) pairs used as demonstrations. Adding more demonstration examples beyond a single example is not helpful any more. This indicates that the task of retrieving the relevant principles and concepts is relatively easy to learn and a single demonstration suffices."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2471,
+                    2108,
+                    2616
+                ],
+                "angle": 0,
+                "content": "Error Analysis: Figure4(left) shows the error analysis of the predictions of STEP-BACK PROMPTING compared to the baseline PaLM-2L model for MMLU high-school Physics: STEP-BACK PROMPTING corrects \\(20.5\\%\\) errors from the baseline while introducing \\(11.9\\%\\) errors."
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2633,
+                    2103,
+                    2781
+                ],
+                "angle": 0,
+                "content": "To further understand where the errors come from in STEP-BACK PROMPTING, we annotate all the wrong predictions of STEP-BACK PROMPTING in the test set, and category them into 5 classes (see Appendix E.1 for examples in each class):"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    438,
+                    2795,
+                    2103,
+                    2887
+                ],
+                "angle": 0,
+                "content": "- Principle Error: The error happens at the step of Abstraction, where the first principles generated by models are wrong or incomplete."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    438,
+                    2897,
+                    2108,
+                    2950
+                ],
+                "angle": 0,
+                "content": "- Factual Error: There is at least one factual error when the model recites its own factual knowledge."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    438,
+                    2956,
+                    2103,
+                    3052
+                ],
+                "angle": 0,
+                "content": "- Math Error: There is at least one math error in the intermediate steps when math calculations are involved in deriving the final answer."
+            },
+            {
+                "block_id": 15,
+                "type": "list",
+                "bbox": [
+                    438,
+                    2795,
+                    2108,
+                    3052
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 16,
+                "type": "page_number",
+                "bbox": [
+                    1259,
+                    3131,
+                    1285,
+                    3168
+                ],
+                "angle": 0,
+                "content": "5"
+            }
+        ]
+    },
+    {
+        "page_id": 5,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    438,
+                    108,
+                    1818,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    459,
+                    534,
+                    2098,
+                    1075
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Method</td><td>TimeQA</td><td>TQA Easy</td><td>TQA Hard</td><td>SituatedQA</td></tr><tr><td>PaLM-2L</td><td>41.5%</td><td>42.6%</td><td>40.4%</td><td>54.3% (0.3%)</td></tr><tr><td>PaLM-2L 1-shot</td><td>40.7%</td><td>41.7%</td><td>39.1%</td><td>51.8% (0.6%)</td></tr><tr><td>PaLM-2L + CoT</td><td>40.8%</td><td>41.8%</td><td>39.8%</td><td>56.4% (0.2%)</td></tr><tr><td>PaLM-2L + CoT 1-shot</td><td>38.1%</td><td>39.3%</td><td>36.8%</td><td>54% (0.8%)</td></tr><tr><td>PaLM-2L + TDB</td><td>40.9%</td><td>42.6%</td><td>39.1%</td><td>54% (0.5%)</td></tr><tr><td>PaLM-2L + RAG</td><td>57.4%</td><td>67.8%</td><td>46.8%</td><td>59.3% (0.4%)</td></tr><tr><td>PaLM-2L + Step-Back (ours)</td><td>66%</td><td>70.4%</td><td>61.6%</td><td>57.5% (0.3%)</td></tr><tr><td>PaLM-2L + Step-Back + RAG (ours)</td><td>68.7%</td><td>75.2%</td><td>62.3%</td><td>61% (0.4%)</td></tr><tr><td>GPT-4</td><td>45.6%</td><td>48.9%</td><td>42.6%</td><td>63.2% (0.4%)</td></tr></table>",
+                "caption": "Table 2: Strong performance of STEP-BACK PROMPTING on Knowledge QA tasks. CoT: Chain of Thought prompting, TDB: Take a Deep Breathe prompting, RAG: retrieval-augmented generation. STEP-BACK PROMPTING results in significant performance improvements."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1188,
+                    2103,
+                    1280
+                ],
+                "angle": 0,
+                "content": "- Context Loss: There is at least one error when the model response loses context from the question, and deviates from addressing the original question."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1290,
+                    2103,
+                    1386
+                ],
+                "angle": 0,
+                "content": "- Reasoning Error: We define Reasoning Error as when the model makes error in the intermediate Reasoning steps before arriving at the final answer."
+            },
+            {
+                "block_id": 5,
+                "type": "list",
+                "bbox": [
+                    436,
+                    1188,
+                    2103,
+                    1386
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    433,
+                    1405,
+                    2111,
+                    1874
+                ],
+                "angle": 0,
+                "content": "All five types of errors are happening during the Reasoning step except Principle Error which points to the failure of the Abstraction step. As shown in Figure4(right), Principle Error in fact comprises only a small fraction of the errors the model makes: more than \\(90\\%\\) of the errors happen at the Reasoning step. Among the four error types during Reasoning, Reasoning Error and Math Error are the major loss buckets. This corroborates with the finding in the ablation study above that very few exemplars are needed to teach LLMs the Abstraction skill. Reasoning step is still the bottleneck of how well STEP-BACK PROMPTING can perform tasks such as MMLU requiring complex reasoning. For MMLU Physics specifically, the Reasoning and Math skills are critical for solving the problems successfully: even if the first principles are retrieved correctly, deep reasoning and math are involved to derive a correct final answer through a typical multi-step reasoning process."
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    443,
+                    1963,
+                    1272,
+                    2465
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1310,
+                    1989,
+                    2106,
+                    2475
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 4: Error Analysis of STEP-BACK PROMPTING on MMLU high-school Physics. Left: example categories in four buckets regarding whether the baseline or Step-Back prediction is right or wrong. Right: five classes of errors Step-Back makes with Reasoning being the dominating class."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    438,
+                    2798,
+                    905,
+                    2854
+                ],
+                "angle": 0,
+                "content": "5 KNOWLEDGEQA"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    433,
+                    2910,
+                    2103,
+                    3055
+                ],
+                "angle": 0,
+                "content": "We evaluate STEP-BACK PROMPTING on question answering benchmarks requiring intensive factual knowledge. Knowledge QA has been challenging for LLMs. In this section, we first describe the experimental setup, followed by results and analysis on STEP-BACK PROMPTING."
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    1259,
+                    3131,
+                    1290,
+                    3171
+                ],
+                "angle": 0,
+                "content": "6"
+            }
+        ]
+    },
+    {
+        "page_id": 6,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    438,
+                    108,
+                    1818,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    438,
+                    343,
+                    989,
+                    392
+                ],
+                "angle": 0,
+                "content": "5.1 STEP-BACK PROMPTING"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    430,
+                    429,
+                    2113,
+                    762
+                ],
+                "angle": 0,
+                "content": "We evaluate STEP-BACK PROMPTING on TimeQA (Chen et al., 2021) and SituatedQA (Zhang & Choi, 2021) in the Knowledge QA category. We first teach the LLMs to do Abstraction. The step-back question “What was Estella Leopold’s education history” in Figure 2 is generated by the LLM through few-shot demonstrations (see Appendix D.2 for details). Given the knowledge-intensive nature of these queries, we use retrieval augmentation (RAG) in combination with STEP-BACK PROMPTING. The step-back question is used to retrieve relevant facts, which works as additional context (see Table 12 for the prompting template) to ground the final reasoning step."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    438,
+                    805,
+                    716,
+                    851
+                ],
+                "angle": 0,
+                "content": "5.2 RESULTS"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    430,
+                    891,
+                    2111,
+                    1217
+                ],
+                "angle": 0,
+                "content": "We evaluate the models on the test-set of TimeQA. As shown in Table2, the baseline models of GPT-4 and PaLM-2L achieved \\(45.6\\%\\) and \\(41.5\\%\\), highlighting the difficulty of the task. Applying either CoT or TDB zero-shot (and one-shot) prompting to the baseline model shows no improvement. In contrast, augmenting the baseline model by regular retrieval augmentation (RAG) improves the accuracy to \\(57.4\\%\\), highlighting the factual intensive nature of the task. The result of Step-Back + RAG shows the effectiveness of going back to a high-level concept, which enables much more reliable retrieval augmentation: the accuracy on TimeQA achieves a remarkable \\(68.7\\%\\)."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    433,
+                    1234,
+                    2108,
+                    1560
+                ],
+                "angle": 0,
+                "content": "Next, we segment TimeQA into the Easy and Hard difficulty level provided in the original dataset. As expected, all methods perform worse on the Hard segment. While RAG can improve the Easy accuracy from \\(42.6\\%\\) to \\(67.8\\%\\), the improvement is much smaller on the Hard accuracy: \\(40.4\\%\\) to \\(46.8\\%\\). This is where STEP-BACK PROMPTING really shines by retrieving facts regarding high-level concepts to ground the final reasoning: Step-Back + RAG further improves the Hard accuracy to \\(62.3\\%\\), outperforming \\(42.6\\%\\) from GPT-4. We hypothesis that facts regarding the high-level concepts (such as education history) is much more accessible than the low-level details."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    433,
+                    1580,
+                    2106,
+                    1725
+                ],
+                "angle": 0,
+                "content": "On the SituatedQA benchmark, we observe a moderate quality gain from \\(54.3\\%\\) to our best method of Step-Back + RAG \\(61\\%\\) with a small gap to GPT-4's \\(63.2\\%\\). Similar to TimeQA, prompting techniques such as CoT and TDB don't help significantly for SituatedQA."
+            },
+            {
+                "block_id": 7,
+                "type": "image",
+                "bbox": [
+                    525,
+                    1798,
+                    1277,
+                    2214
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 8,
+                "type": "image",
+                "bbox": [
+                    1300,
+                    1805,
+                    2032,
+                    2234
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 5: Ablation and error analysis of STEP-BACK PROMPTING on TimeQA. Left: ablation against number of few-shot exemplars. Right: four classes of errors Step-Back makes with Reasoning and RAG being the dominating error sources."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    438,
+                    2524,
+                    1025,
+                    2570
+                ],
+                "angle": 0,
+                "content": "5.3 ABLATION AND ANALYSIS"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    433,
+                    2607,
+                    2103,
+                    2752
+                ],
+                "angle": 0,
+                "content": "Few-shot Ablation: We observe in Figure5(left) that the performance of STEP-BACK PROMPTING is robust against the number of exemplars used in demonstration, highlighting again the sample efficiency of learning Abstraction skills for models like PaLM-2L."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2768,
+                    2103,
+                    2874
+                ],
+                "angle": 0,
+                "content": "Error Analysis: Figure 5(right) shows the breakdown of the all the remaining errors made by STEP-BACK PROMPTING predictions. Similar to Section 4.3, we categorize the errors:"
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    438,
+                    2887,
+                    1795,
+                    2937
+                ],
+                "angle": 0,
+                "content": "- StepBack: The step-back question generated is not helpful in solving the task."
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    438,
+                    2943,
+                    2091,
+                    2993
+                ],
+                "angle": 0,
+                "content": "- RAG: RAG fails to retrieval relevant information despite that the step-back question is on target."
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    438,
+                    3003,
+                    1614,
+                    3049
+                ],
+                "angle": 0,
+                "content": "- Scoring Error: The evaluation by the judge model made a mistake."
+            },
+            {
+                "block_id": 16,
+                "type": "list",
+                "bbox": [
+                    438,
+                    2887,
+                    2091,
+                    3049
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 17,
+                "type": "page_number",
+                "bbox": [
+                    1259,
+                    3131,
+                    1287,
+                    3168
+                ],
+                "angle": 0,
+                "content": "7"
+            }
+        ]
+    },
+    {
+        "page_id": 7,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    438,
+                    108,
+                    1818,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    624,
+                    531,
+                    1927,
+                    1069
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Method</td><td>MuSiQue</td><td>StrategyQA</td></tr><tr><td>PaLM-2L</td><td>35.5% (3%)</td><td>82.8% (0.7%)</td></tr><tr><td>PaLM-2L 1-shot</td><td>29.0% (0.5%)</td><td>76.6% (0.5%)</td></tr><tr><td>PaLM-2L + CoT</td><td>38.7% (3.2%)</td><td>83.6% (0.4%)</td></tr><tr><td>PaLM-2L + CoT 1-shot</td><td>38.5% (2.2%)</td><td>76.8% (1.4%)</td></tr><tr><td>PaLM-2L + TDB</td><td>39.0% (2.3%)</td><td>82.7% (0.9%)</td></tr><tr><td>PaLM-2L + RAG</td><td>39.6% (2.8%)</td><td>84.2% (0.5%)</td></tr><tr><td>PaLM-2L + Step-Back (ours)</td><td>42.6% (3.1%)</td><td>82.7% (0.4%)</td></tr><tr><td>PaLM-2L + Step-Back + RAG (ours)</td><td>42.8% (2.0%)</td><td>86.4% (1%)</td></tr><tr><td>GPT-4</td><td>38.5% (0.2%)</td><td>78.3% (1.1%)</td></tr></table>",
+                "caption": "Table 3: Results of STEP-BACK PROMPTING on Multi-Hop Reasoning. CoT: Chain of Thought prompting, TDB: Take a Deep Breathe prompting, RAG: retrieval augmentation generation. Average accuracy is over 5 evaluation runs with the standard deviations included in the parentheses."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1197,
+                    2103,
+                    1290
+                ],
+                "angle": 0,
+                "content": "- Reasoning Error: The retrieved context is relevant, but the model still fails to reason through the context to arrive at the right answer."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    433,
+                    1316,
+                    2111,
+                    1504
+                ],
+                "angle": 0,
+                "content": "StepBack rarely fails. In contrast, we find more than half of the errors are due to reasoning errors. \\(45 \\%\\) of errors are due to failure in retrieving the right information despite that Abstraction provided by step-back makes it a much easier task. This reflects the difficulty level of the TimeQA task. Additional error analysis of TimeQA is in Appendix A"
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    438,
+                    1597,
+                    1060,
+                    1650
+                ],
+                "angle": 0,
+                "content": "6 MULTI-HOP REASONING"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1716,
+                    2113,
+                    1861
+                ],
+                "angle": 0,
+                "content": "We evaluate STEP-BACK PROMPTING on challenging Multi-Hop reasoning benchmark MuSiQue (Trivedi et al. 2022) and StrategyQA (Geva et al. 2021). We follow the same protocol as Section 5 to implement STEP-BACK PROMPTING."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    438,
+                    1943,
+                    714,
+                    1989
+                ],
+                "angle": 0,
+                "content": "6.1 RESULTS"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    433,
+                    2039,
+                    2108,
+                    2686
+                ],
+                "angle": 0,
+                "content": "Table 3 shows performance of various baselines on the dev set of MuSiQue and StrategyQA. Baseline performance of PaLM-2L and GPT4 are low (35.5% and 38.5% for PaLM-2L and GPT-4 respectively) in MuSiQue since it is a hard multihop reasoning behchmark. In contrast, StartegyQA has stronger baselines (82.8% and 78.3% for PaLM-2L and GPT4 respectively) probably because of the binary classification task. CoT and TDB improve model performance a bit in case of MuSiQue (\\(\\sim\\)3% and 3.5% respectively) which can be attributed to the inherent reasoning nature of this task where these methods are shown to be helpful. In case of StrategyQA, there is no significant performance gain with COT and TDB which could be due to the high baseline performance in this task, with limited scope for these prompting methods to improve performance. Often, 1-shot performance is significantly lower than their zero-shot methods which could be attributed to the potential example bias (Zhao et al. 2021, Parmar et al. 2023). RAG improves model performance (\\(\\sim\\)4% and 2% for MuSiQue and StrategyQA respectively.). STEP-BACK PROMPTING with the power of abstraction produces the best performance of all methods: 42.8% in MuSiQue and 86.4% in StrategyQA, significantly outperforming GPT-4 on both tasks."
+            },
+            {
+                "block_id": 9,
+                "type": "title",
+                "bbox": [
+                    438,
+                    2768,
+                    736,
+                    2814
+                ],
+                "angle": 0,
+                "content": "6.2 ANALYSIS"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2864,
+                    2108,
+                    3065
+                ],
+                "angle": 0,
+                "content": "Similar to our observation in previous sections, we find that STEP-BACK PROMPTING with RAG is able to turn \\(15.4\\%\\) wrong predictions of base model into correct predictions, while leading to \\(6.1\\%\\) errors the other way around. Furthermore, Step-Back + RAG fixes \\(12.7\\%\\) errors coming from RAG. The errors introduced to RAG by Step-Back is just \\(4.4\\%\\). More detailed analysis is in Appendix A.2"
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    1259,
+                    3131,
+                    1285,
+                    3168
+                ],
+                "angle": 0,
+                "content": "8"
+            }
+        ]
+    },
+    {
+        "page_id": 8,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    438,
+                    108,
+                    1818,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    441,
+                    339,
+                    798,
+                    392
+                ],
+                "angle": 0,
+                "content": "7 DISCUSSION"
+            },
+            {
+                "block_id": 2,
+                "type": "text",
+                "bbox": [
+                    433,
+                    438,
+                    2111,
+                    950
+                ],
+                "angle": 0,
+                "content": "Abstraction helps humans to solve complex tasks by removing irrelevant details and distill the high-level concepts and principles to guide the problem-solving process. STEP-BACK PROMPTING breaks complex tasks such as knowledge-intensive QA, multi-hop reasoning and science questions into two separate steps of Abstraction and Reasoning. We demonstrate through empirical experiments that Abstraction is an easy skill to teach the LLMs such as PaLM-2L via sample-efficient demonstrations. Grounding on the high-level concepts and principles, LLMs can leverage their intrinsic Reasoning capabilities to derive the solution. This reduces the chance of reasoning failures in the intermediate steps, and is shown to improve the performance on a wide range of complex reasoning tasks. Despite the success, through error analysis, we find that Reasoning is still one of the hardest skills for LLMs to acquire as it is still the dominating failure mode even after the large chunk of task complexity reduction by STEP-BACK PROMPTING."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    436,
+                    966,
+                    2108,
+                    1201
+                ],
+                "angle": 0,
+                "content": "Nevertheless, Abstraction is neither absolutely necessary nor possible in all scenarios. For instance, the task can be as simple as who was the president of the United States in 2000?, in which case there is not such a need to step back and ask a high-level question as the answer to such questions is readily available. Parallely, questions such as what is the speed of light? point to the first principles themselves. Doing Abstraction in this case would not make a difference."
+            },
+            {
+                "block_id": 4,
+                "type": "title",
+                "bbox": [
+                    438,
+                    1263,
+                    884,
+                    1313
+                ],
+                "angle": 0,
+                "content": "8 RELATED WORK"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    438,
+                    1362,
+                    1874,
+                    1415
+                ],
+                "angle": 0,
+                "content": "STEP-BACK PROMPTING is related to the literature of prompting and decomposition."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    438,
+                    1465,
+                    772,
+                    1514
+                ],
+                "angle": 0,
+                "content": "8.1 PROMPTING"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    433,
+                    1547,
+                    2111,
+                    1966
+                ],
+                "angle": 0,
+                "content": "Few-shot prompting (Brown et al. 2020, Liu et al. 2023, Mishra et al. 2022a, Wei et al. 2022b) has significantly improved model performance across a range of tasks without requiring to update any model parameters. Our work STEP-BACK PROMPTING is in the same category as chain of thought prompting (Wei et al. 2022b) and scratchpad (Nye et al. 2021) owing to its simplicity and generic nature, however, is focused on the key idea of abstraction which is inspired from the fact that often taking a step back and looking at broader level help humans in performing complex tasks. Our work is also related to the recitation-augmented language models (Sun et al. 2022), however in contrast to their work, we explicitly perform step-back and abstraction, with optional use of retrieval augmentation depending the nature of the task at hand."
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    438,
+                    2019,
+                    856,
+                    2062
+                ],
+                "angle": 0,
+                "content": "8.2 DECOMPOSITION"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    433,
+                    2105,
+                    2113,
+                    2570
+                ],
+                "angle": 0,
+                "content": "Decomposing a task into simpler tasks and solving these tasks to solve the original task have been an effective way (Zhou et al. 2022; Patel et al. 2022; Khot et al. 2022; Press et al. 2022) to improve model performance on complex tasks. Several prompting methods have been successful in improving model performance. Our work STEP-BACK PROMPTING, in contrast, is on making the question more abstract and high level, which is different from decomposition that is often low level breakdowns of the original question. Furthermore, abstract questions such as what is the employment history of person \\( X \\)? are often generic in nature so have a many-to-one mapping since many questions (e.g. which employer did \\( X \\) work for in 1990? and which employer did \\( X \\) work for in 2000?) can have the same abstract questions. This is in contrast to decomposition where there is often a one-to-many mapping since there are multiple decomposed sub-problems necessary to solve a given question."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    438,
+                    2626,
+                    818,
+                    2676
+                ],
+                "angle": 0,
+                "content": "9 CONCLUSION"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    433,
+                    2729,
+                    2106,
+                    3059
+                ],
+                "angle": 0,
+                "content": "We introduce STEP-BACK PROMPTING as a simple and generic method to elicit deep reasoning via abstraction in large language models. Experimentation on LLMs across fact-seeking, commonsense reasoning and domain specific reasoning benchmark shows STEP-BACK PROMPTING significantly improve model performance. We hypothesize that abstraction helps models to hallucinate less and reason better, probably reflecting the true nature of the model which are often hidden while responding to the original question without abstraction. We hope our work will inspire more human-inspired approaches to elicit the hidden potential of large language models."
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    1259,
+                    3131,
+                    1290,
+                    3168
+                ],
+                "angle": 0,
+                "content": "9"
+            }
+        ]
+    },
+    {
+        "page_id": 9,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    438,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    443,
+                    339,
+                    731,
+                    386
+                ],
+                "angle": 0,
+                "content": "REFERENCES"
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    441,
+                    415,
+                    2106,
+                    561
+                ],
+                "angle": 0,
+                "content": "Rohan Anil, Andrew M Dai, Orhan First, Melvin Johnson, Dmitry Lepikhin, Alexandre Passos, Siamak Shakeri, Emanuel Taropa, Paige Bailey, Zhifeng Chen, et al. Palm 2 technical report. arXiv preprint arXiv:2305.10403, 2023."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    441,
+                    587,
+                    2106,
+                    735
+                ],
+                "angle": 0,
+                "content": "Tom Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared D Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, et al. Language models are few-shot learners. Advances in neural information processing systems, 33:1877-1901, 2020."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    441,
+                    759,
+                    2108,
+                    861
+                ],
+                "angle": 0,
+                "content": "Wenhu Chen, Xinyi Wang, and William Yang Wang. A dataset for answering time-sensitive questions. arXiv preprint arXiv:2108.06314, 2021."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    441,
+                    887,
+                    2108,
+                    1029
+                ],
+                "angle": 0,
+                "content": "Aakanksha Chowdhery, Sharan Narang, Jacob Devlin, Maarten Bosma, Gaurav Mishra, Adam Roberts, Paul Barham, Hyung Won Chung, Charles Sutton, Sebastian Gehrmann, et al. Palm: Scaling language modeling with pathways. arXiv preprint arXiv:2204.02311, 2022."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    441,
+                    1059,
+                    2103,
+                    1158
+                ],
+                "angle": 0,
+                "content": "Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. Bert: Pre-training of deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805, 2018."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    441,
+                    1188,
+                    2108,
+                    1329
+                ],
+                "angle": 0,
+                "content": "Mor Geva, Daniel Khashabi, Elad Segal, Tushar Khot, Dan Roth, and Jonathan Berant. Did aristole use a laptop? a question answering benchmark with implicit reasoning strategies. Transactions of the Association for Computational Linguistics, 9:346-361, 2021."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    441,
+                    1359,
+                    2103,
+                    1498
+                ],
+                "angle": 0,
+                "content": "Dan Hendrycks, Collin Burns, Steven Basart, Andy Zou, Mantas Mazeika, Dawn Song, and Jacob Steinhardt. Measuring massive multitask language understanding. arXiv preprint arXiv:2009.03300, 2020."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    441,
+                    1531,
+                    2108,
+                    1676
+                ],
+                "angle": 0,
+                "content": "Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, Elena Buchatskaya, Trevor Cai, Eliza Rutherford, Diego de Las Casas, Lisa Anne Hendricks, Johannes Welbl, Aidan Clark, et al. Training compute-optimal large language models. arXiv preprint arXiv:2203.15556, 2022."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    441,
+                    1702,
+                    2108,
+                    1848
+                ],
+                "angle": 0,
+                "content": "Jared Kaplan, Sam McCandlish, Tom Henighan, Tom B Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, and Dario Amodei. Scaling laws for neural language models. arXiv preprint arXiv:2001.08361, 2020."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    441,
+                    1874,
+                    2103,
+                    2016
+                ],
+                "angle": 0,
+                "content": "Tushar Khot, Harsh Trivedi, Matthew Finlayson, Yao Fu, Kyle Richardson, Peter Clark, and Ashish Sabharwal. Decomposed prompting: A modular approach for solving complex tasks. arXiv preprint arXiv:2210.02406, 2022."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    441,
+                    2049,
+                    2108,
+                    2187
+                ],
+                "angle": 0,
+                "content": "Takeshi Kojima, Shixiang Shane Gu, Machel Reid, Yutaka Matsuo, and Yusuke Iwasawa. Large language models are zero-shot reasoners. Advances in neural information processing systems, 35: 22199-22213, 2022."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    441,
+                    2220,
+                    2108,
+                    2362
+                ],
+                "angle": 0,
+                "content": "Royi Lachmy, Valentina Pyatkin, Avshalom Manevich, and Reut Tsarfaty. Draw me a flower: Processing and grounding abstraction in natural language. Transactions of the Association for Computational Linguistics, 2022."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    441,
+                    2392,
+                    2103,
+                    2534
+                ],
+                "angle": 0,
+                "content": "Hunter Lightman, Vineet Kosaraju, Yura Burda, Harri Edwards, Bowen Baker, Teddy Lee, Jan Leike, John Schulman, Ilya Sutskever, and Karl Cobbe. Let's verify step by step. arXiv preprint arXiv:2305.20050, 2023."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    441,
+                    2564,
+                    2108,
+                    2709
+                ],
+                "angle": 0,
+                "content": "Pengfei Liu, Weizhe Yuan, Jinlan Fu, Zhengbao Jiang, Hiroaki Hayashi, and Graham Neubig. Pre-train, prompt, and predict: A systematic survey of prompting methods in natural language processing. ACM Computing Surveys, 55(9):1-35, 2023."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    441,
+                    2735,
+                    2103,
+                    2877
+                ],
+                "angle": 0,
+                "content": "Swaroop Mishra, Daniel Khashabi, Chitta Baral, Yejin Choi, and Hannaneh Hajishirzi. Reframing instructional prompts to gptk's language. In Findings of the Association for Computational Linguistics: ACL 2022, pp. 589-612, 2022a."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    441,
+                    2907,
+                    2103,
+                    3055
+                ],
+                "angle": 0,
+                "content": "Swaroop Mishra, Daniel Khashabi, Chitta Baral, and Hannaneh Hajishirzi. Cross-task generalization via natural language crowdsourcing instructions. In Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 3470-3487, 2022b."
+            },
+            {
+                "block_id": 18,
+                "type": "list",
+                "bbox": [
+                    441,
+                    415,
+                    2108,
+                    3055
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 19,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1295,
+                    3168
+                ],
+                "angle": 0,
+                "content": "10"
+            }
+        ]
+    },
+    {
+        "page_id": 10,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    438,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "ref_text",
+                "bbox": [
+                    446,
+                    339,
+                    2111,
+                    531
+                ],
+                "angle": 0,
+                "content": "Maxwell Nye, Anders Johan Andreassen, Guy Gur-Ari, Henryk Michalewski, Jacob Austin, David Bieber, David Dohan, Aitor Lewkowycz, Maarten Bosma, David Luan, et al. Show your work: Scratchpads for intermediate computation with language models. arXiv preprint arXiv:2112.00114, 2021."
+            },
+            {
+                "block_id": 2,
+                "type": "ref_text",
+                "bbox": [
+                    446,
+                    557,
+                    1667,
+                    610
+                ],
+                "angle": 0,
+                "content": "OpenAI. Gpt-4 technical report. arXiv preprint arXiv:2303.08774, 2023."
+            },
+            {
+                "block_id": 3,
+                "type": "ref_text",
+                "bbox": [
+                    446,
+                    636,
+                    2103,
+                    778
+                ],
+                "angle": 0,
+                "content": "Mihir Parmar, Swaroop Mishra, Mor Geva, and Chitta Baral. Don't blame the annotator: Bias already starts in the annotation instructions. In Proceedings of the 17th Conference of the European Chapter of the Association for Computational Linguistics, pp. 1771-1781, 2023."
+            },
+            {
+                "block_id": 4,
+                "type": "ref_text",
+                "bbox": [
+                    446,
+                    805,
+                    2103,
+                    950
+                ],
+                "angle": 0,
+                "content": "Pruthvi Patel, Swaroop Mishra, Mihir Parmar, and Chitta Baral. Is a question decomposition unit all we need? In Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing, pp. 4553-4569, 2022."
+            },
+            {
+                "block_id": 5,
+                "type": "ref_text",
+                "bbox": [
+                    446,
+                    976,
+                    2103,
+                    1115
+                ],
+                "angle": 0,
+                "content": "Ofir Press, Muru Zhang, Sewon Min, Ludwig Schmidt, Noah A Smith, and Mike Lewis. Measuring and narrowing the compositionality gap in language models. arXiv preprint arXiv:2210.03350, 2022."
+            },
+            {
+                "block_id": 6,
+                "type": "ref_text",
+                "bbox": [
+                    446,
+                    1145,
+                    2103,
+                    1290
+                ],
+                "angle": 0,
+                "content": "Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, and Peter J Liu. Exploring the limits of transfer learning with a unified text-to-text transformer. The Journal of Machine Learning Research, 21(1):5485-5551, 2020."
+            },
+            {
+                "block_id": 7,
+                "type": "ref_text",
+                "bbox": [
+                    441,
+                    1316,
+                    2108,
+                    1412
+                ],
+                "angle": 0,
+                "content": "John L Russell. Kepler's laws of planetary motion: 1609-1666. The British journal for the history of science, 2(1):1-24, 1964."
+            },
+            {
+                "block_id": 8,
+                "type": "ref_text",
+                "bbox": [
+                    446,
+                    1442,
+                    2101,
+                    1537
+                ],
+                "angle": 0,
+                "content": "Zhiqing Sun, Xuezhi Wang, Yi Tay, Yiming Yang, and Denny Zhou. Recitation-augmented language models. arXiv preprint arXiv:2210.01296, 2022."
+            },
+            {
+                "block_id": 9,
+                "type": "ref_text",
+                "bbox": [
+                    446,
+                    1567,
+                    2103,
+                    1709
+                ],
+                "angle": 0,
+                "content": "Harsh Trivedi, Niranjan Balasubramanian, Tushar Khot, and Ashish Sabharwal. Musique: Multihop questions via single-hop question composition. Transactions of the Association for Computational Linguistics, 10:539-554, 2022."
+            },
+            {
+                "block_id": 10,
+                "type": "ref_text",
+                "bbox": [
+                    446,
+                    1735,
+                    2101,
+                    1877
+                ],
+                "angle": 0,
+                "content": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Lukasz Kaiser, and Illia Polosukhin. Attention is all you need. Advances in neural information processing systems, 30, 2017."
+            },
+            {
+                "block_id": 11,
+                "type": "ref_text",
+                "bbox": [
+                    446,
+                    1907,
+                    2103,
+                    2046
+                ],
+                "angle": 0,
+                "content": "Jason Wei, Maarten Bosma, Vincent Y Zhao, Kelvin Guu, Adams Wei Yu, Brian Lester, Nan Du, Andrew M Dai, and Quoc V Le. Finetuned language models are zero-shot learners. arXiv preprint arXiv:2109.01652, 2021."
+            },
+            {
+                "block_id": 12,
+                "type": "ref_text",
+                "bbox": [
+                    446,
+                    2075,
+                    2108,
+                    2220
+                ],
+                "angle": 0,
+                "content": "Jason Wei, Yi Tay, Rishi Bommasani, Colin Raffel, Barret Zoph, Sebastian Borgeaud, Dani Yogatama, Maarten Bosma, Denny Zhou, Donald Metzler, et al. Emergent abilities of large language models. arXiv preprint arXiv:2206.07682, 2022a."
+            },
+            {
+                "block_id": 13,
+                "type": "ref_text",
+                "bbox": [
+                    446,
+                    2247,
+                    2103,
+                    2389
+                ],
+                "angle": 0,
+                "content": "Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Fei Xia, Ed Chi, Quoc V Le, Denny Zhou, et al. Chain-of-thought prompting elicits reasoning in large language models. Advances in Neural Information Processing Systems, 35:24824-24837, 2022b."
+            },
+            {
+                "block_id": 14,
+                "type": "ref_text",
+                "bbox": [
+                    446,
+                    2415,
+                    2108,
+                    2514
+                ],
+                "angle": 0,
+                "content": "Chengrun Yang, Xuezhi Wang, Yifeng Lu, Hanxiao Liu, Quoc V. Le, Denny Zhou, and Xinyun Chen. Large language models as optimizers. arXiv preprint arXiv:2309.03409, 2023."
+            },
+            {
+                "block_id": 15,
+                "type": "ref_text",
+                "bbox": [
+                    446,
+                    2541,
+                    2103,
+                    2682
+                ],
+                "angle": 0,
+                "content": "Michael Zhang and Eunsol Choi. Situatedqa: Incorporating extra-linguistic contexts into qa. In Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing, pp. 7371–7387, 2021."
+            },
+            {
+                "block_id": 16,
+                "type": "ref_text",
+                "bbox": [
+                    446,
+                    2709,
+                    2108,
+                    2851
+                ],
+                "angle": 0,
+                "content": "Zihao Zhao, Eric Wallace, Shi Feng, Dan Klein, and Sameer Singh. Calibrate before use: Improving few-shot performance of language models. In International Conference on Machine Learning, pp. 12697-12706. PMLR, 2021."
+            },
+            {
+                "block_id": 17,
+                "type": "ref_text",
+                "bbox": [
+                    446,
+                    2880,
+                    2103,
+                    3026
+                ],
+                "angle": 0,
+                "content": "Denny Zhou, Nathanael Schärli, Le Hou, Jason Wei, Nathan Scales, Xuezhi Wang, Dale Schuurmans, Claire Cui, Olivier Bousquet, Quoc Le, et al. Least-to-most prompting enables complex reasoning in large language models. arXiv preprint arXiv:2205.10625, 2022."
+            },
+            {
+                "block_id": 18,
+                "type": "list",
+                "bbox": [
+                    441,
+                    339,
+                    2111,
+                    3026
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 19,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3131,
+                    1290,
+                    3168
+                ],
+                "angle": 0,
+                "content": "11"
+            }
+        ]
+    },
+    {
+        "page_id": 11,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    438,
+                    108,
+                    1818,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "title",
+                "bbox": [
+                    438,
+                    339,
+                    1213,
+                    392
+                ],
+                "angle": 0,
+                "content": "A ADDITIONAL ERROR ANALYSIS"
+            },
+            {
+                "block_id": 2,
+                "type": "title",
+                "bbox": [
+                    441,
+                    455,
+                    1048,
+                    504
+                ],
+                "angle": 0,
+                "content": "A.1 TIMEQA ERROR ANALYSIS"
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    436,
+                    547,
+                    2111,
+                    877
+                ],
+                "angle": 0,
+                "content": "We conduct error analysis to understand where STEP-BACK PROMPTING fixes the errors the baseline models make. Figure 6 shows that compared to the predictions of baseline PaLM-2L, STEP-BACK PROMPTING is able to fix \\(39.9\\%\\) of the predictions where the baseline prediction is wrong, while causing \\(5.6\\%\\) errors. Furthermore, Step-Back + RAG fixes \\(21.6\\%\\) errors coming from RAG. The \\(\\%\\) of errors introduced by STEP-BACK PROMPTING to RAG is still relatively low \\((6.3\\%)\\). Together, this shows that the STEP-BACK PROMPTING is helpful most of the time, signifying the need and effectiveness of doing Abstraction before directly addressing the original question."
+            },
+            {
+                "block_id": 4,
+                "type": "image",
+                "bbox": [
+                    481,
+                    966,
+                    1262,
+                    1392
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 5,
+                "type": "image",
+                "bbox": [
+                    1290,
+                    966,
+                    2068,
+                    1386
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 6: Error Analysis of Step-Back Prompting on TimeQA. Left: Step-Back + RAG vs Baseline predictions. Right: Step-Back RAG vs RAG predictions. Step-Back + RAG is able to fix \\(39.9\\%\\) of the predictions where the baseline prediction is wrong, while causing \\(5.6\\%\\) errors. Furthermore, Step-Back + RAG fixes \\(21.6\\%\\) errors coming from RAG. The \\(\\%\\) of errors introduced by STEP-BACK PROMPTING to RAG is still relatively low \\((6.3\\%)\\)."
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    441,
+                    1848,
+                    1144,
+                    1897
+                ],
+                "angle": 0,
+                "content": "A.2 STRATEGYQA ERROR ANALYSIS"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1943,
+                    2108,
+                    2178
+                ],
+                "angle": 0,
+                "content": "Figure 7 shows the error analysis of StrategyQA on the predictions of Step-Back + RAG against the baseline model and the raw retrieval augmentation variant of PaLM-2L. Compared to the baseline, Step-Back + RAG is able to turn \\(15.4\\%\\) wrong predictions into correct predictions, while leading to \\(6.1\\%\\) errors the other way around. Furthermore, Step-Back + RAG fixes \\(12.7\\%\\) errors coming from RAG. The errors introduced to RAG by Step-Back is just \\(4.4\\%\\)."
+            },
+            {
+                "block_id": 9,
+                "type": "image",
+                "bbox": [
+                    456,
+                    2306,
+                    1300,
+                    2739
+                ],
+                "angle": 0,
+                "content": null
+            },
+            {
+                "block_id": 10,
+                "type": "image",
+                "bbox": [
+                    1326,
+                    2310,
+                    2103,
+                    2739
+                ],
+                "angle": 0,
+                "content": null,
+                "caption": "Figure 7: Error Analysis of Step-Back Prompting on StrategyQA. Left: Step-Back + RAG vs Baseline predictions. Right: Step-Back + RAG vs RAG predictions. Step-Back + RAG is able to turn \\(15.4\\%\\) wrong predictions into correct predictions, while leading to \\(6.1\\%\\) errors the other way around. Furthermore, Step-Back + RAG fixes \\(12.7\\%\\) errors coming from RAG. The errors introduced to RAG by Step-Back is just \\(4.4\\%\\)."
+            },
+            {
+                "block_id": 12,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1297,
+                    3168
+                ],
+                "angle": 0,
+                "content": "12"
+            }
+        ]
+    },
+    {
+        "page_id": 12,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    438,
+                    108,
+                    1818,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 2,
+                "type": "table",
+                "bbox": [
+                    515,
+                    438,
+                    2037,
+                    963
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Domain</td><td>Dataset</td><td>Split</td><td>Number of Examples</td></tr><tr><td rowspan=\"2\">STEM</td><td>MMLU high-school Physics</td><td>Test</td><td>151</td></tr><tr><td>MMLU high-school Chemistry</td><td>Test</td><td>203</td></tr><tr><td rowspan=\"4\">Knowledge QA</td><td>TimeQA</td><td>Test</td><td>5226</td></tr><tr><td>TimeQA Easy</td><td>Test</td><td>2613</td></tr><tr><td>TimeQA Hard</td><td>Test</td><td>2613</td></tr><tr><td>SituatedQA</td><td>Test</td><td>2901</td></tr><tr><td rowspan=\"2\">Multi-hop Reasoning</td><td>MuSiQue</td><td>Dev</td><td>2417</td></tr><tr><td>StrategyQA</td><td>Dev</td><td>229</td></tr></table>",
+                "caption": "Table 4: Stats of the evaluation datasets used in this paper."
+            },
+            {
+                "block_id": 3,
+                "type": "text",
+                "bbox": [
+                    665,
+                    1036,
+                    1871,
+                    1174
+                ],
+                "angle": 0,
+                "content": "Are the following two answers to the given question equivalent? Do not consider whether the answers are right or wrong, but only whether they are equivalent. Directly state \"Yes\" or \"No\"."
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    675,
+                    1178,
+                    1787,
+                    1217
+                ],
+                "angle": 0,
+                "content": "Question: Which title was conferred to Anna Muzychuk in 2007?"
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    675,
+                    1221,
+                    1869,
+                    1353
+                ],
+                "angle": 0,
+                "content": "Answer 1: Anna Muzychuk was conferred the title of International Master (IM) in 2007. She earned the title by scoring three norms in rapid chess tournaments."
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    675,
+                    1359,
+                    1216,
+                    1399
+                ],
+                "angle": 0,
+                "content": "Answer 2: International Master"
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    675,
+                    1405,
+                    1343,
+                    1445
+                ],
+                "angle": 0,
+                "content": "Answer 1 (short): International Master"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    675,
+                    1452,
+                    1343,
+                    1491
+                ],
+                "angle": 0,
+                "content": "Answer 2 (short): International Master"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    675,
+                    1494,
+                    1333,
+                    1541
+                ],
+                "angle": 0,
+                "content": "Are the two answers equivalent? Yes"
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    675,
+                    1544,
+                    1397,
+                    1584
+                ],
+                "angle": 0,
+                "content": "Question: What state is Seattle located in?"
+            },
+            {
+                "block_id": 11,
+                "type": "text",
+                "bbox": [
+                    675,
+                    1587,
+                    1379,
+                    1630
+                ],
+                "angle": 0,
+                "content": "Answer 1: Seattle is in Washington State."
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    675,
+                    1636,
+                    1453,
+                    1679
+                ],
+                "angle": 0,
+                "content": "Answer 2: The answer is George Washington."
+            },
+            {
+                "block_id": 13,
+                "type": "text",
+                "bbox": [
+                    675,
+                    1683,
+                    1295,
+                    1722
+                ],
+                "angle": 0,
+                "content": "Answer 1 (short): Washington State"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    675,
+                    1725,
+                    1333,
+                    1768
+                ],
+                "angle": 0,
+                "content": "Answer 2 (short): George Washington"
+            },
+            {
+                "block_id": 15,
+                "type": "text",
+                "bbox": [
+                    675,
+                    1772,
+                    1323,
+                    1815
+                ],
+                "angle": 0,
+                "content": "Are the two answers equivalent? No"
+            },
+            {
+                "block_id": 16,
+                "type": "text",
+                "bbox": [
+                    675,
+                    1818,
+                    1081,
+                    1861
+                ],
+                "angle": 0,
+                "content": "Question: <Question>"
+            },
+            {
+                "block_id": 17,
+                "type": "text",
+                "bbox": [
+                    675,
+                    1864,
+                    1170,
+                    1907
+                ],
+                "angle": 0,
+                "content": "Answer 1: <Model Output>"
+            },
+            {
+                "block_id": 18,
+                "type": "text",
+                "bbox": [
+                    675,
+                    1910,
+                    1147,
+                    1950
+                ],
+                "angle": 0,
+                "content": "Answer 2: <Target Label>"
+            },
+            {
+                "block_id": 19,
+                "type": "table_caption",
+                "bbox": [
+                    685,
+                    1999,
+                    1851,
+                    2049
+                ],
+                "angle": 0,
+                "content": "Table 5: Illustration of few shot evaluation with the PaLM-2L model."
+            },
+            {
+                "block_id": 20,
+                "type": "title",
+                "bbox": [
+                    438,
+                    2131,
+                    935,
+                    2181
+                ],
+                "angle": 0,
+                "content": "B DATASET DETAILS"
+            },
+            {
+                "block_id": 21,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2234,
+                    2103,
+                    2333
+                ],
+                "angle": 0,
+                "content": "Table 4 shows the split and number of examples used for evaluations in TimeQA, StrategyQA and MMLU high-school Physics."
+            },
+            {
+                "block_id": 22,
+                "type": "title",
+                "bbox": [
+                    438,
+                    2395,
+                    1017,
+                    2442
+                ],
+                "angle": 0,
+                "content": "C EVALUATION DETAILS"
+            },
+            {
+                "block_id": 23,
+                "type": "title",
+                "bbox": [
+                    436,
+                    2498,
+                    1573,
+                    2547
+                ],
+                "angle": 0,
+                "content": "C.1 FEW-SHOT EXAMPLES FOR EVALUATION WITH PALM2-L"
+            },
+            {
+                "block_id": 24,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2587,
+                    2103,
+                    2772
+                ],
+                "angle": 0,
+                "content": "Given the model free-form outputs and the target label, we use one positive and one negative outputs as few-shot examples to teach the scoring model how to score the output. Table 5 illustrates the prompt we used for the scoring model. We parse out the “Yes” or “No” answer from the scoring model output as TRUE or FALSE score of the model output."
+            },
+            {
+                "block_id": 25,
+                "type": "title",
+                "bbox": [
+                    438,
+                    2824,
+                    1558,
+                    2871
+                ],
+                "angle": 0,
+                "content": "C.2 HYPER-PARAMETERS FOR EVALUATION WITH PALM2-L"
+            },
+            {
+                "block_id": 26,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2910,
+                    2106,
+                    3055
+                ],
+                "angle": 0,
+                "content": "We use PaLM-2L as the scoring model for evaluation. We experiment with different sampling temperatures, and find that \\( T = 1 \\) gives us a highly-accurate evaluating. For example, we sampled 100 test examples and the model predictions, and manually rated the correctness of the model scoring."
+            },
+            {
+                "block_id": 27,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1295,
+                    3168
+                ],
+                "angle": 0,
+                "content": "13"
+            }
+        ]
+    },
+    {
+        "page_id": 13,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    438,
+                    108,
+                    1818,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "algorithm",
+                "bbox": [
+                    655,
+                    339,
+                    1897,
+                    980
+                ],
+                "angle": 0,
+                "content": "MMLU Physics/Chemistry First-Principle Prompt  \nYou are an expert at Physics/Chemistry. You are given a Physics/Chemistry problem. Your task is to extract the Physics/Chemistry concepts and principles involved in solving the problem. Here are a few examples:  \nQuestion: <Question Example1>  \nPrinciples Involved: <Principles Example1>  \n...  \nQuestion: <Question Example5>  \nPrinciples Involved: <Principles Example5>  \nQuestion: <Question>  \nPrinciples Involved:"
+            },
+            {
+                "block_id": 2,
+                "type": "table_caption",
+                "bbox": [
+                    436,
+                    1013,
+                    2103,
+                    1118
+                ],
+                "angle": 0,
+                "content": "Table 6: Prompt of extracting the underlying principles involved in MMLU physics and chemistry questions."
+            },
+            {
+                "block_id": 3,
+                "type": "algorithm",
+                "bbox": [
+                    652,
+                    1184,
+                    1897,
+                    1973
+                ],
+                "angle": 0,
+                "content": "MMLU Physics/Chemistry Final Answer Prompt  \nYou are an expert at Physics/Chemistry. You are given a Physics/Chemistry problem and a set of principles involved in solving the problem. Solve the problem step by step by following the principles. Here are a few examples:  \nQuestion: <Question Example1>  \nPrinciples: <Principles Example1>  \nAnswer: <Answer Example1>  \n...  \nQuestion: <Question Example5>  \nPrinciples: <Principles Example5>  \nAnswer: <Answer Example5>  \nQuestion: <Question>  \nPrinciples: <Principles>  \nAnswer:"
+            },
+            {
+                "block_id": 4,
+                "type": "table_caption",
+                "bbox": [
+                    436,
+                    2003,
+                    2103,
+                    2108
+                ],
+                "angle": 0,
+                "content": "Table 7: Prompt of querying the model for final answer with first principles behind the question in MMLU high-school Physics and Chemistry."
+            },
+            {
+                "block_id": 5,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2214,
+                    2103,
+                    2313
+                ],
+                "angle": 0,
+                "content": "We found that out of 4 trials, the model scoring agrees with human ratings \\(97\\%\\), \\(98\\%\\), \\(99\\%\\) and \\(99\\%\\) of the time."
+            },
+            {
+                "block_id": 6,
+                "type": "title",
+                "bbox": [
+                    438,
+                    2412,
+                    1336,
+                    2461
+                ],
+                "angle": 0,
+                "content": "D PROMPTS AND FEW SHOT EXAMPLES"
+            },
+            {
+                "block_id": 7,
+                "type": "title",
+                "bbox": [
+                    438,
+                    2534,
+                    680,
+                    2580
+                ],
+                "angle": 0,
+                "content": "D.1 STEM"
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2630,
+                    2103,
+                    2824
+                ],
+                "angle": 0,
+                "content": "For MMLU high-school Physics and Chemistry, we first prompt the model to generate the first principles behind the question. Using the generated first principles, we further prompt the model to generate the final answer through few-shot demonstrations. The prompt generating first principles is shown in Table6 for MMLU high-school Physics and Chemistry."
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2841,
+                    2103,
+                    2943
+                ],
+                "angle": 0,
+                "content": "After extracting the first principles of solving a particular question, we formulate the prompt in Table7 to query the model for the final answer."
+            },
+            {
+                "block_id": 10,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2953,
+                    2103,
+                    3055
+                ],
+                "angle": 0,
+                "content": "Tables 8-9 show one demonstration exemplar of Question-Principles-Answer triplets for MMLU high-school Physics and Chemistry, respectively."
+            },
+            {
+                "block_id": 11,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1297,
+                    3171
+                ],
+                "angle": 0,
+                "content": "14"
+            }
+        ]
+    },
+    {
+        "page_id": 14,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    448,
+                    904,
+                    2103,
+                    2385
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Question</td><td>A spherical conductor carries a net charge. How is this charge distributed on the sphere?\n0) The charge is evenly distributed on the surface.\n1) The charge resides on the surface only; the distribution of charge on the surface depends on what other charged objects are near the sphere.\n2) The charge moves continually within the sphere.\n3) The charge is distributed uniformly throughout the sphere.</td></tr><tr><td>Principles</td><td>Coulomb&#x27;s Law: the force between two charged particles is proportional to the product of their charges and inversely proportional to the square of the distance between them, F = k * q1 * q2 / r, where F is the electric force, k is a constant, q1 and q2 are the charges the particles carry, and r is the distance between them.</td></tr><tr><td>Answer</td><td>Using the Principles of Coulomb&#x27;s Law, we can solve the problem as following:\nStep 1: Apply Coulomb&#x27;s Law to find out how charges are distributed on the surface.\nIn the case of a spherical conductor, the charges on the surface will repel each other. The further apart the charges are, the less force they will exert on each other. Therefore, the charges will distribute themselves evenly on the surface of the sphere, as this is the configuration that minimizes the repulsive force between them.\nStep 2: Apply Coulomb&#x27;s Law to find out what happens if there are other charges present.\nThe distribution of charge on the surface may also be affected by the presence of other charged objects near the sphere. For example, if a negatively charged object is brought near a positively charged sphere, the negative charges on the sphere will be repelled and will move to the opposite side of the sphere. This will result in a non-uniform distribution of charge on the surface of the sphere.\nTherefore, the correct answer is 1) The charge resides on the surface only; the distribution of charge on the surface depends on what other charged objects are near the sphere.</td></tr></table>",
+                "caption": "Table 8: Few-shot demonstration exemplar for MMLU high-school Physics."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1252,
+                    3128,
+                    1295,
+                    3168
+                ],
+                "angle": 0,
+                "content": "15"
+            }
+        ]
+    },
+    {
+        "page_id": 15,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    438,
+                    108,
+                    1818,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    443,
+                    950,
+                    2103,
+                    2343
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Question</td><td>A sample of an unknown chloride compound was dissolved in water, and then titrated with excess Pb(NO3)2 to create a precipitate. After drying, it is determined there are 0.0050 mol of precipitate present. What mass of chloride is present in the original sample? \n0) 0.177 g \n1) 0.355 g \n2) 0.522 g \n3) 0.710 g</td></tr><tr><td>Principles</td><td>Precipitation reactions: Precipitation reactions occur when two soluble salts are mixed and form an insoluble product, called a precipitate. The precipitate can be separated from the solution by filtration or centrifugation. \nMolar mass: The molar mass of a substance is the mass of one mole of that substance. The molar mass is expressed in grams per mole (g/mol). \nLimiting reactant: The limiting reactant is the reactant that is completely consumed in a chemical reaction. The amount of product formed is determined by the amount of limiting reactant.</td></tr><tr><td>Answer</td><td>Assuming the unknown chloride compound is MCl, where M represents the metal cation, the balanced chemical equation for the precipitation reaction is: \nPb(NO3)2(aq) + 2MCl(aq) → PbCl2(s) + 2MNO3(aq) \nSince Pb(NO3)2is in excess, MCl is the limiting reactant. The stoichiometry of the reaction indicates that 2 moles of MCl produce 1 mole of PbCl2precipitate. Therefore, 0.0050 mol of PbCl2corresponds to 0.010 mol of MCl. \nThe mass of chloride in the original sample can be calculated using the molar mass of chloride (35.45 g/mol): \n0.010 mol Cl × 35.45 g/mol = 0.355 g Cl \nThe correct answer is 1) 0.355 g.</td></tr></table>",
+                "caption": "Table 9: Few-shot demonstration exemplar for MMLU high-school Chemistry."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1252,
+                    3128,
+                    1297,
+                    3168
+                ],
+                "angle": 0,
+                "content": "16"
+            }
+        ]
+    },
+    {
+        "page_id": 16,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    438,
+                    108,
+                    1818,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    655,
+                    339,
+                    1897,
+                    937
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Knowledge QA Step-Back Prompt</td></tr><tr><td>You are an expert at world knowledge. Your task is to step back and paraphrase a question to a more generic step-back question, which is easier to answer. Here are a few examples:</td></tr><tr><td>Original Question: &lt;Original Question Example1&gt;Stepback Question: &lt;Stepback Question Example1&gt;</td></tr><tr><td>...Original Question: &lt;Original Question Example5&gt;Stepback Question: &lt;Stepback Question Example5&gt;Original Question: &lt;Original Question&gt;Stepback Question:</td></tr></table>",
+                "caption": "Table 10: Prompt of asking step-back question in Knowledge QA tasks."
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    443,
+                    1069,
+                    2142,
+                    2280
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>dataset</td><td>Original Question</td><td>Step-back Question</td></tr><tr><td>TimeQA</td><td>Which position did Knox Cunningham hold from May 1955 to Apr 1956?</td><td>Which positions have Knox Cunningham held in his career?</td></tr><tr><td>TimeQA</td><td>Who was the spouse of Anna Karina from 1968 to 1974?</td><td>Who were the spouses of Anna Karina?</td></tr><tr><td>TimeQA</td><td>Which team did Thierry Audel play for from 2007 to 2008?</td><td>Which teams did Thierry Audel play for in his career?</td></tr><tr><td>TimeQA</td><td>What was the operator of GCR Class 11E from 1913 to Dec 1922?</td><td>What were the operators of GCR Class 11E in history?</td></tr><tr><td>TimeQA</td><td>Which country did Sokolovsko belong to from 1392 to 1525?</td><td>Which countries did Sokolovsko belong to in history?</td></tr><tr><td>SituatedQA</td><td>when was the last time a team from canada won the stanley cup as of 2002</td><td>which years did a team from canada won the stanley cup as of 2002</td></tr><tr><td>SituatedQA</td><td>when did england last get to the semi final in a world cup as of 2019</td><td>which years did england get to the semi final in a world cup as of 2019?</td></tr><tr><td>SituatedQA</td><td>what is the biggest hotel in las vegas nv as of November 28, 1993</td><td>what is the size of the hotels in las vegas nv as of November 28, 1993</td></tr><tr><td>SituatedQA</td><td>who has scored most runs in t20 matches as of 2017</td><td>What are the runs of players in t20 matches as of 2017</td></tr><tr><td>SituatedQA</td><td>who is the highest paid player in the nba this season as of 2017</td><td>what is the salary of the high paid play-ers in the nba this season as of 2017</td></tr></table>",
+                "caption": "Table 11: Few-shot demonstration exemplars for asking step-back questions in TimeQA and SituatedQA."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    438,
+                    2501,
+                    869,
+                    2547
+                ],
+                "angle": 0,
+                "content": "D.2 KNOWLEDGE QA"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2583,
+                    2103,
+                    2729
+                ],
+                "angle": 0,
+                "content": "We use the following prompting in Table 10 to teach the LLM to ask a step-back question for TimeQA and SituatedQA including up to 5 exemplar demonstrations of pairs of Original Question and Step-back Question."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2745,
+                    2106,
+                    2847
+                ],
+                "angle": 0,
+                "content": "Table 11 shows 5 exemplars from the Train split of TimeQA and SituatedQA as demonstrations of asking step-back questions."
+            },
+            {
+                "block_id": 8,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2864,
+                    2106,
+                    3059
+                ],
+                "angle": 0,
+                "content": "The step-back question is extracted from the model output using the prompt. Using the step-back question, we do retrieval augmentation. Using both the retrieval augmentations from the original question and the step-back question, we formulate the final prompt to query the model for the final answer, as shown in Table 12."
+            },
+            {
+                "block_id": 9,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1297,
+                    3168
+                ],
+                "angle": 0,
+                "content": "17"
+            }
+        ]
+    },
+    {
+        "page_id": 17,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    652,
+                    339,
+                    1897,
+                    894
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Knowledge QA Final-Answer Prompt</td></tr><tr><td>You are an expert of world knowledge. I am going to ask you a question. Your response should be comprehensive and not contradicted with the following context if they are relevant. Otherwise, ignore them if they are not relevant.</td></tr><tr><td>&lt;Passage from original retrieval augmentation&gt;</td></tr><tr><td>&lt;Passage from step-back retrieval augmentation&gt;</td></tr><tr><td>Original Question: &lt;Original Question&gt;</td></tr><tr><td>Answer:</td></tr></table>",
+                "caption": "Table 12: Prompt of querying the model for final answer with additional contexts from original and step-back retrieval augmentations in TimeQA and SituatedQA"
+            },
+            {
+                "block_id": 3,
+                "type": "table",
+                "bbox": [
+                    481,
+                    1122,
+                    2070,
+                    2478
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>dataset</td><td>Original Question</td><td>Step-back Question</td></tr><tr><td>MuSiQue</td><td>at year saw the creation of the region where the county of Hertfordshire is located?</td><td>which region is the county of Hert- fordshire located?</td></tr><tr><td>MuSiQue</td><td>Jan Šindel&#x27;s was born in what coun- try?</td><td>what is Jan Šindel&#x27;s personal his- tory?</td></tr><tr><td>MuSiQue</td><td>When was the abolishment of the studio that distributed The Game?</td><td>which studio distributed The Game?</td></tr><tr><td>MuSiQue</td><td>What city is the person who broad- ened the doctrine of philosophy of language from?</td><td>who broadened the doctrine of phi- losophy of language</td></tr><tr><td>MuSiQue</td><td>When was the baseball team win- ning the world series in 2015 base- ball created?</td><td>which baseball team won the world series in 2015 baseball?</td></tr><tr><td>StrategyQA</td><td>Could the members of The Police perform lawful arrests?</td><td>what can the members of The Police do?</td></tr><tr><td>StrategyQA</td><td>Would a Monoamine Oxidase candy bar cheer up a depressed friend?</td><td>What are the effects of Monoamine Oxidase?</td></tr><tr><td>StrategyQA</td><td>Would a dog respond to bell before Grey seal?</td><td>Would a dog respond to bell before Grey seal?</td></tr><tr><td>StrategyQA</td><td>Is shrimp scampi definitely free of plastic?</td><td>what is shrimp scampi made of?</td></tr><tr><td>StrategyQA</td><td>Do the anchors on Rede Globo speak Chinese?</td><td>What languages do the anchors on Rede Globo speak?</td></tr></table>",
+                "caption": "Table 13: Few-shot demonstration exemplars for asking step-back questions in MuSiQue and StrategyQA."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    438,
+                    2752,
+                    1004,
+                    2801
+                ],
+                "angle": 0,
+                "content": "D.3 MULTI-HOP REASONING"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2864,
+                    2103,
+                    3055
+                ],
+                "angle": 0,
+                "content": "For Multi-Hop Reasoning, we use the same prompting template as in Knowledge QA to ask the step-back question, and query for the final answer given the retrieval augmentations. Table[13] shows 5 demonstration exemplars for asking step-back questions from the Train split of MuSiQue and StrategyQA."
+            },
+            {
+                "block_id": 7,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1297,
+                    3168
+                ],
+                "angle": 0,
+                "content": "18"
+            }
+        ]
+    },
+    {
+        "page_id": 18,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    438,
+                    108,
+                    1818,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    652,
+                    339,
+                    1897,
+                    759
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Baseline few-shot Prompt</td></tr><tr><td>You are an expert of world knowledge and physics. Your task is to solve the following question. Here are a few examples:</td></tr><tr><td>Question: &lt;Question Example&gt;</td></tr><tr><td>Answer: &lt;Answer Example&gt;</td></tr><tr><td>Question: &lt;Question&gt;</td></tr><tr><td>Answer:</td></tr></table>",
+                "caption": "Table 14: Prompt of querying the baseline model for final answer with few-shot demonstration exemplars."
+            },
+            {
+                "block_id": 3,
+                "type": "title",
+                "bbox": [
+                    438,
+                    973,
+                    920,
+                    1016
+                ],
+                "angle": 0,
+                "content": "D.4 BASELINE PROMPTS"
+            },
+            {
+                "block_id": 4,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1056,
+                    2103,
+                    1247
+                ],
+                "angle": 0,
+                "content": "For zero-shot baseline, we simply take the question itself and query the model for answers. For standard few-shot prompting of the baseline model, we formulate the prompt using the template in Table 14 with one exemplar. Table 15 shows the baseline few-shot exemplar exemplars used in this paper."
+            },
+            {
+                "block_id": 5,
+                "type": "title",
+                "bbox": [
+                    438,
+                    1296,
+                    1055,
+                    1346
+                ],
+                "angle": 0,
+                "content": "D.5 CHAIN OF THOUGHT (COT)"
+            },
+            {
+                "block_id": 6,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1386,
+                    2103,
+                    1478
+                ],
+                "angle": 0,
+                "content": "For zero-shot CoT prompting, we simply append Let's think step by step. to the question to query the model."
+            },
+            {
+                "block_id": 7,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1498,
+                    2103,
+                    1603
+                ],
+                "angle": 0,
+                "content": "For few-shot CoT prompting, we use the same template as the Baseline prompting in Sec. D.4 by replacing the few-shot examples using CoT responses, as shown in Tables 16, 17, 18, and 19"
+            },
+            {
+                "block_id": 8,
+                "type": "title",
+                "bbox": [
+                    438,
+                    1650,
+                    1114,
+                    1699
+                ],
+                "angle": 0,
+                "content": "D.6 TAKE A DEEP BREATHE (TDB)"
+            },
+            {
+                "block_id": 9,
+                "type": "text",
+                "bbox": [
+                    436,
+                    1732,
+                    2103,
+                    1834
+                ],
+                "angle": 0,
+                "content": "We study the zero-shot Take a Deep Breathe prompting found in Yang et al. (2023): we take Take a deep breath and work on this problem step-by-step., and pretend it to the question."
+            },
+            {
+                "block_id": 10,
+                "type": "title",
+                "bbox": [
+                    436,
+                    1894,
+                    2075,
+                    1947
+                ],
+                "angle": 0,
+                "content": "E EXAMPLES OF ERROR ANALYSIS AND WINS OF STEP-BACK PROMPTING"
+            },
+            {
+                "block_id": 11,
+                "type": "title",
+                "bbox": [
+                    438,
+                    1999,
+                    1012,
+                    2046
+                ],
+                "angle": 0,
+                "content": "E.1 MMLU ERROR ANALYSIS"
+            },
+            {
+                "block_id": 12,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2082,
+                    2103,
+                    2178
+                ],
+                "angle": 0,
+                "content": "In Tables 20, 24 we show one example for each of the 5 error categories we identified through error analysis on STEP-BACK PROMPTING."
+            },
+            {
+                "block_id": 13,
+                "type": "title",
+                "bbox": [
+                    438,
+                    2234,
+                    1399,
+                    2280
+                ],
+                "angle": 0,
+                "content": "E.2 EXAMPLE WINS FROM STEP-BACK PROMPTING"
+            },
+            {
+                "block_id": 14,
+                "type": "text",
+                "bbox": [
+                    436,
+                    2316,
+                    2103,
+                    2418
+                ],
+                "angle": 0,
+                "content": "Tables 25-27, 28-29, 30 and 31 illustrate the some successful examples of STEP-BACK PROMPTING on MMLU-Physics, MMLU-Chemistry, TimeQA, SituatedQA, and StrategyQA respectively."
+            },
+            {
+                "block_id": 15,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1295,
+                    3168
+                ],
+                "angle": 0,
+                "content": "19"
+            }
+        ]
+    },
+    {
+        "page_id": 19,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    443,
+                    392,
+                    2142,
+                    2890
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>dataset</td><td>Question</td><td>Answer</td></tr><tr><td rowspan=\"4\">MMLU Physics</td><td rowspan=\"4\">A point charge, Q1 = +1 mC, is fixed at the origin. How much work is required to move another charge, Q2 = +8 μC, from the point (0, 4 meters) to the point (3 meters, 0)? \n0) 3.5 J \n1) 6.0 J \n2) 22.5 J \n3) 40 J</td><td>The work required to move a charge in an electric field is equal to the change in potential energy of the charge. The potential energy of a charge in an electric field is given by: U = k * Q1 * Q2 / r where: k is the Coulomb constant, Q1 and Q2 are the charges, r is the distance between the charges. In this case, the initial potential energy of Q2 is: U1 = k * Q1 * Q2 / 4 meters</td></tr><tr><td>The final potential energy of Q2 is: U2 = k * Q1 * Q2 / 3 meters</td></tr><tr><td>The change in potential energy is: ΔU = U2 - U1 = k * Q1 * Q2 * (1/3 meters - 1/4 meters)</td></tr><tr><td>Plugging in the values, we get: ΔU = (9 × 10^9 N * m^2/C^2) × (1 × 10^-3 C) * (8 × 10^-6 C) * (1/3m - 1/4m) \nΔU = 6 J \nTherefore, the work required to move Q2 from (0, 4 meters) to (3 meters, 0) is 6 J. The answer is 1) 6.0 J.</td></tr><tr><td>MMLU Chemistry</td><td>A sample of an unknown chloride compound was dissolved in water, and then titrated with excess Pb(NO3)2 to create a precipitate. After drying, it is determined there are 0.0050 mol of precipitate present. What mass of chloride is present in the original sample? \n0) 0.177 g \n1) 0.355 g \n2) 0.522 g \n3) 0.710 g</td><td>0.0050 moles of lead chloride precipitate contain 0.010 moles of chloride ions due to the 2:1 mole ratio between chloride ions and lead chloride. \nThe mass of 0.010 moles of chloride ions is 0.355 g. \nTherefore, the mass of chloride present in the original sample is 0.355 g.</td></tr><tr><td>TimeQA</td><td>Who was the spouse of Anna Karina from 1968 to 1974?</td><td>Anna Karina&#x27;s spouse from 1968 to 1974 was French actor Pierre Fabre.</td></tr><tr><td>SituatedQA</td><td>what is the biggest hotel in las vergas nv as of November 28, 1993</td><td>The biggest hotel in Las Vegas, Nevada as of November 28, 1993 was the Excalibur Hotel &amp; Casino.</td></tr><tr><td>MuSiQue</td><td>What year saw the creation of the region where the county of Hertfordshire is located?</td><td>1994</td></tr><tr><td>StrategyQA</td><td>Would a Monoamine Oxidase candy bar cheer up a depressed friend?</td><td>A Monoamine Oxidase (MAO) candy bar would not cheer up a depressed friend. MAO is an en-zyme that breaks down neurotransmitters such as serotonin, dopamine, and norepinephrine. These neurotransmitters are associated with mood, so inhibiting MAO can lead to an increase in their levels.</td></tr></table>",
+                "caption": "Table 15: Demonstration exemplar for standard prompting."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1297,
+                    3168
+                ],
+                "angle": 0,
+                "content": "20"
+            }
+        ]
+    },
+    {
+        "page_id": 20,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    443,
+                    950,
+                    2139,
+                    2333
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>dataset</td><td>Question</td><td>Answer</td></tr><tr><td>MMLU Physics</td><td>A point charge, Q1 = +1 mC, is fixed at the origin. How much work is required to move another charge, Q2 = +8 μC, from the point (0, 4 meters) to the point (3 meters, 0)? \n0) 3.5 J \n1) 6.0 J \n2) 22.5 J \n3) 40 J</td><td>Sure, let&#x27;s think step by step. \n1. Calculate the electric potential energy of Q2 at the initial position. The electric potential energy (U) of a point charge Q2 at a distance r from another point charge Q1 is given by the following equation: U = k * Q1 * Q2 / r, where k is Coulomb&#x27;s constant. \nTherefore, the electric potential energy of Q2 at the initial position is: \nUinitial = (9 × 10^9 Nm^2 / C^2) * (1 × 10^-3C) * (8 × 10^-6C) / 4m = 18 J \n2. Calculate the electric potential energy of Q2 at the final position. The electric potential energy of Q2 at the final position is: \nUfinal = (9 × 10^9 Nm^2 / C^2) * (1 × 10^-3C) * (8 × 10^-6C) / 3m = 24 J \n3. Calculate the work required to move Q2 from the initial position to the final position. The work (W) required to move a charge from one position to another is equal to the change in electric potential energy (ΔU) between the two positions. W = ΔU = Ufinal - Uinitial = 24 J - 18 J = 6 J \nTherefore, the answer is 1) 6.0 J.</td></tr></table>",
+                "caption": "Table 16: Demonstration exemplar for CoT prompting for MMLU Physics."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1292,
+                    3168
+                ],
+                "angle": 0,
+                "content": "21"
+            }
+        ]
+    },
+    {
+        "page_id": 21,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    443,
+                    910,
+                    2139,
+                    2379
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>dataset</td><td>Question</td><td>Answer</td></tr><tr><td>MMLU Chemistry</td><td>A sample of an unknown chloride compound was dissolved in water, and then titrated with excess Pb(NO3)2 to create a precipitate. After drying, it is determined there are 0.0050 mol of precipitate present. What mass of chloride is present in the original sample? \n0) 0.177 g \n1) 0.355 g \n2) 0.522 g \n3) 0.710 g</td><td>Here&#x27;s the step-by-step solution: \nIdentify the precipitate: The precipitate formed when a chloride compound reacts with lead nitrate (Pb(NO3)2) is lead chloride (PbCl2). \nDetermine the mole ratio: The balanced chemical equation for the reaction between a chloride compound (represented as MCl, where M is the unknown metal) and lead nitrate is: 2MCl + Pb(NO3)2 → 2MNO3 + PbCl2 \nFrom the balanced equation, you can see that 2 moles of chloride ions (Cl-) react with 1 mole of lead nitrate to produce 1 mole of lead chloride precipitate. Additionally, 1 mole of lead chloride contains 2 moles of chloride ions. \nCalculate the moles of chloride ions: Since 0.0050 moles of lead chloride precipitate were formed, there must have been 2 × 0.0050 = 0.010 moles of chloride ions in the original sample. \nCalculate the mass of chloride ions: The molar mass of chlorine (Cl) is 35.45 g/mol. Therefore, the mass of 0.010 moles of chloride ions is: mass = moles × molar mass = 0.010 mol × 35.45 g/mol = 0.355 g \nTherefore, the mass of chloride present in the original sample is 0.355 g. The correct answer is option 1.</td></tr></table>",
+                "caption": "Table 17: Demonstration exemplar for CoT prompting for MMLU Chemistry."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1297,
+                    3168
+                ],
+                "angle": 0,
+                "content": "22"
+            }
+        ]
+    },
+    {
+        "page_id": 22,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    443,
+                    778,
+                    2139,
+                    2511
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>dataset</td><td>Question</td><td>Answer</td></tr><tr><td rowspan=\"3\">TimeQA</td><td rowspan=\"3\">Who was the spouse of Anna Karina from 1968 to 1974?</td><td>Step 1: Identify Anna Karina&#x27;s spouses: Jean-Luc Godard (1961–1965). Pierre Fabre (1968–1974) Daniel Duval (1978–1981) Dennis Berry (1982–1994)</td></tr><tr><td>Step 2: Determine which spouse was married to Anna Karina from 1968 to 1974. Jean-Luc Godard was married to Anna Karina from 1961 to 1965, so he is not the correct answer. Pierre Fabre was married to Anna Karina from 1968 to 1974, so he is the correct answer. Daniel Duval was married to Anna Karina from 1978 to 1981, so he is not the correct answer. Dennis Berry was married to Anna Karina from 1982 to 1994, so he is not the correct answer.</td></tr><tr><td>Therefore, Anna Karina&#x27;s spouse from 1968 to 1974 was Pierre Fabre.</td></tr><tr><td>SituatedQA</td><td>what is the biggest hotel in las ver-gas nv as of November 28, 1993</td><td>Sure, let&#x27;s think step by step: What were the largest hotels in Las Vegas in 1993? According to a 1993 article in the Las Vegas Review-Journal, the largest hotels in Las Vegas at the time were: MGM Grand (5,005 rooms) Excalibur (4,008 rooms) The Mirage (3,049 rooms) Flamingo Hilton (3,565 rooms) Caesars Palace (2,577 rooms) Which of these hotels was the largest on November 28, 1993? The MGM Grand opened in December 1993, so it would not have been the largest hotel on November 28, 1993. The Excalibur opened in June 1990, so it would have been the largest hotel on November 28, 1993. Therefore, the largest hotel in Las Vegas on November 28, 1993 was the Excalibur.</td></tr></table>",
+                "caption": "Table 18: Demonstration exemplar for CoT prompting for TimeQA and SituatedQA."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1297,
+                    3168
+                ],
+                "angle": 0,
+                "content": "23"
+            }
+        ]
+    },
+    {
+        "page_id": 23,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    438,
+                    108,
+                    1818,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    443,
+                    986,
+                    2139,
+                    2300
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>dataset</td><td>Question</td><td>Answer</td></tr><tr><td>MuSiQue</td><td>What year saw the creation of the region where the county of Hertfordshire is located?</td><td>The county of Hertfordshire is in the &#x27;East of England&#x27; region. The &#x27;East of England&#x27; region was created in 1994. So, the answer is 1994.</td></tr><tr><td>StrategyQA</td><td>Would a Monoamine Oxidase candy bar cheer up a depressed friend?</td><td>No, a Monoamine Oxidase (MAO) candy bar would not cheer up a depressed friend. In fact, it could be dangerous for them to consume. Here&#x27;s a step-by-step explanation:\n1. MAO is an enzyme that breaks down neurotransmitters like serotonin, dopamine, and nore-pinephrine. These neurotransmitters are important for regulating mood, and low levels of them are associated with depression.\n2. MAO inhibitors (MAOIs) are a type of medication that blocks the action of MAO, which can increase levels of these neurotransmitters in the brain. MAOIs are sometimes used to treat depression, but they can have serious side effects, including interactions with certain foods and medications.\n3. A MAO candy bar would not contain enough MAOI to have a therapeutic effect on depression. In fact, it is unlikely that a candy bar could contain any MAOI at all, as these medications are typically taken in pill form.\nIn conclusion, a MAO candy bar would not cheer up a depressed friend and could even be dangerous for them to consume.</td></tr></table>",
+                "caption": "Table 19: Demonstration exemplar for CoT prompting for MuSiQue and StrategyQA."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1300,
+                    3168
+                ],
+                "angle": 0,
+                "content": "24"
+            }
+        ]
+    },
+    {
+        "page_id": 24,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    448,
+                    976,
+                    2103,
+                    2227
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Question</td><td>An alarm whose frequency is 400 Hz is dropped out of a third-floor window. The student who drops it measures the frequency with a very sensitive oscilloscope.\nThe measured frequency\n0) appears higher than 400 Hz and the frequency increase as it falls\n1) appears higher than 400 Hz and the frequency decreases as it falls\n2) appears lower than 400 Hz and the frequency decreases as it falls\n3) appears lower than 400 Hz and the frequency increases as it falls</td></tr><tr><td>Principles</td><td>Doppler Effect: the effect produced by the motion of a wave source, observer, or both that causes a change in wave frequency perceived by an observer relative to the frequency produced by the source. The Doppler effect is observed with all types of waves, including electromagnetic and acoustic waves. It was named after Austrian physicist Christian Doppler.</td></tr><tr><td>Answer</td><td>Using the Principles of Doppler Effect, we can solve the problem as following:\nStep 1: Apply Doppler Effect to find out the measured frequency.\nThe Doppler Effect is the change in frequency of a wave as measured by an observer who is moving relative to the source of the wave. In this case, the source of the wave is the alarm, and the observer is the student who drops it.\nAs the alarm falls, the distance between the alarm and the student decreases.\nThis means that the frequency of the wave as measured by the student will increase. Therefore, the measured frequency will appear higher than 400 Hz, and the frequency will increase as the alarm falls.\nTherefore, the correct answer is 0) appears higher than 400 Hz and the frequency increase as it falls.</td></tr></table>",
+                "caption": "Table 20: Error example of STEP-BACK PROMPTING on MMLU high-school Physics in the class of Factual Error. In this case, the Factual error leads to the wrong answer despite that the Principle and Reasoning are all sound."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1297,
+                    3168
+                ],
+                "angle": 0,
+                "content": "25"
+            }
+        ]
+    },
+    {
+        "page_id": 25,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    448,
+                    564,
+                    2103,
+                    2686
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Question</td><td>An astronaut lands on a planet whose mass and radius are each twice that of Earth. If the astronaut weighs 800 N on Earth, how much will he weigh on this planet?\n0) 200 N\n1) 400 N\n2) 800 N\n3) 1600 N</td></tr><tr><td>Principles</td><td>Weight: W = m * g, where W is the weight, m is the mass and g is the acceleration due to gravity\nAcceleration due to gravity: g = G * m / r², where G is the gravitational constant, m is the mass of the object and r is the radius of the object</td></tr><tr><td rowspan=\"7\">Answer</td><td>Using the Principles of Newton&#x27;s law of universal gravitation and Weight, we can solve the problem as following:\nStep 1: Apply Newton&#x27;s law of universal gravitation to find out the acceleration due to gravity on the planet.\nThe acceleration due to gravity on a planet is given by the formula:\ng = G * m / r², where g is the acceleration due to gravity, G is the gravitational constant, m is the mass of the planet, and r is the radius of the planet.\nIn this problem, we are given the following information:\nm = 2 * mearth\nr = 2 * rearth</td></tr><tr><td>Plugging these values into the formula, we get:\ng = G * 2 * mearth / (2 * rearth)²\ng = G * mearth / r²earth</td></tr><tr><td>This is the same as the acceleration due to gravity on Earth.</td></tr><tr><td>Step 2: Apply Weight to find out the weight of the astronaut on the planet.\nThe weight of an object is given by the formula:\nW = m * g, where W is the weight, m is the mass of the object, and g is the acceleration due to gravity.</td></tr><tr><td>In this problem, we are given the following information:\nm = 800 N / gearth\ng = gearth</td></tr><tr><td>Plugging these values into the formula, we get:\nW = 800 N / gearth * gearth\nW = 800 N</td></tr><tr><td>Therefore, the astronaut will weigh 800 N on the planet. The correct answer is 2) 800 N.</td></tr></table>",
+                "caption": "Table 21: Error example of STEP-BACK PROMPTING on MMLU high-school Physics in the class of Math Error. As highlighted, the math error leads to directly a wrong answer with a factor of 2 off."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1297,
+                    3168
+                ],
+                "angle": 0,
+                "content": "26"
+            }
+        ]
+    },
+    {
+        "page_id": 26,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    448,
+                    950,
+                    2103,
+                    2204
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Question</td><td>Two spheres of net charge +5e and -6e briefly come into contact. Afterward, which of the following is a possible combination of net charges for the two spheres?\n0) +3e and -4e\n1) +1.5e and -2.5e\n2) Both of the above\n3) None of the above</td></tr><tr><td>Principles</td><td>Law of conservation of charge: the total charge in a closed system remains constant.\nCoulomb&#x27;s Law: the mutual repulsion of like charges demands that the charges be as far apart as possible.</td></tr><tr><td>Answer</td><td>Using the Principles of Conservation of charge, we can solve the problem as following:\nStep 1: Apply Conservation of charge to find out the possible combination of net charges for the two spheres.\nThe total charge of the two spheres before they come into contact is +5e - 6e = -1e. After they come into contact, the total charge of the two spheres must still be -1e.\nStep 2: Find out the possible combination of net charges for the two spheres.\nThe possible combination of net charges for the two spheres are:\n(1) +3e and -4e\n(2) +1.5e and -2.5e\nTherefore, the correct answer is 2) Both of the above.</td></tr></table>",
+                "caption": "Table 22: Error example of STEP-BACK PROMPTING on MMLU high-school Physics in the class of Principle Error. In this case, Coulomb's Law is not needed for solving this problem. Instead, the Charge Quantization Principle is missing from the retrieved principles, and is in fact needed to rule out option (2) of fractional charges."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1297,
+                    3168
+                ],
+                "angle": 0,
+                "content": "27"
+            }
+        ]
+    },
+    {
+        "page_id": 27,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    443,
+                    333,
+                    2101,
+                    2867
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Question</td><td>The circumference of a helium-filled balloon is measured for three different conditions: at room temperature, after being in a warm oven for 30 minutes, and after being in a freezer for 30 minutes. A student plotting the circumference cubed \\(C^3\\) as a function of temperature T, should expect to find which of the following?0) a cubic relationship between \\(C^3\\) and T1) an indirect relationship between \\(C^3\\) and T2) an extrapolated temperature T where \\(C^3\\) reaches zero3) a maximum \\(C^3\\) as the temperature T increases</td></tr><tr><td>Principles</td><td>Ideal Gas Law: PV = nRT, where P is the pressure, V is the volume, n is the number of moles of gas, R is the ideal gas constant, T is the absolute temperature.Volume of a sphere: \\(V=4/3*\\pi*r^3\\), where r is the radius.Absolute temperature: Absolute temperature is always written as kelvin.Absolute zero: Absolute zero is the lowest limit of the kelvin scale and is the lowest possible temperature (-273.15 °C).</td></tr><tr><td>Answer</td><td>Using the Principles of Charles&#x27;s Law and Gay-Lussac&#x27;s Law, we can solve the problem as following:Step 1: Apply Charles&#x27;s Law to find out the relationship between the volume and temperature of the gas. Charles&#x27;s Law states that the volume of a fixed mass of a gas is directly proportional to the absolute temperature of the gas when pressure is kept constant. This means that if the temperature of the gas increases, the volume of the gas will also increase.Step 2: Apply Gay-Lussac&#x27;s Law to find out the relationship between the pressure and temperature of the gas. Gay-Lussac&#x27;s Law states that the pressure of a fixed mass of a gas is directly proportional to the absolute temperature of the gas when volume is kept constant. This means that if the temperature of the gas increases, the pressure of the gas will also increase.Step 3: Apply Charles&#x27;s Law and Gay-Lussac&#x27;s Law to find out the relationship between the circumference and temperature of the gas. The circumference of the balloon is directly proportional to the volume of the gas. This is because the circumference of the balloon is the distance around the outside of the balloon, and the volume of the gas is the amount of space that the gas takes up.The pressure of the gas is directly proportional to the temperature of the gas. This is because the pressure of the gas is the force that the gas exerts on the walls of the balloon, and the temperature of the gas is the measure of the average kinetic energy of the gas molecules.Therefore, the circumference of the balloon is directly proportional to the temperature of the gas. This means that if the temperature of the gas increases, the circumference of the balloon will also increase.Step 4: Apply the relationship between the circumference and temperature of the gas to find out the relationship between the circumference cubed and temperature of the gas. The circumference cubed is directly proportional to the temperature of the gas. This is because the circumference cubed is the volume of the balloon, and the volume of the balloon is directly proportional to the temperature of the gas.Therefore, the student should expect to find a cubic relationship between \\(C^3\\) and T. The correct answer is 0) a cubic relationship between \\(C^3\\) and T.</td></tr></table>",
+                "caption": "Table 23: Error example of STEP-BACK PROMPTING on MMLU high-school Physics in the class of Context Loss. In this case, at the end of the Reasoning chain, the model forgot the original question, and lose the context to apply the reasoning to the question."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1297,
+                    3168
+                ],
+                "angle": 0,
+                "content": "28"
+            }
+        ]
+    },
+    {
+        "page_id": 28,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    448,
+                    564,
+                    2103,
+                    2636
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>Question</td><td>Physics students are checking the constant acceleration equations of kinematics by measuring the velocity of a tennis ball that is dropped and falls 6 meters and then passes through a photogate. The predicted velocity is 20% above the velocity measured by the photogate. Which of the following best describes the cause of the large percent difference?\n0) The ball changes its shape while falling.\n1) The acceleration of gravity varies as the ball is falling.\n2) Air resistance increases the acceleration of the ball.\n3) The acceleration of the balls varies with the velocity.</td></tr><tr><td>Principles</td><td>Vertical motion: y = 0.5 * g * t², where y is the vertical displacement, g is the acceleration due to gravity, t is the time.\nFree fall: is a special case of motion with constant acceleration, in which the acceleration is due to gravity.\nAcceleration to Velocity Formula: v = u + a * t, where v is the final speed, u is the initial velocity, a is the acceleration, and t is the time.</td></tr><tr><td>Answer</td><td>Using the Principles of Vertical motion and Horizontal motion, we can solve the problem as following:\nStep 1: Apply the Vertical motion equation to find the time it takes for the ball to fall 6 meters.\ny = 0.5 * g * t²\n6 m = 0.5 * 9.8 m/s² * t²\nt = 1.12 s\nStep 2: Apply the Horizontal motion equation to find the velocity of the ball when it passes through the photogate.\nx = v * t\nv = x / t\nv = 6 m / 1.12 s\nv = 5.36 m/s\nStep 3: Compare the predicted velocity with the velocity measured by the photogate. The predicted velocity is 20% above the velocity measured by the photogate, so the predicted velocity is 1.2 * 5.36 m/s = 6.43 m/s.\nStep 4: Find the cause of the large percent difference. The predicted velocity is 6.43 m/s, but the velocity measured by the photogate is 5.36 m/s. The difference is 1.07 m/s. This difference is caused by air resistance. Air resistance is a force that opposes the motion of an object through the air. It is caused by the friction between the object and the air molecules. The greater the surface area of the object, the greater the air resistance. The tennis ball has a large surface area, so it experiences a lot of air resistance. This air resistance slows down the tennis ball and causes the difference between the predicted velocity and the velocity measured by the photogate.\nTherefore, the correct answer is 0) The ball changes its shape while falling.</td></tr></table>",
+                "caption": "Table 24: Error example of STEP-BACK PROMPTING on MMLU high-school Physics in the class of Reasoning Error. In this case, the model was able to correctly identify air resistance is the cause of the velocity difference, but made the error at the final reasoning step of deriving the right answer."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1297,
+                    3168
+                ],
+                "angle": 0,
+                "content": "29"
+            }
+        ]
+    },
+    {
+        "page_id": 29,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    443,
+                    792,
+                    2129,
+                    2501
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>dataset</td><td>example</td></tr><tr><td>MMLU-Physics</td><td>Original Question: What happens to the pressure, P, of an ideal gas if the temperature is increased by a factor of 2 and the volume is increased by a factor of 8 ?0) P decreases by a factor of 16.1) P decreases by a factor of 4.2) P decreases by a factor of 2.3) P increases by a factor of 4.Original Answer [Incorrect]: The correct answer is 0. The ideal gas law is PV = nRT. If the temperature is increased by a factor of 2 and the volume is increased by a factor of 8, then the pressure will decrease by a factor of 16.Stepback Question: What are the physics principles behind this question?Principles:Ideal gas law: PV = nRT, where P is the pressure, V is the volume, n is the number of moles, R is the gas constant, and T is the temperature.Final Answer: Using the Principles of Ideal gas law, we can solve the problem as following:Step 1: Apply Ideal gas law to find out the pressure of an ideal gas. The ideal gas law states that PV = nRT, where P is the pressure, V is the volume, n is the number of moles, R is the gas constant, and T is the temperature.Step 2: Apply Ideal gas law to find out the pressure of an ideal gas when the temperature is increased by a factor of 2 and the volume is increased by a factor of 8. If the temperature is increased by a factor of 2, then T becomes 2T. If the volume is increased by a factor of 8, then V becomes 8V.Substituting these values into the ideal gas law, we get: P(8V) = nR(2T)Dividing both sides by 8V, we get: P = nR(2T) / 8VWe can see that the pressure has decreased by a factor of 4.Therefore, the correct answer is 1) P decreases by a factor of 4.</td></tr></table>",
+                "caption": "Table 25: Illustration of wins of STEP-BACK PROMPTING on the MMLU-Physics dataset."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1297,
+                    3168
+                ],
+                "angle": 0,
+                "content": "30"
+            }
+        ]
+    },
+    {
+        "page_id": 30,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    443,
+                    686,
+                    2124,
+                    2610
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>dataset</td><td>example</td></tr><tr><td>MMLU-Physics</td><td>Original Question: A liquid flows at a constant flow rate through a pipe with circular cross-sections of varying diameters. At one point in the pipe, the diameter is 2 cm and the flow speed is 18 m/s. What is the flow speed at another point in this pipe, where the diameter is 3 cm?0) 4 m/s1) 6 m/s2) 8 m/s3) 12 m/sOriginal Answer [Incorrect]: The answer is 3) 12 m/s A step-by-step solution is below: The flow rate is constant, so the product of the speed and the cross-sectional area is constant. The cross-sectional area is proportional to the square of the diameter, so the speed is inversely proportional to the square of the diameter. The ratio of the speeds is the inverse of the ratio of the squares of the diameters, so the speed at the second point is 18m/s * (2cm/3cm)2 = 12 m/s.Stepback Question: What are the physics principles behind this question?Principles:Conservation of Mass: the amount of mass flowing through the pipe at two different points must be equal, or A1 * v1 = A2 * v2, where A1 is the area of cross-section one, v1 is the velocity at point 1, A2 is the area of cross-section two, v2 is the velocity at point 2.Area of Circle: A = π * r2, where r is the radius of the circle.Final Answer: Using the Principles of Continuity equation, we can solve the problem as following:Step 1: Apply the Continuity equation to find out the flow speed at another point in this pipe. The continuity equation states that the product of the area and the velocity is constant at all points in a pipe. In this problem, we are given the following information:A1 = π * (2cm)2 = 4πcm2v1 = 18 m/sA2 = π * (3cm)2 = 9πcm2We can use the continuity equation to find v2:A1 * v1 = A2 * v24πcm2 * 18m/s = 9πcm2 * v2v2 = 8 m/sTherefore, the flow speed at another point in this pipe is 8 m/s. The correct answer is 2) 8 m/s.</td></tr></table>",
+                "caption": "Table 26: Illustration of wins of STEP-BACK PROMPTING on the MMLU-Physics dataset."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1292,
+                    3168
+                ],
+                "angle": 0,
+                "content": "31"
+            }
+        ]
+    },
+    {
+        "page_id": 31,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    443,
+                    409,
+                    2116,
+                    2884
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>dataset</td><td>example</td></tr><tr><td>MMLU-Physics</td><td>Original Question: A 2 μF capacitor is connected directly to a battery. When the capacitor is fully charged, it stores 600 μC of charge. An experimenter replaces the 2 μF capacitor with three 18 μF capacitors in series connected to the same battery. Once the capacitors are fully charged, what charge is stored on each capacitor? \n0) 100 μC \n1) 200 μC \n2) 600 μC \n3) 1800 μC \nOriginal Answer [Incorrect]: The answer is 100 μC. The total capacitance of the three 18 μF capacitors in series is 1 / (1 / 18 + 1 / 18 + 1 / 18) = 6 μF. The charge stored on the three capacitors in series is 6 μF * V = 600 μC. The charge stored on each capacitor is 600 μC / 3 = 200 μC. \nStepback Question: What are the physics principles behind this question? \nPrinciples: \nCapacitors: Q = C *V, where Q is the charge, C is the capacitance and V is the voltage. \nCapacitors in series: C = 1 / (1/C1 + 1/C2 + ... + 1/Cn), where C is the equivalent capacitance and C1, C2, Cn are the capacitances of each capacitor. \nCapacitor in parallel: C = C1 + C2 + ... + Cn, where C is the equivalent capacitance and C1, C2, Cn are the capacitances of each capacitor. \nFinal Answer: Using the Principles of Capacitance and Capacitors in series, we can solve the problem as following: \nStep 1: Apply Capacitance to find out the voltage of the battery. \nWe know that the capacitance of the 2 μF capacitor is 2 μF and the charge stored on the capacitor is 600 μC. Using the formula for capacitance, we can find the voltage of the battery: \nC = Q / V \n2 μF = 600 μC / V \nV = 300 V \nStep 2: Apply Capacitors in series to find out the equivalent capacitance of the three 18 μF capacitors in series. \nWe know that the capacitance of each of the three capacitors is 18 μF. Using the formula for capacitors in series, we can find the equivalent capacitance of the three capacitors: \n1 / Ceq = 1 / C1 + 1 / C2 + 1 / C3 \n1 / Ceq = 1 / 18 μF + 1 / 18 μF + 1 / 18 μF \n1 / Ceq = 3 / 18 μF \nCeq = 6 μF \nStep 3: Apply Capacitance to find out the charge stored on each capacitor. \nWe know that the equivalent capacitance of the three capacitors is 6 μF and the voltage of the battery is 300 V. Using the formula for capacitance, we can find the charge stored on each capacitor: \nC = Q / V \n6 μF = Q / 300 V \nQ = 1800 μC \nTherefore, the charge stored on each capacitor is 1800 μC. The correct answer is 3) 1800 μC.</td></tr></table>",
+                "caption": "Table 27: Illustration of wins of STEP-BACK PROMPTING on the MMLU-Physics dataset."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1297,
+                    3168
+                ],
+                "angle": 0,
+                "content": "32"
+            }
+        ]
+    },
+    {
+        "page_id": 32,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    443,
+                    627,
+                    2124,
+                    2666
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>dataset</td><td>example</td></tr><tr><td>MMLU-Chemistry</td><td>Original Question: Which of the following indicates that a reaction is spontaneous?0) at equilibrium there are more products than reactants1) the value of ΔG0is greater than zero2) the value of ΔS0is greater than zero3) the value of Keq is less than oneOriginal Answer [Incorrect]: 2) the value of ΔS0is greater than zero.A reaction is spontaneous if the value of ΔS0is greater than zero. This is because a positive ΔS0indicates that the reaction results in an increase in entropy, which is a measure of disorder. A spontaneous reaction is one that occurs without the input of energy, and an increase in entropy is a natural tendency of the universe.Stepback Question: What are the chemistry principles behind this question?Principles:Spontaneous reactions: A spontaneous reaction is a reaction that occurs without the input of energy.Final Answer: A reaction is spontaneous if the change in Gibbs free energy is negative (ΔG&lt;0). The value of ΔG0is greater than zero indicates that the reaction is not spontaneous.The correct answer is 0) at equilibrium there are more products than reactants.</td></tr><tr><td>MMLU-Chemistry</td><td>Original Question: Potassium-40 is a minor isotope found in naturally occurring potassium. It is radioactive and can be detected on simple radiation counters. How many protons, neutrons, and electrons does potassium-40 have when it is part of K2SO4?0) 21 neutrons, 19 protons, 18 electrons1) 20 neutrons, 19 protons, 19 electrons2) 21 neutrons, 19 protons, 19 electrons3) 19 neutrons, 19 protons, 19 electronsOriginal Answer [Incorrect]: The correct answer is 2).Potassium-40 has 19 protons and 21 neutrons. When it is part of K2SO4, it has 19 electrons.Stepback Question: What are the chemistry principles behind this question?Principles:Atomic number: The atomic number of an element is the number of protons in the nucleus of an atom of that element.Final Answer: The atomic number of potassium is 19, so all potassium atoms have 19 protons. The mass number of potassium-40 is 40, so it has 40 - 19 = 21 neutrons. When potassium is part of a compound, it loses one electron to become a potassium ion. Therefore, potassium-40 has 19 - 1 = 18 electrons when it is part of K2SO4.The correct answer is 0) 21 neutrons, 19 protons, 18 electrons.</td></tr></table>",
+                "caption": "Table 28: Illustration of wins of STEP-BACK PROMPTING on the MMLU-Chemistry dataset."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1297,
+                    3168
+                ],
+                "angle": 0,
+                "content": "33"
+            }
+        ]
+    },
+    {
+        "page_id": 33,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    443,
+                    1052,
+                    2124,
+                    2240
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>dataset</td><td>example</td></tr><tr><td>TimeQA</td><td>Original Question: Carlos Ascues played for which team from 2013 to 2014?\nOriginal Answer [Incorrect]: Carlos Ascues played for Benfica from 2013 to 2014.\nStepback Question: Which teams did Carlos Ascues play for?\nFinal Answer [Correct]: From 2013 to 2014, Carlos Ascues played for the Greek team Panetolikos.</td></tr><tr><td>TimeQA</td><td>Original Question: Seth Nana Twumasi played for which team between Jan 2011 and Feb 2011?\nOriginal Answer [Incorrect]: Seth Nana Twumasi played for the FC Honka team between Jan 2011 and Feb 2011.\nStepback Question: Which teams did Seth Nana Twumasi play for?\nFinal Answer [Correct]: Northampton. He was on a loan transfer from Peterborough.</td></tr><tr><td>TimeQA</td><td>Original Question: What position did Carmel Hanna take in May 2002?\nOriginal Answer [Incorrect]: According to the article, Carmel Hanna was appointed as Minister of State for Children and the Family in May 2002. She held this position until 2005.\nStepback Question: What positions did Carmel Hanna hold?\nFinal Answer [Correct]: From the context, we can see that Carmel Hanna was named minister of Employment and Learning (2001). We can then infer that she held the position of Minister for Employment and Learning in May 2002.</td></tr></table>",
+                "caption": "Table 29: Illustration of wins of STEP-BACK PROMPTING on the TimeQA dataset."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1297,
+                    3168
+                ],
+                "angle": 0,
+                "content": "34"
+            }
+        ]
+    },
+    {
+        "page_id": 34,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    443,
+                    914,
+                    2124,
+                    2379
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>dataset</td><td>example</td></tr><tr><td>SituatedQA</td><td>Original Question: when was the last time miss texas won miss america as of November 29, 2010\nOriginal Answer [Incorrect]: Laura Leigh Covington was the last Miss Texas to win the Miss America competition. This happened in 2000.\nStepback Question: which years did miss texas win miss america\nFinal Answer [Correct]: According to Wikipedia, the last time Miss Texas won Miss America was in 1975.</td></tr><tr><td>SituatedQA</td><td>Original Question: when is the last time congress passed a complete budget as of 2021\nOriginal Answer [Incorrect]: The last time Congress passed a complete budget as of 2021 was on January 19, 2018.\nStepback Question: what are the years that congress passed a complete budget as of 2021\nFinal Answer [Correct]: The last time Congress passed a complete budget as of 2021 was December 27, 2020, the Consolidated Appropriations Act, 2021.</td></tr><tr><td>SituatedQA</td><td>Original Question: when was the last time unc did not make the ncaa tournament as of 2003\nOriginal Answer [Incorrect]: The last time UNC did not make the NCAA tournament was 1990.\nStepback Question: which years did unc not make the ncaa tournament as of 2003\nFinal Answer [Correct]: The correct answer is 2002-03. The context shows the standings of North Carolina Tar Heels men&#x27;s basketball. From the standings, we can see that this team has 19 wins and 16 losses. 19-16 is not good enough to make the NCAA tournament, which is mentioned in the context. From the standings, we can also see that this is the standing for 2002-03 season. So the last time UNC did not make the NCAA tournament as of 2003 is 2002-03.</td></tr></table>",
+                "caption": "Table 30: Illustration of wins of STEP-BACK PROMPTING on the SituatedQA dataset."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1297,
+                    3168
+                ],
+                "angle": 0,
+                "content": "35"
+            }
+        ]
+    },
+    {
+        "page_id": 35,
+        "ocr_results": [
+            {
+                "block_id": 0,
+                "type": "header",
+                "bbox": [
+                    441,
+                    108,
+                    1813,
+                    161
+                ],
+                "angle": 0,
+                "content": "Take a Step Back: Evoking Reasoning via Abstraction in Large Language Models"
+            },
+            {
+                "block_id": 1,
+                "type": "table",
+                "bbox": [
+                    443,
+                    887,
+                    2124,
+                    2405
+                ],
+                "angle": 0,
+                "content": "<table><tr><td>dataset</td><td>example</td></tr><tr><td>StrategyQA</td><td>Original Question: Could you drive a Rowe 550 to the 2008 Summer Olympics?\nOriginal Answer [Incorrect]: The 2008 Summer Olympics was held in Beijing, China. The Rowe 550 is an all-electric car. The Rowe 550 has a range of 70 miles on a single charge and a top speed of about 30 mph. The distance between Beijing and the U.K. is about 4000 miles.\nStepback Question: What kind of vehicle is a Rowe 550?\nFinal Answer [Correct]: The Roewe 550 was released in 2008; the 2008 Summer Olympics were held from August 8-24, 2008. So you could drive a Rowe 550 to the 2008 Summer Olympics.</td></tr><tr><td>StrategyQA</td><td>Original Question: what channel does thursday night football come on regular tv as of 2017?\nOriginal Answer [Incorrect]: Thursday Night Football is a weekly series of National Football League (NFL) games broadcast on Thursday nights. It started in 2006 on NFL Network. Under a new agreement between the NFL and CBS, CBS will air 50% of the Thursday Night Football games and NFL Network will air the other 50%.\nStepback Question: which channel is thursday night football on as of 2017?\nFinal Answer [Correct]: In 2017, Thursday Night Football was aired on CBS, NBC, and NFL Network.</td></tr><tr><td>StrategyQA</td><td>Original Question: who is the present president of assam sahitya sabha as of 2018?\nOriginal Answer [Incorrect]: Dr. Nagen Saikia\nStepback Question: who lead assam sahitya sabha as of 2018?\nFinal Answer [Correct]: The answer is Paramananda Rajbongshi. As per a news from 2019, The Asam Sahitya Sabha, which was established in 1917, in Sibsagar, Assam, had got Paramananda Rajbongshi as its president. So, as of 2018, the president of assam sahitya sabha is Para-mananda Rajbongshi.</td></tr></table>",
+                "caption": "Table 31: Illustration of wins of STEP-BACK PROMPTING on the StrategyQA dataset."
+            },
+            {
+                "block_id": 3,
+                "type": "page_number",
+                "bbox": [
+                    1249,
+                    3128,
+                    1297,
+                    3168
+                ],
+                "angle": 0,
+                "content": "36"
+            }
+        ]
+    }
+]
