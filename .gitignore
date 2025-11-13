@@ -143,6 +143,7 @@ vllm_pids.txt
 # Cache directories
 cache/
 ./cache/
+.hf/
 
 # Model and output paths (typically large files)
 models/
