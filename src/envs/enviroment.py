@@ -1,10 +1,46 @@
 # -*- coding: utf-8 -*-
 """
-Environment Base Class (Simplified)
+Environment Base Class & Development Guide
 
-只保留核心架构：配置管理、工具注册、资源接口与任务入口。
+=============================================================================
+【开发指南 (Development Guide)】
+=============================================================================
+
+1. 核心概念 (Core Concept):
+   Environment 是 Agent 与外部世界交互的容器。它负责：
+   - 注册和管理工具 (Tools)
+   - 生成标准化的系统提示词 (System Prompts)
+   - 定义 Agent 执行任务的具体逻辑 (run_task)
+   - 管理环境资源 (如虚拟机、浏览器、API连接)
+
+2. 继承规范 (Inheritance):
+   新建环境必须继承自 `Environment` 类，并实现以下抽象接口：
+   
+   (1) @property mode(self) -> str:
+       定义环境的唯一标识符 (如 'math', 'osworld', 'rag')。
+       该标识符用于查找 System Prompt 和配置文件。
+
+   (2) _initialize_tools(self):
+       在此方法中实例化并注册所需工具。
+       必须使用 `self.register_tool(tool_instance)`，以便框架自动生成 Schema。
+
+   (3) run_task(self, task, agent_config, logger) -> Dict:
+       定义 Agent 的核心执行循环 (Prompt -> LLM -> Tool -> Observation)。
+       * 必须返回包含 'answer' 字段的字典，以便 Benchmark 进行自动评测。
+       * 必须使用 `self.execute_tool()` 来调用工具，严禁直接调用 tool.call()。
+
+3. 资源管理 (Resource Management) [可选]:
+   对于需要重型资源 (如虚拟机、Docker) 的环境：
+   - 重写 `@classmethod setup_global_resources(config)`: 在主进程初始化资源池。
+   - 重写 `env_start()`: 在 Worker 进程开始时申请具体资源。
+   - 重写 `env_close()`: 在任务结束或进程退出时释放资源。
+
+4. 提示词定制 (Prompt Customization) [可选]:
+   如果 System Prompt 中包含自定义占位符 (如 {CLIENT_PASSWORD}):
+   - 重写 `_replace_prompt_placeholders(self, prompt)` 方法来注入动态信息。
+
+=============================================================================
 """
-
 import logging
 from abc import ABC, abstractmethod
 from typing import Dict, List, Any, Optional, Union

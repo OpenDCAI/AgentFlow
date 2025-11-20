@@ -9,6 +9,11 @@ from .system_prompts import (
     SYSTEM_PROMPT_DEFAULT,
     SYSTEM_PROMPT_OSWORLD_COMPUTER13,
     SYSTEM_PROMPT_OSWORLD_PYAUTOGUI,
+    # New environment prompts
+    SYSTEM_PROMPT_MATH,
+    SYSTEM_PROMPT_PYTHON,
+    SYSTEM_PROMPT_WEB,
+    SYSTEM_PROMPT_RAG,
     get_system_prompt
 )
 
@@ -17,5 +22,9 @@ __all__ = [
     "SYSTEM_PROMPT_DEFAULT",
     "SYSTEM_PROMPT_OSWORLD_COMPUTER13",
     "SYSTEM_PROMPT_OSWORLD_PYAUTOGUI",
+    "SYSTEM_PROMPT_MATH",
+    "SYSTEM_PROMPT_PYTHON",
+    "SYSTEM_PROMPT_WEB",
+    "SYSTEM_PROMPT_RAG",
     "get_system_prompt"
 ]

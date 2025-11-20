@@ -412,8 +412,7 @@ Model Output (Last few lines): {pred_answer}
 
 Did the model give an answer equivalent to the labeled answer? Please respond with "Correct" if they are equivalent, or "Incorrect" if they are not equivalent. Do not include any other text.
 """
-        os.environ["OPENAI_API_KEY"] = "sk-YJkQxboKmL0IBC1M0zOzZbVaVZifM5QvN4mLAtSLZ1V4yEDX"
-        os.environ["OPENAI_API_URL"] = "http://123.129.219.111:3000/v1/"
+        
         client = openai.OpenAI(
                 api_key=os.getenv("OPENAI_API_KEY"),
                 base_url=os.environ.get("OPENAI_API_URL", os.environ.get("OPENAI_API_BASE", ""))
