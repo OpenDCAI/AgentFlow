@@ -5,31 +5,13 @@ Environment Base Class (Simplified)
 只保留核心架构：配置管理、工具注册、资源接口与任务入口。
 """
 
-import os
 import logging
 from abc import ABC, abstractmethod
-from typing import Dict, List, Any, Optional, Union, TYPE_CHECKING
+from typing import Dict, List, Any, Optional, Union
 
-if TYPE_CHECKING:
-    from utils.resource_manager import ResourceManager
-
-
-class Tool(ABC):
-    """工具抽象基类"""
-    @property
-    @abstractmethod
-    def name(self) -> str: pass
-    
-    @property
-    @abstractmethod
-    def description(self) -> str: pass
-    
-    @property
-    @abstractmethod
-    def parameters(self) -> List[Dict[str, Any]]: pass
-    
-    @abstractmethod
-    def call(self, params: Union[str, dict], **kwargs) -> str: pass
+from prompts.system_prompts import get_system_prompt as load_system_prompt
+from tools.tool import Tool
+from utils.resource_manager import ResourceManager
 
 
 class Environment(ABC):
@@ -63,10 +45,11 @@ class Environment(ABC):
         self.tool_descriptions: str = ""
         
         # 资源管理
-        self._resource_manager = resource_manager
-        if self._resource_manager is None:
+        if resource_manager is None:
             from utils.resource_manager import NoResourceManager
-            self._resource_manager = NoResourceManager()
+            self._resource_manager: ResourceManager = NoResourceManager()
+        else:
+            self._resource_manager = resource_manager
             
         # 自动调用子类工具初始化
         self._initialize_tools()
@@ -99,13 +82,15 @@ class Environment(ABC):
     # =========================================================================
 
     @classmethod
-    def setup_global_resources(cls, config: Any) -> 'ResourceManager':
+    def setup_global_resources(cls, config: Any) -> Optional['ResourceManager']:
         """
         类方法：初始化全局资源 (如 VM 池)。
         默认返回空管理器，需要重资产的环境(如 OSWorld)需重写此方法。
         """
-        from utils.resource_manager import NoResourceManager
-        return NoResourceManager()
+        from utils.resource_manager import NoResourceManager, ResourceManager as BaseResourceManager
+
+        manager: BaseResourceManager = NoResourceManager()
+        return manager
 
     @property
     def resource_manager(self) -> 'ResourceManager':
@@ -120,10 +105,14 @@ class Environment(ABC):
         self.tools[tool.name] = tool
         self._update_tool_metadata()
 
+    def list_tools(self) -> List[str]:
+        """列出当前环境可用工具名称"""
+        return sorted(self.tools.keys())
+
     def get_tool(self, name: str) -> Optional[Tool]:
         return self.tools.get(name)
 
-    def execute_tool(self, tool_name: str, params: Union[str, dict], **kwargs) -> str:
+    def execute_tool(self, tool_name: str, params: Union[str, dict], **kwargs) -> Union[str, Dict[str, Any]]:
         """执行工具的安全包装器"""
         tool = self.get_tool(tool_name)
         if not tool:
@@ -139,6 +128,8 @@ class Environment(ABC):
 
     def get_tool_descriptions(self) -> str:
         """获取用于 Prompt 的工具描述文本"""
+        if not self.tool_descriptions:
+            return "- No tools registered. 请先通过 register_tool() 注册工具。"
         return self.tool_descriptions
 
     def _update_tool_metadata(self):
@@ -169,6 +160,55 @@ class Environment(ABC):
     # =========================================================================
     # 4. 生命周期钩子 (可选覆盖)
     # =========================================================================
+
+    def get_action_space(self) -> Optional[str]:
+        """
+        获取当前环境的动作空间描述（默认从配置中推断，可由子类覆盖）
+        """
+        mode_config = self.config.get(self.mode)
+        if isinstance(mode_config, dict) and "action_space" in mode_config:
+            return mode_config.get("action_space")
+        return self.config.get("action_space")
+
+    def get_system_prompt(
+        self,
+        task_question: Optional[str] = None,
+        extra_context: Optional[str] = None,
+        action_space: Optional[str] = None,
+    ) -> str:
+        """
+        基于 prompts/system_prompts.py 生成系统提示词，并自动注入工具描述。
+        """
+        resolved_action_space = action_space or self.get_action_space()
+        if resolved_action_space is None:
+            prompt_template = load_system_prompt(environment_mode=self.mode)
+        else:
+            prompt_template = load_system_prompt(
+                environment_mode=self.mode,
+                action_space=resolved_action_space
+            )
+
+        prompt_with_tools = prompt_template.replace(
+            "{tool_descriptions}",
+            self.get_tool_descriptions()
+        )
+
+        prompt_with_placeholders = self._replace_prompt_placeholders(prompt_with_tools)
+
+        suffix_parts: List[str] = []
+        if task_question:
+            suffix_parts.append(f"You are asked to complete the following task: {task_question}")
+        if extra_context:
+            suffix_parts.append(extra_context)
+
+        if suffix_parts:
+            prompt_with_placeholders = "\n".join([prompt_with_placeholders, *suffix_parts])
+
+        return prompt_with_placeholders
+
+    def _replace_prompt_placeholders(self, prompt: str) -> str:
+        """子类可覆盖此方法以替换自定义占位符"""
+        return prompt
 
     def env_start(self) -> None:
         """Benchmark 开始时调用 (可选初始化)"""

@@ -9,11 +9,9 @@ from .data_models import (
     TaskTrajectory
 )
 
-# Import base classes from enviroment module (no dependencies)
-from .enviroment import (
-    Environment,
-    Tool
-)
+# Import base Environment; Tool 源自 tools.tool 以保持和工具模块一致
+from .enviroment import Environment
+from tools.tool import Tool
 
 # Lazy imports for concrete environments to avoid tool dependency issues at import time
 # These will only be imported when actually used

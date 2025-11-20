@@ -19,8 +19,9 @@ from typing import Any, Dict, List, Optional, Union, cast
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from envs.enviroment import Environment, Tool
+from envs.enviroment import Environment
 from envs.data_models import Observation
+from tools.tool import Tool
 from utils.desktop_env.desktop_env import DesktopEnv
 from utils.resource_manager import HeavyResourceManager, ResourceManager, NoResourceManager, VMPoolResourceManager
 from utils.instance_tracker import get_instance_tracker
@@ -128,40 +129,13 @@ class ParallelOSWorldRolloutEnvironment(Environment):
     def get_action_space(self) -> str:
         return self.config.get("osworld", {}).get("action_space", "computer_13")
 
-    def get_system_prompt(self, task_question: str) -> str:
-        """
-        获取系统提示词
-        
-        Args:
-            task_question: 任务问题（用于兼容接口，实际不使用）
-        
-        Returns:
-            完整的系统提示词字符串
-        """
-        from prompts.system_prompts import get_system_prompt as get_prompt_template
-        
-        # 获取环境模式和动作空间
-        environment_mode = self.mode
-        action_space = self.get_action_space()
-        
-        # 获取系统提示词模板
-        system_prompt_template = get_prompt_template(environment_mode, action_space)
-        
-        # 替换工具描述占位符
-        system_prompt = system_prompt_template.replace(
-            "{tool_descriptions}",
-            self.get_tool_descriptions()
-        )
-        
-        # 替换 OSWorld 特定占位符（如 CLIENT_PASSWORD）
-        if "{CLIENT_PASSWORD}" in system_prompt:
+    def _replace_prompt_placeholders(self, prompt: str) -> str:
+        """替换 OSWorld 特定占位符"""
+        prompt = super()._replace_prompt_placeholders(prompt)
+        if "{CLIENT_PASSWORD}" in prompt:
             client_password = self.config.get("osworld", {}).get("client_password", "password")
-            system_prompt = system_prompt.replace("{CLIENT_PASSWORD}", client_password)
-        
-        # 添加任务问题
-        system_prompt = system_prompt + f"\nYou are asked to complete the following task: {task_question}"
-        
-        return system_prompt
+            prompt = prompt.replace("{CLIENT_PASSWORD}", client_password)
+        return prompt
 
     def _initialize_config(self):
         """构建 OSWorld 配置"""
