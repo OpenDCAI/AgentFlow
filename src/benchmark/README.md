@@ -1,143 +1,62 @@
+
 # AgentFlow Benchmark
 
-这个模块提供了 Benchmark 类用于加载和评估基准测试数据集。
+这个模块提供了 `Benchmark` 类，用于加载标准化测试集并评估 Agent 的性能。它不仅支持简单的问答评估，还支持复杂的元数据管理和自定义评测逻辑。
 
 ## 功能特性
 
-- **数据加载**: 支持 JSON 和 JSONL 格式的数据文件
-- **多种评估指标**: 提供 exact_match、F1、BLEU、ROUGE、相似度等多种评估指标
-- **灵活的数据结构**: 支持不同的数据格式和自定义解析
-- **结果管理**: 支持保存和加载评估结果
-- **详细统计**: 提供完整的评估统计信息
+  * **数据加载**: 原生支持 JSON 和 JSONL 格式，自动识别列表或流式结构。
+  * **双模开发**: 支持“零代码”标准模式和“继承扩展”自定义模式。
+  * **多种评估指标**: 内置 `exact_match`, `F1`, `BLEU`, `ROUGE`, 数值匹配及 LLM 裁判等。
+  * **元数据管理**: 自动将非核心字段解析为 `metadata`，支持 OSWorld 等复杂环境配置。
+  * **结果持久化**: 支持保存和加载详细的评估报告。
 
-## 快速开始
+-----
 
-### 基本使用
+## 开发指南 (Development Guide)
+
+根据数据格式的复杂度，Benchmark 开发分为两种模式：
+
+### 模式 A：标准模式（零代码）
+
+如果您的数据文件是标准的 JSON/JSONL，且字段能直接映射到 `question` 和 `answer`，则不需要编写任何代码。
+
+直接使用工厂函数加载：
 
 ```python
 from benchmark import create_benchmark
 
-# 创建基准测试
+# 自动加载并解析
 benchmark = create_benchmark(
-    data_path="data/math_demo.jsonl",
-    name="Math Demo",
-    description="数学计算基准测试"
-)
-
-# 获取问题和答案
-questions = benchmark.get_questions()
-answers = benchmark.get_answers()
-
-# 评估预测结果
-predictions = {"item_id": "predicted_answer"}
-results = benchmark.evaluate(predictions, metric="exact_match")
-
-# 获取评估摘要
-summary = benchmark.get_summary()
-print(summary)
-```
-
-### 数据格式
-
-支持两种数据格式：
-
-#### JSONL 格式
-
-```jsonl
-{"id": "q1", "question": "What is 2+2?", "answer": "4"}
-{"id": "q2", "question": "What is 3*3?", "answer": "9"}
-```
-
-#### JSON 格式
-
-```json
-[
-  { "id": "q1", "question": "What is 2+2?", "answer": "4" },
-  { "id": "q2", "question": "What is 3*3?", "answer": "9" }
-]
-```
-
-或者结构化格式：
-
-```json
-{
-  "name": "Math Test",
-  "items": [
-    { "id": "q1", "question": "What is 2+2?", "answer": "4" },
-    { "id": "q2", "question": "What is 3*3?", "answer": "9" }
-  ]
-}
-```
-
-## API 参考
-
-### Benchmark 类
-
-#### 构造函数
-
-```python
-Benchmark(
-    data_path: Optional[str] = None,
-    name: Optional[str] = None,
-    description: Optional[str] = None
+    data_path="data/math_test.jsonl",
+    name="Math Test",
+    description="标准数学测试集"
 )
 ```
 
-#### 主要方法
+### 模式 B：自定义模式（继承扩展）
 
-- `load_data(data_path: str)`: 加载数据文件
-- `get_item(item_id: str)`: 获取指定 ID 的项目
-- `get_items() -> List[BenchmarkItem]`: 获取所有项目
-- `get_questions() -> List[str]`: 获取所有问题
-- `get_answers() -> List[str]`: 获取所有答案
-- `evaluate(predictions, metric="exact_match")`: 评估预测结果
-- `get_summary() -> Dict[str, Any]`: 获取评估摘要
-- `save_results(file_path: str)`: 保存评估结果
-- `load_results(file_path: str)`: 加载评估结果
-
-### 评估指标
-
-#### 内置指标
-
-1. **exact_match**: 完全匹配
-
-   - 检查预测结果是否与标准答案完全一致
-
-2. **f1_score**: F1 分数
-
-   - 基于词重叠的 F1 分数
-
-3. **bleu_score**: BLEU 分数
-
-   - 基于 n-gram 重叠的 BLEU 分数
-
-4. **rouge_score**: ROUGE 分数
-
-   - 基于最长公共子序列的 ROUGE-L 分数
-
-5. **similarity**: 字符串相似度
-
-   - 使用 difflib 计算字符串相似度
-
-6. **contains_answer**: 包含答案
-
-   - 检查预测结果是否包含标准答案
-
-7. **numeric_match**: 数值匹配
-   - 提取并比较数值答案
-
-#### 使用示例
+如果数据结构特殊（例如字段名为 `problem`/`solution`），或者需要清洗数据，请继承 `Benchmark` 类并重写 `_parse_item`。
 
 ```python
-# 使用不同指标评估
-results = benchmark.evaluate(predictions, metric="exact_match")
-results = benchmark.evaluate(predictions, metric="f1_score")
-results = benchmark.evaluate(predictions, metric="similarity")
+from benchmark import Benchmark, BenchmarkItem
+
+class CustomBenchmark(Benchmark):
+    def _parse_item(self, data: dict, line_num: int) -> BenchmarkItem:
+        # 自定义解析逻辑：将原始字段映射到标准字段
+        return BenchmarkItem(
+            id=str(data.get('custom_id', line_num)),
+            question=data.get('problem_text'),      # 映射 question
+            answer=str(data.get('ground_truth')),   # 映射 answer
+            metadata={"difficulty": data.get("level")} # 其他存入 metadata
+        )
 ```
 
-### 数据结构
+-----
 
-#### BenchmarkItem
+## 数据结构说明 (Data Structure)
+
+Benchmark 的核心单元是 `BenchmarkItem`。理解其字段含义对于正确构建数据集至关重要。
 
 ```python
 @dataclass
@@ -148,76 +67,103 @@ class BenchmarkItem:
     metadata: Optional[Dict[str, Any]] = None
 ```
 
-#### EvaluationResult
+### 字段详细说明
+
+| 字段 | 类型 | 必填 | 说明 |
+| :--- | :--- | :--- | :--- |
+| **id** | `str` | 否 | **唯一标识符**。<br>用于在日志和结果中追踪任务。若数据中缺失，框架会自动生成 `item_{行号}`。 |
+| **question** | `str` | **是** | **Agent 输入指令**。<br>告诉 Agent 需要完成什么任务（如 `"Calculate 2+2"` 或 `"Install Spotify"`）。 |
+| **answer** | `str` | 否 | **标准答案 (Ground Truth)**。<br>用于文本比对评测。框架会强制将其转换为字符串。<br>*注：对于 OSWorld 等基于状态评测的任务，此字段可为空，评测逻辑存放在 metadata 中。* |
+| **metadata** | `dict` | 否 | **元数据/配置容器**。<br>存储所有非核心字段。常用于存放：<br>1. `evaluator`: 评测器配置 (OSWorld 必需)<br>2. `config`: 环境初始化配置<br>3. `difficulty`/`source`: 任务标签 |
+
+-----
+
+## 快速开始
+
+### 1\. 准备数据
+
+**JSONL 格式 (推荐):**
+
+```jsonl
+{"id": "q1", "question": "What is 2+2?", "answer": "4", "difficulty": "easy"}
+{"id": "q2", "question": "What is 3*3?", "answer": "9", "difficulty": "medium"}
+```
+
+### 2\. 加载与评估
 
 ```python
-@dataclass
-class EvaluationResult:
-    item_id: str
-    question: str
-    ground_truth: str
-    prediction: str
-    score: float
-    metric_name: str
-    details: Optional[Dict[str, Any]] = None
+from benchmark import create_benchmark
+
+# 1. 加载
+benchmark = create_benchmark(data_path="data/math_demo.jsonl")
+
+# 2. 获取数据（模拟 Agent 执行）
+questions = benchmark.get_questions()
+
+# 3. 准备预测结果
+predictions = {
+    "q1": "4", 
+    "q2": "9"
+}
+
+# 4. 执行评估
+# 支持 metric: exact_match, f1_score, contains_answer, numeric_match 等
+results = benchmark.evaluate(predictions, metric="exact_match")
+
+# 5. 查看摘要
+print(benchmark.get_summary())
+# Output: {'average_score': 1.0, 'total_items': 2, ...}
 ```
+
+-----
+
+## API 参考
+
+### 主要方法
+
+  * **`load_data(data_path)`**: 加载并解析数据文件。
+  * **`get_items()`**: 返回所有 `BenchmarkItem` 对象列表。
+  * **`evaluate(predictions, metric=...)`**: 核心评估方法。
+      * `predictions`: 字典 `{id: prediction}` 或 列表 `[prediction]`。
+      * `metric`: 指定评估指标字符串。
+  * **`save_results(file_path)`**: 将评估详情和摘要保存为 JSON。
+
+### 内置评估指标
+
+| 指标名称 | 说明 | 适用场景 |
+| :--- | :--- | :--- |
+| **exact\_match** | 字符串完全相等（去除首尾空格） | 数学、选择题、短文本 |
+| **f1\_score** | 基于词袋模型的重叠度 F1 分数 | 阅读理解、长文本生成 |
+| **contains\_answer** | 检查预测是否包含标准答案 | 宽松匹配、检索任务 |
+| **numeric\_match** | 提取文本中的数字进行数值比对 | 数学计算 (忽略单位/文字) |
+| **similarity** | Python `difflib` 字符串相似度 | 模糊匹配 |
+| **llm\_judgement** | 调用 GPT-4 进行语义判定 | 开放式问答、复杂逻辑 |
+
+-----
 
 ## 高级用法
 
-### 自定义数据解析
-
-```python
-class CustomBenchmark(Benchmark):
-    def _parse_item(self, data: Dict[str, Any], line_num: int) -> BenchmarkItem:
-        # 自定义解析逻辑
-        item_id = data.get('question_id', f'item_{line_num}')
-        question = data.get('query', '')
-        answer = data.get('response', '')
-
-        return BenchmarkItem(
-            id=item_id,
-            question=question,
-            answer=answer,
-            metadata={'line': line_num}
-        )
-```
-
 ### 自定义评估指标
 
-```python
-def custom_metric(ground_truth: str, prediction: str, **kwargs) -> float:
-    # 自定义评估逻辑
-    return score
+如果内置指标不满足需求，可以动态注册新指标：
 
-# 注册自定义指标
+```python
+def my_custom_metric(ground_truth, prediction, **kwargs):
+    # 自定义逻辑：例如检查是否是合法的 Python 代码
+    return 1.0 if "def " in prediction else 0.0
+
+# 临时注册并使用
 benchmark._get_metric_function = lambda metric: {
-    'custom': custom_metric
+    'code_check': my_custom_metric
 }.get(metric, benchmark._get_metric_function(metric))
+
+benchmark.evaluate(predictions, metric="code_check")
 ```
 
-### 批量评估
-
-```python
-# 使用字典格式的预测结果
-predictions = {
-    "q1": "answer1",
-    "q2": "answer2",
-    "q3": "answer3"
-}
-results = benchmark.evaluate(predictions, metric="exact_match")
-
-# 使用列表格式的预测结果（按顺序）
-predictions = ["answer1", "answer2", "answer3"]
-results = benchmark.evaluate(predictions, metric="exact_match")
-```
-
-## 示例
-
-查看 `example_usage.py` 文件获取更多使用示例。
+-----
 
 ## 注意事项
 
-1. 确保数据文件格式正确
-2. 预测结果的 ID 必须与基准测试中的 ID 匹配
-3. 评估指标的选择应根据任务类型决定
-4. 大量数据评估时建议使用批处理方式
+1.  **ID 匹配**: `evaluate` 方法依赖 `id` 来对齐预测结果和标准答案。请确保 Agent 返回的结果中包含正确的 Task ID。
+2.  **Answer 类型**: 无论原始 JSON 中的 answer 是数字还是布尔值，在 `BenchmarkItem` 中都会被转换为 `str`。
+3.  **并发评估**: `evaluate` 默认开启多线程 (`concurrent=True`) 以加速大量数据的评测。
