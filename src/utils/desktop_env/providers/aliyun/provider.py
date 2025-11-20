@@ -1,5 +1,6 @@
 import os
 import logging
+import time
 from datetime import datetime
 
 from alibabacloud_ecs20140526.client import Client as ECSClient
@@ -171,24 +172,35 @@ class AliyunProvider(Provider):
         )
 
         try:
+            logger.info(f"Snapshot revert requested for instance {path_to_vm} (snapshot={snapshot_name})")
             # Step 1: Retrieve the original instance details
             response = self._describe_instance(path_to_vm)
             if not response.body.instances.instance:
                 logger.error(f"Instance {path_to_vm} not found")
                 return
+
+            # Step 1.1: Ensure the instance is no longer in transitional states
+            self._wait_until_instance_stable(path_to_vm)
+
             # Step 2: Delete the old instance
-            req = ecs_models.DeleteInstancesRequest(
-                region_id=self.region, instance_id=[path_to_vm], force=True
-            )
-            self.client.delete_instances(req)
-            logger.info(f"Old instance {path_to_vm} has been deleted.")
+            self._delete_instance_with_retries(path_to_vm)
 
             # Step 3: Launch a new instance from the snapshot image
+            # 注意：_allocate_vm() 内部已经记录了实例创建，这里不需要重复记录
             new_instance_id = _allocate_vm()
             logger.info(f"Instance {new_instance_id} is ready.")
 
             # Get VNC access information
-            self.get_ip_address(new_instance_id)
+            ip_address = self.get_ip_address(new_instance_id)
+            
+            # 记录IP地址（_allocate_vm()可能还没有IP地址）
+            if ip_address:
+                try:
+                    from utils.instance_tracker import get_instance_tracker
+                    tracker = get_instance_tracker()
+                    tracker.record_instance_ip(new_instance_id, ip_address)
+                except Exception as e:
+                    logger.warning(f"Failed to record instance IP: {e}")
 
             return new_instance_id
 
@@ -200,6 +212,14 @@ class AliyunProvider(Provider):
 
     def stop_emulator(self, path_to_vm: str, region: str = None):
         logger.info(f"Stopping Aliyun ECS instance {path_to_vm}...")
+
+        # 记录实例清理（在实际删除前记录）
+        try:
+            from utils.instance_tracker import get_instance_tracker
+            tracker = get_instance_tracker()
+            tracker.record_instance_cleaned(path_to_vm)
+        except Exception as e:
+            logger.warning(f"Failed to record instance cleanup: {e}")
 
         try:
             req = ecs_models.DeleteInstancesRequest(
@@ -222,3 +242,82 @@ class AliyunProvider(Provider):
             region_id=self.region, instance_ids=UtilClient.to_jsonstring([instance_id])
         )
         return self.client.describe_instances(req)
+
+    def _get_instance_status(self, instance_id: str) -> str:
+        response = self._describe_instance(instance_id)
+        if not response.body.instances.instance:
+            raise ValueError(f"Instance {instance_id} not found")
+        return response.body.instances.instance[0].status
+
+    def get_instance_status(self, instance_id: str) -> str:
+        """
+        对外暴露的实例状态查询，用于构建更智能的就绪检测。
+        """
+        return self._get_instance_status(instance_id)
+
+    def _wait_until_instance_stable(
+        self,
+        instance_id: str,
+        pending_states = ("Initializing", "Pending", "Starting", "Stopping"),
+        timeout: int = 300,
+        interval: int = 5,
+    ) -> str:
+        """
+        等待实例脱离初始化/过渡状态，避免在删除/快照操作时触发 IncorrectInstanceStatus 错误。
+        """
+        start_time = time.time()
+        while True:
+            status = self._get_instance_status(instance_id)
+            if status not in pending_states:
+                logger.info(f"Instance {instance_id} status is now '{status}', proceed with snapshot revert.")
+                return status
+
+            elapsed = time.time() - start_time
+            if elapsed >= timeout:
+                raise TimeoutError(
+                    f"Instance {instance_id} still in transitional state '{status}' after {timeout}s."
+                )
+
+            logger.info(
+                f"Instance {instance_id} status '{status}' not ready for deletion, waiting {interval}s..."
+            )
+            time.sleep(interval)
+
+    def _delete_instance_with_retries(
+        self,
+        instance_id: str,
+        max_attempts: int = 5,
+        backoff_seconds: int = 5,
+    ) -> None:
+        """
+        删除实例时增加重试，避免 Aliyun 返回 IncorrectInstanceStatus.Initializing 导致任务失败。
+        """
+        attempt = 0
+        while attempt < max_attempts:
+            attempt += 1
+            try:
+                logger.info(f"[DeleteInstance] Attempt {attempt}/{max_attempts} for {instance_id}")
+                req = ecs_models.DeleteInstancesRequest(
+                    region_id=self.region,
+                    instance_id=[instance_id],
+                    force=True,
+                )
+                self.client.delete_instances(req)
+                logger.info(f"Old instance {instance_id} has been deleted.")
+                return
+            except Exception as exc:
+                message = str(exc)
+                if "IncorrectInstanceStatus.Initializing" in message:
+                    wait_time = backoff_seconds * attempt
+                    logger.warning(
+                        f"Instance {instance_id} still initializing during deletion "
+                        f"(attempt {attempt}/{max_attempts}), waiting {wait_time}s..."
+                    )
+                    time.sleep(wait_time)
+                    self._wait_until_instance_stable(instance_id)
+                    continue
+                raise
+
+        raise TimeoutError(
+            f"Failed to delete instance {instance_id} after {max_attempts} attempts due to initializing state."
+        )

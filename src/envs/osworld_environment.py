@@ -63,12 +63,17 @@ class OSWorldEnvironment(Environment):
                 - require_terminal: Require terminal access
         """
         self._desktop_env: Optional[DesktopEnv] = None
+        self._tool_response_use_dict: bool = False
 
         # Trajectory storage for current task
         self._current_trajectory: List[Dict[str, Any]] = []
         self._current_task_id: Optional[str] = None
 
         super().__init__(**kwargs)
+
+    def enable_tool_response_dict(self, enabled: bool) -> None:
+        """Enable/disable returning tool responses as dict instead of JSON string."""
+        self._tool_response_use_dict = enabled
 
     @property
     def mode(self) -> str:
@@ -176,7 +181,10 @@ class OSWorldEnvironment(Environment):
 
         return content_parts
 
-    def format_initial_observation_for_message(self, initial_obs: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def format_initial_observation_for_message(
+        self,
+        initial_obs: Optional[Dict[str, Any]],
+    ) -> List[Dict[str, Any]]:
         """
         Format initial observation from env_task_init() into message content parts.
 
@@ -443,10 +451,6 @@ class OSWorldEnvironment(Environment):
         # Get OSWorld config namespace
         osworld_config = self.config.get("osworld", {})
 
-        # Validate required OSWorld parameters
-        if not osworld_config.get("path_to_vm"):
-            raise ValueError("path_to_vm is required for OSWorld environment")
-
         # Validate provider_name
         provider_name = osworld_config["provider_name"]
         valid_providers = ["vmware", "virtualbox", "aws", "gcp", "azure", "aliyun", "volcengine", "docker"]
@@ -499,8 +503,11 @@ class OSWorldEnvironment(Environment):
         Both modes share common control tools (WAIT, DONE, FAIL).
 
         Note: Config is already validated at this point, safe to create DesktopEnv.
+        
+        Note: If defer_init=True was used, this method will only be called when env_start() is invoked.
+        This allows parallel mode to avoid creating VM instances in the main process.
         """
-        # Now that config is validated, initialize DesktopEnv
+        # Create DesktopEnv instance (this will start the VM)
         try:
             print("Starting DesktopEnv initialization...")
             self._init_desktop_env_from_config()
@@ -616,6 +623,29 @@ class OSWorldEnvironment(Environment):
         self.register_tool(ControlTool(self))              # WAIT, DONE, FAIL
 
         print("✓ pyautogui tools registered")
+    
+    def _register_tools_without_desktop_env(self):
+        """
+        注册工具但不创建新的DesktopEnv(用于VM池模式)
+        
+        当使用VM池时,DesktopEnv已经存在,只需要注册工具即可
+        """
+        if self._desktop_env is None:
+            raise ValueError("DesktopEnv must be set before calling this method")
+        
+        # 获取action space模式
+        action_space = self.config.get("osworld", {}).get("action_space", "computer_13")
+        
+        # 根据action space注册工具
+        if action_space == "computer_13":
+            self._register_computer13_tools()
+        elif action_space == "pyautogui":
+            self._register_pyautogui_tools()
+        else:
+            print(f"⚠️  Action space '{action_space}' not fully implemented, using computer_13 tools")
+            self._register_computer13_tools()
+        
+        print(f"Registered {len(self.tools)} OSWorld desktop automation tools for '{action_space}' mode")
 
     def _init_desktop_env_from_config(self):
         """
@@ -996,7 +1026,8 @@ class OSWorldEnvironment(Environment):
         """
         if self._desktop_env is None:
             print("Starting OSWorld environment...")
-            self.setup()
+            # Create DesktopEnv if it was deferred (e.g., in parallel mode)
+            self._init_desktop_env_from_config()
             print("OSWorld environment started successfully")
         else:
             print("OSWorld environment already running")

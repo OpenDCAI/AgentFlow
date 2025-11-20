@@ -3,6 +3,8 @@ import logging
 import dotenv
 import time
 import signal
+import threading
+import multiprocessing
 import requests
 from datetime import datetime, timedelta, timezone
 
@@ -45,6 +47,17 @@ WAIT_DELAY = 20
 MAX_ATTEMPTS = 15
 
 
+def _can_register_signals() -> bool:
+    """
+    signal.signal 只能在主解释器的主线程调用。BaseManager 等子进程或线程中
+    调用会直接抛出 ValueError。这里做一次统一判断，避免在那些场景下注册失败。
+    """
+    return (
+        multiprocessing.current_process().name == "MainProcess"
+        and threading.current_thread() is threading.main_thread()
+    )
+
+
 def _allocate_vm(screen_size=(1920, 1080)):
     """
     Allocate a new Aliyun ECS instance
@@ -58,47 +71,55 @@ def _allocate_vm(screen_size=(1920, 1080)):
     )
     client = ECSClient(config)
     instance_id = None
-    original_sigint_handler = signal.getsignal(signal.SIGINT)
-    original_sigterm_handler = signal.getsignal(signal.SIGTERM)
+    signal_handlers_enabled = _can_register_signals()
+    original_sigint_handler = None
+    original_sigterm_handler = None
 
-    def signal_handler(sig, frame):
-        if instance_id:
-            signal_name = "SIGINT" if sig == signal.SIGINT else "SIGTERM"
-            logger.warning(
-                f"Received {signal_name} signal, terminating instance {instance_id}..."
-            )
-            try:
-                delete_request = ecs_models.DeleteInstancesRequest(
-                    region_id=ALIYUN_REGION,
-                    instance_ids=UtilClient.to_jsonstring([instance_id]),
-                    force=True,
+    if signal_handlers_enabled:
+        original_sigint_handler = signal.getsignal(signal.SIGINT)
+        original_sigterm_handler = signal.getsignal(signal.SIGTERM)
+
+        def signal_handler(sig, frame):
+            if instance_id:
+                signal_name = "SIGINT" if sig == signal.SIGINT else "SIGTERM"
+                logger.warning(
+                    f"Received {signal_name} signal, terminating instance {instance_id}..."
                 )
-                client.delete_instances(delete_request)
-                logger.info(
-                    f"Successfully terminated instance {instance_id} after {signal_name}."
-                )
-            except Exception as cleanup_error:
-                logger.error(
-                    f"Failed to terminate instance {instance_id} after {signal_name}: {str(cleanup_error)}"
-                )
+                try:
+                    delete_request = ecs_models.DeleteInstancesRequest(
+                        region_id=ALIYUN_REGION,
+                        instance_ids=UtilClient.to_jsonstring([instance_id]),
+                        force=True,
+                    )
+                    client.delete_instances(delete_request)
+                    logger.info(
+                        f"Successfully terminated instance {instance_id} after {signal_name}."
+                    )
+                except Exception as cleanup_error:
+                    logger.error(
+                        f"Failed to terminate instance {instance_id} after {signal_name}: {str(cleanup_error)}"
+                    )
 
-        # Restore original signal handlers
-        signal.signal(signal.SIGINT, original_sigint_handler)
-        signal.signal(signal.SIGTERM, original_sigterm_handler)
+            # Restore original signal handlers
+            signal.signal(signal.SIGINT, original_sigint_handler)
+            signal.signal(signal.SIGTERM, original_sigterm_handler)
 
-        # Raise appropriate exception based on signal type
-        if sig == signal.SIGINT:
-            raise KeyboardInterrupt
-        else:
-            # For SIGTERM, exit gracefully
-            import sys
+            # Raise appropriate exception based on signal type
+            if sig == signal.SIGINT:
+                raise KeyboardInterrupt
+            else:
+                # For SIGTERM, exit gracefully
+                import sys
 
-            sys.exit(0)
+                sys.exit(0)
+    else:
+        signal_handler = None
 
     try:
-        # Set up signal handlers for both SIGINT and SIGTERM
-        signal.signal(signal.SIGINT, signal_handler)
-        signal.signal(signal.SIGTERM, signal_handler)
+        # Set up signal handlers for both SIGINT and SIGTERM (if supported)
+        if signal_handlers_enabled and signal_handler:
+            signal.signal(signal.SIGINT, signal_handler)
+            signal.signal(signal.SIGTERM, signal_handler)
 
         logger.info(
             f"Creating new ECS instance in region {ALIYUN_REGION} with image {ALIYUN_IMAGE_ID}"
@@ -168,6 +189,18 @@ def _allocate_vm(screen_size=(1920, 1080)):
         instance_id = instance_ids[0]
         logger.info(f"ECS instance {instance_id} created successfully")
 
+        # 记录实例创建
+        try:
+            from utils.instance_tracker import get_instance_tracker
+            tracker = get_instance_tracker()
+            tracker.record_instance_created(
+                instance_id=instance_id,
+                provider="aliyun",
+                region=ALIYUN_REGION
+            )
+        except Exception as e:
+            logger.warning(f"Failed to record instance creation: {e}")
+
         # Wait for the instance to be running
         logger.info(f"Waiting for instance {instance_id} to be running...")
         _wait_for_instance_running(client, instance_id)
@@ -207,9 +240,10 @@ def _allocate_vm(screen_size=(1920, 1080)):
                 )
         raise
     finally:
-        # Restore original signal handlers
-        signal.signal(signal.SIGINT, original_sigint_handler)
-        signal.signal(signal.SIGTERM, original_sigterm_handler)
+        if signal_handlers_enabled and original_sigint_handler and original_sigterm_handler:
+            # Restore original signal handlers
+            signal.signal(signal.SIGINT, original_sigint_handler)
+            signal.signal(signal.SIGTERM, original_sigterm_handler)
 
     return instance_id
 

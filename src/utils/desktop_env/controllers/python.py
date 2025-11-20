@@ -14,12 +14,20 @@ logger = logging.getLogger("desktopenv.pycontroller")
 class PythonController:
     def __init__(self, vm_ip: str,
                  server_port: int,
-                 pkgs_prefix: str = "import pyautogui; import time; pyautogui.FAILSAFE = False; {command}"):
+                 pkgs_prefix: str = "import pyautogui; import time; pyautogui.FAILSAFE = False; {command}",
+                 instance_id: Optional[str] = None):
         self.vm_ip = vm_ip
+        self.instance_id = instance_id
         self.http_server = f"http://{vm_ip}:{server_port}"
         self.pkgs_prefix = pkgs_prefix  # fixme: this is a hacky way to execute python commands. fix it and combine it with installation of packages
         self.retry_times = 3
         self.retry_interval = 5
+    
+    def _log_prefix(self) -> str:
+        """生成日志前缀，包含实例ID和IP地址"""
+        if self.instance_id:
+            return f"[instance_id={self.instance_id}, ip={self.vm_ip}]"
+        return f"[ip={self.vm_ip}]"
 
     @staticmethod
     def _is_valid_image_response(content_type: str, data: Optional[bytes]) -> bool:
@@ -51,20 +59,20 @@ class PythonController:
                     content_type = response.headers.get("Content-Type", "")
                     content = response.content
                     if self._is_valid_image_response(content_type, content):
-                        logger.info("Got screenshot successfully")
+                        logger.info("%s Got screenshot successfully", self._log_prefix())
                         return content
                     else:
-                        logger.error("Invalid screenshot payload (attempt %d/%d).", attempt_idx + 1, self.retry_times)
-                        logger.info("Retrying to get screenshot.")
+                        logger.error("%s Invalid screenshot payload (attempt %d/%d).", self._log_prefix(), attempt_idx + 1, self.retry_times)
+                        logger.info("%s Retrying to get screenshot.", self._log_prefix())
                 else:
-                    logger.error("Failed to get screenshot. Status code: %d", response.status_code)
-                    logger.info("Retrying to get screenshot.")
+                    logger.error("%s Failed to get screenshot. Status code: %d", self._log_prefix(), response.status_code)
+                    logger.info("%s Retrying to get screenshot.", self._log_prefix())
             except Exception as e:
-                logger.error("An error occurred while trying to get the screenshot: %s", e)
-                logger.info("Retrying to get screenshot.")
+                logger.error("%s An error occurred while trying to get the screenshot: %s", self._log_prefix(), e)
+                logger.info("%s Retrying to get screenshot.", self._log_prefix())
             time.sleep(self.retry_interval)
 
-        logger.error("Failed to get screenshot.")
+        logger.error("%s Failed to get screenshot.", self._log_prefix())
         return None
 
     def get_accessibility_tree(self) -> Optional[str]:

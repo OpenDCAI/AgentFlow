@@ -4,12 +4,15 @@ Environment classes for AgentFlow - manages tools and configuration for agent en
 
 import os
 import json
-from typing import Dict, List, Any, Optional, Union
+from typing import Dict, List, Any, Optional, Union, TYPE_CHECKING
 from abc import ABC, abstractmethod
 import sys
 import pdb
 import bdb
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+if TYPE_CHECKING:
+    from utils.resource_manager import ResourceManager
 
 # Note: Tool imports have been moved to individual environment files
 # Each concrete environment (MathEnvironment, WebEnvironment, etc.)
@@ -62,6 +65,10 @@ class Environment(ABC):
                  openai_api_key: Optional[str] = None,
                  openai_api_url: Optional[str] = None,
                  enable_terminal_bench: bool = False, # added for Terminal Bench
+                 defer_init: bool = False,
+                 has_heavy_resource: bool = False,
+                 resource_manager: Optional['ResourceManager'] = None,
+                 parallel_degree: int = 1,
                  **kwargs):
         """
         Initialize the environment.
@@ -70,6 +77,12 @@ class Environment(ABC):
             model_name: OpenAI model name to use
             openai_api_key: OpenAI API key (if None, will use env var)
             openai_api_url: OpenAI API URL (if None, will use env var)
+            enable_terminal_bench: Enable Terminal Bench support
+            defer_init: If True, defer tool initialization until env_start() is called.
+                       Useful for parallel mode where main process shouldn't create resources.
+            has_heavy_resource: 是否包含重资产
+            resource_manager: 资源管理器实例
+            parallel_degree: 并行度（从运行框架传递）
             **kwargs: Additional configuration parameters
         """
         self.model_name = model_name
@@ -77,12 +90,22 @@ class Environment(ABC):
         self.tool_schemas: List[Dict[str, Any]] = []
         self.tool_descriptions: str = ""
         
+        # Track initialization state
+        self._deferred_init = defer_init
+        self._initialized = False
+        
+        # Resource management
+        self._has_heavy_resource = has_heavy_resource
+        self._resource_manager = resource_manager
+        self._parallel_degree = parallel_degree
+        self._task_env_config = {}
+        
+        # 如果有重资产但未提供 manager，创建默认的 NoResourceManager
+        if not has_heavy_resource and resource_manager is None:
+            from utils.resource_manager import NoResourceManager
+            self._resource_manager = NoResourceManager()
+        
         # Configuration
-        self.config = {
-            "openai_api_key": openai_api_key or os.environ.get("OPENAI_API_KEY", ""),
-            "openai_api_url": openai_api_url or os.environ.get("OPENAI_API_URL", os.environ.get("OPENAI_API_BASE", "")),
-            **kwargs
-        }
         self.config = {
             "openai_api_key": openai_api_key or os.environ.get("OPENAI_API_KEY", ""),
             "openai_api_url": openai_api_url or os.environ.get("OPENAI_API_URL", os.environ.get("OPENAI_API_BASE", "")),
@@ -97,14 +120,35 @@ class Environment(ABC):
         # Validate required configuration
         self._validate_config()
         
-        # Initialize tools - to be implemented by subclasses
-        self._initialize_tools()
+        # Initialize tools - deferred if defer_init=True
+        if not defer_init:
+            self._initialize_tools()
+            self._initialized = True
+        else:
+            # Mark as initialized but tools not yet created
+            # Tools will be created in env_start()
+            self._initialized = False
     
     @property
     @abstractmethod
     def mode(self) -> str:
         """Return the environment mode name."""
         pass
+    
+    @property
+    def has_heavy_resource(self) -> bool:
+        """是否包含重资产"""
+        return self._has_heavy_resource
+    
+    @property
+    def resource_manager(self) -> 'ResourceManager':
+        """获取资源管理器"""
+        return self._resource_manager
+    
+    @property
+    def parallel_degree(self) -> int:
+        """获取并行度"""
+        return self._parallel_degree
 
     def get_action_space(self) -> Optional[str]:
         """
@@ -505,11 +549,17 @@ class Environment(ABC):
         This is called in run_benchmark before processing any tasks.
         Use this to initialize resources needed across all tasks.
 
+        If defer_init=True was used in __init__, this method will
+        trigger tool initialization.
+
         Note:
-            Default implementation does nothing.
-            Subclasses can override for environment-wide initialization.
+            Default implementation handles deferred initialization.
+            Subclasses can override for additional environment-wide initialization.
         """
-        pass
+        # Handle deferred initialization
+        if self._deferred_init and not self._initialized:
+            self._initialize_tools()
+            self._initialized = True
 
     def env_close(self) -> None:
         """
@@ -654,6 +704,43 @@ class Environment(ABC):
         self._initialize_tools()
         
         print(f"Environment loaded from {filepath}")
+    
+    def initialize_with_task_config(
+        self,
+        task_config: Dict[str, Any]
+    ) -> bool:
+        """
+        使用 Task 配置初始化环境
+        
+        Args:
+            task_config: Task 中的 env_config 部分
+        
+        Returns:
+            True 表示初始化成功
+        """
+        self._task_env_config = task_config
+        
+        # 提取环境特定的配置
+        env_specific_config = task_config.get(self.mode, {})
+        
+        # 子类可覆盖以实现特定的初始化逻辑
+        return self._apply_task_config(env_specific_config)
+    
+    def _apply_task_config(self, env_config: Dict[str, Any]) -> bool:
+        """
+        应用 Task 配置，由子类实现
+        
+        Args:
+            env_config: 环境特定的配置字典
+        
+        Returns:
+            True 表示配置应用成功
+        
+        Note:
+            默认实现：直接返回 True（无配置需要应用）
+            子类可以覆盖此方法以实现特定的配置逻辑
+        """
+        return True
 
 
 # Note: Concrete environment implementations have been moved to separate files:

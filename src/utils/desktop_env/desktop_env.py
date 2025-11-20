@@ -4,15 +4,16 @@ import logging
 import os
 import time
 import re
+import functools
 from typing import Callable, Any, Optional, Tuple
 from typing import List, Dict, Union
-
 import gymnasium as gym
 
 from utils.desktop_env.controllers.python import PythonController
-from utils.desktop_env.controllers.setup import SetupController
+from utils.desktop_env.controllers.setup import SetupController, VMReadinessProbe
 from utils.desktop_env.evaluators import metrics, getters
 from utils.desktop_env.providers import create_vm_manager_and_provider
+from utils.instance_tracker import get_instance_tracker
 
 logger = logging.getLogger("desktopenv.env")
 
@@ -93,6 +94,7 @@ def _fix_pyautogui_less_than_bug(command: str) -> str:
 
 
 class DesktopEnv(gym.Env):
+    _typeid = "DesktopEnv"
     """
     DesktopEnv with OpenAI Gym interface. It provides a desktop environment for setting and evaluating desktop automation tasks.
     """
@@ -111,6 +113,11 @@ class DesktopEnv(gym.Env):
             os_type: str = "Ubuntu",
             enable_proxy: bool = False,
             client_password: str = "",
+            remote_ip: Optional[str] = None,
+            remote_port: Optional[int] = None,
+            remote_chromium_port: Optional[int] = None,
+            remote_vnc_port: Optional[int] = None,
+            remote_vlc_port: Optional[int] = None,
     ):
         """
         Args:
@@ -127,6 +134,11 @@ class DesktopEnv(gym.Env):
             require_terminal (bool): whether to require terminal output
             os_type (str): operating system type, default to "Ubuntu"
             enable_proxy (bool): whether to enable proxy support, default to False
+            remote_ip (str, optional): IP address of remote VM (Attach Mode). If provided, skips VM startup.
+            remote_port (int, optional): Server port of remote VM (Attach Mode), default 5000
+            remote_chromium_port (int, optional): Chromium port of remote VM (Attach Mode), default 9222
+            remote_vnc_port (int, optional): VNC port of remote VM (Attach Mode), default 8006
+            remote_vlc_port (int, optional): VLC port of remote VM (Attach Mode), default 8080
         """
         # Initialize VM manager and vitualization provider
         self.region = region
@@ -179,9 +191,22 @@ class DesktopEnv(gym.Env):
         self.require_a11y_tree = require_a11y_tree
         self.require_terminal = require_terminal
 
+        # Attach Mode: If remote_ip is provided, skip VM startup and connect directly
+        self.remote_ip = remote_ip
+        self.remote_port = remote_port or 5000
+        self.remote_chromium_port = remote_chromium_port or 9222
+        self.remote_vnc_port = remote_vnc_port or 8006
+        self.remote_vlc_port = remote_vlc_port or 8080
+
         # Initialize emulator and controller
-        logger.info("Initializing...")
-        self._start_emulator()
+        if self.remote_ip:
+            # Attach Mode: Skip VM startup, connect directly to remote VM
+            logger.info(f"Attach Mode: Connecting to remote VM at {self.remote_ip}:{self.remote_port}")
+            self._attach_to_remote_vm()
+        else:
+            # Normal Mode: Start VM and get IP
+            logger.info("Initializing...")
+            self._start_emulator()
 
         # mode: human or machine
         self.instruction = None
@@ -193,9 +218,60 @@ class DesktopEnv(gym.Env):
         self._traj_no: int = -1
         self._step_no: int = 0
         self.action_history: List[Dict[str, any]] = []
+        self._snapshot_revert_count: int = 0
+        self._pending_snapshot_ip_log: bool = False
 
+    def _attach_to_remote_vm(self):
+        """
+        Attach Mode: Connect to a remote VM without starting it locally.
+        This is used in distributed worker architecture where the Manager starts VMs
+        and Workers connect to them.
+        """
+        if not hasattr(self, "_snapshot_revert_count"):
+            self._snapshot_revert_count = 0
+        if not hasattr(self, "_pending_snapshot_ip_log"):
+            self._pending_snapshot_ip_log = False
+        
+        # Use provided remote IP and ports
+        self.vm_ip = self.remote_ip
+        self.server_port = self.remote_port
+        self.chromium_port = self.remote_chromium_port
+        self.vnc_port = self.remote_vnc_port
+        self.vlc_port = self.remote_vlc_port
+        
+        # Initialize controller with remote IP
+        # Note: path_to_vm may be None in attach mode, use remote_ip as instance_id if needed
+        instance_id = self.path_to_vm if self.path_to_vm else self.remote_ip
+        self.controller = PythonController(
+            vm_ip=self.vm_ip,
+            server_port=self.server_port,
+            instance_id=instance_id
+        )
+        
+        # Build readiness probe (may be None if provider doesn't support it)
+        readiness_probe = self._build_vm_readiness_probe()
+        self.setup_controller = SetupController(
+            vm_ip=self.vm_ip,
+            server_port=self.server_port,
+            chromium_port=self.chromium_port,
+            vlc_port=self.vlc_port,
+            cache_dir=self.cache_dir_base,
+            client_password=self.client_password,
+            screen_width=self.screen_width,
+            screen_height=self.screen_height,
+            vm_readiness_probe=readiness_probe
+        )
+        
+        logger.info(
+            f"Attached to remote VM: ip={self.vm_ip} "
+            f"(server_port={self.server_port}, chromium_port={self.chromium_port})"
+        )
 
     def _start_emulator(self):
+        if not hasattr(self, "_snapshot_revert_count"):
+            self._snapshot_revert_count = 0
+        if not hasattr(self, "_pending_snapshot_ip_log"):
+            self._pending_snapshot_ip_log = False
         try:
             # Power on the virtual machine
             self.provider.start_emulator(self.path_to_vm, self.headless, self.os_type)
@@ -209,8 +285,24 @@ class DesktopEnv(gym.Env):
                 self.chromium_port = int(vm_ip_ports[2])
                 self.vnc_port = int(vm_ip_ports[3])
                 self.vlc_port = int(vm_ip_ports[4])
-            self.controller = PythonController(vm_ip=self.vm_ip, server_port=self.server_port)
-            self.setup_controller = SetupController(vm_ip=self.vm_ip, server_port=self.server_port, chromium_port=self.chromium_port, vlc_port=self.vlc_port, cache_dir=self.cache_dir_base, client_password=self.client_password, screen_width=self.screen_width, screen_height=self.screen_height)
+            
+            # 记录实例IP地址
+            try:
+                if self.path_to_vm and self.vm_ip:
+                    tracker = get_instance_tracker()
+                    tracker.record_instance_ip(self.path_to_vm, self.vm_ip)
+            except Exception as e:
+                logger.warning(f"Failed to record instance IP: {e}")
+            
+            self.controller = PythonController(vm_ip=self.vm_ip, server_port=self.server_port, instance_id=self.path_to_vm)
+            readiness_probe = self._build_vm_readiness_probe()
+            self.setup_controller = SetupController(vm_ip=self.vm_ip, server_port=self.server_port, chromium_port=self.chromium_port, vlc_port=self.vlc_port, cache_dir=self.cache_dir_base, client_password=self.client_password, screen_width=self.screen_width, screen_height=self.screen_height, vm_readiness_probe=readiness_probe)
+            if self._pending_snapshot_ip_log:
+                logger.info(
+                    f"[snapshot #{self._snapshot_revert_count}] vm_id={self.path_to_vm} "
+                    f"ip={self.vm_ip} (server_port={self.server_port})"
+                )
+                self._pending_snapshot_ip_log = False
 
         except Exception as e:
             try:
@@ -222,22 +314,173 @@ class DesktopEnv(gym.Env):
     def _revert_to_snapshot(self):
         # Revert to certain snapshot of the virtual machine, and refresh the path to vm and ip of vm
         # due to the fact it could be changed when implemented by cloud services
+        next_revert_id = self._snapshot_revert_count + 1
+        previous_vm_path = self.path_to_vm
         path_to_vm = self.provider.revert_to_snapshot(self.path_to_vm, self.snapshot_name)
-        if path_to_vm and not path_to_vm == self.path_to_vm:
-            # path_to_vm has to be a new path 
+        logger.info(
+            f"[snapshot #{next_revert_id}] revert_to_snapshot completed "
+            f"(provider={self.provider_name}, previous_vm={previous_vm_path}, new_vm={path_to_vm})"
+        )
+        self._snapshot_revert_count = next_revert_id
+        self._pending_snapshot_ip_log = True
+        if path_to_vm:
+            if path_to_vm != self.path_to_vm:
+                # Ensure VM registry tracks the new instance id returned by provider
+                try:
+                    self.manager.delete_vm(self.path_to_vm, self.region)
+                except Exception as exc:
+                    logger.warning("Failed to delete old VM entry %s: %s", self.path_to_vm, exc)
+                try:
+                    self.manager.add_vm(path_to_vm, self.region)
+                    self.manager.occupy_vm(path_to_vm, os.getpid(), self.region)
+                except Exception as exc:
+                    logger.warning("Failed to register new VM entry %s: %s", path_to_vm, exc)
+                self.path_to_vm = path_to_vm
+                # 注意：revert_to_snapshot() 内部已经通过 _allocate_vm() 记录了实例创建
+                # 这里不需要重复记录，但可以记录IP地址更新
+        else:
+            logger.warning(
+                "[snapshot #%d] provider did not return a new vm identifier; "
+                "will keep using previous vm id %s until next allocation.",
+                self._snapshot_revert_count,
+                self.path_to_vm,
+            )
+
+        readiness_probe = self._build_vm_readiness_probe()
+        if readiness_probe and self.path_to_vm:
+            logger.info(
+                "[snapshot #%d] waiting for provider readiness probe before continuing...",
+                self._snapshot_revert_count,
+            )
+            readiness_probe.wait_until_ready()
+        
+        # 重置后，无论实例ID是否改变，都需要重新获取IP地址并更新Controller
+        # 这对于云厂商（如阿里云、AWS）特别重要，因为重置后IP地址可能会改变
+        # 即使实例ID不变，IP地址也可能因为重新分配而改变
+        logger.info(
+            f"[snapshot #{next_revert_id}] Resetting VM, updating IP address and controllers..."
+        )
+        try:
+            # 确保VM已启动
+            self.provider.start_emulator(self.path_to_vm, self.headless, self.os_type)
             
-            self.manager.delete_vm(self.path_to_vm, self.region)
-            self.manager.add_vm(path_to_vm, self.region)
-            self.manager.occupy_vm(path_to_vm, os.getpid(), self.region)
-            self.path_to_vm = path_to_vm
+            # 获取新的IP地址（无论实例ID是否改变，IP都可能变化）
+            vm_ip_ports = self.provider.get_ip_address(self.path_to_vm).split(':')
+            new_vm_ip = vm_ip_ports[0]
+            
+            # 检查IP是否真的改变了
+            ip_changed = (not hasattr(self, 'vm_ip')) or (self.vm_ip != new_vm_ip)
+            
+            if ip_changed:
+                logger.info(
+                    f"[snapshot #{next_revert_id}] IP address changed: {getattr(self, 'vm_ip', 'N/A')} -> {new_vm_ip}"
+                )
+            else:
+                logger.info(
+                    f"[snapshot #{next_revert_id}] IP address unchanged: {new_vm_ip}"
+                )
+            
+            # 更新IP地址和端口
+            self.vm_ip = new_vm_ip
+            if len(vm_ip_ports) > 1:
+                self.server_port = int(vm_ip_ports[1])
+                self.chromium_port = int(vm_ip_ports[2])
+                self.vnc_port = int(vm_ip_ports[3])
+                self.vlc_port = int(vm_ip_ports[4])
+            
+            # 记录更新的IP地址
+            try:
+                if self.path_to_vm and new_vm_ip:
+                    tracker = get_instance_tracker()
+                    tracker.record_instance_ip(self.path_to_vm, new_vm_ip)
+            except Exception as e:
+                logger.warning(f"Failed to record instance IP: {e}")
+            
+            # 重新创建Controller以使用新的IP地址（即使IP没变，也要确保Controller是最新的）
+            self.controller = PythonController(vm_ip=self.vm_ip, server_port=self.server_port, instance_id=self.path_to_vm)
+            readiness_probe_updated = self._build_vm_readiness_probe()
+            self.setup_controller = SetupController(
+                vm_ip=self.vm_ip,
+                server_port=self.server_port,
+                chromium_port=self.chromium_port,
+                vlc_port=self.vlc_port,
+                cache_dir=self.cache_dir_base,
+                client_password=self.client_password,
+                screen_width=self.screen_width,
+                screen_height=self.screen_height,
+                vm_readiness_probe=readiness_probe_updated
+            )
+            
+            logger.info(
+                f"[snapshot #{next_revert_id}] IP address and controllers updated: {new_vm_ip} "
+                f"(server_port={self.server_port})"
+            )
+        except Exception as exc:
+            logger.error(
+                f"[snapshot #{next_revert_id}] Failed to update IP address after reset: {exc}",
+                exc_info=True
+            )
+            # 不抛出异常，让后续流程继续，但会在连接时失败并重试
 
     def _save_state(self, snapshot_name=None):
         # Save the current virtual machine state to a certain snapshot name
         self.provider.save_state(self.path_to_vm, snapshot_name)
 
+    def _fetch_status_for_probe(self, provider_status_fetcher):
+        """
+        供 VMReadinessProbe 使用的实例方法，避免局部函数导致的 pickling 问题。
+        """
+        return provider_status_fetcher(self.path_to_vm)
+
+    def _build_vm_readiness_probe(self) -> Optional[VMReadinessProbe]:
+        """
+        若云厂商实现了实例状态查询，则构造 readiness probe，避免只依赖 HTTP 探活。
+        """
+        status_fetcher = getattr(self.provider, "get_instance_status", None)
+        if not callable(status_fetcher):
+            return None
+
+        def _parse_int(env_name: str, default: int) -> int:
+            value = os.getenv(env_name)
+            if value is None:
+                return default
+            try:
+                return int(value)
+            except ValueError:
+                logger.warning("Invalid value for %s: %s, fallback to %d", env_name, value, default)
+                return default
+
+        timeout = _parse_int("VM_READINESS_TIMEOUT", 300)
+        interval = _parse_int("VM_READINESS_INTERVAL", 5)
+        ready_states = getattr(self.provider, "READY_STATES", ("Running",))
+
+        readiness_fetcher = functools.partial(self._fetch_status_for_probe, status_fetcher)
+
+        return VMReadinessProbe(
+            status_fetcher=readiness_fetcher,
+            ready_states=list(ready_states),
+            timeout=timeout,
+            interval=interval,
+            label=f"{self.provider_name}:{self.path_to_vm}",
+        )
+
     def close(self):
+        # 在 Attach 模式下，不关闭 VM（VM 由 Manager 管理）
+        if self.remote_ip:
+            logger.info(f"Attach Mode: Skipping VM close (VM managed by Manager)")
+            return
+        
+        # 记录实例清理
+        try:
+            if self.path_to_vm:
+                tracker = get_instance_tracker()
+                tracker.record_instance_cleaned(self.path_to_vm)
+        except Exception as e:
+            logger.warning(f"Failed to record instance cleanup: {e}")
+        
         # Close (release) the virtual machine
-        self.provider.stop_emulator(self.path_to_vm)
+        if self.path_to_vm:
+            self.provider.stop_emulator(self.path_to_vm)
 
     def reset(self, task_config: Optional[Dict[str, Any]] = None, seed=None, options=None) -> Dict[str, Any]:
         
@@ -277,6 +520,63 @@ class DesktopEnv(gym.Env):
                 self.is_environment_used = False
             else:
                 logger.info("Environment is clean, skipping snapshot revert (provider: {}).".format(self.provider_name))
+                # 即使环境是干净的，在VM池场景中，VM可能在池中被重置了
+                # 需要检查并更新IP地址，确保Controller使用正确的IP
+                # 这对于云厂商（如阿里云）特别重要，因为VM重置后IP会改变
+                try:
+                    # 检查当前IP是否仍然有效
+                    # 如果VM在池中被重置，path_to_vm可能已经改变，需要重新获取IP
+                    if self.path_to_vm:
+                        logger.info("Checking and updating IP address for clean environment (VM pool scenario)...")
+                        # 确保VM已启动
+                        self.provider.start_emulator(self.path_to_vm, self.headless, self.os_type)
+                        # 获取当前IP地址
+                        vm_ip_ports = self.provider.get_ip_address(self.path_to_vm).split(':')
+                        current_vm_ip = vm_ip_ports[0]
+                        
+                        # 检查IP是否改变
+                        if hasattr(self, 'vm_ip') and self.vm_ip != current_vm_ip:
+                            logger.info(
+                                f"IP address changed in VM pool: {self.vm_ip} -> {current_vm_ip}, updating controllers..."
+                            )
+                            # 更新IP地址和端口
+                            self.vm_ip = current_vm_ip
+                            if len(vm_ip_ports) > 1:
+                                self.server_port = int(vm_ip_ports[1])
+                                self.chromium_port = int(vm_ip_ports[2])
+                                self.vnc_port = int(vm_ip_ports[3])
+                                self.vlc_port = int(vm_ip_ports[4])
+                            
+                            # 记录更新的IP地址
+                            try:
+                                if self.path_to_vm and current_vm_ip:
+                                    tracker = get_instance_tracker()
+                                    tracker.record_instance_ip(self.path_to_vm, current_vm_ip)
+                            except Exception as e:
+                                logger.warning(f"Failed to record instance IP: {e}")
+                            
+                            # 重新创建Controller以使用新的IP地址
+                            self.controller = PythonController(vm_ip=self.vm_ip, server_port=self.server_port, instance_id=self.path_to_vm)
+                            readiness_probe_updated = self._build_vm_readiness_probe()
+                            self.setup_controller = SetupController(
+                                vm_ip=self.vm_ip,
+                                server_port=self.server_port,
+                                chromium_port=self.chromium_port,
+                                vlc_port=self.vlc_port,
+                                cache_dir=self.cache_dir_base,
+                                client_password=self.client_password,
+                                screen_width=self.screen_width,
+                                screen_height=self.screen_height,
+                                vm_readiness_probe=readiness_probe_updated
+                            )
+                            logger.info(f"Controllers updated with new IP: {current_vm_ip}")
+                        else:
+                            logger.debug(f"IP address unchanged: {current_vm_ip}")
+                except Exception as exc:
+                    logger.warning(
+                        f"Failed to check/update IP address for clean environment: {exc}. "
+                        f"This is normal if VM hasn't been reset in pool."
+                    )
 
             if task_config is not None:
                 # FIX: Adapt to BenchmarkItem structure - proxy is in metadata
@@ -303,7 +603,8 @@ class DesktopEnv(gym.Env):
             else:
                 break
             
-        logger.info("Environment setup complete.")
+        instance_info = f"[instance_id={self.path_to_vm}]" if self.path_to_vm else ""
+        logger.info("%s Environment setup complete.", instance_info)
 
         observation = self._get_obs()
         return observation
@@ -317,6 +618,18 @@ class DesktopEnv(gym.Env):
             "terminal": self.controller.get_terminal_output() if self.require_terminal else None,
             "instruction": self.instruction
         }
+
+    def get_obs(self):
+        return self._get_obs()
+
+    def get_path_to_vm(self) -> Optional[str]:
+        return getattr(self, "path_to_vm", None)
+
+    def start_recording(self):
+        self.controller.start_recording()
+
+    def end_recording(self, output_path: str):
+        self.controller.end_recording(output_path)
 
     @property
     def vm_platform(self):

@@ -10,7 +10,7 @@ import time
 import traceback
 import uuid
 from datetime import datetime, timedelta
-from typing import Any, Union, Optional
+from typing import Any, Union, Optional, Callable
 from typing import Dict, List
 
 import requests
@@ -27,8 +27,10 @@ import dotenv
 # Load environment variables from .env file
 dotenv.load_dotenv()
 
+_BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+_DEFAULT_PROXY_CONFIG = os.path.join(_BASE_DIR, "osworld-settings", "proxy", "dataimpulse.json")
 
-PROXY_CONFIG_FILE = os.getenv("PROXY_CONFIG_FILE", "evaluation_examples/settings/proxy/dataimpulse.json")  # Default proxy config file
+PROXY_CONFIG_FILE = os.getenv("PROXY_CONFIG_FILE", _DEFAULT_PROXY_CONFIG)  # Default proxy config file
 
 logger = logging.getLogger("desktopenv.setup")
 
@@ -38,8 +40,72 @@ init_proxy_pool(PROXY_CONFIG_FILE)  # initialize the global proxy pool
 
 MAX_RETRIES = 20
 
+
+class VMReadinessProbe:
+    """
+    基于云厂商 API 的实例状态探测器，用于在 HTTP 探活前确认 VM 是否已就绪。
+    """
+
+    def __init__(
+        self,
+        status_fetcher: Callable[[], Optional[str]],
+        ready_states: Optional[List[str]] = None,
+        timeout: int = 300,
+        interval: int = 5,
+        label: str = "vm",
+    ):
+        self.status_fetcher = status_fetcher
+        self.ready_states = set(ready_states or ["Running"])
+        self.timeout = timeout
+        self.interval = interval
+        self.label = label
+
+    def wait_until_ready(self) -> bool:
+        start = time.time()
+        while time.time() - start < self.timeout:
+            try:
+                status = self.status_fetcher()
+            except Exception as exc:
+                error_msg = str(exc)
+                # 如果实例不存在，立即返回False，不再等待
+                if "not found" in error_msg.lower():
+                    logger.error(
+                        "VM readiness probe (%s): instance not found, stopping probe. Error: %s",
+                        self.label,
+                        exc
+                    )
+                    return False
+                logger.warning(
+                    "VM readiness probe (%s) failed to fetch status: %s", self.label, exc
+                )
+                status = None
+
+            if status in self.ready_states:
+                logger.info(
+                    "VM readiness probe (%s): status=%s, continue setup.",
+                    self.label,
+                    status,
+                )
+                return True
+
+            logger.info(
+                "VM readiness probe (%s): status=%s, waiting %ss...",
+                self.label,
+                status or "unknown",
+                self.interval,
+            )
+            time.sleep(self.interval)
+
+        logger.warning(
+            "VM readiness probe (%s) timed out after %ss, falling back to HTTP polling.",
+            self.label,
+            self.timeout,
+        )
+        return False
+
+
 class SetupController:
-    def __init__(self, vm_ip: str, server_port: int = 5000, chromium_port: int = 9222, vlc_port: int = 8080, cache_dir: str = "cache", client_password: str = "", screen_width: int = 1920, screen_height: int = 1080):
+    def __init__(self, vm_ip: str, server_port: int = 5000, chromium_port: int = 9222, vlc_port: int = 8080, cache_dir: str = "cache", client_password: str = "", screen_width: int = 1920, screen_height: int = 1080, vm_readiness_probe: Optional[VMReadinessProbe] = None):
         self.vm_ip: str = vm_ip
         self.server_port: int = server_port
         self.chromium_port: int = chromium_port
@@ -51,6 +117,7 @@ class SetupController:
         self.client_password: str = client_password
         self.screen_width: int = screen_width
         self.screen_height: int = screen_height
+        self.vm_readiness_probe = vm_readiness_probe
 
     def reset_cache_dir(self, cache_dir: str):
         self.cache_dir = cache_dir
@@ -66,19 +133,42 @@ class SetupController:
                     "parameters": dict like {str, Any} providing the keyword
                       parameters
                 }
-        """  
+        """
         self.use_proxy = use_proxy
+
+        if self.vm_readiness_probe is not None:
+            self.vm_readiness_probe.wait_until_ready()
+
         # make sure connection can be established
         logger.info(f"try to connect {self.http_server}")
         retry = 0
         while retry < MAX_RETRIES:
             try:
-                _ = requests.get(self.http_server + "/terminal")
+                _ = requests.get(self.http_server + "/terminal", timeout=10)
+                logger.info(f"Successfully connected to {self.http_server}")
                 break
-            except:
-                time.sleep(5)
+            except requests.exceptions.ConnectionError as e:
+                # 连接错误：可能是IP地址不存在或VM未启动
                 retry += 1
-                logger.info(f"retry: {retry}/{MAX_RETRIES}")
+                if retry < MAX_RETRIES:
+                    logger.warning(
+                        f"Connection failed to {self.http_server} (retry {retry}/{MAX_RETRIES}): {e}. "
+                        f"This may indicate the VM IP address has changed after reset."
+                    )
+                    time.sleep(5)
+                else:
+                    logger.error(
+                        f"Failed to connect to {self.http_server} after {MAX_RETRIES} retries. "
+                        f"The VM IP address may have changed after reset, or the VM is not accessible."
+                    )
+            except Exception as e:
+                # 其他异常
+                retry += 1
+                if retry < MAX_RETRIES:
+                    logger.warning(f"Request failed (retry {retry}/{MAX_RETRIES}): {e}")
+                    time.sleep(5)
+                else:
+                    logger.error(f"Request failed after {MAX_RETRIES} retries: {e}")
             
             if retry == MAX_RETRIES:
                 return False

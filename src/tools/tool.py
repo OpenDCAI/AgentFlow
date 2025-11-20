@@ -92,6 +92,6 @@ class Tool(ABC):
         pass
 
     @abstractmethod
-    def call(self, params: Union[str, dict], **kwargs) -> str:
+    def call(self, params: Union[str, dict], **kwargs) -> Union[str, Dict[str, Any]]:
         """Execute the tool with given parameters."""
         pass

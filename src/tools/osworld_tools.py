@@ -169,21 +169,23 @@ class BaseDesktopTool(ABC):
             'observation': observation or {}
         }
 
-    def _serialize_result(self, result: Dict[str, Any]) -> str:
+    def _serialize_result(self, result: Dict[str, Any]) -> Union[str, Dict[str, Any]]:
         """
-        将结果字典序列化为 JSON 字符串。
+        将结果字典序列化为最终返回格式。
 
         Args:
             result: 来自 _create_result() 的结果字典
 
         Returns:
-            JSON 字符串表示
+            dict 或 JSON 字符串（取决于环境配置）
         """
         tool_response = ToolResponse(
             status=result.get('status', 'unknown'),
             response=result.get('response', ''),
             observation=result.get('observation', {})
         )
+        if getattr(self.osworld_env, "_tool_response_use_dict", False):
+            return tool_response.to_dict()
         return tool_response.to_json()
 
     # ==================================================================
@@ -331,7 +333,7 @@ class MouseMoveTool(BaseDesktopTool, Tool):
             }
         ]
 
-    def call(self, params: Union[str, dict], **kwargs) -> str:
+    def call(self, params: Union[str, dict], **kwargs) -> Union[str, Dict[str, Any]]:
         if isinstance(params, str):
             params = json.loads(params)
 
@@ -430,7 +432,7 @@ class MouseClickTool(BaseDesktopTool, Tool):
             }
         ]
 
-    def call(self, params: Union[str, dict], **kwargs) -> str:
+    def call(self, params: Union[str, dict], **kwargs) -> Union[str, Dict[str, Any]]:
         if isinstance(params, str):
             params = json.loads(params)
 
@@ -533,7 +535,7 @@ class MouseButtonTool(BaseDesktopTool, Tool):
             }
         ]
 
-    def call(self, params: Union[str, dict], **kwargs) -> str:
+    def call(self, params: Union[str, dict], **kwargs) -> Union[str, Dict[str, Any]]:
         if isinstance(params, str):
             params = json.loads(params)
 
@@ -615,7 +617,7 @@ class MouseRightClickTool(BaseDesktopTool, Tool):
             }
         ]
 
-    def call(self, params: Union[str, dict], **kwargs) -> str:
+    def call(self, params: Union[str, dict], **kwargs) -> Union[str, Dict[str, Any]]:
         if isinstance(params, str):
             params = json.loads(params)
 
@@ -697,7 +699,7 @@ class MouseDoubleClickTool(BaseDesktopTool, Tool):
             }
         ]
 
-    def call(self, params: Union[str, dict], **kwargs) -> str:
+    def call(self, params: Union[str, dict], **kwargs) -> Union[str, Dict[str, Any]]:
         if isinstance(params, str):
             params = json.loads(params)
 
@@ -778,7 +780,7 @@ class MouseDragTool(BaseDesktopTool, Tool):
             }
         ]
 
-    def call(self, params: Union[str, dict], **kwargs) -> str:
+    def call(self, params: Union[str, dict], **kwargs) -> Union[str, Dict[str, Any]]:
         if isinstance(params, str):
             params = json.loads(params)
 
@@ -861,7 +863,7 @@ class ScrollTool(BaseDesktopTool, Tool):
             }
         ]
 
-    def call(self, params: Union[str, dict], **kwargs) -> str:
+    def call(self, params: Union[str, dict], **kwargs) -> Union[str, Dict[str, Any]]:
         if isinstance(params, str):
             params = json.loads(params)
 
@@ -934,7 +936,7 @@ class TypeTool(BaseDesktopTool, Tool):
             }
         ]
 
-    def call(self, params: Union[str, dict], **kwargs) -> str:
+    def call(self, params: Union[str, dict], **kwargs) -> Union[str, Dict[str, Any]]:
         if isinstance(params, str):
             params = json.loads(params)
 
@@ -997,7 +999,7 @@ class KeyPressTool(BaseDesktopTool, Tool):
             }
         ]
 
-    def call(self, params: Union[str, dict], **kwargs) -> str:
+    def call(self, params: Union[str, dict], **kwargs) -> Union[str, Dict[str, Any]]:
         if isinstance(params, str):
             params = json.loads(params)
 
@@ -1071,7 +1073,7 @@ class KeyHoldTool(BaseDesktopTool, Tool):
             }
         ]
 
-    def call(self, params: Union[str, dict], **kwargs) -> str:
+    def call(self, params: Union[str, dict], **kwargs) -> Union[str, Dict[str, Any]]:
         if isinstance(params, str):
             params = json.loads(params)
 
@@ -1153,7 +1155,7 @@ class HotkeyTool(BaseDesktopTool, Tool):
             }
         ]
 
-    def call(self, params: Union[str, dict], **kwargs) -> str:
+    def call(self, params: Union[str, dict], **kwargs) -> Union[str, Dict[str, Any]]:
         if isinstance(params, str):
             params = json.loads(params)
 
@@ -1246,7 +1248,7 @@ class ExecutePythonScriptTool(BaseDesktopTool, Tool):
             }
         ]
 
-    def call(self, params: Union[str, dict], **kwargs) -> str:
+    def call(self, params: Union[str, dict], **kwargs) -> Union[str, Dict[str, Any]]:
         if isinstance(params, str):
             params = json.loads(params)
 
@@ -1318,7 +1320,7 @@ class ControlTool(BaseDesktopTool, Tool):
             }
         ]
 
-    def call(self, params: Union[str, dict], **kwargs) -> str:
+    def call(self, params: Union[str, dict], **kwargs) -> Union[str, Dict[str, Any]]:
         if isinstance(params, str):
             params = json.loads(params)
 
