@@ -55,6 +55,9 @@ from envs.data_models import Observation, TrajectoryStep, TaskTrajectory
 from prompts.system_prompts import get_system_prompt as load_system_prompt
 from tools.tool import Tool
 from utils.resource_manager import ResourceManager
+import openai
+import os
+import json
 
 __all__ = [
     "Environment",
@@ -119,14 +122,173 @@ class Environment(ABC):
         """在此方法中注册环境所需的工具"""
         pass
 
-    @abstractmethod
+
     def run_task(self, task: Dict[str, Any], agent_config: Dict[str, Any], logger: logging.Logger) -> Dict[str, Any]:
         """
-        核心任务执行入口。
-        必须封装完整的 Agent 闭环：Prompt -> LLM -> Tool Execution -> Result
+        执行完整的 Agent 任务循环
+        
+        封装从任务初始化到结果返回的完整流程，包括：
+        - 任务初始化（env_task_init）
+        - Agent 对话循环（LLM -> Tool -> Env）
+        - 评估（如果支持）
+        - 任务清理（env_task_end）
+        
+        Args:
+            task: 任务字典，包含 id, question, metadata 等字段
+            agent_config: Agent 配置字典，包含 model_name, max_turns, max_retries 等
+            logger: 日志记录器
+        
+        Returns:
+            包含 task_id, question, answer, messages, success 等字段的结果字典
         """
-        raise NotImplementedError("Subclasses must implement run_task")
+        task_id = task.get("id", "unknown")
+        question = task.get("question", "")
+        
+        # 获取 Agent 配置参数
+        model_name = agent_config.get("model_name", "gpt-4.1-2025-04-14")
+        max_turns = agent_config.get("max_turns", 3)
+        max_retries = agent_config.get("max_retries", 3)
 
+        # 获取任务输出目录（如果环境支持）
+        task_output_dir = None
+        if hasattr(self, "get_task_output_dir") and callable(self.get_task_output_dir):
+            task_output_dir = self.get_task_output_dir(
+                agent_config.get("output_dir", "results"),
+                task_id,
+                model_name
+            )
+
+        # 执行对话，获取完整的消息列表
+        messages = self._run_conversation(question, model_name, max_turns, max_retries, logger)
+        
+        # 从消息中提取最终答案
+        final_answer = self._extract_final_answer(messages)
+
+        # 构建任务结果字典
+        result = {
+            "task_id": task_id,
+            "question": question,
+            "answer": final_answer,
+            "messages": messages,
+            "success": True,
+            "error": None,
+        }
+
+        # 如果任务输出目录存在，保存对话日志
+        if task_output_dir:
+            self._save_conversation_log(
+                task_output_dir,
+                task_id,
+                question,
+                model_name,
+                messages,
+                result
+            )
+
+        return result
+
+    def _run_conversation(
+        self,
+        question: str,
+        model_name: str,
+        max_turns: int,
+        max_retries: int,
+        logger: logging.Logger,
+    ) -> List[Dict[str, Any]]:
+        """
+        执行 Agent 对话循环
+        
+        Args:
+            question: 任务问题
+            initial_obs: 初始观察结果
+            model_name: LLM 模型名称
+            max_turns: 最大对话轮数
+            max_retries: 每次调用的最大重试次数
+            logger: 日志记录器
+        
+        Returns:
+            完整的消息列表
+        """
+        system_prompt = self.get_system_prompt(question)
+        messages: List[Dict[str, Any]] = [
+            {"role": "system", "content": system_prompt},
+        ]
+
+        # 构建用户消息内容，包含问题文本
+        user_content: List[Dict[str, Any]] = [{"type": "text", "text": f"Question: {question}\n"}]
+        # 如果环境支持格式化初始观察的功能，则将初始观察添加到消息中
+
+        messages.append({"role": "user", "content": user_content})
+
+        client = self._get_openai_client()
+        turn_count = 0
+        step_idx = 0
+
+        # 主对话循环：在最大轮次限制内进行多轮对话
+        while turn_count < max_turns:
+            retry = 0
+            # 重试循环：每次 API 调用失败后会重试，直到达到最大重试次数
+            while retry < max_retries:
+                try:
+                    # 调用 OpenAI API 获取 LLM 响应
+                    # exit()
+                    print(f"Messages: {messages}")
+                    response = client.chat.completions.create(  # type: ignore[arg-type]
+                        model=model_name,
+                        messages=messages,  # type: ignore[arg-type]
+                        tools=self.get_tool_schemas(),  # type: ignore[arg-type]
+                    )
+                    # 验证 API 响应是否有效
+                    if not hasattr(response, "choices") or not response.choices:
+                        raise ValueError("OpenAI API returned empty response")
+
+                    # 提取助手消息并添加到消息列表
+                    assistant_message = response.choices[0].message
+                    print(f"Assistant message: {assistant_message}")
+                    messages.append(assistant_message.model_dump())
+
+                    # 如果 LLM 返回了工具调用，则执行工具
+                    if assistant_message.tool_calls:
+                        print(f"Messages: {messages[-1]['content']}")
+                        if messages[-1]['content'] == "":
+                            tc = messages[-1].tool_calls[0].model_dump()['function']
+                            messages[-1]['content'] = tc
+                        for tool_call in assistant_message.tool_calls[:1]:
+                            tool_name = tool_call.function.name
+                            tool_args = json.loads(tool_call.function.arguments)
+                            
+                            print(f"Round {turn_count}: 🔧 Using tool: {tool_name}")
+                            print(f"Round {turn_count}:    Arguments: {tool_args}")
+                            
+                            # Execute tool
+                            tool_result = self.execute_tool(
+                                tool_name, 
+                                tool_args
+                            )
+                            
+                            print(f"Round {turn_count}:    Result: {tool_result[:100]}...")
+                            
+                            # Add tool result to conversation
+                            messages.append({
+                                "role": "tool",
+                                "tool_call_id": tool_call.id,
+                                "name": tool_name,
+                                "content": tool_result
+                            })
+                        
+                    else:
+                        logger.info(f"Turn {turn_count}: final answer produced")
+                        return messagess
+                except Exception as exc:
+                    # API 调用或工具执行失败，进行重试
+                    retry += 1
+                    logger.warning(f"Retry {retry}/{max_retries} due to error: {exc}")
+                    # 如果达到最大重试次数，则抛出异常
+                    if retry >= max_retries:
+                        raise
+            turn_count += 1
+        logger.warning("Max turns reached without final answer")
+        return messages
     # =========================================================================
     # 2. 资源管理接口 (主进程调用)
     # =========================================================================
@@ -189,11 +351,19 @@ class Environment(ABC):
 
     def _tool_to_schema(self, tool: Tool) -> Dict[str, Any]:
         """(内部) 将 Tool 转换为 OpenAI Schema 格式"""
-        properties = {
-            p['name']: {"type": p['type'], "description": p['description']}
-            for p in tool.parameters
-        }
-        required = [p['name'] for p in tool.parameters if p.get('required', False)]
+        required_params = [param['name'] for param in tool.parameters if param.get('required', False)]
+        properties = {}
+        
+        for param in tool.parameters:
+            properties[param['name']] = {
+                "type": param['type'],
+                "description": param['description']
+            }
+            if param['type'] == 'array':
+                properties[param['name']]['items'] = {
+                    "type": param['array_type']
+                }
+        
         return {
             "type": "function",
             "function": {
@@ -202,7 +372,7 @@ class Environment(ABC):
                 "parameters": {
                     "type": "object",
                     "properties": properties,
-                    "required": required
+                    "required": required_params
                 }
             }
         }
@@ -279,3 +449,22 @@ class Environment(ABC):
     def _validate_config(self) -> None:
         """验证配置 (可选覆盖)"""
         pass
+
+    def _get_openai_client(self) -> openai.OpenAI:
+        """
+        获取 OpenAI 客户端实例（单例模式）
+        如果客户端未初始化，则从环境变量或配置中读取配置并创建新实例
+        """
+        if not hasattr(self, '_openai_client') or self._openai_client is None:
+            import openai
+            api_key = self.config.get("openai_api_key") or os.environ.get("OPENAI_API_KEY", "")
+            base_url = self.config.get("openai_api_url") or os.environ.get("OPENAI_API_URL") or os.environ.get("OPENAI_API_BASE")
+            
+            openai.api_key = api_key
+            # 如果配置了自定义 base_url，则使用自定义 URL；否则使用默认 URL
+            if base_url:
+                openai.base_url = base_url
+                self._openai_client = openai.OpenAI(api_key=api_key, base_url=base_url)
+            else:
+                self._openai_client = openai.OpenAI(api_key=api_key)
+        return self._openai_client
