@@ -238,9 +238,9 @@ class AgentRunner:
                     
                     if assistant_message.tool_calls:
                         # Execute tool calls
-                        if messages[-1]["content"] == "":
-                            tc =messages[-1].tool_calls[0].model_dump()['function']messages[-1]
-                            content = f'Calling tools: {tc}'
+                        if messages[-1]['content'] == "":
+                            tc = messages[-1].tool_calls[0].model_dump()['function']
+                            messages[-1]['content'] = tc
                         for tool_call in assistant_message.tool_calls[:1]:
                             tool_name = tool_call.function.name
                             tool_args = json.loads(tool_call.function.arguments)
