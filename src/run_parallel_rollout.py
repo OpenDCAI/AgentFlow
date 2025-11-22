@@ -169,6 +169,11 @@ def run_parallel_rollout(
                     "metadata": item.metadata or {}
                 }
                 task_queue.put(task_dict)
+
+            # [修改点] 添加哨兵值 (Poison Pill) 到队列末尾，每个 Worker 一个
+            # 这确保了 Worker 在处理完所有任务后能立即收到停止信号
+            for _ in range(config.num_rollouts):
+                task_queue.put(None)
             
             # 3. 启动指定数量的 Worker 进程，每个进程执行 run_rollout_worker 函数
             # 将环境类传递给 worker（使用类的完全限定名，因为类对象不能直接序列化）
@@ -369,13 +374,19 @@ def run_rollout_worker(
         agent_config = dict(agent_config_dict)
         agent_config["output_dir"] = output_dir
 
-        # 7. 主任务循环：从任务队列中获取任务并执行，直到队列为空或超时
+        # 7. 主任务循环：从任务队列中获取任务并执行
         while True:
             try:
-                # 从任务队列中获取任务，设置超时时间为 5 秒
-                task = task_queue.get(timeout=5)
-            except Exception:
-                # 队列为空或超时，退出循环
+                
+                task = task_queue.get()
+                
+                #  检查哨兵值 (Poison Pill)
+                if task is None:
+                    logger.info(f"Worker {worker_id} received sentinel. Stopping loop.")
+                    break
+            except Exception as e:
+                # 仅处理队列异常（极少发生），如果发生则退出
+                logger.error(f"Worker {worker_id} error getting task: {e}")
                 break
 
             task_id = task.get("id", "unknown")
@@ -561,4 +572,3 @@ if __name__ == "__main__":
     results = run_parallel_rollout(config, benchmark)
     
     logger.info("Parallel rollout completed successfully")
-

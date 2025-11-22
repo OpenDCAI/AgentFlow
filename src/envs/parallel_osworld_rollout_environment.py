@@ -126,9 +126,6 @@ class ParallelOSWorldRolloutEnvironment(Environment):
     def mode(self) -> str:
         return "osworld"
 
-    def get_action_space(self) -> str:
-        return self.config.get("osworld", {}).get("action_space", "computer_13")
-
     def _replace_prompt_placeholders(self, prompt: str) -> str:
         """替换 OSWorld 特定占位符"""
         prompt = super()._replace_prompt_placeholders(prompt)
@@ -378,12 +375,6 @@ class ParallelOSWorldRolloutEnvironment(Environment):
         if not self._desktop_env:
             raise ValueError("DesktopEnv not initialized. Call allocate_resource() first.")
         return self._desktop_env.reset(task_config=task_config)
-
-    def _internal_step(self, action: str, pause: float = 2):
-        """内部步骤执行方法（原 step 方法）"""
-        if not self._desktop_env:
-            raise ValueError("DesktopEnv not initialized")
-        return self._desktop_env.step(action, pause=pause)
 
     def _internal_get_obs(self) -> Dict[str, Any]:
         """内部获取观察方法（原 get_obs 方法）"""
@@ -1098,22 +1089,3 @@ class ParallelOSWorldRolloutEnvironment(Environment):
         # 将对话数据写入 JSON 文件
         with open(conversation_file, "w", encoding="utf-8") as f:
             json.dump(conversation_data, f, indent=2, ensure_ascii=False)
-
-    def _get_openai_client(self):
-        """
-        获取 OpenAI 客户端实例（单例模式）
-        如果客户端未初始化，则从环境变量或配置中读取配置并创建新实例
-        """
-        if not hasattr(self, '_openai_client') or self._openai_client is None:
-            import openai
-            api_key = self.config.get("openai_api_key") or os.environ.get("OPENAI_API_KEY", "")
-            base_url = self.config.get("openai_api_url") or os.environ.get("OPENAI_API_URL") or os.environ.get("OPENAI_API_BASE")
-            
-            openai.api_key = api_key
-            # 如果配置了自定义 base_url，则使用自定义 URL；否则使用默认 URL
-            if base_url:
-                openai.base_url = base_url
-                self._openai_client = openai.OpenAI(api_key=api_key, base_url=base_url)
-            else:
-                self._openai_client = openai.OpenAI(api_key=api_key)
-        return self._openai_client
