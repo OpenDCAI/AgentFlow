@@ -294,6 +294,43 @@ class Environment(ABC):
             turn_count += 1
         logger.warning("Max turns reached without final answer")
         return messages
+    
+    def _extract_final_answer(self, messages: List[Dict[str, Any]]) -> Optional[str]:
+        """
+        从对话历史中提取最终答案（默认实现）。
+        
+        逻辑：
+        1. 倒序遍历消息列表。
+        2. 找到最后一条由 'assistant' 发出的消息。
+        3. 返回该消息的文本内容。
+        
+        Args:
+            messages: 完整的对话消息列表
+            
+        Returns:
+            提取到的最终答案字符串，如果未找到则返回 None。
+        """
+        if not messages:
+            return None
+            
+        # 倒序查找，获取最新的回复
+        for msg in reversed(messages):
+            if msg.get("role") == "assistant":
+                content = msg.get("content")
+                
+                # 情况1: 内容是标准字符串
+                if isinstance(content, str) and content.strip():
+                    return content
+                
+                # 情况2: 内容可能是 None（例如仅有 tool_calls）
+                # 在 run_task 逻辑中，通常是 tool_calls 为空时才视为 final answer，
+                # 此时 content 应该有值。但为了健壮性，这里做个检查。
+                if content is not None:
+                    return str(content)
+                    
+        return None
+    
+    
     # =========================================================================
     # 2. 资源管理接口 (主进程调用)
     # =========================================================================

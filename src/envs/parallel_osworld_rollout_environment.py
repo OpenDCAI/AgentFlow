@@ -6,6 +6,7 @@ Parallel OSWorld Rollout Environment - 直接继承 Environment，内联 Desktop
 - 独立持有 PythonController/SetupController，不依赖 DesktopEnv 类。
 - 从 VMPoolResourceManager 获取连接凭证 (Attach 模式)。
 - 负责 Task 级别的 Setup 和 Teardown。
+- [修改] 完整的 run_task 实现，支持多模态交互与轨迹记录。
 """
 
 import os
@@ -73,19 +74,14 @@ def _fix_pyautogui_less_than_bug(command: str) -> str:
 class ParallelOSWorldRolloutEnvironment(Environment):
     """Parallel OSWorld Environment built directly on Environment base class."""
     
-    # 【新增】覆盖基类属性：声明此环境需要重型资源
-    # 这样 Worker 进程检查 getattr(env, "has_heavy_resource") 时会自动得到 True
+    # 声明此环境需要重型资源
     has_heavy_resource = True
 
     @classmethod
     def setup_global_resources(cls, config: Any) -> ResourceManager:
         """根据配置初始化全局资源管理器（VM 池）"""
         
-        # 【修改】支持 osworld_parallel 模式
-        # 定义需要启动 VM 管理器的模式列表
         target_modes = ["osworld", "osworld_parallel"]
-        
-        # 检查配置中的 env_mode 是否在支持列表中
         current_mode = getattr(config, 'env_mode', None)
         
         if current_mode not in target_modes:
@@ -148,6 +144,7 @@ class ParallelOSWorldRolloutEnvironment(Environment):
         self._step_no: int = 0
         self._current_trajectory: List[Dict[str, Any]] = []
         self._current_task_id: Optional[str] = None
+        self._current_instruction: str = ""
         
         # Task 级别配置缓存
         self._task_use_proxy: Optional[bool] = None
@@ -324,8 +321,190 @@ class ParallelOSWorldRolloutEnvironment(Environment):
             logger.warning("Controller not set. Call allocate_resource() first.")
 
     def env_close(self) -> None:
-        # 控制器是无状态的 RPC 客户端，无需显式关闭，置空即可
         self.controller = None
+
+    # =====================================================================
+    # 1. 核心：重写 run_task 以适配 OSWorld 的生命周期与多模态交互
+    # =====================================================================
+    def run_task(self, task: Dict[str, Any], agent_config: Dict[str, Any], logger: logging.Logger) -> Dict[str, Any]:
+        """
+        覆盖基类 run_task。
+        结合 env_task_init/env_task_end 管理生命周期，并处理多模态观察流。
+        """
+        task_id = task.get("id", "unknown")
+        question = task.get("question", "")
+        
+        # 获取配置
+        model_name = agent_config.get("model_name", "gpt-4o")
+        max_turns = agent_config.get("max_turns", 15)
+        max_retries = agent_config.get("max_retries", 3)
+        output_dir = agent_config.get("output_dir", "results")
+        
+        # 准备任务输出目录
+        task_output_dir = os.path.join(output_dir, "task_output", task_id)
+        os.makedirs(task_output_dir, exist_ok=True)
+
+        logger.info(f"Starting run_task for {task_id}")
+
+        # -----------------------------------------------------------------
+        # 1. 环境初始化 (Setup VM, Cache, Recording)
+        # -----------------------------------------------------------------
+        try:
+            # env_task_init 内部调用 _internal_reset -> setup_controller.setup
+            # 这利用了 task metadata 中的 config 来配置环境（如登录账号、打开应用）
+            initial_obs = self.env_task_init(task)
+        except Exception as e:
+            logger.error(f"Environment initialization failed: {e}", exc_info=True)
+            return {
+                "task_id": task_id, 
+                "error": str(e), 
+                "success": False
+            }
+
+        # -----------------------------------------------------------------
+        # 2. 构建初始对话历史 (Inject Initial Screenshot & A11y Tree)
+        # -----------------------------------------------------------------
+        system_prompt = self.get_system_prompt(question)
+        messages = [{"role": "system", "content": system_prompt}]
+        
+        # 构建 User 消息：包含 Question + 初始截图 + 初始 A11y Tree
+        user_content = [{"type": "text", "text": f"Question: {question}\n"}]
+        
+        if initial_obs:
+            if "text" in initial_obs and initial_obs["text"]:
+                user_content.append({
+                    "type": "text", 
+                    "text": f"Accessibility Tree:\n{initial_obs['text']}"
+                })
+            if "image" in initial_obs and initial_obs["image"]:
+                user_content.append({
+                    "type": "image_url", 
+                    "image_url": {"url": f"data:image/png;base64,{initial_obs['image']}"}
+                })
+        
+        messages.append({"role": "user", "content": user_content})
+
+        # -----------------------------------------------------------------
+        # 3. Agent 交互循环 (LLM -> Tool -> Obs)
+        # -----------------------------------------------------------------
+        client = self._get_openai_client()
+        turn_count = 0
+        final_answer = None
+        
+        while turn_count < max_turns:
+            logger.info(f"Turn {turn_count} processing...")
+            
+            # (A) 调用 LLM
+            response_msg = None
+            for attempt in range(max_retries):
+                try:
+                    response = client.chat.completions.create(
+                        model=model_name,
+                        messages=messages,
+                        tools=self.get_tool_schemas(),
+                        tool_choice="auto"
+                    )
+                    response_msg = response.choices[0].message
+                    break
+                except Exception as e:
+                    logger.warning(f"LLM API error (attempt {attempt}): {e}")
+                    time.sleep(2)
+            
+            if not response_msg:
+                logger.error("Failed to get response from LLM after retries.")
+                break
+            
+            # 记录 LLM 回复
+            messages.append(response_msg.model_dump())
+            
+            # (B) 处理工具调用
+            tool_calls = response_msg.tool_calls
+            if tool_calls:
+                for tool_call in tool_calls:
+                    func_name = tool_call.function.name
+                    try:
+                        args = json.loads(tool_call.function.arguments)
+                    except:
+                        args = {}
+                    
+                    logger.info(f"Executing tool: {func_name} with args: {args}")
+                    
+                    # 执行工具 (内部调用 self._internal_step)
+                    # execute_tool 捕获异常并返回结果，这里结果通常是 _internal_step 返回的 raw obs dict
+                    tool_result = self.execute_tool(func_name, args)
+                    
+                    # (C) 处理观察结果 (Observation)
+                    # 我们需要将工具执行结果转化为 LLM 可读的消息
+                    tool_resp_content = "Action executed successfully."
+                    obs_content_blocks = []
+
+                    # 检查结果是否包含观察数据 (截图/Tree)
+                    # 注意：execute_tool 返回的如果是 dict，通常包含 status, response, observation
+                    # 这里的逻辑假设 tool_result 是工具返回的标准结构
+                    
+                    # 提取观察数据
+                    obs_data = {}
+                    if isinstance(tool_result, dict):
+                        # 适配 osworld_tools 的返回格式 {'status':..., 'response':..., 'observation':...}
+                        tool_resp_content = tool_result.get('response', str(tool_result))
+                        obs_data = tool_result.get('observation', {})
+                    elif isinstance(tool_result, str):
+                        tool_resp_content = tool_result
+                    
+                    if obs_data:
+                        # 确保格式化（如果工具层没做）
+                        formatted = obs_data if "image" in obs_data else self.format_observation_by_type(obs_data, output_format="dict")
+                        
+                        # 添加 Tree
+                        if formatted.get("text"):
+                            obs_content_blocks.append({
+                                "type": "text", 
+                                "text": f"Observation (Accessibility Tree):\n{formatted['text']}"
+                            })
+                        # 添加 Image
+                        if formatted.get("image"):
+                            obs_content_blocks.append({
+                                "type": "image_url", 
+                                "image_url": {"url": f"data:image/png;base64,{formatted['image']}"}
+                            })
+
+                    # 添加 Tool Role 消息 (主要用于确认执行)
+                    messages.append({
+                        "role": "tool",
+                        "tool_call_id": tool_call.id,
+                        "name": func_name,
+                        "content": tool_resp_content
+                    })
+                    
+                    # 添加 User Role 消息 (携带新的 Screenshot/Tree)
+                    if obs_content_blocks:
+                        messages.append({"role": "user", "content": obs_content_blocks})
+            
+            else:
+                # (D) 没有工具调用 -> 视为最终答案
+                final_answer = response_msg.content
+                logger.info("Final answer received.")
+                break
+            
+            turn_count += 1
+
+        # -----------------------------------------------------------------
+        # 4. 任务收尾 (Extract Answer, Stop Recording, Save Trajectory)
+        # -----------------------------------------------------------------
+        if not final_answer:
+            final_answer = self._extract_final_answer(messages)
+            
+        # 调用 env_task_end 保存视频和轨迹文件
+        self.env_task_end(task_id, task_output_dir, final_answer)
+        
+        return {
+            "task_id": task_id,
+            "question": question,
+            "answer": final_answer,
+            "messages": messages,
+            "success": True,
+            "error": None
+        }
 
     # ---------------------------------------------------------------------
     # Core Interactions (Replace DesktopEnv)
@@ -360,10 +539,6 @@ class ParallelOSWorldRolloutEnvironment(Environment):
         config_list = metadata.get("config", [])
         use_proxy = metadata.get("proxy", False)
         
-        # 检查是否全局启用了 proxy
-        # 注意：这里我们假设 Environment 外部没有传入 enable_proxy 参数，
-        # 如果需要，应该在 __init__ 或 config 中获取。
-        # 简单起见，如果 task 要求 proxy，我们尝试设置。
         if use_proxy:
              client_pwd = self.config.get("osworld", {}).get("client_password", "password")
              self.setup_controller._proxy_setup(client_pwd)
@@ -376,18 +551,23 @@ class ParallelOSWorldRolloutEnvironment(Environment):
 
         return self._internal_get_obs()
 
+    # =====================================================================
+    # 2. 优化路径记录：保存动作、文本和图像 (覆盖原 _internal_step)
+    # =====================================================================
     def _internal_step(self, action: Union[str, Dict], pause: float = 2):
-        """替代 DesktopEnv.step"""
+        """
+        替代 DesktopEnv.step。
+        优化：在执行动作后，将完整的 [动作 + 文本状态 + 图像状态] 记录到 trajectory。
+        """
         self._step_no += 1
         self._action_history.append(action)
         
+        # --- Action Execution ---
         action_type = action if isinstance(action, str) else action.get('action_type')
         if action_type in ['WAIT', 'FAIL', 'DONE']:
             if action_type == 'WAIT': time.sleep(pause)
-            # FAIL/DONE 由上层处理
         
         action_space = self.config.get("osworld", {}).get("action_space", "computer_13")
-        
         if action_space == "computer_13":
             self.controller.execute_action(action)
         elif action_space in ["pyautogui", "claude_computer_use"]:
@@ -397,7 +577,26 @@ class ParallelOSWorldRolloutEnvironment(Environment):
                 self.controller.execute_python_command(fixed_cmd)
 
         time.sleep(pause)
-        return self._internal_get_obs()
+        
+        # --- Get Observation ---
+        obs = self._internal_get_obs()
+        
+        # --- Record Trajectory (Text & Image) ---
+        # 使用 format_observation_by_type 确保图像转为 base64，文本经过裁剪处理
+        formatted_obs = self.format_observation_by_type(obs, output_format="dict")
+        
+        if isinstance(formatted_obs, dict):
+            step_record = {
+                "step": self._step_no,
+                "action": action,
+                "timestamp": datetime.now().isoformat(),
+                # 同时保留两类模态数据
+                "text": formatted_obs.get("text", ""),   # Processed Accessibility Tree
+                "image": formatted_obs.get("image", "")  # Base64 Screenshot
+            }
+            self._current_trajectory.append(step_record)
+        
+        return obs
 
     def _internal_get_obs(self):
         """替代 DesktopEnv._get_obs"""
@@ -421,8 +620,6 @@ class ParallelOSWorldRolloutEnvironment(Environment):
 
     def step(self, action: Union[str, Dict], pause: float = None):
         """适配工具调用的标准 step 接口"""
-        # 如果 pause 为 None，使用默认值（_internal_step 默认是 2）
-        # 或者从配置中读取默认值
         if pause is None:
             pause = self.config.get("osworld", {}).get("sleep_after_execution", 2)
         return self._internal_step(action, pause)
@@ -443,7 +640,6 @@ class ParallelOSWorldRolloutEnvironment(Environment):
         self.evaluator_config = evaluator_config
         func = evaluator_config["func"]
         
-        # 绑定 Metric 函数
         if isinstance(func, list):
              self.metric = [getattr(metrics, f) for f in func]
         else:
@@ -451,7 +647,6 @@ class ParallelOSWorldRolloutEnvironment(Environment):
         
         self.metric_conj = evaluator_config.get("conj", "and")
         
-        # 绑定 Result Getter
         if "result" in evaluator_config and len(evaluator_config["result"]) > 0:
             res_conf = evaluator_config["result"]
             if isinstance(res_conf, list):
@@ -461,7 +656,6 @@ class ParallelOSWorldRolloutEnvironment(Environment):
         else:
             self.result_getter = [None] * len(self.metric) if isinstance(self.metric, list) else None
 
-        # 绑定 Expected Getter
         if "expected" in evaluator_config and len(evaluator_config["expected"]) > 0:
             exp_conf = evaluator_config["expected"]
             if isinstance(exp_conf, list):
@@ -471,7 +665,6 @@ class ParallelOSWorldRolloutEnvironment(Environment):
         else:
             self.expected_getter = [None] * len(self.metric) if isinstance(self.metric, list) else None
 
-        # 绑定 Options
         opts = evaluator_config.get("options", {})
         if isinstance(opts, list):
             self.metric_options = [o if o else {} for o in opts]
@@ -490,21 +683,12 @@ class ParallelOSWorldRolloutEnvironment(Environment):
             else:
                 return 0.0
 
-        # 以下是通用的评测逻辑
-        # 注意：Getter 函数 (如 getters.get_file) 的第一个参数通常是 env。
-        # 在原 DesktopEnv 中传的是 self (DesktopEnv实例)。
-        # 现在传 self (ParallelOSWorldRolloutEnvironment实例)。
-        # 只要 getters 中的函数只访问 env.controller 或 env.config，则兼容。
-        # 如果 getters 访问了 DesktopEnv 特有的属性，可能需要适配。
-        # 假设 getters 主要通过 controller 获取信息。
-
         if isinstance(self.metric, list):
             results = []
             for idx, metric_fn in enumerate(self.metric):
                 try:
                     res_getter = self.result_getter[idx]
                     res_conf = self.evaluator_config["result"][idx]
-                    # 调用 getter，传入 self 作为 env
                     result_state = res_getter(self, res_conf)
                 except FileNotFoundError:
                     if self.metric_conj == 'and': return 0.0
@@ -528,7 +712,6 @@ class ParallelOSWorldRolloutEnvironment(Environment):
             if not results: return 0.0
             return sum(results) / len(results) if self.metric_conj == 'and' else max(results)
         else:
-            # Single metric
             try:
                 res_getter = self.result_getter
                 res_conf = self.evaluator_config["result"]
@@ -555,8 +738,6 @@ class ParallelOSWorldRolloutEnvironment(Environment):
     # ---------------------------------------------------------------------
     # Observation formatting / Tools / Lifecycle (Keep existing)
     # ---------------------------------------------------------------------
-    # ... (这些部分基本不需要变动，只需确保它们调用的是 _internal_* 方法) ...
-    # 为了完整性，这里保留关键的 Observation 处理方法
 
     def _encode_image(self, image_content: bytes) -> str:
         if not image_content: return ""
@@ -616,7 +797,8 @@ class ParallelOSWorldRolloutEnvironment(Environment):
             if include_a11y_tree and linearized_a11y_tree: result["text"] = linearized_a11y_tree
             if include_screenshot and base64_image: result["image"] = base64_image
             return result
-        # ... (List/OpenAI 格式化代码保持不变，为节省篇幅略去) ...
+        
+        # For other formats (List[Observation] etc.), keep simple or expand as needed
         return {}
 
     # Task Lifecycle
@@ -641,7 +823,13 @@ class ParallelOSWorldRolloutEnvironment(Environment):
         raw_obs = self._internal_get_obs()
         if not raw_obs: return None
         formatted_obs = cast(Dict[str, Any], self.format_observation_by_type(raw_obs, output_format="dict"))
-        self._current_trajectory.append({"step": 0, "type": "initial_observation", "text": formatted_obs.get("text", ""), "image": formatted_obs.get("image", "")})
+        self._current_trajectory.append({
+            "step": 0, 
+            "type": "initial_observation", 
+            "timestamp": datetime.now().isoformat(),
+            "text": formatted_obs.get("text", ""), 
+            "image": formatted_obs.get("image", "")
+        })
         return formatted_obs
 
     def env_task_end(self, task_id: str, task_output_dir: Optional[str] = None, final_answer: Optional[str] = None) -> Optional[Dict[str, Any]]:
@@ -656,8 +844,12 @@ class ParallelOSWorldRolloutEnvironment(Environment):
         self._current_task_id = None
         return {"answer": final_answer} if final_answer is not None else None
     
-    # ... (其他辅助方法如 _save_trajectory_to_files, _register_tools, run_task 等保持不变) ...
-    # 必须确保 run_task 调用 env_task_init 和 env_task_end
+    def _save_trajectory_to_files(self, output_dir: str):
+        """Save trajectory to jsonl"""
+        file_path = os.path.join(output_dir, "trajectory.jsonl")
+        with open(file_path, "w", encoding="utf-8") as f:
+            for step in self._current_trajectory:
+                f.write(json.dumps(step) + "\n")
 
     def _register_tools(self):
         """注册工具（在 Controller 可用后调用）"""
@@ -665,9 +857,6 @@ class ParallelOSWorldRolloutEnvironment(Environment):
             raise ValueError("Controller must be set before registering tools.")
         
         action_space = self.config.get("osworld", {}).get("action_space", "computer_13")
-        # 动态导入工具模块，传入 self (Environment)
-        # 注意工具类通常接受 env 实例，并在内部调用 env.controller 或 env.step
-        # 只要 Environment 实现了 controller 属性和 step 方法，工具就能正常工作
         if action_space == "computer_13":
             self._register_computer13_tools()
         elif action_space == "pyautogui":
@@ -693,3 +882,17 @@ class ParallelOSWorldRolloutEnvironment(Environment):
         from tools.osworld_tools import ExecutePythonScriptTool, ControlTool
         tools = [ExecutePythonScriptTool(self), ControlTool(self)]
         for tool in tools: self.register_tool(tool)
+
+    # =====================================================================
+    # 3. 修复崩溃问题 (添加 _extract_final_answer)
+    # =====================================================================
+    def _extract_final_answer(self, messages: List[Dict[str, Any]]) -> Optional[str]:
+        """防止 AttributeError 崩溃"""
+        if not messages:
+            return None
+        for msg in reversed(messages):
+            if msg.get("role") == "assistant":
+                content = msg.get("content")
+                if isinstance(content, str): return content
+                return str(content) if content is not None else None
+        return None
