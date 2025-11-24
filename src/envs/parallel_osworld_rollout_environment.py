@@ -81,16 +81,8 @@ class ParallelOSWorldRolloutEnvironment(Environment):
     def setup_global_resources(cls, config: Any) -> ResourceManager:
         """根据配置初始化全局资源管理器（VM 池）"""
         
-        target_modes = ["osworld", "osworld_parallel"]
-        current_mode = getattr(config, 'env_mode', None)
-        
-        if current_mode not in target_modes:
-            logger.info(f"Mode '{current_mode}' is not a heavy resource mode, using NoResourceManager")
-            return NoResourceManager()
-        
-        if not (hasattr(config, 'use_resource_pool') and config.use_resource_pool):
-            logger.info("Resource pool disabled, using NoResourceManager")
-            return NoResourceManager()
+        # [修改] 删除了原本检查 env_mode 和 use_resource_pool 的逻辑
+        # 强制使用 VMPoolResourceManager 以避免 fallback 到 NoResourceManager 导致 IP 为 None
         
         logger.info("Initializing VM pool (Distributed Worker Architecture)...")
         env_kwargs = getattr(config, 'env_kwargs', {}) or {}
@@ -159,7 +151,24 @@ class ParallelOSWorldRolloutEnvironment(Environment):
             parallel_degree=parallel_degree,
         )
 
+        super().__init__(
+            model_name=model_name,
+            openai_api_key=openai_api_key,
+            openai_api_url=openai_api_url,
+            enable_terminal_bench=enable_terminal_bench,
+            defer_init=True,
+            resource_manager=resource_manager,
+            parallel_degree=parallel_degree,
+        )
+
+        # 【新增修改】显式调用初始化配置，修复 KeyError: 'osworld'
+        # 必须在这里调用，因为 Environment 基类不会自动调用它
+        self._initialize_config()
+        self._validate_config()
+
+
         self._tools_registered = False
+        
 
     # ---------------------------------------------------------------------
     # Environment overrides
