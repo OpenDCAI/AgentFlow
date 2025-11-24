@@ -528,7 +528,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run parallel rollout")
     parser.add_argument("--data_path", type=str, required=True, help="Path to benchmark data file")
     parser.add_argument("--num_rollouts", type=int, default=5, help="Number of parallel workers")
-    parser.add_argument("--env_mode", type=str, default="osworld", help="Environment mode")
+    parser.add_argument("--env_mode", type=str, default="osworld_parallel", help="Environment mode")
     parser.add_argument("--output_dir", type=str, default="results", help="Output directory")
     parser.add_argument("--provider", type=str, default=None, help="Override VM provider name (e.g., aliyun, aws)")
     parser.add_argument("--region", type=str, default=None, help="Override region for cloud providers")

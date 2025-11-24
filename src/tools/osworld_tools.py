@@ -16,7 +16,8 @@ import os
 from abc import ABC
 from typing import Any, Dict, List, Union, Optional
 
-from tools.tool import Tool, ToolResponse
+# 【修改】仅导入 Tool，移除 ToolResponse
+from tools.tool import Tool
 
 # Import from desktop_env.actions
 import sys
@@ -30,7 +31,7 @@ class BaseDesktopTool(ABC):
 
     顶层设计原则:
     ================
-    1. **统一返回格式**: 所有情况（参数异常、执行异常、成功）都返回 ToolResponse
+    1. **统一返回格式**: 所有情况（参数异常、执行异常、成功）都返回 JSON 格式
     2. **观察数据完整性**: 每个响应都包含当前环境观察（observation），包括错误情况
     3. **预处理观察数据**: 在工具层完成 observation 预处理（base64编码 + 树形结构线性化）
     4. **分层责任**:
@@ -47,7 +48,7 @@ class BaseDesktopTool(ABC):
         ↓ 成功
     [获取观察] → _create_result('success', success_msg, observation)
         ↓
-    ToolResponse.to_json() → JSON string
+    _serialize_result() → JSON string
 
     核心方法:
     ==========
@@ -86,6 +87,7 @@ class BaseDesktopTool(ABC):
         """
         raw_obs: Any = {}
         try:
+            # 依赖环境提供 get_obs 方法
             raw_obs = self.osworld_env.get_obs()
         except Exception:
             # Fallback: try to get observation directly from desktop_env
@@ -179,14 +181,19 @@ class BaseDesktopTool(ABC):
         Returns:
             dict 或 JSON 字符串（取决于环境配置）
         """
-        tool_response = ToolResponse(
-            status=result.get('status', 'unknown'),
-            response=result.get('response', ''),
-            observation=result.get('observation', {})
-        )
+        # 1. 直接构建标准的响应字典
+        response_data = {
+            'status': result.get('status', 'unknown'),
+            'response': result.get('response', ''),
+            'observation': result.get('observation', {})
+        }
+
+        # 2. 检查环境配置是否要求直接返回字典 (通常用于测试或调试)
         if getattr(self.osworld_env, "_tool_response_use_dict", False):
-            return tool_response.to_dict()
-        return tool_response.to_json()
+            return response_data
+            
+        # 3. 默认情况：序列化为 JSON 字符串 (Agent 通常需要字符串格式的工具输出)
+        return json.dumps(response_data)
 
     # ==================================================================
     # Helper Methods - 辅助方法

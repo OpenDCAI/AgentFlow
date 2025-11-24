@@ -181,13 +181,6 @@ def _auto_register_builtin_environments():
         register_environment("tbench", TBenchEnvironment)
     except ImportError:
         pass
-    
-    try:
-        from .osworld_environment import OSWorldEnvironment
-        register_environment("osworld", OSWorldEnvironment)
-    except ImportError:
-        pass
-    
     # Register parallel rollout environment (for parallel execution)
     try:
         from .parallel_osworld_rollout_environment import ParallelOSWorldRolloutEnvironment

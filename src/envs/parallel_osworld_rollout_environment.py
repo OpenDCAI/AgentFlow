@@ -72,12 +72,24 @@ def _fix_pyautogui_less_than_bug(command: str) -> str:
 
 class ParallelOSWorldRolloutEnvironment(Environment):
     """Parallel OSWorld Environment built directly on Environment base class."""
+    
+    # 【新增】覆盖基类属性：声明此环境需要重型资源
+    # 这样 Worker 进程检查 getattr(env, "has_heavy_resource") 时会自动得到 True
+    has_heavy_resource = True
 
     @classmethod
     def setup_global_resources(cls, config: Any) -> ResourceManager:
         """根据配置初始化全局资源管理器（VM 池）"""
-        if not (hasattr(config, 'env_mode') and config.env_mode == "osworld"):
-            logger.info("Not OSWorld mode, using NoResourceManager")
+        
+        # 【修改】支持 osworld_parallel 模式
+        # 定义需要启动 VM 管理器的模式列表
+        target_modes = ["osworld", "osworld_parallel"]
+        
+        # 检查配置中的 env_mode 是否在支持列表中
+        current_mode = getattr(config, 'env_mode', None)
+        
+        if current_mode not in target_modes:
+            logger.info(f"Mode '{current_mode}' is not a heavy resource mode, using NoResourceManager")
             return NoResourceManager()
         
         if not (hasattr(config, 'use_resource_pool') and config.use_resource_pool):
@@ -146,7 +158,6 @@ class ParallelOSWorldRolloutEnvironment(Environment):
             openai_api_url=openai_api_url,
             enable_terminal_bench=enable_terminal_bench,
             defer_init=True,
-            has_heavy_resource=True,
             resource_manager=resource_manager,
             parallel_degree=parallel_degree,
         )
@@ -403,6 +414,26 @@ class ParallelOSWorldRolloutEnvironment(Environment):
             "terminal": self.controller.get_terminal_output() if require_terminal else None,
             "instruction": getattr(self, "_current_instruction", "")
         }
+
+    # =====================================================================
+    # 兼容性接口 (适配 osworld_tools.py)
+    # =====================================================================
+
+    def step(self, action: Union[str, Dict], pause: float = None):
+        """适配工具调用的标准 step 接口"""
+        # 如果 pause 为 None，使用默认值（_internal_step 默认是 2）
+        # 或者从配置中读取默认值
+        if pause is None:
+            pause = self.config.get("osworld", {}).get("sleep_after_execution", 2)
+        return self._internal_step(action, pause)
+
+    def get_obs(self):
+        """适配工具调用的标准 get_obs 接口"""
+        return self._internal_get_obs()
+
+    def get_config(self, key: str) -> Any:
+        """适配工具调用的配置获取接口"""
+        return self.config.get(key)
 
     # ---------------------------------------------------------------------
     # Evaluation Logic

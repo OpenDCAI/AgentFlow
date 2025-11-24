@@ -77,6 +77,10 @@ class Environment(ABC):
     3. 提供资源管理接口 (Setup Global Resources)
     """
     
+    # 【新增】定义类属性：默认不需要重型资源
+    # 子类如果需要（如 OSWorld），只需覆盖此属性为 True
+    has_heavy_resource = False 
+    
     def __init__(self, 
                  model_name: str = "gpt-4.1-2025-04-14",
                  resource_manager: Optional['ResourceManager'] = None,
@@ -278,7 +282,8 @@ class Environment(ABC):
                         
                     else:
                         logger.info(f"Turn {turn_count}: final answer produced")
-                        return messagess
+                        # 【修正】拼写错误 messagess -> messages
+                        return messages 
                 except Exception as exc:
                     # API 调用或工具执行失败，进行重试
                     retry += 1
