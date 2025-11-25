@@ -503,17 +503,29 @@ class VMPoolResourceManager(ResourceManager):
         """启动 BaseManager 并注册内部的 _ManagerImpl"""
         # 注册内部实现类
         # 注意: BaseManager.register 需要一个 callable，这里传入类本身即可
+        # _VMPoolManagerBase就是BaseManager
         _VMPoolManagerBase.register("ManagerImpl", VMPoolResourceManager._ManagerImpl)
-        
+        #将字符串 "ManagerImpl" 与 VMPoolResourceManager._ManagerImpl 类关联起来
+
+
+
         manager = _VMPoolManagerBase()
         manager.start()
-        
-        # 获取代理对象
+        #创建了一个_VMPoolManagerBase实例（也就是_base_manager）
+        #启动了一个独立的进程，这个进程将托管所有注册的对象
+
+        # 获取代理构造函数
         vm_pool_ctor = getattr(manager, "ManagerImpl")
+
+
         ctor_kwargs: MutableMapping[str, Any] = dict(config)
         extra_kwargs = ctor_kwargs.pop("extra_kwargs", {})
         vm_pool_manager_proxy = vm_pool_ctor(**ctor_kwargs, **extra_kwargs)
-        
+        #准备构造_ManagerImpl实例所需的参数
+        #调用代理构造函数，在_base_manager管理的独立进程中创建_ManagerImpl的实际实例
+        #返回一个代理对象，这个代理对象就是_vm_pool_manager
+
+
         return manager, vm_pool_manager_proxy
 
     @staticmethod
