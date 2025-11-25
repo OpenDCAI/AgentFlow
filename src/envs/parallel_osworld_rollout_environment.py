@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 """
 Parallel OSWorld Rollout Environment - 直接继承 Environment，内联 DesktopEnv 逻辑。
@@ -151,16 +152,6 @@ class ParallelOSWorldRolloutEnvironment(Environment):
             parallel_degree=parallel_degree,
         )
 
-        super().__init__(
-            model_name=model_name,
-            openai_api_key=openai_api_key,
-            openai_api_url=openai_api_url,
-            enable_terminal_bench=enable_terminal_bench,
-            defer_init=True,
-            resource_manager=resource_manager,
-            parallel_degree=parallel_degree,
-        )
-
         # 【新增修改】显式调用初始化配置，修复 KeyError: 'osworld'
         # 必须在这里调用，因为 Environment 基类不会自动调用它
         self._initialize_config()
@@ -250,7 +241,13 @@ class ParallelOSWorldRolloutEnvironment(Environment):
                 worker_id=worker_id,
                 timeout=timeout
             )
-            resource_id, conn_info = result
+            # 适配字典返回类型
+            if isinstance(result, dict):
+                resource_id = result.get('id')
+                conn_info = result
+            else:
+                # 兼容旧代码或防止类型错误
+                resource_id, conn_info = result
             
             # 2. 本地初始化控制器
             self._init_controllers_from_connection(resource_id, conn_info)
