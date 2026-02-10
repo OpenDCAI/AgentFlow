@@ -83,20 +83,19 @@ synthesize(config_path=...)
 ### Synthesizing Trajectory
 ```python
 from rollout import rollout, quick_rollout, RolloutConfig, RolloutPipeline
-    
-    if args.question:
-        # Quick single question mode
-        print(f"\n🚀 Quick Rollout Mode")
-        print(f"Question: {args.question}")
-        print(f"Tools: {args.tools or ['web:search']}")
-        print("-" * 60)
-        
-        result = quick_rollout(
-            args.question,
-            tools=args.tools or ["web:search"],
-            model_name=args.model or "gpt-4.1-2025-04-14",
-            max_turns=args.max_turns or 10,
-        )
+
+# Quick single question mode
+print(f"\n🚀 Quick Rollout Mode")
+print(f"Question: {args.question}")
+print(f"Tools: {args.tools or ['web:search']}")
+print("-" * 60)
+
+result = quick_rollout(
+    args.question,
+    tools=args.tools or ["web:search"],
+    model_name=args.model or "gpt-4.1-2025-04-14",
+    max_turns=args.max_turns or 10,
+)
 ```
 
 ## 🌟 AgentFlow Agent Family
