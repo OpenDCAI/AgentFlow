@@ -330,7 +330,9 @@ If you use AgentFlow in your research, please cite:
 
 ```bibtex
 @misc{omniagentsynth2026,
-  title={AgentFlow: A Unified Framework for Multi-Environment Agent Data Synthesis},
-  year={2026}
+  title={AgentFlow: Unified Agent Data Synthesis Framework},
+  author={AgentFlow Team},
+  year={2026},
+  howpublished={\url{https://github.com/OpenDCAI/AgentFlow}}
 }
 ```
