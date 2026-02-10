@@ -259,6 +259,28 @@ ORDER BY ct.TotalSpent DESC, tg.GenreSpent DESC;
 
 ### 🖱️ Embodied Agent Case
 
+<table>
+  <tr>
+    <td align="center" width="50%" style="padding:6px;">
+      <div><b>Place the mouse on the yellow pad</b></div>
+      <img src="assets/step1.gif" width="100%" style="border-radius:14px; margin-top:6px;" />
+    </td>
+    <td align="center" width="50%" style="padding:6px;">
+      <div><b>Open the laptop</b></div>
+      <img src="assets/step2.gif" width="100%" style="border-radius:14px; margin-top:6px;" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%" style="padding:6px;">
+      <div><b>Place the cup on the blue box</b></div>
+      <img src="assets/step3.gif" width="100%" style="border-radius:14px; margin-top:6px;" />
+    </td>
+    <td align="center" width="50%" style="padding:6px;">
+      <div><b>Store the car in the basket</b></div>
+      <img src="assets/step4.gif" width="100%" style="border-radius:14px; margin-top:6px;" />
+    </td>
+  </tr>
+</table>
 
 
 
