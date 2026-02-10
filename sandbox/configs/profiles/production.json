@@ -1,0 +1,127 @@
+{
+  "$schema": "启动配置 - 生产环境",
+  "$comment": "囊括 L1(server) + L2(resources/apis) 的完整启动配置",
+  
+  "$include": {
+    "server": "server/production.json",
+    "resources": {
+      "vm": "resources/vm/cloud.json",
+      "rag": "resources/rag/hybrid.json"
+    }
+  },
+
+  "server": {
+    "title": "Sandbox Production",
+    "description": "Production Sandbox HTTP Service",
+    "session_ttl": 300,
+    "cleanup_interval": 60,
+    "log_level": "INFO"
+  },
+
+  "resources": {
+    "_comment": "重资源后端 - 需要继承 Backend 类，需要预热",
+    
+    "vm": {
+      "enabled": true,
+      "description": "虚拟机后端 - 桌面自动化",
+      "backend_class": "sandbox.server.backends.resources.vm.VMBackend",
+      "config": {
+        "screen_size": [1920, 1080],
+        "headless": true,
+        "provider": "aliyun",
+        "region": "${ALIYUN_REGION}",
+        "access_key": "${ALIYUN_ACCESS_KEY_ID}",
+        "secret_key": "${ALIYUN_ACCESS_KEY_SECRET}",
+        "image_id": "${ALIYUN_IMAGE_ID}",
+        "instance_type": "${ALIYUN_INSTANCE_TYPE}",
+        "vswitch_id": "${ALIYUN_VSWITCH_ID}",
+        "security_group_id": "${ALIYUN_SECURITY_GROUP_ID}",
+        "pool_size": 5
+      }
+    },
+
+    "rag": {
+      "enabled": true,
+      "description": "RAG 检索后端 - 文档检索 (E5 + Faiss)",
+      "backend_class": "sandbox.server.backends.resources.rag.RAGBackend",
+      "config": {
+        "_comment_device": [
+          "RAG_DEVICE 格式说明:",
+          "- 'cuda:0'        → Encoder 用 cuda:0, Index 用 cpu",
+          "- 'cuda:0/cuda:1' → Encoder 用 cuda:0, Index 用 cuda:1",
+          "- 'cpu'           → 全部用 cpu"
+        ],
+        "model_name": "${RAG_MODEL_NAME:-intfloat/e5-base-v2}",
+        "index_path": "${RAG_INDEX_PATH:-./data/index/faiss.index}",
+        "corpus_path": "${RAG_CORPUS_PATH:-./data/corpus.jsonl}",
+        "device": "${RAG_DEVICE:-cuda:0}",
+        "default_top_k": 10,
+        "batcher_trigger_batch_size": 16,
+        "batcher_max_batch_size": 32,
+        "batcher_max_wait_time": 0.05
+      }
+    },
+
+    "browser": {
+      "enabled": false,
+      "description": "浏览器后端 - 网页自动化",
+      "backend_class": "sandbox.server.backends.resources.browser.BrowserBackend",
+      "config": {
+        "browser_type": "chromium",
+        "headless": true
+      }
+    },
+
+    "code_executor": {
+      "enabled": false,
+      "description": "代码执行后端 - 代码沙箱",
+      "backend_class": "sandbox.server.backends.resources.code_executor.CodeExecutorBackend",
+      "config": {
+        "runtime": "python:3.10",
+        "timeout": 60
+      }
+    }
+  },
+
+  "apis": {
+    "_comment": "轻资源工具 - 直接注册函数，无需预热",
+
+    "websearch": {
+      "_comment": "WebSearch 真实实现配置",
+
+      "serper_api_key": "${SERPER_API_KEY}",
+      "jina_api_key": "${JINA_API_KEY}",
+
+      "max_results": 10,
+      "max_workers": 5,
+      "retry_times": 5,
+      "timeout": 30,
+
+      "visit_method": "jina",
+      "content_limit": 50000,
+      "max_tokens": 1000,
+      "retry_max_attempts": 3,
+      "retry_initial_delay": 1.0,
+
+      "_comment_llm": "如果需要 LLM 总结网页内容，设置以下参数",
+      "enable_llm_summary": false,
+      "summary_model": null,
+      "openai_api_key": "${OPENAI_API_KEY}",
+      "openai_api_url": "https://openrouter.ai/api/v1"
+    }
+  },
+
+  "security": {
+    "allowed_origins": ["*"],
+    "rate_limit": {
+      "enabled": true,
+      "requests_per_minute": 100
+    },
+    "auth": {
+      "enabled": false,
+      "type": "api_key",
+      "api_key": "${SANDBOX_API_KEY}"
+    }
+  }
+}
+

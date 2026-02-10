@@ -1,0 +1,48 @@
+{
+  "model_name": "openai/gpt-oss-120b",
+
+  "max_depth": 20,
+  "branching_factor": 2,
+  "depth_threshold": 2,
+
+  "min_depth": 3,
+  "max_selected_traj": 3,
+  "path_similarity_threshold": 0.7,
+
+  "number_of_seed": null,
+
+  "resource_types": [],
+  "resource_init_configs": {},
+
+  "sandbox_server_url": "http://127.0.0.1:18890",
+  "sandbox_auto_start": true,
+  "sandbox_config_path": "configs/server/ds_qa_config.json",
+  "sandbox_timeout": 300,
+
+  "available_tools": ["ds_inspect_data", "ds_read_csv", "ds_run_python"],
+
+  "seed_description": "Data directory containing CSV files",
+
+  "sampling_tips": [
+    "Explore the CSV files to understand the data schema and content.",
+    "Start by inspecting the data directory using `ds_inspect_data`.",
+    "Use `ds_read_csv` to preview the first few rows of interesting files.",
+    "Use `ds_run_python` to perform data analysis, aggregations, and visualizations.",
+    "Verify data quality (missing values, duplicates) before complex analysis.",
+    "Chain operations: Inspect -> Read -> Analyze.",
+    "Note: base_dir is automatically provided from seed context."
+  ],
+
+  "synthesis_tips": [
+    "Create questions requiring data analysis or aggregation.",
+    "Questions should be answerable by the data available.",
+    "Include questions that might require visualization interpretation if plots were generated.",
+    "Ensure the answer is grounded in the analysis results."
+  ],
+
+  "qa_examples": [],
+
+  "seeds_file": "examples/ds_seeds.jsonl",
+  "output_dir": "results"
+}
+

@@ -1,0 +1,1597 @@
+[
+    {
+        "para_text": null,
+        "table_id": 0,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": "arXiv:2210.024442v1 [cs.CV] 5 Oct 2022",
+        "table_id": null,
+        "style": "Aside_text"
+    },
+    {
+        "para_text": "Making Your First Choice: To Address Cold Start Problem in Vision Active Learning",
+        "table_id": null,
+        "style": "Title"
+    },
+    {
+        "para_text": "Liangyu Chen\\(^{1}\\) Yutong Bai\\(^{2}\\) Siyu Huang\\(^{3}\\) Yongyi Lu\\(^{2}\\)  \nBihan Wen\\(^{1}\\) Alan L. Yuille\\(^{2}\\) Zongwei Zhou\\(^{2,*}\\)",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "\\(^{1}\\)Nanyang Technological University \\(^{2}\\)Johns Hopkins University \\(^{3}\\)Harvard University",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "Abstract",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "Active learning promises to improve annotation efficiency by iteratively selecting the most important data to be annotated first. However, we uncover a striking contradiction to this promise: active learning fails to select data as efficiently as random selection at the first few choices. We identify this as the cold start problem in vision active learning, caused by a biased and outlier initial query. This paper seeks to address the cold start problem by exploiting the three advantages of contrastive learning: (1) no annotation is required; (2) label diversity is ensured by pseudo-labels to mitigate bias; (3) typical data is determined by contrastive features to reduce outliers. Experiments are conducted on CIFAR-10-LT and three medical imaging datasets (i.e. Colon Pathology, Abdominal CT, and Blood Cell Microscope). Our initial query not only significantly outperforms existing active querying strategies but also surpasses random selection by a large margin. We foresee our solution to the cold start problem as a simple yet strong baseline to choose the initial query for vision active learning.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "Code is available: https://github.com/c-liangyu/CSVAL",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "1 Introduction",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "\"The secret of getting ahead is getting started.\"",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "— Mark Twain",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "The cold start problem was initially found in recommender systems [56 39 9 23] when algorithms had not gathered sufficient information about users with no purchase history. It also occurred in many other fields, such as natural language processing [55 33] and computer vision [51 11 38] during the active learning procedure. Active learning promises to improve annotation efficiency by iteratively selecting the most important data to annotate. However, we uncover a striking contradiction to this promise: Active learning fails to select data as effectively as random selection at the first choice. We identify this as the cold start problem in vision active learning and illustrate the problem using three medical imaging applications (Figure 1a-c) as well as a natural imaging application (Figure 1d). Cold start is a crucial topic [54 30] because a performant initial query can lead to noticeably improved subsequent cycle performance in the active learning procedure, evidenced in §3.3. There is a lack of studies that systematically illustrate the cold start problem, investigate its causes, and provide practical solutions to address it. To this end, we ask: What causes the cold start problem and how can we select the initial query when there is no labeled data available?",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "*Corresponding author: Zongwei Zhou (zzhou82@jh.edu)",
+        "table_id": null,
+        "style": "Page_footnote"
+    },
+    {
+        "para_text": "Active learning aims to select the most important data from the unlabeled dataset and query human experts to annotate new data. The newly annotated data is then added to improve the model. This process can be repeated until the model reaches a satisfactory performance level or the annotation budget is exhausted.",
+        "table_id": null,
+        "style": "Page_footnote"
+    },
+    {
+        "para_text": "Preprint. Under review.",
+        "table_id": null,
+        "style": "Footer"
+    },
+    {
+        "para_text": null,
+        "table_id": 1,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_0.png",
+            "alt_text": "A composite figure containing four scatter plots, labeled (a) through (d), arranged in a 2x2 grid, comparing the performance of various active learning methods across different image datasets. A single legend at the top spans all four plots, associating seven distinct markers with specific active learning strategies and their corresponding citations: a downward-pointing red triangle for BALD (Kirsch et al., 2019), an upward-pointing red triangle for Consistency (Gao et al., 2020), a red diamond for Coreset (Sener et al., 2017), a gray circle for Random, a right-pointing red triangle for Margin (Balcan et al., 2007), a red square for VAAL (Sinha et al., 2019), and a red diamond for Entropy (Wang et al., 2014). Each plot shares identical axis labels: the vertical y-axis is labeled \"AUC\" and ranges from 0.6 to 1.0, with major gridlines at 0.8 and 0.9; the horizontal x-axis is labeled \"Number of images\" and uses a logarithmic scale ranging from 10^1 to 10^5. Plot (a), titled \"PathMNIST\", displays data points for all seven methods, with most methods showing an upward trend in AUC as the number of images increases, and the Random method (gray circles) generally positioned lower than the active learning methods. Plot (b), titled \"OrganAMNIST\", shows a similar layout and trend, with most active learning methods achieving higher AUC values than Random across the range of image counts. Plot (c), titled \"BloodMNIST\", also follows this structure, with data points for all methods indicating generally increasing AUC with more images, and Random typically performing below the other strategies. Plot (d), titled \"CIFAR-10\", presents the same axes and methods, showing a more pronounced spread in performance, particularly at lower image counts, with Random starting at a lower AUC and most active learning methods converging towards higher AUC values as the number of images increases. Each data point in the plots is accompanied by vertical error bars indicating variability."
+        },
+        "table_id": 0,
+        "style": "Image"
+    },
+    {
+        "para_text": "Figure 1: Cold start problem in vision active learning. Most existing active querying strategies (e.g. BALD, Consistency, etc.) are outperformed by random selection in selecting initial queries, since random selection is i.i.d. to the entire dataset. However, some classes are not selected by active querying strategies due to selection bias, so their results are not presented in the low budget regime.",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": "Random selection is generally considered a baseline to start the active learning because the randomly sampled query is independent and identically distributed (i.i.d.) to the entire data distribution. As is known, maintaining a similar distribution between training and test data is beneficial, particularly when using limited training data [25]. Therefore, a large body of existing work selects the initial query randomly [10, 61, 55, 62, 18, 17, 42, 24, 22, 60], highlighting that active querying compromises accuracy and diversity compared to random sampling at the beginning of active learning [36, 63, 44, 11, 20, 59]. Why? We attribute the causes of the cold start problem to the following two aspects:",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "(i) Biased query: Active learning tends to select data that is biased to specific classes. Empirically, Figure2 reveals that the class distribution in the selected query is highly unbalanced. These active querying strategies (e.g. Entropy, Margin, VAAL, etc.) can barely outperform random sampling at the beginning because some classes are simply not selected for training. It is because data of the minority classes occurs much less frequently than those of the majority classes. Moreover, datasets in practice are often highly unbalanced, particularly in medical images [32 58]. This can escalate the biased sampling. We hypothesize that the label diversity of a query is an important criterion to determine the importance of the annotation. To evaluate this hypothesis theoretically, we explore the upper bound performance by enforcing a uniform distribution using ground truth (Table1). To evaluate this hypothesis practically, we pursue the label diversity by exploiting the pseudo-labels generated by \\(K\\)-means clustering (Table2). The label diversity can reduce the redundancy in the selection of majority classes, and increase the diversity by including data of minority classes.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "(ii) Outlier query: Many active querying strategies were proposed to select typical data and eliminate outliers, but they heavily rely on a trained classifier to produce predictions or features. For example, to calculate the value of Entropy, a trained classifier is required to predict logits of the data. However, there is no such classifier at the start of active learning, at which point no labeled data is available for training. To express informative features for reliable predictions, we consider contrastive learning, which can be trained using unlabeled data only. Contrastive learning encourages models to discriminate between data augmented from the same image and data from different images [15] [13]. Such a learning process is called instance discrimination. We hypothesize that instance discrimination can act as an alternative to select typical data and eliminate outliers. Specifically, the data that is hard to discriminate from others could be considered as typical data. With the help of Dataset Maps [48] [26] we evaluate this hypothesis and propose a novel active querying strategy that can effectively select typical data (hard-to-contrast data in our definition, see §2.2) and reduce outliers.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "It is worthy noting that both [48] and [26] conducted a retrospective study, which analyzed existing active querying strategies by using the ground truth. As a result, the values of confidence and variability in the Dataset",
+        "table_id": null,
+        "style": "Page_footnote"
+    },
+    {
+        "para_text": "2",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 2,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": "Systematic ablation experiments and qualitative visualizations in \\(\\S 3\\) confirm that (i) the level of label diversity and (ii) the inclusion of typical data are two explicit criteria for determining the annotation importance. Naturally, contrastive learning is expected to approximate these two criteria: pseudolabels in clustering implicitly enforce label diversity in the query; instance discrimination determines typical data. Extensive results show that our initial query not only significantly outperforms existing active querying strategies, but also surpasses random selection by a large margin on three medical imaging datasets (i.e. Colon Pathology, Abdominal CT, and Blood Cell Microscope) and two natural imaging datasets (i.e. CIFAR-10 and CIFAR-10-LT). Our active querying strategy eliminates the need for manual annotation to ensure the label diversity within initial queries, and more importantly, starts the active learning procedure with the typical data.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "To the best of our knowledge, we are among the first to indicate and address the cold start problem in the field of medical image analysis (and perhaps, computer vision), making three contributions: (1) illustrating the cold start problem in vision active learning, (2) investigating the underlying causes with rigorous empirical analysis and visualization, and (3) determining effective initial queries for the active learning procedure. Our solution to the cold start problem can be used as a strong yet simple baseline to select the initial query for image classification and other vision tasks.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "Related work. When the cold start problem was first observed in recommender systems, there were several solutions to remedy the insufficient information due to the lack of user history [63, 23]. In natural language processing (NLP), Yuan et al. [55] were among the first to address the cold start problem by pre-training models using self-supervision. They attributed the cold start problem to model instability and data scarcity. Vision active learning has shown higher performance than random selection [61, 47, 18, 2, 43, 34, 62], but there is limited study discussing how to select the initial query when facing the entire unlabeled dataset. A few studies somewhat indicated the existence of the cold start problem: Lang et al. [30] explored the effectiveness of the \\( K \\)-center algorithm [16] to select the initial queries. Similarly, Pourahmadi et al. [38] showed that a simple \\( K \\)-means clustering algorithm worked fairly well at the beginning of active learning, as it was capable of covering diverse classes and selecting a similar number of data per class. Most recently, a series of studies [20, 54, 46, 37] continued to propose new strategies for selecting the initial query from the entire unlabeled data and highlighted that typical data (defined in varying ways) could significantly improve the learning efficiency of active learning at a low budget. In addition to the existing publications, our study justifies the two causes of the cold start problem, systematically presents the existence of the problem in six dominant strategies, and produces a comprehensive guideline of initial query selection.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "2 Method",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "In this section, we analyze in-depth the cause of cold start problem in two perspectives, biased query as the inter-class query and outlier query as the intra-class factor. We provide a complementary method to select the initial query based on both criteria. §2.1 illustrates that label diversity is a favourable selection criterion, and discusses how we obtain label diversity via simple contrastive learning and \\(K\\)-means algorithms. §2.2 describes an unsupervised method to sample atypical (hard-to-contrast) queries from Dataset Maps.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "2.1 Inter-class Criterion: Enforcing Label Diversity to Mitigate Bias",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "\\(K\\)-means clustering. The selected query should cover data of diverse classes, and ideally, select similar number of data from each class. However, this requires the availability of ground truth, which are inaccessible according to the nature of active learning. Therefore, we exploit pseudo-labels generated by a simple \\(K\\)-means clustering algorithm and select an equal number of data from each cluster to form the initial query to facilitate label diversity. Without knowledge about the exact number of ground-truth classes, over-clustering is suggested in recent works [51, 57] to increase performances on the datasets with higher intra-class variance. Concretely, given 9, 11, 8 classes in the ground truth, we set \\(K\\) (the number of clusters) to 30 in our experiments.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "Contrastive features. \\(K\\)-means clustering requires features of each data point. Li et al. [31] suggested that for the purpose of clustering, contrastive methods (e.g. MoCo, SimCLR, BYOL) are",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "Maps could not be computed under the practical active learning setting because the ground truth is a priori unknown. Our modified strategy, however, does not require the availability of ground truth (detailed in §2.2).",
+        "table_id": null,
+        "style": "Page_footnote"
+    },
+    {
+        "para_text": "3",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 3,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_1.png",
+            "alt_text": "A horizontal bar chart comparing the performance of eight different sampling methods across nine tissue or material categories, with an additional row showing the overall entropy value for each method. The chart is organized into eight vertical columns, each representing a sampling method: Random, Consistency, VAAL, Margin, Entropy, Coreset, BALD, and Ours. Each column contains nine horizontal red bars, corresponding to the categories listed on the left y-axis: adipose, background, debris, lymphocytes, mucus, muscle, mucosa, stroma, and epithelium. The length of each bar visually represents the performance metric for that method-category pair. Below the chart, a row labeled “Entropy” displays numerical values for each method: Random (3.154), Consistency (3.116), VAAL (2.800), Margin (2.858), Entropy (2.852), Coreset (3.006), BALD (3.094), and Ours (3.122). The chart uses a white background with black gridlines and text, and all bars are uniformly colored in solid red. The overall layout is rectangular, with column headers at the top and row labels aligned to the left."
+        },
+        "table_id": 1,
+        "style": "Image"
+    },
+    {
+        "para_text": "Figure 2: Label diversity of querying criteria. Random, the leftmost strategy, denotes the class distribution of randomly queried samples, which can also reflect the approximate class distribution of the entire dataset. As seen, even with a relatively larger initial query budget (40,498 images, \\(45\\%\\) of the dataset), most active querying strategies are biased towards certain classes in the PathMNIST dataset. For example, VAAL prefers selecting data in the muscle class, but largely ignores data in the mucus and mucosa classes. On the contrary, our querying strategy selects more data from minority classes (e.g., mucus and mucosa) while retaining the class distribution of major classes. Similar observations in OrganAMNIST and BloodMNIST are shown in Appendix Figure7 The higher the entropy is, the more balanced the class distribution is.",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": "more suitable than generative methods (e.g. colorization, reconstruction) because the contrastive feature matrix can be naturally regarded as cluster representations. Therefore, we use MoCo v2 [15]—a popular self-supervised contrastive method—to extract image features.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "\\(K\\)-means and MoCo v2 are certainly not the only choices for clustering and feature extraction. We employ these two well-received methods for simplicity and efficacy in addressing the cold start problem. Figure 2 shows our querying strategy can yield better label diversity than other six dominant active querying strategies; similar observations are made in OrganAMNIST and BloodMNIST (Figure 7) as well as CIFAR-10 and CIFAR-10-LT (Figure 10).",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "2.2 Intra-class Criterion: Querying Hard-to-Contrast Data to Avoid Outliers",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "Dataset map. Given \\(K\\) clusters generated from Criterion #1, we now determine which data points ought to be selected from each cluster. Intuitively, a data point can better represent a cluster distribution if it is harder to contrast itself with other data points in this cluster—we consider them typical data. To find these typical data, we modify the original Dataset Map by replacing the ground truth term with a pseudo-label term. This modification is made because ground truths are unknown in the active learning setting but pseudo-labels are readily accessible from Criterion #1. For a visual comparison, Figure 3b and Figure 3c present the Data Maps based on ground truths and pseudo-labels, respectively. Formally, the modified Data Map can be formulated as follows. Let \\(\\mathcal{D} = \\{\\pmb{x}_m\\}_{m=1}^M\\) denote a dataset of \\(M\\) unlabeled images. Considering a minibatch of \\(N\\) images, for each image \\(\\pmb{x}_n\\), its two augmented views form a positive pair, denoted as \\(\\tilde{\\pmb{x}}_i\\) and \\(\\tilde{\\pmb{x}}_j\\). The contrastive prediction task on pairs of augmented images derived from the minibatch generate \\(2N\\) images, in which a true label \\(y_n^*\\) for an anchor augmentation is associated with its counterpart of the positive pair. We treat the other \\(2(N-1)\\) augmented images within a minibatch as negative pairs. We define the probability of positive pair in the instance discrimination task as:",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "\\[\np _ {i, j} = \\frac {\\exp (\\sin (\\boldsymbol {z} _ {i} , \\boldsymbol {z} _ {j})) / \\tau}{\\sum_ {n = 1} ^ {2 N} \\mathbb {1} _ {[ n \\neq i ]} \\exp (\\sin (\\boldsymbol {z} _ {i} , \\boldsymbol {z} _ {n})) / \\tau}, \\tag {1}\n\\]",
+        "table_id": null,
+        "style": "Equation"
+    },
+    {
+        "para_text": "\\[\np _ {\\theta^ {(e)}} \\left(y _ {n} ^ {*} \\mid x _ {n}\\right) = \\frac {1}{2} \\left[ p _ {2 n - 1, 2 n} + p _ {2 n, 2 n - 1} \\right], \\tag {2}\n\\]",
+        "table_id": null,
+        "style": "Equation"
+    },
+    {
+        "para_text": "where \\(\\mathrm{sim}(\\pmb {u},\\mathbf{\\theta}) = \\pmb{u}^{\\top}\\pmb {v} / \\| \\pmb {u}\\| \\| \\pmb {v}\\|\\) is the cosine similarity between \\(\\pmb{u}\\) and \\(\\pmb{v}\\); \\(z_{2n - 1}\\) and \\(z_{2n}\\) denote the projection head output of a positive pair for the input \\(\\pmb{x}_n\\) in a batch; \\(\\mathbb{1}_{[n\\neq i]}\\in \\{0,1\\}\\) is an indicator",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "\\(^{3}\\)Dataset Map [12,48] was proposed to analyze datasets by two measures: confidence and variability, defined as the mean and standard deviation of the model probability of ground truth along the learning trajectory.",
+        "table_id": null,
+        "style": "Page_footnote"
+    },
+    {
+        "para_text": "4",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 4,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_2.png",
+            "alt_text": "A high-magnification microscopic image of a biological tissue sample, likely a blood smear or bone marrow aspirate, displaying a dense field of cellular elements. The background is a uniform pale pink or beige, consistent with a stained histological slide. The majority of visible structures are round to oval cells with prominent nuclei stained a deep purple or violet, indicative of hematoxylin or a similar nuclear stain. The nuclei vary in size, shape, and chromatin pattern; some are large and vesicular with visible nucleoli, while others are smaller and more condensed. Cytoplasm is faintly visible around many nuclei, appearing as a thin, pale halo or lightly stained rim, occasionally showing granules or vacuoles. A few cells exhibit irregular nuclear contours or multiple nuclei. The cells are densely packed, with minimal intercellular space, and are distributed across the entire visual field without a discernible pattern. No text, labels, scale bars, or other annotations are visible within the image. The overall impression is of a heterogeneous population of cells, possibly including various stages of hematopoietic cells or pathological cells such as blasts."
+        },
+        "table_id": 2,
+        "style": "Image"
+    },
+    {
+        "para_text": "(a) Overall distribution",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_3.png",
+            "alt_text": "The image is a scientific chart combining a scatter plot with inset microscopic images and a legend, designed to illustrate the relationship between prediction confidence and variability for different types of blood cells. The main chart is a scatter plot with the vertical y-axis labeled \"confidence\" ranging from 0.0 to 1.0 and the horizontal x-axis labeled \"variability\" ranging from 0.0 to 0.4. Data points are color-coded according to cell type, as defined in the legend located in the upper right corner: red dots represent \"basophil\", blue dots represent \"eosinophil\", and green dots represent \"erythroblast\". Additional unlabelled colored dots (purple, yellow, magenta) are also present in the scatter plot, suggesting other cell categories not explicitly named in the legend. The data points form a curved, arc-like distribution starting near the top-left corner (high confidence, low variability) and sweeping downward and to the right (lower confidence, higher variability). Two circular annotations highlight specific regions: a blue circle encloses a cluster of high-confidence, low-variability points near the top-left, and a red circle encloses a cluster of low-confidence, low-variability points near the bottom-left. To the left of the scatter plot are two sets of four inset microscopic images of stained blood cells. The top set is labeled \"Easy-to-learn\" and shows cells with distinct, well-defined nuclei and cytoplasmic features. The bottom set is labeled \"Hard-to-learn\" and shows cells with more uniform, less differentiated morphology. A blue L-shaped line connects the \"Easy-to-learn\" inset images to the high-confidence region of the scatter plot, while a red L-shaped line connects the \"Hard-to-learn\" inset images to the low-confidence region. The background of the chart is white with light gray grid lines."
+        },
+        "table_id": 3,
+        "style": "Image"
+    },
+    {
+        "para_text": "(b) Data Map by ground truth",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_4.png",
+            "alt_text": "A scatter plot visualizing the relationship between \"variability\" on the x-axis and \"confidence\" on the y-axis, with data points color-coded according to cell type or category as indicated in the legend in the upper left: yellow dots represent \"ig\", light blue dots represent \"platelet\", and unlabeled dots (appearing as purple, pink, and other hues) correspond to \"lymphocyte\", \"monocyte\", and \"neutrophil\" listed in the legend. The plot displays a curved, upward-sloping distribution of points, indicating that as variability increases, confidence generally increases as well. Two specific regions of the plot are highlighted: a red circle near the lower-left corner (low variability, low confidence) and a blue circle in the upper-middle region (moderate to high variability, high confidence). Arrows extend from these circles to two sets of four microscopic cell images arranged in 2x2 grids. The top grid, labeled \"Easy-to-contrast\", shows cells with distinct, well-defined morphological features and strong color contrast. The bottom grid, labeled \"Hard-to-contrast\", displays cells with more ambiguous boundaries, lower contrast, and less distinct internal structures. The plot includes gridlines and axis tick marks, with the x-axis ranging approximately from 0.2 to 0.5 and the y-axis from 0.0 to 1.0. The overall layout juxtaposes quantitative performance metrics with qualitative visual examples of cell images categorized by contrast difficulty."
+        },
+        "table_id": 4,
+        "style": "Image"
+    },
+    {
+        "para_text": "(c) Data Map by pseudo-labels",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": "Figure 3: Active querying based on Dataset Maps. (a) Dataset overview. (b) Easy- and hard-to-learn data can be selected from the maps based on ground truths [26]. This querying strategy has two limitations: it requires manual annotations and the data are stratified by classes in the 2D space, leading to a poor label diversity in the selected queries. (c) Easy- and hard-to-contrast data can be selected from the maps based on pseudo-labels. This querying strategy is label-free and the selected hard-to-contrast data represent the most common patterns in the entire dataset, as presented in (a). These data are more suitable for training, and thus alleviate the cold start problem.",
+        "table_id": null,
+        "style": "Image_caption"
+    },
+    {
+        "para_text": "function evaluating to 1 iff \\( n \\neq i \\) and \\( \\tau \\) denotes a temperature parameter. \\( \\theta^{(e)} \\) denotes the parameters at the end of the \\( e^{\\mathrm{th}} \\) epoch. We define confidence \\( (\\hat{\\mu}_m) \\) across \\( E \\) epochs as:",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "\\[\n\\hat {\\mu} _ {m} = \\frac {1}{E} \\sum_ {e = 1} ^ {E} p _ {\\theta^ {(e)}} \\left(y _ {m} ^ {*} \\mid x _ {m}\\right). \\tag {3}\n\\]",
+        "table_id": null,
+        "style": "Equation"
+    },
+    {
+        "para_text": "The confidence \\((\\hat{\\mu}_m)\\) is the Y-axis of the Dataset Maps (see Figure 3b-c).",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "Hard-to-contrast data. We consider the data with a low confidence value (Equation 3) as “hard-to-contrast” because they are seldom predicted correctly in the instance discrimination task. Apparently, if the model cannot distinguish a data point with others, this data point is expected to carry typical characteristics that are shared across the dataset [40]. Visually, hard-to-contrast data gather in the bottom region of the Dataset Maps and “easy-to-contrast” data gather in the top region. As expected, hard-to-learn data are more typical, possessing the most common visual patterns as the entire dataset; whereas easy-to-learn data appear like outliers [54, 26], which may not follow the majority data distribution (examples in Figure 3a and Figure 3c). Additionally, we also plot the original Dataset Map [12, 48] in Figure 3b, which grouped data into hard-to-learn and easy-to-learn. Although the results in §3.2 show equally compelling performance achieved by both easy-to-learn [48] and hard-to-contrast data (ours), the latter do not require any manual annotation, and therefore are more practical and suitable for vision active learning.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "In summary, to meet the both criteria, our proposed active querying strategy includes three steps: (i) extracting features by self-supervised contrastive learning, (ii) assigning clusters by \\( K \\)-means algorithm for label diversity, and (iii) selecting hard-to-contrast data from dataset maps.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "3 Experimental Results",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "Datasets & metrics. Active querying strategies have a selection bias that is particularly harmful in long-tail distributions. Therefore, unlike most existing works [38, 54], which tested on highly balanced annotated datasets, we deliberately examine our method and other baselines on long-tail datasets to simulate real-world scenarios. Three medical datasets of different modalities",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "Swayamdipta et al. [48] indicated that easy-to-learn data facilitated model training in the low budget regime because easier data reduced the confusion when the model approaching the rough decision boundary. In essence, the advantage of easy-to-learn data in active learning aligned with the motivation of curriculum learning [6].",
+        "table_id": null,
+        "style": "Page_footnote"
+    },
+    {
+        "para_text": "5",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 5,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": "Table 1: Diversity is a significant add-on to most querying strategies. AUC scores of different querying strategies are compared on three medical imaging datasets. In either low budget (i.e. \\(0.5\\%\\) or \\(1\\%\\) of MedMNIST datasets) or high budget (i.e. \\(10\\%\\) or \\(20\\%\\) of CIFAR-10-LT) regimes, both random and active querying strategies benefit from enforcing the label diversity of the selected data. The cells are highlighted in blue when adding diversity performs no worse than the original querying strategies. Coreset [41] works very well as its original form because this querying strategy has implicitly considered the label diversity (also verified in Table 2) by formulating a \\(K\\)-center problem, which selects \\(K\\) data points to represent the entire dataset. Some results are missing (marked as “-”) because the querying strategy fails to sample at least one data point for each class. Results of more sampling ratios are presented in Appendix Figures [6,9].",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": {
+            "image_path": "tables/table_0.png",
+            "content": "<table><tr><td rowspan=\"2\"></td><td rowspan=\"2\">Unif.</td><td colspan=\"2\">PathMNIST</td><td colspan=\"2\">OrganAMNIST</td><td colspan=\"2\">BloodMNIST</td><td colspan=\"2\">CIFAR-10-LT</td></tr><tr><td>0.5% (499)</td><td>1% (899)</td><td>0.5% (172)</td><td>1% (345)</td><td>0.5% (59)</td><td>1% (119)</td><td>10% (1420)</td><td>20% (2841)</td></tr><tr><td rowspan=\"2\">Random</td><td>✓</td><td>96.8±0.6</td><td>97.6±0.6</td><td>91.1±0.9</td><td>93.3±0.4</td><td>94.7±0.7</td><td>96.5±0.4</td><td>91.6±1.1</td><td>93.1±0.6</td></tr><tr><td>X</td><td>96.4±1.3</td><td>97.6±0.9</td><td>90.7±1.1</td><td>93.1±0.7</td><td>93.2±1.5</td><td>95.8±0.7</td><td>62.0±6.1</td><td>-</td></tr><tr><td rowspan=\"2\">Consistency</td><td>✓</td><td>96.4±0.1</td><td>97.9±0.1</td><td>92.3±0.5</td><td>92.8±1.0</td><td>92.9±0.9</td><td>95.9±0.5</td><td>91.4±1.1</td><td>93.4±0.2</td></tr><tr><td>X</td><td>96.2±0.0</td><td>97.6±0.0</td><td>91.0±0.3</td><td>94.0±0.6</td><td>87.9±0.2</td><td>95.5±0.5</td><td>67.1±17.1</td><td>88.6±0.3</td></tr><tr><td rowspan=\"2\">VAAL</td><td>✓</td><td>92.7±0.5</td><td>93.0±0.6</td><td>70.6±1.9</td><td>84.6±0.5</td><td>89.8±1.3</td><td>93.4±0.9</td><td>92.6±0.2</td><td>93.7±0.4</td></tr><tr><td>X</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td rowspan=\"2\">Margin</td><td>✓</td><td>97.9±0.2</td><td>96.0±0.4</td><td>81.8±1.2</td><td>85.8±1.4</td><td>89.7±1.9</td><td>94.7±0.7</td><td>91.7±0.9</td><td>93.2±0.2</td></tr><tr><td>X</td><td>91.0±2.3</td><td>96.0±0.3</td><td>-</td><td>85.9±0.7</td><td>-</td><td>-</td><td>81.9±0.8</td><td>86.3±0.3</td></tr><tr><td rowspan=\"2\">Entropy</td><td>✓</td><td>93.2±1.6</td><td>95.2±0.2</td><td>79.1±2.3</td><td>86.7±0.8</td><td>85.9±0.5</td><td>91.8±1.0</td><td>92.0±1.2</td><td>91.9±1.3</td></tr><tr><td>X</td><td>-</td><td>87.5±0.1</td><td>-</td><td>-</td><td>-</td><td>-</td><td>65.6±15.6</td><td>86.4±0.2</td></tr><tr><td rowspan=\"2\">Coreset</td><td>✓</td><td>95.0±2.2</td><td>94.8±2.5</td><td>85.6±0.4</td><td>89.9±0.5</td><td>88.5±0.6</td><td>94.1±1.1</td><td>91.5±0.4</td><td>93.6±0.2</td></tr><tr><td>X</td><td>95.6±0.7</td><td>97.5±0.2</td><td>83.8±0.6</td><td>88.5±0.4</td><td>87.3±1.6</td><td>94.0±1.2</td><td>65.9±15.9</td><td>86.9±0.1</td></tr><tr><td rowspan=\"2\">BALD</td><td>✓</td><td>95.8±0.2</td><td>97.0±0.1</td><td>87.2±0.3</td><td>89.2±0.3</td><td>89.9±0.8</td><td>92.7±0.7</td><td>92.8±0.1</td><td>90.8±2.4</td></tr><tr><td>X</td><td>92.0±2.3</td><td>95.3±1.0</td><td>-</td><td>-</td><td>83.3±2.2</td><td>93.5±1.3</td><td>64.9±14.9</td><td>84.7±0.6</td></tr></table>"
+        },
+        "table_id": 0,
+        "style": "Table"
+    },
+    {
+        "para_text": "Table 2: Class coverage of selected data. Compared with random selection (i.i.d. to entire data distribution), most active querying strategies contain selection bias to specific classes, so the class coverage in their selections might be poor, particularly using low budgets. As seen, using \\(0.002\\%\\) or even smaller proportion of MedMNIST datasets, the class coverage of active querying strategies is much lower than random selection. By integrating \\(K\\)-means clustering with contrastive features, our querying strategy is capable of covering \\(100\\%\\) classes in most scenarios using low budgets (\\(\\leq 0.002\\%\\) of MedMNIST). We also found that our querying strategy covers the most of the classes in the CIFAR-10-LT dataset, which is designatedly more imbalanced.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": {
+            "image_path": "tables/table_1.png",
+            "content": "<table><tr><td rowspan=\"2\"></td><td colspan=\"2\">PathMNIST</td><td colspan=\"2\">OrganAMNIST</td><td colspan=\"2\">BloodMNIST</td><td colspan=\"2\">CIFAR-10-LT</td></tr><tr><td>0.00015% (13)</td><td>0.00030% (26)</td><td>0.001% (34)</td><td>0.002% (69)</td><td>0.001% (11)</td><td>0.002% (23)</td><td>0.2% (24)</td><td>0.3% (37)</td></tr><tr><td>Random</td><td>0.79±0.11</td><td>0.95±0.07</td><td>0.91±0.08</td><td>0.98±0.04</td><td>0.70±0.13</td><td>0.94±0.08</td><td>0.58±0.10</td><td>0.66±0.12</td></tr><tr><td>Consistency</td><td>0.78</td><td>0.88</td><td>0.82</td><td>0.91</td><td>0.75</td><td>0.88</td><td>0.50</td><td>0.70</td></tr><tr><td>VAAL</td><td>0.11</td><td>0.11</td><td>0.18</td><td>0.18</td><td>0.13</td><td>0.13</td><td>0.30</td><td>0.30</td></tr><tr><td>Margin</td><td>0.67</td><td>0.78</td><td>0.73</td><td>0.82</td><td>0.63</td><td>0.75</td><td>0.60</td><td>0.70</td></tr><tr><td>Entropy</td><td>0.33</td><td>0.33</td><td>0.45</td><td>0.73</td><td>0.63</td><td>0.63</td><td>0.40</td><td>0.70</td></tr><tr><td>Coreset</td><td>0.66</td><td>0.78</td><td>0.91</td><td>1.00</td><td>0.63</td><td>0.88</td><td>0.60</td><td>0.70</td></tr><tr><td>BALD</td><td>0.33</td><td>0.44</td><td>0.64</td><td>0.64</td><td>0.75</td><td>0.88</td><td>0.60</td><td>0.70</td></tr><tr><td>Ours</td><td>0.78</td><td>1.00</td><td>1.00</td><td>1.00</td><td>1.00</td><td>1.00</td><td>0.70</td><td>0.80</td></tr></table>"
+        },
+        "table_id": 1,
+        "style": "Table"
+    },
+    {
+        "para_text": "in MedMNIST [53] are used: PathMNIST (colorectal cancer tissue histopathological images), BloodMNIST (microscopic peripheral blood cell images), OrganAMNIST (axial view abdominal CT images of multiple organs). OrganAMNIST is augmented following Azizi et al. [3], while the others following Chen et al. [15]. Area Under the ROC Curve (AUC) and Accuracy are used as the evaluation metrics. All results were based on at least three independent runs, and particularly, 100 independent runs for random selection. UMAP [35] is used to analyze feature clustering results.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "Baselines & implementations. We benchmark a total of seven querying strategies: (1) random selection, (2) Max-Entropy [52], (3) Margin [4], (4) Consistency [18], (5) BALD [28], (6) VAAL [45], and (7) Coreset [41]. For contrastive learning, we trained 200 epochs with MoCo v2, following its default hyperparameter settings. We set \\(\\tau\\) to 0.05 in equation [2] To reproduce the large batch size and iteration numbers in [13], we apply repeated augmentation [21, 49, 50] (detailed in Table 5). More baseline and implementation details can be found in Appendix A",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "6",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 6,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_5.png",
+            "alt_text": "The image displays a grouped bar chart titled \"(a) PathMNIST\" located at the bottom center. The vertical y-axis is labeled \"AUC\" and ranges from 0.5 to 1.0 in increments of 0.1. The horizontal x-axis presents two categories: \"0.1% 89 images\" on the left and \"0.2% 179 images\" on the right. Each category contains three vertical bars: blue, yellow, and green, from left to right. Error bars are present on top of each bar, represented by horizontal lines with vertical caps. A dashed horizontal line spans across the chart at the AUC value of 0.9. In the top right corner, a legend displays a blue square, indicating it corresponds to the blue bars. For the \"0.1% 89 images\" group, the blue bar reaches approximately 0.91, the yellow bar approximately 0.85, and the green bar approximately 0.94. For the \"0.2% 179 images\" group, the blue bar reaches approximately 0.93, the yellow bar approximately 0.91, and the green bar approximately 0.94. The red bar in both groups is shorter, reaching approximately 0.59 for the left group and 0.58 for the right group, and also has an error bar. The background is white, and all text and axes are black."
+        },
+        "table_id": 5,
+        "style": "Image"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_6.png",
+            "alt_text": "A bar chart titled \"(b) OrganAMNIST\" comparing the Area Under the Curve (AUC) performance for \"Easy-to-learn\" and \"Hard-to-learn\" categories across two different training set sizes: 34 images (0.1%) and 69 images (0.2%). The vertical y-axis is labeled \"AUC\" and ranges from 0.5 to 1.0 in increments of 0.1. The horizontal x-axis displays two groups: \"34 images\" on the left and \"69 images\" on the right, each with corresponding percentage labels \"0.1%\" and \"0.2%\" directly above them. A legend in the upper right corner indicates red bars represent \"Hard-to-learn\" and blue bars represent \"Easy-to-learn\". Each group contains three bars: blue (Easy-to-learn), yellow (unlabeled, intermediate), and green (unlabeled, highest). Error bars are present on top of each bar. A horizontal dashed black line is drawn across the chart at approximately AUC 0.83, intersecting the top of the blue and green bars in both groups. For the 34-image group, the blue bar reaches approximately 0.83, the yellow bar approximately 0.77, and the red bar approximately 0.66. For the 69-image group, the blue bar reaches approximately 0.84, the yellow bar approximately 0.81, and the red bar approximately 0.67. The green bars in both groups reach approximately 0.85. The chart background is white with black axis lines and labels."
+        },
+        "table_id": 6,
+        "style": "Image"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_7.png",
+            "alt_text": "A bar chart comparing the Area Under the Curve (AUC) performance across different image sets and contrast conditions, labeled at the bottom as \"(c) BloodMNIST\". The vertical y-axis is labeled \"AUC\" and ranges from 0.5 to 1.0 in increments of 0.1. The horizontal x-axis contains two main categories: \"11 images\" and \"23 images\", each associated with three bars. A legend at the top indicates three categories: \"Easy-to-contrast\" represented by a yellow square, \"Hard-\" (partially cut off) represented by a green square, and a third category represented by a blue bar with no corresponding legend entry. For the \"11 images\" group, the blue bar reaches approximately 0.87, the green bar reaches approximately 0.88, and the red bar (no legend entry) reaches approximately 0.57. For the \"23 images\" group, the blue bar reaches approximately 0.89, the green bar reaches approximately 0.90, and the yellow bar reaches approximately 0.77. Error bars are present on all bars. A horizontal dashed black line is drawn across the chart at approximately AUC = 0.85, intersecting the top of the blue bar in the \"11 images\" group and the green bar in the \"23 images\" group. The chart uses a white background with black axis lines and tick marks."
+        },
+        "table_id": 7,
+        "style": "Image"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_8.png",
+            "alt_text": "A bar chart titled \"(d) CIFAR-10-LT\" displays AUC (Area Under the Curve) values across two distinct data groups, labeled \"2481 images\" and \"3721 images\" along the horizontal axis. The vertical axis, labeled \"AUC,\" ranges from 0.5 to 1.0 in increments of 0.1. Each data group contains three vertical bars: blue, red, and green, arranged left to right. Error bars are present atop each bar, indicating variability. A horizontal dashed line is drawn across the chart at the 0.65 AUC level. For the \"2481 images\" group, the blue bar reaches approximately 0.78, the red bar approximately 0.86, and the green bar approximately 0.87. For the \"3721 images\" group, the blue bar reaches approximately 0.84, the red bar approximately 0.87, and the green bar approximately 0.91. The text \"to-contrast\" appears partially visible in the upper left corner of the chart area. The chart background is white, and all axes and labels are rendered in black."
+        },
+        "table_id": 8,
+        "style": "Image"
+    },
+    {
+        "para_text": "Figure 4: Quantitative comparison of map-based querying strategies. Random selection (dotlines) can be treated as a highly competitive baseline in cold start because it outperforms six popular active querying strategies as shown in Figure 1 In comparison with random selection and three other querying strategies, hard-to-contrast performs the best. Although easy-to-learn and hard-to-learn sometimes performs similarly to hard-to-contrast, their selection processes require ground truths [26], which are not available in the setting of active learning.",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": "3.1 Contrastive Features Enable Label Diversity to Mitigate Bias",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "Label coverage & diversity. Most active querying strategies have selection bias towards specific classes, thus the class coverage in their selections might be poor (see Table2), particularly at low budgets. By simply enforcing label diversity to these querying strategies can significantly improve the performance (see Table1), which suggests that the label diversity is one of the causes that existing active querying strategies perform poorer than random selection.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "Our proposed active querying strategy, however, is capable of covering \\(100\\%\\) classes in most low budget scenarios (\\(\\leq 0.002\\%\\) of full dataset) by integrating \\(K\\)-means clustering with contrastive features.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "3.2 Pseudo-labels Query Hard-to-Contrast Data and Avoid Outliers",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "Hard-to-contrast data are practical for cold start problem. Figure 4 presents the quantitative comparison of four map-based querying strategies, wherein easy- or hard-to-learn are selected by the maps based on pseudolabels. Note that easy- or hard-to-learn are enforced with label diversity, due to their class-stratified distributions in the projected 2D space (illustrated in Figure 3). Results suggest that selecting easy-to-learn or hard-to-contrast data contribute to the optimal models. In any case, easy- or hard-to-learn data can not be selected without knowing ground truths, so these querying strategies are not practical for active learning procedure. Selecting hard-to-contrast, on the other hand, is a label-free strategy and yields the highest performance amongst existing active querying strategies (reviewed in Figure 1). More importantly, hard-to-contrast querying strategy significantly outperforms random selection by \\(1.8\\%\\) (\\(94.14\\% \\pm 1.0\\%\\) vs. \\(92.27\\% \\pm 2.2\\%\\)), \\(2.6\\%\\) (\\(84.35\\% \\pm 0.7\\%\\) vs. \\(81.75\\% \\pm 2.1\\%\\)), and \\(5.2\\%\\) (\\(88.51\\% \\pm 1.5\\%\\) vs. \\(83.36\\% \\pm 3.5\\%\\)) on PathMNIST, OrganAMNIST, and BloodMNIST, respectively, by querying \\(0.1\\%\\) of entire dataset. Similarly on CIFAR-10-LT, hard-to-contrast significantly outperforms random selection by \\(21.2\\%\\) (\\(87.35\\% \\pm 0.0\\%\\) vs. \\(66.12\\% \\pm 0.9\\%\\)) and \\(24.1\\%\\) (\\(90.59\\% \\pm 0.1\\%\\) vs. \\(66.53\\% \\pm 0.5\\%\\)) by querying \\(20\\%\\) and \\(30\\%\\) of entire dataset respectively. Note that easy- or hard-to-learn are not enforced with label diversity, for a more informative comparison.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "3.3 On the Importance of Selecting Superior Initial Query",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "A good start foresees improved active learning. We stress the importance of the cold start problem in vision active learning by conducting correlation analysis. Starting with 20 labeled images as the initial query, the training set is increased by 10 more images in each active learning cycle. Figure 14a presents the performance along the active learning (each point in the curve accounts for 5 independent trials). The initial query is selected by a total of 9 different strategies and subsequent queries are",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "5 Hard-to-learn is omitted because it falls behind other proposed methods by a large margin (Figure 4).",
+        "table_id": null,
+        "style": "Page_footnote"
+    },
+    {
+        "para_text": "7",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 7,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_9.png",
+            "alt_text": "The image displays a composite of ten line graphs arranged in two rows of five, each graph plotting AUC (%) on the vertical y-axis against the number of labeled images on the horizontal x-axis, with the x-axis ranging from 10 to 60 and the y-axis from 50 to 100. The top row of graphs is labeled from left to right as “Random,” “Entropy,” “Margin,” “BALD,” and “Coreset.” The bottom row of graphs lacks individual column headers but corresponds to the same five categories as the top row. A central label between the two rows reads “(a) Training from scratch.” Each graph contains multiple lines, each represented by a distinct marker and color: red circles for “Hard-to-Contrast,” black squares for “Easy-to-Contrast,” black triangles pointing up for “Easy-to-Learn,” black triangles pointing down for “Consistency,” black circles for “Entropy,” black diamonds for “Margin,” black squares with a cross for “BALD,” black triangles pointing right for “VAAL,” and black inverted triangles for “Coreset.” These markers and their corresponding lines are defined in a legend located on the right side of the image. All graphs show an upward trend in AUC as the number of labeled images increases, with the red “Hard-to-Contrast” line consistently positioned at or near the top across all graphs, indicating higher AUC values compared to other methods. The lines vary in slope and relative positioning across the different selection strategies, indicating performance differences between the methods under each sampling criterion. The graphs share a consistent scale and layout, facilitating direct visual comparison between the methods and sampling strategies."
+        },
+        "table_id": 9,
+        "style": "Image"
+    },
+    {
+        "para_text": "(b) Fine-tuning from self-supervised pre-training",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": "Figure 5: On the importance of selecting a superior initial query. Hard-to-contrast data (red lines) outperform other initial queries in every cycle of active learning on OrganaMNIST. We find that the performance of the initial cycle (20 images) and the last cycle (50 images) are strongly correlated.",
+        "table_id": null,
+        "style": "Image_caption"
+    },
+    {
+        "para_text": "selected by 5 different strategies. \\(\\mathrm{AUC}_n\\) denotes the AUC score achieved by the model that is trained by \\(n\\) labeled images. The Pearson correlation coefficient between \\(\\mathrm{AUC}_{20}\\) (starting) and \\(\\mathrm{AUC}_{50}\\) (ending) shows strong positive correlation (\\(r = 0.79\\), 0.80, 0.91, 0.67, 0.92 for random selection, Entropy, Margin, BALD, and Coreset, respectively). This result is statistically significant (\\(p < 0.05\\)). Hard-to-contrast data (our proposal) consistently outperforms the others on OrganAMNIST (Figure 5), BloodMNIST (Figure 13), and PathMNIST (Figure 14), and steadily improves the model performances within the next active learning cycles.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "The initial query is consequential regardless of model initialization. A pre-trained model can improve the performance of each active learning cycle for both random and active selection [55], but the cold start problem remains (evidenced in Figure 14b). This suggests that the model instability and data scarcity are two independent issues to be addressed for the cold start problem. Our \"hard-to-contrast\" data selection criterion only exploits contrastive learning (an improved model), but also determines the typical data to be annotated first (a better query). As a result, when fine-tuning from MoCo v2, the Pearson correlation coefficient between \\(\\mathrm{AUC}_{20}\\) and \\(\\mathrm{AUC}_{50}\\) remains high (\\(r = 0.92\\), 0.81, 0.70, 0.82, 0.85 for random selection, Entropy, Margin, BALD, and Coreset, respectively) and statistically significant (\\(p < 0.05\\)).",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "4 Conclusion",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "This paper systematically examines the causes of the cold start problem in vision active learning and offers a practical and effective solution to address this problem. Analytical results indicate that (1) the level of label diversity and (2) the inclusion of hard-to-contrast data are two explicit criteria to determine the annotation importance. To this end, we devise a novel active querying strategy that can enforce label diversity and determine hard-to-contrast data. The results of three medical imaging and two natural imaging datasets show that our initial query not only significantly outperforms existing active querying strategies but also surpasses random selection by a large margin. This finding is significant because it is the first few choices that define the efficacy and efficiency of the subsequent learning procedure. We foresee our solution to the cold start problem as a simple, yet strong, baseline to sample the initial query for active learning in image classification.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "Limitation. This study provides an empirical benchmark of initial queries in active learning, while more theoretical analyses can be provided. Yehuda et al. [54] also found that the choice of active learning strategies depends on the initial query budget. A challenge is to articulate the quantity of determining active learning strategies, which we leave for future work.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "8",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 8,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": "Potential societal impacts. Real-world data often exhibit long-tailed distributions, rather than the ideal uniform distributions over each class. We improve active learning by enforcing label diversity and hard-to-contrast data. However, we only extensively test our strategies on academic datasets. In many other real-world domains such as robotics and autonomous driving, the data may impose additional constraints on annotation accessibility or learning dynamics, e.g., being fair or private. We focus on standard accuracy and AUC as our evaluation metrics while ignoring other ethical issues in imbalanced data, especially in underrepresented minority classes.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "Acknowledgements",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "This work was supported by the Lustgarten Foundation for Pancreatic Cancer Research. The authors want to thank Mingfei Gao for the discussion of initial query quantity and suggestions on the implementation of consistency-based active learning framework. The authors also want to thank Guy Hacohen, Yuanhan Zhang, Akshay L. Chandra, Jingkang Yang, Hao Cheng, Rongkai Zhang, and Junfei Xiao, for their feedback and constructive suggestions at several stages of the project. Computational resources were provided by Machine Learning and Data Analytics Laboratory, Nanyang Technological University. The authors thank the administrator Sung Kheng Yeo for his technical support.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "References",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "[1] Andrea Acevedo, Anna Merino, Santiago Alfrez, Ángel Molina, Laura Boldú, and José Rodellar. A dataset of microscopic peripheral blood cell images for development of automatic recognition systems. Data in Brief, 30, 2020.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[2] Sharat Agarwal, Himanshu Arora, Saket Anand, and Chetan Arora. Contextual diversity for active learning. *ArXiv*, abs/2008.05723, 2020.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[3] Shekoofeh Azizi, Basil Mustafa, Fiona Ryan, Zachary Beaver, Jan Freyberg, Jonathan Deaton, Aaron Loh, Alan Karthikesalingam, Simon Kornblith, Ting Chen, et al. Big self-supervised models advance medical image classification. arXiv preprint arXiv:2101.05224, 2021.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[4] Maria-Florina Balcan, Andrei Broder, and Tong Zhang. Margin based active learning. In International Conference on Computational Learning Theory, pages 35–50. Springer, 2007.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[5] Javad Zolfaghari Bengar, Joost van de Weijer, Bartlomiej Twardowski, and Bogdan Raducanu. Reducing label effort: Self-supervised meets active learning. In Proceedings of the IEEE/CVF International Conference on Computer Vision, pages 1631–1639, 2021.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[6] Yoshua Bengio, Jérôme Louradour, Ronan Collobert, and Jason Weston. Curriculum learning. In ICML '09, 2009.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[7] Maxim Berman, Hervé Jégou, Andrea Vedaldi, Iasonas Kokkinos, and Matthijs Douze. Multigrain: a unified image embedding for classes and instances. ArXiv, abs/1902.05509, 2019.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[8] Patrick Bilic, Patrick Ferdinand Christ, Eugene Vorontsov, Grzegorz Chlebus, Hao Chen, Qi Dou, Chi-Wing Fu, Xiao Han, Pheng-Ann Heng, Jürgen Hesser, et al. The liver tumor segmentation benchmark (lits). arXiv preprint arXiv:1901.04056, 2019.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[9] Jesús Bobadilla, Fernando Ortega, Antonio Hernando, and Jesús Bernal. A collaborative filtering approach to mitigate the new user cold start problem. Knowledge-based systems, 26:225-238, 2012.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[10] Alexander Borisov, Eugene Tuv, and George Runger. Active batch learning with stochastic query by forest. In JMLR: Workshop and Conference Proceedings (2010). CiteSeer, 2010.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[11] Akshay L Chandra, Sai Vikas Desai, Chaitanya Devaguptapu, and Vineeth N Balasubramanian. On initial pools for deep active learning. In NeurIPS 2020 Workshop on Pre-registration in Machine Learning, pages 14–32. PMLR, 2021.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[12] Haw-Shiuan Chang, Erik Learned-Miller, and Andrew McCallum. Active bias: Training more accurate neural networks by emphasizing high variance samples. Advances in Neural Information Processing Systems, 30, 2017.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[13] Ting Chen, Simon Kornblith, Mohammad Norouzi, and Geoffrey Hinton. A simple framework for contrastive learning of visual representations. arXiv preprint arXiv:2002.05709, 2020.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[14] Xinlei Chen, Haoqi Fan, Ross Girshick, and Kaiming He. Moco demo: Cifar-10. https://colab.research.google.com/github/facebookresearch/moco/blob/colab-notesbook/  \n//colab.moco_cifar10_demo.ipynb Accessed: 2022-05-26.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "9",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 9,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": "[15] Xinlei Chen, Haoqi Fan, Ross Girshick, and Kaiming He. Improved baselines with momentum contrastive learning. arXiv preprint arXiv:2003.04297, 2020.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[16] Reza Zanjirani Farahani and Masoud Hekmatfar. Facility location: concepts, models, algorithms and case studies. Springer Science & Business Media, 2009.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[17] Yarin Gal, Riashat Islam, and Zoubin Ghahramani. Deep bayesian active learning with image data. In International Conference on Machine Learning, pages 1183-1192. PMLR, 2017.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[18] Mingfei Gao, Zizhao Zhang, Guo Yu, Sercan Ö Arık, Larry S Davis, and Tomas Pfister. Consistency-based semi-supervised active learning: Towards minimizing labeling cost. In European Conference on Computer Vision, pages 510–526. Springer, 2020.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[19] Priya Goyal, Dhruv Mahajan, Abhinav Gupta, and Ishan Misra. Scaling and benchmarking self-supervised visual representation learning. In Proceedings of the IEEE International Conference on Computer Vision, pages 6391–6400, 2019.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[20] Guy Hacohen, Avihu Dekel, and Daphna Weinshall. Active learning on a budget: Opposite strategies suit high and low budgets. *ArXiv*, abs/2202.02794, 2022.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[21] Elad Hoffer, Tal Ben-Nun, Itay Hubara, Niv Giladi, Torsten Hoefer, and Daniel Soudry. Augment your batch: Improving generalization through instance repetition. 2020 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pages 8126-8135, 2020.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[22] Alex Holub, Pietro Perona, and Michael C Burl. Entropy-based active learning for object recognition. In 2008 IEEE Computer Society Conference on Computer Vision and Pattern Recognition Workshops, pages 1-8. IEEE, 2008.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[23] Neil Houlsby, José Miguel Hernández-Lobato, and Zoubin Ghahramani. Cold-start active learning with robust ordinal matrix factorization. In International conference on machine learning, pages 766-774. PMLR, 2014.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[24] Siyu Huang, Tianyang Wang, Haoyi Xiong, Jun Huan, and Dejing Dou. Semi-supervised active learning with temporal output discrepancy. In Proceedings of the IEEE/CVF International Conference on Computer Vision, pages 3447-3456, 2021.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[25] Shruti Jadon. Covid-19 detection from scarce chest x-ray image data using few-shot deep learning approach. In Medical Imaging 2021: Imaging Informatics for Healthcare, Research, and Applications, volume 11601, page 116010X. International Society for Optics and Photonics, 2021.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[26] Siddharth Karamcheti, Ranjay Krishna, Li Fei-Fei, and Christopher D Manning. Mind your outliers! investigating the negative impact of outliers on active learning for visual question answering. arXiv preprint arXiv:2107.02331, 2021.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[27] Jakob Nikolas Kather, Johannes Krisam, Pornpimol Charoentong, Tom Luedde, Esther Herpel, Cleo-Aron Weis, Timo Gaiser, Alexander Marx, Nektarios A. Valous, Dyke Ferber, Lina Jansen, Constantino Carlos Reyes-Aldasoro, Inka Zornig, Dirk Jäger, Hermann Brenner, Jenny Chang-Claude, Michael Hoffmeister, and Niels Halama. Predicting survival from colorectal cancer histology slides using deep learning: A retrospective multicenter study. PLoS Medicine, 16, 2019.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[28] Andreas Kirsch, Joost Van Amersfoort, and Yarin Gal. Batchbald: Efficient and diverse batch acquisition for deep bayesian active learning. Advances in neural information processing systems, 32, 2019.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[29] Alex Krizhevsky, Geoffrey Hinton, et al. Learning multiple layers of features from tiny images. 2009.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[30] Adrian Lang, Christoph Mayer, and Radu Timofte. Best practices in pool-based active learning for image classification. 2021.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[31] Yunfan Li, Peng Hu, Zitao Liu, Dezhong Peng, Joey Tianyi Zhou, and Xi Peng. Contrastive clustering. In 2021 AAAI Conference on Artificial Intelligence (AAAI), 2021.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[32] Geert Litjens, Thijs Kooi, Babak Ehteshami Bejnordi, Arnaud Arindra Adiyoso Setio, Francesco Ciompi, Mohsen Ghafoorian, Jeroen Awm Van Der Laak, Bram Van Ginneken, and Clara I Sánchez. A survey on deep learning in medical image analysis. Medical image analysis, 42:60-88, 2017.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[33] Katerina Margatina, Loic Barrault, and Nikolaos Aletras. Bayesian active learning with pretrained language models. arXiv preprint arXiv:2104.08320, 2021.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[34] Christoph Mayer and Radu Timofte. Adversarial sampling for active learning. In Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision, pages 3071-3079, 2020.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[35] Leland McInnes, John Healy, and James Melville. Umap: Uniform manifold approximation and projection for dimension reduction. arXiv preprint arXiv:1802.03426, 2018.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[36] Sudhanshu Mittal, Maxim Tatarchenko, Özgün Çiçek, and Thomas Brox. Parting with illusions about deep active learning. arXiv preprint arXiv:1912.05361, 2019.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "10",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 10,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": "[37] Vishwesh Nath, Dong Yang, Holger R Roth, and Daguang Xu. Warm start active learning with proxy labels and selection via semi-supervised fine-tuning. In International Conference on Medical Image Computing and Computer-Assisted Intervention, pages 297-308. Springer, 2022.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[38] Kossar Pourahmadi, Parsa Nooralinejad, and Hamed Pirsiavash. A simple baseline for low-budget active learning. arXiv preprint arXiv:2110.12033, 2021.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[39] Tian Qiu, Guang Chen, Zi-Ke Zhang, and Tao Zhou. An item-oriented recommendation algorithm on cold-start problem. EPL (Europhysics Letters), 95(5):58003, 2011.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[40] Joshua Robinson, Ching-Yao Chuang, Suvrit Sra, and Stefanie Jegelka. Contrastive learning with hard negative samples. arXiv preprint arXiv:2010.04592, 2020.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[41] Ozan Sener and Silvio Savarese. Active learning for convolutional neural networks: A core-set approach. arXiv preprint arXiv:1708.00489, 2017.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[42] Burr Settles. Active learning literature survey. 2009.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[43] Changjian Shui, Fan Zhou, Christian Gagné, and Boyu Wang. Deep active learning: Unified and principled method for query and training. In International Conference on Artificial Intelligence and Statistics, pages 1308–1318. PMLR, 2020.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[44] Oriane Simeoni, Mateusz Budnik, Yannis Avrithis, and Guillaume Gravier. Rethinking deep active learning: Using unlabeled data at model training. In 2020 25th International Conference on Pattern Recognition (ICPR), pages 1220-1227. IEEE, 2021.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[45] Samarth Sinha, Sayna Ebrahimi, and Trevor Darrell. Variational adversarial active learning. In Proceedings of the IEEE/CVF International Conference on Computer Vision, pages 5972-5981, 2019.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[46] Ben Sorscher, Robert Geirhos, Shashank Shekhar, Surya Ganguli, and Ari S Morcos. Beyond neural scaling laws: beating power law scaling via data pruning. arXiv preprint arXiv:2206.14486, 2022.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[47] Jamshid Sourati, Ali Gholipour, Jennifer G Dy, Xavier Tomas-Fernandez, Sila Kurugol, and Simon K Warfield. Intelligent labeling based on fisher information for medical image segmentation using deep learning. IEEE transactions on medical imaging, 38(11):2642-2653, 2019.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[48] Swabha Swayamdipta, Roy Schwartz, Nicholas Lourie, Yizhong Wang, Hannaneh Hajishirzi, Noah A Smith, and Yejin Choi. Dataset cartography: Mapping and diagnosing datasets with training dynamics. arXiv preprint arXiv:2009.10795, 2020.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[49] Zhan Tong, Yibing Song, Jue Wang, and Limin Wang. Videomae: Masked autoencoders are data-efficient learners for self-supervised video pre-training. arXiv preprint arXiv:2203.12602, 2022.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[50] Hugo Touvron, Matthieu Cord, Matthijs Douze, Francisco Massa, Alexandre Sablayrolles, and Herv'e J'egou. Training data-efficient image transformers & distillation through attention. In ICML, 2021.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[51] Wouter Van Gansbeke, Simon Vandenhende, Stamatios Georgoulis, Marc Proesmans, and Luc Van Gool. Scan: Learning to classify images without labels. In European Conference on Computer Vision, pages 268-285. Springer, 2020.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[52] Dan Wang and Yi Shang. A new active labeling method for deep learning. In 2014 International joint conference on neural networks (IJCNN), pages 112-119. IEEE, 2014.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[53] Jiancheng Yang, Rui Shi, Donglai Wei, Zequan Liu, Lin Zhao, Bilian Ke, Hanspeter Pfister, and Bingbing Ni. Medmnist v2: A large-scale lightweight benchmark for 2d and 3d biomedical image classification. arXiv preprint arXiv:2110.14795, 2021.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[54] Ofer Yehuda, Avihu Dekel, Guy Hacohen, and Daphna Weinshall. Active learning through a covering lens. arXiv preprint arXiv:2205.11320, 2022.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[55] Michelle Yuan, Hsuan-Tien Lin, and Jordan Boyd-Graber. Cold-start active learning through self-supervised language modeling. arXiv preprint arXiv:2010.09535, 2020.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[56] Zi-Ke Zhang, Chuang Liu, Yi-Cheng Zhang, and Tao Zhou. Solving the cold-start problem in recommender systems with social tags. EPL (Europhysics Letters), 92(2):28002, 2010.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[57] Evgenii Zheltonozhskii, Chaim Baskin, Alex M Bronstein, and Avi Mendelson. Self-supervised learning for large-scale unsupervised image clustering. arXiv preprint arXiv:2008.10312, 2020.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[58] S Kevin Zhou, Hayit Greenspan, Christos Davatzikos, James S Duncan, Bram van Ginneken, Anant Madabhushi, Jerry L Prince, Daniel Rueckert, and Ronald M Summers. A review of deep learning in medical imaging: Imaging traits, technology trends, case studies with progress highlights, and future promises. Proceedings of the IEEE, 2021.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[59] Zongwei Zhou. Towards Annotation-Efficient Deep Learning for Computer-Aided Diagnosis. PhD thesis, Arizona State University, 2021.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[60] Zongwei Zhou, Jae Shin, Ruibin Feng, R Todd Hurst, Christopher B Kendall, and Jianming Liang. Integrating active learning and transfer learning for carotid intima-media thickness video interpretation. Journal of digital imaging, 32(2):290-299, 2019.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "11",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 11,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": "[61] Zongwei Zhou, Jae Shin, Lei Zhang, Suryakanth Gurudu, Michael Gotway, and Jianming Liang. Finetuning convolutional neural networks for biomedical image analysis: actively and incrementally. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 7340-7349, 2017.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[62] Zongwei Zhou, Jae Y Shin, Suryakanth R Gurudu, Michael B Gotway, and Jianming Liang. Active, continual fine tuning of convolutional neural networks for reducing annotation efforts. Medical Image Analysis, page 101997, 2021.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "[63] Yu Zhu, Jinghao Lin, Shibi He, Beidou Wang, Ziyu Guan, Haifeng Liu, and Deng Cai. Addressing the item cold-start problem by attribute-driven active learning. IEEE Transactions on Knowledge and Data Engineering, 32(4):631-644, 2019.",
+        "table_id": null,
+        "style": "Ref_text"
+    },
+    {
+        "para_text": "12",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 12,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": "A Implementation Configurations",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "A.1 Data Split",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "PathMNIST with nine categories has 107,180 colorectal cancer tissue histopathological images extracted from Kather et al. [27], with 89,996/10,004/7,180 images for training/validation/testing. BloodMNIST contains 17,092 microscopic peripheral blood cell images extracted from Acevedo et al. [1] with eight categories, where 11,959/1,712/3,421 images for training/validation/testing. OrganAMNIST consists of the axial view abdominal CT images based on Bilic et al. [8], with 34,581/6,491/17,778 images of 11 categories for training/validation/testing. CIFAR-10-LT (\\(\\rho = 100\\)) consists of a subset of CIFAR-10 [29], with 12,406/10,000 images for training/testing.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "A.2 Training Recipe for Contrastive Learning",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "Pseudocode for Our Proposed Strategy. The algorithm provides the pseudocode for our proposed hard-to-contrast initial query strategy, as elaborated in §2",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "Algorithm 1: Active querying hard-to-contrast data",
+        "table_id": null,
+        "style": "Code_caption"
+    },
+    {
+        "para_text": "input: \\(\\mathcal{D} = \\{\\pmb{x}_m\\}_{m=1}^M\\) {unlabeled dataset \\(\\mathcal{D}\\) contains \\(M\\) images} annotation budget \\(B\\); the number of clusters \\(K\\); batch size \\(N\\); the number of epochs \\(E\\) constant \\(\\tau\\); structure of encoder \\(f\\), projection head \\(g\\); augmentation \\(\\mathcal{T}\\) \\(\\theta^{(e)}, e \\in [1, E]\\) {model parameters at epoch \\(e\\) during contrastive learning} output: selected query \\(\\mathcal{Q}\\) \\(\\mathcal{Q} = \\emptyset\\) for epoch \\(e \\in \\{1, \\dots, E\\}\\) do for sampled minibatch \\(\\{\\pmb{x}_n\\}_{n=1}^N\\) do for all \\(n \\in \\{1, \\dots, N\\}\\) do draw two augmentation functions \\(t \\sim \\mathcal{T}, t' \\sim \\mathcal{T}\\) # the first augmentation \\(\\tilde{\\pmb{x}}_{2n-1} = t(\\pmb{x}_n)\\) \\(\\pmb{h}_{2n-1} = f(\\tilde{\\pmb{x}}_{2n-1})\\) # representation \\(\\pmb{z}_{2n-1} = g(\\pmb{h}_{2n-1})\\) # projection # the second augmentation \\(\\tilde{\\pmb{x}}_{2n} = t'(\\pmb{x}_n)\\) \\(\\pmb{h}_{2n} = f(\\tilde{\\pmb{x}}_{2n})\\) # representation \\(\\pmb{z}_{2n} = g(\\pmb{h}_{2n})\\) # projection end for for all \\(i \\in \\{1, \\dots, 2N\\}\\) and \\(j \\in \\{1, \\dots, 2N\\}\\) do \\(s_{i,j} = z_i^\\top z_j / (\\|z_i\\| \\|z_j\\|)\\) # pairwise similarity \\(p_{i,j} = \\frac{\\exp(s_{i,j}) / \\tau}{\\sum_{n=1}^{2N} \\mathbb{1}_{[n \\neq i]} \\exp(s_{i,n}) / \\tau}\\) # predicted probability of contrastive pre-text task end for \\(p_{\\theta^{(e)}}(y_n^* | x_n) = \\frac{1}{2} [p_{2n-1,2n} + p_{2n,2n-1}]\\) end for end for for unlabeled images \\(\\{\\pmb{x}_m\\}_{m=1}^M\\) do \\(\\hat{\\mu}_m = \\frac{1}{E} \\sum_{e=1}^E p_{\\theta^{(e)}}(y_m^* | x_m)\\) Assign \\(\\pmb{x}_m\\) to one of the clusters computed by \\(K\\)-mean(\\(\\pmb{h}, K\\)) end for for all \\(k \\in \\{1, \\dots, K\\}\\) do sort images in the cluster \\(K\\) based on \\(\\hat{\\mu}\\) in an ascending order query labels for top \\(B/K\\) samples, yielding \\(Q_k\\) \\(\\mathcal{Q} = \\mathcal{Q} \\cup \\mathcal{Q}_k\\) end for return \\(\\mathcal{Q}\\)",
+        "table_id": null,
+        "style": "Algorithm"
+    },
+    {
+        "para_text": "13",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 13,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": "Table 3: Contrastive learning settings on MedMNIST and CIFAR-10-LT.",
+        "table_id": null,
+        "style": "Table_caption"
+    },
+    {
+        "para_text": {
+            "image_path": "tables/table_2.png",
+            "content": "<table><tr><td>config</td><td>value</td></tr><tr><td>backbone</td><td>ResNet-50</td></tr><tr><td>optimizer</td><td>SGD</td></tr><tr><td>optimizer momentum</td><td>0.9</td></tr><tr><td>weight decay</td><td>1e-4</td></tr><tr><td>base learning rate†</td><td>0.03</td></tr><tr><td>learning rate schedule</td><td>cosine decay</td></tr><tr><td>warmup epochs</td><td>5</td></tr><tr><td>epochs</td><td>200</td></tr><tr><td>repeated sampling [21]</td><td>see Table5</td></tr><tr><td>augmentation</td><td>see Table4</td></tr><tr><td>batch size</td><td>4096</td></tr><tr><td>queue length [15]</td><td>65536</td></tr><tr><td>τ (equation 1)</td><td>0.05</td></tr></table>"
+        },
+        "table_id": 2,
+        "style": "Table"
+    },
+    {
+        "para_text": "(b) CIFAR-10-LT pre-training",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "image_path": "tables/table_3.png",
+            "content": "<table><tr><td>config</td><td>value</td></tr><tr><td>backbone</td><td>ResNet-50</td></tr><tr><td>optimizer</td><td>SGD</td></tr><tr><td>optimizer momentum</td><td>0.9</td></tr><tr><td>weight decay</td><td>1e-4</td></tr><tr><td>base learning rate†</td><td>0.03</td></tr><tr><td>learning rate schedule</td><td>cosine decay</td></tr><tr><td>warmup epochs</td><td>5</td></tr><tr><td>epochs</td><td>800</td></tr><tr><td>repeated sampling [21]</td><td>none</td></tr><tr><td>augmentation</td><td>see Table4</td></tr><tr><td>batch size</td><td>512</td></tr><tr><td>queue length [15]</td><td>4096</td></tr><tr><td>τ (equation1)</td><td>0.05</td></tr></table>"
+        },
+        "table_id": 3,
+        "style": "Table"
+    },
+    {
+        "para_text": "\\(\\dagger lr = \\text{base\\_lr}\\) batchsize / 256 per the linear lr scaling rule [19].",
+        "table_id": null,
+        "style": "Table_footnote"
+    },
+    {
+        "para_text": "Table 4: Data augmentations.",
+        "table_id": null,
+        "style": "Table_caption"
+    },
+    {
+        "para_text": {
+            "image_path": "tables/table_4.png",
+            "content": "<table><tr><td>augmentation</td><td>value</td></tr><tr><td>hflip</td><td></td></tr><tr><td>crop</td><td>[0.08, 1]</td></tr><tr><td>color jitter</td><td>[0.4, 0.4, 0.4, 0.1], p=0.8</td></tr><tr><td>gray scale</td><td></td></tr><tr><td>Gaussian blur</td><td>σmin=0.1, σmax=2.0, p=0.5</td></tr></table>"
+        },
+        "table_id": 4,
+        "style": "Table"
+    },
+    {
+        "para_text": "(b) Augmentations for OrganAMNIST",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "image_path": "tables/table_5.png",
+            "content": "<table><tr><td>augmentation</td><td>value</td></tr><tr><td>hflip</td><td></td></tr><tr><td>crop</td><td>[0.08, 1]</td></tr><tr><td>color jitter</td><td>[0.4, 0.4, 0.4, 0.1], p=0.8</td></tr><tr><td>rotation</td><td>degrees=45</td></tr></table>"
+        },
+        "table_id": 5,
+        "style": "Table"
+    },
+    {
+        "para_text": "Pre-training Settings. Our settings mostly follow [15, 14]. Table 3a summarizes our contrastive pre-training settings on MedMNIST, following [15]. Table 3a shows the corresponding pre-training settings on CIFAR-10-LT, following the official MoCo demo on CIFAR-10 [14]. The contrastive learning model is pre-trained on 2 NVIDIA RTX3090 GPUs with 24GB memory each. The total number of model parameters is 55.93 million, among which 27.97 million requires gradient backpropagation.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "Dataset Augmentation. We apply the same augmentation as in MoCo v2 [15] on all the images of RGB modalities to reproduce the optimal augmentation pipeline proposed by the authors, including PathMNIST, BloodMNIST, CIFAR-10-LT. Because OrganAMNIST is a grey scale CT image dataset, we apply the augmentation in [3] designed for radiological images, replacing random gray scale and Gaussian blur with random rotation. Table4 shows the details of data augmentation.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "Repeated Augmentation. Our MoCo v2 pre-training is so fast in computation that data loading becomes a new bottleneck that dominates running time in our setup. We perform repeated augmentation on MedMNIST datasets at the level of dataset, also to enlarge augmentation space and improve generalization. [21] proposed repeated augmentation in a growing batch mode to improve generalization and convergence speed by reducing variances. This approach provokes a challenge in computing resources. Recent works [21,50,7] proved that fixed batch mode also boosts generalization and optimization by increasing mutiplicity of augmentations as well as parameter updates and decreasing the number of unique samples per batch, which holds the batch size fixed. Because the original contrastive learning works [13,15] were implemented on ImageNet dataset, we attempt to simulate the quantity of ImageNet per epoch to achieve optimal performances. The details are shown in Table 5",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "We only applied repeated augmentation on MedMNIST, but not CIFAR-10-LT. This is because we follow all the settings of the official CIFAR-10 demo [14] in which repeated augmentation is not employed.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "14",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 14,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": {
+            "image_path": "tables/table_6.png",
+            "content": "<table><tr><td></td><td># training</td><td>repeated times</td><td># samples per epoch</td></tr><tr><td>ImageNet</td><td>1,281,167</td><td>1</td><td>1,281,167</td></tr><tr><td>PathMNIST</td><td>89,996</td><td>14</td><td>1,259,944</td></tr><tr><td>OrganAMNIST</td><td>34,581</td><td>37</td><td>1,279,497</td></tr><tr><td>BloodMNIST</td><td>11,959</td><td>105</td><td>1,255,695</td></tr><tr><td>CIFAR-10-LT(ρ=100)</td><td>12,406</td><td>1</td><td>12,406</td></tr></table>"
+        },
+        "table_id": 6,
+        "style": "Table"
+    },
+    {
+        "para_text": "Table 5: Repeated augmentation. For a faster model convergence, we apply repeated augmentation [21,49,50] on MedMNIST by reproducing the large batch size and iteration numbers.",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": "A.3 Training Recipe for MedMNIST and CIFAR-10",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "Benchmark Settings. We evaluate the initial queries by the performance of model trained on the selected initial query, and present the results in Table17 and Figure4 The benchmark experiments are performed on NVIDIA RTX 1080 GPUs, with the following settings in Table6",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "Cold Start Settings for Existing Active Querying Criteria. To compare the cold start performance of active querying criteria with random selection ( Figure1), we trained a model with the test set and applied existing active querying criteria.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": {
+            "image_path": "tables/table_7.png",
+            "content": "<table><tr><td>config</td><td>value</td></tr><tr><td>backbone</td><td>Inception-ResNet-v2</td></tr><tr><td>optimizer</td><td>SGD</td></tr><tr><td>learning rate</td><td>0.1</td></tr><tr><td>learning rate schedule</td><td>reduce learning rate on plateau, factor=0.5, patience=8</td></tr><tr><td>early stopping patience</td><td>50</td></tr><tr><td>max epochs</td><td>10000</td></tr><tr><td></td><td>flip, p=0.5</td></tr><tr><td>augmentation</td><td>rotation, p=0.5, in 90, 180, or 270 degrees</td></tr><tr><td></td><td>reverse color, p=0.1</td></tr><tr><td></td><td>fade color, p=0.1, 80% random noises + 20% original image</td></tr><tr><td>batch size</td><td>128</td></tr></table>"
+        },
+        "table_id": 7,
+        "style": "Table"
+    },
+    {
+        "para_text": "Table 6: Benchmark settings. We apply the same settings for training MedMNIST, CIFAR-10, and CIFAR-10-LT.",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": "15",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 15,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": "B Additional Results on MedMNIST",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "B.1 Label Diversity is a Significant Add-on to Most Querying Strategies",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "As we present in Table 1, label diversity is an important underlying criterion in designing active querying criteria. We plot the full results on all three MedMNIST datasets in Figure 6. Most existing active querying strategies became more performant and robust in the presence of label diversity.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_10.png",
+            "alt_text": "The image displays a composite of six separate scatter plots arranged horizontally, each representing a different active learning acquisition function. The overall layout is a grid of six panels, each with identical axis scales and formatting. The vertical axis, labeled \"AUC\" on the far-left panel and shared across all, ranges from 0.8 to 1.0. The horizontal axis, labeled \"# of images\" at the bottom of each panel, is on a logarithmic scale ranging from 10^2 to 10^4. Each panel contains two sets of data points: red dots with vertical error bars and gray dots with vertical error bars. The red dots generally trend upward and to the right, indicating increasing AUC with increasing number of images, and are positioned above or overlapping with the gray dots in most panels. The gray dots also show an upward trend but are generally lower in AUC value than the red dots for comparable numbers of images. Each panel is titled with the name of an acquisition function and a corresponding citation in parentheses: \"BALD (Kirsch et al., 2017)\", \"Consistency (Gao et al., 2020)\", \"Coreset (Sener et al., 2017)\", \"Margin (Balcan et al., 2007)\", \"VAAL (Sinha et al., 2019)\", and \"Entropy (Wang et al., 2014)\". The titles are positioned above each respective plot. The plots use a white background with black axes and gridlines. The red and gray data points are plotted with vertical error bars extending above and below each point."
+        },
+        "table_id": 10,
+        "style": "Image"
+    },
+    {
+        "para_text": "(a) PathMNIST",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_11.png",
+            "alt_text": "A composite image displaying six separate scatter plots arranged in a single horizontal row, each plotting a similar relationship. Each individual plot features a Cartesian coordinate system with a vertical y-axis labeled \"AUC\" ranging from 0.8 to 1.0 and a horizontal x-axis labeled \"# of images\" with a logarithmic scale marked at 10², 10³, and 10⁴. Within each plot, two distinct sets of data points are visualized: one set represented by red circular markers with vertical error bars, and another set by gray circular markers, also with vertical error bars. The red data points generally form a curve that rises steeply at lower values of \"# of images\" and then plateaus near an AUC value of 1.0 as \"# of images\" increases. The gray data points follow a similar upward trend but are consistently positioned below the red data points across the range of \"# of images\" in most plots, indicating lower AUC values. The plots are identical in axis labeling and scale but differ in the specific positions and error bar lengths of the data points, suggesting they represent different experimental conditions or datasets. No additional titles, legends, or annotations are visible within the image."
+        },
+        "table_id": 11,
+        "style": "Image"
+    },
+    {
+        "para_text": "(b) OrganAMNIST",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_12.png",
+            "alt_text": "The image displays a composite of six separate scatter plots arranged in a single horizontal row, each sharing identical axis labels and scales. Each plot visualizes the relationship between the number of images on the x-axis and the Area Under the Curve (AUC) on the y-axis. The x-axis is labeled “# of images” and uses a logarithmic scale ranging from 10² to 10⁴. The y-axis is labeled “AUC” and spans linearly from 0.8 to 1.0, with major gridlines at 0.8, 0.9, and 1.0. In each plot, two sets of data points are presented: one set represented by red dots with vertical error bars, and another by gray dots with vertical error bars. Both sets of points generally trend upward from left to right, indicating that AUC increases as the number of images increases, eventually plateauing near an AUC value of 1.0. The red data points consistently appear at or above the gray data points across all plots, suggesting a performance advantage. The error bars on the red points are generally shorter than those on the gray points, indicating lower variance. The plots are visually identical in structure and labeling but differ in the specific positions and distributions of the data points, suggesting they represent different experimental conditions or datasets. No additional titles, legends, or annotations are visible within the image."
+        },
+        "table_id": 12,
+        "style": "Image"
+    },
+    {
+        "para_text": "(c) BloodMNIST",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": "Figure 6: [Extended from Table 1] Label diversity yields more performant and robust active querying strategies. The experiments are conducted on three datasets in MedMNIST. The red and gray dots denote AUC scores of different active querying strategies with and without label diversity, respectively. Most existing active querying strategies became more performant and robust in the presence of label diversity, e.g. BALD, Margin, VAAL, and Uncertainty in particular. Some gray dots are not plotted in the low budget regime because there are classes absent in the queries due to the selection bias.",
+        "table_id": null,
+        "style": "Image_caption"
+    },
+    {
+        "para_text": "16",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 16,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": "B.2 Contrastive Features Enable Label Diversity to Mitigate Bias",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "Our proposed active querying strategy is capable of covering the majority of classes in most low budget scenarios by integrating K-means clustering and contrastive features, including the tail classes (e.g. femur-left, basophil). Compared to the existing active querying criteria, we achieve the best class coverage of selected query among all budgets presented in Table2",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_13.png",
+            "alt_text": "A horizontal bar chart comparing the performance of eight different methods across eleven anatomical organs. The chart is organized into eight vertical columns, each representing a method: \"Random\", \"Consistency\", \"VAAL\", \"Margin\", \"Entropy\", \"Coreset\", \"BALD\", and \"Ours\". Along the left vertical axis, eleven organ labels are listed: \"bladder\", \"femur-left\", \"femur-right\", \"heart\", \"kidney-left\", \"kidney-right\", \"liver\", \"lung-left\", \"lung-right\", \"pancreas\", and \"spleen\". Each cell in the grid contains a solid red horizontal bar whose length corresponds to a quantitative value for that organ under that method. The bars vary in length across both rows and columns, indicating differing performance levels. No numerical axis values or units are visible on the chart; comparisons are made visually based on relative bar lengths. The chart uses a white background with black grid lines separating the columns and rows. The text labels for methods are centered above their respective columns, and organ labels are left-aligned to the left of their respective rows. The bar for \"liver\" under the \"Ours\" method is the longest visible bar in the entire chart. The bar for \"femur-right\" under the \"VAAL\" method is notably long compared to other bars in that column."
+        },
+        "table_id": 13,
+        "style": "Image"
+    },
+    {
+        "para_text": "(a) OrganAMNIST",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_14.png",
+            "alt_text": "A horizontal bar chart comparing eight different active learning strategies across eight distinct cell types. The chart is organized into eight vertical columns, each representing a strategy: \"Random\", \"Consistency\", \"VAAL\", \"Margin\", \"Entropy\", \"Coreset\", \"BALD\", and \"Ours\". The rows correspond to the cell types listed along the left vertical axis: \"basophil\", \"eosinophil\", \"erythroblast\", \"ig\", \"lymphocyte\", \"monocyte\", \"neutrophil\", and \"platelet\". Each cell contains a solid red horizontal bar whose length visually represents a quantitative value for that cell type under that specific strategy. The bars vary in length across both rows and columns, indicating differing performance or measurement values. The chart uses a white background with black gridlines separating the columns and rows. No numerical axis scales, units, or legends are visible to quantify the exact values represented by the bar lengths. The chart's primary visual structure is a grid of red bars, with the column headers and row labels providing categorical context."
+        },
+        "table_id": 14,
+        "style": "Image"
+    },
+    {
+        "para_text": "(b) BloodMNIST",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": "Figure 7: [Continued from Figure 2] Our querying strategy yields better label diversity. Random on the leftmost denotes the class distribution of randomly queried samples, which can also reflect the approximate class distribution of the entire dataset. As seen, even with a relatively larger initial query budget (691 images, \\(2\\%\\) of OrganAMNIST, and 2,391 images, \\(20\\%\\) of BloodMNIST), most active querying strategies are biased towards certain classes. For example in OrganAMNIST, VAAL prefers selecting data in the femur-right and platelet class, but largely ignores data in the lung, liver and monocyte classes. On the contrary, our querying strategy not only selects more data from minority classes (e.g., femur-left and basophil) while retaining the class distribution of major classes.",
+        "table_id": null,
+        "style": "Image_caption"
+    },
+    {
+        "para_text": "17",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 17,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_15.png",
+            "alt_text": "A scatter plot visualizing data points distributed across a two-dimensional space, with the vertical axis labeled \"Easy-to-contrast\" running from bottom to top along the left edge of the plot. The data points are represented as small 'x' markers, each outlined in black and filled with one of several distinct colors including red, purple, blue, green, cyan, orange, yellow, and magenta. These colored 'x' markers are clustered into several spatially separated groups, each corresponding to a distinct color region that appears as a semi-transparent, irregularly shaped cloud or blob overlaying the points. Two prominent red arrows point to specific clusters: one arrow originates from the lower right and points to a small red cluster near the upper right, while another arrow originates from the center right and points to a blue cluster located further right. The background is white, and no horizontal axis label or scale is visible. The overall layout suggests a visualization of data clustering or dimensionality reduction, with color-coded groupings and annotations highlighting specific regions of interest."
+        },
+        "table_id": 15,
+        "style": "Image"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_16.png",
+            "alt_text": "A scatter plot visualization on a white background, displaying numerous data points grouped into distinct, color-coded clusters. The clusters are rendered as dense, cloud-like regions of small dots in various colors including magenta, red, orange, purple, cyan, and light blue. Superimposed on these clusters are larger, cross-shaped markers (‘x’ symbols) in matching colors, indicating specific data points or centroids within each cluster. A prominent red arrow originates from the bottom right and points towards a small, yellow-colored cluster of dots and a yellow cross marker located in the lower right quadrant of the plot. No axes, scale labels, grid lines, or textual annotations are visible. The overall layout is irregular, with clusters distributed across the central and right portions of the frame, leaving significant empty white space around the periphery."
+        },
+        "table_id": 16,
+        "style": "Image"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_17.png",
+            "alt_text": "The image is a scatter plot or clustering diagram displaying numerous data points distributed across a white background. The points are rendered as small 'x' marks, each colored differently to indicate distinct groups or clusters. The clusters are visually separated into several regions: a large pink cluster in the upper left, a central cluster with a mix of yellow, red, and purple points, a green cluster in the upper right, a smaller blue cluster in the lower right, and another blue cluster in the lower left. Three thick red arrows are overlaid on the image, each pointing to specific clusters: one arrow points to the central mixed-color cluster, another to the green cluster in the upper right, and the third to the pink cluster in the upper left. No axes, scale, labels, or textual annotations are visible. The overall layout suggests a visualization of data clustering, with the arrows likely highlighting regions of interest or specific groupings within the dataset."
+        },
+        "table_id": 17,
+        "style": "Image"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_18.png",
+            "alt_text": "A scatter plot visualizing data points distributed across a two-dimensional space, with the vertical axis labeled \"Hard-to-contrast\" oriented vertically along the left edge of the plot. The data points are represented as small 'x' markers, each enclosed within a thin black square outline, and are color-coded to correspond with distinct clusters. These clusters are also highlighted by semi-transparent, irregularly shaped color regions that envelop groups of points: a magenta cluster near the top center, a purple cluster to its lower left, a large central region blending cyan, green, and orange hues, a yellow cluster at the bottom left, and a blue cluster at the upper right. Additional isolated points appear in orange and green outside the main clustered regions. The background is plain white, and no horizontal axis label is visible. The spatial arrangement suggests grouping or classification of data based on proximity and color assignment, with the vertical axis indicating a variable related to \"Hard-to-contrast.\""
+        },
+        "table_id": 18,
+        "style": "Image"
+    },
+    {
+        "para_text": "(a) PathMNIST",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_19.png",
+            "alt_text": "The image displays a scatter plot visualization on a white background, featuring numerous small dots and larger 'X' markers distributed across the two-dimensional space. The dots are grouped into distinct, dense clusters, each rendered in a different color: magenta, red, orange, yellow, cyan, blue, purple, and green. These colored clusters are interspersed with scattered individual dots of the same colors. Superimposed on the plot are larger 'X' markers, each outlined in black and filled with a solid color corresponding to one of the dot clusters—green, orange, red, blue, purple, yellow, and cyan. These 'X' markers are positioned within or near the centers of their respective colored clusters. The axes of the plot are not labeled, and no gridlines, scale, or legend are visible. The overall layout suggests a clustering algorithm output, with the 'X' markers likely representing cluster centroids and the colored dots representing data points assigned to each cluster."
+        },
+        "table_id": 19,
+        "style": "Image"
+    },
+    {
+        "para_text": "(b) OrganAMNIST",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_20.png",
+            "alt_text": "The image displays a scatter plot with data points grouped into distinct clusters, each marked by a unique color and symbol. The plot features six primary clusters: one in magenta with purple 'x' markers located in the upper left; a central cluster blending yellow and orange 'x' markers; a smaller red cluster adjacent to the yellow-orange group; a green cluster with green 'x' markers to the right; a light blue cluster with blue 'x' markers in the lower left; and a pale blue cluster with light blue 'x' markers in the lower right. Additional isolated 'x' markers appear scattered between clusters, particularly in the center and right regions. The background is white, and no axes, gridlines, labels, or titles are visible. The spatial arrangement suggests a visual representation of data segmentation or clustering, with color and symbol consistency within each group indicating categorical or class-based grouping."
+        },
+        "table_id": 20,
+        "style": "Image"
+    },
+    {
+        "para_text": "(c) BloodMNIST",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": "Figure 8: Visualization of \\( K \\)-means clustering and our active selection. UMAP [35] is used to visualize the feature clustering. Colors indicate the ground truth. Contrastive features clustered by the \\( K \\)-means algorithm present a fairly clear separation in the 2D space, which helps enforce the label diversity without the need of ground truth. The crosses denote the selected easy- (top) and hard-to-contrast (bottom) data. Overall, hard-to-contrast data have a greater spread within each cluster than easy-to-contrast ones. In addition, we find that easy-to-contrast tends to select outlier classes that do not belong to the majority class in a cluster (see red arrows). This behavior will invalidate the purpose of clustering and inevitably jeopardize the label diversity.",
+        "table_id": null,
+        "style": "Image_caption"
+    },
+    {
+        "para_text": "Selected Query Visualization. To ease the analysis, we project the image features (extracted by a trained MoCo v2 encoder) onto a 2D space by UMAP [35]. The assigned pseudo labels have large overlap with ground truths, suggesting that the features from MoCo v2 are quite discriminative for each class. Overall, Figure shows that hard-to-contrast queries have a greater spread within each cluster than easy-to-contrast ones. Both strategies can cover \\(100\\%\\) classes. Nevertheless, we notice that easy-to-contrast selects local outliers in clusters: samples that do not belong to the majority class in a cluster. Such behavior will invalidate the purpose of clustering, which is to query uniformly by separating classes. Additionally, it possibly exposes the risk of introducing out-of-distribution data to the query, which undermines active learning [26].",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "18",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 18,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": "C Experiments on CIFAR-10 and CIFAR-10-LT",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "C.1 Label Diversity is a Significant Add-on to Most Querying Strategies",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "As illustrated in Table 7 and Figure 9 label diversity is an important underlying criterion in designing active querying criteria on CIFAR-10-LT, an extremely imbalanced dataset. We compare the results of CIFAR-10-LT with MedMNIST datasets Figure 6 CIFAR-10-LT is more imbalanced than MedMNIST, and the performance gain and robustness improvement of label diversity CIFAR-10-LT is significantly larger than MedMNIST. Most of the active querying strategies fail to query all the classes even at relatively larger initial query budgets.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": {
+            "image_path": "tables/table_8.png",
+            "content": "<table><tr><td rowspan=\"2\"></td><td rowspan=\"2\">Unif.</td><td colspan=\"6\">CIFAR-10-LT</td></tr><tr><td>1% (142)</td><td>5% (710)</td><td>10% (1420)</td><td>20% (2841)</td><td>30% (4261)</td><td>40% (5682)</td></tr><tr><td rowspan=\"2\">Consistency</td><td>✓</td><td>78.0±1.2</td><td>90.0±0.1</td><td>91.4±1.1</td><td>93.4±0.2</td><td>93.2±0.2</td><td>94.6±0.2</td></tr><tr><td>×</td><td>-</td><td>-</td><td>67.1±17.1</td><td>88.6±0.3</td><td>90.4±0.6</td><td>90.7±0.2</td></tr><tr><td rowspan=\"2\">VAAL</td><td>✓</td><td>80.9±1.0</td><td>90.3±0.5</td><td>92.6±0.2</td><td>93.7±0.4</td><td>93.9±0.8</td><td>94.5±0.2</td></tr><tr><td>×</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>77.3±1.6</td></tr><tr><td rowspan=\"2\">Margin</td><td>✓</td><td>81.2±1.8</td><td>88.7±0.7</td><td>91.7±0.9</td><td>93.2±0.2</td><td>94.5±0.1</td><td>94.7±0.4</td></tr><tr><td>×</td><td>-</td><td>-</td><td>81.9±0.8</td><td>86.3±0.3</td><td>87.4±0.2</td><td>88.1±0.1</td></tr><tr><td rowspan=\"2\">Entropy</td><td>✓</td><td>78.1±1.4</td><td>89.6±0.5</td><td>92.0±1.2</td><td>91.9±1.3</td><td>94.0±0.6</td><td>94.0±0.7</td></tr><tr><td>×</td><td>-</td><td>79.0±1.2</td><td>65.6±15.6</td><td>86.4±0.2</td><td>88.5±0.2</td><td>89.5±0.7</td></tr><tr><td rowspan=\"2\">Coreset</td><td>✓</td><td>80.8±1.0</td><td>89.7±1.3</td><td>91.5±0.4</td><td>93.6±0.2</td><td>93.4±0.7</td><td>94.8±0.1</td></tr><tr><td>×</td><td>-</td><td>-</td><td>65.9±15.9</td><td>86.9±0.1</td><td>88.2±0.1</td><td>90.3±0.2</td></tr><tr><td rowspan=\"2\">BALD</td><td>✓</td><td>83.3±0.6</td><td>90.8±0.3</td><td>92.8±0.1</td><td>90.8±2.4</td><td>94.0±0.8</td><td>94.7±0.4</td></tr><tr><td>×</td><td>-</td><td>76.8±2.3</td><td>64.9±14.9</td><td>84.7±0.6</td><td>88.0±0.5</td><td>88.9±0.1</td></tr></table>"
+        },
+        "table_id": 8,
+        "style": "Table"
+    },
+    {
+        "para_text": "Table 7: Diversity is a significant add-on to most querying strategies. AUC scores of different querying strategies are compared on CIFAR-10 and CIFAR-10-LT. In the low budget regime (e.g. \\(10\\%\\) and \\(20\\%\\) of the entire dataset), active querying strategies benefit from enforcing the label diversity of the selected data. The cells are highlighted in blue when adding diversity performs no worse than the original querying strategies. Some results are missing (marked as “-”) because the querying strategy fails to sample at least one data point for each class. Results of more sampling ratios are presented in Appendix Figure 9",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": "C.2 Contrastive Features Enable Label Diversity to Mitigate Bias",
+        "table_id": null,
+        "style": "Heading 1"
+    },
+    {
+        "para_text": "Our proposed active querying strategy is capable of covering the majority of classes in most low budget scenarios by integrating K-means clustering and contrastive features, including the tail classes (horse, ship, and truck). Compared to the existing active querying criteria, we achieve the best class coverage of selected query among all budgets presented in Table2 As depicted in Figure9 our querying strategy has a more similar distribution to the overall distribution of dataset and successfully covers all the classes, with the highest proportion of minor classes (ship and truck) among random selection and all active querying methods.",
+        "table_id": null,
+        "style": "Text"
+    },
+    {
+        "para_text": "19",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 19,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_21.png",
+            "alt_text": "A composite scientific chart composed of six individual scatter plots arranged horizontally, each depicting the relationship between the number of images and the Area Under the Curve (AUC) metric for different active learning acquisition functions. The vertical axis, labeled \"AUC\" on the far-left plot, ranges from 0.8 to 1.0 and is shared across all six plots. The horizontal axis, labeled \"# of images\" beneath each plot, uses a logarithmic scale ranging from 10² to 10⁴ and is also shared across all plots. Each plot contains two sets of data points: red circular markers with vertical error bars and grey circular markers with vertical error bars. The plots are titled from left to right as \"BALD (Kirsch et al., 2017)\", \"Consistency (Gao et al., 2020)\", \"Coreset (Sener et al., 2017)\", \"Margin (Balcan et al., 2007)\", \"VAAL (Sinha et al., 2019)\", and \"Entropy (Wang et al., 2014)\". In each plot, both sets of data points generally show an increasing trend in AUC as the number of images increases, with the red points typically positioned higher than the grey points, especially at lower image counts, and both sets converging near an AUC of 1.0 at higher image counts. Error bars indicate variability for each data point."
+        },
+        "table_id": 21,
+        "style": "Image"
+    },
+    {
+        "para_text": "(a) CIFAR-10",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_22.png",
+            "alt_text": "The image displays a horizontal array of six identical scatter plots, each depicting a relationship between two variables. The vertical axis, labeled \"AUC,\" ranges from 0.6 to 1.0 with major gridlines at 0.6, 0.8, and 1.0. The horizontal axis, labeled \"# of images,\" is on a logarithmic scale ranging from 10² to 10⁴, with major gridlines at 10², 10³, and 10⁴. Each plot contains two sets of data points: one set represented by red circular markers with vertical error bars, and another set by gray circular markers, also with vertical error bars. The red data points generally show an increasing trend in AUC as the number of images increases, starting near 0.6 at 10² images and approaching 1.0 at 10⁴ images. The gray data points follow a similar upward trend but are consistently positioned below the red points across the range of the x-axis, with some points showing larger vertical error bars, particularly around 10³ images. The plots are arranged side-by-side with no visible titles, legends, or additional annotations beyond the axis labels. The background is white with light gray horizontal gridlines."
+        },
+        "table_id": 22,
+        "style": "Image"
+    },
+    {
+        "para_text": "(b) CIFAR-10-LT",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": "Figure 9: Diversity yields more performant and robust active querying strategies. The experiments are conducted on CIFAR-10-LT. The red and gray dots denote AUC scores of different active querying strategies with and without label diversity, respectively. Observations are consistent with those in medical applications (see Figure 6): Most existing active querying strategies became more performant and robust in the presence of label diversity.",
+        "table_id": null,
+        "style": "Image_caption"
+    },
+    {
+        "para_text": "20",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 20,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_23.png",
+            "alt_text": "A horizontal bar chart comparing the performance of seven different sampling methods across ten object categories. The chart is organized into seven vertical columns, each representing a sampling method: Random, Consistency, VAAL, Margin, Entropy, Coreset, and BALD. The rows correspond to object categories listed on the left: airplane, automobile, cat, bird, deer, dog, frog, horse, ship, and truck. Each cell contains a solid red horizontal bar whose length visually represents a quantitative value for that method-category pair. The bars vary significantly in length across methods and categories. For example, in the VAAL column, the bar for \"automobile\" is long, while bars for \"frog,\" \"horse,\" \"ship,\" and \"truck\" are very short or nearly absent. In the BALD column, the bar for \"bird\" is the longest in the entire chart, while the bar for \"automobile\" is among the shortest. No numerical axis or scale is visible, so exact values are not discernible, but relative magnitudes within and across columns can be compared visually. All text labels are in black sans-serif font, with column headers centered above their respective columns and row labels aligned to the left of their rows. The background is white, and thin black gridlines separate the cells."
+        },
+        "table_id": 23,
+        "style": "Image"
+    },
+    {
+        "para_text": "(a) CIFAR-10",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_24.png",
+            "alt_text": "A horizontal bar chart comparing the performance of eight different sampling methods across ten distinct object categories. The chart is organized into eight vertical columns, each representing a sampling method labeled at the top: \"Random\", \"Consistency\", \"VAAL\", \"Margin\", \"Entropy\", \"Coreset\", \"BALD\", and \"Ours\". Along the left vertical axis, ten object categories are listed: \"airplane\", \"automobile\", \"cat\", \"bird\", \"deer\", \"dog\", \"frog\", \"horse\", \"ship\", and \"truck\". Each cell within the grid contains a solid red horizontal bar whose length corresponds to a measured value for that method-category combination. The bars vary significantly in length across both methods and categories, with no visible numerical scale or axis labels indicating the exact values. The background is white, and all text is black. The chart uses a uniform red color for all bars, with no additional legends or annotations visible. The overall layout is a grid structure with clear column headers and row labels, designed to facilitate visual comparison of bar lengths within each column and across rows."
+        },
+        "table_id": 24,
+        "style": "Image"
+    },
+    {
+        "para_text": "(b) CIFAR-10-LT",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": "Figure 10: Our querying strategy yields better label diversity. Random on the leftmost denotes the class distribution of randomly queried samples, which can also reflect the approximate class distribution of the entire dataset. As seen, even with a relatively larger initial query budget (5,000 images, \\(10\\%\\) of CIFAR-10, and 1420 images, \\(10\\%\\) of CIFAR-10-LT), most active querying strategies are biased towards certain classes. Our querying strategy, on the contrary, is capable of selecting more data from the minority classes such as horse, ship, and truck.",
+        "table_id": null,
+        "style": "Image_caption"
+    },
+    {
+        "para_text": "21",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 21,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_25.png",
+            "alt_text": "A vertically oriented grid composed of numerous small, square tiles, each displaying a distinct microscopic tissue image stained primarily in shades of pink, purple, and white, characteristic of histological slides. The overall layout is a dense mosaic, with each tile showing varying patterns of cellular structures, nuclei, and extracellular matrix, suggesting different tissue types or pathological states. Along the left edge of the grid, the text \"PathMNIST\" is vertically aligned, written in a black, sans-serif font, running from top to bottom, indicating the name or dataset associated with the image collection. The color palette is dominated by hues of magenta, lavender, and off-white, with occasional darker purple or near-black regions representing dense cellular areas or staining artifacts. No axes, legends, or additional annotations are present within the grid itself."
+        },
+        "table_id": 25,
+        "style": "Image"
+    },
+    {
+        "para_text": "(a) Overall distribution",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_26.png",
+            "alt_text": "The image is a composite scientific visualization, primarily featuring a scatter plot on the right and two sets of four histological image tiles on the left, labeled \"Easy-to-learn\" and \"Hard-to-learn\". The scatter plot displays data points distributed along a curved, crescent-shaped pattern. The horizontal axis is labeled \"variability\" and ranges from 0.0 to approximately 0.4. The vertical axis is labeled \"confidence\" and ranges from 0.0 to 1.0. Data points are color-coded according to a legend positioned at the top: red for \"adipose\", blue for \"background\", green for \"cancer-associated stroma\", purple for \"debris\", orange for \"lymphocytes\", and magenta for \"mucus\". A blue circle highlights a cluster of points near the top of the plot, where confidence is approximately 1.0 and variability is near 0.0. A red circle highlights a cluster of points near the bottom left, where both confidence and variability are near 0.0. A blue line connects the top-left corner of the plot (0.0 variability, 1.0 confidence) to the blue circle, and a red line connects the bottom-left corner (0.0 variability, 0.0 confidence) to the red circle. The \"Easy-to-learn\" section on the left contains four square image tiles showing magnified tissue samples, predominantly purple and pink with granular textures. The \"Hard-to-learn\" section below it also contains four square image tiles of similar histological appearance. The overall layout juxtaposes the quantitative scatter plot with qualitative image examples corresponding to the \"Easy-to-learn\" and \"Hard-to-learn\" categories."
+        },
+        "table_id": 26,
+        "style": "Image"
+    },
+    {
+        "para_text": "(b) Data Map by ground truth",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_27.png",
+            "alt_text": "The image displays a scatter plot chart with a legend, axis labels, and two inset panels containing microscopic tissue images. The chart's horizontal axis is labeled \"variability\" and ranges from 0.0 to approximately 0.5, with gridlines at 0.2 and 0.4. The vertical axis is labeled with numerical values from 0.0 to 1.0, marked at intervals of 0.2. The data points are color-coded according to the legend located in the upper left: teal dots represent \"smooth muscle,\" yellow dots represent \"colorectal adenocarcinoma epithelium,\" and light blue dots represent \"normal colon mucosa.\" The data points form a curved, upward-sweeping cluster, with the majority concentrated near the origin and spreading out as variability increases. A red rectangular box highlights the lower-left region of the plot near the origin, where data points of all three colors are densely clustered; a red circle is drawn around this region. A blue rectangular box highlights a region further along the curve, around variability 0.4 and vertical value 0.6, where the points are more dispersed; a blue circle is drawn around this region. To the right of the chart, two sets of four small square images are displayed. The top set is labeled \"Easy-to-contrast\" and contains histological images showing distinct tissue structures with high contrast between cellular components and background. The bottom set is labeled \"Hard-to-contrast\" and contains images with lower contrast, where cellular boundaries and structures are less distinct. Blue and red lines connect the circled regions on the chart to the corresponding \"Easy-to-contrast\" and \"Hard-to-contrast\" image panels, respectively."
+        },
+        "table_id": 27,
+        "style": "Image"
+    },
+    {
+        "para_text": "(c) Data Map by pseudo-labels",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_28.png",
+            "alt_text": "The image is a grayscale composite grid composed of numerous small square tiles, each displaying a distinct medical scan, likely from MRI or CT imaging, showing cross-sectional views of various human organs. The grid is arranged in a dense, uniform matrix, approximately 15 tiles wide and 20 tiles high, forming a rectangular mosaic. On the left edge of the image, vertically aligned along the full height, is the text \"OrganAMNIST\" in a bold, sans-serif font, oriented upright and running top to bottom. The individual tiles vary in contrast and anatomical structure, with some showing circular or oval organ cross-sections, others depicting more irregular tissue patterns, and many containing dark voids or bright regions indicative of different tissue densities or fluid-filled spaces. The overall visual impression is that of a structured dataset visualization, with no background or decorative elements—only the tiled medical images and the vertical label. The image lacks color, relying entirely on grayscale tonal variation to convey structural detail."
+        },
+        "table_id": 28,
+        "style": "Image"
+    },
+    {
+        "para_text": "(d) Overall distribution",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_29.png",
+            "alt_text": "The image is a scientific chart combining a scatter plot with inset medical imaging examples and a legend. The main chart is a scatter plot with a horizontal axis labeled \"variability\" ranging from 0.0 to approximately 0.4 and a vertical axis labeled \"confidence\" ranging from 0.0 to 1.0. The plot contains thousands of data points forming a curved, crescent-shaped distribution that starts near the origin (low variability, low confidence) and sweeps upward and rightward, peaking near (0.0, 1.0) before curving downward as variability increases. The data points are color-coded according to a legend in the upper left: red for \"bladder\", blue for \"femur-left\", green for \"femur-right\", purple for \"kidney-left\", orange for \"kidney-right\", and magenta for \"liver\". A blue circle highlights a cluster of points at the top-left of the plot near (0.0, 1.0), and a red circle highlights a cluster at the bottom-left near (0.0, 0.0). To the left of the scatter plot are two sets of four grayscale medical images, likely CT or MRI scans. The top set is labeled \"Easy-to-learn\" and is connected by a blue L-shaped line to the high-confidence, low-variability region of the plot. The bottom set is labeled \"Hard-to-learn\" and is connected by a red L-shaped line to the low-confidence, low-variability region. The overall layout is structured to correlate the visual difficulty of learning anatomical structures from medical images with their measured confidence and variability scores."
+        },
+        "table_id": 29,
+        "style": "Image"
+    },
+    {
+        "para_text": "(e) Data Map by ground truth",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_30.png",
+            "alt_text": "The image displays a scatter plot with a legend, axis labels, and two inset panels containing grayscale medical images. The plot's vertical axis is labeled \"confidence\" and ranges from 0.0 to 1.0, while the horizontal axis is labeled \"variability\" and ranges from 0.0 to approximately 0.5. Data points are color-coded according to the legend in the upper left: teal for \"lung-right\", pink for \"pancreas\", blue for \"spleen\", yellow for \"heart\", and light blue for \"lung-left\". The data points form a curved distribution rising from near the origin toward the upper right, with higher variability generally corresponding to higher confidence. A red rectangular outline highlights a cluster of low-variability, low-confidence points near the origin, circled in red. A blue rectangular outline highlights a cluster of higher-variability, higher-confidence points near the upper right, circled in blue. To the right of the plot, two panels of grayscale medical images are labeled: the upper panel, labeled \"Easy-to-contrast\", contains four images showing clear anatomical boundaries; the lower panel, labeled \"Hard-to-contrast\", contains four images showing less distinct boundaries. The blue outline connects to the \"Easy-to-contrast\" panel, and the red outline connects to the \"Hard-to-contrast\" panel."
+        },
+        "table_id": 30,
+        "style": "Image"
+    },
+    {
+        "para_text": "(f) Data Map by pseudo-labels",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": "Figure 11: Active querying based on Dataset Maps. (a,d) PathMNIST and OrganAMNIST dataset overview. (b,e) Easy- and hard-to-learn data can be selected from the maps based on ground truths [26]. This querying strategy has two limitations: (1) requiring manual annotations and (2) data are stratified by classes in the 2D space, leading to a poor label diversity in the selected queries. (c,f) Easy- and hard-to-contrast data can be selected from the maps based on pseudo labels. This querying strategy is label-free and the selected \"hard-to-contrast\" data represent the most common patterns in the entire dataset. These data are more suitable for training and thus alleviate the cold start problem.",
+        "table_id": null,
+        "style": "Image_caption"
+    },
+    {
+        "para_text": "22",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 22,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_31.png",
+            "alt_text": "A large, dense grid composed of approximately 100 to 150 small, square-shaped images arranged in uniform rows and columns, forming a mosaic-like collage. The individual images depict a wide variety of subjects, primarily centered around three categories: animals (including dogs, cats, birds, horses, deer, lions, and other wildlife), vehicles (predominantly cars of various makes, models, and colors, as well as airplanes, helicopters, and a few motorcycles), and occasionally mixed scenes or objects. The images vary in lighting, background, and composition, with some taken outdoors in natural settings and others in studio or urban environments. No single image dominates the layout; instead, the overall visual effect is one of high diversity and repetition of thematic elements. There is no visible text, titles, labels, or connecting lines between the individual images; they are presented as discrete, juxtaposed units. The color palette across the entire grid is varied and vibrant, reflecting the different subjects and lighting conditions of each embedded photograph."
+        },
+        "table_id": 31,
+        "style": "Image"
+    },
+    {
+        "para_text": "(a) Overall distribution",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_32.png",
+            "alt_text": "The image is a scientific chart combining a scatter plot with inset example images and a legend, designed to illustrate the relationship between prediction confidence and data variability for different object classes. The main component is a scatter plot with a Cartesian coordinate system. The vertical y-axis is labeled \"confidence\" and ranges from 0.0 to 1.0, marked at intervals of 0.2. The horizontal x-axis is labeled \"variability\" and ranges from 0.0 to 0.4, marked at intervals of 0.2. The plot contains a dense cloud of small, colored data points forming a distinct, curved, crescent-like shape that starts near the origin (0.0, 0.0) and arcs upwards and to the right, peaking near (0.2, 1.0) before curving back down towards (0.4, 0.0).\n\nA legend in the top-left corner defines six categories, each represented by a colored dot: red for \"airplane\", blue for \"automobile\", green for \"bird\", purple for \"deer\", orange for \"dog\", and magenta for \"frog\". The data points in the scatter plot are colored according to this legend, indicating the class of each data point. Two specific regions of the plot are highlighted with colored outlines: a blue circle encloses the cluster of points at the top of the curve, near the maximum confidence of 1.0, and a red circle encloses the cluster of points at the bottom-left, near the minimum confidence of 0.0 and low variability.\n\nTo the left of the scatter plot, there are two sets of four small inset images, each set labeled with black text. The upper set, labeled \"Easy-to-learn\", contains images of a red car, a white car, a silver car, and a red car from the rear. The lower set, labeled \"Hard-to-learn\", contains images of a dark car, a blurry image of a bird, a blurry image of a person, and a green car. Blue and red lines connect these labeled image sets to the corresponding circled regions on the scatter plot: the blue line from \"Easy-to-learn\" points to the blue circle at high confidence, and the red line from \"Hard-to-learn\" points to the red circle at low confidence. The overall layout is structured to visually correlate the qualitative examples with the quantitative data points on the graph."
+        },
+        "table_id": 32,
+        "style": "Image"
+    },
+    {
+        "para_text": "(b) Data Map by ground truth",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_33.png",
+            "alt_text": "A scatter plot with a step line overlay, comparing confidence on the y-axis against variability on the x-axis, with data points color-coded according to four categories: teal for \"ship\", pink for \"truck\", light blue for \"horse\", and yellow for \"cat\". The plot features a blue step line connecting a circled data point near (0.45, 0.75) to a region near x=0.50 and y=0.8, and a red step line connecting a circled data point near (0.40, 0.20) to a region near x=0.50 and y=0.2. To the right of the plot, two labeled groups of four small images each are displayed: the top group, labeled \"Easy-to-contrast\", contains images of a white car, an airplane, a dog, and a butterfly; the bottom group, labeled \"Hard-to-contrast\", contains images of a dark vehicle, a blue car, a spider, and a bird. The chart includes a grid background, axis labels, and a legend in the top-left corner identifying the color-to-category mapping."
+        },
+        "table_id": 33,
+        "style": "Image"
+    },
+    {
+        "para_text": "(c) Data Map by pseudo-labels",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": "Figure 12: Active querying based on Dataset Maps. (a) CIFAR-10-LT dataset overview. (b) Easy- and hard-to-learn data can be selected from the maps based on ground truths [26]. This querying strategy has two limitations: (1) requiring manual annotations and (2) data are stratified by classes in the 2D space, leading to a poor label diversity in the selected queries. (c) Easy- and hard-to-contrast data can be selected from the maps based on pseudo labels. This querying strategy is label-free and the selected \"hard-to-contrast\" data represent the most common patterns in the entire dataset. These data are more suitable for training and thus alleviate the cold start problem.",
+        "table_id": null,
+        "style": "Image_caption"
+    },
+    {
+        "para_text": "23",
+        "table_id": null,
+        "style": "Page_number"
+    },
+    {
+        "para_text": null,
+        "table_id": 23,
+        "style": "Page_Start"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_34.png",
+            "alt_text": "The image displays a composite of ten line graphs arranged in two rows and five columns, presenting comparative performance data under the overarching label \"(a) Training from scratch\" centered between the rows. Each column corresponds to a different active learning acquisition strategy: \"Random,\" \"Entropy,\" \"Margin,\" \"BALD,\" and \"Coreset,\" with these titles positioned above the respective column of graphs. Each graph plots \"AUC (%)\" on the vertical y-axis, ranging from 50 to 100, against \"# of Labeled Images\" on the horizontal x-axis, ranging from 10 to 60. Ten distinct data series are represented in each graph using unique line styles and markers, as defined by a legend located to the right of the top row of graphs. The legend maps the following: a solid red line with circular markers for \"Hard-to-Contrast\"; a solid black line with square markers for \"Easy-to-Contrast\"; a solid black line with upward-pointing triangular markers for \"Easy-to-Learn\"; a solid black line with downward-pointing triangular markers for \"Consistency\"; a solid black line with diamond markers for \"Entropy\"; a solid black line with circular markers for \"Margin\"; a solid black line with square markers for \"BALD\"; a solid black line with upward-pointing triangular markers for \"VAAL\"; and a solid black line with downward-pointing triangular markers for \"Coreset\". In all graphs, the \"Hard-to-Contrast\" line consistently appears near the top, often exhibiting the highest AUC values across the range of labeled images. The other nine lines show varying trajectories, generally increasing with the number of labeled images, but with different slopes and final AUC values depending on the acquisition strategy and the specific data series. The layout is structured for direct visual comparison of performance trends across different acquisition strategies and data series."
+        },
+        "table_id": 34,
+        "style": "Image"
+    },
+    {
+        "para_text": "(b) Fine-tuning from self-supervised pre-training",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": {
+            "path": "figures/image_35.png",
+            "alt_text": "The image displays a composite of ten line graphs arranged in two rows and five columns, presenting a comparative analysis of different active learning strategies. The top row is labeled \"(a) Training from scratch\". Each graph plots the Area Under the Curve (AUC) percentage on the y-axis, which ranges from 50 to 100, against the number of labeled images on the x-axis, which ranges from 10 to 60. The five columns correspond to different selection criteria: Random, Entropy, Margin, BALD, and Coreset, with each column containing two graphs—one in the top row and one in the bottom row. Each graph contains multiple lines, each represented by a distinct marker and color, corresponding to different active learning methods as defined in the legend on the right. The legend indicates eight methods: Hard-to-Contrast (red circles), Easy-to-Contrast (black squares), Easy-to-Learn (black triangles), Consistency (black diamonds), Entropy (black circles), Margin (black inverted triangles), BALD (black squares with a white center), VAAL (black triangles with a white center), and Coreset (black inverted triangles with a white center). The bottom row of graphs, which lack a specific label, visually mirrors the top row in structure and axes but exhibits slightly different line trajectories and data point positions. All graphs share consistent axis labeling and scaling, and the legend applies uniformly across all ten plots. The overall layout is structured for comparative evaluation of algorithm performance under varying selection strategies and training conditions."
+        },
+        "table_id": 35,
+        "style": "Image"
+    },
+    {
+        "para_text": "(b) Fine-tuning from self-supervised pre-training",
+        "table_id": null,
+        "style": "Caption"
+    },
+    {
+        "para_text": "Figure 14: Performance of each active learning querying strategies with different initial query strategies on PathMNIST. Hard-to-contrast initial query strategy (red lines) outperforms other initial query strategies in every cycle of active learning. With each active learning querying strategy, the performance of the initial cycle (20 labeled images) and the last cycle (50 labeled images) are strongly correlated.",
+        "table_id": null,
+        "style": "Image_caption"
+    },
+    {
+        "para_text": "24",
+        "table_id": null,
+        "style": "Page_number"
+    }
+]

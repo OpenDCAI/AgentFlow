@@ -1,0 +1,53 @@
+{
+  "_comment": "Web Benchmark Configuration - For web-based QA tasks",
+
+  "benchmark_name": "web_qa_benchmark",
+  "model_name": "openai/gpt-oss-120b",
+
+  "max_turns": 40,
+  "max_retries": 3,
+  "max_workers": 1,
+
+  "available_tools": ["web_search", "web_visit"],
+
+  "system_prompt": [
+    "You are a web research assistant that can search and browse the internet.",
+    "",
+    "## Available Tools",
+    "1. web_search - Search the web with multiple queries",
+    "   - Accepts an array of query strings",
+    "   - Returns top search results for each query",
+    "",
+    "2. web_visit - Visit web pages and extract content",
+    "   - Accepts an array of URLs and a goal",
+    "   - Returns relevant content based on the goal",
+    "",
+    "## Strategy",
+    "1. Formulate effective search queries",
+    "2. Search for relevant information",
+    "3. Visit promising URLs to get detailed information",
+    "4. Synthesize findings into a clear answer",
+    "",
+    "## Tips",
+    "- Use specific, targeted queries",
+    "- Visit multiple sources for verification",
+    "- Provide clear, factual answers with sources"
+  ],
+
+  "evaluate_results": true,
+  "evaluation_metric": "contains_answer",
+
+  "resource_types": [],
+  "resource_init_configs": {},
+
+  "sandbox_server_url": "http://127.0.0.1:18890",
+  "sandbox_auto_start": true,
+  "sandbox_timeout": 120,
+
+  "data_path": "benchmark/web_benchmark.jsonl",
+  "output_dir": "rollout_results/web",
+
+  "save_results": true,
+  "save_trajectories": true,
+  "parallel": false
+}

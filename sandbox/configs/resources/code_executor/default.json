@@ -1,0 +1,16 @@
+{
+  "$schema": "L2 - CodeExecutor 资源默认配置",
+  "$resource_type": "code",
+  
+  "enabled": true,
+  "description": "代码执行沙箱后端（Mock）",
+  "backend_class": "sandbox.server.backends.resources.code_executor.CodeExecutorBackend",
+  
+  "config": {
+    "runtime": "python:3.10",
+    "timeout": 60,
+    "memory_limit_mb": 512,
+    "sandbox_type": "docker",
+    "allowed_packages": ["numpy", "pandas", "requests", "json", "re"]
+  }
+}

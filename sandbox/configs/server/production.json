@@ -1,0 +1,19 @@
+{
+  "$schema": "L1 - 服务器配置（生产环境）",
+  "$extends": "default.json",
+
+  "title": "Sandbox Production",
+  "log_level": "INFO",
+  "session_ttl": 300,
+  
+  "cors": {
+    "enabled": true,
+    "allowed_origins": ["${ALLOWED_ORIGINS:-*}"]
+  },
+  
+  "rate_limit": {
+    "enabled": true,
+    "requests_per_minute": 100
+  }
+}
+

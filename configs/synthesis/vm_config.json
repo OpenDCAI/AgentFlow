@@ -1,0 +1,54 @@
+{
+
+  "model_name": "openai/gpt-oss-120b",
+
+  "max_depth": 10,
+  "branching_factor": 1,
+  "depth_threshold": 1,
+
+  "min_depth": 3,
+  "max_selected_traj": 1,
+  "path_similarity_threshold": 0.7,
+
+  "number_of_seed": null,
+
+  "resource_types": ["vm"],
+  "resource_init_configs": {
+    "vm": {
+      "content": {}
+    }
+  },
+
+  "sandbox_server_url": "http://127.0.0.1:18890",
+  "sandbox_auto_start": false,
+  "sandbox_config_path": "/home/a1/sdb/tzw/Synthesis/configs/server/vm_only_deployment.json",
+  "sandbox_timeout": 120,
+
+  "available_tools": ["vm_screenshot", "vm_click", "vm_double_click", "vm_type", "vm_key", "vm_key_down", "vm_key_up", "vm_hotkey", "vm_scroll", "vm_drag", "vm_move", "vm_mouse_down", "vm_mouse_up", "vm_right_click"],
+
+  "seed_description": "Starting entity and its description",
+
+  "sampling_tips": [
+    "Use VM tools to explore the UI and gather concrete evidence",
+    "Record precise UI states, labels, and values",
+    "Prefer actionable steps that lead to verifiable facts"
+  ],
+
+  "synthesis_tips": [
+    "Create questions requiring multi-step UI interactions",
+    "Keep questions concise (<=3 sentences)",
+    "Answers should be specific and verifiable from the UI state",
+    "Provide clear reasoning steps based on observed UI evidence"
+  ],
+
+  "qa_examples": [
+    {
+      "question": "What is the displayed version number in the settings window?",
+      "answer": "1.2.3"
+    }
+  ],
+
+  "seeds_file": "examples/seeds-vm.jsonl",
+  "output_dir": "results"
+}
+

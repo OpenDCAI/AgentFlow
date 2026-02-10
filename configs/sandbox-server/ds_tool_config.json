@@ -1,0 +1,16 @@
+{
+  "server": {
+    "title": "Sandbox HTTP Service (Data Science Tools)",
+    "description": "Data Science tools with seed_path provided at call time",
+    "session_ttl": 300
+  },
+  "apis": {
+    "ds": {
+      "_comment_required": "seed_path 为调用参数，不在配置中",
+      "_comment_fallback": "兜底默认：ds_max_csv/ds_summary_max_chars",
+      "ds_max_csv": 100,
+      "ds_summary_max_chars": 12000
+    }
+  }
+}
+

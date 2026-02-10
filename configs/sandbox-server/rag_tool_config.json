@@ -1,0 +1,36 @@
+{
+  "server": {
+    "title": "Sandbox HTTP Service (RAG Resource)",
+    "description": "RAG resource with E5 + Faiss backend",
+    "session_ttl": 600,
+    "log_level": "DEBUG"
+  },
+  "resources": {
+    "rag": {
+      "enabled": true,
+      "description": "RAG 检索后端 - 文档检索 (E5 + Faiss)",
+      "backend_class": "sandbox.server.backends.resources.rag.RAGBackend",
+      "config": {
+        "_comment_device": [
+          "device 格式说明:",
+          "- 'cuda:0'        → Encoder 用 cuda:0, Index 用 cpu",
+          "- 'cuda:0/cuda:1' → Encoder 用 cuda:0, Index 用 cuda:1",
+          "- 'cpu'           → 全部用 cpu"
+        ],
+        "model_name": "/home/a1/sdb/tzw/Synthesis/embeddingmodel",
+        "index_path": "/home/a1/index4rag/e5_Flat.index",
+        "corpus_path": "/home/a1/sdb/wikidata4rag/Search-r1/data00/jiajie_jin/flashrag_indexes/wiki_dpr_100w/wiki_dump.jsonl",
+        "device": "cuda:2",
+        "default_top_k": 10,
+        "batcher_trigger_batch_size": 16,
+        "batcher_max_batch_size": 32,
+        "batcher_max_wait_time": 0.05
+      }
+    }
+  },
+  "warmup": {
+    "enabled": true,
+    "resources": ["rag"]
+  }
+}
+

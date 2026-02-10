@@ -1,7 +1,7 @@
-# Environment files
-.env
+# 忽略 embeddingmodel 模型目录
+embeddingmodel/
 
-# Python
+# Python 相关
 __pycache__/
 *.py[cod]
 *$py.class
@@ -19,140 +19,72 @@ parts/
 sdist/
 var/
 wheels/
-share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
 
-# PyInstaller
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-cover/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-.pybuilder/
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-.python-version
-
-# pipenv
-Pipfile.lock
-
-# poetry
-poetry.lock
-
-# pdm
-.pdm.toml
-.pdm-python
-.pdm-build/
-
-# PEP 582
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
+# 虚拟环境
 venv/
+env/
 ENV/
-env.bak/
-venv.bak/
+.venv
 
-# Spyder project settings
-.spyderproject
-.spyproject
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
-# Rope project settings
-.ropeproject
+# 日志文件
+*.log
+logs/
 
-# mkdocs documentation
-/site
+# 环境变量文件
+.env
+.env.local
+.env.*.local
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
-
-# pytype static type analyzer
-.pytype/
-
-# Cython debug symbols
-cython_debug/
-
-# VLLM process state files
-vllm_processes.json
-vllm_pids.txt
-
-# Cache directories
-cache/
-./cache/
-
-# Model and output paths (typically large files)
-models/
-outputs/
-checkpoints/
-src/results/
-src/data_synthesis/synthesis_results*
-src/data/
-
-# RAG index file
-src/index/
-
+# 临时文件
+*.tmp
+*.temp
 .DS_Store
+Thumbs.db
+
+# 数据文件
+*.db
+*.sqlite
+*.sqlite3
+
+# 缓存目录
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# 上传和缓存目录
+uploads/
+sandbox/utils/search_v2/uploads/
+sandbox/utils/search_v2/logs/
+
+# 模型文件（大文件）
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.onnx
+*.h5
+*.pb
+
+# 其他大文件
+*.zip
+*.tar.gz
+*.rar
+
+# 本地镜像文件目录
+osworld-image/
+sandbox_recordings/
+results/
+
+osworld-image copy/Ubuntu.qcow2
+fordiff/

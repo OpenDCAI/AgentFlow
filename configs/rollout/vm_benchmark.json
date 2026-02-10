@@ -1,0 +1,69 @@
+{
+  "_comment": "VM Benchmark Configuration - For desktop automation tasks",
+
+  "benchmark_name": "vm_automation_benchmark",
+  "model_name": "gpt-4.1-2025-04-14",
+
+  "max_turns": 30,
+  "max_retries": 3,
+  "max_workers": 1,
+
+  "available_tools": [
+    "vm_screenshot",
+    "vm_click",
+    "vm_double_click",
+    "vm_type",
+    "vm_key",
+    "vm_hotkey",
+    "vm_scroll",
+    "vm_drag",
+    "vm_move",
+    "vm_right_click"
+  ],
+
+  "system_prompt": [
+    "You are a desktop automation assistant that can interact with virtual machines.",
+    "",
+    "## Available Tools",
+    "- vm_screenshot - Capture the current screen (also returns accessibility tree)",
+    "- vm_click - Click at coordinates (x, y)",
+    "- vm_double_click - Double click at coordinates",
+    "- vm_type - Type text",
+    "- vm_key - Press a single key (enter, tab, escape, etc.)",
+    "- vm_hotkey - Press key combinations (e.g., ctrl+c)",
+    "- vm_scroll - Scroll at coordinates",
+    "- vm_drag - Drag from start to end coordinates",
+    "- vm_move - Move mouse to coordinates",
+    "- vm_right_click - Right click",
+    "",
+    "## Strategy",
+    "1. Start by taking a screenshot to understand the current state",
+    "2. Identify UI elements from the accessibility tree",
+    "3. Perform actions step by step",
+    "4. Verify results with screenshots after important actions",
+    "",
+    "Note: Actions return accessibility_tree automatically, so you don't need to call screenshot just to fetch UI state."
+  ],
+
+  "evaluate_results": true,
+  "evaluation_metric": "llm_judgement",
+
+  "resource_types": ["vm"],
+  "resource_init_configs": {
+    "vm": {
+      "content": {}
+    }
+  },
+
+  "sandbox_server_url": "http://127.0.0.1:18890",
+  "sandbox_auto_start": false,
+  "sandbox_config_path": "configs/vm_only_deployment.json",
+  "sandbox_timeout": 120,
+
+  "data_path": "benchmark/vm_benchmark.jsonl",
+  "output_dir": "rollout_results/vm",
+
+  "save_results": true,
+  "save_trajectories": true,
+  "parallel": false
+}

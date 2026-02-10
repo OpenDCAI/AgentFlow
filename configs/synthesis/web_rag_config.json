@@ -1,0 +1,51 @@
+{
+
+  "model_name": "openai/gpt-oss-120b",
+
+  "max_depth": 50,
+  "branching_factor": 2,
+  "depth_threshold": 2,
+
+  "min_depth": 3,
+  "max_selected_traj": 2,
+  "path_similarity_threshold": 0.7,
+
+  "number_of_seed": null,
+
+  "sandbox_server_url": "http://127.0.0.1:18890",
+
+  "available_tools": ["rag_search", "web_search", "web_visit"],
+
+  "seed_description": "Starting entity and its description",
+
+  "sampling_tips": [
+    "Explore deeply to build multi-hop reasoning chains",
+    "Focus on gathering specific facts and evidence",
+    "Use retrieval tools to find relevant information",
+    "Build dependency chains (A→B→C→D...)",
+    "Capture hard metadata (dates, versions, IDs, counts)",
+    "Use both RAG and web tools at least once per trajectory",
+    "Use web_visit at least once to extract evidence from specific pages",
+    "Prefer web tools for public/fresh facts and RAG for internal context"
+  ],
+
+  "synthesis_tips": [
+    "Create questions requiring multi-hop reasoning (>=3 hops)",
+    "Keep questions concise (<=5 sentences)",
+    "Answers should be specific facts (names, dates, locations)",
+    "Ensure answer is grounded in trajectory evidence",
+    "Provide clear reasoning steps",
+    "Make the question require both RAG and web evidence",
+    "Ensure web_visit evidence is required to answer"
+  ],
+
+  "qa_examples": [
+    {
+      "question": "What year was the company founded that developed the framework used in the project?",
+      "answer": "2004"
+    }
+  ],
+
+  "seeds_file": "examples/seeds.jsonl",
+  "output_dir": "results"
+}

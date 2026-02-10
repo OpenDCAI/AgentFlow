@@ -1,0 +1,17 @@
+{
+  "$schema": "L2 - RAG 资源默认配置",
+  "$resource_type": "rag",
+  
+  "enabled": true,
+  "description": "RAG 文档检索后端（Mock）- 向量检索服务",
+  "backend_class": "sandbox.server.backends.resources.rag.RAGBackend",
+  
+  "config": {
+    "model_name": "intfloat/e5-base-v2",
+    "model_type": "sentence_transformers",
+    "index_path": "./data/index",
+    "index_type": "faiss",
+    "device": "cpu",
+    "default_top_k": 10
+  }
+}

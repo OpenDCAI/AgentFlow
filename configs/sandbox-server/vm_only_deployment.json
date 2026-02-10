@@ -1,0 +1,36 @@
+{
+  "server": {
+    "title": "Sandbox VM Only",
+    "session_ttl": 600,
+    "log_level": "INFO"
+  },
+  "resources": {
+    "vm": {
+      "enabled": true,
+      "description": "虚拟机后端 - 桌面自动化",
+      "backend_class": "sandbox.server.backends.resources.vm.VMBackend",
+      "config": {
+        "provider": "docker",
+        "region": "",
+        "os_type": "Ubuntu",
+        "screen_size": [1920, 1080],
+        "headless": true,
+        "connection_type": "local",
+        "pool_size": 1,
+        "setup": [],
+        "pool_reset": true,
+        "snapshot_name": "",
+        "use_proxy": false,
+        "client_password": "password",
+        "vm_path": "/home/a1/sdb/tzw/Synthesis/osworld-image/Ubuntu.qcow2",
+        "recording": true,
+        "recording_path": "/home/a1/sdb/tzw/Synthesis/sandbox_recordings"
+      }
+    }
+  },
+  "warmup": {
+    "enabled": true,
+    "resources": ["vm"]
+  }
+}
+

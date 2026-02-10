@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "synthesis-sandbox"
+version = "0.1.0"
+description = "Sandbox server"
+requires-python = ">=3.9"
+
+[project.scripts]
+sandbox-server = "sandbox.cli.sandbox_server:main"
+

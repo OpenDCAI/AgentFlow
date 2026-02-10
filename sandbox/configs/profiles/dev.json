@@ -1,0 +1,109 @@
+{
+  "$schema": "启动配置 - 开发环境",
+  "$comment": "囊括 L1(server) + L2(resources/apis) 的完整启动配置，所有后端均为 Mock 实现",
+
+  "server": {
+    "title": "Sandbox Dev (Mock)",
+    "session_ttl": 600,
+    "log_level": "DEBUG"
+  },
+
+  "resources": {
+    "_comment": "有状态后端 - 需要继承 Backend 类，支持 session 管理",
+    "bash": {
+      "enabled": true,
+      "description": "Bash 终端后端（Mock）- 命令行交互",
+      "backend_class": "sandbox.server.backends.resources.bash.BashBackend",
+      "config": {
+        "shell_type": "local",
+        "cwd": "/tmp",
+        "timeout": 30
+      }
+    },
+
+    "browser": {
+      "enabled": true,
+      "description": "浏览器后端（Mock）- 网页自动化",
+      "backend_class": "sandbox.server.backends.resources.browser.BrowserBackend",
+      "config": {
+        "browser_type": "chromium",
+        "headless": true,
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "timeout": 30000
+      }
+    },
+
+    "code": {
+      "enabled": true,
+      "description": "代码执行后端（Mock）- 代码沙箱",
+      "backend_class": "sandbox.server.backends.resources.code_executor.CodeExecutorBackend",
+      "config": {
+        "runtime": "python:3.10",
+        "timeout": 60,
+        "memory_limit_mb": 512,
+        "sandbox_type": "docker",
+        "allowed_packages": ["numpy", "pandas", "requests", "json", "re"]
+      }
+    },
+
+    "rag": {
+      "enabled": true,
+      "description": "RAG 检索后端 - 文档检索 (E5 + Faiss)",
+      "backend_class": "sandbox.server.backends.resources.rag.RAGBackend",
+      "config": {
+        "_comment_device": [
+          "device 格式说明:",
+          "- 'cuda:0'        → Encoder 用 cuda:0, Index 用 cpu",
+          "- 'cuda:0/cuda:1' → Encoder 用 cuda:0, Index 用 cuda:1",
+          "- 'cpu'           → 全部用 cpu"
+        ],
+        "model_name": "/home/a1/sdb/tzw/Synthesis/embeddingmodel",
+        "index_path": "/home/a1/index4rag/e5_Flat.index",
+        "corpus_path": "/home/a1/sdb/wikidata4rag/Search-r1/data00/jiajie_jin/flashrag_indexes/wiki_dpr_100w/wiki_dump.jsonl",
+        "device": "cuda:2",
+        "default_top_k": 10,
+        "batcher_trigger_batch_size": 16,
+        "batcher_max_batch_size": 32,
+        "batcher_max_wait_time": 0.05
+      }
+    }
+  },
+
+  "apis": {
+    "_comment": "轻量级无状态工具 - 直接注册函数，无需 session",
+
+    "websearch": {
+      "_comment": "WebSearch 真实实现配置",
+
+      "serper_api_key": "${SERPER_API_KEY}",
+      "jina_api_key": "${JINA_API_KEY}",
+
+      "max_results": 10,
+      "max_workers": 5,
+      "retry_times": 5,
+      "timeout": 30,
+
+      "visit_method": "jina",
+      "content_limit": 50000,
+      "max_tokens": 1000,
+      "retry_max_attempts": 3,
+      "retry_initial_delay": 1.0,
+      "temperature": 0.3,
+      "word_count_threshold": 10,
+
+      "_comment_llm": "如果需要 LLM 总结网页内容，设置以下参数",
+      "enable_llm_summary": false,
+      "summary_model": "openai/gpt-oss-120b",
+      "openai_api_key": "${OPENAI_API_KEY}",
+      "openai_api_url": "https://openrouter.ai/api/v1"
+    }
+  },
+
+  "warmup": {
+    "enabled": true,
+    "resources": ["rag"]
+  }
+}

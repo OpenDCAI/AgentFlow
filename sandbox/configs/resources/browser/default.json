@@ -1,0 +1,20 @@
+{
+  "$schema": "L2 - Browser 资源默认配置",
+  "$resource_type": "browser",
+  
+  "enabled": true,
+  "description": "浏览器自动化后端（Mock）- Playwright 风格 API",
+  "backend_class": "sandbox.server.backends.resources.browser.BrowserBackend",
+  
+  "config": {
+    "browser_type": "chromium",
+    "headless": true,
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "user_agent": null,
+    "proxy": null,
+    "timeout": 30000
+  }
+}

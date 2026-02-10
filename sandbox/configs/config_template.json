@@ -1,0 +1,162 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$comment": "Sandbox HTTP Service 配置模板 - 支持多种资源类型",
+
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8080,
+    "title": "Sandbox HTTP Service",
+    "description": "Multi-resource Sandbox Service",
+    "session_ttl": 300,
+    "cleanup_interval": 60,
+    "log_level": "INFO"
+  },
+
+  "resources": {
+    "_comment": "资源配置说明: enabled(启用), stateless(无状态), backend_class(后端实现类), config(资源配置)",
+
+    "vm": {
+      "enabled": true,
+      "stateless": false,
+      "description": "虚拟机交互后端 - 支持截图、点击、键盘输入等",
+      "backend_class": "sandbox.server.backends.resources.vm.VMBackend",
+      "config": {
+        "screen_size": [1920, 1080],
+        "headless": false,
+        "provider": "local",
+        "timeout": 30
+      }
+    },
+
+    "vm_cloud": {
+      "enabled": false,
+      "stateless": false,
+      "description": "云端虚拟机后端 - 阿里云 ECS 实例",
+      "backend_class": "sandbox.server.backends.vm_cloud.CloudVMBackend",
+      "config": {
+        "provider_name": "aliyun",
+        "region": "${ALIYUN_REGION}",
+        "screen_size": [1920, 1080],
+        "headless": true,
+        "access_key": "${ALIYUN_ACCESS_KEY_ID}",
+        "secret_key": "${ALIYUN_ACCESS_KEY_SECRET}",
+        "image_id": "${ALIYUN_IMAGE_ID}",
+        "instance_type": "${ALIYUN_INSTANCE_TYPE}",
+        "vswitch_id": "${ALIYUN_VSWITCH_ID}",
+        "security_group_id": "${ALIYUN_SECURITY_GROUP_ID}",
+        "snapshot_name": "init_state",
+        "pool_size": 3
+      }
+    },
+
+    "browser": {
+      "enabled": false,
+      "stateless": false,
+      "description": "浏览器自动化后端 - Playwright/Selenium",
+      "backend_class": "sandbox.server.backends.browser.BrowserBackend",
+      "config": {
+        "browser_type": "chromium",
+        "headless": true,
+        "viewport": {"width": 1920, "height": 1080},
+        "user_agent": null,
+        "proxy": null,
+        "timeout": 30000
+      }
+    },
+
+    "rag": {
+      "enabled": true,
+      "stateless": false,
+      "description": "RAG检索后端 - 支持稠密/稀疏混合检索",
+      "backend_class": "sandbox.server.backends.rag.RAGBackend",
+      "config": {
+        "index_type": "hybrid",
+        "dense_index_path": "${RAG_DENSE_INDEX_PATH}",
+        "bm25_index_path": "${RAG_BM25_INDEX_PATH}",
+        "corpus_path": "${RAG_CORPUS_PATH}",
+        "model_name": "${RAG_MODEL_NAME:-intfloat/e5-base-v2}",
+        "device": "cuda",
+        "default_top_k": 10,
+        "rerank": false,
+        "rerank_model": null
+      }
+    },
+
+    "websearch": {
+      "enabled": true,
+      "stateless": true,
+      "description": "网络搜索后端 - 无状态",
+      "backend_class": "sandbox.server.backends.resources.websearch.WebSearchBackend",
+      "config": {
+        "search_engine": "google",
+        "api_key": "${SEARCH_API_KEY}",
+        "max_results": 10,
+        "timeout": 30,
+        "proxy": "${HTTP_PROXY}"
+      }
+    },
+
+    "code_executor": {
+      "enabled": false,
+      "stateless": false,
+      "description": "代码执行后端 - 安全沙箱环境",
+      "backend_class": "sandbox.server.backends.code.CodeExecutorBackend",
+      "config": {
+        "runtime": "python",
+        "timeout": 60,
+        "memory_limit_mb": 512,
+        "sandbox_type": "docker",
+        "allowed_packages": ["numpy", "pandas", "requests"]
+      }
+    },
+
+    "file_manager": {
+      "enabled": false,
+      "stateless": true,
+      "description": "文件管理后端 - 文件上传下载",
+      "backend_class": "sandbox.server.backends.file.FileManagerBackend",
+      "config": {
+        "storage_type": "local",
+        "base_path": "/tmp/sandbox_files",
+        "max_file_size_mb": 100,
+        "allowed_extensions": ["txt", "json", "csv", "png", "jpg", "pdf"]
+      }
+    }
+  },
+
+  "tools": {
+    "_comment": "工具元数据配置（可选）- 用于覆盖后端默认的工具描述",
+    
+    "vm:screenshot": {
+      "description": "获取虚拟机当前屏幕截图",
+      "timeout": 10
+    },
+    "vm:click": {
+      "description": "在指定坐标点击",
+      "timeout": 5
+    },
+    "rag:search": {
+      "description": "检索相关文档",
+      "timeout": 30
+    }
+  },
+
+  "warmup": {
+    "_comment": "预热配置 - 服务启动时自动初始化的资源",
+    "enabled": false,
+    "resources": ["rag"]
+  },
+
+  "security": {
+    "allowed_origins": ["*"],
+    "rate_limit": {
+      "enabled": false,
+      "requests_per_minute": 100
+    },
+    "auth": {
+      "enabled": false,
+      "type": "api_key",
+      "api_key": "${SANDBOX_API_KEY}"
+    }
+  }
+}

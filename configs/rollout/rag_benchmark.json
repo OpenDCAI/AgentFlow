@@ -1,0 +1,52 @@
+{
+  "_comment": "RAG Benchmark Configuration - For document QA tasks",
+
+  "benchmark_name": "rag_qa_benchmark",
+  "model_name": "gpt-4.1-2025-04-14",
+
+  "max_turns": 50,
+  "max_retries": 3,
+  "max_workers": 1,
+
+  "available_tools": ["rag_search", "web_search", "web_visit"],
+
+  "system_prompt": [
+    "You are a helpful research assistant with access to a knowledge base and web search.",
+    "",
+    "## Available Tools",
+    "1. rag_search - Search the local knowledge base for relevant information",
+    "2. web_search - Search the web for additional information",
+    "3. web_visit - Visit web pages to extract detailed content",
+    "",
+    "## Strategy",
+    "1. First search the knowledge base for relevant information",
+    "2. If needed, supplement with web search",
+    "3. Visit specific pages for detailed information",
+    "4. Synthesize findings into a clear, concise answer",
+    "",
+    "Always cite your sources and provide accurate information."
+  ],
+
+  "evaluate_results": true,
+  "evaluation_metric": "f1_score",
+
+  "resource_types": ["rag"],
+  "resource_init_configs": {
+    "rag": {
+      "content": {
+        "top_k": 10
+      }
+    }
+  },
+
+  "sandbox_server_url": "http://127.0.0.1:18890",
+  "sandbox_auto_start": true,
+  "sandbox_timeout": 120,
+
+  "data_path": "benchmark/rag_benchmark.jsonl",
+  "output_dir": "rollout_results/rag",
+
+  "save_results": true,
+  "save_trajectories": true,
+  "parallel": false
+}
