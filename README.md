@@ -253,29 +253,34 @@ ORDER BY ct.TotalSpent DESC, tg.GenreSpent DESC;
 
 
 <div align="center">
-    <h3>Case 1</h3>
-    <video src="https://github.com/user-attachments/assets/979c89ef-fb37-40fc-aa86-9c11ba686e26" />
+    <h3>GUI Agent Case</h3>
+    <video src="https://github.com/user-attachments/assets/526a870b-c18b-4af7-9134-5f84b5ebeb46" />
 </div>
+
+```python
+🙋 Instruction
+I want to audit all command aliases on this Ubuntu machine, so please launch the terminal from the GUI, identify any home directory config files related to shell startup, and then generate a clean, sorted list that combines both currently active aliases and those hidden in your configuration files so I can see the full definitions of commands like alert or ll.
+```
 
 ### 🖱️ Embodied Agent Case
 
 <table>
   <tr>
-    <td align="center" width="50%" style="padding:6px;">
+    <td align="center" width="40%" style="padding:6px;">
       <div><b>Place the mouse on the yellow pad</b></div>
       <img src="assets/step1.gif" width="100%" style="border-radius:14px; margin-top:6px;" />
     </td>
-    <td align="center" width="50%" style="padding:6px;">
+    <td align="center" width="40%" style="padding:6px;">
       <div><b>Open the laptop</b></div>
       <img src="assets/step2.gif" width="100%" style="border-radius:14px; margin-top:6px;" />
     </td>
   </tr>
   <tr>
-    <td align="center" width="50%" style="padding:6px;">
+    <td align="center" width="40%" style="padding:6px;">
       <div><b>Place the cup on the blue box</b></div>
       <img src="assets/step3.gif" width="100%" style="border-radius:14px; margin-top:6px;" />
     </td>
-    <td align="center" width="50%" style="padding:6px;">
+    <td align="center" width="40%" style="padding:6px;">
       <div><b>Store the car in the basket</b></div>
       <img src="assets/step4.gif" width="100%" style="border-radius:14px; margin-top:6px;" />
     </td>
