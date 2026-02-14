@@ -75,12 +75,12 @@ pipeline(
 
 After training the model, serving the model with VLLM.
 
-`vllm serve \
- --model YOUR_TRAINED_MODEL \
- --served-model-name webagent \
- --tensor-parallel-size 8 \
- --enable-auto-tool-choice \
- --tool-call-parser hermes \
+`vllm serve
+ --model YOUR_TRAINED_MODEL
+ --served-model-name webagent
+ --tensor-parallel-size 8
+ --enable-auto-tool-choice
+ --tool-call-parser hermes
  --port 8222
 `
 
