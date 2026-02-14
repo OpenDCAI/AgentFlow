@@ -52,34 +52,59 @@ As agents become specialized for distinct environments, a critical challenge ari
 ## 🛠️ QueckStart
 We take WebAgent data synthesis as an example.
 
-### Lauching Sandbox
-`./sandbox-server.sh --config /path/to/web_tool_config.json --port 18890 --host 0.0.0.0`
+First, launch the sandbox with WebAgent sandbox config.
+`./sandbox-server.sh --config configs/sandbox-server/web_config.json --port 18890 --host 0.0.0.0`
 
-### QA Synthesizing
+Second, synthesize QA with WebAgent synthesis config.
 ```python
-import os
 from synthesis import synthesize
 
-synthesize(config_path=...)
+synthesize(config_path='configs/synthesis/web_config.json')
+```
 
-# Trajectory synthesizing
-from rollout import rollout, quick_rollout, RolloutConfig, RolloutPipeline
+Third, synthesize trajectory with WebAgent trajectory config.
+```python
+from rollout import pipeline
 
-# Quick single question mode
-print(f"\n🚀 Quick Rollout Mode")
-print(f"Question: {args.question}")
-print(f"Tools: {args.tools or ['web:search']}")
-print("-" * 60)
-
-result = quick_rollout(
-    args.question,
-    tools=args.tools or ["web:search"],
-    model_name=args.model or "gpt-4.1-2025-04-14",
-    max_turns=args.max_turns or 10,
+pipeline(
+    config_path="/home/a1/sdb/lb/AgentFlow/configs/rollout/rag_benchmark.json",
 )
 ```
 
-After synthesizing the QA, you may need to
+After training the model, serving the model with VLLM.
+`vllm serve \
+ --model YOUR_TRAINED_MODEL \
+ --served-model-name webagent \
+ --tensor-parallel-size 8 \
+ --enable-auto-tool-choice \
+ --tool-call-parser hermes \
+ --port 8222
+`
+
+Finally, infer on trained Agentic model with infer config.
+```python
+from rollout import pipeline
+
+pipeline(
+    config_path="/home/a1/sdb/lb/AgentFlow/configs/rollout/rag_benchmark.json",
+)
+```
+
+## Configuration
+
+We list all configuration files:
+
+Launching sandbox:
+configs/sandbox-server/
+
+Synthesizing:
+configs/synthesis/
+
+Trajectory:
+configs/trajectory/
+
+Inference:
+configs/infer/
 
 
 ## 🌟 AgentFlow Agent Family
