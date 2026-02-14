@@ -53,6 +53,7 @@ As agents become specialized for distinct environments, a critical challenge ari
 We take WebAgent data synthesis as an example.
 
 First, launch the sandbox with WebAgent sandbox config.
+
 `./sandbox-server.sh --config configs/sandbox-server/web_config.json --port 18890 --host 0.0.0.0`
 
 Second, synthesize QA with WebAgent synthesis config.
@@ -72,6 +73,7 @@ pipeline(
 ```
 
 After training the model, serving the model with VLLM.
+
 `vllm serve \
  --model YOUR_TRAINED_MODEL \
  --served-model-name webagent \
@@ -95,16 +97,16 @@ pipeline(
 We list all configuration files:
 
 Launching sandbox:
-configs/sandbox-server/
+[configs/sandbox-server/](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/sandbox-server/)
 
 Synthesizing:
-configs/synthesis/
+[configs/synthesis/](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/synthesis/)
 
 Trajectory:
-configs/trajectory/
+[configs/trajectory/](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/trajectory/)
 
 Inference:
-configs/infer/
+[configs/infer/](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/infer/)
 
 
 ## 🌟 AgentFlow Agent Family
