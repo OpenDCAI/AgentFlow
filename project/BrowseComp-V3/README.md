@@ -1,12 +1,12 @@
-# BrowseComp-V³: A Vertical, Verifiable, and Visual Benchmark for Multimodal Browsing Agents
+# BrowseComp-V³: A Visual, Vertical, and Verifiable Benchmark for Multimodal Browsing Agents
 
 Multimodal large language models (MLLMs), leveraging their increasingly advancing autonomous planning and tool use capabilities, are evolving into intelligent agents capable of performing web browsing for multimodal deep search. However, existing benchmarks remain limited in terms of task complexity, information searchability, and evaluation dimensions, thereby hindering comprehensive assessments of multimodal browsing agents' deep search capabilities in open-world environments. To bridge these gaps, we present **BrowseComp-V³**, a novel benchmark comprising 300 meticulously hand-crafted, challenging questions across diverse domains. By emphasizing deep, multi-level, and cross-modal multi-hop reasoning, we ensure that these tasks necessitate the use of web browsing tools and cannot be resolved solely through the model's parametric knowledge. Moreover, we strictly enforce the public searchability of all supporting evidence and incorporate an expert-validated, subgoal-driven process evaluation mechanism, thereby enabling fine-grained characterization of search behaviors and systematic analysis of capability boundaries. Beyond the dataset, we provide **OmniSeeker**, a general multimodal browsing agent framework, and conduct a comprehensive evaluation on MLLMs. The results demonstrate that even state-of-the-art models, such as GPT-5.2, achieve only 36% accuracy. Further analysis reveals critical bottlenecks in existing models regarding multimodal information integration and fine-grained perception, highlighting a fundamental lack of native multimodal reasoning capabilities.
 
 <p align="center">
   <a href="https://halcyon-zhang.github.io/BrowseComp-V3/"><img src="https://img.shields.io/badge/Project-2396ed?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Project" /></a>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       
   <a href="https://huggingface.co/datasets/Halcyon-Zhang/BrowseComp-V3"><img src="https://img.shields.io/badge/Datasets-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Datasets" /></a>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       
   <a href="https://github.com/Halcyon-Zhang/BrowseComp-V3"><img src="https://img.shields.io/badge/Github-24292F?style=for-the-badge&logo=github&logoColor=white" alt="Github" /></a>
 </p>
 
@@ -28,7 +28,7 @@ Multimodal large language models (MLLMs), leveraging their increasingly advancin
 </p>
 
 <p align="center">
-  <img src="image/domain_2.png" alt="Domain distribution" height="280"/> &nbsp;&nbsp;
+  <img src="image/domain_2.png" alt="Domain distribution" height="280"/>   
   <img src="image/statistic.png" alt="Dataset statistics" height="280"/><br/>
   Left: Domain distribution. Right: Dataset statistics.
 </p>
