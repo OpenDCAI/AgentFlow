@@ -1,4 +1,0 @@
-{"content": "Analyze the data in the provided CSV files.", "kwargs": {"seed_path": "/home/a1/sdb/tzw/Synthesis/examples/ds_seed"}}
-{"content": "Compare the performance of Eastern European countries (like Soviet Union, East Germany, Romania, Poland, Hungary) versus Western countries in the medal table.", "kwargs": {"seed_path": "/home/a1/sdb/tzw/Synthesis/examples/ds_seed"}}
-{"content": "Identify any outliers in the medal distribution. Are there countries with an unusually high number of silver or bronze medals compared to their gold medal count?", "kwargs": {"seed_path": "/home/a1/sdb/tzw/Synthesis/examples/ds_seed"}}
-{"content": "Calculate the total number of medals awarded in the competition and determine which country took home the largest percentage of the total pool.", "kwargs": {"seed_path": "/home/a1/sdb/tzw/Synthesis/examples/ds_seed"}}

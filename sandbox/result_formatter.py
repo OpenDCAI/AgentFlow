@@ -569,6 +569,69 @@ class DocResult(ToolResult):
             return str(self.raw_data)
 
 
+class SQLResult(ToolResult):
+    """
+    SQL 工具结果 (sql:list_databases / sql:get_schema / sql:execute)
+    """
+
+    def to_str(self, verbose: bool = False) -> str:
+        if not self.success:
+            error_msg = self.metadata.get("message", "SQL tool failed")
+            return f"[Error] {error_msg}"
+
+        if self.tool_name == "sql:list_databases":
+            databases = self.raw_data.get("databases", [])
+            if not databases:
+                return "[No databases found]"
+            return "\n".join(str(db) for db in databases)
+
+        if self.tool_name == "sql:get_schema":
+            schema = self.raw_data.get("schema", {})
+            if not schema:
+                return "[No schema found]"
+            lines = []
+            for table in sorted(schema.keys()):
+                table_info = schema.get(table, {})
+                lines.append(f"Table: {table}")
+                columns = table_info.get("columns", [])
+                for col in columns:
+                    name = col.get("name", "")
+                    col_type = col.get("type", "")
+                    pk = col.get("pk", False)
+                    suffix = " [pk]" if pk else ""
+                    lines.append(f"  - {name} ({col_type}){suffix}")
+                foreign_keys = table_info.get("foreign_keys", [])
+                if foreign_keys:
+                    lines.append("  Foreign Keys:")
+                    for fk in foreign_keys:
+                        from_col = fk.get("from_col", "")
+                        to_table = fk.get("to_table", "")
+                        to_col = fk.get("to_col", "")
+                        lines.append(f"    - {from_col} -> {to_table}.{to_col}")
+            return "\n".join(lines)
+
+        if self.tool_name == "sql:execute":
+            columns = self.raw_data.get("columns", [])
+            rows = self.raw_data.get("rows", [])
+            row_count = self.raw_data.get("row_count", len(rows))
+            truncated = self.raw_data.get("truncated", False)
+            if not columns and not rows:
+                return "[No results]"
+            lines = []
+            if columns:
+                lines.append("Columns: " + " | ".join(str(c) for c in columns))
+            for row in rows:
+                lines.append(" | ".join(str(v) for v in row))
+            if verbose:
+                tail = f"[Rows: {row_count}]"
+                if truncated:
+                    tail += " [Truncated]"
+                lines.append(tail)
+            return "\n".join(lines)
+
+        return json.dumps(self.raw_data, indent=2, ensure_ascii=False)
+
+
 # ============================================================================
 # 结果格式化器工厂
 # ============================================================================
@@ -598,6 +661,7 @@ class ResultFormatter:
         "vm": VMResult,
         "doc": DocResult,
         "ds": DocResult,
+        "sql": SQLResult,
     }
 
     @classmethod
@@ -662,6 +726,8 @@ class ResultFormatter:
             formatter_class = VisitResult
         elif tool_name == "rag:search":
             formatter_class = RAGSearchResult
+        elif tool_name.startswith("sql:"):
+            formatter_class = SQLResult
         elif tool_name.startswith("doc:") or tool_name.startswith("ds:"):
             formatter_class = DocResult
         else:

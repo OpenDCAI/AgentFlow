@@ -12,8 +12,6 @@
   "max_selected_traj": 2,
   "path_similarity_threshold": 0.7,
 
-  "number_of_seed": null,
-
   "sandbox_server_url": "http://127.0.0.1:18890",
 
   "available_tools": ["rag_search", "web_search", "web_visit"],
@@ -48,6 +46,6 @@
     }
   ],
 
-  "seeds_file": "examples/seeds.jsonl",
+  "seeds_file": "seeds/web/seeds.jsonl",
   "output_dir": "results"
 }

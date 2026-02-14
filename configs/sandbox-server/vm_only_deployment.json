@@ -1,5 +1,7 @@
 {
   "server": {
+    "url": "http://127.0.0.1:18890",
+    "port": 18890,
     "title": "Sandbox VM Only",
     "session_ttl": 600,
     "log_level": "INFO"

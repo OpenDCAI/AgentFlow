@@ -1,17 +1,15 @@
 {
-  "_comment": "Web Inference Configuration - Rollout mode without evaluation",
 
-  "benchmark_name": "web_qa_benchmark",
+  "benchmark_name": "web_infer",
   "model_name": "openai/gpt-oss-120b",
   "api_key": "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",
   "base_url": "https://openrouter.ai/api/v1",
 
   "max_turns": 40,
-  "max_retries": 3,
-  "max_workers": 1,
 
   "available_tools": ["web_search", "web_visit"],
-
+  "sandbox_server_url": "http://127.0.0.1:18890",
+  
   "system_prompt": [
     "You are a web research assistant that can search and browse the internet.",
     "",
@@ -36,19 +34,16 @@
     "- Provide clear, factual answers with sources"
   ],
 
-  "evaluate_results": false,
+  "evaluate_results": true,
   "evaluation_metric": "contains_answer",
+  "evaluator_model_name": "openai/gpt-oss-120b",
+  "evaluator_api_key": "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",
+  "evaluator_base_url": "https://openrouter.ai/api/v1",
 
-  "sandbox_server_url": "http://127.0.0.1:18890",
-  "sandbox_timeout": 120,
 
   "data_path": "benchmark/web_benchmark.jsonl",
   "output_dir": "infer_results/web",
 
   "save_results": true,
-  "save_trajectories": true,
-  "trajectory_only": true,
-  "save_summary": false,
-  "parallel": false
+  "save_trajectories": true
 }
-
