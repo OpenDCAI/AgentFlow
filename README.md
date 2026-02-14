@@ -299,17 +299,6 @@ I want to audit all command aliases on this Ubuntu machine, so please launch the
 </table>
 
 
-
-
-## 🏆 Why AgentFlow?
-
-| Aspect            | Prior Work   | AgentFlow |
-| ----------------- | ------------ | --------------- |
-| Multi Environment | ❌            | ✅               |
-| Automated Synthesis | ❌            | ✅               |
-| Agent Consiladation | ❌            | ✅               |
-
-
 ## 📦 Installation
 
 ```bash
