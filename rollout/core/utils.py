@@ -4,19 +4,19 @@ Utility functions for Rollout pipeline
 
 import asyncio
 import json
-import os
 import re
 import time
 from typing import Any, Dict, List, Tuple, Type, Optional
 import openai
 
 
-def create_openai_client() -> openai.OpenAI:
-    """Create OpenAI client from environment variables"""
-    return openai.OpenAI(
-        api_key=os.environ.get("OPENAI_API_KEY", ""),
-        base_url=os.environ.get("OPENAI_API_BASE", os.environ.get("OPENAI_API_URL", ""))
-    )
+def create_openai_client(api_key: str, base_url: str) -> openai.OpenAI:
+    """Create OpenAI client from rollout config only."""
+    if not api_key:
+        raise ValueError("Missing api_key in rollout config")
+    if not base_url:
+        raise ValueError("Missing base_url in rollout config")
+    return openai.OpenAI(api_key=api_key, base_url=base_url)
 
 
 def chat_completion(

@@ -1,5 +1,7 @@
 {
   "server": {
+    "url": "http://127.0.0.1:18890",
+    "port": 18890,
     "title": "Sandbox HTTP Service (Document Tools)",
     "description": "Document tools with configurable defaults",
     "session_ttl": 300
@@ -8,7 +10,7 @@
     "doc": {
       "_comment_required": "必须设置：vlm_model/vlm_api_key/vlm_api_url（可用环境变量替代）",
       "_comment_fallback": "兜底默认：max_search_results/max_image_num/max_text_token/vlm_max_tokens/vlm_timeout/vlm_retry_max_attempts",
-      "seed_path": "examples/doc_seed/2210.02442v1",
+      "seed_path": "seeds/doc/seed/2210.02442v1",
       "max_search_results": 10,
       "max_image_num": 10,
       "max_text_token": 20000,

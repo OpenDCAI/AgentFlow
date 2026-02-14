@@ -7,7 +7,7 @@ from __future__ import annotations
 import json
 import os
 from pathlib import Path
-from typing import List, Optional, Union, Dict, Any
+from typing import List, Optional, Union, Dict, Any, cast
 
 from .core import SynthesisConfig
 from .pipeline import SynthesisPipeline
@@ -31,7 +31,7 @@ def load_seeds(seeds_or_path: Union[str, List[str], List[Dict[str, Any]]]) -> Li
     # If already a list of dicts, return as-is
     if isinstance(seeds_or_path, list):
         if seeds_or_path and isinstance(seeds_or_path[0], dict):
-            return seeds_or_path
+            return cast(List[Dict[str, Any]], seeds_or_path)
         # If list of strings, convert to dict format
         return [{"content": seed, "kwargs": {}} for seed in seeds_or_path]
 
@@ -63,20 +63,11 @@ def synthesize(
     *,
     config_path: str,
     seeds: Optional[Union[str, List[str], List[Dict[str, Any]]]] = None,
-    model_name: Optional[str] = None,
-    use_env_model: bool = True,
 ) -> None:
     """
     One-call wrapper to run synthesis.
     """
     config = load_config(config_path)
-
-    if model_name:
-        config.model_name = model_name
-    elif use_env_model:
-        env_model = os.environ.get("LLM_MODEL_NAME")
-        if env_model:
-            config.model_name = env_model
 
     seeds_path = config.seeds_file or os.environ.get("SEEDS_FILE")
     if seeds is None and not seeds_path:
@@ -84,6 +75,8 @@ def synthesize(
 
     if seeds is None:
         seeds = seeds_path  # type: ignore[assignment]
+    if seeds is None:
+        raise ValueError("Missing seeds: provide seeds or set seeds_file in config")
 
     output_dir = config.output_dir or os.environ.get("OUTPUT_DIR") or "synthesis_results"
 

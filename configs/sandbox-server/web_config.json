@@ -1,0 +1,20 @@
+{
+  "server": {
+    "url": "http://127.0.0.1:18890",
+    "port": 18890,
+    "log_level": "DEBUG"
+  },
+  "apis": {
+    "websearch": {
+      "serper_api_key": "db9463eb90778ec4618429f10a545400234d139f",
+      "jina_api_key": "jina_7580b04e1d734f26952e618280f950a0vqI-ch1abyoB82yT24b0Z87mkyh3",
+      "visit_method": "jina",
+      "content_limit": 50000,
+      "enable_llm_summary": true,
+      "summary_model": "openai/gpt-oss-120b",
+      "openai_api_key": "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",
+      "openai_api_url": "https://openrouter.ai/api/v1"
+    }
+  }
+}
+

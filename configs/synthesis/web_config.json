@@ -1,22 +1,17 @@
 {
-
   "model_name": "openai/gpt-oss-120b",
+  "api_key": "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",
+  "base_url": "https://openrouter.ai/api/v1",
 
   "max_depth": 50,
   "branching_factor": 2,
   "depth_threshold": 2,
-
   "min_depth": 3,
   "max_selected_traj": 2,
   "path_similarity_threshold": 0.7,
 
-  "number_of_seed": null,
-
   "sandbox_server_url": "http://127.0.0.1:18890",
-
   "available_tools": ["web_search", "web_visit"],
-
-  "seed_description": "Starting entity and its description",
 
   "sampling_tips": [
     "Explore deeply to build multi-hop reasoning chains",
@@ -42,8 +37,9 @@
       "answer": "2004"
     }
   ],
-
-  "seeds_file": "examples/seeds.jsonl",
+  
+  "seed_description": "Starting entity and its description",
+  "seeds_file": "seeds/web/seeds.jsonl",
   "output_dir": "results"
 }
 

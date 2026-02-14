@@ -8,6 +8,7 @@
 后端类型:
 - VMBackend - 虚拟机交互（有状态，使用 initialize/cleanup）
 - RAGBackend - 文档检索（共享资源，使用 warmup/shutdown）
+- DatabaseBackend - SQL 检索（共享资源，使用 warmup/shutdown）
 
 目录结构:
 ```
@@ -60,14 +61,17 @@ server.run()
 
 from .vm import VMBackend, create_vm_backend
 from .rag import RAGBackend, create_rag_backend
+from .database import DatabaseBackend, create_database_backend
 
 __all__ = [
     # 后端类
     "VMBackend",
     "RAGBackend",
+    "DatabaseBackend",
     
     # 便捷函数
     "create_vm_backend",
     "create_rag_backend",
+    "create_database_backend",
 ]
 

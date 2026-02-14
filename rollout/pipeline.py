@@ -26,11 +26,11 @@ from .core import (
     BenchmarkItem,
     TaskResult,
     RolloutSummary,
-    AgentRunner,
     Evaluator,
     load_benchmark_data,
     get_timestamp
 )
+from .core.runner import AgentRunner
 
 
 class RolloutPipeline:
@@ -53,6 +53,13 @@ class RolloutPipeline:
         """
         self.config = config
         self.output_dir = output_dir or config.output_dir or "rollout_results"
+
+        if self.config.trajectory_only:
+            # Trajectory-only mode is for inference logging, so disable evaluation
+            # and guarantee trajectory persistence in results output.
+            self.config.evaluate_results = False
+            self.config.save_results = True
+            self.config.save_trajectories = True
         
         # Validate config
         errors = config.validate()
@@ -72,8 +79,10 @@ class RolloutPipeline:
         
         print(f"💾 Output files:")
         print(f"   Results: {self.results_file}")
-        print(f"   Evaluation: {self.eval_file}")
-        print(f"   Summary: {self.summary_file}")
+        if self.config.evaluate_results:
+            print(f"   Evaluation: {self.eval_file}")
+        if self.config.save_summary:
+            print(f"   Summary: {self.summary_file}")
         
         # Results storage
         self.results: List[TaskResult] = []
@@ -148,9 +157,17 @@ class RolloutPipeline:
         evaluation = None
         if self.config.evaluate_results and self.results:
             print("\n📊 Evaluating results...")
+            evaluator_model_name = self.config.evaluator_model_name or self.config.model_name
+            evaluator_api_key = self.config.evaluator_api_key or self.config.api_key
+            evaluator_base_url = self.config.evaluator_base_url or self.config.base_url
             evaluator = Evaluator(
                 metric=self.config.evaluation_metric,
-                model_name=self.config.model_name
+                model_name=evaluator_model_name,
+                api_key=evaluator_api_key,
+                base_url=evaluator_base_url,
+                temperature=self.config.evaluator_temperature,
+                max_retries=self.config.evaluator_max_retries,
+                extra_params=self.config.evaluator_extra_params,
             )
             evaluation = evaluator.evaluate(self.results)
             
@@ -176,9 +193,10 @@ class RolloutPipeline:
             evaluation_file=self.eval_file if self.config.evaluate_results else None
         )
         
-        # Save summary
-        with open(self.summary_file, 'w', encoding='utf-8') as f:
-            json.dump(summary.to_dict(), f, indent=2, ensure_ascii=False)
+        # Save summary (optional)
+        if self.config.save_summary:
+            with open(self.summary_file, 'w', encoding='utf-8') as f:
+                json.dump(summary.to_dict(), f, indent=2, ensure_ascii=False)
         
         # Print summary
         print(f"\n\n{'='*80}")
@@ -219,8 +237,18 @@ class RolloutPipeline:
 
     def _save_result(self, result: TaskResult) -> None:
         """Save single result to file"""
+        if self.config.trajectory_only:
+            payload: Dict[str, Any] = {
+                "task_id": result.task_id,
+                "success": result.success,
+                "trajectory": result.trajectory.to_dict() if result.trajectory else None
+            }
+            if result.error:
+                payload["error"] = result.error
+        else:
+            payload = result.to_dict()
         with open(self.results_file, 'a', encoding='utf-8') as f:
-            f.write(json.dumps(result.to_dict(), ensure_ascii=False) + "\n")
+            f.write(json.dumps(payload, ensure_ascii=False) + "\n")
 
     def run(self) -> RolloutSummary:
         """Run pipeline (sync wrapper)"""
@@ -282,14 +310,8 @@ def main():
     if args.metric:
         config.evaluation_metric = args.metric
     
-    # Override model from environment if set
-    env_model = os.environ.get("LLM_MODEL_NAME")
-    if env_model and not args.model:
-        print(f"⚙️ Using model from environment: {env_model}")
-        config.model_name = env_model
-    
     # Determine output directory
-    output_dir = args.output_dir or config.output_dir or os.environ.get("OUTPUT_DIR") or "rollout_results"
+    output_dir = args.output_dir or config.output_dir or "rollout_results"
     
     print(f"Output directory: {output_dir}")
     

@@ -1,6 +1,8 @@
 {
 
   "model_name": "openai/gpt-oss-120b",
+  "api_key": "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",
+  "base_url": "https://openrouter.ai/api/v1",
 
   "max_depth": 50,
   "branching_factor": 2,
@@ -9,8 +11,6 @@
   "min_depth": 3,
   "max_selected_traj": 2,
   "path_similarity_threshold": 0.7,
-
-  "number_of_seed": null,
 
   "sandbox_server_url": "http://127.0.0.1:18890",
 
@@ -46,6 +46,6 @@
     }
   ],
 
-  "seeds_file": "examples/seeds.jsonl",
+  "seeds_file": "seeds/web/seeds.jsonl",
   "output_dir": "results"
 }

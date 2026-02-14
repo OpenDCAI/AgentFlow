@@ -29,7 +29,7 @@ asyncio.run(main())
 ```
 
 > 注意：`Sandbox` 默认 `server_url` 为 `http://localhost:8080`，如果使用
-> `bin/sandbox-server.py` 启动，请显式设置为 `18890`。
+> `bin/sandbox-server.sh` 启动，请显式设置为 `18890`。
 
 ### 方式二：手动启动服务器
 

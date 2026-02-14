@@ -6,27 +6,7 @@
 
 ## 文件说明
 
-### 1. `multi_tool_demo.py` - 真实服务器版本
-
-使用真实的 Sandbox 服务器进行多工具调用演示。
-
-**功能:**
-- 连接到 Sandbox 服务器
-- 调用多种工具 (WebSearch, WebVisit, RAG Search)
-- 使用 `format_tool_result` 格式化每个工具的返回结果
-- 展示原始输出和格式化后的输出对比
-
-**运行方式:**
-```bash
-# 确保 Sandbox 服务器正在运行
-python rag_synthesis/examples/multi_tool_demo.py
-```
-
-**前置条件:**
-- Sandbox 服务器运行在 `http://localhost:8080`
-- 服务器已加载相应的工具后端 (WebSearch, WebVisit, RAG)
-
-### 2. `multi_tool_demo_mock.py` - 模拟数据版本 ⭐
+### 1. `multi_tool_demo_mock.py` - 模拟数据版本 ⭐
 
 使用模拟数据演示格式化效果，无需运行服务器。
 
@@ -213,7 +193,7 @@ requirements.txt
 ## 下一步
 
 1. 运行模拟数据版本查看效果
-2. 启动 Sandbox 服务器运行真实版本
+2. 启动 Sandbox 服务器并按需自行编写工具调用脚本做联调
 3. 集成到你的 Agent 或数据合成流程中
 4. 根据需要注册自定义格式化器
 

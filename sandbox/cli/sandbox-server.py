@@ -5,14 +5,16 @@ Sandbox Server 启动脚本
 """
 
 import sys
-import os
 import argparse
 import logging
+import json
 from pathlib import Path
+from urllib.parse import urlparse
+from typing import Optional, Tuple
 
 # 获取项目根目录
 SCRIPT_DIR = Path(__file__).parent
-PROJECT_ROOT = SCRIPT_DIR.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 # 添加项目根目录到 Python 路径，确保可导入 sandbox 包
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -30,36 +32,57 @@ def find_config_file(config_arg: str) -> Path:
     """
     查找配置文件
 
-    支持：
+    仅支持：
     1. 绝对路径
-    2. 相对路径（相对于当前目录）
-    3. 配置文件名（在标准配置目录查找）
+    2. 相对路径（相对于当前工作目录）
     """
-    # 如果是绝对路径
-    if os.path.isabs(config_arg):
-        config_path = Path(config_arg)
-        if config_path.exists():
-            return config_path
-        raise FileNotFoundError(f"配置文件未找到: {config_arg}")
+    config_path = Path(config_arg).expanduser()
+    if not config_path.is_absolute():
+        config_path = Path.cwd() / config_path
 
-    # 尝试几个可能的位置
-    possible_paths = [
-        Path(config_arg),  # 当前目录
-        Path.cwd() / config_arg,  # 当前工作目录
-        PROJECT_ROOT / config_arg,  # 项目根目录
-        PROJECT_ROOT / "sandbox" / "configs" / "profiles" / config_arg,  # 标准配置目录
-    ]
+    if config_path.exists():
+        return config_path
 
-    for p in possible_paths:
-        if p.exists():
-            return p
+    raise FileNotFoundError(f"配置文件未找到: {config_path}")
 
-    # 未找到，显示尝试过的位置
-    print(f"❌ 配置文件未找到: {config_arg}")
-    print(f"   尝试过的位置:")
-    for p in possible_paths:
-        print(f"   - {p}")
-    sys.exit(1)
+
+def resolve_server_endpoint(config_path: Path, cli_host: Optional[str], cli_port: Optional[int]) -> Tuple[str, int]:
+    """
+    解析服务地址，优先使用配置文件中的 server.url/server.port。
+    若配置中没有，则回退到 CLI 参数，再回退默认值。
+    """
+    host = cli_host
+    port = cli_port
+
+    try:
+        with open(config_path, "r", encoding="utf-8") as f:
+            raw = json.load(f)
+    except Exception:
+        raw = {}
+
+    server_data = raw.get("server", {}) if isinstance(raw, dict) else {}
+    config_url = str(server_data.get("url", "")).strip()
+    config_host = str(server_data.get("host", "")).strip()
+    config_port = server_data.get("port")
+
+    if config_url:
+        parsed = urlparse(config_url)
+        if parsed.hostname:
+            host = parsed.hostname
+        if parsed.port:
+            port = parsed.port
+
+    if config_host:
+        host = config_host
+    if config_port is not None:
+        try:
+            port = int(config_port)
+        except (TypeError, ValueError):
+            pass
+
+    host = host or "127.0.0.1"
+    port = port if isinstance(port, int) else 18890
+    return host, port
 
 
 def main():
@@ -68,9 +91,8 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:
-  %(prog)s                                    # 使用默认配置 (dev.json)
-  %(prog)s --config dev.json                  # 使用开发配置
-  %(prog)s --config production.json --port 8080
+  %(prog)s --config /abs/path/to/dev.json
+  %(prog)s --config ./configs/dev.json --port 8080
   %(prog)s --host 127.0.0.1 --port 9000
         """
     )
@@ -78,20 +100,20 @@ def main():
     parser.add_argument(
         "--config", "-c",
         type=str,
-        default="dev.json",
-        help="配置文件路径或名称 (默认: dev.json)"
+        required=True,
+        help="配置文件路径（必填，支持绝对路径或相对路径）"
     )
     parser.add_argument(
         "--host",
         type=str,
-        default="0.0.0.0",
-        help="服务器主机地址 (默认: 0.0.0.0)"
+        default=None,
+        help="服务器主机地址（通常由配置文件 server.url/server.host 提供）"
     )
     parser.add_argument(
         "--port", "-p",
         type=int,
-        default=18890,
-        help="服务器端口 (默认: 18890)"
+        default=None,
+        help="服务器端口（通常由配置文件 server.port 提供）"
     )
     parser.add_argument(
         "--log-level",
@@ -113,6 +135,7 @@ def main():
 
     # 查找配置文件
     config_path = find_config_file(args.config)
+    host, port = resolve_server_endpoint(config_path, args.host, args.port)
 
     # 显示启动信息
     print("=" * 80)
@@ -120,7 +143,7 @@ def main():
     print("=" * 80)
     print(f"📁 项目根目录: {PROJECT_ROOT}")
     print(f"⚙️  配置文件: {config_path}")
-    print(f"🌐 服务地址: http://{args.host}:{args.port}")
+    print(f"🌐 服务地址: http://{host}:{port}")
     print(f"📊 日志级别: {args.log_level}")
     print("=" * 80)
     print()
@@ -145,13 +168,13 @@ def main():
             return
 
         # 创建服务器（使用标准方式）
-        server = loader.create_server(host=args.host, port=args.port)
+        server = loader.create_server(host=host, port=port)
 
         # 启动服务器
         print("=" * 80)
-        print(f"🌐 访问地址: http://{args.host}:{args.port}")
-        print(f"📖 API 文档: http://{args.host}:{args.port}/docs")
-        print(f"🔍 健康检查: http://{args.host}:{args.port}/health")
+        print(f"🌐 访问地址: http://{host}:{port}")
+        print(f"📖 API 文档: http://{host}:{port}/docs")
+        print(f"🔍 健康检查: http://{host}:{port}/health")
         print()
         print(f"💡 提示: 资源预热请在客户端配置 warmup_resources 参数")
         print(f"   例如: Sandbox(config=SandboxConfig(warmup_resources=['rag']))")

@@ -1,5 +1,7 @@
 {
   "server": {
+    "url": "http://127.0.0.1:18890",
+    "port": 18890,
     "title": "Sandbox HTTP Service (Data Science Tools)",
     "description": "Data Science tools with seed_path provided at call time",
     "session_ttl": 300

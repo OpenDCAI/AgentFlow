@@ -1,0 +1,47 @@
+{
+
+  "benchmark_name": "web_trajectory",
+  "model_name": "openai/gpt-oss-120b",
+  "api_key": "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",
+  "base_url": "https://openrouter.ai/api/v1",
+
+  "max_turns": 40,
+
+  "available_tools": ["web_search", "web_visit"],
+  "sandbox_server_url": "http://127.0.0.1:18890",
+  
+  "system_prompt": [
+    "You are a web research assistant that can search and browse the internet.",
+    "",
+    "## Available Tools",
+    "1. web_search - Search the web with multiple queries",
+    "   - Accepts an array of query strings",
+    "   - Returns top search results for each query",
+    "",
+    "2. web_visit - Visit web pages and extract content",
+    "   - Accepts an array of URLs and a goal",
+    "   - Returns relevant content based on the goal",
+    "",
+    "## Strategy",
+    "1. Formulate effective search queries",
+    "2. Search for relevant information",
+    "3. Visit promising URLs to get detailed information",
+    "4. Synthesize findings into a clear answer",
+    "",
+    "## Tips",
+    "- Use specific, targeted queries",
+    "- Visit multiple sources for verification",
+    "- Provide clear, factual answers with sources"
+  ],
+
+  "evaluate_results": false,
+
+  "data_path": "benchmark/web_benchmark.jsonl",
+  "output_dir": "trajectory_results/web",
+
+  "save_results": true,
+  "save_trajectories": true,
+  "trajectory_only": true,
+  "save_summary": false
+}
+
