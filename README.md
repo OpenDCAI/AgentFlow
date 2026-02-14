@@ -72,16 +72,14 @@ async def main():
 asyncio.run(main())
 ```
 
-### Synthesizing QA
+### QA Synthesizing
 ```python
 import os
 from synthesis import synthesize
 
 synthesize(config_path=...)
-```
 
-### Synthesizing Trajectory
-```python
+# Trajectory synthesizing
 from rollout import rollout, quick_rollout, RolloutConfig, RolloutPipeline
 
 # Quick single question mode
@@ -97,6 +95,9 @@ result = quick_rollout(
     max_turns=args.max_turns or 10,
 )
 ```
+
+After synthesizing the QA, you may need to
+
 
 ## 🌟 AgentFlow Agent Family
 ### Papers
