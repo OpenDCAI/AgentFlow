@@ -234,12 +234,6 @@ def main():
     else:
         raise ValueError("Configuration file must be .json or .yaml format")
 
-    # Override model from environment if set
-    env_model = os.environ.get("LLM_MODEL_NAME")
-    if env_model:
-        print(f"⚙️ Using model from environment: {env_model}")
-        config.model_name = env_model
-
     # Determine seeds file
     seeds_path = args.seeds or config.seeds_file or os.environ.get("SEEDS_FILE")
     if not seeds_path:

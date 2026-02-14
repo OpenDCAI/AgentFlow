@@ -9,6 +9,7 @@ from typing import Dict, List, Any, Optional
 from dataclasses import dataclass, field, fields
 
 # Optional yaml support
+yaml = None
 try:
     import yaml
     HAS_YAML = True
@@ -26,6 +27,8 @@ class RolloutConfig:
 
     # Model configuration
     model_name: str = "gpt-4.1-2025-04-14"
+    api_key: str = ""
+    base_url: str = ""
     
     # Agent execution configuration
     max_turns: int = 100  # Maximum conversation turns per task
@@ -42,6 +45,12 @@ class RolloutConfig:
     # Evaluation configuration
     evaluate_results: bool = True
     evaluation_metric: str = "exact_match"  # exact_match, f1_score, contains_answer, numeric_match, llm_judgement
+    evaluator_model_name: Optional[str] = None
+    evaluator_api_key: Optional[str] = None
+    evaluator_base_url: Optional[str] = None
+    evaluator_temperature: float = 0.0
+    evaluator_max_retries: int = 3
+    evaluator_extra_params: Dict[str, Any] = field(default_factory=dict)
 
     # Resource configuration (for sandbox)
     resource_types: List[str] = field(default_factory=list)
@@ -49,7 +58,7 @@ class RolloutConfig:
 
     # Sandbox configuration
     sandbox_server_url: str = "http://127.0.0.1:18890"
-    sandbox_auto_start: bool = True
+    sandbox_auto_start: bool = False
     sandbox_config_path: Optional[str] = None
     sandbox_timeout: int = 120
 
@@ -64,6 +73,8 @@ class RolloutConfig:
     # Result saving
     save_results: bool = True
     save_trajectories: bool = True  # Save full conversation trajectories
+    trajectory_only: bool = False  # Save only minimal trajectory payload in results
+    save_summary: bool = True  # Save summary_<benchmark>_<timestamp>.json
 
     @classmethod
     def from_dict(cls, config_dict: Dict[str, Any]) -> 'RolloutConfig':
@@ -101,6 +112,7 @@ class RolloutConfig:
         """Load configuration from YAML file"""
         if not HAS_YAML:
             raise ImportError("PyYAML is required for YAML config files. Install with: pip install pyyaml")
+        assert yaml is not None
         with open(yaml_path, 'r', encoding='utf-8') as f:
             config_dict = yaml.safe_load(f)
         return cls.from_dict(config_dict)
@@ -111,6 +123,8 @@ class RolloutConfig:
             "data_path": self.data_path,
             "output_dir": self.output_dir,
             "model_name": self.model_name,
+            "api_key": self.api_key,
+            "base_url": self.base_url,
             "max_turns": self.max_turns,
             "max_retries": self.max_retries,
             "max_workers": self.max_workers,
@@ -119,6 +133,12 @@ class RolloutConfig:
             "system_prompt_file": self.system_prompt_file,
             "evaluate_results": self.evaluate_results,
             "evaluation_metric": self.evaluation_metric,
+            "evaluator_model_name": self.evaluator_model_name,
+            "evaluator_api_key": self.evaluator_api_key,
+            "evaluator_base_url": self.evaluator_base_url,
+            "evaluator_temperature": self.evaluator_temperature,
+            "evaluator_max_retries": self.evaluator_max_retries,
+            "evaluator_extra_params": self.evaluator_extra_params,
             "resource_types": self.resource_types,
             "resource_init_configs": self.resource_init_configs,
             "sandbox_server_url": self.sandbox_server_url,
@@ -131,6 +151,8 @@ class RolloutConfig:
             "parallel": self.parallel,
             "save_results": self.save_results,
             "save_trajectories": self.save_trajectories,
+            "trajectory_only": self.trajectory_only,
+            "save_summary": self.save_summary,
         }
 
     def to_json(self, json_path: str):
@@ -142,6 +164,7 @@ class RolloutConfig:
         """Save as YAML file"""
         if not HAS_YAML:
             raise ImportError("PyYAML is required for YAML config files. Install with: pip install pyyaml")
+        assert yaml is not None
         with open(yaml_path, 'w', encoding='utf-8') as f:
             yaml.dump(self.to_dict(), f, allow_unicode=True, default_flow_style=False)
 
@@ -177,6 +200,15 @@ class RolloutConfig:
         """Validate configuration, return list of errors"""
         errors = []
 
+        if not self.model_name:
+            errors.append("model_name must be provided in config")
+
+        if not self.api_key:
+            errors.append("api_key must be provided in config")
+
+        if not self.base_url:
+            errors.append("base_url must be provided in config")
+
         if self.max_turns < 1:
             errors.append("max_turns must be greater than 0")
 
@@ -185,6 +217,12 @@ class RolloutConfig:
 
         if self.max_workers < 1:
             errors.append("max_workers must be greater than 0")
+
+        if self.evaluator_max_retries < 0:
+            errors.append("evaluator_max_retries cannot be negative")
+
+        if not (0.0 <= self.evaluator_temperature <= 2.0):
+            errors.append("evaluator_temperature must be in [0.0, 2.0]")
 
         valid_metrics = ["exact_match", "f1_score", "similarity", "contains_answer", "numeric_match", "llm_judgement"]
         if self.evaluation_metric not in valid_metrics:

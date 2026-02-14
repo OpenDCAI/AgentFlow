@@ -79,6 +79,7 @@ summary = pipeline.run()
 {
   "benchmark_name": "my_benchmark",
   "model_name": "gpt-4.1-2025-04-14",
+  "base_url": "https://your-openai-compatible-endpoint/v1",
   
   "max_turns": 50,
   "max_retries": 3,
@@ -96,7 +97,7 @@ summary = pipeline.run()
   },
   
   "sandbox_server_url": "http://127.0.0.1:18890",
-  "sandbox_auto_start": true,
+  "sandbox_auto_start": false,
   
   "data_path": "benchmark/benchmark.jsonl",
   "output_dir": "results/",
@@ -186,6 +187,8 @@ rollout/
 | `OPENAI_API_BASE` | API Base URL |
 | `LLM_MODEL_NAME` | 默认模型名称 |
 | `OUTPUT_DIR` | 默认输出目录 |
+
+> 如果在配置文件中设置了 `base_url`，会优先使用该值；否则回退到 `OPENAI_API_BASE` / `OPENAI_API_URL`。
 
 ## 运行测试
 

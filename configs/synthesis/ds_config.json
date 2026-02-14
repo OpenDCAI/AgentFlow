@@ -1,5 +1,7 @@
 {
   "model_name": "openai/gpt-oss-120b",
+  "api_key": "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",
+  "base_url": "https://openrouter.ai/api/v1",
 
   "max_depth": 20,
   "branching_factor": 2,

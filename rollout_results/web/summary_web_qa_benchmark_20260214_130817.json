@@ -1,0 +1,12 @@
+{
+  "benchmark_name": "web_qa_benchmark",
+  "total_tasks": 5,
+  "successful_tasks": 5,
+  "failed_tasks": 0,
+  "average_score": 0.6,
+  "metric": "contains_answer",
+  "total_time_seconds": 193.46727228164673,
+  "results_file": "rollout_results/web/results_web_qa_benchmark_20260214_130817.jsonl",
+  "evaluation_file": "rollout_results/web/evaluation_web_qa_benchmark_20260214_130817.json",
+  "timestamp": "2026-02-14T13:11:30.872415"
+}

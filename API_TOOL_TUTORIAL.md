@@ -124,7 +124,7 @@ result = await sandbox.execute(
 ### 4.2 手动启动服务器（CLI）
 
 ```bash
-python3 bin/sandbox-server.py --config my_api_sandbox.json
+./bin/sandbox-server.sh --config my_api_sandbox.json
 ```
 
 > 说明：默认端口为 `18890`，`quick_sandbox.py` 会连接 `http://127.0.0.1:18890`。

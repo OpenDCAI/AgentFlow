@@ -19,7 +19,10 @@ class QASynthesizer:
         """Initialize QA synthesizer"""
         self.config = config
 
-        self.client = create_openai_client()
+        self.client = create_openai_client(
+            api_key=self.config.api_key,
+            base_url=self.config.base_url,
+        )
 
     def synthesize_qa(self, trajectory: Trajectory, qa_index: int = 0) -> Optional[SynthesizedQA]:
         """Synthesize Q&A pair from trajectory"""

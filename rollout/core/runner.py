@@ -40,7 +40,10 @@ class AgentRunner:
         self.worker_id = worker_id or f"runner_{int(time.time())}"
         
         # Create OpenAI client
-        self.client = create_openai_client()
+        self.client = create_openai_client(
+            api_key=self.config.api_key,
+            base_url=self.config.base_url,
+        )
         
         # Sandbox instance (will be created in start())
         self.sandbox: Optional[Sandbox] = None

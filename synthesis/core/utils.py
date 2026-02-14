@@ -1,6 +1,5 @@
 import asyncio
 import json
-import os
 import re
 import time
 import xml.etree.ElementTree as ET
@@ -10,11 +9,12 @@ import pdb
 import openai
 
 
-def create_openai_client() -> openai.OpenAI:
-    return openai.OpenAI(
-        api_key=os.environ.get("OPENAI_API_KEY", ""),
-        base_url=os.environ.get("OPENAI_API_BASE", "")
-    )
+def create_openai_client(api_key: str, base_url: str) -> openai.OpenAI:
+    if not api_key:
+        raise ValueError("Missing api_key in synthesis config")
+    if not base_url:
+        raise ValueError("Missing base_url in synthesis config")
+    return openai.OpenAI(api_key=api_key, base_url=base_url)
 
 
 def extract_json_object(text: str) -> str:

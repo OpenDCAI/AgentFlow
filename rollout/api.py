@@ -13,7 +13,6 @@ Usage:
 from __future__ import annotations
 
 import json
-import os
 from pathlib import Path
 from typing import List, Optional, Union, Dict, Any, TYPE_CHECKING
 
@@ -58,7 +57,6 @@ def rollout(
     data_path: Optional[str] = None,
     output_dir: Optional[str] = None,
     model_name: Optional[str] = None,
-    use_env_model: bool = True,
     max_tasks: Optional[int] = None,
     task_ids: Optional[List[str]] = None,
     evaluate: bool = True,
@@ -72,7 +70,6 @@ def rollout(
         data_path: Override benchmark data path
         output_dir: Override output directory
         model_name: Override model name
-        use_env_model: Use LLM_MODEL_NAME from environment if set
         max_tasks: Limit number of tasks
         task_ids: Specific task IDs to run
         evaluate: Whether to evaluate results
@@ -90,10 +87,6 @@ def rollout(
     
     if model_name:
         config.model_name = model_name
-    elif use_env_model:
-        env_model = os.environ.get("LLM_MODEL_NAME")
-        if env_model:
-            config.model_name = env_model
     
     if max_tasks is not None:
         config.number_of_tasks = max_tasks
@@ -107,7 +100,7 @@ def rollout(
         config.evaluation_metric = metric
     
     # Determine output directory
-    final_output_dir = output_dir or config.output_dir or os.environ.get("OUTPUT_DIR") or "rollout_results"
+    final_output_dir = output_dir or config.output_dir or "rollout_results"
     
     # Run pipeline (lazy import to avoid heavy dependencies)
     from .pipeline import RolloutPipeline
@@ -122,6 +115,8 @@ def quick_rollout(
     *,
     tools: Optional[List[str]] = None,
     model_name: str = "gpt-4.1-2025-04-14",
+    api_key: str = "",
+    base_url: str = "",
     max_turns: int = 10,
     sandbox_url: str = "http://127.0.0.1:18890",
 ) -> Dict[str, Any]:
@@ -132,6 +127,8 @@ def quick_rollout(
         question: The question to answer
         tools: List of tools to use
         model_name: Model name
+        api_key: API key from config-equivalent input
+        base_url: API base URL from config-equivalent input
         max_turns: Maximum conversation turns
         sandbox_url: Sandbox server URL
         
@@ -145,10 +142,12 @@ def quick_rollout(
     # Create minimal config
     config = RolloutConfig(
         model_name=model_name,
+        api_key=api_key,
+        base_url=base_url,
         max_turns=max_turns,
         available_tools=tools or [],
         sandbox_server_url=sandbox_url,
-        sandbox_auto_start=True,
+        sandbox_auto_start=False,
         save_trajectories=True
     )
     

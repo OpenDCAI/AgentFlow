@@ -17,7 +17,10 @@ class TrajectorySelector:
         self.config = config
         self.available_tool_total: int = 0
 
-        self.client = create_openai_client()
+        self.client = create_openai_client(
+            api_key=self.config.api_key,
+            base_url=self.config.base_url,
+        )
 
     def select_trajectories(self,
                            nodes: Dict[str, TrajectoryNode],
