@@ -50,27 +50,10 @@ As agents become specialized for distinct environments, a critical challenge ari
 
 
 ## 🛠️ QueckStart
+We take WebAgent data synthesis as an example.
+
 ### Lauching Sandbox
-```python
-import asyncio
-from sandbox import Sandbox
-
-async def main():
-    sandbox = Sandbox(
-        server_url="http://127.0.0.1:18890",
-        auto_start_server=True,
-        server_config_path="sandbox/configs/profiles/dev.json"
-    )
-    await sandbox.start()
-
-    result = await sandbox.execute("bash:run", {"command": "echo hello"})
-    if result.get("code") == 0:
-        print(result["data"])
-
-    await sandbox.close()
-
-asyncio.run(main())
-```
+`./sandbox-server.sh --config /path/to/web_tool_config.json --port 18890 --host 0.0.0.0`
 
 ### QA Synthesizing
 ```python
