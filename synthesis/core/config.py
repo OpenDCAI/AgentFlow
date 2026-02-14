@@ -33,6 +33,8 @@ class SynthesisConfig:
 
     # Model configuration
     model_name: str = "gpt-4.1-2025-04-14"
+    api_key: str = ""
+    base_url: str = ""
 
     # Trajectory sampling configuration
     max_depth: int = 5
@@ -108,6 +110,8 @@ class SynthesisConfig:
             "seeds_file": self.seeds_file,
             "output_dir": self.output_dir,
             "model_name": self.model_name,
+            "api_key": self.api_key,
+            "base_url": self.base_url,
             "max_depth": self.max_depth,
             "branching_factor": self.branching_factor,
             "depth_threshold": self.depth_threshold,
@@ -136,6 +140,15 @@ class SynthesisConfig:
     def validate(self) -> List[str]:
         """Validate configuration, return list of errors"""
         errors = []
+
+        if not self.model_name:
+            errors.append("model_name must be provided in config")
+
+        if not self.api_key:
+            errors.append("api_key must be provided in config")
+
+        if not self.base_url:
+            errors.append("base_url must be provided in config")
 
         if self.max_depth < 1:
             errors.append("max_depth must be greater than 0")

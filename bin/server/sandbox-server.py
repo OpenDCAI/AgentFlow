@@ -5,14 +5,13 @@ Sandbox Server 启动脚本
 """
 
 import sys
-import os
 import argparse
 import logging
 from pathlib import Path
 
 # 获取项目根目录
 SCRIPT_DIR = Path(__file__).parent
-PROJECT_ROOT = SCRIPT_DIR.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 # 添加项目根目录到 Python 路径，确保可导入 sandbox 包
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -30,36 +29,18 @@ def find_config_file(config_arg: str) -> Path:
     """
     查找配置文件
 
-    支持：
+    仅支持：
     1. 绝对路径
-    2. 相对路径（相对于当前目录）
-    3. 配置文件名（在标准配置目录查找）
+    2. 相对路径（相对于当前工作目录）
     """
-    # 如果是绝对路径
-    if os.path.isabs(config_arg):
-        config_path = Path(config_arg)
-        if config_path.exists():
-            return config_path
-        raise FileNotFoundError(f"配置文件未找到: {config_arg}")
+    config_path = Path(config_arg).expanduser()
+    if not config_path.is_absolute():
+        config_path = Path.cwd() / config_path
 
-    # 尝试几个可能的位置
-    possible_paths = [
-        Path(config_arg),  # 当前目录
-        Path.cwd() / config_arg,  # 当前工作目录
-        PROJECT_ROOT / config_arg,  # 项目根目录
-        PROJECT_ROOT / "sandbox" / "configs" / "profiles" / config_arg,  # 标准配置目录
-    ]
+    if config_path.exists():
+        return config_path
 
-    for p in possible_paths:
-        if p.exists():
-            return p
-
-    # 未找到，显示尝试过的位置
-    print(f"❌ 配置文件未找到: {config_arg}")
-    print(f"   尝试过的位置:")
-    for p in possible_paths:
-        print(f"   - {p}")
-    sys.exit(1)
+    raise FileNotFoundError(f"配置文件未找到: {config_path}")
 
 
 def main():
@@ -68,9 +49,8 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:
-  %(prog)s                                    # 使用默认配置 (dev.json)
-  %(prog)s --config dev.json                  # 使用开发配置
-  %(prog)s --config production.json --port 8080
+  %(prog)s --config /abs/path/to/dev.json
+  %(prog)s --config ./configs/dev.json --port 8080
   %(prog)s --host 127.0.0.1 --port 9000
         """
     )
@@ -78,8 +58,8 @@ def main():
     parser.add_argument(
         "--config", "-c",
         type=str,
-        default="dev.json",
-        help="配置文件路径或名称 (默认: dev.json)"
+        required=True,
+        help="配置文件路径（必填，支持绝对路径或相对路径）"
     )
     parser.add_argument(
         "--host",

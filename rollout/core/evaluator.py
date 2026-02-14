@@ -10,7 +10,7 @@ from typing import Dict, List, Any, Optional, Callable
 from collections import Counter
 
 from .models import TaskResult, EvaluationResult
-from .utils import normalize_answer, create_openai_client
+from .utils import normalize_answer, create_openai_client, chat_completion
 
 
 class Evaluator:
@@ -26,16 +26,35 @@ class Evaluator:
     - llm_judgement: Use LLM to judge correctness
     """
 
-    def __init__(self, metric: str = "exact_match", model_name: str = "gpt-4.1-2025-04-14"):
+    def __init__(
+        self,
+        metric: str = "exact_match",
+        model_name: str = "gpt-4.1-2025-04-14",
+        api_key: str = "",
+        base_url: str = "",
+        temperature: float = 0.0,
+        max_retries: int = 3,
+        extra_params: Optional[Dict[str, Any]] = None,
+    ):
         """
         Initialize evaluator.
         
         Args:
             metric: Evaluation metric to use
             model_name: Model for LLM-based evaluation
+            api_key: API key from rollout config
+            base_url: API base URL from rollout config
+            temperature: Sampling temperature for llm_judgement
+            max_retries: Retry attempts for llm_judgement
+            extra_params: Extra completion params for llm_judgement
         """
         self.metric = metric
         self.model_name = model_name
+        self.api_key = api_key
+        self.base_url = base_url
+        self.temperature = temperature
+        self.max_retries = max_retries
+        self.extra_params = extra_params or {}
         self._client = None  # Lazy initialization for LLM metrics
 
     def evaluate(self, results: List[TaskResult]) -> Dict[str, Any]:
@@ -223,7 +242,7 @@ class Evaluator:
     def _llm_judgement(self, predicted: str, ground_truth: str) -> tuple:
         """Use LLM to judge correctness"""
         if self._client is None:
-            self._client = create_openai_client()
+            self._client = create_openai_client(api_key=self.api_key, base_url=self.base_url)
         
         prompt = f"""You are an expert evaluator. Judge if the predicted answer is correct based on the ground truth.
 
@@ -240,10 +259,13 @@ Respond with ONLY a JSON object:
 """
         
         try:
-            response = self._client.chat.completions.create(
+            response = chat_completion(
+                self._client,
+                max_retries=self.max_retries,
                 model=self.model_name,
                 messages=[{"role": "user", "content": prompt}],
-                temperature=0.0
+                temperature=self.temperature,
+                **self.extra_params,
             )
             
             content = response.choices[0].message.content
@@ -268,7 +290,12 @@ Respond with ONLY a JSON object:
 def evaluate_results(
     results: List[TaskResult],
     metric: str = "exact_match",
-    model_name: str = "gpt-4.1-2025-04-14"
+    model_name: str = "gpt-4.1-2025-04-14",
+    api_key: str = "",
+    base_url: str = "",
+    temperature: float = 0.0,
+    max_retries: int = 3,
+    extra_params: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """
     Convenience function to evaluate results.
@@ -277,9 +304,22 @@ def evaluate_results(
         results: List of task results
         metric: Evaluation metric
         model_name: Model for LLM-based evaluation
+        api_key: API key from rollout config
+        base_url: API base URL from rollout config
+        temperature: Sampling temperature for llm_judgement
+        max_retries: Retry attempts for llm_judgement
+        extra_params: Extra completion params for llm_judgement
         
     Returns:
         Evaluation summary
     """
-    evaluator = Evaluator(metric=metric, model_name=model_name)
+    evaluator = Evaluator(
+        metric=metric,
+        model_name=model_name,
+        api_key=api_key,
+        base_url=base_url,
+        temperature=temperature,
+        max_retries=max_retries,
+        extra_params=extra_params,
+    )
     return evaluator.evaluate(results)

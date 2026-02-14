@@ -284,8 +284,8 @@ class SearchTool(BaseApiTool):
                 combined_result += "\n\nErrors encountered:\n" + "\n".join(errors)
                 
             return combined_result
-        else:
-            # 参数类型错误也视为执行错误
+        else:  # type: ignore[unreachable]
+            # 参数类型错误也视为执行错误（运行时保护，虽然类型注解理论上不会到达这里）
             raise ToolBusinessError("Invalid query type: must be string or list of strings", ErrorCode.EXECUTION_ERROR)
 
 
@@ -323,9 +323,10 @@ class VisitTool(BaseApiTool):
         crawl_client = Crawl4AiClient() if visit_method == 'crawl4ai' else None
         
         # Summarizer
+        enable_llm_summary = self.get_config('enable_llm_summary', False)
         summary_model = self.get_config('summary_model')
         summarizer = None
-        if summary_model:
+        if enable_llm_summary and summary_model:
             summarizer = LLMSummarizer(
                 model=summary_model,
                 api_key=self.get_config('openai_api_key') or os.getenv('OPENAI_API_KEY'),

@@ -1,5 +1,5 @@
 {
-  "_comment": "VM Benchmark Configuration - For desktop automation tasks",
+  "_comment": "VM Inference Configuration - Rollout mode without evaluation",
 
   "benchmark_name": "vm_automation_benchmark",
   "model_name": "gpt-4.1-2025-04-14",
@@ -47,14 +47,8 @@
     "Note: Actions return accessibility_tree automatically, so you don't need to call screenshot just to fetch UI state."
   ],
 
-  "evaluate_results": true,
+  "evaluate_results": false,
   "evaluation_metric": "llm_judgement",
-  "evaluator_model_name": "openai/gpt-oss-120b",
-  "evaluator_api_key": "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",
-  "evaluator_base_url": "https://openrouter.ai/api/v1",
-  "evaluator_temperature": 0.0,
-  "evaluator_max_retries": 3,
-  "evaluator_extra_params": {},
 
   "resource_types": ["vm"],
   "resource_init_configs": {
@@ -68,9 +62,12 @@
   "sandbox_timeout": 120,
 
   "data_path": "benchmark/vm_benchmark.jsonl",
-  "output_dir": "rollout_results/vm",
+  "output_dir": "infer_results/vm",
 
   "save_results": true,
   "save_trajectories": true,
+  "trajectory_only": true,
+  "save_summary": false,
   "parallel": false
 }
+
