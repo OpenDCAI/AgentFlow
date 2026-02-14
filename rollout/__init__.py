@@ -32,6 +32,8 @@ Usage:
 __version__ = "1.0.0"
 __author__ = "Rollout Team"
 
+from typing import TYPE_CHECKING, Any
+
 from .core import (
     # Config
     RolloutConfig,
@@ -53,11 +55,14 @@ from .core import (
     load_benchmark_data,
     get_timestamp,
 )
-
 from .api import load_config, load_tasks
 
-# Lazy imports for heavy dependencies
-def __getattr__(name):
+if TYPE_CHECKING:
+    from .api import quick_rollout, rollout
+    from .core.runner import AgentRunner, SyncAgentRunner
+    from .pipeline import RolloutPipeline
+
+def __getattr__(name: str) -> Any:
     if name in ("AgentRunner", "SyncAgentRunner"):
         from .core.runner import AgentRunner, SyncAgentRunner
         return AgentRunner if name == "AgentRunner" else SyncAgentRunner
@@ -89,14 +94,14 @@ __all__ = [
     "EvaluationResult",
     "RolloutSummary",
     
-    # Core (lazy loaded)
+    # Core
     "AgentRunner",
     "SyncAgentRunner",
     "Evaluator",
     "evaluate_results",
     "RolloutPipeline",
     
-    # API (lazy loaded)
+    # API
     "rollout",
     "quick_rollout",
     "load_tasks",

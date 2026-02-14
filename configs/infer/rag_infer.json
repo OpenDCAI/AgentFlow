@@ -1,7 +1,7 @@
 {
-  "_comment": "RAG Inference Configuration - Rollout mode without evaluation",
+  "_comment": "RAG Benchmark Configuration - For document QA tasks",
 
-  "benchmark_name": "rag_qa_benchmark",
+  "benchmark_name": "rag_infer",
   "model_name": "gpt-4.1-2025-04-14",
   "api_key": "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",
   "base_url": "https://openrouter.ai/api/v1",
@@ -29,8 +29,14 @@
     "Always cite your sources and provide accurate information."
   ],
 
-  "evaluate_results": false,
+  "evaluate_results": true,
   "evaluation_metric": "f1_score",
+  "evaluator_model_name": "openai/gpt-oss-120b",
+  "evaluator_api_key": "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",
+  "evaluator_base_url": "https://openrouter.ai/api/v1",
+  "evaluator_temperature": 0.0,
+  "evaluator_max_retries": 3,
+  "evaluator_extra_params": {},
 
   "sandbox_server_url": "http://127.0.0.1:18890",
   "sandbox_timeout": 120,
@@ -40,8 +46,5 @@
 
   "save_results": true,
   "save_trajectories": true,
-  "trajectory_only": true,
-  "save_summary": false,
   "parallel": false
 }
-

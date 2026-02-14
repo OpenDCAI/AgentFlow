@@ -231,7 +231,7 @@ Please summarize the following content from {url}, focusing only on information 
             response = client.chat.completions.create(
                 model=self.model,
                 messages=[{"role": "user", "content": prompt}],
-                max_tokens=1000,
+                max_tokens=5000,
                 temperature=self.temperature
             )
             return response.choices[0].message.content.strip()

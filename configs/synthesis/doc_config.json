@@ -68,6 +68,6 @@
     }
   ],
   
-  "seeds_file": "examples/doc_seeds.jsonl",
+  "seeds_file": "seeds/doc/seeds.jsonl",
   "output_dir": "results/doc"
 }

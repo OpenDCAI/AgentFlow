@@ -7,7 +7,10 @@ Sandbox Server 启动脚本
 import sys
 import argparse
 import logging
+import json
 from pathlib import Path
+from urllib.parse import urlparse
+from typing import Optional, Tuple
 
 # 获取项目根目录
 SCRIPT_DIR = Path(__file__).parent
@@ -43,6 +46,45 @@ def find_config_file(config_arg: str) -> Path:
     raise FileNotFoundError(f"配置文件未找到: {config_path}")
 
 
+def resolve_server_endpoint(config_path: Path, cli_host: Optional[str], cli_port: Optional[int]) -> Tuple[str, int]:
+    """
+    解析服务地址，优先使用配置文件中的 server.url/server.port。
+    若配置中没有，则回退到 CLI 参数，再回退默认值。
+    """
+    host = cli_host
+    port = cli_port
+
+    try:
+        with open(config_path, "r", encoding="utf-8") as f:
+            raw = json.load(f)
+    except Exception:
+        raw = {}
+
+    server_data = raw.get("server", {}) if isinstance(raw, dict) else {}
+    config_url = str(server_data.get("url", "")).strip()
+    config_host = str(server_data.get("host", "")).strip()
+    config_port = server_data.get("port")
+
+    if config_url:
+        parsed = urlparse(config_url)
+        if parsed.hostname:
+            host = parsed.hostname
+        if parsed.port:
+            port = parsed.port
+
+    if config_host:
+        host = config_host
+    if config_port is not None:
+        try:
+            port = int(config_port)
+        except (TypeError, ValueError):
+            pass
+
+    host = host or "127.0.0.1"
+    port = port if isinstance(port, int) else 18890
+    return host, port
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="启动 Sandbox Server",
@@ -64,14 +106,14 @@ def main():
     parser.add_argument(
         "--host",
         type=str,
-        default="0.0.0.0",
-        help="服务器主机地址 (默认: 0.0.0.0)"
+        default=None,
+        help="服务器主机地址（通常由配置文件 server.url/server.host 提供）"
     )
     parser.add_argument(
         "--port", "-p",
         type=int,
-        default=18890,
-        help="服务器端口 (默认: 18890)"
+        default=None,
+        help="服务器端口（通常由配置文件 server.port 提供）"
     )
     parser.add_argument(
         "--log-level",
@@ -93,6 +135,7 @@ def main():
 
     # 查找配置文件
     config_path = find_config_file(args.config)
+    host, port = resolve_server_endpoint(config_path, args.host, args.port)
 
     # 显示启动信息
     print("=" * 80)
@@ -100,7 +143,7 @@ def main():
     print("=" * 80)
     print(f"📁 项目根目录: {PROJECT_ROOT}")
     print(f"⚙️  配置文件: {config_path}")
-    print(f"🌐 服务地址: http://{args.host}:{args.port}")
+    print(f"🌐 服务地址: http://{host}:{port}")
     print(f"📊 日志级别: {args.log_level}")
     print("=" * 80)
     print()
@@ -125,13 +168,13 @@ def main():
             return
 
         # 创建服务器（使用标准方式）
-        server = loader.create_server(host=args.host, port=args.port)
+        server = loader.create_server(host=host, port=port)
 
         # 启动服务器
         print("=" * 80)
-        print(f"🌐 访问地址: http://{args.host}:{args.port}")
-        print(f"📖 API 文档: http://{args.host}:{args.port}/docs")
-        print(f"🔍 健康检查: http://{args.host}:{args.port}/health")
+        print(f"🌐 访问地址: http://{host}:{port}")
+        print(f"📖 API 文档: http://{host}:{port}/docs")
+        print(f"🔍 健康检查: http://{host}:{port}/health")
         print()
         print(f"💡 提示: 资源预热请在客户端配置 warmup_resources 参数")
         print(f"   例如: Sandbox(config=SandboxConfig(warmup_resources=['rag']))")
