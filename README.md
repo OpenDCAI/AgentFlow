@@ -52,64 +52,62 @@ As agents become specialized for distinct environments, a critical challenge ari
 - **Parameter-level Consolidation:** Merging independently trained expert models in parameter space. It is computationally efficient but requires careful design to mitigate task interference.
 
 
-## 🛠️ QueckStart
+## 🛠️ QuickStart
+
 We take WebAgent data synthesis as an example.
 
-First, launch the sandbox with WebAgent sandbox config.
+**Step 1:** Launch the sandbox with WebAgent sandbox config.
 
-`./sandbox-server.sh --config configs/sandbox-server/web_config.json --port 18890 --host 0.0.0.0`
+```bash
+./sandbox-server.sh --config configs/sandbox-server/web_config.json \
+    --port 18890 \
+    --host 0.0.0.0
+```
 
-Second, synthesize QA with WebAgent synthesis config.
+**Step 2:** Synthesize QA with WebAgent synthesis config.
+
 ```python
 from synthesis import synthesize
 
-synthesize(config_path='configs/synthesis/web_config.json')
+synthesize(config_path="configs/synthesis/web_config.json")
 ```
 
-Third, synthesize trajectory with WebAgent trajectory config.
+**Step 3:** Synthesize trajectory with WebAgent trajectory config.
+
 ```python
 from rollout import pipeline
 
-pipeline(
-    config_path="/home/a1/sdb/lb/AgentFlow/configs/rollout/rag_benchmark.json",
-)
+pipeline(config_path="configs/rollout/rag_benchmark.json")
 ```
 
-After training the model, serving the model with VLLM.
+**Step 4:** After training the model, serve it with vLLM.
 
-`vllm serve
- --model YOUR_TRAINED_MODEL
- --served-model-name webagent
- --tensor-parallel-size 8
- --enable-auto-tool-choice
- --tool-call-parser hermes
- --port 8222
-`
+```bash
+vllm serve \
+    --model YOUR_TRAINED_MODEL \
+    --served-model-name webagent \
+    --tensor-parallel-size 8 \
+    --enable-auto-tool-choice \
+    --tool-call-parser hermes \
+    --port 8222
+```
 
-Finally, infer on trained Agentic model with infer config.
+**Step 5:** Infer on trained Agentic model with infer config.
+
 ```python
 from rollout import pipeline
 
-pipeline(
-    config_path="/home/a1/sdb/lb/AgentFlow/configs/rollout/rag_benchmark.json",
-)
+pipeline(config_path="configs/infer/web_infer.json")
 ```
 
-## Configuration
+## ⚙️ Configuration
 
-We list all configuration files:
-
-Launching sandbox:
-[configs/sandbox-server/](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/sandbox-server/)
-
-Synthesizing:
-[configs/synthesis/](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/synthesis/)
-
-Trajectory:
-[configs/trajectory/](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/trajectory/)
-
-Inference:
-[configs/infer/](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/infer/)
+| Purpose | Config Path |
+| ------- | ----------- |
+| 🖥️ Launching Sandbox | [`configs/sandbox-server/`](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/sandbox-server/) |
+| 🧪 Synthesizing QA | [`configs/synthesis/`](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/synthesis/) |
+| 🔄 Trajectory Rollout | [`configs/trajectory/`](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/trajectory/) |
+| 🚀 Model Inference | [`configs/infer/`](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/infer/) |
 
 
 ## 🌟 AgentFlow Agent Family
@@ -299,7 +297,6 @@ I want to audit all command aliases on this Ubuntu machine, so please launch the
     </td>
   </tr>
 </table>
-
 
 
 
