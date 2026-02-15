@@ -34,7 +34,7 @@ Beyond synthetic training data, AgentFlow also offers high-quality human-annotat
 
 ### All-in-One Sandbox
 
-- Built-in support for 📚 RAG, 🖼️ MM-Doc, 🔍 Deep Research, 💻 Code, 🖱️ GUI, 🤖 Embodied and more.
+- Built-in support for 📚 RAG, 🖼️ MM-Doc, 🔍 Deep Research, 💻 Code, 🟰 SQL database, 🖱️ GUI, 🤖 Embodied and more.
 - Easily extensible to new environments via a **modular backend design**.
 
 ### Exploring Mechanisms of Agent Data Synthesis and Training
