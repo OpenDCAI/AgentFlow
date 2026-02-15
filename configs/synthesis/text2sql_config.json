@@ -1,51 +1,47 @@
 {
-  "model_name": "openai/gpt-4o",
-  "api_key": "${OPENAI_API_KEY}",
-  "base_url": "${OPENAI_API_BASE}",
+  "model_name": "openai/gpt-oss-120b",
+  "api_key": "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",
+  "base_url": "https://openrouter.ai/api/v1",
 
-  "max_depth": 4,
-  "branching_factor": 1,
+  "max_depth": 20,
+  "branching_factor": 2,
   "depth_threshold": 2,
 
-  "min_depth": 2,
-  "max_selected_traj": 1,
-  "path_similarity_threshold": 0.8,
+  "min_depth": 3,
+  "max_selected_traj": 3,
+  "path_similarity_threshold": 0.7,
 
   "number_of_seed": null,
 
-  "resource_types": ["sql"],
-  "resource_init_configs": {
-    "sql": {
-      "content": {}
-    }
-  },
+  "resource_types": [],
+  "resource_init_configs": {},
 
   "sandbox_server_url": "http://127.0.0.1:18890",
   "sandbox_auto_start": true,
-  "sandbox_config_path": "/home/a1/sdb/lb/AgentFlow/configs/sandbox-server/text2sql_config.json",
+  "sandbox_config_path": "configs/sandbox-server/text2sql_config.json",
   "sandbox_timeout": 300,
 
-  "available_tools": ["sql:list_databases", "sql:get_schema", "sql:execute"],
+  "available_tools": ["text2sql-list_databases", "text2sql-get_schema", "text2sql-execute"],
 
-  "seed_description": "Target database and exploration intent",
+  "seed_description": "Natural language query intent over one or more available SQLite databases",
 
   "sampling_tips": [
-    "先用 sql:list_databases 确认数据库 ID。",
-    "然后使用 sql:get_schema 查看表、字段、外键关系。",
-    "最后通过 sql:execute 反复验证 SQL，确保可执行且结果非空。",
-    "优先生成多表关联、分组统计、阈值过滤、子查询或 CTE 的复杂问题。"
+    "Start by calling text2sql-list_databases to discover candidate databases.",
+    "Call text2sql-get_schema before writing SQL so table and column names are grounded in real schema.",
+    "Use focused SELECT statements and LIMIT whenever possible to reduce noise.",
+    "Prefer explicit JOIN keys and verify column semantics from schema before aggregations.",
+    "If query fails, revise SQL based on returned errors instead of repeating the same call."
   ],
 
   "synthesis_tips": [
-    "输出 question、sql、reasoning_steps（当前默认 answer 字段可存 SQL）。",
-    "SQL 必须使用 SQLite 方言，且只包含 SELECT/WITH/PRAGMA。",
-    "问题尽量使用业务语义，不直接暴露表名列名。",
-    "如果 SQL 结果为空，先放宽筛选条件再重试。"
+    "Create questions that require structured querying and reasoning from SQL results.",
+    "Ensure each answer is fully supported by executed query outputs.",
+    "Use multi-step reasoning when combining schema understanding and query results."
   ],
 
   "qa_examples": [],
 
-  "seeds_file": "/home/a1/sdb/lb/AgentFlow/seeds/text2sql/seeds.jsonl",
+  "seeds_file": "seeds/text2sql/seeds.jsonl",
   "output_dir": "results/text2sql"
 }
 

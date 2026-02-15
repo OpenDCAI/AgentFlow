@@ -172,10 +172,6 @@ def main():
 
         # 启动服务器
         print("=" * 80)
-        print(f"🌐 访问地址: http://{host}:{port}")
-        print(f"📖 API 文档: http://{host}:{port}/docs")
-        print(f"🔍 健康检查: http://{host}:{port}/health")
-        print()
         print(f"💡 提示: 资源预热请在客户端配置 warmup_resources 参数")
         print(f"   例如: Sandbox(config=SandboxConfig(warmup_resources=['rag']))")
         print("=" * 80)

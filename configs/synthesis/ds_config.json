@@ -21,15 +21,15 @@
   "sandbox_config_path": "configs/server/ds_qa_config.json",
   "sandbox_timeout": 300,
 
-  "available_tools": ["ds_inspect_data", "ds_read_csv", "ds_run_python"],
+  "available_tools": ["ds-inspect_data", "ds-read_csv", "ds-run_python"],
 
   "seed_description": "Data directory containing CSV files",
 
   "sampling_tips": [
     "Explore the CSV files to understand the data schema and content.",
-    "Start by inspecting the data directory using `ds_inspect_data`.",
-    "Use `ds_read_csv` to preview the first few rows of interesting files.",
-    "Use `ds_run_python` to perform data analysis, aggregations, and visualizations.",
+    "Start by inspecting the data directory using `ds-inspect_data`.",
+    "Use `ds-read_csv` to preview the first few rows of interesting files.",
+    "Use `ds-run_python` to perform data analysis, aggregations, and visualizations.",
     "Verify data quality (missing values, duplicates) before complex analysis.",
     "Chain operations: Inspect -> Read -> Analyze.",
     "Note: base_dir is automatically provided from seed context."

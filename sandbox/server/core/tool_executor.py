@@ -91,6 +91,7 @@ class ToolExecutor:
         - "resource:action" (already canonical)
         - "resource.action" -> "resource:action"
         - "resource_action" -> "resource:action"
+        - "resource-action" -> "resource:action"
         """
         if ":" in action:
             return action
@@ -101,7 +102,7 @@ class ToolExecutor:
             if ":" in full_name:
                 resource_prefixes.add(full_name.split(":", 1)[0])
 
-        for sep in (".", "_"):
+        for sep in (".", "_", "-"):
             if sep in action:
                 prefix, suffix = action.split(sep, 1)
                 candidate = f"{prefix}:{suffix}"

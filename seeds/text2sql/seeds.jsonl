@@ -1,6 +1,0 @@
-{"content": "Database: chinook", "kwargs": {"focus_tables": ["Customer", "Invoice", "InvoiceLine", "Track", "Album", "Artist", "Genre"], "exploration_mode": "hard_customer_revenue_and_genre_mix"}}
-{"content": "Database: chinook", "kwargs": {"focus_tables": ["Invoice", "InvoiceLine", "Track", "MediaType", "Genre"], "exploration_mode": "hard_monthly_revenue_and_media_type_trends"}}
-{"content": "Database: sakila", "kwargs": {"focus_tables": ["film", "film_actor", "actor", "film_category", "category", "inventory", "rental", "payment"], "exploration_mode": "hard_category_revenue_and_actor_depth"}}
-{"content": "Database: sakila", "kwargs": {"focus_tables": ["customer", "rental", "payment", "store", "staff", "address", "city"], "exploration_mode": "hard_store_customer_value"}}
-{"content": "Database: adventureworks", "kwargs": {"focus_tables": ["SalesOrderHeader", "SalesOrderDetail", "Product", "ProductSubcategory", "ProductCategory", "SalesTerritory", "CountryRegion"], "exploration_mode": "hard_category_revenue_and_region_mix"}}
-

@@ -12,6 +12,22 @@ from .ds_tools import get_ds_tool_schemas
 from .sql_tools import get_sql_tool_schemas
 
 
+def _tool_name_aliases(name: str) -> set[str]:
+    """Return equivalent tool-name variants across '-', '_' and ':' separators."""
+    aliases = {name}
+    if ":" in name:
+        prefix, suffix = name.split(":", 1)
+        aliases.add(f"{prefix}-{suffix}")
+    if "_" in name:
+        prefix, suffix = name.split("_", 1)
+        aliases.add(f"{prefix}-{suffix}")
+    if "-" in name:
+        prefix, suffix = name.split("-", 1)
+        aliases.add(f"{prefix}:{suffix}")
+        aliases.add(f"{prefix}_{suffix}")
+    return aliases
+
+
 def get_tool_schemas(allowed_tools: Optional[List[str]] = None) -> List[Dict[str, Any]]:
     """
     Get tool schemas, optionally filtered by tool names.
@@ -26,7 +42,9 @@ def get_tool_schemas(allowed_tools: Optional[List[str]] = None) -> List[Dict[str
     )
     if not allowed_tools:
         return schemas
-    allowed_set = set(allowed_tools)
+    allowed_set = set()
+    for tool_name in allowed_tools:
+        allowed_set.update(_tool_name_aliases(tool_name))
     return [schema for schema in schemas if schema.get("name") in allowed_set]
 
 

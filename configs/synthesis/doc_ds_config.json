@@ -22,18 +22,18 @@
   "sandbox_timeout": 300,
 
   "available_tools": [
-    "doc_search",
-    "doc_read",
-    "ds_inspect_data",
-    "ds_read_csv",
-    "ds_run_python"
+    "doc-search",
+    "doc-read",
+    "ds-inspect_data",
+    "ds-read_csv",
+    "ds-run_python"
   ],
 
   "seed_description": "Document or data directory",
 
   "sampling_tips": [
-    "For documents: use doc_search and doc_read to locate and extract evidence.",
-    "For data: use ds_inspect_data, ds_read_csv, and ds_run_python for analysis.",
+    "For documents: use doc-search and doc-read to locate and extract evidence.",
+    "For data: use ds-inspect_data, ds-read_csv, and ds-run_python for analysis.",
     "Chain operations appropriately based on the seed type.",
     "Note: seed_path is automatically provided from seed context."
   ],
