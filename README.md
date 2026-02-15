@@ -77,7 +77,7 @@ synthesize(config_path="configs/synthesis/web_config.json")
 ```python
 from rollout import pipeline
 
-pipeline(config_path="configs/rollout/rag_benchmark.json")
+pipeline(config_path="configs/trajectory/web_trajectory.json")
 ```
 
 **Step 4:** After training the model, serve it with vLLM.
