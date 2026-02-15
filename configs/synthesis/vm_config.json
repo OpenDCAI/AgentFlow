@@ -26,7 +26,7 @@
   "sandbox_config_path": "/home/a1/sdb/tzw/Synthesis/configs/server/vm_only_deployment.json",
   "sandbox_timeout": 120,
 
-  "available_tools": ["vm_screenshot", "vm_click", "vm_double_click", "vm_type", "vm_key", "vm_key_down", "vm_key_up", "vm_hotkey", "vm_scroll", "vm_drag", "vm_move", "vm_mouse_down", "vm_mouse_up", "vm_right_click"],
+  "available_tools": ["vm-screenshot", "vm-click", "vm-double_click", "vm-type", "vm-key", "vm-key_down", "vm-key_up", "vm-hotkey", "vm-scroll", "vm-drag", "vm-move", "vm-mouse_down", "vm-mouse_up", "vm-right_click"],
 
   "seed_description": "Starting entity and its description",
 

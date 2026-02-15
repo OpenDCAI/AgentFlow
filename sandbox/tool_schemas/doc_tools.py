@@ -26,7 +26,7 @@ def get_doc_search_schema() -> Dict[str, Any]:
     Schema for doc_search tool - search keywords in document.
     """
     return {
-        "name": "doc_search",
+        "name": "doc-search",
         "description": (
             "Search for keywords in the document. This tool searches through "
             "headings, paragraphs, tables, and image captions/alt text. "
@@ -59,7 +59,7 @@ def get_doc_read_schema() -> Dict[str, Any]:
     Schema for doc_read tool - read document sections with visual and textual content.
     """
     return {
-        "name": "doc_read",
+        "name": "doc-read",
         "description": (
             "Read specific document sections and extract useful information using visual language model. "
             "This tool processes both text and images (figures, tables, page layouts) from the specified sections. "

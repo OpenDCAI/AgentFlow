@@ -14,7 +14,7 @@
 
   "sandbox_server_url": "http://127.0.0.1:18890",
 
-  "available_tools": ["rag_search", "web_search", "web_visit"],
+  "available_tools": ["rag-search", "web-search", "web-visit"],
 
   "seed_description": "Starting entity and its description",
 
@@ -25,7 +25,7 @@
     "Build dependency chains (A→B→C→D...)",
     "Capture hard metadata (dates, versions, IDs, counts)",
     "Use both RAG and web tools at least once per trajectory",
-    "Use web_visit at least once to extract evidence from specific pages",
+    "Use web-visit at least once to extract evidence from specific pages",
     "Prefer web tools for public/fresh facts and RAG for internal context"
   ],
 
@@ -36,7 +36,7 @@
     "Ensure answer is grounded in trajectory evidence",
     "Provide clear reasoning steps",
     "Make the question require both RAG and web evidence",
-    "Ensure web_visit evidence is required to answer"
+    "Ensure web-visit evidence is required to answer"
   ],
 
   "qa_examples": [

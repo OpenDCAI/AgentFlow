@@ -24,12 +24,12 @@ class TestToolSchemas:
 
     def test_get_specific_tools(self):
         """Test getting specific tools"""
-        schemas = get_tool_schemas(["web_search", "rag_search"])
+        schemas = get_tool_schemas(["web-search", "rag-search"])
         
         assert len(schemas) == 2
         names = [s["name"] for s in schemas]
-        assert "web_search" in names
-        assert "rag_search" in names
+        assert "web-search" in names
+        assert "rag-search" in names
 
     def test_wildcard_tools(self):
         """Test getting tools with wildcard"""
@@ -37,34 +37,34 @@ class TestToolSchemas:
         
         # Should get all VM tools
         assert len(schemas) > 5
-        assert all(s["name"].startswith("vm_") for s in schemas)
+        assert all(s["name"].startswith("vm-") for s in schemas)
 
     def test_mixed_specific_and_wildcard(self):
         """Test mixing specific and wildcard"""
-        schemas = get_tool_schemas(["web_search", "vm_*"])
+        schemas = get_tool_schemas(["web-search", "vm-*"])
         
         names = [s["name"] for s in schemas]
-        assert "web_search" in names
-        assert any(n.startswith("vm_") for n in names)
+        assert "web-search" in names
+        assert any(n.startswith("vm-") for n in names)
 
     def test_get_all_tool_names(self):
         """Test getting all tool names"""
         names = get_all_tool_names()
         
         assert len(names) > 0
-        assert "web_search" in names
-        assert "rag_search" in names
+        assert "web-search" in names
+        assert "rag-search" in names
 
     def test_get_tools_by_resource(self):
         """Test getting tools by resource type"""
         vm_tools = get_tools_by_resource("vm")
         
         assert len(vm_tools) > 0
-        assert all(t["name"].startswith("vm_") for t in vm_tools)
+        assert all(t["name"].startswith("vm-") for t in vm_tools)
 
     def test_tool_schema_structure(self):
         """Test tool schema has correct structure"""
-        schemas = get_tool_schemas(["web_search"])
+        schemas = get_tool_schemas(["web-search"])
         
         assert len(schemas) == 1
         schema = schemas[0]
@@ -76,7 +76,7 @@ class TestToolSchemas:
 
     def test_parameter_structure(self):
         """Test parameter schema structure"""
-        schemas = get_tool_schemas(["web_search"])
+        schemas = get_tool_schemas(["web-search"])
         schema = schemas[0]
         
         for param in schema["parameters"]:

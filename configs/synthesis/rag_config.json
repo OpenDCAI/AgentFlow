@@ -28,7 +28,7 @@
   "sandbox_config_path": "/home/a1/sdb/tzw/Synthesis/sandbox/configs/profiles/dev.json",
   "sandbox_timeout": 120,
 
-  "available_tools": ["rag_search"],
+  "available_tools": ["rag-search"],
 
   "seed_description": "Starting entity and its description",
 

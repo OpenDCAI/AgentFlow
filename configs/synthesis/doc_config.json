@@ -21,7 +21,7 @@
   "sandbox_config_path": "configs/sandbox-server/doc_tool_config.json",
   "sandbox_timeout": 300,
   
-  "available_tools": ["doc_search", "doc_read"],
+  "available_tools": ["doc-search", "doc-read"],
   
   "seed_description": "Outline of PDF document",
   
@@ -30,12 +30,12 @@
     "Focus on multi-page evidence (combine at least TWO different pages/sections)",
     "Ensure visual elements are involved (charts, figures, tables, or page layouts)",
     "Require multi-hop reasoning (e.g., cross-reference + computation, footnote + chart reading)",
-    "Use doc_search to find visuals, tables, footnotes with keywords like: Figure, Chart, Table, panel, footnote",
-    "Use doc_read to extract detailed information from sections with specific goals",
+    "Use doc-search to find visuals, tables, footnotes with keywords like: Figure, Chart, Table, panel, footnote",
+    "Use doc-read to extract detailed information from sections with specific goals",
     "Chain across pages: after finding a chart/table, search for its discussion elsewhere",
     "Collect content-based clues (captions, axis labels, legend items, headers) instead of explicit locations",
     "Do NOT use page numbers, section IDs, or explicit figure/table numbers in questions",
-    "Note: seed_path is automatically provided from seed.jsonl kwargs, you don't need to specify it when calling doc_search or doc_read",
+    "Note: seed_path is automatically provided from seed.jsonl kwargs, you don't need to specify it when calling doc-search or doc-read",
     "Avoid broad document counts, word-frequency counting, or repeating identical tool calls"
   ],
   

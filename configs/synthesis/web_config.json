@@ -11,7 +11,7 @@
   "path_similarity_threshold": 0.7,
 
   "sandbox_server_url": "http://127.0.0.1:18890",
-  "available_tools": ["web_search", "web_visit"],
+  "available_tools": ["web-search", "web-visit"],
 
   "sampling_tips": [
     "Explore deeply to build multi-hop reasoning chains",
@@ -19,7 +19,7 @@
     "Use web tools to find relevant information",
     "Build dependency chains (A→B→C→D...)",
     "Capture hard metadata (dates, versions, IDs, counts)",
-    "Use web_visit at least once to extract evidence from specific pages"
+    "Use web-visit at least once to extract evidence from specific pages"
   ],
 
   "synthesis_tips": [
@@ -28,7 +28,7 @@
     "Answers should be specific facts (names, dates, locations)",
     "Ensure answer is grounded in trajectory evidence",
     "Provide clear reasoning steps",
-    "Ensure web_visit evidence is required to answer"
+    "Ensure web-visit evidence is required to answer"
   ],
 
   "qa_examples": [

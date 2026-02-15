@@ -27,7 +27,7 @@ def get_rag_search_schema() -> Dict[str, Any]:
     This tool searches the pre-built RAG index for relevant text chunks.
     """
     return {
-        "name": "rag_search",
+        "name": "rag-search",
         "description": (
             "Search the pre-built RAG index for the most relevant text chunks. "
             "Use this tool to answer questions related to the indexed knowledge."

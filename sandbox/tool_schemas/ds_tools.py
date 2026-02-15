@@ -27,7 +27,7 @@ def get_ds_read_csv_schema() -> Dict[str, Any]:
     Schema for ds_read_csv tool.
     """
     return {
-        "name": "ds_read_csv",
+        "name": "ds-read_csv",
         "description": (
             "Read the first few rows of a CSV file to inspect its structure and content. "
             "Use this to understand the data schema before writing analysis code. "
@@ -55,7 +55,7 @@ def get_ds_run_python_schema() -> Dict[str, Any]:
     Schema for ds_run_python tool.
     """
     return {
-        "name": "ds_run_python",
+        "name": "ds-run_python",
         "description": (
             "Execute Python code for data analysis. "
             "Pre-installed libraries: pandas, numpy, scipy, sklearn, statsmodels, matplotlib, seaborn. "
@@ -87,7 +87,7 @@ def get_ds_inspect_data_schema() -> Dict[str, Any]:
     Schema for ds_inspect_data tool.
     """
     return {
-        "name": "ds_inspect_data",
+        "name": "ds-inspect_data",
         "description": (
             "Inspect the data directory to list all CSV files and get a summary of their content (columns, shapes, missing values). "
             "Use this as the FIRST step to understand what data is available."

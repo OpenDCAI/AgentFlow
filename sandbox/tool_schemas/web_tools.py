@@ -26,7 +26,7 @@ def get_web_search_schema() -> Dict[str, Any]:
     Schema for web_search tool - batched web search queries.
     """
     return {
-        "name": "web_search",
+        "name": "web-search",
         "description": (
             "Perform batched web searches and return top results for each query."
         ),
@@ -50,7 +50,7 @@ def get_web_visit_schema() -> Dict[str, Any]:
     Schema for web_visit tool - visit URLs and extract content by goal.
     """
     return {
-        "name": "web_visit",
+        "name": "web-visit",
         "description": (
             "Visit web pages and extract relevant content based on the goal."
         ),

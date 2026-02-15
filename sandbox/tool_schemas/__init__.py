@@ -15,6 +15,22 @@ from .ds_tools import get_ds_tool_schemas
 from .sql_tools import get_sql_tool_schemas
 
 
+def _tool_name_aliases(name: str) -> set[str]:
+    """Return equivalent tool-name variants across '-', '_' and ':' separators."""
+    aliases = {name}
+    if ":" in name:
+        prefix, suffix = name.split(":", 1)
+        aliases.add(f"{prefix}-{suffix}")
+    if "_" in name:
+        prefix, suffix = name.split("_", 1)
+        aliases.add(f"{prefix}-{suffix}")
+    if "-" in name:
+        prefix, suffix = name.split("-", 1)
+        aliases.add(f"{prefix}:{suffix}")
+        aliases.add(f"{prefix}_{suffix}")
+    return aliases
+
+
 def get_tool_schemas(allowed_tools: Optional[List[str]] = None) -> List[Dict[str, Any]]:
     """
     Get tool schemas, optionally filtered by tool names.
@@ -40,15 +56,17 @@ def get_tool_schemas(allowed_tools: Optional[List[str]] = None) -> List[Dict[str
     if not allowed_tools:
         return all_schemas
 
-    # Process allowed_tools to expand wildcards
+    # Process allowed_tools to expand wildcards and naming aliases
     allowed_set = set()
     wildcard_prefixes = set()
 
     for tool in allowed_tools:
-        if tool.endswith(":*") or tool.endswith("_*"):
-            wildcard_prefixes.add(tool[:-1])  # Remove the "*"
+        if tool.endswith(":*") or tool.endswith("_*") or tool.endswith("-*"):
+            # Wildcard pattern like "vm:*" or "vm_*"
+            prefix = tool[:-1]  # Remove the "*"
+            wildcard_prefixes.update(_tool_name_aliases(prefix))
         else:
-            allowed_set.add(tool)
+            allowed_set.update(_tool_name_aliases(tool))
 
     # Filter schemas
     filtered = []
@@ -87,9 +105,12 @@ def get_tools_by_resource(resource_type: str) -> List[Dict[str, Any]]:
     """
     prefix_colon = f"{resource_type}:"
     prefix_underscore = f"{resource_type}_"
+    prefix_hyphen = f"{resource_type}-"
     return [
         s for s in get_tool_schemas()
-        if s.get("name", "").startswith(prefix_colon) or s.get("name", "").startswith(prefix_underscore)
+        if s.get("name", "").startswith(prefix_colon)
+        or s.get("name", "").startswith(prefix_underscore)
+        or s.get("name", "").startswith(prefix_hyphen)
     ]
 
 

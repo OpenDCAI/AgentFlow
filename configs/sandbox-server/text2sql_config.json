@@ -1,25 +1,22 @@
 {
+  "$schema": "启动配置 - 本地Text2SQL",
   "server": {
-    "title": "Sandbox HTTP Service (Text2SQL)",
-    "description": "SQL backend for text2sql synthesis",
-    "session_ttl": 300
+    "title": "Sandbox Local Text2SQL",
+    "session_ttl": 600,
+    "log_level": "INFO"
   },
-  "resources": {
-    "sql": {
-      "enabled": true,
-      "backend_class": "sandbox.server.backends.resources.database.DatabaseBackend",
-      "description": "SQLite read-only backend for text2sql",
-      "config": {
-        "_comment": "Fill with your local sqlite files before running text2sql synthesis.",
-        "_example": {
-          "chinook": "/abs/path/to/chinook.sqlite",
-          "sakila": "/abs/path/to/sakila.sqlite",
-          "adventureworks": "/abs/path/to/adventureworks.sqlite"
-        },
-        "databases": {}
+  "resources": {},
+  "apis": {
+    "text2sql": {
+      "databases": {
+        "retail": "/Users/bytedance/Downloads/agentflow_sandbox-原来/数据库+生成数据集/retail.db",
+        "music": "/Users/bytedance/Downloads/agentflow_sandbox-原来/数据库+生成数据集/music.db",
+        "hospital": "/Users/bytedance/Downloads/agentflow_sandbox-原来/数据库+生成数据集/hospital.db",
+        "finance": "/Users/bytedance/Downloads/agentflow_sandbox-原来/数据库+生成数据集/finance.db",
+        "chinook": "/Users/bytedance/Downloads/agentflow_sandbox-原来/sample_databases/sqlite/chinook.sqlite",
+        "sakila": "/Users/bytedance/Downloads/agentflow_sandbox-原来/sample_databases/sqlite/sakila.sqlite",
+        "adventureworks": "/Users/bytedance/Downloads/agentflow_sandbox-原来/sample_databases/sqlite/adventureworks.sqlite"
       }
     }
-  },
-  "apis": {}
+  }
 }
-
