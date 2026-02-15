@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Sandbox Server 启动脚本
-可以在项目任何目录执行
+Sandbox Server startup script
+Can be executed from any directory within the project
 """
 
 import sys
@@ -12,16 +12,16 @@ from pathlib import Path
 from urllib.parse import urlparse
 from typing import Optional, Tuple
 
-# 获取项目根目录
+# Get project root directory
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-# 添加项目根目录到 Python 路径，确保可导入 sandbox 包
+# Add project root to Python path to ensure the sandbox package is importable
 sys.path.insert(0, str(PROJECT_ROOT))
 
 
 def setup_logging(level: str = "INFO"):
-    """配置日志"""
+    """Configure logging"""
     logging.basicConfig(
         level=getattr(logging, level.upper()),
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
@@ -30,11 +30,11 @@ def setup_logging(level: str = "INFO"):
 
 def find_config_file(config_arg: str) -> Path:
     """
-    查找配置文件
+    Find the configuration file
 
-    仅支持：
-    1. 绝对路径
-    2. 相对路径（相对于当前工作目录）
+    Supports only:
+    1. Absolute path
+    2. Relative path (relative to the current working directory)
     """
     config_path = Path(config_arg).expanduser()
     if not config_path.is_absolute():
@@ -43,13 +43,13 @@ def find_config_file(config_arg: str) -> Path:
     if config_path.exists():
         return config_path
 
-    raise FileNotFoundError(f"配置文件未找到: {config_path}")
+    raise FileNotFoundError(f"Configuration file not found: {config_path}")
 
 
 def resolve_server_endpoint(config_path: Path, cli_host: Optional[str], cli_port: Optional[int]) -> Tuple[str, int]:
     """
-    解析服务地址，优先使用配置文件中的 server.url/server.port。
-    若配置中没有，则回退到 CLI 参数，再回退默认值。
+    Resolve server address, prioritizing server.url/server.port from the config file.
+    Falls back to CLI arguments if not specified in config, then to default values.
     """
     host = cli_host
     port = cli_port
@@ -87,10 +87,10 @@ def resolve_server_endpoint(config_path: Path, cli_host: Optional[str], cli_port
 
 def main():
     parser = argparse.ArgumentParser(
-        description="启动 Sandbox Server",
+        description="Start Sandbox Server",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
-示例:
+Examples:
   %(prog)s --config /abs/path/to/dev.json
   %(prog)s --config ./configs/dev.json --port 8080
   %(prog)s --host 127.0.0.1 --port 9000
@@ -101,103 +101,103 @@ def main():
         "--config", "-c",
         type=str,
         required=True,
-        help="配置文件路径（必填，支持绝对路径或相对路径）"
+        help="Path to config file (required, supports absolute or relative path)"
     )
     parser.add_argument(
         "--host",
         type=str,
         default=None,
-        help="服务器主机地址（通常由配置文件 server.url/server.host 提供）"
+        help="Server host address (usually provided by config file server.url/server.host)"
     )
     parser.add_argument(
         "--port", "-p",
         type=int,
         default=None,
-        help="服务器端口（通常由配置文件 server.port 提供）"
+        help="Server port (usually provided by config file server.port)"
     )
     parser.add_argument(
         "--log-level",
         type=str,
         choices=["DEBUG", "INFO", "WARNING", "ERROR"],
         default="INFO",
-        help="日志级别 (默认: INFO)"
+        help="Log level (default: INFO)"
     )
     parser.add_argument(
         "--show-config",
         action="store_true",
-        help="显示配置信息后退出"
+        help="Show configuration info and exit"
     )
 
     args = parser.parse_args()
 
-    # 设置日志
+    # Setup logging
     setup_logging(args.log_level)
 
-    # 查找配置文件
+    # Find config file
     config_path = find_config_file(args.config)
     host, port = resolve_server_endpoint(config_path, args.host, args.port)
 
-    # 显示启动信息
+    # Display startup info
     print("=" * 80)
-    print("🚀 Sandbox Server 启动中...")
+    print("🚀 Sandbox Server starting...")
     print("=" * 80)
-    print(f"📁 项目根目录: {PROJECT_ROOT}")
-    print(f"⚙️  配置文件: {config_path}")
-    print(f"🌐 服务地址: http://{host}:{port}")
-    print(f"📊 日志级别: {args.log_level}")
+    print(f"📁 Project root: {PROJECT_ROOT}")
+    print(f"⚙️  Config file: {config_path}")
+    print(f"🌐 Server address: http://{host}:{port}")
+    print(f"📊 Log level: {args.log_level}")
     print("=" * 80)
     print()
 
-    # 导入并创建服务器
+    # Import and create server
     try:
         from sandbox.server.config_loader import ConfigLoader
 
-        # 加载配置
+        # Load configuration
         loader = ConfigLoader()
         config = loader.load(str(config_path))
 
-        # 显示配置信息
+        # Show configuration info
         if args.show_config:
-            print("\n📋 配置信息:")
-            print(f"   服务器标题: {config.server.title}")
+            print("\n📋 Configuration info:")
+            print(f"   Server title: {config.server.title}")
             print(f"   Session TTL: {config.server.session_ttl}s")
-            print(f"\n   已启用的资源 ({len(loader.get_enabled_resources())}):")
+            print(f"\n   Enabled resources ({len(loader.get_enabled_resources())}):")
             for name, res in loader.get_enabled_resources().items():
                 print(f"     ✅ {name}: {res.description}")
             print()
             return
 
-        # 创建服务器（使用标准方式）
+        # Create server (using standard method)
         server = loader.create_server(host=host, port=port)
 
-        # 启动服务器
+        # Start server
         print("=" * 80)
-        print(f"🌐 访问地址: http://{host}:{port}")
-        print(f"📖 API 文档: http://{host}:{port}/docs")
-        print(f"🔍 健康检查: http://{host}:{port}/health")
+        print(f"🌐 Access URL: http://{host}:{port}")
+        print(f"📖 API docs: http://{host}:{port}/docs")
+        print(f"🔍 Health check: http://{host}:{port}/health")
         print()
-        print(f"💡 提示: 资源预热请在客户端配置 warmup_resources 参数")
-        print(f"   例如: Sandbox(config=SandboxConfig(warmup_resources=['rag']))")
+        print(f"💡 Tip: For resource warmup, configure the warmup_resources parameter on the client side")
+        print(f"   Example: Sandbox(config=SandboxConfig(warmup_resources=['rag']))")
         print("=" * 80)
-        print("\n⏳ 服务器正在启动中，请稍候...\n")
+        print("\n⏳ Server is starting, please wait...\n")
 
-        # 使用标准的 server.run() 方法
-        # 这会在正确的事件循环中运行，不会有 warmup 问题
+        # Use the standard server.run() method
+        # This runs in the correct event loop without warmup issues
         server.run()
 
     except ImportError as e:
-        print(f"❌ 导入错误: {e}")
-        print(f"   请确保已安装所有依赖")
-        print(f"   提示: 检查 PYTHONPATH 是否正确设置")
+        print(f"❌ Import error: {e}")
+        print(f"   Please make sure all dependencies are installed")
+        print(f"   Tip: Check if PYTHONPATH is set correctly")
         sys.exit(1)
     except FileNotFoundError as e:
         print(f"❌ {e}")
         sys.exit(1)
     except KeyboardInterrupt:
-        print("\n\n👋 服务器已停止")
+        print("\n\n👋 Server stopped")
         sys.exit(0)
     except Exception as e:
-        print(f"❌ 启动失败: {e}")
+        print(f"❌ Startup failed: {e}")
         import traceback
         traceback.print_exc()
         sys.exit(1)
