@@ -7,7 +7,9 @@
 [![Docmutation](https://img.shields.io/badge/Docmutation-red?style=for-the-badge&logo=google-chrome&logoColor=white)](https://opendcai.github.io/AgentFlow-Doc/en/)
  </div>
 
-
+<p align="center">
+  <b>English</b> | <a href="README_zh.md">中文</a>
+</p>
 
 **The First Unified Agent Data Synthesis Framework** for Custom Task with all-in-one envrionment.
 
@@ -299,15 +301,6 @@ I want to audit all command aliases on this Ubuntu machine, so please launch the
 </table>
 
 
-
-
-## 🏆 Why AgentFlow?
-
-| Aspect            | Prior Work   | AgentFlow |
-| ----------------- | ------------ | --------------- |
-| Multi Environment | ❌            | ✅               |
-| Automated Synthesis | ❌            | ✅               |
-| Agent Consiladation | ❌            | ✅               |
 
 
 ## 📦 Installation
