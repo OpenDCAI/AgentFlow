@@ -98,21 +98,14 @@ from rollout import pipeline
 pipeline(config_path="configs/infer/web_infer.json")
 ```
 
-## Configuration
+## ⚙️ Configuration
 
-We list all configuration files:
-
-Launching sandbox:
-[configs/sandbox-server/](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/sandbox-server/)
-
-Synthesizing:
-[configs/synthesis/](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/synthesis/)
-
-Trajectory:
-[configs/trajectory/](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/trajectory/)
-
-Inference:
-[configs/infer/](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/infer/)
+| Purpose | Config Path |
+| ------- | ----------- |
+| 🖥️ Launching Sandbox | [`configs/sandbox-server/`](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/sandbox-server/) |
+| 🧪 Synthesizing QA | [`configs/synthesis/`](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/synthesis/) |
+| 🔄 Trajectory Rollout | [`configs/trajectory/`](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/trajectory/) |
+| 🚀 Model Inference | [`configs/infer/`](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/infer/) |
 
 
 ## 🌟 AgentFlow Agent Family
