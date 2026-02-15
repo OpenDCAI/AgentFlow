@@ -3,11 +3,8 @@ Tests for tool schemas
 """
 
 import pytest
-from pathlib import Path
-import sys
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from rollout.tools import (
+from sandbox.tool_schemas import (
     get_tool_schemas,
     get_all_tool_names,
     get_tools_by_resource

@@ -1,74 +1,71 @@
 """
-Tool schemas for Rollout pipeline
+Tool schemas for LLM agent prompts
 
-This module provides tool schemas for agent execution.
-It reuses schemas from synthesis module and adds additional tools.
+This module defines tool schemas used to construct prompts for the LLM agent
+during trajectory sampling and rollout execution.
 """
 
 from typing import Optional, List, Dict, Any
 
-# Shared tool schemas are defined in synthesis.tools
-from synthesis.tools import (
-    get_rag_tool_schemas,
-    get_web_tool_schemas,
-    get_vm_tool_schemas,
-    get_doc_tool_schemas,
-    get_ds_tool_schemas,
-)
+from .rag_tools import get_rag_tool_schemas
+from .web_tools import get_web_tool_schemas
+from .vm_tools import get_vm_tool_schemas
+from .doc_tools import get_doc_tool_schemas
+from .ds_tools import get_ds_tool_schemas
+from .sql_tools import get_sql_tool_schemas
 
 
 def get_tool_schemas(allowed_tools: Optional[List[str]] = None) -> List[Dict[str, Any]]:
     """
     Get tool schemas, optionally filtered by tool names.
-    
+
     Args:
         allowed_tools: List of tool names to include. If None, returns all tools.
             Tool names can be:
             - Full name: "vm_click", "rag_search"
             - Wildcard by prefix: "vm_*" (all vm tools), "web_*" (all web tools)
-            
+
     Returns:
         List of tool schema dictionaries
     """
-    # Collect all available schemas from synthesis tools
     all_schemas = (
         get_rag_tool_schemas()
         + get_web_tool_schemas()
         + get_vm_tool_schemas()
         + get_doc_tool_schemas()
         + get_ds_tool_schemas()
+        + get_sql_tool_schemas()
     )
-    
+
     if not allowed_tools:
         return all_schemas
-    
+
     # Process allowed_tools to expand wildcards
     allowed_set = set()
     wildcard_prefixes = set()
-    
+
     for tool in allowed_tools:
         if tool.endswith(":*") or tool.endswith("_*"):
-            # Wildcard pattern like "vm:*" or "vm_*"
             wildcard_prefixes.add(tool[:-1])  # Remove the "*"
         else:
             allowed_set.add(tool)
-    
+
     # Filter schemas
     filtered = []
     for schema in all_schemas:
         name = schema.get("name", "")
-        
+
         # Check exact match
         if name in allowed_set:
             filtered.append(schema)
             continue
-        
+
         # Check wildcard match
         for prefix in wildcard_prefixes:
             if name.startswith(prefix):
                 filtered.append(schema)
                 break
-    
+
     return filtered
 
 
@@ -81,10 +78,10 @@ def get_all_tool_names() -> List[str]:
 def get_tools_by_resource(resource_type: str) -> List[Dict[str, Any]]:
     """
     Get tools for a specific resource type.
-    
+
     Args:
         resource_type: Resource type like "vm", "rag", "web", "bash", "code"
-        
+
     Returns:
         List of tool schemas for that resource
     """
@@ -105,4 +102,5 @@ __all__ = [
     "get_vm_tool_schemas",
     "get_doc_tool_schemas",
     "get_ds_tool_schemas",
+    "get_sql_tool_schemas",
 ]

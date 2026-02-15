@@ -129,7 +129,7 @@ class AgentRunner:
     async def _load_tool_schemas(self) -> None:
         """Load tool schemas from sandbox or local definitions"""
         # Import local tool schemas
-        from ..tools import get_tool_schemas
+        from sandbox.tool_schemas import get_tool_schemas
         
         # Get schemas for allowed tools
         allowed_tools = self.config.available_tools if self.config.available_tools else None
