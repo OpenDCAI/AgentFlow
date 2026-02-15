@@ -14,14 +14,7 @@ from .config import SynthesisConfig
 from .worker import SandboxWorker
 from .utils import create_openai_client, parse_action_xml, async_chat_completion
 
-# Import tool schemas from tools module
-import sys
-from pathlib import Path
-# Add parent directory to path to import tools module
-parent_dir = Path(__file__).parent.parent
-if str(parent_dir) not in sys.path:
-    sys.path.insert(0, str(parent_dir))
-from tools import get_tool_schemas
+from sandbox.tool_schemas import get_tool_schemas
 
 
 class TrajectorySampler:
