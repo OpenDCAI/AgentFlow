@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/overall.png">
+  <img src="assets/intro.png">
 
 [![Datasets](https://img.shields.io/badge/Datasets-5EDDD2?style=for-the-badge&logo=huggingface&logoColor=yellow)](https://huggingface.co/collections/OpenDCAI/agentflow-models)
 [![Models](https://img.shields.io/badge/Models-4285F4?style=for-the-badge&logo=huggingface&logoColor=yellow)](https://huggingface.co/collections/OpenDCAI/agentflow-models)
@@ -15,42 +15,60 @@
 
 ## 🚀 Overview
 
-**AgentFlow** is the **first unified, large-scale agent data synthesis framework** that systematically generates high-quality training and evaluation data—whether within a **single specialized environment** or across **heterogeneous agent environments**—spanning 📚 RAG (Retrieval-Augmented Generation), 🖼️ MM-Doc (Multi-Modal Document Understanding), 🔍 Deep Research Agents, 🖱️ GUI / Tool-Using Agents, 📊 Data Analysis Agents, and 🤖 Embodied Agents and more.
+**AgentFlow** is the **first unified agent data synthesis framework** that generates high-quality training and evaluation data across heterogeneous agent environments — including 📚 RAG, 🖼️ MM-Doc, 🔍 Deep Research, 🖱️ GUI, 🟰 Text2SQL, 📊 Data Analysis, 🤖 Embodied Agents, and more.
 
-Unlike prior task-specific or single-environment solutions, AgentFlow provides a **unified, all-in-one envrionment**—general, extensible, and scalable—for synthesizing agent trajectories, reasoning traces, tool interactions, and environment feedback.
+It provides a **unified, extensible, all-in-one environment** for synthesizing agent trajectories, reasoning traces, tool interactions, and environment feedback.
 
-By constructing diverse, realistic environments that mirror real-world deployment scenarios, AgentFlow enables the training of **industrial-grade agentic foundation models**—capable of operating seamlessly across multiple domains through data-level or parameter-level agent consolidation.
+AgentFlow also explores the underlying mechanisms of agent data synthesis and model training, enabling the development of **industrial-grade agentic foundation models** that operate seamlessly across domains.
+
+Beyond synthetic training data, AgentFlow also offers high-quality human-annotated and synthetic benchmarks for evaluating emerging agent capabilities and exploring their boundaries.
 
 > **One framework. All agent worlds.**
 
 ## ✨ Key Features
 
-### 🧠 Unified Agent Data Synthesis Paradigm
+### Unified Agent Data Synthesis Paradigm
 
-AgentFlow provides a **unified abstraction layer** that enables seamless data synthesis across heterogeneous agent environments — all through a single, consistent interface.
+- Synthesize complex agent training data with just a few lines of code.
+- Provide a **unified abstraction layer** for seamless data synthesis across heterogeneous agent environments.
 
-**Supported Environments:**
-- 📚 **RAG** — Retrieval-Augmented Generation with multi-hop reasoning
-- 🖼️ **MM-Doc** — Multi-modal document understanding and visual QA
-- 🔍 **Deep Research** — Web-scale information gathering and synthesis
-- 💻 **Code** — Programming tasks with execution feedback
-- 🖱️ **GUI** — Desktop and web UI interaction
-- 🤖 **Embodied** — Physical world simulation and navigation
+### All-in-One Sandbox
 
-**Key Benefits:**
-- **Write once, synthesize everywhere** — Define your synthesis logic once and apply it without rewriting pipelines
-- **Environment-agnostic tooling** — Shared utilities for task generation, trajectory recording, and quality control
-- **Seamless scaling** — Generate millions of diverse trajectories across domains with a single coordinated workflow
+- Built-in support for 📚 RAG, 🖼️ MM-Doc, 🔍 Deep Research, 💻 Code, 🖱️ GUI, 🤖 Embodied and more.
+- Easily extensible to new environments via a **modular backend design**.
 
-This unified approach eliminates the traditional barrier of maintaining separate, incompatible data pipelines for each agent domain, enabling foundation model labs to efficiently train **generalist agentic models** at scale.
+### Exploring Mechanisms of Agent Data Synthesis and Training
 
-### Exploring Agent Consolidation: From Specialists to Generalists
+- **Agentic Model Consolidation:** Jointly and Stably train a unified model on mixed trajectories from all domains. 
 
-As agents become specialized for distinct environments, a critical challenge arises: **How to consolidate heterogeneous capabilities into a single foundation agentic model?** We systematically investigate two primary strategies:
 
-- **Data-level Consolidation:** Jointly training a unified model on a mixture of trajectories from all domains. It serves as a strong, stable baseline but faces high re-training costs.
-- **Parameter-level Consolidation:** Merging independently trained expert models in parameter space. It is computationally efficient but requires careful design to mitigate task interference.
+### Innovative High-Value Agent Benchmarks
 
+- Offer a suite of novel, high-quality benchmarks purpose-built for evaluating agentic capabilities.
+- Designed to expose real-world challenges that existing benchmarks overlook, driving meaningful progress in agent research.
+
+
+## ⚙️ Data Synthesis Method
+
+<div align="center">
+  <img src="assets/method.png">
+</div>
+
+AgentFlow synthesizes high-quality agent training data through a three-stage pipeline: **Trajectory Sampling → Trajectory Selection → QA Synthesis**.
+
+1. **Trajectory Sampling.** An LLM-driven agent iteratively explores a sandbox environment starting from seed inputs. At each step it proposes a tool call, executes it, and records the observation, building a branching trajectory tree with concurrent expansion and action de-duplication.
+
+2. **Trajectory Selection.** All root-to-leaf paths are scored by depth, information richness, and tool diversity, then selected with strategies, ensuring high-quality content.
+
+3. **QA Synthesis.** For each selected path, the LLM generates a multi-hop, factoid QA pair grounded in the collected observations, with built-in quality checks.
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/your-org/AgentFlow
+cd AgentFlow
+pip install -e .
+```
 
 ## 🛠️ QuickStart
 
@@ -298,22 +316,13 @@ I want to audit all command aliases on this Ubuntu machine, so please launch the
   </tr>
 </table>
 
+## 🏆 Agent Benchmarks
 
+### BrowseComp-V3
 
-## 📦 Installation
+A challenging benchmark of 300 hand-crafted multimodal questions for evaluating web browsing agents. It features deep multi-hop, cross-modal reasoning across diverse domains, with publicly searchable evidence and expert-validated subgoal-driven process evaluation. Even SOTA models like GPT-5.2 achieve only 36% accuracy. Includes **OmniSeeker**, a general multimodal browsing agent framework, along with full rollout and LLM-judge evaluation pipelines.
 
-```bash
-git clone https://github.com/your-org/AgentFlow
-cd AgentFlow
-pip install -e .
-```
-
-
-## 🧭 Roadmap
-
-* [ ] Public large-scale synthetic datasets
-* [ ] Scale to addtional domain
-* [ ] Bulid a strong agent foundtion model
+📄 [Project Page](https://halcyon-zhang.github.io/BrowseComp-V3/) · 🤗 [Dataset](https://huggingface.co/datasets/Halcyon-Zhang/BrowseComp-V3) · 💻 [GitHub](https://github.com/Halcyon-Zhang/BrowseComp-V3)
 
 ## 📜 License
 
