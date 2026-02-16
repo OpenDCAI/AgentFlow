@@ -73,22 +73,22 @@ Seed file is located at `seeds/doc/seeds.jsonl`, one JSON object per line:
 │                                                                     │
 │  Step 1: Sandbox Server                                             │
 │  ┌─────────────────┐                                                │
-│  │  doc_config.json│──▶ Start doc_search / doc_read tool service  │
+│  │ doc_config.json │──▶ Start doc_search / doc_read tool service    │
 │  └─────────────────┘                                                │
 │          │                                                          │
 │          ▼                                                          │
 │  Step 2: QA Synthesis                                               │
 │  ┌─────────────────┐    ┌──────────┐    ┌───────────────────┐       │
-│  │  doc_config.json │──▶│  Seeds   │──▶ │  synthesized_qa   │      │
-│  └─────────────────┘    └──────────┘    │  + trajectories   │      │
-│                                          └───────────────────┘      │
+│  │ doc_config.json │──▶ │  Seeds   │──▶ │  synthesized_qa   │       │
+│  └─────────────────┘    └──────────┘    │  + trajectories   │       │
+│                                         └───────────────────┘       │
 │          │                                                          │
 │          ▼                                                          │
 │  Step 3: Trajectory Rollout                                         │
 │  ┌──────────────────────┐    ┌──────────────┐    ┌──────────────┐   │
-│  │  doc_trajectory.json │──▶ │  benchmark   │──▶ │  trajectory  │  │
-│  └──────────────────────┘    └──────────────┘    │  results     │  │
-│                                                   └──────────────┘  │
+│  │ doc_trajectory.json  │──▶ │  benchmark   │──▶ │  trajectory  │   │
+│  └──────────────────────┘    └──────────────┘    │  results     │   │
+│                                                  └──────────────┘   │
 │          │                                                          │
 │          ▼                                                          │
 │  Step 4: Model Training & Serving (vLLM)                            │
@@ -97,9 +97,9 @@ Seed file is located at `seeds/doc/seeds.jsonl`, one JSON object per line:
 │          ▼                                                          │
 │  Step 5: Inference & Evaluation                                     │
 │  ┌──────────────────┐    ┌──────────────┐    ┌──────────────────┐   │
-│  │  doc_infer.json  │──▶ │  benchmark   │──▶ │  infer_results   │  │
-│  └──────────────────┘    └──────────────┘    │  + evaluation    │  │
-│                                               └──────────────────┘  │
+│  │  doc_infer.json  │──▶ │  benchmark   │──▶ │  infer_results   │   │
+│  └──────────────────┘    └──────────────┘    │  + evaluation    │   │
+│                                              └──────────────────┘   │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
