@@ -190,12 +190,11 @@ Included: `openai`, `cryptography`, `python-dotenv`, `requests`. The rollout scr
 ## 6. 📄 Citation
 
 ```bibtex
-@inproceedings{browsecompv3-sigir2026,
-  title={BrowseComp-V$^3$: A Vertical, Verifiable, and Visual Benchmark for Multimodal Browsing Agents},
-  author={Zhang, Huanyao and Zhou, Jiepeng and Li, Bo and Zhou, Bowen and Dan, Yanzhe and Lu, Haishan and Cao, Zhiyong and Chen, Jiaoyang and Han, Yuqian and Sheng, Zinan and Tao, Zhengwei and Liang, Hao and Wu, Jialong and Shi, Yang and He, Yuanpeng and Lin, Jiaye and Zhang, Qintong and Yan, Guochen and Zhao, Runhao and Li, Zhengpin and Yu, Xiaohan and Mei, Lang and Chen, Chong and Zhang, Wentao and Cui, Bin},
-  booktitle={SIGIR},
-  year={2026},
-  url={https://halcyon-zhang.github.io/BrowseComp-V3/}
+@article{zhang2026browsecompv3,
+  title   = {BrowseComp-$V^3$: A Visual, Vertical, and Verifiable Benchmark for Multimodal Browsing Agents},
+  author  = {Huanyao Zhang and Jiepeng Zhou and Bo Li and Bowen Zhou and Yanzhe Dan and Haishan Lu and Zhiyong Cao and Jiaoyang Chen and Yuqian Han and Zinan Sheng and Zhengwei Tao and Hao Liang and Jialong Wu and Yang Shi and Yuanpeng He and Jiaye Lin and Qintong Zhang and Guochen Yan and Runhao Zhao and Zhengpin Li and Xiaohan Yu and Lang Mei and Chong Chen and Wentao Zhang and Bin Cui},
+  journal = {arXiv preprint arXiv:2602.12876},
+  year    = {2026}
 }
 ```
 
