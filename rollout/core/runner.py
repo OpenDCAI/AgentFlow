@@ -157,6 +157,8 @@ class AgentRunner:
         print(f"\n{'='*60}")
         print(f"Task: {task.id}")
         print(f"Question: {task.question[:200]}...")
+        if task.kwargs:
+            print(f"Kwargs: {task.kwargs}")
         print(f"{'='*60}")
         
         start_time = time.time()
@@ -175,8 +177,8 @@ class AgentRunner:
             ]
             trajectory.messages = messages.copy()
             
-            # Run conversation loop
-            final_answer = await self._run_conversation(messages, trajectory)
+            # Run conversation loop with task kwargs
+            final_answer = await self._run_conversation(messages, trajectory, task_kwargs=task.kwargs)
             
             trajectory.final_answer = final_answer
             trajectory.success = True
@@ -219,13 +221,21 @@ class AgentRunner:
     async def _run_conversation(
         self,
         messages: List[Message],
-        trajectory: Trajectory
+        trajectory: Trajectory,
+        task_kwargs: Optional[Dict[str, Any]] = None
     ) -> str:
         """
         Run multi-turn conversation until completion.
         
+        Args:
+            messages: Conversation messages
+            trajectory: Trajectory to record
+            task_kwargs: Additional kwargs to pass to tools (e.g., seed_path for doc tools)
+        
         Returns final answer string.
         """
+        if task_kwargs is None:
+            task_kwargs = {}
         turn_count = 0
         
         while turn_count < self.config.max_turns:
@@ -266,8 +276,8 @@ class AgentRunner:
                     print(f"  Turn {turn_count}: 🔧 {tool_name}")
                     print(f"    Args: {json.dumps(tool_args, ensure_ascii=False)[:200]}...")
                     
-                    # Execute tool
-                    tool_result = await self._execute_tool(tool_name, tool_args)
+                    # Execute tool with task kwargs merged into parameters
+                    tool_result = await self._execute_tool(tool_name, tool_args, **task_kwargs)
                     
                     # Record tool call
                     tc = ToolCall(
@@ -310,10 +320,25 @@ class AgentRunner:
         
         return "Max turns reached without answer"
 
-    async def _execute_tool(self, tool_name: str, parameters: Dict[str, Any]) -> Any:
-        """Execute a tool via sandbox"""
+    async def _execute_tool(self, tool_name: str, parameters: Dict[str, Any], **kwargs) -> Any:
+        """
+        Execute a tool via sandbox.
+        
+        Args:
+            tool_name: Name of the tool to execute
+            parameters: Tool parameters
+            **kwargs: Additional kwargs to merge into parameters (e.g., seed_path for doc tools)
+        
+        Returns:
+            Tool execution result
+        """
         if not self.sandbox:
             raise RuntimeError("Sandbox not initialized")
+        
+        # Merge kwargs into parameters (similar to synthesis worker)
+        # This allows seed_path and other kwargs from benchmark jsonl to be passed to tools
+        if kwargs:
+            parameters = {**parameters, **kwargs}
         
         try:
             result = await self.sandbox.execute(tool_name, parameters)

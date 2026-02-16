@@ -13,16 +13,27 @@ class BenchmarkItem:
     id: str
     question: str
     answer: Optional[str] = None  # Ground truth answer (if available)
+    kwargs: Dict[str, Any] = field(default_factory=dict)  # Additional kwargs to pass to tools (e.g., seed_path for doc tools)
     metadata: Dict[str, Any] = field(default_factory=dict)
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> 'BenchmarkItem':
         """Create from dictionary"""
+        # Extract kwargs if present (for doc tools, this contains seed_path)
+        kwargs = data.get("kwargs", {})
+        if not isinstance(kwargs, dict):
+            kwargs = {}
+        
+        # Exclude standard fields and kwargs from metadata
+        excluded_fields = {"id", "task_id", "question", "query", "input", "answer", "ground_truth", "expected", "kwargs"}
+        metadata = {k: v for k, v in data.items() if k not in excluded_fields}
+        
         return cls(
             id=str(data.get("id", data.get("task_id", ""))),
             question=data.get("question", data.get("query", data.get("input", ""))),
             answer=data.get("answer", data.get("ground_truth", data.get("expected", None))),
-            metadata={k: v for k, v in data.items() if k not in ["id", "task_id", "question", "query", "input", "answer", "ground_truth", "expected"]}
+            kwargs=kwargs,
+            metadata=metadata
         )
 
     def to_dict(self) -> Dict[str, Any]:
@@ -33,6 +44,8 @@ class BenchmarkItem:
         }
         if self.answer is not None:
             result["answer"] = self.answer
+        if self.kwargs:
+            result["kwargs"] = self.kwargs
         if self.metadata:
             result["metadata"] = self.metadata
         return result
