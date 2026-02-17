@@ -28,16 +28,28 @@ asyncio.run(main())
 ```
 
 > 注意：`Sandbox` 默认 `server_url` 为 `http://localhost:8080`，如果使用
-> `bin/sandbox-server.sh` 启动，请显式设置为 `18890`。
+> `start_sandbox_server.sh` 启动，请显式设置为 `18890`。
 
-### 方式二：手动启动服务器
+### 方式二：手动启动服务器（标准步骤）
 
-```python
-from sandbox.server.config_loader import create_server_from_config
+推荐使用项目根目录脚本 `start_sandbox_server.sh`，并显式指定
+`configs/sandbox-server` 下的配置文件：
 
-server = create_server_from_config("sandbox/configs/profiles/dev.json")
-server.run()
+```bash
+# 在项目根目录执行
+./start_sandbox_server.sh --config configs/sandbox-server/rag_config.json
 ```
+
+也可以替换为其他配置：
+
+```bash
+./start_sandbox_server.sh --config configs/sandbox-server/web_config.json
+./start_sandbox_server.sh --config configs/sandbox-server/text2sql_config.json
+./start_sandbox_server.sh --config configs/sandbox-server/vm_config.json
+```
+
+> 说明：该脚本会从配置文件中的 `server.url` / `server.port` 解析监听地址，
+> 并忽略命令行传入的 `--host` / `--port`，避免出现多入口配置冲突。
 
 客户端连接：
 
@@ -47,6 +59,45 @@ from sandbox import Sandbox
 sandbox = Sandbox(server_url="http://127.0.0.1:18890", auto_start_server=False)
 await sandbox.start()
 ```
+
+### 配置文件参数说明（`configs/sandbox-server/*.json`）
+
+典型配置结构如下（不同场景可裁剪）：
+
+```json
+{
+  "server": {},
+  "resources": {},
+  "apis": {},
+  "warmup": {}
+}
+```
+
+关键字段说明：
+
+- `server`
+  - `url`: 服务地址（如 `http://127.0.0.1:18890`），脚本优先用它解析 host/port。
+  - `port`: 端口号；当 `url` 未带端口时使用该值。
+  - `session_ttl`: Session 过期时间（秒）。
+- `resources`
+  - 声明有状态资源后端（如 `vm`、`rag`）。
+  - 每个资源通常包含：
+    - `enabled`: 是否启用该后端。
+    - `backend_class`: 后端实现类路径。
+    - `config`: 后端初始化参数（如模型路径、屏幕分辨率等）。
+- `apis`
+  - 声明无状态 API 工具配置（如 `websearch`、`text2sql`）。
+  - 子项内容会注入对应工具实例（API Key、数据库路径、超时等）。
+- `warmup`
+  - `enabled`: 是否在启动时自动预热。
+  - `resources`: 启动时预热的资源列表（如 `["rag"]`、`["vm"]`）。
+
+配置选择建议：
+
+- 文档检索/RAG：`configs/sandbox-server/rag_config.json`
+- Web 搜索访问：`configs/sandbox-server/web_config.json`
+- Text2SQL：`configs/sandbox-server/text2sql_config.json`
+- 仅 VM：`configs/sandbox-server/vm_config.json`
 
 ### 方式三：连接现有服务器（不使用上下文管理器）
 

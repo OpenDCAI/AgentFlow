@@ -34,11 +34,11 @@
 │                1. 轻量级 API 工具                                │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
-│   ├── 使用 @register_api_tool 装饰器注册                        │
-│   ├── 不需要继承任何类                                          │
+│   ├── 使用 @register_api_tool 注册                              │
+│   ├── 推荐继承 BaseApiTool（函数式也兼容）                     │
 │   ├── 配置从 config.json 的 apis 部分自动注入                   │
 │   ├── 不需要 Session                                            │
-│   ├── 工具名称: "search", "translate"                          │
+│   ├── 工具名称: "web:search", "doc:read"                       │
 │   └── 示例: WebSearch API, Translate API, LLM API              │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
@@ -61,7 +61,7 @@
 
 | 类型 | 基类 | 需要 Session | 生命周期方法 | 工具命名 | 示例 |
 |------|------|-------------|-------------|---------|------|
-| 轻量级 API 工具 | 无 | ❌ | 无 | `action` | WebSearch, Translate |
+| 轻量级 API 工具 | `BaseApiTool`（推荐） | ❌ | 无 | `resource:action`（推荐） | WebSearch, Doc, DS |
 | 重量级 Backend（共享资源） | `Backend` | ❌ | `warmup()`, `shutdown()` | `resource:action` | RAG |
 | 重量级 Backend（Session 资源） | `Backend` | ✅ | `initialize()`, `cleanup()` | `resource:action` | VM, Bash |
 | 重量级 Backend（混合） | `Backend` | ✅ | 全部四个 | `resource:action` | Browser |
@@ -316,7 +316,7 @@ sandbox/
   - `@tool("rag:search")` 真实实现入口。
   - `warmup()` 加载模型与索引并启动 `QueryBatcher`。
   - `search()` 使用 `QueryBatcher.submit()` 统一检索。
-- `sandbox/server/backends/resources/rag_index.py`：
+- `sandbox/server/backends/resources/rag.py`（同文件）：
   - `DenseE5RAGIndex.batch_query()` 执行向量检索。
   - 负责模型编码、Faiss 索引搜索与结果格式化。
 
@@ -353,29 +353,28 @@ ToolExecutor.execute("rag:search")
   - `_resolve_tool()` 解析 `search`，无 `resource_type`。
   - 不创建 session，直接执行工具函数。
 - `sandbox/server/backends/tools/__init__.py`：
-  - `@register_api_tool("search", config_key="websearch")` 注册工具。
-  - `register_all_tools()` 将工具注册到 `HTTPServiceServer`。
+  - `register_api_tool(...)` 将函数或可调用对象注册到全局表。
+  - `register_all_tools()` / `ConfigLoader._load_api_tools()` 负责配置注入与 server 注册。
 - `sandbox/server/backends/tools/websearch.py`：
-  - `search()` 为工具函数入口（标准响应格式）。
-  - `_get_search_tool()` 延迟初始化 `WebSearchTool`。
-  - `WebSearchTool.call()` 调用 Serper API 并格式化结果。
+  - `SearchTool(BaseApiTool)` / `VisitTool(BaseApiTool)` 为主要实现。
+  - 工具实例通过 `register_api_tool(...)(SearchTool())` 注册。
 
 **配置注入路径**
 
 ```
 apis.websearch (配置文件)
-  └── register_all_tools()
-      └── server.register_api_tool(..., config=apis.websearch)
-          └── wrapper(...) 自动注入 **config 到 search()
+  └── ConfigLoader._load_api_tools()
+      ├── tool_info.func.set_config(apis.websearch)   # BaseApiTool 实例注入
+      └── server.register_api_tool(name, func, config, ...)
 ```
 
 **核心执行流程（简化）**
 
 ```
 ToolExecutor.execute("web:search")
-  └── websearch.search()
-      └── WebSearchTool.call() -> Serper API
-          └── build_success_response / build_error_response
+  └── SearchTool.__call__()
+      └── SearchTool.execute() -> Serper API
+          └── BaseApiTool 统一构建成功/错误响应
 ```
 
 ---
@@ -498,9 +497,10 @@ execute("vm:screenshot", {})
 ### 特点
 
 - ✅ 使用 `@register_api_tool` 装饰器
-- ❌ 不需要继承任何类
+- ✅ 推荐继承 `BaseApiTool`，实现 `execute()`
+- ✅ 也兼容直接注册函数（适合极简场景）
 - ❌ 不需要 Session 管理
-- ✅ 配置从 `config.json` 的 `apis` 部分自动注入
+- ✅ 配置从 `config.json` 的 `apis` 部分注入到工具实例
 - ✅ 适合调用外部 API 的工具
 
 ### 适用场景
@@ -519,73 +519,45 @@ sandbox/server/backends/tools/
 └── llm.py            # LLM API
 ```
 
-### 开发方式
+### 开发方式（推荐）
 
-使用 `@register_api_tool` 装饰器注册工具：
+推荐模式：`BaseApiTool` 子类 + 实例注册。
 
 ```python
 # backends/tools/websearch.py
-"""
-WebSearch 工具 - 使用 @register_api_tool 注册
-"""
-import httpx
-from typing import Dict, Any, Optional
+from typing import Any
 from . import register_api_tool
+from .base_tool import BaseApiTool, ToolBusinessError
+from ..error_codes import ErrorCode
 
-@register_api_tool("search", config_key="websearch")
-async def search(
-    query: str,
-    max_results: int = 10,
-    **config  # ← 配置自动注入到这里
-) -> Dict[str, Any]:
-    """
-    Google 搜索
-    
-    Args:
-        query: 搜索关键词
-        max_results: 最大结果数
-        **config: 从 apis.websearch 注入的配置
-    """
-    api_key = config.get("api_key")
-    cx = config.get("cx")
-    
-    if not api_key:
-        return {"error": "API key not configured"}
-    
-    async with httpx.AsyncClient() as client:
-        resp = await client.get(
-            "https://www.googleapis.com/customsearch/v1",
-            params={"key": api_key, "cx": cx, "q": query, "num": max_results}
-        )
-        data = resp.json()
-    
-    return {
-        "query": query,
-        "results": data.get("items", []),
-        "total": len(data.get("items", []))
-    }
+class SearchTool(BaseApiTool):
+    def __init__(self):
+        super().__init__(tool_name="web:search", resource_type="websearch")
+
+    async def execute(self, query: str, **kwargs) -> Any:
+        api_key = self.get_config("serper_api_key")
+        if not api_key:
+            raise ToolBusinessError("SERPER_API_KEY not configured", ErrorCode.EXECUTION_ERROR)
+
+        # 业务逻辑（省略）
+        return {"result": f"search ok: {query}"}
 
 
-@register_api_tool("visit", config_key="websearch")
-async def visit(
-    url: str,
-    **config
-) -> Dict[str, Any]:
-    """访问网页并提取内容"""
-    async with httpx.AsyncClient(timeout=30) as client:
-        resp = await client.get(url, follow_redirects=True)
-        return {
-            "url": url,
-            "status": resp.status_code,
-            "content": resp.text[:10000]
-        }
+search = register_api_tool(
+    name="web:search",
+    config_key="websearch",
+    description="Search the web"
+)(SearchTool())
 ```
+
+函数式写法仍可用，但当前仓库以 `BaseApiTool` 为主。
 
 ### 配置注入机制
 
-1. 装饰器指定 `config_key`（如 `"websearch"`）
+1. 注册时指定 `config_key`（如 `"websearch"`）
 2. 服务器启动时从 `config.json` 的 `apis.websearch` 读取配置
-3. 调用工具时，配置自动注入到 `**config` 参数
+3. 若为 `BaseApiTool` 实例：调用 `set_config()` 注入到实例内部
+4. 在 `execute()` 中通过 `self.get_config("key")` 读取配置
 
 配置文件：
 
@@ -605,47 +577,29 @@ async def visit(
 
 ```python
 # backends/tools/__init__.py
-"""
-轻量级 API 工具注册入口
-"""
-from typing import Callable, Dict, Any
-from ...core import tool as core_tool
+from dataclasses import dataclass
+from typing import Callable, Dict, Optional
 
-# 全局工具注册表
-_API_TOOLS: Dict[str, Dict[str, Any]] = {}
+@dataclass
+class APIToolInfo:
+    name: str
+    func: Callable
+    config_key: Optional[str] = None
+    description: Optional[str] = None
+    hidden: bool = False
 
+_API_TOOLS: Dict[str, APIToolInfo] = {}
 
-def register_api_tool(name: str, config_key: str):
-    """
-    注册 API 工具装饰器
-    
-    Args:
-        name: 工具名称
-        config_key: 配置键名（对应 apis 中的键）
-    """
+def register_api_tool(name: str, *, config_key: Optional[str] = None, ...):
     def decorator(func: Callable) -> Callable:
-        # 使用 core @tool 装饰器标记
-        marked_func = core_tool(name=name, resource_type=None)(func)
-        
-        # 注册到全局表
-        _API_TOOLS[name] = {
-            "func": marked_func,
-            "config_key": config_key,
-            "name": name,
-            "description": (func.__doc__ or "").strip()
-        }
-        return marked_func
+        _API_TOOLS[name] = APIToolInfo(name=name, func=func, config_key=config_key, ...)
+        return func
     return decorator
 
-
-def get_api_tool(name: str) -> Optional[Dict[str, Any]]:
-    """获取已注册的 API 工具"""
-    return _API_TOOLS.get(name)
-
-
-def get_all_api_tools() -> Dict[str, Dict[str, Any]]:
-    """获取所有已注册的 API 工具"""
-    return _API_TOOLS.copy()
+# 在 ConfigLoader._load_api_tools() 中：
+# - 从 apis.<config_key> 提取配置
+# - 若 func 有 set_config，则先注入（BaseApiTool 实例）
+# - 再调用 server.register_api_tool(...) 完成注册
 ```
 
 ---
@@ -1061,6 +1015,8 @@ await execute("rag:status", {})  # ✅
 
 ### 示例 1: 轻量级翻译工具
 
+> 注：下面示例展示“函数式注册”兼容写法；当前仓库内多数 API Tool 采用 `BaseApiTool` 子类实例注册。
+
 ```python
 # backends/tools/translate.py
 """翻译工具 - 使用 @register_api_tool"""
@@ -1269,8 +1225,8 @@ asyncio.run(main())
 需要预热或 Session 吗？
     │
     ├── 否 → 轻量级 API 工具
-    │        └── @register_api_tool("name", config_key="xxx")
-    │            配置从 apis.xxx 自动注入
+    │        └── class XxxTool(BaseApiTool) + register_api_tool(...)(XxxTool())
+    │            配置从 apis.xxx 注入到实例（self.get_config 读取）
     │
     └── 是 → 重量级 Backend
              │
@@ -1290,9 +1246,9 @@ asyncio.run(main())
 
 ### 快速参考
 
-| 我要开发... | 选择 | 装饰器 | Session |
-|------------|------|--------|---------|
-| 调用外部 API | 轻量级工具 | `@register_api_tool` | ❌ |
+| 我要开发... | 选择 | 推荐实现 | Session |
+|------------|------|----------|---------|
+| 调用外部 API | 轻量级工具 | `BaseApiTool + register_api_tool` | ❌ |
 | 共享模型/连接池 | Backend + warmup | `@tool` | ❌ |
 | 每用户独立实例 | Backend + initialize | `@tool` | ✅（可复用或临时） |
 | 混合模式 | Backend + 全部方法 | `@tool` | ✅ |

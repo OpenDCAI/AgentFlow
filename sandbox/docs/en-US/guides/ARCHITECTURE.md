@@ -221,7 +221,7 @@ User Code
 | Method | Decorator | For | Registration Timing |
 |--------|-----------|-----|-------------------|
 | **Heavy Backend** | `@tool` | Backend class methods | `load_backend()` reflection scan |
-| **Lightweight Tool** | `@register_api_tool` | Standalone functions | Module import time |
+| **Lightweight Tool** | `@register_api_tool` | `BaseApiTool` instances (function style is compatible) | Module import time |
 
 ---
 
@@ -327,7 +327,7 @@ class Backend(ABC):
 ### 4. Unified Tool Registration
 
 - Heavyweight: `@tool` + reflection scan
-- Lightweight: `@register_api_tool` + config injection
+- Lightweight: `@register_api_tool` + `BaseApiTool` config injection
 
 ---
 

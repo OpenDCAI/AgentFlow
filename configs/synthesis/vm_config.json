@@ -23,7 +23,7 @@
 
   "sandbox_server_url": "http://127.0.0.1:18890",
   "sandbox_auto_start": false,
-  "sandbox_config_path": "/home/a1/sdb/tzw/Synthesis/configs/server/vm_only_deployment.json",
+  "sandbox_config_path": "/home/a1/sdb/lb/AgentFlow/configs/sandbox-server/vm_config.json",
   "sandbox_timeout": 120,
 
   "available_tools": ["vm-screenshot", "vm-click", "vm-double_click", "vm-type", "vm-key", "vm-key_down", "vm-key_up", "vm-hotkey", "vm-scroll", "vm-drag", "vm-move", "vm-mouse_down", "vm-mouse_up", "vm-right_click"],

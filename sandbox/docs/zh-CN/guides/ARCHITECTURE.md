@@ -373,7 +373,7 @@ async with Sandbox() as sandbox:
 | 方式 | 装饰器 | 适用于 | 注册时机 |
 |------|--------|--------|---------|
 | **重量级后端** | `@tool` | Backend 类方法 | `load_backend()` 反射扫描 |
-| **轻量级工具** | `@register_api_tool` | 独立函数 | 模块导入时 |
+| **轻量级工具** | `@register_api_tool` | `BaseApiTool` 实例（函数式兼容） | 模块导入时 |
 
 ### 重量级后端工具
 
@@ -394,11 +394,13 @@ server.load_backend(VMBackend())
 ### 轻量级 API 工具
 
 ```python
-# 使用 @register_api_tool 装饰器
-@register_api_tool("search", config_key="websearch")
-async def search(query: str, **config) -> Dict:
-    api_key = config.get("api_key")
-    return {"results": [...]}
+# 推荐：BaseApiTool 实例 + register_api_tool
+class SearchTool(BaseApiTool):
+    async def execute(self, query: str, **kwargs) -> Dict:
+        api_key = self.get_config("api_key")
+        return {"results": [...]}
+
+register_api_tool("web:search", config_key="websearch")(SearchTool())
 
 # 模块导入时自动注册到全局 _API_TOOLS
 # ConfigLoader._load_api_tools() 将其注册到 Server
@@ -409,18 +411,18 @@ async def search(query: str, **config) -> Dict:
 ```python
 # Server 持有的三层映射
 _tools = {
-    "search": <wrapper func>,           # 轻量级工具
+    "web:search": <callable object>,    # 轻量级工具
     "vm:screenshot": <bound method>,    # 重量级工具
 }
 
 _tool_name_index = {
-    "search": ["search"],
+    "search": ["web:search"],
     "screenshot": ["vm:screenshot"],
 }
 
 _tool_resource_types = {
     "vm:screenshot": "vm",
-    # "search" 不在这里（无 resource_type）
+    # "web:search" 不在这里（无 resource_type）
 }
 ```
 
@@ -572,7 +574,7 @@ Server 不知道:
 ### 4. 统一的工具注册
 
 - 重量级：`@tool` + 反射扫描
-- 轻量级：`@register_api_tool` + 配置注入
+- 轻量级：`@register_api_tool` + `BaseApiTool` 配置注入
 
 **快速决策**：需要长连接或持久状态？→ Backend；否则 → APITool
 

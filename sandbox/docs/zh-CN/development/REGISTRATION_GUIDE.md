@@ -32,7 +32,7 @@ Sandbox 支持两种工具类型，对应两种不同的注册方式：
 | 类型 | 描述 | 注册方式 | 适用场景 |
 |------|------|---------|---------|
 | **重资源后端** | 有状态，需要生命周期管理 | `server.load_backend()` | VM、Browser、Bash |
-| **轻资源工具** | 无状态，纯函数调用 | `server.register_api_tool()` | WebSearch、翻译 API |
+| **轻资源工具** | 无状态，当前推荐 `BaseApiTool` 实例 | `@register_api_tool` + `server.register_api_tool()` | WebSearch、Doc、DS、Text2SQL |
 
 ---
 
@@ -60,8 +60,8 @@ Sandbox 支持两种工具类型，对应两种不同的注册方式：
         ┌───────────────┐    ┌───────────────┐    ┌───────────────┐
         │   ✅ Backend  │    │   ✅ Backend  │    │ ✅ API Tool   │
         │               │    │               │    │               │
-        │ 需要 Session  │    │ 需要资源池   │    │ 无状态函数    │
-        │ 管理生命周期  │    │ 管理分配释放 │    │ 配置注入即可  │
+        │ 需要 Session  │    │ 需要资源池   │    │ 无状态工具    │
+        │ 管理生命周期  │    │ 管理分配释放 │    │ 推荐 BaseApiTool │
         └───────────────┘    └───────────────┘    └───────────────┘
 ```
 
@@ -378,14 +378,16 @@ async with Sandbox() as sandbox:
 │  Step 1: 模块导入时，装饰器自动注册到全局表                              │
 │                                                                         │
 │  # websearch.py                                                         │
-│  @register_api_tool("search", config_key="websearch")                  │
-│  async def search(query: str, **config) -> dict:                       │
+│  class SearchTool(BaseApiTool):                                         │
+│      async def execute(self, query: str, **kwargs): ...                │
+│                                                                         │
+│  register_api_tool("web:search", config_key="websearch")(SearchTool()) │
 │      ...                                                                │
 │                                                                         │
 │  执行效果:                                                              │
-│  _API_TOOLS["search"] = APIToolInfo(                                   │
-│      name="search",                                                    │
-│      func=search,                                                      │
+│  _API_TOOLS["web:search"] = APIToolInfo(                               │
+│      name="web:search",                                                │
+│      func=<SearchTool instance>,                                       │
 │      config_key="websearch"                                            │
 │  )                                                                      │
 └─────────────────────────────────────────────────────────────────────────┘
@@ -399,23 +401,21 @@ async with Sandbox() as sandbox:
 │  1. get_all_api_tools()  →  获取全局注册表                             │
 │  2. for tool_info in api_tools:                                        │
 │         tool_config = apis_config[tool_info.config_key]                │
+│         if hasattr(tool_info.func, "set_config"):                      │
+│             tool_info.func.set_config(tool_config)  ← 注入实例配置      │
 │         server.register_api_tool(                                      │
 │             name=tool_info.name,                                       │
 │             func=tool_info.func,                                       │
-│             config=tool_config  ← 配置注入                             │
+│             config=tool_config                                          │
 │         )                                                               │
 └─────────────────────────────────────────────────────────────────────────┘
                                │
                                ▼
 ┌─────────────────────────────────────────────────────────────────────────┐
-│  Step 3: server.register_api_tool() 创建包装函数                        │
+│  Step 3: server.register_api_tool() 直接注册可调用对象                  │
 │                                                                         │
-│  @functools.wraps(func)                                                │
-│  async def wrapper(*args, **kwargs):                                   │
-│      merged_kwargs = {**config, **kwargs}  # 合并配置                  │
-│      return await func(*args, **merged_kwargs)                         │
-│                                                                         │
-│  self.register_tool("search", wrapper, resource_type=None)             │
+│  self.register_tool("web:search", func, resource_type=None)            │
+│  （配置已提前注入 BaseApiTool 实例；函数式写法也可直接注册）            │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -440,40 +440,28 @@ async with Sandbox() as sandbox:
 
 - 配置键（如 `websearch`）对应装饰器中的 `config_key`
 - 支持环境变量替换：`${VAR}` 或 `${VAR:-default}`
-- 配置会自动注入到工具函数的 `**config` 参数
+- 对 `BaseApiTool` 实例会注入到实例内部，通过 `self.get_config()` 读取
+- 对函数式工具可继续通过函数参数自行接收配置
 
 ### @register_api_tool 装饰器
 
 ```python
 from sandbox.server.backends.tools import register_api_tool
+from sandbox.server.backends.tools.base_tool import BaseApiTool
 
-@register_api_tool(
-    "search",                    # 工具名称
-    config_key="websearch",      # 从 apis.websearch 读取配置
-    description="搜索网页",       # 工具描述
-    hidden=False                 # 是否隐藏
-)
-async def search(
-    query: str,                  # 用户传入的参数
-    max_results: int = 10,       # 可选参数
-    **config                     # ← 配置自动注入到这里
-) -> dict:
-    """
-    搜索网页
-    
-    配置会自动从 apis.websearch 注入到 **config:
-    - config["serper_api_key"]
-    - config["jina_api_key"]
-    - config["timeout"]
-    - ...
-    """
-    api_key = config.get("serper_api_key")
-    timeout = config.get("timeout", 30)
-    
-    # 执行搜索逻辑
-    results = await do_search(query, api_key, max_results, timeout)
-    
-    return {"query": query, "results": results}
+class SearchTool(BaseApiTool):
+    async def execute(self, query: str, max_results: int = 10, **kwargs) -> dict:
+        api_key = self.get_config("serper_api_key")
+        timeout = self.get_config("timeout", 30)
+        # 执行搜索逻辑
+        results = await do_search(query, api_key, max_results, timeout)
+        return {"query": query, "results": results}
+
+register_api_tool(
+    "web:search",
+    config_key="websearch",
+    description="搜索网页",
+)(SearchTool())
 ```
 
 **装饰器内部实现**：
@@ -510,20 +498,22 @@ def get_all_api_tools() -> Dict[str, APIToolInfo]:
 # sandbox/server/backends/tools/websearch.py
 
 from sandbox.server.backends.tools import register_api_tool
+from sandbox.server.backends.tools.base_tool import BaseApiTool
 
-@register_api_tool("search", config_key="websearch")
-async def search(query: str, max_results: int = 10, **config) -> dict:
-    """搜索网页"""
-    api_key = config.get("serper_api_key")
-    # ... 实现逻辑
-    return {"results": [...]}
+class SearchTool(BaseApiTool):
+    async def execute(self, query: str, max_results: int = 10, **kwargs) -> dict:
+        api_key = self.get_config("serper_api_key")
+        # ... 实现逻辑
+        return {"results": [...]}
 
-@register_api_tool("visit", config_key="websearch")
-async def visit(url: str, **config) -> dict:
-    """访问网页"""
-    jina_key = config.get("jina_api_key")
-    # ... 实现逻辑
-    return {"content": "..."}
+class VisitTool(BaseApiTool):
+    async def execute(self, url: str, **kwargs) -> dict:
+        jina_key = self.get_config("jina_api_key")
+        # ... 实现逻辑
+        return {"content": "..."}
+
+register_api_tool("web:search", config_key="websearch")(SearchTool())
+register_api_tool("web:visit", config_key="websearch")(VisitTool())
 ```
 
 **客户端调用**：
@@ -550,10 +540,10 @@ async with Sandbox() as sandbox:
 | **工具标记** | `@tool("name")` | `@register_api_tool("name", config_key=...)` |
 | **扫描方式** | 反射扫描 `scan_tools()` | 全局注册表 `_API_TOOLS` |
 | **配置来源** | `resources.{name}.config` | `apis.{config_key}` |
-| **配置访问** | `session_info["data"]` | `**config` 参数 |
-| **资源前缀** | 有（如 `vm:`） | 无 |
+| **配置访问** | `session_info["data"]` | `self.get_config()`（函数式可用 `**config`） |
+| **资源前缀** | 有（如 `vm:`） | 推荐有（如 `web:search`） |
 | **Session 管理** | 需要 create/destroy | 不需要 |
-| **适用场景** | VM、Browser、Bash | WebSearch、翻译 API |
+| **适用场景** | VM、Browser、Bash | WebSearch、Doc、DS、Text2SQL |
 
 ---
 
@@ -798,17 +788,17 @@ class EmbeddingBackend(Backend):
 ┌─────────────────────────────────────────────────────────────────────────┐
 │  Server: ToolExecutor.execute("web:search", params, worker_id)             │
 │                                                                         │
-│  1. _resolve_tool("search")                                            │
-│     └── 查找 _tools["search"] → wrapper_func                           │
+│  1. _resolve_tool("web:search")                                        │
+│     └── 查找 _tools["web:search"] → tool_func                          │
 │                                                                         │
-│  2. 检查资源类型: _tool_resource_types.get("search") → None            │
+│  2. 检查资源类型: _tool_resource_types.get("web:search") → None        │
 │                                                                         │
 │  3. 无资源类型 → 不需要 Session                                         │
 │                                                                         │
-│  4. 执行包装函数                                                        │
-│     └── wrapper_func(query="Python")                                   │
-│         └── merged = {**config, **kwargs}  # 合并配置                  │
-│         └── await search(query="Python", **merged)                     │
+│  4. 执行可调用对象                                                      │
+│     └── tool_func(query="Python")                                      │
+│         └── 若为 BaseApiTool: 已通过 set_config 注入配置                │
+│         └── execute() 内部通过 self.get_config(...) 读取               │
 │                                                                         │
 │  5. 返回结果                                                            │
 └─────────────────────────────────────────────────────────────────────────┘
@@ -843,11 +833,14 @@ class MyBackend(Backend):
 
 ```python
 from sandbox.server.backends.tools import register_api_tool
+from sandbox.server.backends.tools.base_tool import BaseApiTool
 
-@register_api_tool("my_tool", config_key="my_config")
-async def my_tool(param: str, **config) -> dict:
-    api_key = config.get("api_key")
-    return {"result": "..."}
+class MyTool(BaseApiTool):
+    async def execute(self, param: str, **kwargs) -> dict:
+        api_key = self.get_config("api_key")
+        return {"result": "..."}
+
+register_api_tool("my:tool", config_key="my_config")(MyTool())
 ```
 
 ---
