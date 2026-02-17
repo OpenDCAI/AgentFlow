@@ -1,17 +1,17 @@
 # sandbox/server/core/decorators.py
 """
-工具装饰器模块
+Tool Decorator Module
 
-提供 @tool 装饰器，用于标记工具函数，支持反射扫描注册。
+Provides @tool decorator for marking tool functions, supports reflection scanning and registration.
 
-设计理念：
-- @tool 只做标记，不执行注册
-- Server 通过反射扫描识别并注册
-- 分离标记和注册逻辑，使代码更灵活
+Design Philosophy:
+- @tool only marks, does not perform registration
+- Server identifies and registers through reflection scanning
+- Separates marking and registration logic for more flexible code
 
-使用示例：
+Usage Examples:
 
-1. 有状态后端（Backend 类方法）：
+1. Stateful backend (Backend class methods):
 ```python
 from sandbox.server.core import tool
 from sandbox.server.backends import Backend
@@ -21,34 +21,34 @@ class VMBackend(Backend):
     
     @tool("vm:screenshot")
     async def screenshot(self, session_info: dict) -> dict:
-        '''截取屏幕截图'''
+        '''Take a screenshot'''
         controller = session_info["data"]["controller"]
         return {"image": await controller.screenshot()}
     
     @tool("vm:click")
     async def click(self, x: int, y: int, session_info: dict) -> dict:
-        '''点击指定坐标'''
+        '''Click at specified coordinates'''
         controller = session_info["data"]["controller"]
         await controller.click(x, y)
         return {"clicked": [x, y]}
 ```
 
-2. 无状态 API 工具（推荐使用 @register_api_tool）：
+2. Stateless API tools (recommended to use @register_api_tool):
 ```python
 from sandbox.server.backends.tools import register_api_tool
 
 @register_api_tool("search", config_key="websearch")
 async def search(query: str, **config) -> dict:
-    '''执行网页搜索，配置从 apis.websearch 自动注入'''
+    '''Execute web search, configuration automatically injected from apis.websearch'''
     api_key = config.get("serper_api_key")
     return {"results": [...]}
 ```
 
-扫描注册：
+Scan and Register:
 ```python
 server = HTTPServiceServer()
 backend = VMBackend()
-server.load_backend(backend)  # 自动扫描 @tool 标记并注册
+server.load_backend(backend)  # Automatically scan @tool markers and register
 ```
 """
 
@@ -59,12 +59,12 @@ from functools import wraps
 
 logger = logging.getLogger("ToolDecorator")
 
-# 工具标记属性名
+# Tool marker attribute name
 TOOL_MARKER = "_tool_metadata"
 
 
 class ToolMetadata:
-    """工具元数据"""
+    """Tool metadata"""
     
     def __init__(
         self,
@@ -75,14 +75,14 @@ class ToolMetadata:
         schema: Optional[Dict[str, Any]] = None
     ):
         """
-        初始化工具元数据
+        Initialize tool metadata
         
         Args:
-            name: 工具名称（可带资源类型前缀如 "vm:screenshot"）
-            resource_type: 资源类型（如果 name 不包含前缀，可以单独指定）
-            description: 工具描述（可选，默认使用函数 docstring）
-            hidden: 是否隐藏工具（不在工具列表中显示）
-            schema: JSON Schema（可选）
+            name: Tool name (can include resource type prefix like "vm:screenshot")
+            resource_type: Resource type (if name doesn't contain prefix, can be specified separately)
+            description: Tool description (optional, defaults to function docstring)
+            hidden: Whether to hide tool (not shown in tool list)
+            schema: JSON Schema (optional)
         """
         self.full_name = name
         self.resource_type = resource_type
@@ -90,7 +90,7 @@ class ToolMetadata:
         self.hidden = hidden
         self.schema = schema
         
-        # 解析名称
+        # Parse name
         if ":" in name:
             parts = name.split(":", 1)
             self.resource_type = parts[0]
@@ -101,7 +101,7 @@ class ToolMetadata:
                 self.full_name = f"{resource_type}:{name}"
     
     def to_dict(self) -> Dict[str, Any]:
-        """转换为字典"""
+        """Convert to dictionary"""
         return {
             "name": self.simple_name,
             "full_name": self.full_name,
@@ -122,52 +122,52 @@ def tool(
     schema: Optional[Dict[str, Any]] = None
 ) -> Callable:
     """
-    工具装饰器 - 标记函数为可注册的工具
+    Tool decorator - marks function as a registerable tool
     
-    只做标记，不执行注册。Server 通过反射扫描识别并注册。
+    Only marks, does not perform registration. Server identifies and registers through reflection scanning.
     
     Args:
-        name: 工具名称（可带资源类型前缀如 "vm:screenshot"）
-              如果不提供，使用函数名
-        resource_type: 资源类型（如果 name 不包含前缀）
-        description: 工具描述
-        hidden: 是否隐藏
+        name: Tool name (can include resource type prefix like "vm:screenshot")
+              If not provided, uses function name
+        resource_type: Resource type (if name doesn't contain prefix)
+        description: Tool description
+        hidden: Whether to hide
         schema: JSON Schema
         
     Usage:
-        # 有状态工具（需要 session）
+        # Stateful tool (requires session)
         @tool("vm:screenshot")
         async def screenshot(session_info: dict) -> dict:
             controller = session_info["data"]["controller"]
             return {"image": await controller.screenshot()}
         
-        # 无状态工具（不需要 session）
+        # Stateless tool (no session needed)
         @tool("search")
         async def search(query: str) -> dict:
             return {"results": [...]}
         
-        # 使用函数名作为工具名
+        # Use function name as tool name
         @tool()
         async def echo(message: str) -> dict:
             return {"echo": message}
         
-        # 指定资源类型
+        # Specify resource type
         @tool("click", resource_type="vm")
         async def click(x: int, y: int, session_info: dict) -> dict:
             return {"clicked": [x, y]}
     """
     def decorator(func: Callable) -> Callable:
-        # 确定工具名称
+        # Determine tool name
         tool_name = name if name else func.__name__
         
-        # 确定描述（优先使用参数，其次使用 docstring）
+        # Determine description (prefer parameter, then use docstring)
         tool_description = description
         if tool_description is None and func.__doc__:
-            # 提取 docstring 的第一行作为描述
+            # Extract first line of docstring as description
             doc_lines = func.__doc__.strip().split("\n")
             tool_description = doc_lines[0].strip()
         
-        # 创建元数据
+        # Create metadata
         metadata = ToolMetadata(
             name=tool_name,
             resource_type=resource_type,
@@ -176,14 +176,14 @@ def tool(
             schema=schema
         )
         
-        # 将元数据附加到函数
+        # Attach metadata to function
         setattr(func, TOOL_MARKER, metadata)
         
         @wraps(func)
         def wrapper(*args, **kwargs):
             return func(*args, **kwargs)
         
-        # 复制元数据到 wrapper
+        # Copy metadata to wrapper
         setattr(wrapper, TOOL_MARKER, metadata)
         
         return wrapper
@@ -193,45 +193,45 @@ def tool(
 
 def is_tool(func: Callable) -> bool:
     """
-    检查函数是否被 @tool 装饰器标记
+    Check if function is marked with @tool decorator
     
     Args:
-        func: 要检查的函数
+        func: Function to check
         
     Returns:
-        是否是工具函数
+        Whether it is a tool function
     """
     return hasattr(func, TOOL_MARKER)
 
 
 def get_tool_metadata(func: Callable) -> Optional[ToolMetadata]:
     """
-    获取工具函数的元数据
+    Get tool function metadata
     
     Args:
-        func: 工具函数
+        func: Tool function
         
     Returns:
-        工具元数据，如果不是工具则返回 None
+        Tool metadata, returns None if not a tool
     """
     return getattr(func, TOOL_MARKER, None)
 
 
 def scan_tools(obj: Any, prefix: Optional[str] = None) -> List[Dict[str, Any]]:
     """
-    扫描对象中的工具函数
+    Scan tool functions in object
     
-    扫描对象中所有被 @tool 装饰器标记的方法。
+    Scans all methods in object marked with @tool decorator.
     
     Args:
-        obj: 要扫描的对象（类实例或模块）
-        prefix: 可选的名称前缀（用于有状态工具）
+        obj: Object to scan (class instance or module)
+        prefix: Optional name prefix (for stateful tools)
         
     Returns:
-        工具信息列表，每个元素包含:
-        - name: 工具完整名称
-        - func: 绑定的工具函数
-        - metadata: 工具元数据
+        List of tool information, each element contains:
+        - name: Tool full name
+        - func: Bound tool function
+        - metadata: Tool metadata
         
     Example:
         >>> tools = scan_tools(backend)
@@ -241,7 +241,7 @@ def scan_tools(obj: Any, prefix: Optional[str] = None) -> List[Dict[str, Any]]:
     """
     tools = []
     
-    # 获取所有成员
+    # Get all members
     for name in dir(obj):
         if name.startswith("_"):
             continue
@@ -251,19 +251,19 @@ def scan_tools(obj: Any, prefix: Optional[str] = None) -> List[Dict[str, Any]]:
         except Exception:
             continue
         
-        # 检查是否可调用
+        # Check if callable
         if not callable(member):
             continue
         
-        # 检查是否有工具标记
+        # Check if has tool marker
         metadata = get_tool_metadata(member)
         if metadata is None:
             continue
         
-        # 确定完整名称
+        # Determine full name
         full_name = metadata.full_name
         if prefix and not metadata.resource_type:
-            # 如果提供了前缀且工具没有资源类型，添加前缀
+            # If prefix provided and tool has no resource type, add prefix
             full_name = f"{prefix}:{metadata.simple_name}"
         
         tools.append({
@@ -282,14 +282,14 @@ def scan_tools(obj: Any, prefix: Optional[str] = None) -> List[Dict[str, Any]]:
 
 def list_tool_names(obj: Any, prefix: Optional[str] = None) -> List[str]:
     """
-    列出对象中所有工具的名称
+    List names of all tools in object
     
     Args:
-        obj: 要扫描的对象
-        prefix: 可选的名称前缀
+        obj: Object to scan
+        prefix: Optional name prefix
         
     Returns:
-        工具名称列表
+        List of tool names
     """
     tools = scan_tools(obj, prefix)
     return [t["name"] for t in tools]

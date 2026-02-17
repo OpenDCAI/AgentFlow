@@ -1,28 +1,29 @@
 # sandbox/server/backends/resources/__init__.py
 """
-有状态资源后端模块
+Stateful resource backend module.
 
-提供需要 session 管理的重量级后端 (Mock 实现)。
-这些后端需要初始化资源、维护状态、并在结束时清理。
+Provides heavyweight backends (mock implementations) that require session
+management. These backends initialize resources, maintain state, and clean up
+when finished.
 
-后端类型:
-- VMBackend - 虚拟机交互（有状态，使用 initialize/cleanup）
-- RAGBackend - 文档检索（共享资源，使用 warmup/shutdown）
+Backend types:
+- VMBackend - VM interaction (stateful, uses initialize/cleanup)
+- RAGBackend - Document retrieval (shared resource, uses warmup/shutdown)
 
-目录结构:
+Directory layout:
 ```
 backends/
-├── resources/           # 有状态后端（重量级，需要 session）
+├── resources/           # Stateful backends (heavyweight, require sessions)
 │   ├── __init__.py
 │   ├── vm.py
 │   └── rag.py
 │
-└── tools/               # 无状态工具（轻量级，无需 session）
+└── tools/               # Stateless tools (lightweight, no sessions)
     ├── __init__.py
     └── websearch.py
 ```
 
-使用示例:
+Usage example:
 ```python
 from sandbox.server import HTTPServiceServer
 from sandbox.server.backends.resources import (
@@ -32,14 +33,14 @@ from sandbox.server.backends.resources import (
 
 server = HTTPServiceServer()
 
-# 加载有状态后端
+# Load stateful backends.
 server.load_backend(VMBackend())
 server.load_backend(RAGBackend())
 
 server.run()
 ```
 
-配置文件使用:
+Config example:
 ```json
 {
   "resources": {
@@ -62,11 +63,11 @@ from .vm import VMBackend, create_vm_backend
 from .rag import RAGBackend, create_rag_backend
 
 __all__ = [
-    # 后端类
+    # Backend classes
     "VMBackend",
     "RAGBackend",
     
-    # 便捷函数
+    # Convenience factories
     "create_vm_backend",
     "create_rag_backend",
 ]

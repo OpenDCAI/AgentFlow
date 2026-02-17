@@ -5,7 +5,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PYTHON_SCRIPT="$SCRIPT_DIR/sandbox/cli/sandbox-server.py"
 
 if [[ ! -f "$PYTHON_SCRIPT" ]]; then
-  echo "错误: 未找到启动脚本: $PYTHON_SCRIPT" >&2
+  echo "Error: startup script not found: $PYTHON_SCRIPT" >&2
   exit 1
 fi
 
@@ -16,7 +16,7 @@ while [[ $# -gt 0 ]]; do
   case "$1" in
     --config|-c)
       if [[ $# -lt 2 ]]; then
-        echo "错误: --config 需要传入配置文件路径" >&2
+        echo "Error: --config requires a config file path" >&2
         exit 1
       fi
       CONFIG_PATH="$2"
@@ -24,13 +24,13 @@ while [[ $# -gt 0 ]]; do
       shift 2
       ;;
     --host|--port|-p)
-      # host/port 统一由配置文件提供，忽略外部传入避免多来源
+      # Host/port are resolved from config to avoid conflicting input sources.
       if [[ "$1" == "--port" || "$1" == "-p" || "$1" == "--host" ]]; then
         if [[ $# -lt 2 ]]; then
-          echo "错误: $1 需要传入参数" >&2
+          echo "Error: $1 requires a value" >&2
           exit 1
         fi
-        echo "提示: 检测到 $1 参数，已忽略（统一使用配置文件中的 server.url/server.port）"
+        echo "Notice: detected $1 and ignored it (using server.url/server.port from config)."
         shift 2
       fi
       ;;
@@ -42,7 +42,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ -z "$CONFIG_PATH" ]]; then
-  echo "错误: 必须提供 --config <path>" >&2
+  echo "Error: --config <path> is required" >&2
   exit 1
 fi
 
@@ -58,7 +58,7 @@ if not config_path.is_absolute():
     config_path = Path.cwd() / config_path
 
 if not config_path.exists():
-    raise FileNotFoundError(f"配置文件未找到: {config_path}")
+    raise FileNotFoundError(f"Config file not found: {config_path}")
 
 with open(config_path, "r", encoding="utf-8") as f:
     data = json.load(f)

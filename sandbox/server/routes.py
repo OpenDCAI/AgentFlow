@@ -1,8 +1,8 @@
 # sandbox/server/routes.py
 """
-HTTP 路由模块
+HTTP Routes Module
 
-将所有 HTTP 路由定义抽取到独立文件，供 Server 调用。
+Extracts all HTTP route definitions into a separate file for Server to call.
 """
 
 import os
@@ -21,8 +21,6 @@ from ..protocol import (
     ExecuteRequest, ExecuteBatchRequest,
     InitResourceRequest, InitBatchRequest, InitFromConfigRequest,
     WorkerDisconnectRequest,
-    SessionCreateRequest, SessionDestroyRequest,
-    SessionListRequest, SessionRefreshRequest
 )
 from .backends.error_codes import ErrorCode
 from .backends.response_builder import build_error_response, build_success_response
@@ -35,11 +33,11 @@ logger = logging.getLogger("Routes")
 
 def register_routes(app: FastAPI, server: "HTTPServiceServer"):
     """
-    注册所有 HTTP 路由
+    Register all HTTP routes
     
     Args:
-        app: FastAPI 应用实例
-        server: HTTPServiceServer 实例
+        app: FastAPI application instance
+        server: HTTPServiceServer instance
     """
     
     # ========== Health Endpoints ==========
@@ -63,14 +61,14 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
     
     @app.post(HTTPEndpoints.EXECUTE)
     async def execute_action(request: ExecuteRequest):
-        """执行动作"""
+        """Execute action"""
         try:
-            # 构建 kwargs，包含所有运行时参数
+            # Build kwargs, including all runtime parameters
             exec_kwargs = {
                 "worker_id": request.worker_id,
                 "timeout": request.timeout,
             }
-            # 如果请求包含 trace_id，则传入
+            # If request contains trace_id, pass it in
             if hasattr(request, "trace_id") and request.trace_id:
                 exec_kwargs["trace_id"] = request.trace_id
             
@@ -110,15 +108,15 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
     
     @app.post(HTTPEndpoints.EXECUTE_BATCH)
     async def execute_batch(request: ExecuteBatchRequest):
-        """批量执行动作"""
+        """Execute batch actions"""
         try:
-            # 构建 kwargs，包含所有运行时参数
+            # Build kwargs, including all runtime parameters
             exec_kwargs = {
                 "worker_id": request.worker_id,
                 "parallel": request.parallel,
                 "stop_on_error": request.stop_on_error,
             }
-            # 如果请求包含 trace_id，则传入
+            # If request contains trace_id, pass it in
             if hasattr(request, "trace_id") and request.trace_id:
                 exec_kwargs["trace_id"] = request.trace_id
             
@@ -162,7 +160,7 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
     
     @app.post(HTTPEndpoints.HEARTBEAT)
     async def heartbeat(request: Request):
-        """心跳检测"""
+        """Heartbeat check"""
         start_time = asyncio.get_event_loop().time()
         data = await request.json()
         worker_id = data.get("worker_id")
@@ -194,7 +192,7 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
     
     @app.post(HTTPEndpoints.STATUS)
     async def get_status(request: Request):
-        """获取worker状态"""
+        """Get worker status"""
         start_time = asyncio.get_event_loop().time()
         data = await request.json()
         worker_id = data.get("worker_id")
@@ -237,7 +235,7 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
     
     @app.post("/api/v1/worker/disconnect")
     async def worker_disconnect(request: WorkerDisconnectRequest):
-        """Worker断开连接"""
+        """Worker disconnect"""
         start_time = asyncio.get_event_loop().time()
         count = await server.resource_router.destroy_worker_sessions(request.worker_id)
         response = build_success_response(
@@ -255,7 +253,7 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
     
     @app.post(HTTPEndpoints.SESSION_CREATE)
     async def create_session(request: Request):
-        """显式创建Session"""
+        """Explicitly create Session"""
         start_time = asyncio.get_event_loop().time()
         data = await request.json()
         worker_id = data.get("worker_id")
@@ -306,7 +304,7 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
             "error": session_info.get("error")
         }
 
-        # 添加兼容性模式信息
+        # Add compatibility mode information
         if session_info.get("compatibility_mode"):
             data_payload["compatibility_mode"] = True
             data_payload["compatibility_message"] = session_info.get("compatibility_message")
@@ -334,7 +332,7 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
     
     @app.post(HTTPEndpoints.SESSION_DESTROY)
     async def destroy_session(request: Request):
-        """显式销毁Session"""
+        """Explicitly destroy Session"""
         start_time = asyncio.get_event_loop().time()
         data = await request.json()
         worker_id = data.get("worker_id")
@@ -380,7 +378,7 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
     
     @app.post(HTTPEndpoints.SESSION_LIST)
     async def list_sessions(request: Request):
-        """列出worker的所有session"""
+        """List all sessions for worker"""
         start_time = asyncio.get_event_loop().time()
         data = await request.json()
         worker_id = data.get("worker_id")
@@ -426,7 +424,7 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
     
     @app.post(HTTPEndpoints.SESSION_REFRESH)
     async def refresh_session(request: Request):
-        """刷新Session的存活时间（保活）"""
+        """Refresh Session TTL (keep-alive)"""
         start_time = asyncio.get_event_loop().time()
         data = await request.json()
         worker_id = data.get("worker_id")
@@ -443,7 +441,7 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
             )
             return JSONResponse(status_code=400, content=response)
 
-        # 如果指定了 resource_type，只刷新该资源
+        # If resource_type is specified, only refresh that resource
         if resource_type:
             refreshed = await server.resource_router.refresh_session(worker_id, resource_type)
             if refreshed:
@@ -471,7 +469,7 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
             )
             return JSONResponse(status_code=404, content=response)
 
-        # 刷新该 worker 的所有 session
+        # Refresh all sessions for this worker
         sessions = await server.resource_router.list_worker_sessions(worker_id)
         refreshed_count = 0
         results = {}
@@ -503,7 +501,7 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
     
     @app.post(HTTPEndpoints.INIT_RESOURCE)
     async def init_resource(request: InitResourceRequest):
-        """初始化资源"""
+        """Initialize resource"""
         start_time = asyncio.get_event_loop().time()
         try:
             session_info = await server.resource_router.get_or_create_session(
@@ -550,7 +548,7 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
     
     @app.post(HTTPEndpoints.INIT_BATCH)
     async def init_batch(request: InitBatchRequest):
-        """批量初始化资源"""
+        """Batch initialize resources"""
         start_time = asyncio.get_event_loop().time()
         results = {}
         for resource_type, config in request.resource_configs.items():
@@ -608,7 +606,7 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
     
     @app.post(HTTPEndpoints.INIT_FROM_CONFIG)
     async def init_from_config(request: InitFromConfigRequest):
-        """从配置文件初始化"""
+        """Initialize from config file"""
         start_time = asyncio.get_event_loop().time()
         try:
             if not os.path.exists(request.config_path):
@@ -659,13 +657,13 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
     
     @app.get(HTTPEndpoints.TOOLS_LIST)
     async def list_tools(include_hidden: bool = False):
-        """列出所有工具"""
+        """List all tools"""
         tools = server.list_tools(include_hidden=include_hidden)
         return JSONResponse(content={"tools": tools, "count": len(tools)})
     
     @app.get("/api/v1/tools/{tool_name}/schema")
     async def get_tool_schema(tool_name: str):
-        """获取工具schema"""
+        """Get tool schema"""
         schema = server.get_tool_info(tool_name)
         if not schema:
             return JSONResponse(
@@ -678,17 +676,17 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
     
     @app.post(HTTPEndpoints.WARMUP)
     async def warmup_backends(request: Request):
-        """预热后端资源"""
+        """Warmup backend resources"""
         data = await request.json() if request.headers.get("content-length", "0") != "0" else {}
-        backend_names = data.get("backends")  # None 表示预热所有后端
+        backend_names = data.get("backends")  # None means warmup all backends
         
-        # 使用带错误信息的预热方法
+        # Use warmup method with error information
         detailed_results = await server.warmup_backends_with_errors(backend_names)
         
-        # 提取简单的成功状态（向后兼容）
+        # Extract simple success status (for backward compatibility)
         results = {name: info["success"] for name, info in detailed_results.items()}
         
-        # 收集错误信息
+        # Collect error information
         errors = {name: info["error"] for name, info in detailed_results.items() if info["error"]}
         
         all_success = all(results.values()) if results else True
@@ -699,7 +697,7 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
             "summary": server.get_warmup_status()["summary"]
         }
         
-        # 如果有错误，添加详细错误信息
+        # If there are errors, add detailed error information
         if errors:
             response["errors"] = errors
         
@@ -707,21 +705,21 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
     
     @app.get(HTTPEndpoints.WARMUP_STATUS)
     async def warmup_status():
-        """获取预热状态"""
+        """Get warmup status"""
         return JSONResponse(content=server.get_warmup_status())
     
     # ========== Server Control Endpoints ==========
     
     @app.post(HTTPEndpoints.SHUTDOWN)
     async def shutdown_server(request: Request):
-        """关闭服务器"""
+        """Shutdown server"""
         data = await request.json() if request.headers.get("content-length", "0") != "0" else {}
         force = data.get("force", False)
         cleanup_sessions = data.get("cleanup_sessions", True)
         
         logger.info(f"Shutdown requested (force={force}, cleanup_sessions={cleanup_sessions})")
         
-        # 清理所有 session
+        # Cleanup all sessions
         cleaned_count = 0
         if cleanup_sessions:
             all_sessions = await server.resource_router.list_all_sessions()
@@ -730,11 +728,11 @@ def register_routes(app: FastAPI, server: "HTTPServiceServer"):
                 cleaned_count += count
             logger.info(f"Cleaned {cleaned_count} sessions before shutdown")
         
-        # 安排延迟关闭（让响应先发回客户端）
+        # Schedule delayed shutdown (let response be sent to client first)
         async def delayed_shutdown():
             await asyncio.sleep(0.5)
             
-            # 关闭所有 backend，释放 GPU 等资源
+            # Shutdown all backends, release GPU and other resources
             shutdown_errors = []
             for backend_name in server.list_backends():
                 backend = server.get_backend(backend_name)

@@ -1,9 +1,0 @@
-{
-  "$schema": "L1 - 服务器配置（开发环境）",
-  "$extends": "default.json",
-
-  "title": "Sandbox Dev Server",
-  "log_level": "DEBUG",
-  "session_ttl": 600
-}
-

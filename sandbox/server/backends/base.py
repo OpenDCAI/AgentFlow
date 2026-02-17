@@ -1,42 +1,42 @@
 # sandbox/server/backends/base.py
 """
-后端基类
+Backend Base Class
 
-Backend 是重量级资源的封装，提供完整的生命周期接口：
-- warmup(): 预热（服务器启动时）
-- initialize(): Session 初始化（可选，由开发者决定是否使用）
-- cleanup(): Session 清理
-- shutdown(): 关闭（服务器关闭时）
+Backend is a wrapper for heavyweight resources, providing complete lifecycle interfaces:
+- warmup(): Warmup (called when server starts)
+- initialize(): Session initialization (optional, decided by developer)
+- cleanup(): Session cleanup
+- shutdown(): Shutdown (called when server shuts down)
 
-Server 只负责：
-- 持有 Backend 实例
-- 调用生命周期高级接口
-- 管理 Session 句柄
-- 扫描注册工具
+Server is only responsible for:
+- Holding Backend instances
+- Calling lifecycle high-level interfaces
+- Managing Session handles
+- Scanning and registering tools
 
-具体如何实现这些接口由开发者决定。
+How to implement these interfaces is decided by the developer.
 
-使用示例：
+Usage examples:
 
 ```python
 from sandbox.server.backends import Backend, BackendConfig
 from sandbox.server.core import tool
 
-# 示例1: 需要 Session 的后端（VM）
+# Example 1: Backend that requires Session (VM)
 class VMBackend(Backend):
     name = "vm"
     
     async def warmup(self):
-        # 可选：预热连接池
+        # Optional: warmup connection pool
         self.pool = await create_pool()
     
     async def initialize(self, worker_id: str, config: dict) -> dict:
-        # 为每个 worker 创建 VM
+        # Create VM for each worker
         controller = await self.pool.create_vm(config)
         return {"controller": controller}
     
     async def cleanup(self, worker_id: str, session_info: dict):
-        # 销毁 VM
+        # Destroy VM
         await session_info["data"]["controller"].close()
     
     @tool("vm:screenshot")
@@ -44,18 +44,18 @@ class VMBackend(Backend):
         return {"image": "..."}
 
 
-# 示例2: 共享资源的后端（RAG）
+# Example 2: Backend with shared resources (RAG)
 class RAGBackend(Backend):
     name = "rag"
     
     async def warmup(self):
-        # 加载模型和索引
+        # Load model and index
         self.model = await load_model()
         self.index = await load_index()
     
-    # 不需要 per-worker 初始化，使用默认实现
-    # async def initialize() -> 默认返回 {}
-    # async def cleanup() -> 默认空操作
+    # No per-worker initialization needed, use default implementation
+    # async def initialize() -> returns {} by default
+    # async def cleanup() -> no-op by default
     
     async def shutdown(self):
         await self.model.unload()
@@ -65,7 +65,7 @@ class RAGBackend(Backend):
         return {"results": self.index.search(query)}
 ```
 
-轻量级无状态工具使用 @register_api_tool 装饰器，不需要后端类。
+Lightweight stateless tools use the @register_api_tool decorator and don't need a backend class.
 """
 
 import logging
@@ -80,19 +80,19 @@ logger = logging.getLogger("Backend")
 
 
 # ============================================================================
-# 配置
+# Configuration
 # ============================================================================
 
 @dataclass
 class BackendConfig:
     """
-    后端配置
+    Backend configuration
     
     Attributes:
-        enabled: 是否启用
-        default_config: 默认配置（用于 initialize）
-        description: 后端描述
-        metadata: 额外元数据
+        enabled: Whether the backend is enabled
+        default_config: Default configuration (used for initialize)
+        description: Backend description
+        metadata: Additional metadata
     """
     enabled: bool = True
     default_config: Dict[str, Any] = field(default_factory=dict)
@@ -101,37 +101,37 @@ class BackendConfig:
 
 
 # ============================================================================
-# 后端基类
+# Backend Base Class
 # ============================================================================
 
 class Backend(ABC):
     """
-    后端基类
+    Backend base class
     
-    提供完整的生命周期接口，由开发者决定使用哪些：
+    Provides complete lifecycle interfaces, developer decides which to use:
     
-    生命周期方法：
-    - warmup(): 预热 - 服务器启动时调用，加载模型/建立连接池等
-    - initialize(): Session 初始化 - 为 worker 创建资源
-    - cleanup(): Session 清理 - 销毁 worker 资源
-    - shutdown(): 关闭 - 服务器关闭时调用，释放全局资源
+    Lifecycle methods:
+    - warmup(): Warmup - called when server starts, load models/establish connection pools, etc.
+    - initialize(): Session initialization - create resources for worker
+    - cleanup(): Session cleanup - destroy worker resources
+    - shutdown(): Shutdown - called when server shuts down, release global resources
     
-    Server 调用流程：
+    Server call flow:
     ```
-    Server 启动
+    Server starts
         │
         ▼
-    server.load_backend(backend)      # 注册后端和工具
+    server.load_backend(backend)      # Register backend and tools
         │
         ▼
-    (执行工具时或显式调用)
+    (When executing tools or explicitly called)
         │
         ▼
-    backend.warmup()                  # 预热全局资源（自动或显式触发）
+    backend.warmup()                  # Warmup global resources (auto or explicit trigger)
         │
         ▼
     ┌─────────────────────────────────────────────────────┐
-    │  Worker 创建 Session                                 │
+    │  Worker creates Session                              │
     │      │                                               │
     │      ▼                                               │
     │  session_data = backend.initialize(worker_id, cfg)  │
@@ -140,20 +140,20 @@ class Backend(ABC):
     │  session_info["data"] = session_data                │
     │      │                                               │
     │      ▼                                               │
-    │  Worker 调用工具（工具可访问 session_info）           │
+    │  Worker calls tools (tools can access session_info) │
     │      │                                               │
     │      ▼                                               │
     │  backend.cleanup(worker_id, session_info)           │
     └─────────────────────────────────────────────────────┘
         │
         ▼
-    backend.shutdown()                # 释放全局资源
+    backend.shutdown()                # Release global resources
     ```
     
-    类属性:
-        name: 后端名称（资源类型，如 "vm", "rag"）
-        description: 后端描述
-        version: 后端版本
+    Class attributes:
+        name: Backend name (resource type, e.g., "vm", "rag")
+        description: Backend description
+        version: Backend version
     """
     
     name: str = "base"
@@ -162,28 +162,28 @@ class Backend(ABC):
     
     def __init__(self, config: Optional[BackendConfig] = None):
         """
-        初始化后端
+        Initialize backend
         
         Args:
-            config: 后端配置
+            config: Backend configuration
         """
         self.config = config or BackendConfig()
         self._server: Optional["HTTPServiceServer"] = None
     
     # ========================================================================
-    # 生命周期方法（按需覆盖）
+    # Lifecycle Methods (override as needed)
     # ========================================================================
     
     async def warmup(self):
         """
-        预热（可选覆盖）
+        Warmup (optional override)
         
-        在服务器启动时调用。用于预加载全局资源：
-        - 加载模型
-        - 建立连接池
-        - 初始化索引
+        Called when server starts. Used to preload global resources:
+        - Load models
+        - Establish connection pools
+        - Initialize indexes
         
-        示例：
+        Example:
         ```python
         async def warmup(self):
             self.model = await load_embedding_model(
@@ -198,24 +198,24 @@ class Backend(ABC):
     
     async def initialize(self, worker_id: str, config: Dict[str, Any]) -> Dict[str, Any]:
         """
-        Session 初始化（可选覆盖）
+        Session initialization (optional override)
         
-        当为 worker 创建新 session 时调用。
-        返回的数据将存储在 session_info["data"] 中，供工具方法使用。
+        Called when creating a new session for a worker.
+        The returned data will be stored in session_info["data"] for tool methods to use.
         
-        如果后端不需要 per-worker 资源，可以不覆盖此方法。
+        If the backend doesn't need per-worker resources, this method doesn't need to be overridden.
         
         Args:
             worker_id: Worker ID
-            config: 初始化配置（合并了默认配置和用户配置）
+            config: Initialization configuration (merged from default config and user config)
             
         Returns:
-            初始化结果，存储在 session_info["data"]
+            Initialization result, stored in session_info["data"]
             
-        示例：
+        Example:
         ```python
         async def initialize(self, worker_id: str, config: dict) -> dict:
-            # 自定义初始化逻辑
+            # Custom initialization logic
             vm_type = config.get("vm_type", "local")
             
             if vm_type == "local":
@@ -236,17 +236,17 @@ class Backend(ABC):
     
     async def cleanup(self, worker_id: str, session_info: Dict[str, Any]):
         """
-        Session 清理（可选覆盖）
+        Session cleanup (optional override)
         
-        当 session 被销毁时调用。用于释放 per-worker 资源。
+        Called when session is destroyed. Used to release per-worker resources.
         
-        如果后端不需要 per-worker 资源，可以不覆盖此方法。
+        If the backend doesn't need per-worker resources, this method doesn't need to be overridden.
         
         Args:
             worker_id: Worker ID
-            session_info: Session 信息（包含 data 中的资源）
+            session_info: Session information (contains resources in data)
             
-        示例：
+        Example:
         ```python
         async def cleanup(self, worker_id: str, session_info: dict):
             data = session_info.get("data", {})
@@ -260,11 +260,11 @@ class Backend(ABC):
     
     async def shutdown(self):
         """
-        关闭（可选覆盖）
+        Shutdown (optional override)
         
-        在服务器关闭时调用。用于释放全局资源。
+        Called when server shuts down. Used to release global resources.
         
-        示例：
+        Example:
         ```python
         async def shutdown(self):
             if self.model:
@@ -276,26 +276,26 @@ class Backend(ABC):
         pass
     
     # ========================================================================
-    # 辅助方法
+    # Helper Methods
     # ========================================================================
     
     def get_default_config(self) -> Dict[str, Any]:
-        """获取默认配置"""
+        """Get default configuration"""
         return self.config.default_config.copy()
     
     def bind_server(self, server: "HTTPServiceServer"):
         """
-        绑定服务器引用
+        Bind server reference
         
-        由 server.load_backend() 调用，建立双向引用。
+        Called by server.load_backend() to establish bidirectional reference.
         
         Args:
-            server: HTTP 服务器实例
+            server: HTTP server instance
         """
         self._server = server
     
     def get_info(self) -> Dict[str, Any]:
-        """获取后端信息"""
+        """Get backend information"""
         return {
             "name": self.name,
             "description": self.description,

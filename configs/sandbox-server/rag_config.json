@@ -2,10 +2,7 @@
   "server": {
     "url": "http://127.0.0.1:18890",
     "port": 18890,
-    "title": "Sandbox HTTP Service (RAG Resource)",
-    "description": "RAG resource with E5 + Faiss backend",
-    "session_ttl": 600,
-    "log_level": "DEBUG"
+    "session_ttl": 600
   },
   "resources": {
     "rag": {

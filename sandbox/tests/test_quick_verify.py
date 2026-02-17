@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-快速验证脚本 - 验证所有 Mock 功能是否可用
+Quick verification script for mock capabilities.
 
-这是一个轻量级的验证脚本，不启动服务器，只测试：
-1. 模块导入
-2. 后端实例化
-3. 工具注册
-4. 基本功能调用
+This lightweight script does not start the server. It only verifies:
+1. Module imports
+2. Backend instantiation
+3. Tool registration
+4. Basic function calls
 
-运行方式:
+Run:
     python -m sandbox.tests.test_quick_verify
 """
 
@@ -18,12 +18,12 @@ import os
 import asyncio
 from pathlib import Path
 
-# 添加项目根目录到路径
+# Add project root to Python path.
 project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
 def test_imports():
-    """测试模块导入"""
+    """Test module imports."""
     print("📦 测试模块导入...")
     
     try:
@@ -43,7 +43,7 @@ def test_imports():
 
 
 def test_backend_instantiation():
-    """测试后端实例化"""
+    """Test backend instantiation."""
     print("\n🔧 测试后端实例化...")
     
     try:
@@ -74,7 +74,7 @@ def test_backend_instantiation():
 
 
 def test_server_load_backends():
-    """测试服务器加载后端"""
+    """Test server backend loading."""
     print("\n🖥️ 测试服务器加载后端...")
     
     try:
@@ -112,7 +112,7 @@ def test_server_load_backends():
 
 
 async def test_backend_lifecycle():
-    """测试后端生命周期"""
+    """Test backend lifecycle."""
     print("\n🔄 测试后端生命周期...")
     
     try:
@@ -132,11 +132,11 @@ async def test_backend_lifecycle():
         ]
         
         for name, backend, config in backends_with_config:
-            # 测试 initialize
+            # Test initialize.
             result = await backend.initialize(test_worker_id, config)
             assert isinstance(result, dict), f"{name}.initialize() 应返回 dict"
             
-            # 测试 cleanup
+            # Test cleanup.
             session_info = {
                 "session_name": f"{backend.name}_session",
                 "data": result
@@ -145,7 +145,7 @@ async def test_backend_lifecycle():
             
             print(f"  [OK] {name}: initialize/cleanup")
         
-        # 测试 RAG warmup
+        # Test RAG warmup.
         rag = RAGBackend()
         await rag.warmup()
         print(f"  [OK] RAGBackend: warmup")
@@ -159,7 +159,7 @@ async def test_backend_lifecycle():
 
 
 async def test_websearch_tools():
-    """测试 WebSearch 工具"""
+    """Test WebSearch tools."""
     print("\n🔍 测试 WebSearch 工具...")
     
     try:
@@ -167,14 +167,14 @@ async def test_websearch_tools():
             search, visit
         )
         
-        # 测试 search
+        # Test search.
         result = await search(query="Python tutorial", max_results=5)
         assert result.get("code") == 0, f"search 失败: {result.get('message')}"
         data = result.get("data", {})
         assert "result" in data, "search 应返回 data.result"
         print(f"  [OK] search: {len(data.get('result', ''))} 字符")
         
-        # 测试 visit
+        # Test visit.
         result = await visit(urls="https://example.com", goal="Extract main content")
         assert result.get("code") == 0, f"visit 失败: {result.get('message')}"
         data = result.get("data", {})
@@ -190,8 +190,8 @@ async def test_websearch_tools():
 
 
 async def main():
-    """主函数"""
-    # 设置输出编码（Windows 兼容）
+    """Main entrypoint."""
+    # Configure stdout/stderr encoding (Windows compatibility).
     import sys
     import io
     if sys.platform == 'win32':
@@ -200,35 +200,35 @@ async def main():
     
     print("""
 ======================================================================
-          Sandbox Mock 功能快速验证
+          Sandbox Mock Quick Verification
 ======================================================================
-  验证项目:
-    - 模块导入
-    - 后端实例化
-    - 服务器加载后端
-    - 后端生命周期
-    - WebSearch 工具
+  Verification items:
+    - Module imports
+    - Backend instantiation
+    - Server backend loading
+    - Backend lifecycle
+    - WebSearch tools
 ======================================================================
 """)
     
     results = []
     
-    # 1. 导入测试
+    # 1. Import test.
     results.append(("模块导入", test_imports()))
     
-    # 2. 实例化测试
+    # 2. Instantiation test.
     results.append(("后端实例化", test_backend_instantiation()))
     
-    # 3. 服务器加载测试
+    # 3. Server loading test.
     results.append(("服务器加载", test_server_load_backends()))
     
-    # 4. 生命周期测试
+    # 4. Lifecycle test.
     results.append(("后端生命周期", await test_backend_lifecycle()))
     
-    # 5. WebSearch 测试
+    # 5. WebSearch test.
     results.append(("WebSearch 工具", await test_websearch_tools()))
     
-    # 打印摘要
+    # Print summary.
     print(f"\n{'='*70}")
     print(f"验证结果")
     print(f"{'='*70}")

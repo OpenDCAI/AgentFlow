@@ -1,24 +1,24 @@
 # sandbox/server/config_loader.py
 """
-配置加载器
+Configuration Loader
 
-支持从 JSON 配置文件加载服务器配置和后端定义。
-支持环境变量替换（${VAR} 或 ${VAR:-default}）。
+Supports loading server configuration and backend definitions from JSON config files.
+Supports environment variable substitution (${VAR} or ${VAR:-default}).
 
-使用示例:
+Usage examples:
 ```python
 from sandbox.server.config_loader import ConfigLoader, load_config
 
-# 方式1: 直接加载配置
+# Method 1: Load config directly
 config = load_config("config.json")
 
-# 方式2: 使用加载器
+# Method 2: Use loader
 loader = ConfigLoader()
 loader.load("config.json")
 server = loader.create_server()
 server.run()
 
-# 方式3: 从配置启动服务器
+# Method 3: Start server from config
 from sandbox.server.config_loader import create_server_from_config
 server = create_server_from_config("config.json")
 server.run()
@@ -43,20 +43,20 @@ logger = logging.getLogger("ConfigLoader")
 
 def expand_env_vars(value: Any) -> Any:
     """
-    递归展开环境变量
+    Recursively expand environment variables
     
-    支持格式:
-    - ${VAR} - 必须存在的环境变量
-    - ${VAR:-default} - 带默认值的环境变量
+    Supported formats:
+    - ${VAR} - Environment variable that must exist
+    - ${VAR:-default} - Environment variable with default value
     
     Args:
-        value: 任意值（字符串会被处理）
+        value: Any value (strings will be processed)
         
     Returns:
-        处理后的值
+        Processed value
     """
     if isinstance(value, str):
-        # 匹配 ${VAR} 或 ${VAR:-default}
+        # Match ${VAR} or ${VAR:-default}
         pattern = r'\$\{([^}:]+)(?::-([^}]*))?\}'
         
         def replace(match):
@@ -69,7 +69,7 @@ def expand_env_vars(value: Any) -> Any:
             elif default_value is not None:
                 return default_value
             else:
-                # 保留原始占位符，让调用者决定如何处理
+                # Keep original placeholder, let caller decide how to handle
                 logger.warning(f"Environment variable '{var_name}' not set and no default provided")
                 return match.group(0)
         
@@ -91,9 +91,9 @@ def expand_env_vars(value: Any) -> Any:
 @dataclass
 class ServerConfig:
     """
-    服务器配置
+    Server configuration
     
-    注意: host 和 port 由 Sandbox(server_url=...) 指定，不在配置文件中设置
+    Note: host and port are specified by Sandbox(server_url=...), not set in config file
     """
     title: str = "Sandbox HTTP Service"
     description: str = ""
@@ -104,7 +104,7 @@ class ServerConfig:
 
 @dataclass
 class ResourceConfig:
-    """资源配置"""
+    """Resource configuration"""
     name: str
     enabled: bool = True
     description: str = ""
@@ -114,14 +114,14 @@ class ResourceConfig:
 
 @dataclass
 class WarmupConfig:
-    """预热配置"""
+    """Warmup configuration"""
     enabled: bool = False
     resources: List[str] = field(default_factory=list)
 
 
 @dataclass
 class SecurityConfig:
-    """安全配置"""
+    """Security configuration"""
     allowed_origins: List[str] = field(default_factory=lambda: ["*"])
     rate_limit_enabled: bool = False
     requests_per_minute: int = 100
@@ -132,7 +132,7 @@ class SecurityConfig:
 
 @dataclass
 class SandboxConfig:
-    """完整的 Sandbox 配置"""
+    """Complete Sandbox configuration"""
     server: ServerConfig = field(default_factory=ServerConfig)
     resources: Dict[str, ResourceConfig] = field(default_factory=dict)
     tools: Dict[str, Dict[str, Any]] = field(default_factory=dict)
@@ -146,20 +146,20 @@ class SandboxConfig:
 
 class ConfigLoader:
     """
-    配置加载器
+    Configuration Loader
     
-    功能:
-    - 从 JSON 文件加载配置
-    - 环境变量替换
-    - 动态加载后端类
-    - 创建配置好的服务器实例
+    Features:
+    - Load configuration from JSON files
+    - Environment variable substitution
+    - Dynamic backend class loading
+    - Create configured server instances
     
-    加载流程:
-    1. 加载并解析配置文件
-    2. 展开环境变量
-    3. 创建 HTTPServiceServer 实例
-    4. 遍历 resources，动态加载并调用 server.load_backend()
-    5. 遍历 apis，通过 @register_api_tool 装饰器自动注册无状态工具
+    Loading process:
+    1. Load and parse config file
+    2. Expand environment variables
+    3. Create HTTPServiceServer instance
+    4. Iterate through resources, dynamically load and call server.load_backend()
+    5. Iterate through apis, automatically register stateless tools via @register_api_tool decorator
     """
     
     def __init__(self):
@@ -168,13 +168,13 @@ class ConfigLoader:
     
     def load(self, config_path: str) -> SandboxConfig:
         """
-        加载配置文件
+        Load configuration file
         
         Args:
-            config_path: 配置文件路径
+            config_path: Path to config file
             
         Returns:
-            解析后的配置对象
+            Parsed configuration object
         """
         path = Path(config_path)
         if not path.exists():
@@ -183,10 +183,10 @@ class ConfigLoader:
         with open(path, 'r', encoding='utf-8') as f:
             self.raw_config = json.load(f)
         
-        # 展开环境变量
+        # Expand environment variables
         expanded = expand_env_vars(self.raw_config)
         
-        # 解析各部分配置
+        # Parse each section of configuration
         self.config = self._parse_config(expanded)
         
         logger.info(f"✅ Loaded config from {config_path}")
@@ -196,16 +196,16 @@ class ConfigLoader:
         return self.config
     
     def load_from_dict(self, config_dict: Dict[str, Any]) -> SandboxConfig:
-        """从字典加载配置"""
+        """Load configuration from dictionary"""
         self.raw_config = config_dict
         expanded = expand_env_vars(config_dict)
         self.config = self._parse_config(expanded)
         return self.config
     
     def _parse_config(self, data: Dict[str, Any]) -> SandboxConfig:
-        """解析配置字典为配置对象"""
+        """Parse configuration dictionary into configuration object"""
         
-        # 服务器配置 (host/port 由 Sandbox(server_url=...) 指定)
+        # Server configuration (host/port specified by Sandbox(server_url=...))
         server_data = data.get("server", {})
         server = ServerConfig(
             title=server_data.get("title", "Sandbox HTTP Service"),
@@ -215,10 +215,10 @@ class ConfigLoader:
             log_level=server_data.get("log_level", "INFO")
         )
         
-        # 资源配置
+        # Resource configuration
         resources: Dict[str, ResourceConfig] = {}
         for name, res_data in data.get("resources", {}).items():
-            # 跳过注释字段
+            # Skip comment fields
             if name.startswith("_"):
                 continue
             
@@ -230,21 +230,21 @@ class ConfigLoader:
                 config=res_data.get("config", {})
             )
         
-        # 工具配置
+        # Tool configuration
         tools: Dict[str, Dict[str, Any]] = {}
         for name, tool_data in data.get("tools", {}).items():
             if name.startswith("_"):
                 continue
             tools[name] = tool_data
         
-        # 预热配置
+        # Warmup configuration
         warmup_data = data.get("warmup", {})
         warmup = WarmupConfig(
             enabled=warmup_data.get("enabled", False),
             resources=warmup_data.get("resources", [])
         )
         
-        # 安全配置
+        # Security configuration
         security_data = data.get("security", {})
         rate_limit = security_data.get("rate_limit", {})
         auth = security_data.get("auth", {})
@@ -266,7 +266,7 @@ class ConfigLoader:
         )
     
     def get_enabled_resources(self) -> Dict[str, ResourceConfig]:
-        """获取所有启用的资源"""
+        """Get all enabled resources"""
         if not self.config:
             return {}
         return {
@@ -276,13 +276,13 @@ class ConfigLoader:
     
     def load_class(self, class_path: str) -> Type:
         """
-        动态加载类
+        Dynamically load class
         
         Args:
-            class_path: 类的完整路径，如 "sandbox.server.backends.resources.vm.VMBackend"
+            class_path: Full path to class, e.g. "sandbox.server.backends.resources.vm.VMBackend"
             
         Returns:
-            类对象
+            Class object
         """
         try:
             module_path, class_name = class_path.rsplit(".", 1)
@@ -294,31 +294,31 @@ class ConfigLoader:
 
     def create_server(self, host: str = "0.0.0.0", port: int = 8080):
         """
-        根据配置创建服务器实例
+        Create server instance from configuration
 
-        加载流程:
-        1. 创建 HTTPServiceServer 实例
-        2. 遍历 resources，动态加载后端类并调用 server.load_backend()
-        3. 遍历 apis，通过 @register_api_tool 装饰器自动注册无状态工具
+        Loading process:
+        1. Create HTTPServiceServer instance
+        2. Iterate through resources, dynamically load backend classes and call server.load_backend()
+        3. Iterate through apis, automatically register stateless tools via @register_api_tool decorator
 
         Args:
-            host: 服务器绑定地址
-            port: 服务器端口
+            host: Server bind address
+            port: Server port
         
         Returns:
-            配置好的 HTTPServiceServer 实例
+            Configured HTTPServiceServer instance
         """
         if not self.config:
             raise RuntimeError("No config loaded. Call load() first.")
         
-        # 延迟导入避免循环依赖
+        # Lazy import to avoid circular dependencies
         from .app import HTTPServiceServer
         from .backends.base import BackendConfig
         
-        # 获取预热资源列表
+        # Get warmup resource list
         warmup_resources = self.get_warmup_resources()
 
-        # 创建服务器 (host/port 由参数指定)
+        # Create server (host/port specified by parameters)
         server = HTTPServiceServer(
             host=host,
             port=port,
@@ -328,25 +328,25 @@ class ConfigLoader:
         )
         
         # ====================================================================
-        # 加载有状态后端（resources）
+        # Load stateful backends (resources)
         # ====================================================================
         for name, res_config in self.get_enabled_resources().items():
             if res_config.backend_class:
                 try:
-                    # 动态加载后端类
+                    # Dynamically load backend class
                     backend_cls = self.load_class(res_config.backend_class)
                     
-                    # 创建后端配置
+                    # Create backend configuration
                     backend_config = BackendConfig(
                         enabled=True,
                         default_config=res_config.config,
                         description=res_config.description
                     )
                     
-                    # 实例化后端
+                    # Instantiate backend
                     backend = backend_cls(config=backend_config)
                     
-                    # 使用新的 API 加载后端（自动反射扫描 @tool 标记）
+                    # Load backend using new API (automatically scan @tool markers via reflection)
                     registered = server.load_backend(backend)
                     
                     logger.info(f"✅ Loaded backend: {name} ({len(registered)} tools)")
@@ -357,7 +357,7 @@ class ConfigLoader:
                 logger.warning(f"⚠️ Resource '{name}' has no backend_class, skipping")
         
         # ====================================================================
-        # 加载无状态工具（apis）
+        # Load stateless tools (apis)
         # ====================================================================
         apis_config = self.raw_config.get("apis", {})
         if apis_config:
@@ -367,20 +367,20 @@ class ConfigLoader:
     
     def _load_api_tools(self, server, apis_config: Dict[str, Any]):
         """
-        加载无状态 API 工具
+        Load stateless API tools
         
-        新机制：
-        - 工具通过 @register_api_tool 装饰器自注册
-        - 每个工具指定自己读取的 config_key
-        - 配置根据 config_key 从 apis 中提取并注入
+        New mechanism:
+        - Tools self-register via @register_api_tool decorator
+        - Each tool specifies its own config_key to read
+        - Configuration is extracted from apis based on config_key and injected
         
         Args:
-            server: HTTPServiceServer 实例
-            apis_config: apis 配置字典
+            server: HTTPServiceServer instance
+            apis_config: apis configuration dictionary
         """
         from .backends.tools import get_all_api_tools
         
-        # 获取所有已注册的 API 工具
+        # Get all registered API tools
         api_tools = get_all_api_tools()
         
         if not api_tools:
@@ -391,20 +391,20 @@ class ConfigLoader:
         
         for tool_name, tool_info in api_tools.items():
             try:
-                # 获取该工具需要的配置
+                # Get configuration needed by this tool
                 tool_config = {}
                 if tool_info.config_key:
                     tool_config = apis_config.get(tool_info.config_key, {})
-                    # 跳过注释字段
+                    # Skip comment fields
                     if isinstance(tool_config, dict):
                         tool_config = {k: v for k, v in tool_config.items() if not k.startswith("_")}
                 
-                # 如果是 BaseApiTool 实例，先注入配置
+                # If it's a BaseApiTool instance, inject config first
                 if hasattr(tool_info.func, 'set_config'):
                     tool_info.func.set_config(tool_config)
                     logger.debug(f"  📦 Injected config into {tool_name} instance")
                 
-                # 注册工具到 server
+                # Register tool to server
                 server.register_api_tool(
                     name=tool_info.name,
                     func=tool_info.func,
@@ -423,11 +423,11 @@ class ConfigLoader:
         logger.info(f"✅ Loaded {registered_count} API tools")
     
     def get_warmup_resources(self) -> List[str]:
-        """获取需要预热的资源列表"""
+        """Get list of resources that need warmup"""
         if not self.config or not self.config.warmup.enabled:
             return []
         
-        # 只返回启用的资源
+        # Only return enabled resources
         enabled = set(self.get_enabled_resources().keys())
         return [r for r in self.config.warmup.resources if r in enabled]
 
@@ -438,13 +438,13 @@ class ConfigLoader:
 
 def load_config(config_path: str) -> SandboxConfig:
     """
-    加载配置文件的便捷函数
+    Convenience function to load configuration file
     
     Args:
-        config_path: 配置文件路径
+        config_path: Path to config file
         
     Returns:
-        解析后的配置对象
+        Parsed configuration object
     """
     loader = ConfigLoader()
     return loader.load(config_path)
@@ -452,15 +452,15 @@ def load_config(config_path: str) -> SandboxConfig:
 
 def create_server_from_config(config_path: str, host: str = "0.0.0.0", port: int = 8080):
     """
-    从配置文件创建服务器
+    Create server from configuration file
     
     Args:
-        config_path: 配置文件路径
-        host: 服务器绑定地址
-        port: 服务器端口
+        config_path: Path to config file
+        host: Server bind address
+        port: Server port
         
     Returns:
-        配置好的 HTTPServiceServer 实例
+        Configured HTTPServiceServer instance
         
     Example:
         ```python
@@ -475,12 +475,12 @@ def create_server_from_config(config_path: str, host: str = "0.0.0.0", port: int
 
 def get_default_config() -> Dict[str, Any]:
     """
-    获取默认配置模板
+    Get default configuration template
     
-    注意: host/port 由 Sandbox(server_url=...) 或 CLI --host/--port 指定
+    Note: host/port are specified by Sandbox(server_url=...) or CLI --host/--port
     
     Returns:
-        默认配置字典
+        Default configuration dictionary
     """
     return {
         "server": {
@@ -499,7 +499,7 @@ def get_default_config() -> Dict[str, Any]:
 # ============================================================================
 
 def main():
-    """命令行入口"""
+    """Command line entry point"""
     import argparse
     
     parser = argparse.ArgumentParser(description="Start Sandbox HTTP Service from config")
@@ -529,7 +529,7 @@ def main():
         print("✅ Configuration is valid")
         return
     
-    # 创建并启动服务器
+    # Create and start server
     server = loader.create_server(host=args.host, port=args.port)
     print(f"🚀 Starting server on {args.host}:{args.port}")
     server.run()

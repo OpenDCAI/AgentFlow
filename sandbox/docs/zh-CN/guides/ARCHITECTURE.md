@@ -2,7 +2,7 @@
 
 > **相关文档**:
 > - 本文档：系统整体架构概览
-> - [后端开发详细指南](server/backends/BACKEND_DEVELOPMENT.md)：完整的后端开发教程和示例
+> - [后端开发详细指南](../development/BACKEND_DEVELOPMENT.md)：完整的后端开发教程和示例
 > - [使用指南](USAGE_GUIDE.md)：Sandbox 使用与启动方式
 
 ## 📋 目录
@@ -580,10 +580,10 @@ Server 不知道:
 
 ### 5. CI/CD 验证
 
-由于使用动态类加载，建议在 CI/CD 中启用严格模式验证：
+由于使用动态类加载，建议在 CI/CD 中启用配置预检：
 
 ```bash
-python -m sandbox validate --config configs/profiles/production.json --strict
+python -m sandbox server --config configs/profiles/production.json --validate
 ```
 
 ---

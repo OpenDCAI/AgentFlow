@@ -1,11 +1,11 @@
 # sandbox/server/core/__init__.py
 """
-核心组件模块
+Core Components Module
 
-包含:
-- ResourceRouter: 资源路由表管理
-- ToolExecutor: 工具执行器
-- decorators: 工具装饰器（@tool）
+Contains:
+- ResourceRouter: Resource routing table management
+- ToolExecutor: Tool executor
+- decorators: Tool decorator (@tool)
 """
 
 from .resource_router import ResourceRouter
@@ -15,7 +15,7 @@ from .decorators import tool, is_tool, get_tool_metadata, scan_tools, TOOL_MARKE
 __all__ = [
     "ResourceRouter", 
     "ToolExecutor",
-    # 装饰器相关
+    # Decorator related
     "tool",
     "is_tool", 
     "get_tool_metadata",

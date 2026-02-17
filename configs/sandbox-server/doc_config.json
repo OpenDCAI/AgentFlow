@@ -2,8 +2,6 @@
   "server": {
     "url": "http://127.0.0.1:18890",
     "port": 18890,
-    "title": "Sandbox HTTP Service (Document Tools)",
-    "description": "Document tools with configurable defaults",
     "session_ttl": 300
   },
   "apis": {

@@ -852,24 +852,18 @@ async def my_tool(param: str, **config) -> dict:
 
 ---
 
-## CI/CD 验证（Strict Mode）
+## CI/CD 配置预检
 
-由于反射扫描增加了运行时不确定性，建议在 CI/CD 阶段进行配置验证。
+由于反射扫描增加了运行时不确定性，建议在 CI/CD 阶段进行配置预检。
 
 ### 命令行使用
 
 ```bash
 # 验证单个配置
-python -m sandbox validate --config dev
+python -m sandbox server --config dev --validate
 
-# 验证所有配置
-python -m sandbox validate --all
-
-# 严格模式（警告视为错误）
-python -m sandbox validate --all --strict
-
-# CI/CD 模式（失败时返回非零退出码）
-python -m sandbox validate --all --strict --exit-on-error
+# 使用配置文件路径
+python -m sandbox server --config configs/profiles/production.json --validate
 ```
 
 ### 验证内容
@@ -883,21 +877,11 @@ python -m sandbox validate --all --strict --exit-on-error
 
 ### Python API
 
-```python
-from sandbox.server.validator import validate_config, validate_all_configs
+当前版本不再提供独立的 `sandbox.server.validator` Python API。
+如需预检配置，请调用 CLI：
 
-# 验证单个配置
-result = validate_config("configs/profiles/dev.json", strict=True)
-if not result.is_valid:
-    for error in result.errors:
-        print(f"❌ {error.category}: {error.message}")
-        print(f"   Location: {error.location}")
-        print(f"   Suggestion: {error.suggestion}")
-
-# 验证所有配置
-results = validate_all_configs(strict=True)
-for path, result in results.items():
-    print(f"{path}: {'✅' if result.is_valid else '❌'}")
+```bash
+python -m sandbox server --config configs/profiles/dev.json --validate
 ```
 
 ### GitHub Actions 示例
@@ -922,8 +906,8 @@ jobs:
       - name: Install dependencies
         run: pip install -e .
       
-      - name: Validate configurations
-        run: python -m sandbox validate --all --strict --exit-on-error
+      - name: Validate dev configuration
+        run: python -m sandbox server --config configs/profiles/dev.json --validate
 ```
 
 ---

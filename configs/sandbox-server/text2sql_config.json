@@ -1,9 +1,7 @@
 {
   "$schema": "启动配置 - 本地Text2SQL",
   "server": {
-    "title": "Sandbox Local Text2SQL",
-    "session_ttl": 600,
-    "log_level": "INFO"
+    "session_ttl": 600
   },
   "resources": {},
   "apis": {

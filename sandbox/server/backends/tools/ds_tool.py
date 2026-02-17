@@ -1,9 +1,9 @@
 # sandbox/server/backends/tools/ds_tool.py
 """
-Data Science API 工具
+Data Science API Tools
 
-提供 read_csv, run_python, inspect_data 等工具，用于数据科学任务。
-移植自 DS_synthesis/src/tools/ds_tools.py
+Provides read_csv, run_python, inspect_data and other tools for data science tasks.
+Ported from DS_synthesis/src/tools/ds_tools.py
 """
 
 import io
@@ -25,7 +25,7 @@ import base64
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
 
-# --- 第三方库 ---
+# --- Third-party libraries ---
 try:
     import pandas as pd
     import numpy as np
@@ -33,7 +33,7 @@ try:
     import statsmodels.api as sm
     import sklearn
     import patsy
-    # --- 绘图库设置 ---
+    # --- Plotting library setup ---
     import matplotlib
     matplotlib.use('Agg') 
     import matplotlib.pyplot as plt
@@ -41,7 +41,7 @@ try:
     DS_LIBS_AVAILABLE = True
 except ImportError:
     DS_LIBS_AVAILABLE = False
-    # 定义一些占位符以防止 IDE 报错，运行时会检查 DS_LIBS_AVAILABLE
+    # Define some placeholders to prevent IDE errors, runtime will check DS_LIBS_AVAILABLE
     pd = None
     np = None
     plt = None
@@ -54,14 +54,14 @@ from .base_tool import BaseApiTool, ToolBusinessError
 
 
 # ==========================================
-# 核心工具函数 (从 DS_synthesis 移植)
+# Core Tool Functions (ported from DS_synthesis)
 # ==========================================
 
 def _resolve_csv_path(base_dir: str, csv_file: str) -> Path:
     """
-    将 csv 文件名解析为 base_dir 下的安全路径，防止路径逃逸。
+    Resolve CSV filename to a safe path under base_dir, preventing path traversal.
     """
-    # 如果已经是绝对路径，且在 base_dir 内，则直接返回
+    # If already an absolute path and within base_dir, return directly
     if os.path.isabs(csv_file):
         candidate = Path(csv_file).resolve()
     else:
@@ -143,36 +143,36 @@ def read_csv_impl(
     max_rows: int = 50,
 ) -> Dict[str, Any]:
     """
-    读取 seed 目录中的 CSV 文件并返回文本内容。
+    Read CSV file from seed directory and return text content.
     """
     if not DS_LIBS_AVAILABLE:
         return {"text": "Error: Data Science libraries (pandas, etc.) are not installed.", "images": []}
 
     if not base_dir:
-        return {"text": "base_dir 为空，环境未正确注入 CSV 根目录。", "images": []}
+        return {"text": "base_dir is empty, environment did not correctly inject CSV root directory.", "images": []}
 
     try:
         path = _resolve_csv_path(base_dir, csv_file)
         if not path.exists():
-            return {"text": f"文件不存在: {path}", "images": []}
+            return {"text": f"File does not exist: {path}", "images": []}
         if not path.is_file():
-            return {"text": f"路径不是文件: {path}", "images": []}
+            return {"text": f"Path is not a file: {path}", "images": []}
 
         df = pd.read_csv(path)
     except Exception as exc:
-        return {"text": f"读取失败: {exc}", "images": []}
+        return {"text": f"Read failed: {exc}", "images": []}
 
     preview = df.head(max_rows)
     body = preview.to_csv(index=False)
     note = ""
     if len(df) > max_rows:
-        note = f"\n... 已截断，仅展示前 {max_rows} 行，共 {len(df)} 行 ..."
+        note = f"\n... Truncated, showing first {max_rows} rows out of {len(df)} total rows ..."
 
     return {"text": f"{path.name}\n{body}{note}", "images": []}
 
 
 # ==========================================
-# 白名单和 Import 控制
+# Whitelist and Import Control
 # ==========================================
 ALLOWED_MODULES = {
     "pandas", "numpy", "scipy", "statsmodels", "patsy",
@@ -229,7 +229,7 @@ def run_python_impl(
 
     base_dir = base_dir or os.getcwd()
 
-    # --- 助手函数 ---
+    # --- Helper functions ---
     def load_csv(name: str, **kwargs):
         path = _resolve_csv_path(base_dir, name)
         return pd.read_csv(path, **kwargs)
@@ -304,11 +304,11 @@ def run_python_impl(
 
     try:
         with contextlib.redirect_stdout(stdout_capture), contextlib.redirect_stderr(stdout_capture):
-            # 使用 patch 自动修正 pd.read_csv 的相对路径
+            # Use patch to automatically correct relative paths in pd.read_csv
             with _patch_pandas_io(base_dir):
                 exec(code, globals_ns, locals_ns)
         
-        # 图片捕获
+        # Image capture
         if plt.get_fignums():
             fig = plt.gcf()
             img_buf = io.BytesIO()
@@ -363,7 +363,7 @@ def run_python_impl(
 
 
 # ==========================================
-# 工具类定义
+# Tool Class Definitions
 # ==========================================
 
 class InspectDataTool(BaseApiTool):
@@ -374,8 +374,8 @@ class InspectDataTool(BaseApiTool):
     async def execute(self, **kwargs) -> Any:
         seed_path = kwargs.get("seed_path")
         if not seed_path:
-             # 如果 kwargs 中没有 seed_path，尝试从 config 中获取（虽然对于 ds 来说，seed_path 通常是动态的）
-             # 这里我们抛出错误，要求必须提供 seed_path
+             # If seed_path is not in kwargs, try to get from config (though for ds, seed_path is usually dynamic)
+             # Here we throw an error, requiring seed_path to be provided
              raise ToolBusinessError("seed_path must be provided in kwargs", ErrorCode.EXECUTION_ERROR)
 
         max_csv = self.get_config("ds_max_csv")
@@ -404,7 +404,7 @@ class ReadCsvTool(BaseApiTool):
              raise ToolBusinessError("seed_path must be provided in kwargs", ErrorCode.EXECUTION_ERROR)
         
         result = read_csv_impl(csv_file, seed_path, max_rows)
-        return {"result": result["text"]} # 目前只返回文本，忽略 images (read_csv 也不产生图片)
+        return {"result": result["text"]}  # Currently only return text, ignore images (read_csv doesn't produce images)
 
 class RunPythonTool(BaseApiTool):
     """Run Python Tool"""
@@ -418,29 +418,29 @@ class RunPythonTool(BaseApiTool):
         
         result = run_python_impl(code, seed_path, return_vars)
         
-        # 格式化输出，包含图片
+        # Format output, including images
         output = result["text"]
         if result["images"]:
             output += "\n\n[Generated Images]:\n"
-            # 这里我们无法直接在文本中显示图片，但在 sandbox 协议中，通常会把 images 单独返回
-            # 目前 BaseApiTool 的 execute 返回 Any，通常是 dict。
-            # 我们可以返回 {"result": text, "images": [...] } 
-            # 但标准的 response_builder 可能会把 dict 序列化。
-            # 这里简单起见，我们只返回文本描述，或者我们可以让 BaseApiTool 支持返回多媒体。
-            # 查看 base_tool.py 的实现，它只是返回 execute 的结果。
-            # 如果我们返回 dict，它会被 JSON 序列化。
-            # 为了让前端（如果有）能展示图片，我们需要遵循某种协议。
-            # 这里暂时只返回 "Generated X images"，实际图片数据在 result['images'] 中
+            # We cannot directly display images in text here, but in the sandbox protocol, images are usually returned separately
+            # Currently BaseApiTool's execute returns Any, usually a dict.
+            # We can return {"result": text, "images": [...] } 
+            # But the standard response_builder might serialize the dict.
+            # For simplicity, we only return text description here, or we could make BaseApiTool support returning multimedia.
+            # Check base_tool.py implementation, it just returns the result of execute.
+            # If we return a dict, it will be JSON serialized.
+            # To allow the frontend (if any) to display images, we need to follow some protocol.
+            # For now, only return "Generated X images", actual image data is in result['images']
             output += f"Generated {len(result['images'])} images (base64 data available)."
             
         return {
             "result": output,
-            "images": result["images"] # 传递原始图片数据
+            "images": result["images"]  # Pass raw image data
         }
 
 
 # ==========================================
-# 注册工具
+# Register Tools
 # ==========================================
 
 inspect_data = register_api_tool(
