@@ -3,7 +3,7 @@
   
     "benchmark_name": "doc_infer",
     "model_name": "gpt-4.1-2025-04-14",
-    "api_key": "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",
+    "api_key": "${OPENROUTER_API_KEY}",
     "base_url": "https://openrouter.ai/api/v1",
   
     "max_turns": 50,

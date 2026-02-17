@@ -7,14 +7,15 @@
   },
   "apis": {
     "text2sql": {
+      "_comment_databases": "数据库文件路径建议通过环境变量注入（例如 TEXT2SQL_RETAIL_DB_PATH）。默认留空避免提交本机绝对路径到仓库。",
       "databases": {
-        "retail": "/home/a1/sdb/lb/AgentFlow/sql/retail.db",
-        "music": "/home/a1/sdb/lb/AgentFlow/sql/music.db",
-        "hospital": "/home/a1/sdb/lb/AgentFlow/sql/hospital.db",
-        "finance": "/home/a1/sdb/lb/AgentFlow/sql/finance.db",
-        "chinook": "/home/a1/sdb/lb/AgentFlow/sql/chinook.sqlite",
-        "sakila": "/home/a1/sdb/lb/AgentFlow/sql/sakila.sqlite",
-        "adventureworks": "/home/a1/sdb/lb/AgentFlow/sql/adventureworks.sqlite"
+        "retail": "${TEXT2SQL_RETAIL_DB_PATH:-}",
+        "music": "${TEXT2SQL_MUSIC_DB_PATH:-}",
+        "hospital": "${TEXT2SQL_HOSPITAL_DB_PATH:-}",
+        "finance": "${TEXT2SQL_FINANCE_DB_PATH:-}",
+        "chinook": "${TEXT2SQL_CHINOOK_DB_PATH:-}",
+        "sakila": "${TEXT2SQL_SAKILA_DB_PATH:-}",
+        "adventureworks": "${TEXT2SQL_ADVENTUREWORKS_DB_PATH:-}"
       }
     }
   }

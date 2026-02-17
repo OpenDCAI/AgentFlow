@@ -1,7 +1,7 @@
 {
 
   "model_name": "openai/gpt-oss-120b",
-  "api_key": "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",
+  "api_key": "${OPENROUTER_API_KEY}",
   "base_url": "https://openrouter.ai/api/v1",
 
   "max_depth": 10,
@@ -25,7 +25,7 @@
 
   "sandbox_server_url": "http://127.0.0.1:18890",
   "sandbox_auto_start": true,
-  "sandbox_config_path": "/home/a1/sdb/tzw/Synthesis/sandbox/configs/profiles/dev.json",
+  "sandbox_config_path": "configs/sandbox-server/rag_config.json",
   "sandbox_timeout": 120,
 
   "available_tools": ["rag-search"],

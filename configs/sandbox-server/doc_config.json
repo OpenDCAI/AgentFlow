@@ -13,7 +13,7 @@
       "max_image_num": 10,
       "max_text_token": 20000,
       "vlm_model": "openai/gpt-4o-mini",
-      "vlm_api_key": "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",
+      "vlm_api_key": "${VLM_API_KEY}",
       "vlm_api_url": "https://openrouter.ai/api/v1",
       "vlm_max_tokens": 16384,
       "vlm_timeout": 300,

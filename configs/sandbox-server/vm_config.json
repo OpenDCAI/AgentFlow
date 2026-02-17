@@ -21,10 +21,11 @@
         "pool_reset": true,
         "snapshot_name": "",
         "use_proxy": false,
-        "client_password": "password",
-        "vm_path": "/home/a1/sdb/tzw/Synthesis/osworld-image/Ubuntu.qcow2",
+        "_comment_required": "建议通过环境变量提供本机资源路径与密码（避免硬编码）：VM_CLIENT_PASSWORD/VM_IMAGE_PATH/VM_RECORDING_PATH",
+        "client_password": "${VM_CLIENT_PASSWORD:-password}",
+        "vm_path": "${VM_IMAGE_PATH}",
         "recording": true,
-        "recording_path": "/home/a1/sdb/tzw/Synthesis/sandbox_recordings"
+        "recording_path": "${VM_RECORDING_PATH:-sandbox_recordings}"
       }
     }
   },
