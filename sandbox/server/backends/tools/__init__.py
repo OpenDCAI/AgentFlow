@@ -1,26 +1,26 @@
 # sandbox/server/backends/tools/__init__.py
 """
-无状态 API 工具注册模块
+Stateless API Tool Registration Module
 
-提供自由的单工具注册机制。每个工具自己决定：
-- 从 apis 配置中读取哪个子键
-- 如何初始化自己的配置
+Provides a free single-tool registration mechanism. Each tool decides:
+- Which sub-key to read from apis configuration
+- How to initialize its own configuration
 
-使用方式：
+Usage:
 
-1. 定义工具函数：
+1. Define tool function:
 ```python
 from sandbox.server.backends.tools import register_api_tool
 
 @register_api_tool("search", config_key="websearch")
 async def search(query: str, max_results: int = 10, **config) -> dict:
-    '''搜索网页'''
+    '''Search the web'''
     api_key = config.get("serper_api_key")
-    # ... 实现逻辑
+    # ... implementation logic
     return {"results": [...]}
 ```
 
-2. 配置文件 (apis 部分)：
+2. Configuration file (apis section):
 ```json
 {
   "apis": {
@@ -32,7 +32,7 @@ async def search(query: str, max_results: int = 10, **config) -> dict:
 }
 ```
 
-3. 工具会自动读取 apis.websearch 配置并注入到 **config 参数
+3. Tool will automatically read apis.websearch configuration and inject into **config parameter
 """
 
 import logging
@@ -44,15 +44,15 @@ logger = logging.getLogger("APITools")
 
 @dataclass
 class APIToolInfo:
-    """API 工具信息"""
-    name: str                           # 工具名称
-    func: Callable                      # 工具函数
-    config_key: Optional[str] = None    # 从 apis 中读取的配置键（None 表示不读取配置）
-    description: Optional[str] = None   # 工具描述
-    hidden: bool = False                # 是否隐藏
+    """API tool information"""
+    name: str                           # Tool name
+    func: Callable                      # Tool function
+    config_key: Optional[str] = None    # Configuration key read from apis (None means no config read)
+    description: Optional[str] = None   # Tool description
+    hidden: bool = False                # Whether hidden
 
 
-# 全局工具注册表
+# Global tool registry
 _API_TOOLS: Dict[str, APIToolInfo] = {}
 
 
@@ -64,20 +64,20 @@ def register_api_tool(
     hidden: bool = False
 ) -> Callable:
     """
-    注册 API 工具的装饰器
+    Decorator for registering API tools
     
     Args:
-        name: 工具名称（用于 execute 调用）
-        config_key: 从 apis 配置中读取的子键（如 "websearch"）
-                   如果为 None，工具函数不会接收配置
-        description: 工具描述（默认从 docstring 提取）
-        hidden: 是否隐藏
+        name: Tool name (used for execute calls)
+        config_key: Sub-key read from apis configuration (e.g., "websearch")
+                    If None, tool function won't receive configuration
+        description: Tool description (default extracted from docstring)
+        hidden: Whether hidden
     
     Example:
         ```python
         @register_api_tool("search", config_key="websearch")
         async def search(query: str, **config) -> dict:
-            '''搜索网页'''
+            '''Search the web'''
             api_key = config.get("serper_api_key")
             return {"results": [...]}
         ```
@@ -88,21 +88,21 @@ def register_api_tool(
             doc_lines = func.__doc__.strip().split("\n")
             tool_description = doc_lines[0].strip()
         
-        # 自动注入 name 到 BaseApiTool 实例
-        # 使用 setattr 以避免 mypy/linter 对 FunctionType 属性的检查报错
+        # Auto-inject name into BaseApiTool instance
+        # Use setattr to avoid mypy/linter errors for FunctionType attributes
         if hasattr(func, 'tool_name'):
             setattr(func, 'tool_name', name)
             logger.debug(f"Auto-injected tool_name='{name}' into instance")
         
-        # 自动注入 resource_type 到 BaseApiTool 实例
-        # 如果 config_key 存在，且实例的 resource_type 仍为默认值 "unknown"，则使用 config_key
+        # Auto-inject resource_type into BaseApiTool instance
+        # If config_key exists and instance's resource_type is still default "unknown", use config_key
         if hasattr(func, 'resource_type') and config_key:
             current_resource_type = getattr(func, 'resource_type')
             if current_resource_type == "unknown":
                 setattr(func, 'resource_type', config_key)
                 logger.debug(f"Auto-injected resource_type='{config_key}' into instance")
 
-        # 保存实例引用，用于后续注入配置
+        # Save instance reference for later config injection
         tool_info = APIToolInfo(
             name=name,
             func=func,
@@ -120,17 +120,17 @@ def register_api_tool(
 
 
 def get_api_tool(name: str) -> Optional[APIToolInfo]:
-    """获取已注册的 API 工具"""
+    """Get registered API tool"""
     return _API_TOOLS.get(name)
 
 
 def get_all_api_tools() -> Dict[str, APIToolInfo]:
-    """获取所有已注册的 API 工具"""
+    """Get all registered API tools"""
     return _API_TOOLS.copy()
 
 
 def list_api_tools(include_hidden: bool = False) -> List[Dict[str, Any]]:
-    """列出所有 API 工具信息"""
+    """List all API tool information"""
     result = []
     for name, info in _API_TOOLS.items():
         if info.hidden and not include_hidden:
@@ -145,7 +145,7 @@ def list_api_tools(include_hidden: bool = False) -> List[Dict[str, Any]]:
 
 
 def get_required_config_keys() -> List[str]:
-    """获取所有工具需要的配置键"""
+    """Get all configuration keys required by tools"""
     keys = set()
     for info in _API_TOOLS.values():
         if info.config_key:
@@ -155,17 +155,17 @@ def get_required_config_keys() -> List[str]:
 
 def register_all_tools(server, apis_config: Dict[str, Any]) -> int:
     """
-    将所有已注册的 API 工具注册到服务器
+    Register all registered API tools to the server
     
-    此函数遍历所有通过 @register_api_tool 装饰器注册的工具，
-    并使用 server.register_api_tool() 将它们注册到服务器。
+    This function iterates through all tools registered via the @register_api_tool decorator,
+    and registers them to the server using server.register_api_tool().
     
     Args:
-        server: HTTPServiceServer 实例
-        apis_config: apis 配置字典，用于提取各工具的配置
+        server: HTTPServiceServer instance
+        apis_config: apis configuration dictionary, used to extract configuration for each tool
         
     Returns:
-        成功注册的工具数量
+        Number of successfully registered tools
         
     Example:
         ```python
@@ -181,20 +181,20 @@ def register_all_tools(server, apis_config: Dict[str, Any]) -> int:
     
     for tool_name, tool_info in _API_TOOLS.items():
         try:
-            # 获取该工具需要的配置
+            # Get configuration needed by this tool
             tool_config = {}
             if tool_info.config_key:
                 tool_config = apis_config.get(tool_info.config_key, {})
-                # 跳过注释字段
+                # Skip comment fields
                 if isinstance(tool_config, dict):
                     tool_config = {k: v for k, v in tool_config.items() if not k.startswith("_")}
             
-            # 如果是 BaseApiTool 实例，直接注入配置到实例中
+            # If it's a BaseApiTool instance, directly inject config into the instance
             if hasattr(tool_info.func, 'set_config'):
                 tool_info.func.set_config(tool_config)
                 logger.debug(f"  📦 Injected config into {tool_name} instance")
             
-            # 注册工具到 server
+            # Register tool to server
             server.register_api_tool(
                 name=tool_info.name,
                 func=tool_info.func,
@@ -215,10 +215,10 @@ def register_all_tools(server, apis_config: Dict[str, Any]) -> int:
 
 
 # ============================================================================
-# 导入所有工具模块以触发注册
+# Import all tool modules to trigger registration
 # ============================================================================
 
-# 导入 websearch 模块（会自动注册其中的工具）
+# Import websearch module (will automatically register tools in it)
 from . import websearch
 from . import ds_tool
 from . import doc_tool

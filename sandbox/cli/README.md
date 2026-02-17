@@ -1,65 +1,72 @@
-# Sandbox CLI 使用说明
+# Sandbox CLI Usage
 
-本目录包含 Sandbox Server 的 Python 启动入口：
+This directory contains the Python startup entry for Sandbox Server:
 
 - `sandbox/cli/sandbox-server.py`
 
-推荐从项目根目录使用统一 shell 入口脚本启动：
+Recommended: start from the project root via the unified shell entry script:
 
 - `start_sandbox_server.sh`
 
-## 推荐启动方式
+## Recommended Startup
 
 ```bash
-/home/a1/sdb/lb/AgentFlow/start_sandbox_server.sh \
-  --config /home/a1/sdb/lb/AgentFlow/configs/sandbox-server/web_tool_config.json
+./start_sandbox_server.sh \
+  --config ./configs/sandbox-server/web_config.json
 ```
 
-该脚本会调用 `sandbox/cli/sandbox-server.py`，若入口不存在会直接报错退出。
+This script calls `sandbox/cli/sandbox-server.py` and exits with an error if
+the entry file is missing.
 
-## 直接运行 Python 入口
+## Run Python Entry Directly
 
 ```bash
-python3 /home/a1/sdb/lb/AgentFlow/sandbox/cli/sandbox-server.py \
-  --config /home/a1/sdb/lb/AgentFlow/configs/sandbox-server/web_tool_config.json
+python3 ./sandbox/cli/sandbox-server.py \
+  --config ./configs/sandbox-server/web_config.json
 ```
 
-## 常用参数
+## Common Arguments
 
 ```bash
-# 指定配置文件（必填）
+# Specify config file (required)
 --config, -c <path>
 
-# 指定主机/端口
+# Specify host/port (when using wrapper script, these are ignored and read from config)
+# To override, use Python script directly
 --host <host>
 --port, -p <port>
 
-# 日志级别
+# Log level
 --log-level DEBUG|INFO|WARNING|ERROR
 
-# 仅展示配置，不启动服务
+# Show parsed config only (do not start the server)
 --show-config
 ```
 
-## 示例
+**Note**: The `start_sandbox_server.sh` wrapper script ignores `--host` and `--port` arguments and reads these values from the config file (`server.url`, `server.host`, `server.port`). To override host/port, either:
+- Modify the config file, or
+- Use the Python script directly: `python3 ./sandbox/cli/sandbox-server.py`
+
+## Examples
 
 ```bash
-# 默认 host/port 启动
-/home/a1/sdb/lb/AgentFlow/start_sandbox_server.sh \
-  --config /home/a1/sdb/lb/AgentFlow/configs/sandbox-server/web_tool_config.json
+# Start with host/port from config
+./start_sandbox_server.sh \
+  --config ./configs/sandbox-server/web_config.json
 
-# 指定端口
-/home/a1/sdb/lb/AgentFlow/start_sandbox_server.sh \
-  --config /home/a1/sdb/lb/AgentFlow/configs/sandbox-server/web_tool_config.json \
+# Override port (the wrapper ignores --host/--port and uses config values)
+# Note: To override host/port, modify the config file or use Python script directly
+./start_sandbox_server.sh \
+  --config ./configs/sandbox-server/web_config.json \
   --port 8080
 
-# 本地调试
-/home/a1/sdb/lb/AgentFlow/start_sandbox_server.sh \
-  --config /home/a1/sdb/lb/AgentFlow/configs/sandbox-server/web_tool_config.json \
+# Local debug (use Python script directly to override host/port)
+python3 ./sandbox/cli/sandbox-server.py \
+  --config ./configs/sandbox-server/web_config.json \
   --host 127.0.0.1 \
   --log-level DEBUG
 ```
 
-## 停止服务
+## Stop the Server
 
-在运行终端中按 `Ctrl+C` 即可停止服务。
+Press `Ctrl+C` in the running terminal to stop the server.

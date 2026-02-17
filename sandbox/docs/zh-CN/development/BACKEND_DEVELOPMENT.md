@@ -1382,16 +1382,16 @@ asyncio.run(main())
 
 ## 🔍 CI/CD 验证
 
-### Strict Mode 验证
+### 配置预检
 
-由于 Backend 使用动态类加载和反射扫描，建议在 CI/CD 阶段进行严格验证：
+由于 Backend 使用动态类加载和反射扫描，建议在 CI/CD 阶段进行配置预检：
 
 ```bash
 # 验证配置文件（推荐在 CI/CD 中使用）
-python -m sandbox validate --config configs/profiles/production.json --strict
+python -m sandbox server --config configs/profiles/production.json --validate
 
 # 只检查不启动
-python -m sandbox validate --config configs/profiles/dev.json
+python -m sandbox server --config configs/profiles/dev.json --validate
 ```
 
 ### 验证内容
@@ -1426,10 +1426,10 @@ jobs:
         run: pip install -e .
       
       - name: Validate production config
-        run: python -m sandbox validate --config configs/profiles/production.json --strict
+        run: python -m sandbox server --config configs/profiles/production.json --validate
       
       - name: Validate dev config
-        run: python -m sandbox validate --config configs/profiles/dev.json --strict
+        run: python -m sandbox server --config configs/profiles/dev.json --validate
 ```
 
 ### 验证失败处理

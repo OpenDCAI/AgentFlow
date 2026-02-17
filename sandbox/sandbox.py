@@ -1,25 +1,25 @@
 # sandbox/sandbox.py
 """
-Sandbox - 用户交互的门面类 (Facade Class)
+Sandbox - User-facing Facade Class
 
-这是与 HTTP Service 交互的主要接口。
-每个 Sandbox 实例持有一个 client，使用 start() 启动服务并预热资源，
-使用 create_session() 手动创建需要的 session。
+This is the primary interface for interacting with HTTP Service.
+Each Sandbox instance holds a client; use start() to launch the service and warm resources,
+and use create_session() to manually create required sessions.
 
-使用示例:
+Example:
 ```python
 from sandbox import Sandbox
 
-# 基本使用
+# Basic usage
 sandbox = Sandbox()
-await sandbox.start()  # 启动服务器，预热资源
-await sandbox.create_session(["vm", "rag"])  # 创建需要的 session
+await sandbox.start()  # Start server and warm resources
+await sandbox.create_session(["vm", "rag"])  # Create required sessions
 result = await sandbox.execute("vm:screenshot", {})
 await sandbox.close()
 
-# 使用上下文管理器
+# Use context manager
 async with Sandbox() as sandbox:
-    await sandbox.create_session("vm")  # 单个资源
+    await sandbox.create_session("vm")  # Single resource
     result = await sandbox.execute("vm:screenshot", {})
 ```
 """
@@ -42,47 +42,47 @@ logger = logging.getLogger("Sandbox")
 
 
 # ============================================================================
-# 默认服务器配置模板
+# Default server configuration template
 # ============================================================================
 
 DEFAULT_SERVER_CONFIG = {
     "server": {
-        # host/port 由 Sandbox(server_url=...) 指定，不在配置中设置
+        # host/port are provided by Sandbox(server_url=...), not in config.
         "title": "Sandbox HTTP Service",
         "description": "HTTP Service for Sandbox",
         "session_ttl": 300
     },
     "resources": {
-        # 重资源后端（继承 Backend 类，支持 Session 管理和预热）
-        # 类路径格式：sandbox.server.backends.resources.{模块}.{类名}
+        # Heavy-resource backends (inherit Backend; support sessions and warmup).
+        # Class path format: sandbox.server.backends.resources.{module}.{class_name}
         "vm": {
             "enabled": True,
             "backend_class": "sandbox.server.backends.resources.vm.VMBackend",
-            "description": "虚拟机后端 - 桌面自动化"
+            "description": "VM backend - desktop automation"
         },
         "bash": {
             "enabled": True,
             "backend_class": "sandbox.server.backends.resources.bash.BashBackend",
-            "description": "Bash 后端 - 命令行交互"
+            "description": "Bash backend - command-line interaction"
         },
         "browser": {
             "enabled": True,
             "backend_class": "sandbox.server.backends.resources.browser.BrowserBackend",
-            "description": "浏览器后端 - 网页自动化"
+            "description": "Browser backend - web automation"
         },
         "code": {
             "enabled": True,
             "backend_class": "sandbox.server.backends.resources.code_executor.CodeExecutorBackend",
-            "description": "代码执行后端 - 代码沙箱"
+            "description": "Code execution backend - code sandbox"
         },
         "rag": {
             "enabled": True,
             "backend_class": "sandbox.server.backends.resources.rag.RAGBackend",
-            "description": "RAG 后端 - 文档检索"
+            "description": "RAG backend - document retrieval"
         }
     },
     "apis": {
-        # 轻资源 API 工具（使用 @register_api_tool 装饰器，无需 Session）
+        # Lightweight API tools (@register_api_tool), no Session required.
         "websearch": {}
     }
 }
@@ -94,22 +94,22 @@ DEFAULT_SERVER_CONFIG = {
 
 @dataclass
 class SandboxConfig:
-    """Sandbox 配置"""
-    # 服务器连接配置
+    """Sandbox configuration"""
+    # Server connection settings
     server_url: str = "http://localhost:18890"
     worker_id: Optional[str] = None
     timeout: float = 60.0
     
-    # 自动启动配置
+    # Auto-start settings
     auto_start_server: bool = False
-    server_config_path: Optional[str] = None  # 服务器配置文件路径
-    server_startup_timeout: float = 30.0  # 服务器启动超时
-    server_check_interval: float = 0.5  # 检查服务器状态间隔
+    server_config_path: Optional[str] = None  # Server config file path
+    server_startup_timeout: float = 30.0  # Server startup timeout
+    server_check_interval: float = 0.5  # Server status check interval
     
-    # 预热资源配置
-    warmup_resources: Optional[List[str]] = None  # start() 时预热的资源列表
+    # Warmup resource settings
+    warmup_resources: Optional[List[str]] = None  # Resources to warm up during start()
     
-    # 其他配置
+    # Other settings
     retry_count: int = 3
     log_level: str = "INFO"
     
@@ -123,22 +123,22 @@ class SandboxConfig:
 # ============================================================================
 
 class SandboxError(Exception):
-    """Sandbox 基础异常"""
+    """Base Sandbox exception"""
     pass
 
 
 class SandboxConnectionError(SandboxError):
-    """连接错误"""
+    """Connection error"""
     pass
 
 
 class SandboxServerStartError(SandboxError):
-    """服务器启动错误"""
+    """Server startup error"""
     pass
 
 
 class SandboxSessionError(SandboxError):
-    """Session 操作错误"""
+    """Session operation error"""
     pass
 
 
@@ -148,35 +148,35 @@ class SandboxSessionError(SandboxError):
 
 class Sandbox:
     """
-    Sandbox - 用户交互的门面类
+    Sandbox - User-facing facade class
     
-    每个 Sandbox 实例持有一个 HTTPServiceClient。
-    使用 start() 启动服务器并预热资源，使用 create_session() 手动创建 session。
-    使用 await sandbox.execute() 作为主入口执行所有操作。
+    Each Sandbox instance holds an HTTPServiceClient.
+    Use start() to launch the server and warm resources, and create_session() to manually create sessions.
+    Use await sandbox.execute() as the main entry for all actions.
     
     Attributes:
-        worker_id: 当前 Sandbox 实例的唯一标识
-        is_connected: 是否已连接到服务器
-        is_started: 是否已启动
+        worker_id: Unique identifier of the current Sandbox instance
+        is_connected: Whether connected to the server
+        is_started: Whether started
         
     Example:
         ```python
-        # 基本使用
+        # Basic usage
         sandbox = Sandbox()
-        await sandbox.start()  # 启动并预热资源
-        await sandbox.create_session(["vm", "rag"])  # 批量创建 session
+        await sandbox.start()  # Start and warm resources
+        await sandbox.create_session(["vm", "rag"])  # Create sessions in batch
         result = await sandbox.execute("vm:screenshot", {})
         await sandbox.close()
         
-        # 上下文管理器（自动 start 和 close）
+        # Context manager (auto start and close)
         async with Sandbox() as sandbox:
             await sandbox.create_session("vm")
             result = await sandbox.execute("vm:screenshot", {})
         
-        # 同步模式
+        # Synchronous mode
         with Sandbox() as sandbox:
             sandbox.create_session_sync(["vm", "rag"])
-            # 执行需要通过 _run_async 调用
+            # Execute async methods via _run_async
         ```
     """
     
@@ -189,14 +189,14 @@ class Sandbox:
         **kwargs
     ):
         """
-        初始化 Sandbox
+        Initialize Sandbox
         
         Args:
-            server_url: 服务器地址
-            worker_id: Worker ID（自动生成如果不提供）
-            config: 完整配置对象
-            warmup_resources: start() 时预热的资源列表
-            **kwargs: 其他配置参数
+            server_url: Server URL
+            worker_id: Worker ID (auto-generated if not provided)
+            config: Full config object
+            warmup_resources: Resource list to warm during start()
+            **kwargs: Other config arguments
         """
         if config:
             self._config = config
@@ -210,12 +210,12 @@ class Sandbox:
         
         self._client: Optional[HTTPServiceClient] = None
         self._server_process: Optional[subprocess.Popen] = None
-        self._server_log_file = None  # 服务器日志文件
+        self._server_log_file = None  # Server log file
         self._connected = False
         self._started = False
         self._server_started_by_us = False
         
-        # 设置日志级别
+        # Set log level
         logger.setLevel(getattr(logging, self._config.log_level.upper()))
     
     # ========================================================================
@@ -224,31 +224,31 @@ class Sandbox:
     
     @property
     def worker_id(self) -> str:
-        """获取 Worker ID"""
+        """Get Worker ID"""
         return self._config.worker_id or ""
     
     @property
     def is_connected(self) -> bool:
-        """是否已连接"""
+        """Whether connected"""
         return self._connected
     
     @property
     def is_started(self) -> bool:
-        """是否已启动"""
+        """Whether started"""
         return self._started
     
     @property
     def server_url(self) -> str:
-        """服务器地址"""
+        """Server URL"""
         return self._config.server_url
     
     @property
     def client(self) -> Optional[HTTPServiceClient]:
-        """获取底层 client（高级用法）"""
+        """Get underlying client (advanced use)"""
         return self._client
     
     # ========================================================================
-    # Start - 启动入口
+    # Start - entry point
     # ========================================================================
     
     async def start(
@@ -256,24 +256,24 @@ class Sandbox:
         warmup_resources: Optional[List[str]] = None
     ) -> "Sandbox":
         """
-        启动 Sandbox
+        Start Sandbox
         
-        1. 检测服务器是否在线，不在线则自动启动
-        2. 连接到服务器
-        3. 预热配置中指定的资源（仅初始化后端，不创建 session）
+        1. Check whether the server is online; auto-start it if offline
+        2. Connect to the server
+        3. Warm resources from config (initialize backends only; no session creation)
         
         Args:
-            warmup_resources: 覆盖配置中的预热资源列表
+            warmup_resources: Override warmup resources in config
             
         Returns:
-            self，支持链式调用
+            self, supports chaining
             
         Example:
             ```python
             sandbox = Sandbox(warmup_resources=["vm", "rag"])
-            await sandbox.start()  # 预热 vm 和 rag 后端
+            await sandbox.start()  # Warm up vm and rag backends
             
-            # 或者在 start 时指定
+            # Or pass warmup resources at start time
             sandbox = Sandbox()
             await sandbox.start(warmup_resources=["vm"])
             ```
@@ -282,7 +282,7 @@ class Sandbox:
             logger.warning("Sandbox already started")
             return self
         
-        # 检查服务器是否在线
+        # Check whether server is online
         if not await self._check_server_online_async():
             if self._config.auto_start_server:
                 logger.info(f"🔄 Server not online, starting server...")
@@ -293,7 +293,7 @@ class Sandbox:
                     f"Server at {self.server_url} is not online and auto_start_server is disabled"
                 )
         
-        # 创建并连接 client
+        # Create and connect client
         self._create_client()
         await self._client.connect()  # type: ignore
         self._connected = True
@@ -301,7 +301,7 @@ class Sandbox:
         
         logger.info(f"🚀 Sandbox started (worker_id: {self.worker_id})")
         
-        # 预热资源（如果配置了）
+        # Warm up resources (if configured)
         resources_to_warmup = warmup_resources or self._config.warmup_resources
         if resources_to_warmup:
             await self._warmup_backends(resources_to_warmup)
@@ -313,25 +313,29 @@ class Sandbox:
         warmup_resources: Optional[List[str]] = None
     ) -> "Sandbox":
         """
-        启动 Sandbox（同步版本）
+        Start Sandbox (sync version)
         """
         return self._run_async(self.start(warmup_resources))
     
     async def _warmup_backends(self, resources: List[str]):
         """
-        预热后端资源（仅初始化后端，不创建 session）
+        Warm backend resources (initialize backends only; no session creation)
         
-        这是内部方法，用于在 start() 时预热后端
+        Internal method used to warm backends during start().
         """
         if not resources:
             return {"status": "skipped", "message": "No resources to warmup"}
         
         logger.info(f"🔥 Warming up backends: {resources}")
         
+        client = self._client
+        if client is None:
+            raise SandboxConnectionError("Not connected. Call start() first.")
+
         try:
-            # 调用服务器端的预热端点
+            # Call server warmup endpoint
             from .protocol import HTTPEndpoints
-            result = await self._client._request("POST", HTTPEndpoints.WARMUP, {"backends": resources})
+            result = await client._request("POST", HTTPEndpoints.WARMUP, {"backends": resources})
             
             if result.get("status") == "success":
                 logger.info(f"✅ Backends warmed up: {resources}")
@@ -348,42 +352,42 @@ class Sandbox:
         resources: Optional[Union[str, List[str]]] = None
     ) -> Dict[str, Any]:
         """
-        预热后端资源
+        Warm backend resources
         
-        预热会调用后端的 warmup() 方法，加载模型、建立连接池等全局资源。
-        预热完成后，后续的工具调用会更快。
+        Warmup calls backend warmup() to load models, create pools, and other global resources.
+        After warmup, subsequent tool calls are faster.
         
-        注意：即使不显式调用此方法，在执行工具时也会自动预热对应的后端。
-        但显式预热可以提前完成初始化，避免首次调用时的延迟。
+        Note: even without explicit warmup, matching backends are warmed automatically during tool execution.
+        Explicit warmup helps avoid first-call latency by initializing earlier.
         
         Args:
-            resources: 要预热的资源，可以是：
-                - None: 预热所有已加载的后端
-                - 单个资源: "rag"
-                - 资源列表: ["rag", "vm", "browser"]
+            resources: Resources to warm; can be:
+                - None: warm all loaded backends
+                - Single resource: "rag"
+                - Resource list: ["rag", "vm", "browser"]
                 
         Returns:
-            预热结果字典，包含每个后端的预热状态
+            Warmup result dict containing warmup state of each backend
             
         Example:
             ```python
             async with Sandbox() as sandbox:
-                # 预热所有后端
+                # Warm up all backends
                 result = await sandbox.warmup()
                 
-                # 预热特定后端
+                # Warm up a specific backend
                 result = await sandbox.warmup("rag")
                 
-                # 预热多个后端
+                # Warm up multiple backends
                 result = await sandbox.warmup(["rag", "vm"])
             ```
         """
         if not self._started or self._client is None:
             raise SandboxConnectionError("Not started. Call start() first.")
         
-        # 处理输入参数
+        # Normalize input args
         if resources is None:
-            backend_list = None  # None 表示预热所有后端
+            backend_list = None  # None means warm up all backends
         elif isinstance(resources, str):
             backend_list = [resources]
         else:
@@ -410,15 +414,15 @@ class Sandbox:
         self,
         resources: Optional[Union[str, List[str]]] = None
     ) -> Dict[str, Any]:
-        """预热后端资源（同步版本）"""
+        """Warm backend resources (sync version)"""
         return self._run_async(self.warmup(resources))
     
     async def get_warmup_status(self) -> Dict[str, Any]:
         """
-        获取预热状态
+        Get warmup status
         
         Returns:
-            预热状态字典，包含每个后端的加载和预热状态
+            Warmup status dict, including loaded/warmed state per backend
             
         Example:
             ```python
@@ -441,7 +445,7 @@ class Sandbox:
         return await self._client._request("GET", HTTPEndpoints.WARMUP_STATUS)
     
     # ========================================================================
-    # Create Session - Session 创建
+    # Create Session
     # ========================================================================
     
     async def create_session(
@@ -450,38 +454,38 @@ class Sandbox:
         config: Optional[Dict[str, Any]] = None
     ) -> Dict[str, Any]:
         """
-        创建 Session（支持单个或批量）
+        Create Session (single or batch)
         
         Args:
-            resources: 要创建 session 的资源，可以是：
-                - 单个资源: "vm"
-                - 资源列表: ["vm", "rag", "browser"]
-                - 带配置的字典: {"vm": {"screen_size": [1920, 1080]}, "rag": {"top_k": 10}}
-            config: 当 resources 为字符串时使用的配置（可选）
+            resources: Resources to create sessions for; can be:
+                - Single resource: "vm"
+                - Resource list: ["vm", "rag", "browser"]
+                - Config dict: {"vm": {"screen_size": [1920, 1080]}, "rag": {"top_k": 10}}
+            config: Config used when resources is a string (optional)
             
         Returns:
-            创建结果，包含每个资源的 session 信息
+            Creation result including session info for each resource
             
         Example:
             ```python
             async with Sandbox() as sandbox:
-                # 方式1: 单个资源
+                # Option 1: single resource
                 result = await sandbox.create_session("vm")
                 
-                # 方式2: 多个资源（批量）
+                # Option 2: multiple resources
                 result = await sandbox.create_session(["vm", "rag", "browser"])
                 
-                # 方式3: 带配置的多个资源
+                # Option 3: multiple resources with config
                 result = await sandbox.create_session({
                     "vm": {"screen_size": [2560, 1440]},
                     "rag": {"top_k": 20},
                     "browser": {"headless": True}
                 })
                 
-                # 方式4: 单个资源带配置
+                # Option 4: single resource with config
                 result = await sandbox.create_session("vm", {"screen_size": [1920, 1080]})
                 
-                # 方式5: 单个资源带自定义名称
+                # Option 5: single resource with custom name
                 result = await sandbox.create_session("vm", {"custom_name": "my_vm"})
             ```
         """
@@ -491,20 +495,20 @@ class Sandbox:
         results = {}
         create_start = time.time()
         
-        # 统一转换为字典格式
+        # Normalize into dict format
         if isinstance(resources, str):
-            # 单个资源
+            # Single resource
             resource_configs = {resources: config or {}}
         elif isinstance(resources, list):
-            # 资源列表（使用空配置）
+            # Resource list (with empty config)
             resource_configs = {r: {} for r in resources}
         elif isinstance(resources, dict):
-            # 带配置的字典
+            # Config dict
             resource_configs = resources
         else:
             raise SandboxSessionError(f"Invalid resources type: {type(resources)}")
         
-        # 批量创建 session
+        # Create sessions in batch
         for resource_type, res_config in resource_configs.items():
             try:
                 custom_name = None
@@ -513,11 +517,11 @@ class Sandbox:
                     res_config = {k: v for k, v in res_config.items() if k != "custom_name"}
                 result = await self._client.create_session(resource_type, res_config, custom_name=custom_name)
 
-                # 解析新格式响应 (Code/Message/Data/Meta)
-                # result 格式: {"code": 0, "message": "success", "data": {...}, "meta": {...}}
+                # Parse new response format (Code/Message/Data/Meta)
+                # result format: {"code": 0, "message": "success", "data": {...}, "meta": {...}}
                 data = result.get("data", {})
 
-                # 判断是否成功：检查 code == 0 或 data.session_status == "active"
+                # Determine success: check code == 0 and data.session_status == "active"
                 is_success = (
                     result.get("code") == 0 and
                     data.get("session_status") == "active"
@@ -531,12 +535,12 @@ class Sandbox:
                     "message": result.get("message", "")
                 }
 
-                # 传递兼容性模式信息
+                # Propagate compatibility mode info
                 if data.get("compatibility_mode"):
                     results[resource_type]["compatibility_mode"] = True
                     results[resource_type]["compatibility_message"] = data.get("compatibility_message", "")
 
-                # 传递错误信息
+                # Propagate error info
                 if data.get("error"):
                     results[resource_type]["error"] = data.get("error")
 
@@ -564,11 +568,11 @@ class Sandbox:
         resources: Union[str, List[str], Dict[str, Dict[str, Any]]],
         config: Optional[Dict[str, Any]] = None
     ) -> Dict[str, Any]:
-        """创建 Session（同步版本）"""
+        """Create Session (sync version)"""
         return self._run_async(self.create_session(resources, config))
     
     # ========================================================================
-    # Destroy Session - Session 销毁
+    # Destroy Session
     # ========================================================================
     
     async def destroy_session(
@@ -576,29 +580,29 @@ class Sandbox:
         resources: Optional[Union[str, List[str]]] = None
     ) -> Dict[str, Any]:
         """
-        销毁 Session
+        Destroy Session
         
         Args:
-            resources: 要销毁的资源，可以是：
-                - 单个资源: "vm"
-                - 资源列表: ["vm", "rag"]
-                - None: 销毁所有 session
+            resources: Resources to destroy; can be:
+                - Single resource: "vm"
+                - Resource list: ["vm", "rag"]
+                - None: destroy all sessions
                 
         Returns:
-            销毁结果
+            Destroy result
             
         Example:
             ```python
             async with Sandbox() as sandbox:
                 await sandbox.create_session(["vm", "rag"])
                 
-                # 销毁单个
+                # Destroy one
                 await sandbox.destroy_session("vm")
                 
-                # 销毁多个
+                # Destroy multiple
                 await sandbox.destroy_session(["vm", "rag"])
                 
-                # 销毁所有
+                # Destroy all
                 await sandbox.destroy_session()
             ```
         """
@@ -606,15 +610,22 @@ class Sandbox:
             raise SandboxConnectionError("Not started. Call start() first.")
         
         results = {}
+        resource_list: List[str]
         
         if resources is None:
-            # 销毁所有 session
+            # Destroy all sessions
             sessions = await self._client.list_sessions()
-            resource_list = [s.get("resource_type") for s in sessions.get("sessions", [])]
+            resource_list = [
+                rt
+                for s in sessions
+                if isinstance(s, dict)
+                for rt in [s.get("resource_type")]
+                if isinstance(rt, str)
+            ]
         elif isinstance(resources, str):
             resource_list = [resources]
         else:
-            resource_list = resources
+            resource_list = [r for r in resources if isinstance(r, str)]
         
         for resource_type in resource_list:
             try:
@@ -644,31 +655,31 @@ class Sandbox:
         self,
         resources: Optional[Union[str, List[str]]] = None
     ) -> Dict[str, Any]:
-        """销毁 Session（同步版本）"""
+        """Destroy Session (sync version)"""
         return self._run_async(self.destroy_session(resources))
     
     # ========================================================================
     # List Sessions
     # ========================================================================
     
-    async def list_sessions(self) -> Dict[str, Any]:
+    async def list_sessions(self) -> List[Dict[str, Any]]:
         """
-        列出当前所有 Session
+        List all current Sessions
         
         Returns:
-            Session 列表
+            Session list
         """
         if not self._started or self._client is None:
             raise SandboxConnectionError("Not started. Call start() first.")
         
         return await self._client.list_sessions()
     
-    def list_sessions_sync(self) -> Dict[str, Any]:
-        """列出当前所有 Session（同步版本）"""
+    def list_sessions_sync(self) -> List[Dict[str, Any]]:
+        """List all current Sessions (sync version)"""
         return self._run_async(self.list_sessions())
     
     # ========================================================================
-    # Execute - 主入口
+    # Execute - main entry
     # ========================================================================
     
     async def execute(
@@ -679,16 +690,16 @@ class Sandbox:
         **kwargs
     ) -> Dict[str, Any]:
         """
-        执行动作 - 主入口
+        Execute action - main entry
         
         Args:
-            action: 动作名称，如 "search", "vm:screenshot", "rag:search"
-            params: 动作参数
-            **kwargs: 额外参数（将并入 params 传给后端工具）
-            timeout: 超时时间（秒）
+            action: Action name, e.g. "search", "vm:screenshot", "rag:search"
+            params: Action parameters
+            **kwargs: Extra parameters (merged into params for backend tools)
+            timeout: Timeout (seconds)
             
         Returns:
-            执行结果
+            Execution result
             
         Example:
             ```python
@@ -713,11 +724,11 @@ class Sandbox:
         params: Optional[Dict[str, Any]] = None,
         timeout: Optional[int] = None
     ) -> Dict[str, Any]:
-        """执行动作（同步版本）"""
+        """Execute action (sync version)"""
         return self._run_async(self.execute(action, params, timeout))
     
     # ========================================================================
-    # Reinitialize - 重新初始化资源
+    # Reinitialize resources
     # ========================================================================
     
     async def reinitialize(
@@ -726,23 +737,23 @@ class Sandbox:
         new_config: Optional[Dict[str, Any]] = None
     ) -> Dict[str, Any]:
         """
-        重新初始化指定资源（不影响其他资源）
+        Reinitialize one resource (without affecting others)
         
-        先销毁该资源的现有 session，然后用新配置重新创建。
+        Destroy existing session for this resource, then recreate with new config.
         
         Args:
-            resource_type: 要重新初始化的资源类型
-            new_config: 新的配置参数
+            resource_type: Resource type to reinitialize
+            new_config: New configuration parameters
             
         Returns:
-            重新初始化结果
+            Reinitialize result
         """
         if not self._started or self._client is None:
             raise SandboxConnectionError("Not started. Call start() first.")
         
         reinit_start = time.time()
         
-        # 销毁现有 session
+        # Destroy existing session
         old_session = None
         try:
             destroy_result = await self._client.destroy_session(resource_type)
@@ -751,7 +762,7 @@ class Sandbox:
         except Exception:
             logger.debug(f"🔄 Reinitialize {resource_type}: no existing session")
         
-        # 创建新 session
+        # Create new session
         try:
             custom_name = None
             config = new_config or {}
@@ -789,11 +800,11 @@ class Sandbox:
         resource_type: str,
         new_config: Optional[Dict[str, Any]] = None
     ) -> Dict[str, Any]:
-        """重新初始化资源（同步版本）"""
+        """Reinitialize resource (sync version)"""
         return self._run_async(self.reinitialize(resource_type, new_config))
     
     # ========================================================================
-    # Refresh Sessions - 保活
+    # Refresh Sessions - keepalive
     # ========================================================================
     
     async def refresh_sessions(
@@ -801,13 +812,13 @@ class Sandbox:
         resource_type: Optional[str] = None
     ) -> Dict[str, Any]:
         """
-        刷新 Session 存活时间
+        Refresh session TTL
         
         Args:
-            resource_type: 资源类型（可选，不指定则刷新所有）
+            resource_type: Resource type (optional; refresh all when omitted)
             
         Returns:
-            刷新结果
+            Refresh result
         """
         if not self._started or self._client is None:
             raise SandboxConnectionError("Not started. Call start() first.")
@@ -818,7 +829,7 @@ class Sandbox:
         self,
         resource_type: Optional[str] = None
     ) -> Dict[str, Any]:
-        """刷新 Session 存活时间（同步版本）"""
+        """Refresh session TTL (sync version)"""
         return self._run_async(self.refresh_sessions(resource_type))
     
     # ========================================================================
@@ -826,21 +837,21 @@ class Sandbox:
     # ========================================================================
     
     def __enter__(self) -> "Sandbox":
-        """同步上下文管理器入口"""
+        """Sync context manager entry"""
         self.start_sync()
         return self
     
     def __exit__(self, exc_type, exc_val, exc_tb):
-        """同步上下文管理器退出"""
+        """Sync context manager exit"""
         self.close_sync()
     
     async def __aenter__(self) -> "Sandbox":
-        """异步上下文管理器入口"""
+        """Async context manager entry"""
         await self.start()
         return self
     
     async def __aexit__(self, exc_type, exc_val, exc_tb):
-        """异步上下文管理器退出"""
+        """Async context manager exit"""
         await self.close()
     
     # ========================================================================
@@ -848,7 +859,7 @@ class Sandbox:
     # ========================================================================
     
     async def close(self):
-        """关闭连接"""
+        """Close connection"""
         if not self._connected:
             return
         
@@ -861,7 +872,7 @@ class Sandbox:
         logger.info(f"👋 Sandbox closed (worker_id: {self.worker_id})")
     
     def close_sync(self):
-        """关闭连接（同步版本）"""
+        """Close connection (sync version)"""
         if not self._connected:
             return
         self._run_async(self.close())
@@ -876,14 +887,14 @@ class Sandbox:
         cleanup_sessions: bool = True
     ) -> Dict[str, Any]:
         """
-        关闭连接的服务器
+        Shutdown connected server
         
         Args:
-            force: 是否强制关闭
-            cleanup_sessions: 关闭前是否清理所有 session
+            force: Whether to force shutdown
+            cleanup_sessions: Whether to clean all sessions before shutdown
             
         Returns:
-            关闭结果
+            Shutdown result
         """
         if not self._client:
             raise SandboxConnectionError("Not connected to server")
@@ -919,7 +930,7 @@ class Sandbox:
         force: bool = False,
         cleanup_sessions: bool = True
     ) -> Dict[str, Any]:
-        """关闭服务器（同步版本）"""
+        """Shutdown server (sync version)"""
         return self._run_async(self.shutdown_server(force, cleanup_sessions))
     
     # ========================================================================
@@ -927,8 +938,8 @@ class Sandbox:
     # ========================================================================
     
     async def _check_server_online_async(self) -> bool:
-        """检查服务器是否在线"""
-        import httpx
+        """Check whether server is online"""
+        import httpx  # pyright: ignore[reportMissingImports]
         try:
             async with httpx.AsyncClient(timeout=5.0) as client:
                 response = await client.get(f"{self.server_url}/health")
@@ -937,8 +948,8 @@ class Sandbox:
             return False
     
     def _check_server_online(self) -> bool:
-        """检查服务器是否在线（同步）"""
-        import httpx
+        """Check whether server is online (sync)"""
+        import httpx  # pyright: ignore[reportMissingImports]
         try:
             with httpx.Client(timeout=5.0) as client:
                 response = client.get(f"{self.server_url}/health")
@@ -947,7 +958,7 @@ class Sandbox:
             return False
     
     def _start_server(self):
-        """启动服务器"""
+        """Start server"""
         config = self._load_server_config()
         
         from urllib.parse import urlparse
@@ -957,7 +968,7 @@ class Sandbox:
         
         server_script = self._generate_server_script(config, host, port)
         
-        # 创建日志文件用于捕获服务器输出（调试用）
+        # Create log file to capture server output (for debugging).
         import tempfile
         self._server_log_file = tempfile.NamedTemporaryFile(
             mode='w+', 
@@ -969,7 +980,7 @@ class Sandbox:
         self._server_process = subprocess.Popen(
             [sys.executable, "-c", server_script],
             stdout=self._server_log_file,
-            stderr=subprocess.STDOUT,  # stderr 合并到 stdout
+            stderr=subprocess.STDOUT,  # stderr merged into stdout
             start_new_session=True
         )
         self._server_started_by_us = True
@@ -978,7 +989,7 @@ class Sandbox:
         logger.debug(f"📝 Server log: {self._server_log_file.name}")
     
     async def _wait_for_server_async(self):
-        """等待服务器启动完成"""
+        """Wait for server startup completion"""
         start_time = time.time()
         while time.time() - start_time < self._config.server_startup_timeout:
             if await self._check_server_online_async():
@@ -993,19 +1004,19 @@ class Sandbox:
     
     def get_server_log(self, tail_lines: int = 100) -> Optional[str]:
         """
-        获取服务器日志（用于调试）
+        Get server log (for debugging)
         
         Args:
-            tail_lines: 返回最后多少行日志
+            tail_lines: Number of tail log lines to return
             
         Returns:
-            服务器日志内容，如果没有日志文件则返回 None
+            Server log content; returns None if no log file exists
         """
         if not self._server_log_file:
             return None
         
         try:
-            # 刷新并读取日志
+            # Flush and read log
             self._server_log_file.flush()
             log_path = self._server_log_file.name
             
@@ -1015,14 +1026,14 @@ class Sandbox:
                     lines = lines[-tail_lines:]
                 return ''.join(lines)
         except Exception as e:
-            return f"[读取日志失败: {e}]"
+            return f"[Failed to read log: {e}]"
     
     def _load_server_config(self) -> Dict[str, Any]:
-        """加载服务器配置"""
+        """Load server configuration"""
         config_path = self._config.server_config_path
         
         if config_path:
-            # 尝试加载配置文件
+            # Try loading config file
             if os.path.exists(config_path):
                 logger.info(f"📄 Loading config from: {config_path}")
                 with open(config_path, 'r', encoding='utf-8') as f:
@@ -1031,12 +1042,12 @@ class Sandbox:
                 logger.info(f"   Resources in config: {resources}")
                 return config
             else:
-                # 配置文件路径指定了但不存在
+                # Config path is specified but does not exist
                 logger.warning(f"⚠️ Config file not found: {config_path}")
                 logger.warning(f"   Current working directory: {os.getcwd()}")
                 logger.warning(f"   Absolute path would be: {os.path.abspath(config_path)}")
         
-        # 使用默认配置
+        # Use default config
         logger.info("📄 Using DEFAULT_SERVER_CONFIG")
         default_config = DEFAULT_SERVER_CONFIG.copy()
         resources = [k for k in default_config.get("resources", {}).keys() if not k.startswith("_")]
@@ -1045,11 +1056,11 @@ class Sandbox:
     
     def _generate_server_script(self, config: Dict[str, Any], host: str, port: int) -> str:
         """
-        生成服务器启动脚本
+        Generate server startup script
         
-        生成的脚本支持:
-        - 加载重资源后端 (resources 配置部分)
-        - 加载轻资源工具 (apis 配置部分)
+        Generated script supports:
+        - Loading heavy-resource backends (resources section)
+        - Loading lightweight tools (apis section)
         """
         config_json = json.dumps(config)
         
@@ -1062,7 +1073,7 @@ import logging
 import importlib
 import traceback
 
-# 配置日志同时输出到 stderr（确保能被看到）
+# Configure logging to stderr so it is visible.
 logging.basicConfig(
     level=logging.INFO,
     format='%(levelname)s:%(name)s:%(message)s',
@@ -1070,9 +1081,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger("SandboxServer")
 
-# 打印启动信息
+# Print startup info
 logger.info("=" * 60)
-logger.info("🚀 Sandbox Server 启动中...")
+logger.info("🚀 Sandbox Server starting...")
 logger.info("=" * 60)
 
 from sandbox import HTTPServiceServer
@@ -1081,9 +1092,9 @@ from sandbox.server.backends.base import BackendConfig
 
 config = json.loads({repr(config_json)})
 
-# 打印配置摘要
+# Print config summary
 resources_names = [k for k in config.get("resources", {{}}).keys() if not k.startswith("_")]
-logger.info(f"📋 配置中的 resources: {{resources_names}}")
+logger.info(f"📋 resources in config: {{resources_names}}")
 
 server = HTTPServiceServer(
     host="{host}",
@@ -1094,43 +1105,43 @@ server = HTTPServiceServer(
 )
 
 # ============================================================================
-# 1. 注册重资源后端 (resources)
+# 1. Register heavy-resource backends (resources)
 # ============================================================================
 resources_config = config.get("resources", {{}})
 loaded_backends = []
 failed_backends = []
 
 for name, res_config in resources_config.items():
-    # 跳过注释字段
+    # Skip comment fields
     if name.startswith("_"):
         continue
     
-    # 检查是否启用
+    # Check enabled flag
     if not res_config.get("enabled", True):
         logger.info(f"⏭️ Skipping disabled resource: {{name}}")
         continue
     
-    # 获取后端类路径
+    # Get backend class path
     backend_class_path = res_config.get("backend_class")
     if not backend_class_path:
         logger.warning(f"⚠️ Resource '{{name}}' has no backend_class, skipping")
         continue
     
     try:
-        # 动态加载后端类
+        # Dynamically load backend class
         logger.info(f"📦 Loading backend: {{name}} ({{backend_class_path}})")
         module_path, class_name = backend_class_path.rsplit(".", 1)
         module = importlib.import_module(module_path)
         backend_cls = getattr(module, class_name)
         
-        # 创建后端配置
+        # Create backend config
         backend_config = BackendConfig(
             enabled=True,
             default_config=res_config.get("config", {{}}),
             description=res_config.get("description", "")
         )
         
-        # 实例化并加载后端
+        # Instantiate and load backend
         backend = backend_cls(config=backend_config)
         tools = server.load_backend(backend)
         
@@ -1142,29 +1153,29 @@ for name, res_config in resources_config.items():
         logger.error(f"❌ Failed to register backend '{{name}}': {{e}}")
         logger.error(traceback.format_exc())
 
-# 打印加载结果摘要
+# Print backend load summary
 logger.info("=" * 60)
-logger.info(f"📊 后端加载结果: {{len(loaded_backends)}} 成功, {{len(failed_backends)}} 失败")
+logger.info(f"📊 Backend load result: {{len(loaded_backends)}} success, {{len(failed_backends)}} failed")
 if loaded_backends:
-    logger.info(f"   ✅ 已加载: {{loaded_backends}}")
+    logger.info(f"   ✅ loaded: {{loaded_backends}}")
 if failed_backends:
-    logger.error(f"   ❌ 失败: {{failed_backends}}")
+    logger.error(f"   ❌ failed: {{failed_backends}}")
 
 # ============================================================================
-# 2. 注册轻资源工具 (apis)
+# 2. Register lightweight tools (apis)
 # ============================================================================
 apis_config = config.get("apis", {{}})
 if apis_config:
     logger.info(f"📦 Registering API tools: {{list(apis_config.keys())}}")
 register_all_tools(server, apis_config)
 
-# 启动服务器
+# Start server
 server.run()
 '''
         return script
     
     def _create_client(self):
-        """创建 HTTPServiceClient"""
+        """Create HTTPServiceClient"""
         client_config = HTTPClientConfig(
             base_url=self._config.server_url,
             timeout=self._config.timeout,
@@ -1175,7 +1186,7 @@ server.run()
         self._client = HTTPServiceClient(config=client_config)
     
     def _run_async(self, coro) -> Any:
-        """在同步上下文中运行异步代码"""
+        """Run async code in sync context"""
         loop = asyncio.new_event_loop()
         try:
             return loop.run_until_complete(coro)
@@ -1187,38 +1198,38 @@ server.run()
     # ========================================================================
     
     async def get_tools(self, include_hidden: bool = False) -> List[Dict[str, Any]]:
-        """获取可用工具列表"""
+        """Get available tool list"""
         if not self._started or self._client is None:
             raise SandboxConnectionError("Not started. Call start() first.")
         return await self._client.list_tools(include_hidden)
     
     def get_tools_sync(self, include_hidden: bool = False) -> List[Dict[str, Any]]:
-        """获取可用工具列表（同步版本）"""
+        """Get available tool list (sync version)"""
         return self._run_async(self.get_tools(include_hidden))
     
     async def get_status(self) -> Dict[str, Any]:
-        """获取当前状态"""
+        """Get current status"""
         if not self._started or self._client is None:
             raise SandboxConnectionError("Not started. Call start() first.")
         return await self._client.get_status()
     
     def get_status_sync(self) -> Dict[str, Any]:
-        """获取当前状态（同步版本）"""
+        """Get current status (sync version)"""
         return self._run_async(self.get_status())
     
     def get_server_config(self) -> Dict[str, Any]:
-        """获取服务器配置"""
+        """Get server configuration"""
         return self._load_server_config()
     
     def save_server_config(self, config: Dict[str, Any], path: str):
-        """保存服务器配置到文件"""
+        """Save server configuration to file"""
         with open(path, 'w') as f:
             json.dump(config, f, indent=2, ensure_ascii=False)
         logger.info(f"💾 Server config saved to {path}")
     
     @staticmethod
     def create_config_template(path: str):
-        """创建配置模板文件"""
+        """Create config template file"""
         with open(path, 'w') as f:
             json.dump(DEFAULT_SERVER_CONFIG, f, indent=2, ensure_ascii=False)
         logger.info(f"📝 Config template created at {path}")
@@ -1236,10 +1247,10 @@ def create_sandbox(
     server_url: str = "http://localhost:18890",
     **kwargs
 ) -> Sandbox:
-    """创建 Sandbox 实例的便捷函数"""
+    """Convenience function to create Sandbox instance"""
     return Sandbox(server_url=server_url, **kwargs)
 
 
 def get_default_config() -> Dict[str, Any]:
-    """获取默认服务器配置"""
+    """Get default server configuration"""
     return DEFAULT_SERVER_CONFIG.copy()

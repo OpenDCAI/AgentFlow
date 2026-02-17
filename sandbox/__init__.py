@@ -54,20 +54,14 @@ HTTP Service Module - 独立的HTTP服务模块
 
 from .protocol import (
     MessageType,
-    ResourceType,
     HTTPEndpoints,
     BaseMessage,
-    Response,
     ExecuteRequest,
     ExecuteBatchRequest,
-    LifecycleAllocateRequest,
-    LifecycleReleaseRequest,
     SessionCreateRequest,
     SessionDestroyRequest,
     InitResourceRequest,
     InitBatchRequest,
-    parse_message,
-    create_execute_request,
 )
 
 from .server import (
@@ -120,20 +114,14 @@ __version__ = "1.0.0"
 __all__ = [
     # Protocol
     "MessageType",
-    "ResourceType",
     "HTTPEndpoints",
     "BaseMessage",
-    "Response",
     "ExecuteRequest",
     "ExecuteBatchRequest",
-    "LifecycleAllocateRequest",
-    "LifecycleReleaseRequest",
     "SessionCreateRequest",
     "SessionDestroyRequest",
     "InitResourceRequest",
     "InitBatchRequest",
-    "parse_message",
-    "create_execute_request",
     # Server
     "HTTPServiceServer",
     "ToolExecutor",

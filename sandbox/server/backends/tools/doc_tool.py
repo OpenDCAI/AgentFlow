@@ -1,8 +1,8 @@
 # sandbox/server/backends/tools/doc_tool.py
 """
-Document QA API 工具
+Document QA API Tools
 
-提供 search 和 read 两个工具，用于文档问答
+Provides search and read tools for document Q&A
 """
 
 import base64
@@ -14,7 +14,7 @@ import xml.etree.ElementTree as ET
 from typing import Any, Dict, List, Optional, Tuple, Union
 from xml.dom import minidom
 
-# PIL 是可选依赖
+# PIL is an optional dependency
 try:
     from PIL import Image
     PIL_AVAILABLE = True
@@ -22,7 +22,7 @@ except ImportError:
     PIL_AVAILABLE = False
     Image = None
 
-# OpenAI 客户端
+# OpenAI client
 try:
     import openai
     OPENAI_AVAILABLE = True
@@ -38,7 +38,7 @@ logger = logging.getLogger("DocTool")
 
 
 def process_image(image_path: str) -> Tuple[str, str, Optional[str]]:
-    """处理图片，返回 media_type, base64_image, error_msg"""
+    """Process image, return media_type, base64_image, error_msg"""
     try:
         if not os.path.exists(image_path):
             return "", "", f"File not found: {image_path}"
@@ -79,7 +79,7 @@ def process_image(image_path: str) -> Tuple[str, str, Optional[str]]:
 
 
 def make_snippet(text: str, keyword: str, max_snippet_length: int = 512) -> str:
-    """生成包含关键词的文本片段"""
+    """Generate text snippet containing keywords"""
     if not text or not keyword:
         return ""
 
@@ -137,7 +137,7 @@ def make_snippet(text: str, keyword: str, max_snippet_length: int = 512) -> str:
 
 
 def extract_image_and_table_items(root: ET.Element) -> List[Dict[str, Any]]:
-    """从 XML 元素中提取图片和表格信息"""
+    """Extract image and table information from XML element"""
     items = []
     for child in root.iter():
         if child.tag == "Image":
@@ -164,7 +164,7 @@ def extract_image_and_table_items(root: ET.Element) -> List[Dict[str, Any]]:
 
 
 def get_page_numbers_from_section(section: ET.Element) -> List[int]:
-    """从 section 中提取所有页码"""
+    """Extract all page numbers from section"""
     pages = set()
     for node in section.iter():
         page_num = node.get("page_num")
@@ -215,7 +215,7 @@ The final JSON must be wrapped inside the following tags:
 
 
 class VLMClient:
-    """负责调用视觉语言模型 API，处理文档内容并返回有用信息"""
+    """Responsible for calling vision language model API, processing document content and returning useful information"""
     
     def __init__(
         self, 
@@ -235,13 +235,13 @@ class VLMClient:
     
     def call_llm(self, messages: List[Dict[str, Any]]) -> str:
         """
-        调用 OpenAI API 处理消息
+        Call OpenAI API to process messages
         
         Args:
-            messages: 包含文本和图片的消息列表
+            messages: List of messages containing text and images
             
         Returns:
-            LLM 返回的文本内容
+            Text content returned by LLM
         """
         if not OPENAI_AVAILABLE or openai is None:
             raise ToolBusinessError("openai package is not available", ErrorCode.EXECUTION_ERROR)
@@ -266,7 +266,7 @@ class VLMClient:
                 response_content = response.choices[0].message.content
                 if response_content:
                     logger.debug(f"[VLM Response] Attempt {attempt} succeeded")
-                    # 参考原始实现，打印响应内容用于调试
+                    # Reference original implementation, print response content for debugging
                     logger.debug(f"[LLM RESPONSE]: {response_content}")
                     return response_content.strip()
                 else:
@@ -284,31 +284,31 @@ class VLMClient:
     
     def get_useful_info(self, section_id: str, goal: str, messages: List[Dict[str, Any]]) -> str:
         """
-        调用 VLM 处理文档内容并解析返回的有用信息
+        Call VLM to process document content and parse returned useful information
         
         Args:
-            section_id: 文档 section ID
-            goal: 用户目标/问题
-            messages: 包含文档内容和图片的消息列表
+            section_id: Document section ID
+            goal: User goal/question
+            messages: List of messages containing document content and images
             
         Returns:
-            格式化的有用信息字符串，包含 evidence 和 summary
+            Formatted useful information string, containing evidence and summary
         """
         for retry in range(self.retry_max_attempts):
             try:
-                # 调用 LLM API
+                # Call LLM API
                 response = self.call_llm(messages)
                 
-                # 解析 JSON 响应（从 <json>...</json> 标签中提取）
+                # Parse JSON response (extract from <json>...</json> tags)
                 if "<json>" in response and "</json>" in response:
                     json_str = response.split("<json>")[-1].split("</json>")[0].strip()
                 else:
-                    # 如果没有标签，尝试直接解析整个响应
+                    # If no tags, try to parse the entire response directly
                     json_str = response.strip()
                 
                 response_json = json.loads(json_str)
                 
-                # 格式化返回结果
+                # Format return result
                 useful_info = f"The useful information from the document section (section_id={section_id}) for user goal `{goal}` is as follows: \n\n"
                 useful_info += f"Evidence in document: \n{str(response_json.get('evidence', ''))}\n\n"
                 useful_info += f"Summary: \n{str(response_json.get('summary', ''))}"
@@ -320,14 +320,14 @@ class VLMClient:
                 if retry < self.retry_max_attempts - 1:
                     time.sleep(1)
             except ToolBusinessError:
-                # 如果是业务错误（如 API 调用失败），直接抛出
+                # If it's a business error (e.g., API call failure), raise directly
                 raise
             except Exception as e:
                 logger.warning(f"[GET USEFUL INFO ERROR]: {e}, retrying {retry+1}/{self.retry_max_attempts} ...")
                 if retry < self.retry_max_attempts - 1:
                     time.sleep(1)
         
-        # 如果所有重试都失败，返回错误信息
+        # If all retries fail, return error message
         useful_info = f"The useful information from the document section (section_id={section_id}) for user goal `{goal}` is as follows: \n\n"
         useful_info += "Evidence in document: \nThe provided document section could not be processed by the VLM. Please check the section ID and try again.\n\n"
         useful_info += "Summary: \nThe document section could not be processed, and therefore, no information is available."
@@ -336,7 +336,7 @@ class VLMClient:
 
 
 class DocTool:
-    """文档工具类，用于加载和处理文档 XML"""
+    """Document tool class for loading and processing document XML"""
     
     def __init__(self, seed_path: str):
         self.seed_path = seed_path
@@ -349,7 +349,7 @@ class DocTool:
         self._load_documents()
     
     def _load_documents(self):
-        """加载 outline.xml 和 all_content.xml"""
+        """Load outline.xml and all_content.xml"""
         outline_path = os.path.join(self.seed_path, "outline.xml")
         content_path = os.path.join(self.seed_path, "all_content.xml")
         
@@ -362,29 +362,29 @@ class DocTool:
             self.outline_root = ET.parse(outline_path).getroot()
             self.content_root = ET.parse(content_path).getroot()
             
-            # 构建 section_dict
+            # Build section_dict
             for section in self.content_root.iter("Section"):
                 section_id = section.get("section_id")
                 if section_id:
                     self.section_dict[section_id] = section
             
-            # 构建 image_path_dict 和 table_image_path_dict
-            # 从 data.pkl 中读取（如果需要），或者从 XML 中提取
-            # 这里简化处理，假设图片路径可以从 image_id 推断
+            # Build image_path_dict and table_image_path_dict
+            # Read from data.pkl (if needed), or extract from XML
+            # Simplified here, assume image paths can be inferred from image_id
             
         except Exception as e:
             raise ToolBusinessError(f"Failed to load documents: {str(e)}", ErrorCode.EXECUTION_ERROR)
     
     def get_section_content(self, section_id: str) -> Optional[ET.Element]:
-        """获取指定 section 的内容"""
+        """Get content of specified section"""
         return self.section_dict.get(section_id)
     
     def get_image(self, image_id: str) -> Tuple[str, str, Optional[str]]:
-        """获取图片的 base64 编码"""
-        # 尝试从 figures 文件夹中查找图片
+        """Get base64 encoding of image"""
+        # Try to find image from figures folder
         figures_dir = os.path.join(self.seed_path, "figures")
         if os.path.exists(figures_dir):
-            # 优先查找压缩版本（更小）
+            # Prefer compressed version (smaller)
             possible_names = [
                 f"image_{image_id}_compressed.jpg",
                 f"image_{image_id}.jpg",
@@ -399,12 +399,12 @@ class DocTool:
         return "", "", f"Image {image_id} not found"
     
     def get_page_image(self, page_num: int) -> Tuple[str, str, Optional[str]]:
-        """获取页面图片的 base64 编码"""
+        """Get base64 encoding of page image"""
         page_images_dir = os.path.join(self.seed_path, "page_images")
         if not os.path.exists(page_images_dir):
             return "", "", f"page_images directory not found"
         
-        # 尝试多种可能的文件名格式，优先使用压缩版本
+        # Try multiple possible filename formats, prefer compressed version
         index_string = "%04d" % (int(page_num) - 1)
         possible_names = [
             f"page_{index_string}_compressed.jpg",
@@ -420,12 +420,12 @@ class DocTool:
         return "", "", f"Page {page_num} image not found"
     
     def get_table_image(self, table_id: str) -> Tuple[str, str, Optional[str]]:
-        """获取表格图片的 base64 编码"""
+        """Get base64 encoding of table image"""
         tables_dir = os.path.join(self.seed_path, "tables")
         if not os.path.exists(tables_dir):
             return "", "", f"tables directory not found"
         
-        # 尝试查找表格图片
+        # Try to find table image
         for ext in [".png", ".jpg"]:
             table_path = os.path.join(tables_dir, f"table_{table_id}{ext}")
             if os.path.exists(table_path):
@@ -434,7 +434,7 @@ class DocTool:
         return "", "", f"Table {table_id} image not found"
     
     def single_search(self, key_word: str) -> ET.Element:
-        """在文档中搜索关键词"""
+        """Search for keywords in document"""
         key_word = key_word.lower()
         result_root = ET.Element("Search_Result")
         curr_section_id = ""
@@ -443,7 +443,7 @@ class DocTool:
             if curr.tag == "Section":
                 curr_section_id = curr.get("section_id", "")
 
-                # 检查 heading
+                # Check heading
                 if len(curr) > 0 and curr[0].text is not None:
                     if key_word in curr[0].text.lower():
                         item = ET.SubElement(
@@ -502,7 +502,7 @@ class DocTool:
 
 
 class SearchTool(BaseApiTool):
-    """文档搜索工具"""
+    """Document search tool"""
     
     def __init__(self):
         super().__init__(tool_name="doc:search", resource_type="doc")
@@ -514,14 +514,14 @@ class SearchTool(BaseApiTool):
         **kwargs
     ) -> Any:
         """
-        在文档中搜索关键词
+        Search for keywords in document
         
         Args:
-            key_words: 关键词（字符串或列表）
-            max_search_results: 最大搜索结果数
-            **kwargs: 包含 seed_path（从 seed.jsonl 的 kwargs 中传递）等参数
+            key_words: Keywords (string or list)
+            max_search_results: Maximum number of search results
+            **kwargs: Contains seed_path (passed from seed.jsonl kwargs) and other parameters
         """
-        # 从 kwargs 中获取 seed_path（优先），否则使用配置中的默认值
+        # Get seed_path from kwargs (priority), otherwise use default value from config
         seed_path = kwargs.get("seed_path") or self.get_config("seed_path")
         
         if not seed_path:
@@ -567,7 +567,7 @@ class SearchTool(BaseApiTool):
 
 
 class ReadTool(BaseApiTool):
-    """文档读取工具"""
+    """Document read tool"""
     
     def __init__(self):
         super().__init__(tool_name="doc:read", resource_type="doc")
@@ -581,14 +581,14 @@ class ReadTool(BaseApiTool):
         max_image_num: int = 10,
         max_text_token: int = 20000
     ) -> str:
-        """读取单个 section 并调用 VLM 获取有用信息"""
+        """Read a single section and call VLM to get useful information"""
         visual_num_exceeded = False
         text_token_exceeded = False
         
         if section_id not in doc_tool.section_dict:
             return f"The section_id {section_id} is not presented in the document, here is the full list of available section_id: {list(doc_tool.section_dict.keys())}. Please try again."
         
-        # 构建 messages
+        # Build messages
         messages = [
             {'role': 'system', 'content': [{"type": "text", "text": "You are a helpful assistant."}]},
         ]
@@ -598,7 +598,7 @@ class ReadTool(BaseApiTool):
         section_text = ET.tostring(xml_section_obj, encoding="unicode")
         section_text = minidom.parseString(section_text).toprettyxml(indent="  ").replace('<?xml version="1.0" ?>\n', '').strip()
 
-        # 检查文本长度
+        # Check text length
         if len(section_text) > max_text_token:
             text_token_exceeded = True
             section_text = section_text[:max_text_token] + "\n\n... [Document content truncated to comply with maximum text length limit] ..."
@@ -606,7 +606,7 @@ class ReadTool(BaseApiTool):
         page_numbers = get_page_numbers_from_section(xml_section_obj)
 
         visual_object_infos = []
-        # 添加页面图片
+        # Add page images
         for page_num in page_numbers:
             media_type, base64_image, error_msg = doc_tool.get_page_image(page_num)
             if not error_msg:
@@ -618,7 +618,7 @@ class ReadTool(BaseApiTool):
                     "error_msg": error_msg
                 })
 
-        # 添加图片和表格
+        # Add images and tables
         for visual_item in visual_items:
             if visual_item['type'] == 'Image':
                 media_type, base64_image, error_msg = doc_tool.get_image(visual_item['image_id'])
@@ -639,7 +639,7 @@ class ReadTool(BaseApiTool):
                     })
                     visual_object_infos.append(visual_item)
 
-        # 限制图片数量
+        # Limit number of images
         if len(visual_object_infos) > max_image_num:
             visual_object_infos = [item for item in visual_object_infos if item['type'] != 'Page']
             if len(visual_object_infos) > max_image_num:
@@ -648,7 +648,7 @@ class ReadTool(BaseApiTool):
                     visual_object_infos = visual_object_infos[:max_image_num]
                     visual_num_exceeded = True
 
-        # 构建 messages：先添加视觉对象，再添加文本
+        # Build messages: add visual objects first, then add text
         # global visual first, then local visual, then text with instruction
         for visual_object_info in visual_object_infos:
             if visual_object_info['type'] == 'Page':
@@ -716,13 +716,13 @@ class ReadTool(BaseApiTool):
                 'content': [{"type": "text", "text": f"Note that the document content has been truncated due to its large size exceeding the {max_text_token} character limit."}]
             })
 
-        # 添加最终的 prompt
+        # Add final prompt
         messages.append({
             'role': 'user', 
             'content': [{"type": "text", "text": GET_USEFUL_INFO_PROMPT.format(document_content=section_text, goal=goal)}]
         })
 
-        # 调用 VLM 获取有用信息
+        # Call VLM to get useful information
         useful_info = vlm_client.get_useful_info(section_id, goal, messages)
 
         return useful_info
@@ -736,16 +736,16 @@ class ReadTool(BaseApiTool):
         **kwargs
     ) -> Any:
         """
-        读取文档指定 section 的内容，调用 VLM 获取有用信息
+        Read content of specified section in document, call VLM to get useful information
         
         Args:
-            section_ids: section ID（字符串或列表）
-            goal: 用户目标/问题
-            max_image_num: 最大图片数量
-            max_text_token: 最大文本长度
-            **kwargs: 包含 seed_path（从 seed.jsonl 的 kwargs 中传递）等参数
+            section_ids: Section ID (string or list)
+            goal: User goal/question
+            max_image_num: Maximum number of images
+            max_text_token: Maximum text length
+            **kwargs: Contains seed_path (passed from seed.jsonl kwargs) and other parameters
         """
-        # 从 kwargs 中获取 seed_path（优先），否则使用配置中的默认值
+        # Get seed_path from kwargs (priority), otherwise use default value from config
         seed_path = kwargs.get("seed_path") or self.get_config("seed_path")
         
         if not seed_path:
@@ -783,7 +783,7 @@ class ReadTool(BaseApiTool):
         if not vlm_api_key:
             raise ToolBusinessError("VLM API key not configured. Please set 'vlm_api_key' in config or VLM_API_KEY/OPENAI_API_KEY environment variable", ErrorCode.EXECUTION_ERROR)
         
-        # 创建 VLM 客户端
+        # Create VLM client
         vlm_client = VLMClient(
             model=vlm_model,
             api_key=vlm_api_key,
@@ -815,15 +815,15 @@ class ReadTool(BaseApiTool):
         return {"result": read_result}
 
 
-# 注册工具
+# Register tools
 search = register_api_tool(
     name="doc:search",
     config_key="doc",
-    description="在文档中搜索关键词"
+    description="Search for keywords in document"
 )(SearchTool())
 
 read = register_api_tool(
     name="doc:read",
     config_key="doc",
-    description="读取文档指定 section 的内容，调用 VLM 获取有用信息并返回给 agent"
+    description="Read content of specified section in document, call VLM to get useful information and return to agent"
 )(ReadTool())

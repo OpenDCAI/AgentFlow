@@ -1,46 +1,46 @@
 # sandbox/server/__init__.py
 """
-HTTP Service Server 模块
+HTTP Service Server Module
 
-通过配置文件启动 Sandbox 服务器。
+Start Sandbox server via configuration file.
 
-目录结构:
+Directory Structure:
 ```
 server/
-├── __init__.py          # 模块导出
-├── app.py               # HTTPServiceServer 主类
-├── routes.py            # HTTP 路由定义
-├── models.py            # Pydantic 请求模型
-├── config_loader.py     # 配置加载器
-├── core/                # 核心组件
-│   ├── decorators.py        # @tool 装饰器
-│   ├── resource_router.py   # 资源路由管理
-│   └── tool_executor.py     # 工具执行器
-└── backends/            # 后端实现
-    ├── base.py              # Backend 基类
-    ├── tools/               # 无状态 API 工具
-    │   ├── __init__.py      # @register_api_tool 装饰器
-    │   └── websearch.py     # WebSearch 工具（search、visit、image_search）
-    └── examples/            # 示例后端
-        ├── vm.py            # VM 后端（有状态）
-        └── rag.py           # RAG 后端（无状态共享）
+├── __init__.py          # Module exports
+├── app.py               # HTTPServiceServer main class
+├── routes.py            # HTTP route definitions
+├── config_loader.py     # Configuration loader
+├── core/                # Core components
+│   ├── decorators.py        # @tool decorator
+│   ├── resource_router.py   # Resource routing management
+│   └── tool_executor.py     # Tool executor
+└── backends/            # Backend implementations
+    ├── base.py              # Backend base class
+    ├── tools/               # Stateless API tools
+    │   ├── __init__.py      # @register_api_tool decorator
+    │   ├── websearch.py     # WebSearch tool (search, visit, image_search)
+    │   └── ...               # Other API tools
+    └── resources/           # Stateful backend resources
+        ├── vm.py            # VM backend (stateful)
+        └── rag.py           # RAG backend (stateless shared)
 ```
 
-启动方式（推荐）:
+Startup Method (Recommended):
 ```python
 from sandbox.server import create_server_from_config
 
-# 从配置文件创建并启动服务器
+# Create and start server from config file
 server = create_server_from_config("config.json", host="0.0.0.0", port=8080)
 server.run()
 ```
 
-命令行启动:
+Command Line Startup:
 ```bash
 python -m sandbox.server.config_loader config.json --host 0.0.0.0 --port 8080
 ```
 
-配置文件示例 (config.json):
+Configuration File Example (config.json):
 ```json
 {
   "server": {
@@ -63,7 +63,7 @@ python -m sandbox.server.config_loader config.json --host 0.0.0.0 --port 8080
 }
 ```
 
-自定义有状态后端:
+Custom Stateful Backend:
 ```python
 from sandbox.server.backends import Backend, BackendConfig
 from sandbox.server.core import tool
@@ -84,13 +84,13 @@ class MyBackend(Backend):
         return {"result": "..."}
 ```
 
-自定义无状态 API 工具（推荐方式）:
+Custom Stateless API Tool (Recommended Method):
 ```python
 from sandbox.server.backends.tools import register_api_tool
 
 @register_api_tool("my_action", config_key="my_config")
 async def my_action(param: str, **config) -> dict:
-    '''配置从 apis.my_config 自动注入到 **config'''
+    '''Configuration from apis.my_config is automatically injected into **config'''
     api_key = config.get("api_key")
     return {"result": param}
 ```
@@ -123,7 +123,7 @@ __all__ = [
     "Backend",
     "BackendConfig",
     
-    # Config Loader (推荐的启动方式)
+    # Config Loader (recommended startup method)
     "ConfigLoader",
     "load_config",
     "create_server_from_config",

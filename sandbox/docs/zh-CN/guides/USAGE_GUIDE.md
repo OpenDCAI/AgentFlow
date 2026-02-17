@@ -1,7 +1,6 @@
 # Sandbox 使用指南（模块内）
 
-本指南聚焦 Sandbox 模块的使用方式与核心概念。更完整的启动与运维说明请参考：
-`docs/guides/SANDBOX_GUIDE.md`。
+本指南聚焦 Sandbox 模块的使用方式与核心概念。
 
 ## 快速开始
 
@@ -138,6 +137,5 @@ async with Sandbox(server_url="http://127.0.0.1:18890") as sandbox:
 ## 相关文档
 
 - [系统架构](ARCHITECTURE.md)
-- [后端开发详细指南](server/backends/BACKEND_DEVELOPMENT.md)
-- [后端开发详细指南](server/backends/BACKEND_DEVELOPMENT.md)
+- [后端开发详细指南](../development/BACKEND_DEVELOPMENT.md)
 

@@ -18,13 +18,13 @@ class ErrorCode(IntEnum):
     SUCCESS = 0
 
     # Client/Input Errors (4xxx)
-    # 含义：输入参数错误（格式不对、类型不对、缺字段）。
-    # 策略：调用者责任，通常不可重试。
+    # Meaning: Input parameter errors (wrong format, wrong type, missing fields).
+    # Strategy: Caller's responsibility, usually not retryable.
     INVALID_INPUT = 4000 
     
     # Execution Errors (5xxx)
-    # 含义：执行过程中发生的任何错误（业务拒绝、API失败、系统崩溃）。
-    # 策略：执行者责任，根据具体 message 判断是否重试。
+    # Meaning: Any error that occurs during execution (business rejection, API failure, system crash).
+    # Strategy: Executor's responsibility, determine whether to retry based on specific message.
     EXECUTION_ERROR = 5000
 
     # Legacy Codes (Keep for backward compatibility if needed, otherwise can be removed)

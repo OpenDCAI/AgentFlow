@@ -1,15 +1,15 @@
 # sandbox/server/backends/examples/vm.py
 """
-VM (Virtual Machine) 后端示例
+VM (Virtual Machine) Backend Example
 
-有状态后端，提供虚拟机/桌面自动化功能
+Stateful backend providing virtual machine/desktop automation functionality
 
-这是一个有状态后端的典型示例：
-- 需要session管理
-- 每个worker维护独立的VM资源
-- 需要初始化和清理
+This is a typical example of a stateful backend:
+- Requires session management
+- Each worker maintains independent VM resources
+- Requires initialization and cleanup
 
-使用示例:
+Usage example:
 ```python
 from sandbox.server import HTTPServiceServer
 from sandbox.server.backends.resources import VMBackend
@@ -19,10 +19,10 @@ server.load_backend(VMBackend())
 server.run()
 ```
 
-客户端调用:
+Client calls:
 ```python
 async with Sandbox() as sandbox:
-    # 自动创建session并执行
+    # Automatically create session and execute
     result = await sandbox.execute("vm:screenshot", {})
     result = await sandbox.execute("vm:click", {"x": 100, "y": 200})
     result = await sandbox.execute("vm:type", {"text": "Hello"})
@@ -151,7 +151,7 @@ class VMPoolItem:
 
 class DesktopVMController:
     """
-    真实 VM Controller 适配层，保持与 VMController 相同的异步接口。
+    Real VM Controller adapter layer, maintaining the same async interface as VMController.
     """
 
     def __init__(self, controller: PythonController, screen_size: Tuple[int, int]):
@@ -291,56 +291,56 @@ class _EvalEnv:
 
 class VMBackend(Backend):
     """
-    VM 后端
+    VM Backend
     
-    提供虚拟机/桌面自动化功能
+    Provides virtual machine/desktop automation functionality
     
-    工具列表:
-    - vm:screenshot - 截图
-    - vm:click - 点击
-    - vm:mouse_down - 鼠标按下
-    - vm:mouse_up - 鼠标抬起
-    - vm:right_click - 右键点击
-    - vm:double_click - 双击
-    - vm:type - 输入文本
-    - vm:key - 按键
-    - vm:key_down - 按下按键
-    - vm:key_up - 抬起按键
-    - vm:hotkey - 组合键
-    - vm:scroll - 滚动
-    - vm:drag - 拖拽
-    - vm:move - 移动鼠标
-    - vm:wait - 等待
-    - vm:done - 标记完成
-    - vm:pyautogui - 执行 pyautogui.* 命令
+    Tool list:
+    - vm:screenshot - Screenshot
+    - vm:click - Click
+    - vm:mouse_down - Mouse down
+    - vm:mouse_up - Mouse up
+    - vm:right_click - Right click
+    - vm:double_click - Double click
+    - vm:type - Type text
+    - vm:key - Press key
+    - vm:key_down - Key down
+    - vm:key_up - Key up
+    - vm:hotkey - Hotkey combination
+    - vm:scroll - Scroll
+    - vm:drag - Drag
+    - vm:move - Move mouse
+    - vm:wait - Wait
+    - vm:done - Mark done
+    - vm:pyautogui - Execute pyautogui.* commands
     
-    配置项:
-    - screen_size: 屏幕分辨率 [width, height]
-    - connection_type: 连接类型 (vnc/rdp/local)
-    - host: 远程主机地址
-    - port: 端口
-    - provider: VM 提供方 (docker/aliyun)
-    - region: 区域（云厂商使用）
-    - os_type: 操作系统类型 (Ubuntu/Windows)
-    - headless: 是否无头模式
-    - pool_size: 预热池大小
-    - pool_reset: 是否在回收到池时重置VM（默认True）
-    - snapshot_name: 回收重置时使用的快照名（为空则仅重启）
-    - recording: 是否启用录屏
-    - recording_path: 录屏文件路径或目录
+    Configuration items:
+    - screen_size: Screen resolution [width, height]
+    - connection_type: Connection type (vnc/rdp/local)
+    - host: Remote host address
+    - port: Port
+    - provider: VM provider (docker/aliyun)
+    - region: Region (for cloud providers)
+    - os_type: Operating system type (Ubuntu/Windows)
+    - headless: Whether headless mode
+    - pool_size: Warmup pool size
+    - pool_reset: Whether to reset VM when returning to pool (default True)
+    - snapshot_name: Snapshot name used when resetting on return (empty means only restart)
+    - recording: Whether to enable recording
+    - recording_path: Recording file path or directory
     """
     
     name = "vm"
-    description = "Virtual Machine Backend - 提供桌面自动化功能"
+    description = "Virtual Machine Backend - Provides desktop automation functionality"
     version = "1.0.0"
-    stateless = False  # VM是有状态的
+    stateless = False  # VM is stateful
     
     def __init__(self, config: Optional[BackendConfig] = None):
         """
-        初始化VM后端
+        Initialize VM backend
         
         Args:
-            config: 后端配置
+            config: Backend configuration
         """
         if config is None:
             config = BackendConfig(
@@ -403,7 +403,7 @@ class VMBackend(Backend):
             "vnc_port": int(config.get("vnc_port", 8006)),
             "vlc_port": int(config.get("vlc_port", 8080)),
             "use_proxy": bool(config.get("use_proxy", False)),
-            "vm_path": config.get("vm_path"),  # 支持自定义VM镜像路径
+            "vm_path": config.get("vm_path"),  # Support custom VM image path
         }
 
     def _pool_config_matches(self, config: Dict[str, Any]) -> bool:
@@ -455,7 +455,7 @@ class VMBackend(Backend):
 
         manager, provider = create_vm_manager_and_provider(provider_name, region, use_proxy=config.get("use_proxy", False))
         
-        # 如果配置中指定了vm_path，直接使用；否则通过manager获取
+        # If vm_path is specified in config, use it directly; otherwise get through manager
         if config.get("vm_path"):
             path_to_vm = os.path.abspath(os.path.expandvars(os.path.expanduser(config["vm_path"])))
             logger.info(f"Using custom VM path from config: {path_to_vm}")
@@ -738,16 +738,16 @@ class VMBackend(Backend):
     
     async def initialize(self, worker_id: str, config: Dict[str, Any]) -> Dict[str, Any]:
         """
-        初始化VM资源
+        Initialize VM resources
         
-        创建VM控制器连接
+        Create VM controller connection
         
         Args:
             worker_id: Worker ID
-            config: 初始化配置
+            config: Initialization configuration
             
         Returns:
-            包含controller的初始化结果
+            Initialization result containing controller
         """
         merged_config = self._merge_config(config)
         session_setup = merged_config.get("setup")
@@ -826,13 +826,13 @@ class VMBackend(Backend):
     
     async def cleanup(self, worker_id: str, session_info: Dict[str, Any]):
         """
-        清理VM资源
+        Cleanup VM resources
         
-        关闭VM控制器连接
+        Close VM controller connection
         
         Args:
             worker_id: Worker ID
-            session_info: Session信息
+            session_info: Session information
         """
         data = session_info.get("data", {})
         controller = data.get("controller")
@@ -901,7 +901,7 @@ class VMBackend(Backend):
             await self._stop_pool_item(item)
     
     # ========================================================================
-    # 工具方法（使用 @tool 装饰器）
+    # Tool Methods (using @tool decorator)
     # ========================================================================
     
     @tool("vm:screenshot")
@@ -911,10 +911,10 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        VM截图
+        VM screenshot
 
         Returns:
-            截图结果，包含base64编码的图像
+            Screenshot result, containing base64-encoded image
         """
         session_id = session_info.get("session_id") if session_info else None
         session_name = session_info.get("session_name") if session_info else None
@@ -959,12 +959,12 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        VM点击
+        VM click
 
         Args:
-            x: X坐标
-            y: Y坐标
-            button: 按钮 (left/right/middle)
+            x: X coordinate
+            y: Y coordinate
+            button: Button (left/right/middle)
         """
         session_id = session_info.get("session_id") if session_info else None
         with ResponseTimer() as timer:
@@ -1021,11 +1021,11 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        VM双击
+        VM double click
 
         Args:
-            x: X坐标
-            y: Y坐标
+            x: X coordinate
+            y: Y coordinate
         """
         session_id = session_info.get("session_id") if session_info else None
         with ResponseTimer() as timer:
@@ -1081,11 +1081,11 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        VM输入文本
+        VM type text
 
         Args:
-            text: 要输入的文本
-            interval: 按键间隔（秒）
+            text: Text to type
+            interval: Key interval (seconds)
         """
         session_id = session_info.get("session_id") if session_info else None
         with ResponseTimer() as timer:
@@ -1141,10 +1141,10 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        VM按键
+        VM press key
 
         Args:
-            key: 键名 (enter/tab/escape/space/backspace等)
+            key: Key name (enter/tab/escape/space/backspace, etc.)
         """
         session_id = session_info.get("session_id") if session_info else None
         with ResponseTimer() as timer:
@@ -1199,10 +1199,10 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        VM组合键
+        VM hotkey
 
         Args:
-            keys: 键名列表 (如 ["ctrl", "c"])
+            keys: List of key names (e.g., ["ctrl", "c"])
         """
         session_id = session_info.get("session_id") if session_info else None
         with ResponseTimer() as timer:
@@ -1259,12 +1259,12 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        VM滚动
+        VM scroll
 
         Args:
-            x: X坐标
-            y: Y坐标
-            clicks: 滚动量（正数向上，负数向下）
+            x: X coordinate
+            y: Y coordinate
+            clicks: Scroll amount (positive for up, negative for down)
         """
         session_id = session_info.get("session_id") if session_info else None
         with ResponseTimer() as timer:
@@ -1323,13 +1323,13 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        VM拖拽
+        VM drag
 
         Args:
-            start_x: 起始X坐标
-            start_y: 起始Y坐标
-            end_x: 结束X坐标
-            end_y: 结束Y坐标
+            start_x: Start X coordinate
+            start_y: Start Y coordinate
+            end_x: End X coordinate
+            end_y: End Y coordinate
         """
         session_id = session_info.get("session_id") if session_info else None
         with ResponseTimer() as timer:
@@ -1386,11 +1386,11 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        VM移动鼠标
+        VM move mouse
 
         Args:
-            x: X坐标
-            y: Y坐标
+            x: X coordinate
+            y: Y coordinate
         """
         session_id = session_info.get("session_id") if session_info else None
         with ResponseTimer() as timer:
@@ -1445,7 +1445,7 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        VM鼠标按下
+        VM mouse down
         """
         session_id = session_info.get("session_id") if session_info else None
         with ResponseTimer() as timer:
@@ -1499,7 +1499,7 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        VM鼠标抬起
+        VM mouse up
         """
         session_id = session_info.get("session_id") if session_info else None
         with ResponseTimer() as timer:
@@ -1554,7 +1554,7 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        VM右键点击
+        VM right click
         """
         if (x is None) ^ (y is None):
             return build_error_response(
@@ -1616,7 +1616,7 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        VM按下按键
+        VM key down
         """
         session_id = session_info.get("session_id") if session_info else None
         with ResponseTimer() as timer:
@@ -1670,7 +1670,7 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        VM抬起按键
+        VM key up
         """
         session_id = session_info.get("session_id") if session_info else None
         with ResponseTimer() as timer:
@@ -1724,7 +1724,7 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        VM等待
+        VM wait
         """
         if seconds < 0:
             return build_error_response(
@@ -1774,7 +1774,7 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        VM标记完成
+        VM mark done
         """
         session_id = session_info.get("session_id") if session_info else None
         with ResponseTimer() as timer:
@@ -1814,11 +1814,11 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        执行 PyAutoGUI 命令（仅允许 pyautogui.*）
+        Execute PyAutoGUI commands (only pyautogui.* allowed)
 
         Args:
-            command: 单条命令或命令列表
-            commands: 命令列表（可与 command 并用）
+            command: Single command or command list
+            commands: Command list (can be used together with command)
         """
         session_id = session_info.get("session_id") if session_info else None
         with ResponseTimer() as timer:
@@ -1938,7 +1938,7 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        显式标记当前会话失败状态，用于评测 FAIL 语义。
+        Explicitly mark current session as failed state, used for evaluation FAIL semantics.
         """
         session_id = session_info.get("session_id") if session_info else None
         with ResponseTimer() as timer:
@@ -1986,10 +1986,10 @@ class VMBackend(Backend):
         **kwargs
     ) -> Dict[str, Any]:
         """
-        VM 评测入口
+        VM evaluation entry
 
         Args:
-            evaluator: 评测配置，包含 func/result/expected/options/conj
+            evaluator: Evaluation configuration, containing func/result/expected/options/conj
         """
         session_id = session_info.get("session_id") if session_info else None
         with ResponseTimer() as timer:
@@ -2135,7 +2135,7 @@ class VMBackend(Backend):
 
 
 # ============================================================================
-# 便捷函数
+# Convenience Functions
 # ============================================================================
 
 def create_vm_backend(
@@ -2150,28 +2150,28 @@ def create_vm_backend(
     pool_size: int = 0
 ) -> VMBackend:
     """
-    创建VM后端的便捷函数
+    Convenience function to create VM backend
     
     Args:
-        screen_size: 屏幕分辨率
-        connection_type: 连接类型 (local/vnc/rdp)
-        host: 远程主机地址
-        port: 端口
-        provider: VM 提供方 (docker/aliyun)
-        region: 区域（云厂商使用）
-        os_type: 操作系统类型
-        headless: 是否无头模式
-        pool_size: 预热池大小
+        screen_size: Screen resolution
+        connection_type: Connection type (local/vnc/rdp)
+        host: Remote host address
+        port: Port
+        provider: VM provider (docker/aliyun)
+        region: Region (for cloud providers)
+        os_type: Operating system type
+        headless: Whether headless mode
+        pool_size: Warmup pool size
         
     Returns:
-        VMBackend实例
+        VMBackend instance
         
     Example:
         ```python
-        # 本地VM
+        # Local VM
         backend = create_vm_backend()
         
-        # 远程VNC
+        # Remote VNC
         backend = create_vm_backend(
             connection_type="vnc",
             host="192.168.1.100",

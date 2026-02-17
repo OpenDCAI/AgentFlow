@@ -1,32 +1,31 @@
 # sandbox/server/core/tool_executor.py
 """
-工具执行器
+Tool executor.
 
-负责工具的执行逻辑，使用 Server 传入的数据结构引用。
-数据结构（_tools, _tool_name_index, _tool_resource_types）保存在 Server 类中。
+Responsible for tool execution logic by using references passed from Server.
+The underlying structures (`_tools`, `_tool_name_index`, `_tool_resource_types`)
+are owned by the Server class.
 
-工具函数映射机制说明:
-======================
+Tool mapping mechanism:
+=======================
 
-1. 工具注册 (Tool Registration)
-   - 工具通过 register_tool(name, func) 或 @tool 装饰器标记后扫描注册
-   - 工具名称支持 "resource_type:action" 格式（如 "vm:screenshot"）
-   - 前缀是可选的：无状态工具不需要前缀
-   
-2. 工具映射存储 (三层结构，保存在 Server 中)
-   - _tools: Dict[str, Callable]  
-     完整名称映射，存储 full_name -> function
-     
-   - _tool_name_index: Dict[str, List[str]]
-     简单名称索引，存储 simple_name -> [full_names]
-     
-   - _tool_resource_types: Dict[str, str]
-     资源类型映射，存储 full_name -> resource_type
-   
-3. 工具查找策略 (resolve_tool)
-   a. 优先精确匹配：直接查找完整名称
-   b. 简单名称匹配：通过索引查找
-   c. 无匹配：返回错误
+1. Tool registration
+   - Tools are registered via `register_tool(name, func)` or `@tool` scanning.
+   - Tool names support the "resource_type:action" format (e.g. "vm:screenshot").
+   - Prefix is optional for stateless tools.
+
+2. Tool mapping storage (3-layer structure, owned by Server)
+   - `_tools: Dict[str, Callable]`
+     Full-name map: `full_name -> function`
+   - `_tool_name_index: Dict[str, List[str]]`
+     Simple-name index: `simple_name -> [full_names]`
+   - `_tool_resource_types: Dict[str, str]`
+     Resource map: `full_name -> resource_type`
+
+3. Tool resolution strategy (`resolve_tool`)
+   a. Prefer exact match by full name.
+   b. Fallback to simple-name index match.
+   c. Return an error when no match is found.
 """
 
 import time
@@ -49,14 +48,14 @@ logger = logging.getLogger("ToolExecutor")
 
 class ToolExecutor:
     """
-    工具执行器
-    
-    核心职责:
-    - 执行工具函数
-    - 根据资源类型前缀自动路由到对应 session
-    - 处理参数注入
-    
-    数据结构由外部（Server）传入，本类只持有引用。
+    Tool executor.
+
+    Responsibilities:
+    - Execute tool functions.
+    - Route by resource prefix to the right session.
+    - Inject runtime parameters when needed.
+
+    Data structures are passed from Server and referenced only.
     """
     
     def __init__(
@@ -68,16 +67,16 @@ class ToolExecutor:
         warmup_callback: Optional[Callable[[str], Any]] = None
     ):
         """
-        初始化工具执行器
-        
+        Initialize the tool executor.
+
         Args:
-            tools: 完整名称 -> 函数映射（引用）
-            tool_name_index: 简单名称 -> 完整名称列表索引（引用）
-            tool_resource_types: 完整名称 -> 资源类型映射（引用）
-            resource_router: 资源路由器实例
-            warmup_callback: 预热回调函数，用于在执行工具前自动预热后端
+            tools: Full-name to function map (by reference).
+            tool_name_index: Simple-name to full-name list index (by reference).
+            tool_resource_types: Full-name to resource-type map (by reference).
+            resource_router: Resource router instance.
+            warmup_callback: Optional warmup callback invoked before execution.
         """
-        # 持有外部数据结构的引用
+        # Keep references to external data structures.
         self._tools = tools
         self._tool_name_index = tool_name_index
         self._tool_resource_types = tool_resource_types
@@ -113,31 +112,31 @@ class ToolExecutor:
     
     def _resolve_tool(self, action: str) -> Tuple[Optional[str], Optional[str], Optional[str]]:
         """
-        解析工具名称，返回完整名称、简单名称和资源类型
-        
-        查找策略:
-        1. 精确匹配：action 直接作为完整名称查找
-        2. 索引匹配：action 作为简单名称在索引中查找
-           - 唯一匹配：直接返回（前缀可选）
-           - 多个匹配：返回 None，拒绝执行（必须指定前缀）
-        
+        Resolve tool name and return full name, simple name, and resource type.
+
+        Lookup strategy:
+        1. Exact match: treat `action` as full name.
+        2. Index match: treat `action` as simple name.
+           - Single candidate: return directly.
+           - Multiple candidates: return None to force explicit prefix.
+
         Args:
-            action: 动作名称（可以是 "vm:screenshot" 或 "screenshot"）
-            
+            action: Action name, e.g. "vm:screenshot" or "screenshot".
+
         Returns:
-            (full_name, simple_name, resource_type) 或 (None, None, None) 如果未找到
+            `(full_name, simple_name, resource_type)`, or `(None, None, None)` if not found.
         """
-        # 策略1: 精确匹配完整名称
+        # Strategy 1: exact full-name match.
         if action in self._tools:
             resource_type = self._tool_resource_types.get(action)
             simple_name = action.split(":")[-1] if ":" in action else action
             return action, simple_name, resource_type
         
-        # 策略2: 带前缀但未直接匹配，说明工具不存在
+        # Strategy 2: prefixed but not matched -> tool does not exist.
         if ":" in action:
             return None, None, None
         
-        # 策略3: 作为简单名称在索引中查找
+        # Strategy 3: lookup as simple name in index.
         simple_name = action
         if simple_name in self._tool_name_index:
             candidates = self._tool_name_index[simple_name]
@@ -148,7 +147,7 @@ class ToolExecutor:
                 return full_name, simple_name, resource_type
             
             elif len(candidates) > 1:
-                # 多个匹配 - 存在歧义
+                # Multiple matches -> ambiguous.
                 return None, simple_name, None
         
         return None, None, None
@@ -160,21 +159,21 @@ class ToolExecutor:
         **kwargs
     ) -> Dict[str, Any]:
         """
-        执行工具
-        
+        Execute one tool action.
+
         Args:
-            action: 动作名称，支持带或不带资源类型前缀
-            params: 参数
-            **kwargs: 运行时参数
-                - worker_id (str): Worker ID（必需）
-                - timeout (int, optional): 超时时间
-                - trace_id (str, optional): 追踪 ID，用于日志关联
-                - session_id (str, optional): 指定使用的 session ID
-            
+            action: Action name, with or without resource prefix.
+            params: Tool parameters.
+            **kwargs: Runtime options.
+                - worker_id (str): Worker ID (required)
+                - timeout (int, optional): Timeout in seconds
+                - trace_id (str, optional): Trace ID for log correlation
+                - session_id (str, optional): Explicit session ID
+
         Returns:
-            执行结果字典
+            Execution result dictionary.
         """
-        # 提取运行时参数
+        # Extract runtime parameters.
         worker_id = kwargs.get("worker_id")
         if not worker_id:
             raise ValueError("worker_id is required")
@@ -182,7 +181,7 @@ class ToolExecutor:
         trace_id: Optional[str] = kwargs.get("trace_id")
         
         start_time = time.time()
-        tool_name = action  # 默认值，用于错误报告
+        tool_name = action  # Default for error reporting.
         is_temporary_session = False
         resource_type = None
         full_name = None
@@ -197,11 +196,11 @@ class ToolExecutor:
             # Normalize tool name variants to canonical format.
             action = self._normalize_tool_name(action)
 
-            # 解析工具名称
+            # Resolve tool name.
             full_name, simple_name, resource_type = self._resolve_tool(action)
             logger.info(f"   ↳ Resolved: full_name={full_name}, resource_type={resource_type}")
             
-            # 检查是否找到工具
+            # Verify tool exists.
             if not full_name:
                 if action in self._tool_name_index and len(self._tool_name_index[action]) > 1:
                     candidates = self._tool_name_index[action]
@@ -226,16 +225,16 @@ class ToolExecutor:
             func = self._tools[full_name]
             tool_name = simple_name or action
             
-            # 自动预热后端（如果有资源类型且提供了预热回调）
+            # Warm up backend automatically when needed.
             if resource_type and self._warmup_callback:
                 logger.info(f"   ↳ Warmup backend: {resource_type}")
                 warmup_result = self._warmup_callback(resource_type)
-                # 如果返回的是协程，等待它
+                # Await coroutine result when callback is async.
                 if asyncio.iscoroutine(warmup_result):
                     await warmup_result
                 logger.info(f"   ↳ Warmup completed: {resource_type}")
 
-            # 获取或创建session（如果有资源类型）
+            # Get or create session when resource type is present.
             session_info = None
 
             if resource_type:
@@ -246,14 +245,14 @@ class ToolExecutor:
                     logger.info(f"   ↳ Using existing session: {existing_session.get('session_id')}")
                     session_info = existing_session
                 else:
-                    # 自动创建临时 session
+                    # Auto-create temporary session.
                     logger.info(f"   ↳ Creating temporary session for {resource_type}")
                     session_info = await self._resource_router.get_or_create_session(
                         worker_id=worker_id,
                         resource_type=resource_type,
                         auto_created=True
                     )
-                    is_temporary_session = True  # 标记为临时 session
+                    is_temporary_session = True  # Mark as temporary session.
                     logger.info(f"🔄 Auto-created temporary session for {resource_type} (worker: {worker_id})")
                 
                 if session_info.get("status") == "error":
@@ -267,12 +266,12 @@ class ToolExecutor:
                         session_id=session_info.get("session_id")
                     )
             
-            # 自动注入参数
+            # Auto-inject runtime parameters.
             sig = inspect.signature(func)
             has_var_keyword = any(p.kind == inspect.Parameter.VAR_KEYWORD for p in sig.parameters.values())
 
             def inject_if_missing(key, value):
-                """如果参数不存在且函数签名允许（显式定义或有**kwargs），则注入"""
+                """Inject if missing and accepted by function signature."""
                 if key not in params and value is not None:
                     if key in sig.parameters or has_var_keyword:
                         params[key] = value
@@ -284,11 +283,11 @@ class ToolExecutor:
                 inject_if_missing("session_id", session_info.get("session_id"))
                 inject_if_missing("session_info", session_info)
             
-            # 执行工具函数
+            # Execute tool function.
             logger.info(f"   ↳ Executing tool function: {full_name}")
             result = func(**params)
 
-            # 检查结果是否是协程（处理被装饰器包装的异步函数）
+            # Await coroutine results (including decorated async functions).
             if asyncio.iscoroutine(result):
                 logger.info(f"   ↳ Awaiting async result...")
                 if timeout:
@@ -300,12 +299,12 @@ class ToolExecutor:
             execution_time = (time.time() - start_time) * 1000
             logger.info(f"✅ [ToolExecutor] Execute COMPLETED: {action} in {execution_time:.2f}ms")
 
-            # 如果是临时 session，执行完成后销毁
+            # Destroy temporary session after execution.
             if is_temporary_session and resource_type:
                 await self._resource_router.destroy_session(worker_id, resource_type)
                 logger.info(f"🗑️ Destroyed temporary session for {resource_type} (worker: {worker_id})")
             elif resource_type and session_info:
-                # 非临时 session 只刷新存活时间
+                # For persistent sessions, only refresh TTL.
                 logger.info(
                     "🔄 [ToolExecutor] Refresh session after action: %s (worker=%s, session_id=%s)",
                     full_name or tool_name,
@@ -314,9 +313,9 @@ class ToolExecutor:
                 )
                 await self._resource_router.refresh_session(worker_id, resource_type)
 
-            # 检查工具返回的是否是新格式（包含 code 字段）
+            # Validate new response format (must include `code`).
             if isinstance(result, dict) and "code" in result:
-                # 新格式：直接返回，并补全必要元数据
+                # New format: return directly after filling meta fields.
                 meta = result.get("meta") or {}
                 if full_name and "tool" not in meta:
                     meta["tool"] = full_name
@@ -342,7 +341,7 @@ class ToolExecutor:
             )
             
         except asyncio.TimeoutError:
-            # 超时也要清理临时 session
+            # Ensure temporary session cleanup on timeout.
             if is_temporary_session and resource_type:
                 await self._resource_router.destroy_session(worker_id, resource_type)
             return build_error_response(
@@ -355,12 +354,12 @@ class ToolExecutor:
                 session_id=session_info.get("session_id") if session_info else None
             )
         except Exception as e:
-            # 出错也要清理临时 session
+            # Ensure temporary session cleanup on exceptions.
             if is_temporary_session and resource_type:
                 try:
                     await self._resource_router.destroy_session(worker_id, resource_type)
                 except Exception:
-                    pass  # 清理失败不影响错误返回
+                    pass  # Cleanup failure should not mask the main error.
             logger.error(f"Tool execution failed: {tool_name} - {e}\n{traceback.format_exc()}")
             return build_error_response(
                 code=ErrorCode.UNEXPECTED_ERROR,
@@ -378,20 +377,20 @@ class ToolExecutor:
         **kwargs
     ) -> Dict[str, Any]:
         """
-        批量执行工具
-        
+        Execute multiple actions in batch.
+
         Args:
-            actions: 动作列表，每个元素包含 action, params, timeout
-            **kwargs: 运行时参数
-                - worker_id (str): Worker ID（必需）
-                - parallel (bool): 是否并行执行，默认 False
-                - stop_on_error (bool): 遇到错误是否停止，默认 True
-                - trace_id (str, optional): 追踪 ID
-            
+            actions: Action list; each item includes action/params/timeout.
+            **kwargs: Runtime options.
+                - worker_id (str): Worker ID (required)
+                - parallel (bool): Run in parallel if True (default: False)
+                - stop_on_error (bool): Stop on first failure in serial mode
+                - trace_id (str, optional): Trace ID
+
         Returns:
-            批量执行结果
+            Batch execution result.
         """
-        # 提取运行时参数
+        # Extract runtime parameters.
         worker_id = kwargs.get("worker_id")
         if not worker_id:
             raise ValueError("worker_id is required")

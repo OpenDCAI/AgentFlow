@@ -1,9 +1,9 @@
 # sandbox/server/core/resource_router.py
 """
-资源路由表管理器
+Resource Routing Table Manager
 
-管理 worker_id -> resource_type -> session 的映射关系
-支持自动创建和显式创建两种模式
+Manages worker_id -> resource_type -> session mapping relationships
+Supports both automatic creation and explicit creation modes
 """
 
 import asyncio
@@ -18,19 +18,19 @@ logger = logging.getLogger("ResourceRouter")
 
 class ResourceRouter:
     """
-    资源路由表管理器
+    Resource Routing Table Manager
     
-    管理 worker_id -> resource_type -> session 的映射关系
+    Manages worker_id -> resource_type -> session mapping relationships
     
-    支持两种模式：
-    1. 显式创建：client调用create_session显式创建session
-    2. 自动创建：执行命令时如果没有session则自动创建（会在日志中提示）
+    Supports two modes:
+    1. Explicit creation: client calls create_session to explicitly create session
+    2. Automatic creation: automatically creates session when executing commands if no session exists (will be logged)
     
-    使用示例:
+    Usage example:
     ```python
     router = ResourceRouter(session_ttl=300)
     
-    # 注册资源类型
+    # Register resource type
     router.register_resource_type(
         "vm",
         initializer=init_vm,
@@ -38,29 +38,29 @@ class ResourceRouter:
         default_config={"screen_size": [1920, 1080]}
     )
     
-    # 获取或创建session
+    # Get or create session
     session = await router.get_or_create_session("worker_1", "vm")
     
-    # 销毁session
+    # Destroy session
     await router.destroy_session("worker_1", "vm")
     ```
     """
     
     def __init__(self, session_ttl: int = 300, auto_create: bool = True):
         """
-        初始化资源路由器
+        Initialize resource router
         
         Args:
-            session_ttl: Session存活时间（秒）
-            auto_create: 是否允许自动创建session
+            session_ttl: Session TTL (seconds)
+            auto_create: Whether to allow automatic session creation
         """
-        # 路由表: {worker_id: {resource_type: session_info}}
+        # Routing table: {worker_id: {resource_type: session_info}}
         self._routes: Dict[str, Dict[str, Dict[str, Any]]] = {}
-        # 资源初始化配置: {resource_type: init_config}
+        # Resource initialization config: {resource_type: init_config}
         self._resource_configs: Dict[str, Dict[str, Any]] = {}
-        # 资源初始化回调: {resource_type: init_callback}
+        # Resource initialization callback: {resource_type: init_callback}
         self._resource_initializers: Dict[str, Callable] = {}
-        # 资源清理回调: {resource_type: cleanup_callback}
+        # Resource cleanup callback: {resource_type: cleanup_callback}
         self._resource_cleaners: Dict[str, Callable] = {}
         self._session_ttl = session_ttl
         self._auto_create = auto_create
@@ -75,13 +75,13 @@ class ResourceRouter:
         default_config: Optional[Dict[str, Any]] = None
     ):
         """
-        注册资源类型
+        Register resource type
         
         Args:
-            resource_type: 资源类型名称
-            initializer: 初始化回调函数 async def init(worker_id, config) -> session_info
-            cleaner: 清理回调函数 async def cleanup(worker_id, session_info)
-            default_config: 默认配置
+            resource_type: Resource type name
+            initializer: Initialization callback function async def init(worker_id, config) -> session_info
+            cleaner: Cleanup callback function async def cleanup(worker_id, session_info)
+            default_config: Default configuration
         """
         if initializer:
             self._resource_initializers[resource_type] = initializer
@@ -92,7 +92,7 @@ class ResourceRouter:
         logger.info(f"Registered resource type: {resource_type}")
     
     def unregister_resource_type(self, resource_type: str) -> bool:
-        """注销资源类型"""
+        """Unregister resource type"""
         removed = False
         if resource_type in self._resource_initializers:
             del self._resource_initializers[resource_type]
@@ -106,14 +106,14 @@ class ResourceRouter:
         return removed
     
     def get_registered_types(self) -> List[str]:
-        """获取已注册的资源类型列表"""
+        """Get list of registered resource types"""
         types = set()
         types.update(self._resource_initializers.keys())
         types.update(self._resource_configs.keys())
         return list(types)
     
     def _normalize_custom_name(self, custom_name: Optional[str]) -> Optional[str]:
-        """规范化用户自定义名称，避免非法字符或过长"""
+        """Normalize user-defined name to avoid illegal characters or excessive length"""
         if not custom_name:
             return None
         safe_custom = re.sub(r"[^A-Za-z0-9_-]", "-", str(custom_name)).strip("-_")
@@ -126,7 +126,7 @@ class ResourceRouter:
         resource_type: str,
         config: Optional[Dict[str, Any]]
     ) -> Dict[str, Any]:
-        """合并默认配置与用户配置（用户优先）"""
+        """Merge default config with user config (user config takes priority)"""
         merged = dict(self._resource_configs.get(resource_type, {}))
         if config:
             merged.update(config)
@@ -138,8 +138,8 @@ class ResourceRouter:
         resource_type: str,
         custom_name: Optional[str] = None
     ) -> str:
-        """生成可读的session名称"""
-        # 规范化 worker_id，避免过长或包含不安全字符
+        """Generate readable session name"""
+        # Normalize worker_id to avoid excessive length or unsafe characters
         safe_worker_id = re.sub(r"[^A-Za-z0-9_-]", "-", worker_id).strip("-")
         if not safe_worker_id:
             safe_worker_id = "worker"
@@ -166,44 +166,44 @@ class ResourceRouter:
         custom_name: Optional[str] = None
     ) -> Dict[str, Any]:
         """
-        获取或创建资源session
+        Get or create resource session
         
-        如果worker_id对应的resource_type已有session则直接返回，
-        否则创建新的session
+        If worker_id already has a session for resource_type, return it directly,
+        otherwise create a new session
         
         Args:
             worker_id: Worker ID
-            resource_type: 资源类型
-            config: 初始化配置（可选，优先于默认配置）
-            auto_created: 是否为自动创建（用于日志区分）
+            resource_type: Resource type
+            config: Initialization config (optional, takes priority over default config)
+            auto_created: Whether it's auto-created (for log distinction)
             
         Returns:
-            session信息字典，包含:
-            - session_id: 唯一标识
-            - session_name: 可读名称
+            Session info dictionary, containing:
+            - session_id: Unique identifier
+            - session_name: Readable name
             - worker_id: Worker ID
-            - resource_type: 资源类型
-            - config: 配置
-            - status: 状态 (active/error/initializing)
-            - data: 资源特定数据
-            - custom_name: 规范化后的自定义名称（如果提供）
+            - resource_type: Resource type
+            - config: Configuration
+            - status: Status (active/error/initializing)
+            - data: Resource-specific data
+            - custom_name: Normalized custom name (if provided)
         """
         async with self._lock:
-            # 初始化worker路由
+            # Initialize worker routing
             if worker_id not in self._routes:
                 self._routes[worker_id] = {}
             
-            # 检查是否已有session
+            # Check if session already exists
             if resource_type in self._routes[worker_id]:
                 session_info = self._routes[worker_id][resource_type]
-                # 更新最后活动时间
+                # Update last activity time
                 session_info["last_activity"] = datetime.utcnow().isoformat()
                 session_info["expires_at"] = (
                     datetime.utcnow() + timedelta(seconds=self._session_ttl)
                 ).isoformat()
                 return session_info
             
-            # 生成session名称和ID
+            # Generate session name and ID
             session_name = self._generate_session_name(worker_id, resource_type, custom_name)
             session_id = f"{session_name}_{uuid.uuid4().hex[:8]}"
             
@@ -224,7 +224,7 @@ class ResourceRouter:
                 "custom_name": self._normalize_custom_name(custom_name)
             }
             
-            # 调用初始化回调
+            # Call initialization callback
             if resource_type in self._resource_initializers:
                 try:
                     initializer = self._resource_initializers[resource_type]
@@ -241,7 +241,7 @@ class ResourceRouter:
                     session_info["status"] = "error"
                     session_info["error"] = str(e)
             else:
-                # 资源类型没有注册 initializer，标记为兼容性创建
+                # Resource type has no registered initializer, mark as compatibility creation
                 session_info["status"] = "active"
                 session_info["compatibility_mode"] = True
                 session_info["compatibility_message"] = (
@@ -251,10 +251,10 @@ class ResourceRouter:
 
             self._routes[worker_id][resource_type] = session_info
 
-            # 日志提示
+            # Log message
             create_mode = "AUTO-CREATED" if auto_created else "CREATED"
             if resource_type not in self._resource_initializers:
-                # 兼容性创建的日志
+                # Compatibility creation log
                 logger.warning(
                     f"⚠️  [{worker_id}] Session {create_mode} (COMPATIBILITY MODE): {session_name} "
                     f"(id={session_id}, type={resource_type}) - Resource type does not require session"
@@ -262,7 +262,7 @@ class ResourceRouter:
             else:
                 logger.info(f"📦 [{worker_id}] Session {create_mode}: {session_name} (id={session_id}, type={resource_type})")
                 if auto_created:
-                    logger.info(f"   ↳ 提示: 该session由执行命令时自动创建，如需自定义配置请使用 create_session 显式创建")
+                    logger.info(f"   ↳ Note: This session was auto-created when executing command. Use create_session to explicitly create with custom config if needed.")
             
             return session_info
     
@@ -271,7 +271,7 @@ class ResourceRouter:
         worker_id: str,
         resource_type: str
     ) -> Optional[Dict[str, Any]]:
-        """获取session（不自动创建）"""
+        """Get session (does not auto-create)"""
         async with self._lock:
             if worker_id in self._routes:
                 return self._routes[worker_id].get(resource_type)
@@ -283,7 +283,7 @@ class ResourceRouter:
         resource_type: str,
         data: Dict[str, Any]
     ) -> bool:
-        """更新session数据"""
+        """Update session data"""
         async with self._lock:
             if worker_id in self._routes and resource_type in self._routes[worker_id]:
                 self._routes[worker_id][resource_type]["data"].update(data)
@@ -297,10 +297,10 @@ class ResourceRouter:
         resource_type: str
     ) -> Optional[Dict[str, Any]]:
         """
-        销毁特定资源的session
+        Destroy session for specific resource
         
         Returns:
-            被销毁的session信息，如果不存在返回None
+            Destroyed session info, returns None if doesn't exist
         """
         async with self._lock:
             if worker_id in self._routes and resource_type in self._routes[worker_id]:
@@ -308,7 +308,7 @@ class ResourceRouter:
                 session_name = session_info.get("session_name", "unknown")
                 session_id = session_info.get("session_id", "unknown")
                 
-                # 调用清理回调
+                # Call cleanup callback
                 if resource_type in self._resource_cleaners:
                     try:
                         cleaner = self._resource_cleaners[resource_type]
@@ -325,7 +325,7 @@ class ResourceRouter:
         return None
     
     async def destroy_worker_sessions(self, worker_id: str) -> int:
-        """销毁worker的所有session"""
+        """Destroy all sessions for worker"""
         count = 0
         resource_types: List[str] = []
         
@@ -333,7 +333,7 @@ class ResourceRouter:
             if worker_id in self._routes:
                 resource_types = list(self._routes[worker_id].keys())
         
-        # 在锁外执行清理，避免死锁
+        # Execute cleanup outside lock to avoid deadlock
         for resource_type in resource_types:
             await self.destroy_session(worker_id, resource_type)
             count += 1
@@ -346,19 +346,19 @@ class ResourceRouter:
         return count
     
     async def list_worker_sessions(self, worker_id: str) -> Dict[str, Dict[str, Any]]:
-        """列出worker的所有session"""
+        """List all sessions for worker"""
         async with self._lock:
             if worker_id in self._routes:
                 return dict(self._routes[worker_id])
         return {}
     
     async def list_all_sessions(self) -> Dict[str, Dict[str, Dict[str, Any]]]:
-        """列出所有session"""
+        """List all sessions"""
         async with self._lock:
             return {wid: dict(sessions) for wid, sessions in self._routes.items()}
     
     async def cleanup_expired(self) -> int:
-        """清理过期session"""
+        """Cleanup expired sessions"""
         now = datetime.utcnow()
         expired_list = []
         
@@ -369,21 +369,21 @@ class ResourceRouter:
                     if expires_at < now:
                         expired_list.append((worker_id, resource_type))
         
-        # 在锁外执行清理
+        # Execute cleanup outside lock
         for worker_id, resource_type in expired_list:
             await self.destroy_session(worker_id, resource_type)
         
         return len(expired_list)
     
     async def get_active_resource_types(self, worker_id: str) -> Set[str]:
-        """获取worker当前活跃的资源类型"""
+        """Get currently active resource types for worker"""
         async with self._lock:
             if worker_id in self._routes:
                 return set(self._routes[worker_id].keys())
         return set()
     
     async def refresh_session(self, worker_id: str, resource_type: str) -> bool:
-        """刷新session的过期时间"""
+        """Refresh session expiration time"""
         async with self._lock:
             if worker_id in self._routes and resource_type in self._routes[worker_id]:
                 session_info = self._routes[worker_id][resource_type]

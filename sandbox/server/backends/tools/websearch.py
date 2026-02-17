@@ -1,8 +1,8 @@
 # sandbox/server/backends/tools/websearch.py
 """
-WebSearch API 工具 (真实实现)
+WebSearch API tools (production implementation).
 
-提供 search 和 visit 两个工具，使用 Serper API 和 Jina Reader API
+Provides `search` and `visit` tools backed by Serper API and Jina Reader API.
 """
 
 import logging
@@ -17,7 +17,7 @@ from concurrent.futures import ThreadPoolExecutor
 import requests
 import openai
 
-# crawl4ai 是可选依赖
+# crawl4ai is an optional dependency.
 try:
     from crawl4ai import AsyncWebCrawler
     CRAWL4AI_AVAILABLE = True
@@ -32,12 +32,12 @@ from .base_tool import BaseApiTool, ToolBusinessError
 logger = logging.getLogger("WebSearch")
 
 # =============================================================================
-# Infrastructure Layers (基础设施层)
-# 负责：底层 API 调用、网络请求、配置管理、通用工具函数
+# Infrastructure layer
+# Handles low-level API calls, networking, config, and utility helpers.
 # =============================================================================
 
 class SerperClient:
-    """负责与 Google Serper API 进行底层交互"""
+    """Low-level client for Google Serper API interaction."""
     
     def __init__(self, api_key: str, retry_times: int = 5):
         self.api_key = api_key
@@ -67,7 +67,7 @@ class SerperClient:
     def _format_search_results(self, results: dict, query: str) -> str:
         """Format search results into a readable string."""
         if "organic" not in results or not results["organic"]:
-            # 这是一个业务层面的“空结果”，但在 Infra 层我们只返回标识或空
+            # This is a business-level "empty result"; infra only returns markers/content.
             return f"No results found for '{query}'. Try with a more general query."
 
         web_snippets = []
@@ -91,7 +91,7 @@ class SerperClient:
         )
 
     def search_single(self, query: str) -> str:
-        """执行单次搜索，成功返回格式化字符串，失败抛出异常"""
+        """Execute a single search; return formatted text or raise an exception."""
         if not self.api_key:
             raise ToolBusinessError("SERPER_API_KEY not configured", ErrorCode.EXECUTION_ERROR)
 
@@ -149,14 +149,14 @@ class SerperClient:
 
 
 class JinaClient:
-    """负责与 Jina Reader API 交互"""
+    """Client for Jina Reader API interaction."""
     def __init__(self, api_key: str, timeout: int = 30, retry_max_attempts: int = 3):
         self.api_key = api_key
         self.timeout = timeout
         self.retry_max_attempts = retry_max_attempts
 
     def visit(self, url: str) -> str:
-        """访问页面并返回 Markdown 内容，失败抛出异常"""
+        """Visit a page and return markdown content; raise on failure."""
         last_error_message = "Unknown error"
         retry_initial_delay = 1.0
 
@@ -183,7 +183,7 @@ class JinaClient:
 
 
 class Crawl4AiClient:
-    """负责与 Crawl4AI 本地库交互"""
+    """Client wrapper for local Crawl4AI integration."""
     def __init__(self, word_count_threshold: int = 10):
         self.word_count_threshold = word_count_threshold
 
@@ -206,7 +206,7 @@ class Crawl4AiClient:
 
 
 class LLMSummarizer:
-    """负责使用 LLM 总结内容"""
+    """Summarize content using an LLM."""
     def __init__(self, model: str, api_key: Optional[str], api_url: Optional[str], temperature: float = 0.3):
         self.model = model
         self.api_key = api_key
@@ -240,8 +240,8 @@ Please summarize the following content from {url}, focusing only on information 
 
 
 # =============================================================================
-# Business Logic Layers (业务逻辑层)
-# 负责：流程编排、逻辑判断、异常转换为业务码、参数校验
+# Business logic layer
+# Handles orchestration, validation, and business error conversion.
 # =============================================================================
 
 class SearchTool(BaseApiTool):
@@ -249,7 +249,7 @@ class SearchTool(BaseApiTool):
         super().__init__(tool_name="search", resource_type="websearch")
 
     async def execute(self, query: Union[str, List[str]], **kwargs) -> Any:
-        # 1. 准备配置和客户端（从实例内部获取配置）
+        # 1. Prepare config and client (from tool instance config).
         api_key = self.get_config('serper_api_key') or os.getenv('SERPER_API_KEY')
         if not api_key:
             raise ToolBusinessError("SERPER_API_KEY not configured", ErrorCode.EXECUTION_ERROR)
@@ -259,7 +259,7 @@ class SearchTool(BaseApiTool):
         
         client = SerperClient(api_key=api_key, retry_times=retry_times)
 
-        # 2. 执行搜索逻辑
+        # 2. Execute search flow.
         if isinstance(query, str):
             return client.search_single(query)
             
@@ -285,7 +285,7 @@ class SearchTool(BaseApiTool):
                 
             return combined_result
         else:  # type: ignore[unreachable]
-            # 参数类型错误也视为执行错误（运行时保护，虽然类型注解理论上不会到达这里）
+            # Invalid runtime type is treated as execution error (defensive guard).
             raise ToolBusinessError("Invalid query type: must be string or list of strings", ErrorCode.EXECUTION_ERROR)
 
 
@@ -301,13 +301,13 @@ class VisitTool(BaseApiTool):
             return False
 
     async def execute(self, urls: Union[str, List[str]], goal: str, **kwargs) -> Any:
-        # 1. 参数标准化
+        # 1. Normalize input arguments.
         if isinstance(urls, str):
             urls = [urls]
         if not urls:
             raise ToolBusinessError("No URLs provided", ErrorCode.EXECUTION_ERROR)
 
-        # 2. 准备配置和客户端（从实例内部获取配置）
+        # 2. Prepare config and clients (from tool instance config).
         visit_method = self.get_config('visit_method', 'jina')
         max_workers = self.get_config('max_workers', 5)
         
@@ -333,10 +333,10 @@ class VisitTool(BaseApiTool):
                 api_url=self.get_config('openai_api_url') or os.getenv('OPENAI_API_URL')
             )
             
-        # 传递 content_limit 给内部函数
+        # Pass `content_limit` to internal processing.
         content_limit = self.get_config('content_limit', 50000)
 
-        # 3. 定义单URL处理逻辑 (包含 抓取 -> 总结)
+        # 3. Define per-URL processing (fetch -> summarize).
         def process_url_sync(url):
             try:
                 if not self._is_valid_url(url):
@@ -369,13 +369,13 @@ class VisitTool(BaseApiTool):
             except Exception as e:
                 return {"success": False, "url": url, "error": str(e)}
 
-        # 4. 并行执行
+        # 4. Run in parallel.
         results = []
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             futures = executor.map(process_url_sync, urls)
             results = list(futures)
 
-        # 5. 结果聚合
+        # 5. Aggregate results.
         successful = [r for r in results if r['success']]
         failed = [r for r in results if not r['success']]
         
@@ -400,21 +400,21 @@ class VisitTool(BaseApiTool):
 
 
 # =============================================================================
-# Tool Registration (工具注册)
+# Tool registration
 # =============================================================================
 
-# 实例化并注册工具
-# 注意：register_api_tool 装饰器会注册传入的可调用对象。
-# 由于 BaseApiTool 实现了 __call__，实例本身就是可调用的。
+# Instantiate and register tools.
+# Note: register_api_tool registers callable objects directly.
+# BaseApiTool implements __call__, so the instance itself is callable.
 
 search = register_api_tool(
     name="web:search", 
     config_key="websearch", 
-    description="搜索网页 (Serper API)"
+    description="Search the web (Serper API)"
 )(SearchTool())
 
 visit = register_api_tool(
     name="web:visit", 
     config_key="websearch", 
-    description="访问网页并提取内容 (Jina API)"
+    description="Visit web pages and extract content (Jina API)"
 )(VisitTool())
