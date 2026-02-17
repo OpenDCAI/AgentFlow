@@ -1,5 +1,5 @@
 {
-  "$schema": "启动配置 - 本地Text2SQL",
+  "$schema": "Launch config - local Text2SQL",
   "server": {    
     "url": "http://127.0.0.1:18890",
     "port": 18890,
@@ -7,7 +7,7 @@
   },
   "apis": {
     "text2sql": {
-      "_comment_databases": "数据库文件路径建议通过环境变量注入（例如 TEXT2SQL_RETAIL_DB_PATH）。默认留空避免提交本机绝对路径到仓库。",
+      "_comment_databases": "Provide database file paths via environment variables (e.g. TEXT2SQL_RETAIL_DB_PATH). Defaults are empty to avoid committing machine-specific absolute paths.",
       "databases": {
         "retail": "${TEXT2SQL_RETAIL_DB_PATH:-}",
         "music": "${TEXT2SQL_MUSIC_DB_PATH:-}",

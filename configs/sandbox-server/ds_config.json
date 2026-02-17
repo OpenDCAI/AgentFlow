@@ -6,8 +6,8 @@
   },
   "apis": {
     "ds": {
-      "_comment_required": "seed_path 为调用参数，不在配置中",
-      "_comment_fallback": "兜底默认：ds_max_csv/ds_summary_max_chars",
+      "_comment_required": "seed_path is provided as a tool-call argument (not configured here)",
+      "_comment_fallback": "Default fallback values: ds_max_csv / ds_summary_max_chars",
       "ds_max_csv": 100,
       "ds_summary_max_chars": 12000
     }

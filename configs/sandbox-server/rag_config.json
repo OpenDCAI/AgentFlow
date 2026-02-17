@@ -7,16 +7,16 @@
   "resources": {
     "rag": {
       "enabled": true,
-      "description": "RAG 检索后端 - 文档检索 (E5 + Faiss)",
+      "description": "RAG retrieval backend - document search (E5 + Faiss)",
       "backend_class": "sandbox.server.backends.resources.rag.RAGBackend",
       "config": {
         "_comment_device": [
-          "device 格式说明:",
-          "- 'cuda:0'        → Encoder 用 cuda:0, Index 用 cpu",
-          "- 'cuda:0/cuda:1' → Encoder 用 cuda:0, Index 用 cuda:1",
-          "- 'cpu'           → 全部用 cpu"
+          "Device format reference:",
+          "- 'cuda:0'        -> encoder on cuda:0, index on cpu",
+          "- 'cuda:0/cuda:1' -> encoder on cuda:0, index on cuda:1",
+          "- 'cpu'           -> all components on cpu"
         ],
-        "_comment_required": "请通过环境变量提供本机 RAG 资源路径（避免提交绝对路径）：RAG_EMBEDDING_MODEL_PATH/RAG_INDEX_PATH/RAG_CORPUS_PATH",
+        "_comment_required": "Provide local RAG resource paths via environment variables (avoid committing absolute paths): RAG_EMBEDDING_MODEL_PATH / RAG_INDEX_PATH / RAG_CORPUS_PATH",
         "model_name": "${RAG_EMBEDDING_MODEL_PATH}",
         "index_path": "${RAG_INDEX_PATH}",
         "corpus_path": "${RAG_CORPUS_PATH}",

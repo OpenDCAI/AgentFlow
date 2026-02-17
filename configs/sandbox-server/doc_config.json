@@ -6,8 +6,8 @@
   },
   "apis": {
     "doc": {
-      "_comment_required": "必须设置：vlm_model/vlm_api_key/vlm_api_url（可用环境变量替代）",
-      "_comment_fallback": "兜底默认：max_search_results/max_image_num/max_text_token/vlm_max_tokens/vlm_timeout/vlm_retry_max_attempts",
+      "_comment_required": "Required: vlm_model / vlm_api_key / vlm_api_url (can be provided via env vars)",
+      "_comment_fallback": "Fallback defaults: max_search_results / max_image_num / max_text_token / vlm_max_tokens / vlm_timeout / vlm_retry_max_attempts",
       "seed_path": "seeds/doc/seed/2210.02442v1",
       "max_search_results": 10,
       "max_image_num": 10,

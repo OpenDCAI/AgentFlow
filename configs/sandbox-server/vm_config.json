@@ -7,7 +7,7 @@
   "resources": {
     "vm": {
       "enabled": true,
-      "description": "虚拟机后端 - 桌面自动化",
+      "description": "VM backend - desktop automation",
       "backend_class": "sandbox.server.backends.resources.vm.VMBackend",
       "config": {
         "provider": "docker",
@@ -21,7 +21,7 @@
         "pool_reset": true,
         "snapshot_name": "",
         "use_proxy": false,
-        "_comment_required": "建议通过环境变量提供本机资源路径与密码（避免硬编码）：VM_CLIENT_PASSWORD/VM_IMAGE_PATH/VM_RECORDING_PATH",
+        "_comment_required": "Provide local resource paths and passwords via environment variables (avoid hardcoding): VM_CLIENT_PASSWORD / VM_IMAGE_PATH / VM_RECORDING_PATH",
         "client_password": "${VM_CLIENT_PASSWORD:-password}",
         "vm_path": "${VM_IMAGE_PATH}",
         "recording": true,
