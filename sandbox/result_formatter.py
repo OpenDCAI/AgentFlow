@@ -55,6 +55,7 @@ Supported tool types:
 - rag:search: RAGSearchResult - RAG search result (`data.context`)
 - rag:batch_search: RAGBatchSearchResult - batch RAG search result
 - rag:stats: RAGStatsResult - RAG stats
+- text2sql:*: SQLResult - SQL tool results (list_databases, get_schema, execute)
 - bash: BashResult - bash execution result (`stdout/stderr`)
 - code: CodeExecutionResult - code execution result (`stdout/stderr`)
     - browser: BrowserResult - browser operation result
@@ -571,6 +572,130 @@ class DocResult(ToolResult):
 
 
 # ============================================================================
+# SQL tool result (text2sql).
+# ============================================================================
+
+class SQLResult(ToolResult):
+    """
+    SQL tool result (`text2sql:list_databases`, `text2sql:get_schema`, `text2sql:execute`).
+
+    Raw data schema varies by tool:
+    - list_databases: {"result": {"databases": List[str]}}
+    - get_schema: {"result": {"db_id": str, "schema": Dict[str, Any]}}
+    - execute: {"result": {"columns": List[str], "rows": List[tuple], "row_count": int, "truncated": bool}}
+    """
+
+    def to_str(self, verbose: bool = False) -> str:
+        """
+        Format SQL tool result.
+
+        Behavior:
+        - list_databases: return comma-separated database list
+        - get_schema: return formatted schema information
+        - execute: return formatted table with query results
+        """
+        # Response-level failure (`code != 0`): return error directly.
+        if not self.success:
+            error_msg = self.metadata.get("message", "SQL tool failed")
+            return f"[SQL tool failed] {error_msg}"
+
+        # Extract result from data.result or data directly
+        result_data = self.raw_data.get("result", {})
+        if not result_data:
+            result_data = self.raw_data
+
+        tool_name = self.tool_name
+
+        # Handle list_databases
+        if "list_databases" in tool_name:
+            databases = result_data.get("databases", [])
+            if databases:
+                db_list = ", ".join(databases)
+                if verbose:
+                    return f"Available databases ({len(databases)}): {db_list}"
+                return db_list
+            return "[No databases found]"
+
+        # Handle get_schema
+        elif "get_schema" in tool_name:
+            db_id = result_data.get("db_id", "")
+            schema = result_data.get("schema", {})
+            
+            if not schema:
+                return f"[No schema found for database: {db_id}]"
+            
+            lines = []
+            if db_id:
+                lines.append(f"Database: {db_id}")
+            
+            for table_name, table_info in schema.items():
+                lines.append(f"\nTable: {table_name}")
+                columns = table_info.get("columns", [])
+                if columns:
+                    col_lines = []
+                    for col in columns:
+                        col_name = col.get("name", "")
+                        col_type = col.get("type", "")
+                        is_pk = col.get("pk", False)
+                        pk_marker = " (PK)" if is_pk else ""
+                        col_lines.append(f"  - {col_name}: {col_type}{pk_marker}")
+                    lines.append("\n".join(col_lines))
+                
+                foreign_keys = table_info.get("foreign_keys", [])
+                if foreign_keys:
+                    fk_lines = []
+                    for fk in foreign_keys:
+                        to_table = fk.get("to_table", "")
+                        from_col = fk.get("from_col", "")
+                        to_col = fk.get("to_col", "")
+                        fk_lines.append(f"  - {from_col} -> {to_table}.{to_col}")
+                    lines.append("\nForeign Keys:")
+                    lines.append("\n".join(fk_lines))
+            
+            return "\n".join(lines)
+
+        # Handle execute
+        elif "execute" in tool_name:
+            columns = result_data.get("columns", [])
+            rows = result_data.get("rows", [])
+            row_count = result_data.get("row_count", 0)
+            truncated = result_data.get("truncated", False)
+            
+            if not columns:
+                return "[Query returned no columns]"
+            
+            lines = []
+            
+            # Format as table
+            if rows:
+                # Header
+                header = " | ".join(str(col) for col in columns)
+                lines.append(header)
+                lines.append("-" * len(header))
+                
+                # Rows
+                for row in rows:
+                    row_str = " | ".join(str(val) if val is not None else "NULL" for val in row)
+                    lines.append(row_str)
+                
+                # Footer info
+                footer = f"\nRows returned: {row_count}"
+                if truncated:
+                    footer += " (truncated, showing first 100 rows)"
+                lines.append(footer)
+            else:
+                lines.append("[Query returned no rows]")
+            
+            return "\n".join(lines)
+
+        # Fallback: return JSON
+        try:
+            return json.dumps(result_data, ensure_ascii=False, indent=2)
+        except Exception:
+            return str(result_data)
+
+
+# ============================================================================
 # Result formatter factory.
 # ============================================================================
 
@@ -663,7 +788,7 @@ class ResultFormatter:
             formatter_class = VisitResult
         elif tool_name == "rag:search":
             formatter_class = RAGSearchResult
-        elif tool_name.startswith("sql:"):
+        elif tool_name.startswith("text2sql:") or tool_name.startswith("sql:"):
             formatter_class = SQLResult
         elif tool_name.startswith("doc:") or tool_name.startswith("ds:"):
             formatter_class = DocResult

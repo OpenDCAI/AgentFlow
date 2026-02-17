@@ -222,6 +222,7 @@ def register_all_tools(server, apis_config: Dict[str, Any]) -> int:
 from . import websearch
 from . import ds_tool
 from . import doc_tool
+from . import text2sql_tool
 __all__ = [
     "register_api_tool",
     "get_api_tool",

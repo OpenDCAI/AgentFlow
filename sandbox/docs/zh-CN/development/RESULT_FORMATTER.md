@@ -371,18 +371,22 @@ async def generate_training_data():
 
 ## 测试
 
-运行单元测试：
+当前仓库未维护独立的 `result_formatter` 测试脚本，可通过最小调用代码进行功能验证：
 
-```bash
-cd /home/a1/sdb/tzw/Synthesis/sandbox
-python -m pytest sandbox/tests/test_result_formatter.py -v
+```python
+from sandbox.result_formatter import format_tool_result
+
+response = {
+    "code": 0,
+    "message": "ok",
+    "data": {"stdout": "hello\n", "stderr": "", "return_code": 0},
+    "meta": {"tool": "bash:run", "execution_time_ms": 1.2, "trace_id": "demo-trace-id"}
+}
+
+print(format_tool_result(response))
 ```
 
-运行示例程序：
-
-```bash
-python examples/result_formatter_example.py
-```
+如需做更严格验证，建议在集成流程中对典型工具响应进行快照比对。
 
 ## 设计原则
 
@@ -395,9 +399,7 @@ python examples/result_formatter_example.py
 ## 文件位置
 
 - **核心模块**: `sandbox/result_formatter.py`
-- **测试文件**: `sandbox/tests/test_result_formatter.py`
-- **示例程序**: `examples/result_formatter_example.py`
-- **文档**: `docs/RESULT_FORMATTER.md` (本文件)
+- **文档**: `sandbox/docs/zh-CN/development/RESULT_FORMATTER.md` (本文件)
 
 ## 使用场景
 

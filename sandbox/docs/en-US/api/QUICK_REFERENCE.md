@@ -306,7 +306,7 @@ async def test_my_tool_error():
 - **Error Codes**: `sandbox/server/backends/error_codes.py`
 - **Error Codes Documentation**: [ERROR_CODES.md](ERROR_CODES.md) - Detailed error code descriptions and usage guide
 - **Response Builder**: `sandbox/server/backends/response_builder.py`
-- **Full Guide**: `sandbox/server/backends/REFACTORING_GUIDE.md`
+- **Full Guide**: `sandbox/docs/zh-CN/development/BACKEND_DEVELOPMENT.md`
 - **Examples**:
   - WebSearch: `sandbox/server/backends/tools/websearch.py:692-840`
   - RAG: `sandbox/server/backends/resources/rag.py:557-756`

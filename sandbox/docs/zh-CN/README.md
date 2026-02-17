@@ -10,6 +10,7 @@
 - [后端开发指南](development/BACKEND_DEVELOPMENT.md): 完整的后端开发教程和示例
 - [工具注册指南](development/REGISTRATION_GUIDE.md): 工具注册方式详解，包含决策树和流程图
 - [结果格式化器](development/RESULT_FORMATTER.md): 工具结果格式化模块文档
+- [API 类型后端开发教程](development/API_TOOL_TUTORIAL.md): 基于 BaseApiTool 的无状态 API Tool 开发与快速验证
 
 ## API 参考
 

@@ -28,16 +28,28 @@ asyncio.run(main())
 ```
 
 > Note: `Sandbox` defaults `server_url` to `http://localhost:8080`. If using
-> `bin/sandbox-server.sh` to start, explicitly set it to `18890`.
+> `start_sandbox_server.sh` to start, explicitly set it to `18890`.
 
-### Method 2: Manual Server Startup
+### Method 2: Manual Server Startup (Standard)
 
-```python
-from sandbox.server.config_loader import create_server_from_config
+Use the project-root script `start_sandbox_server.sh` and explicitly pass a config
+from `configs/sandbox-server`:
 
-server = create_server_from_config("sandbox/configs/profiles/dev.json")
-server.run()
+```bash
+# Run from project root
+./start_sandbox_server.sh --config configs/sandbox-server/rag_config.json
 ```
+
+You can switch to other configs as needed:
+
+```bash
+./start_sandbox_server.sh --config configs/sandbox-server/web_config.json
+./start_sandbox_server.sh --config configs/sandbox-server/text2sql_config.json
+./start_sandbox_server.sh --config configs/sandbox-server/vm_config.json
+```
+
+> Note: this script resolves host/port from `server.url` / `server.port` in config,
+> and ignores CLI `--host` / `--port` to avoid conflicting inputs.
 
 Client connection:
 
@@ -47,6 +59,45 @@ from sandbox import Sandbox
 sandbox = Sandbox(server_url="http://127.0.0.1:18890", auto_start_server=False)
 await sandbox.start()
 ```
+
+### Config Parameters (`configs/sandbox-server/`)
+
+Typical structure (fields may vary by scenario):
+
+```json
+{
+  "server": {},
+  "resources": {},
+  "apis": {},
+  "warmup": {}
+}
+```
+
+Key fields:
+
+- `server`
+  - `url`: service address (e.g., `http://127.0.0.1:18890`), preferred for host/port resolution.
+  - `port`: fallback port when `url` does not include one.
+  - `session_ttl`: session expiration in seconds.
+- `resources`
+  - Stateful backends (e.g., `vm`, `rag`).
+  - Typical per-backend fields:
+    - `enabled`: whether this backend is enabled.
+    - `backend_class`: import path of backend implementation.
+    - `config`: backend init params (model path, screen size, etc.).
+- `apis`
+  - Stateless API tool configs (e.g., `websearch`, `text2sql`).
+  - Values are injected into corresponding tool instances (API keys, DB paths, timeout, etc.).
+- `warmup`
+  - `enabled`: whether to warm up at startup.
+  - `resources`: list of resources to warm up (e.g., `["rag"]`, `["vm"]`).
+
+Config selection:
+
+- RAG retrieval: `configs/sandbox-server/rag_config.json`
+- Web search/visit: `configs/sandbox-server/web_config.json`
+- Text2SQL: `configs/sandbox-server/text2sql_config.json`
+- VM only: `configs/sandbox-server/vm_config.json`
 
 ### Method 3: Connect to Existing Server (Without Context Manager)
 

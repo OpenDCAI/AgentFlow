@@ -1,19 +1,20 @@
 {
   "$schema": "启动配置 - 本地Text2SQL",
-  "server": {
+  "server": {    
+    "url": "http://127.0.0.1:18890",
+    "port": 18890,
     "session_ttl": 600
   },
-  "resources": {},
   "apis": {
     "text2sql": {
       "databases": {
-        "retail": "/Users/bytedance/Downloads/agentflow_sandbox-原来/数据库+生成数据集/retail.db",
-        "music": "/Users/bytedance/Downloads/agentflow_sandbox-原来/数据库+生成数据集/music.db",
-        "hospital": "/Users/bytedance/Downloads/agentflow_sandbox-原来/数据库+生成数据集/hospital.db",
-        "finance": "/Users/bytedance/Downloads/agentflow_sandbox-原来/数据库+生成数据集/finance.db",
-        "chinook": "/Users/bytedance/Downloads/agentflow_sandbox-原来/sample_databases/sqlite/chinook.sqlite",
-        "sakila": "/Users/bytedance/Downloads/agentflow_sandbox-原来/sample_databases/sqlite/sakila.sqlite",
-        "adventureworks": "/Users/bytedance/Downloads/agentflow_sandbox-原来/sample_databases/sqlite/adventureworks.sqlite"
+        "retail": "/home/a1/sdb/lb/AgentFlow/sql/retail.db",
+        "music": "/home/a1/sdb/lb/AgentFlow/sql/music.db",
+        "hospital": "/home/a1/sdb/lb/AgentFlow/sql/hospital.db",
+        "finance": "/home/a1/sdb/lb/AgentFlow/sql/finance.db",
+        "chinook": "/home/a1/sdb/lb/AgentFlow/sql/chinook.sqlite",
+        "sakila": "/home/a1/sdb/lb/AgentFlow/sql/sakila.sqlite",
+        "adventureworks": "/home/a1/sdb/lb/AgentFlow/sql/adventureworks.sqlite"
       }
     }
   }
