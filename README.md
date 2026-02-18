@@ -138,6 +138,7 @@ AgentFlow also has an extensive agent family. You can find more information in t
 
 [3] [Exploring Information Seeking Agent Consolidation](https://www.arxiv.org/pdf/2602.00585)
 
+[4] [BrowseComp-V3: A Visual, Vertical, and Verifiable Benchmark for Multimodal Browsing Agents](https://arxiv.org/pdf/2602.12876)
 ### Models
 
 | Agent      | 🤗 HuggingFace | 
@@ -155,6 +156,15 @@ AgentFlow also has an extensive agent family. You can find more information in t
 | MM-Doc  |     [DocDancer](https://huggingface.co/OpenDCAI/AgentFlow-Qwen3-30B-A3B-Think-DocDancer)     | 
 | RAG |  [RAGShaper](https://huggingface.co/OpenDCAI/AgentFlow-Qwen3-30B-A3B-Think-RAGShaper)           | 
 | DeepResearch   |  [DeepResearch Agent](https://huggingface.co/OpenDCAI/AgentFlow-Qwen3-30B-A3B-Think-Web)    |
+
+
+### Benchmarks
+#### BrowseComp-V3
+
+A challenging benchmark of 300 hand-crafted multimodal questions for evaluating web browsing agents. It features deep multi-hop, cross-modal reasoning across diverse domains, with publicly searchable evidence and expert-validated subgoal-driven process evaluation. Even SOTA models like GPT-5.2 achieve only 36% accuracy. Includes **OmniSeeker**, a general multimodal browsing agent framework, along with full rollout and LLM-judge evaluation pipelines.
+
+📄 [Project Page](https://halcyon-zhang.github.io/BrowseComp-V3/) · 🤗 [Dataset](https://huggingface.co/datasets/Halcyon-Zhang/BrowseComp-V3) · 💻 [GitHub](https://github.com/Halcyon-Zhang/BrowseComp-V3)
+
 
 ## 🧪 Overall Performance
 ### Qwen3-30B-A3B-Think
@@ -315,14 +325,6 @@ I want to audit all command aliases on this Ubuntu machine, so please launch the
     </td>
   </tr>
 </table>
-
-## 🏆 Agent Benchmarks
-
-### BrowseComp-V3
-
-A challenging benchmark of 300 hand-crafted multimodal questions for evaluating web browsing agents. It features deep multi-hop, cross-modal reasoning across diverse domains, with publicly searchable evidence and expert-validated subgoal-driven process evaluation. Even SOTA models like GPT-5.2 achieve only 36% accuracy. Includes **OmniSeeker**, a general multimodal browsing agent framework, along with full rollout and LLM-judge evaluation pipelines.
-
-📄 [Project Page](https://halcyon-zhang.github.io/BrowseComp-V3/) · 🤗 [Dataset](https://huggingface.co/datasets/Halcyon-Zhang/BrowseComp-V3) · 💻 [GitHub](https://github.com/Halcyon-Zhang/BrowseComp-V3)
 
 ## 📜 License
 
