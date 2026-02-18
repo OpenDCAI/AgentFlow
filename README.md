@@ -333,7 +333,7 @@ Apache 2.0
 | Role | Members |
 | :---: | :--- |
 | **🎯 Project Leader** | Zhengwei Tao (tttzw@pku.edu.cn), Jialong Wu (wujialongml@gmail.com) |
-| **🌟 Core Contributor** | Bo Li, Guochen Yan, Qintong Zhang, Hanyao Zhang |
+| **🌟 Core Contributor** | Bo Li, Guochen Yan, Qintong Zhang, Huanyao Zhang |
 | **💡 Contributor** | Xinjie Lv, Haishan Lu, Yuan Xu, Haoyang Yao, Xingdi Ding |
 | **📣 Advisor** | Kuan Li ([UniPat.ai](https://unipat.ai/)) |
 | **🏫 Supervisor** | Wentao Zhang, Bin Cui |
