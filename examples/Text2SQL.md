@@ -182,9 +182,9 @@ INFO:HTTPServiceServer:Registered tool: sql:execute
 INFO:HTTPServiceServer:Registered tool: sql:get_schema
 INFO:HTTPServiceServer:Registered tool: sql:list_databases
 ================================================================================
-✅ 服务器准备就绪！
-🌐 访问地址: http://127.0.0.1:18890
-🔍 健康检查: http://127.0.0.1:18890/health
+✅ Server Ready！
+🌐 Visit URL: http://127.0.0.1:18890
+🔍 Health Check: http://127.0.0.1:18890/health
 ================================================================================
 ```
 
