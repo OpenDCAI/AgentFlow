@@ -3,45 +3,75 @@
   "api_key": "${OPENROUTER_API_KEY}",
   "base_url": "https://openrouter.ai/api/v1",
 
-  "max_depth": 20,
-  "branching_factor": 2,
+  "max_depth": 4,
+  "branching_factor": 1,
   "depth_threshold": 2,
 
-  "min_depth": 3,
-  "max_selected_traj": 3,
-  "path_similarity_threshold": 0.7,
+  "min_depth": 2,
+  "max_selected_traj": 1,
+  "path_similarity_threshold": 0.8,
 
   "number_of_seed": null,
+  "target_qa_count": 100,
 
-  "resource_types": [],
-  "resource_init_configs": {},
+  "resource_types": ["sql"],
+  "resource_init_configs": {
+    "sql": {
+      "content": {}
+    }
+  },
 
   "sandbox_server_url": "http://127.0.0.1:18890",
   "sandbox_auto_start": true,
-  "sandbox_config_path": "configs/sandbox-server/text2sql_config.json",
+  "sandbox_config_path": "/path/to/AgentFlow/configs/sandbox-server/text2sql_config.json",
   "sandbox_timeout": 300,
 
-  "available_tools": ["text2sql-list_databases", "text2sql-get_schema", "text2sql-execute"],
+  "available_tools": ["sql:list_databases", "sql:get_schema", "sql:execute"],
 
-  "seed_description": "Natural language query intent over one or more available SQLite databases",
+  "seed_description": "Target database and exploration intent",
 
   "sampling_tips": [
-    "Start by calling text2sql-list_databases to discover candidate databases.",
-    "Call text2sql-get_schema before writing SQL so table and column names are grounded in real schema.",
-    "Use focused SELECT statements and LIMIT whenever possible to reduce noise.",
-    "Prefer explicit JOIN keys and verify column semantics from schema before aggregations.",
-    "If query fails, revise SQL based on returned errors instead of repeating the same call."
+    "First use sql:list_databases to confirm database IDs.",
+    "Then use sql:get_schema to view tables, fields, and foreign key relationships.",
+    "Finally, use sql:execute to repeatedly verify SQL, ensuring it is executable and returns non-empty results.",
+    "Prioritize generating complex questions with multi-table joins, group statistics, threshold filtering, subqueries, or CTEs.",
+    "",
+    "## Difficulty Requirements",
+    "- All problems should be hard difficulty: nested subqueries, window functions, complex JOINs (3+ tables), or multiple aggregations.",
+    "- Avoid generating only Top-1/max-value questions; prioritize group statistics, comparison, threshold filtering, Top-N, range analysis.",
+    "",
+    "## SQL Structure Requirements",
+    "- JOINs must follow foreign key/logical relationships.",
+    "- Cover at least one of AND/OR/IN/LIKE/BETWEEN/NOT IN/NOT EXISTS for complex filtering.",
+    "- Prefer nested subqueries/CTEs for hard problems.",
+    "- Time conditions should use strftime/date ranges when possible.",
+    "",
+    "## Quality Gates",
+    "- SQL must be executable and return non-empty results.",
+    "- If results are empty, first relax filter conditions then gradually tighten.",
+    "- Prioritize constructing a loose candidate set first, then apply threshold/ranking/filtering in outer layer.",
+    "- Do not directly include table/column names in questions."
   ],
 
   "synthesis_tips": [
-    "Create questions that require structured querying and reasoning from SQL results.",
-    "Ensure each answer is fully supported by executed query outputs.",
-    "Use multi-step reasoning when combining schema understanding and query results."
+    "Generate all hard difficulty Text2SQL.",
+    "Avoid concentrating on Top-1/max-value questions; prioritize group statistics, comparison, threshold filtering, Top-N, range analysis questions.",
+    "JSON output must include question/sql/reasoning_steps/difficulty.",
+    "difficulty can only be hard.",
+    "question must be expressed in business semantics, without directly showing table/column names.",
+    "sql must be executable and return non-empty results.",
+    "If results are empty, first relax filter conditions then gradually tighten until non-empty results are returned.",
+    "Prioritize constructing a loose candidate set first, then apply threshold/ranking/filtering in outer layer.",
+    "reasoning_steps must explain schema linking and logic step by step."
   ],
 
-  "qa_examples": [],
+  "qa_examples": [
+    {
+      "question": "Which countries have more than 10 customers, and what is the average invoice total for each?",
+      "answer": "SELECT c.Country, AVG(i.Total) AS avg_total FROM Customer c JOIN Invoice i ON c.CustomerId = i.CustomerId GROUP BY c.Country HAVING COUNT(DISTINCT c.CustomerId) > 10;"
+    }
+  ],
 
-  "seeds_file": "seeds/text2sql/seeds.jsonl",
+  "seeds_file": "/path/to/AgentFlow/seeds/text2sql/seeds.jsonl",
   "output_dir": "results/text2sql"
 }
-

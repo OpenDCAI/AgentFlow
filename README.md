@@ -328,16 +328,15 @@ A challenging benchmark of 300 hand-crafted multimodal questions for evaluating 
 
 Apache 2.0
 
-## ✍️ Contributor
-Project Leader:
+## ✍️ Contributors
 
-Core Contributor:
-
-Contributor:
-
-Advisor:
-
-Correspondance & Supervisor:
+| Role | Members |
+| :---: | :--- |
+| **🎯 Project Leader** | Zhengwei Tao (tttzw@pku.edu.cn), Jialong Wu (wujialongml@gmail.com) |
+| **🌟 Core Contributor** | Bo Li, Guochen Yan, Qintong Zhang, Hanyao Zhang |
+| **💡 Contributor** | Xinjie Lv, Haishan Lu, Yuan Xu, Haoyang Yao, Xingdi Ding |
+| **📣 Advisor** | Kuan Li ([UniPat.ai](https://unipat.ai/)) |
+| **🏫 Supervisor** | Wentao Zhang, Bin Cui |
 
 ## 🌍 Citation
 
