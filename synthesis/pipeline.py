@@ -38,6 +38,9 @@ class SynthesisPipeline:
     def __init__(self, config: SynthesisConfig, output_dir: str = "synthesis_results"):
         """Initialize pipeline"""
         self.config = config
+        agg_output_dir = Path(__file__).resolve().parents[1] / "results" / "ds_synthesized_qa"
+        agg_output_dir.mkdir(parents=True, exist_ok=True)
+        output_dir = str(agg_output_dir)
         self.output_dir = output_dir
 
         # Validate config

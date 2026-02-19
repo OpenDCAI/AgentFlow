@@ -790,7 +790,14 @@ class ResultFormatter:
             formatter_class = RAGSearchResult
         elif tool_name.startswith("text2sql:") or tool_name.startswith("sql:"):
             formatter_class = SQLResult
-        elif tool_name.startswith("doc:") or tool_name.startswith("ds:"):
+        elif (
+            tool_name.startswith("doc:")
+            or tool_name.startswith("ds:")
+            or tool_name.startswith("doc_")
+            or tool_name.startswith("ds_")
+            or tool_name.startswith("doc-")
+            or tool_name.startswith("ds-")
+        ):
             formatter_class = DocResult
         else:
             # Prefer resource_type, then infer from tool_name prefix.

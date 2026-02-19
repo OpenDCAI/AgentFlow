@@ -227,6 +227,15 @@ What is the difference in percentage-point increase between the overall mean sco
 
 ### 🖱️ Data Analysis Agent Case
 
+| **Rank** | **Driver**         | **Team**           | **Laps** | **Time / Retire** | **Grid** | **Points** |
+|---------:|--------------------|--------------------|---------:|-------------------|---------:|-----------:|
+| 1        | sébastien bourdais | n / h / 1 racing   | 96       | 45:42.0           | 2        | 33         |
+| 2        | justin wilson      | rsports            | 96       | + 3.9 secs        | 3        | 27         |
+| 3        | graham rahal       | n / h / 1 racing   | 96       | + 6.6 secs        | 4        | 25         |
+| 4        | simon pagenaud     | team australia     | 96       | + 24.8 secs       | 7        | 23         |
+| 5        | paul tracy         | forsythe racing    | 96       | + 28.1 secs       | 14       | 22         |
+| ...      | ...                | ...                | ...      | ...               | ...      | ...        |
+
 ```python
 🙋 Question
 
