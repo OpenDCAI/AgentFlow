@@ -227,6 +227,8 @@ What is the difference in percentage-point increase between the overall mean sco
 
 ### 🖱️ Data Analysis Agent Case
 
+Example input table (CSV preview, e.g. `race_results.csv`):
+
 | **Rank** | **Driver**         | **Team**           | **Laps** | **Time / Retire** | **Grid** | **Points** |
 |---------:|--------------------|--------------------|---------:|-------------------|---------:|-----------:|
 | 1        | sébastien bourdais | n / h / 1 racing   | 96       | 45:42.0           | 2        | 33         |
