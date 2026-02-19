@@ -14,8 +14,12 @@ import argparse
 from pathlib import Path
 from typing import List, Dict, Any
 
-# Add parent directory to path
+# Ensure both the synthesis package directory and project root are importable.
+# This allows running via either:
+#   - python -m synthesis.pipeline
+#   - python synthesis/pipeline.py
 sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from core import (
     SynthesisConfig,
