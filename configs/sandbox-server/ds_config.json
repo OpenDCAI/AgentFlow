@@ -6,11 +6,15 @@
   },
   "apis": {
     "ds": {
-      "_comment_required": "seed_path is provided as a tool-call argument (not configured here)",
-      "_comment_fallback": "Default fallback values: ds_max_csv / ds_summary_max_chars",
       "ds_max_csv": 100,
-      "ds_summary_max_chars": 12000
+      "ds_summary_max_chars": 12000,
+      "enable_llm_summary": true,
+      "summary_model": "openai/gpt-oss-120b",
+      "openai_api_key": "${OPENAI_API_KEY}",
+      "openai_api_url": "${OPENAI_API_URL}",
+      "llm_summary_temperature": 0.3,
+      "llm_summary_max_tokens": 2000,
+      "content_limit": 50000
     }
   }
 }
-

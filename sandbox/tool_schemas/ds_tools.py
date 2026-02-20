@@ -27,11 +27,11 @@ def get_ds_read_csv_schema() -> Dict[str, Any]:
     Schema for ds_read_csv tool.
     """
     return {
-        "name": "ds-read_csv",
+        "name": "ds_read_csv",
         "description": (
             "Read the first few rows of a CSV file to inspect its structure and content. "
             "Use this to understand the data schema before writing analysis code. "
-            "Note: base_dir is automatically provided from seed context."
+            "Do not include seed_path in csv_file. seed_path is injected automatically from seed context."
         ),
         "parameters": [
             {
@@ -55,14 +55,14 @@ def get_ds_run_python_schema() -> Dict[str, Any]:
     Schema for ds_run_python tool.
     """
     return {
-        "name": "ds-run_python",
+        "name": "ds_run_python",
         "description": (
             "Execute Python code for data analysis. "
             "Pre-installed libraries: pandas, numpy, scipy, sklearn, statsmodels, matplotlib, seaborn. "
             "The code allows creating charts/plots. "
             "Input/Output: Can read CSVs from the current directory and save results/figures. "
             "Security: File access is restricted to the current directory. "
-            "Note: base_dir is automatically provided from seed context."
+            "seed_path is injected automatically from seed context. You must provide the 'code' parameter."
         ),
         "parameters": [
             {
@@ -87,11 +87,10 @@ def get_ds_inspect_data_schema() -> Dict[str, Any]:
     Schema for ds_inspect_data tool.
     """
     return {
-        "name": "ds-inspect_data",
+        "name": "ds_inspect_data",
         "description": (
             "Inspect the data directory to list all CSV files and get a summary of their content (columns, shapes, missing values). "
-            "Use this as the FIRST step to understand what data is available."
+            "Use this as the FIRST step to understand what data is available. Takes no parameters; seed_path is injected automatically."
         ),
         "parameters": [],
     }
-

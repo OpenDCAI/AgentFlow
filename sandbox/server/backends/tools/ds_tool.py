@@ -47,6 +47,13 @@ except ImportError:
     plt = None
     sns = None
 
+try:
+    import openai
+    OPENAI_AVAILABLE = True
+except ImportError:
+    openai = None
+    OPENAI_AVAILABLE = False
+
 
 from . import register_api_tool
 from ..error_codes import ErrorCode
@@ -137,6 +144,42 @@ def summarize_csvs_in_folder(folder_path: str, max_csv: int = 100) -> str:
     return summary
 
 
+def _llm_summarize_text(
+    *,
+    text: str,
+    goal: str,
+    model: str,
+    api_key: str,
+    api_url: str,
+    temperature: float,
+    max_tokens: int,
+    content_limit: int,
+) -> str:
+    if not OPENAI_AVAILABLE:
+        raise ToolBusinessError("openai package not available for LLM summary", ErrorCode.EXECUTION_ERROR)
+    if content_limit and len(text) > int(content_limit):
+        text = text[: int(content_limit)]
+    client = openai.OpenAI(api_key=api_key, base_url=api_url)
+    prompt = (
+        f'Goal: "{goal}"\n\n'
+        "Summarize the following tool output. Preserve key numbers, IDs, and any computed results. "
+        "Be concise and do not add information not present in the text. Output summary only.\n\n"
+        "+++Content:\n"
+        f"{text}\n\n"
+        "+++Summary:"
+    )
+    try:
+        response = client.chat.completions.create(
+            model=model,
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=max_tokens,
+            temperature=temperature,
+        )
+        return response.choices[0].message.content.strip()
+    except Exception as e:
+        raise ToolBusinessError(f"LLM summarization failed: {str(e)}", ErrorCode.EXECUTION_ERROR)
+
+
 def read_csv_impl(
     csv_file: str,
     base_dir: str,
@@ -152,6 +195,8 @@ def read_csv_impl(
         return {"text": "base_dir is empty, environment did not correctly inject CSV root directory.", "images": []}
 
     try:
+        if "/" in csv_file or "\\" in csv_file:
+            csv_file = Path(csv_file).name
         path = _resolve_csv_path(base_dir, csv_file)
         if not path.exists():
             return {"text": f"File does not exist: {path}", "images": []}
@@ -216,6 +261,16 @@ def _patch_pandas_io(base_dir: str):
         yield
     finally:
         pd.read_csv = original_read_csv
+
+
+@contextlib.contextmanager
+def _temporary_chdir(target_dir: str):
+    prev_dir = os.getcwd()
+    try:
+        os.chdir(target_dir)
+        yield
+    finally:
+        os.chdir(prev_dir)
 
 
 def run_python_impl(
@@ -304,9 +359,9 @@ def run_python_impl(
 
     try:
         with contextlib.redirect_stdout(stdout_capture), contextlib.redirect_stderr(stdout_capture):
-            # Use patch to automatically correct relative paths in pd.read_csv
-            with _patch_pandas_io(base_dir):
-                exec(code, globals_ns, locals_ns)
+            with _temporary_chdir(base_dir):
+                with _patch_pandas_io(base_dir):
+                    exec(code, globals_ns, locals_ns)
         
         # Image capture
         if plt.get_fignums():
@@ -369,7 +424,7 @@ def run_python_impl(
 class InspectDataTool(BaseApiTool):
     """Inspect Data Tool"""
     def __init__(self):
-        super().__init__(tool_name="ds:inspect_data", resource_type="ds")
+        super().__init__(tool_name="ds_inspect_data", resource_type="ds")
 
     async def execute(self, **kwargs) -> Any:
         seed_path = kwargs.get("seed_path")
@@ -391,12 +446,33 @@ class InspectDataTool(BaseApiTool):
         summary = summarize_csvs_in_folder(seed_path, max_csv=max_csv)
         if len(summary) > max_chars:
             summary = summary[:max_chars] + "\n\n... [Summary truncated to comply with maximum length limit] ..."
+
+        enable_llm_summary = bool(self.get_config("enable_llm_summary"))
+        summary_model = self.get_config("summary_model")
+        if enable_llm_summary and summary_model:
+            api_key = self.get_config("openai_api_key") or os.getenv("OPENROUTER_API_KEY") or os.getenv("OPENAI_API_KEY")
+            api_url = self.get_config("openai_api_url") or "https://openrouter.ai/api/v1"
+            if not api_key:
+                raise ToolBusinessError("OPENROUTER_API_KEY not configured for LLM summary", ErrorCode.EXECUTION_ERROR)
+            temperature = float(self.get_config("llm_summary_temperature") or 0.3)
+            max_tokens = int(self.get_config("llm_summary_max_tokens") or 2000)
+            content_limit = int(self.get_config("content_limit") or 50000)
+            summary = _llm_summarize_text(
+                text=summary,
+                goal="Summarize the dataset inspection (files, schemas, quality issues, key stats).",
+                model=str(summary_model),
+                api_key=str(api_key),
+                api_url=str(api_url),
+                temperature=temperature,
+                max_tokens=max_tokens,
+                content_limit=content_limit,
+            )
         return {"result": summary}
 
 class ReadCsvTool(BaseApiTool):
     """Read CSV Tool"""
     def __init__(self):
-        super().__init__(tool_name="ds:read_csv", resource_type="ds")
+        super().__init__(tool_name="ds_read_csv", resource_type="ds")
 
     async def execute(self, csv_file: str, max_rows: int = 50, **kwargs) -> Any:
         seed_path = kwargs.get("seed_path")
@@ -409,12 +485,52 @@ class ReadCsvTool(BaseApiTool):
 class RunPythonTool(BaseApiTool):
     """Run Python Tool"""
     def __init__(self):
-        super().__init__(tool_name="ds:run_python", resource_type="ds")
+        super().__init__(tool_name="ds_run_python", resource_type="ds")
 
-    async def execute(self, code: str, return_vars: Optional[List[str]] = None, **kwargs) -> Any:
+    async def execute(self, code: str = "", return_vars: Optional[List[str]] = None, **kwargs) -> Any:
         seed_path = kwargs.get("seed_path")
         if not seed_path:
              raise ToolBusinessError("seed_path must be provided in kwargs", ErrorCode.EXECUTION_ERROR)
+
+        if not isinstance(code, str) or not code.strip():
+            code = (
+                "import pandas as pd\n"
+                "from sklearn.preprocessing import StandardScaler\n"
+                "from sklearn.cluster import KMeans\n"
+                "import os\n"
+                "\n"
+                "csv_files = sorted([f for f in os.listdir('.') if f.lower().endswith('.csv')])\n"
+                "summary = {'csv_files': csv_files, 'files': []}\n"
+                "\n"
+                "for f in csv_files:\n"
+                "    df = pd.read_csv(f)\n"
+                "    num_cols = df.select_dtypes(include='number').columns.tolist()\n"
+                "    summary['files'].append({'file': f, 'rows': int(df.shape[0]), 'cols': int(df.shape[1]), 'numeric_cols': num_cols})\n"
+                "\n"
+                "target = None\n"
+                "for item in sorted(summary['files'], key=lambda x: x['rows'], reverse=True):\n"
+                "    if len(item.get('numeric_cols') or []) >= 2 and item['rows'] >= 3:\n"
+                "        target = item['file']\n"
+                "        break\n"
+                "\n"
+                "summary['clustering'] = None\n"
+                "if target:\n"
+                "    df_t = pd.read_csv(target)\n"
+                "    num_cols = [c for c in df_t.select_dtypes(include='number').columns.tolist() if df_t[c].nunique(dropna=True) > 1]\n"
+                "    if len(num_cols) >= 2:\n"
+                "        X = df_t[num_cols].copy()\n"
+                "        X = X.fillna(X.median(numeric_only=True))\n"
+                "        Xs = StandardScaler().fit_transform(X.values.astype(float))\n"
+                "        k = 3\n"
+                "        km = KMeans(n_clusters=k, random_state=42, n_init=10)\n"
+                "        labels = km.fit_predict(Xs)\n"
+                "        counts = pd.Series(labels).value_counts().sort_index().to_dict()\n"
+                "        summary['clustering'] = {'file': target, 'features': num_cols, 'k': k, 'cluster_sizes': {int(k): int(v) for k, v in counts.items()}}\n"
+                "\n"
+                "print(summary)\n"
+            )
+            if return_vars is None:
+                return_vars = ["summary"]
         
         result = run_python_impl(code, seed_path, return_vars)
         
@@ -432,7 +548,31 @@ class RunPythonTool(BaseApiTool):
             # To allow the frontend (if any) to display images, we need to follow some protocol.
             # For now, only return "Generated X images", actual image data is in result['images']
             output += f"Generated {len(result['images'])} images (base64 data available)."
-            
+
+        enable_llm_summary = bool(self.get_config("enable_llm_summary"))
+        summary_model = self.get_config("summary_model")
+        max_chars = self.get_config("ds_summary_max_chars")
+        if max_chars is None:
+            max_chars = 12000
+        max_chars = int(max_chars)
+        if enable_llm_summary and summary_model and len(output) > max_chars:
+            api_key = self.get_config("openai_api_key") or os.getenv("OPENROUTER_API_KEY") or os.getenv("OPENAI_API_KEY")
+            api_url = self.get_config("openai_api_url") or "https://openrouter.ai/api/v1"
+            if not api_key:
+                raise ToolBusinessError("OPENROUTER_API_KEY not configured for LLM summary", ErrorCode.EXECUTION_ERROR)
+            temperature = float(self.get_config("llm_summary_temperature") or 0.3)
+            max_tokens = int(self.get_config("llm_summary_max_tokens") or 2000)
+            content_limit = int(self.get_config("content_limit") or 50000)
+            output = _llm_summarize_text(
+                text=output,
+                goal="Summarize the Python analysis output, preserving key computed numbers and conclusions.",
+                model=str(summary_model),
+                api_key=str(api_key),
+                api_url=str(api_url),
+                temperature=temperature,
+                max_tokens=max_tokens,
+                content_limit=content_limit,
+            )
         return {
             "result": output,
             "images": result["images"]  # Pass raw image data
@@ -444,19 +584,19 @@ class RunPythonTool(BaseApiTool):
 # ==========================================
 
 inspect_data = register_api_tool(
-    name="ds:inspect_data",
+    name="ds_inspect_data",
     config_key="ds",
     description="Inspect data directory"
 )(InspectDataTool())
 
 read_csv = register_api_tool(
-    name="ds:read_csv",
+    name="ds_read_csv",
     config_key="ds",
     description="Read CSV file"
 )(ReadCsvTool())
 
 run_python = register_api_tool(
-    name="ds:run_python",
+    name="ds_run_python",
     config_key="ds",
     description="Run Python code"
 )(RunPythonTool())

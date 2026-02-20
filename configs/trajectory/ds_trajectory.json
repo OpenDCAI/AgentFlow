@@ -1,0 +1,39 @@
+{
+  "benchmark_name": "ds_trajectory",
+  "model_name": "openai/gpt-oss-120b",
+  "api_key": "${OPENAI_API_KEY}",
+  "base_url": "${OPENAI_API_URL}",
+
+  "max_turns": 30,
+
+  "available_tools": ["ds_inspect_data", "ds_read_csv", "ds_run_python"],
+  "sandbox_server_url": "http://127.0.0.1:18890",
+
+  "system_prompt": [
+    "You are a data analysis assistant. You must use the provided tools to answer questions grounded in the CSV files.",
+    "",
+    "## Available Tools",
+    "1. ds_inspect_data: list CSV files and summarize each file (shape, columns, missing values)",
+    "2. ds_read_csv: preview a CSV file",
+    "3. ds_run_python: run Python for analysis (pandas, numpy, scipy, sklearn, statsmodels, matplotlib, seaborn)",
+    "",
+    "## Strategy",
+    "1. Start with ds_inspect_data to understand available files",
+    "2. Use ds_read_csv to confirm schema and values",
+    "3. Use ds_run_python for any computation/aggregation",
+    "4. Be careful about summary rows (e.g., a row where nation is 'total')",
+    "",
+    "## Output",
+    "- Reply with the final answer only (no extra explanation) unless the question asks otherwise."
+  ],
+
+  "evaluate_results": false,
+
+  "data_path": "benchmark/ds_benchmark.jsonl",
+  "output_dir": "trajectory_results/ds",
+
+  "save_results": true,
+  "save_trajectories": true,
+  "trajectory_only": true,
+  "save_summary": false
+}
