@@ -261,7 +261,7 @@ laps
 
 #### Table Structure
 
-actor Table (200 rows)
+*actor* Table (200 rows)
 
 | actor_id | first_name | last_name | last_update |
 |----------|------------|-----------|-------------|
@@ -269,7 +269,7 @@ actor Table (200 rows)
 | 2 | NICK | WAHLBERG | 2026-02-05 16:18:42 |
 | 3 | ED | CHASE | 2026-02-05 16:18:42 |
 
-film_actor Table (5,462 rows)
+*film_actor* Table (5,462 rows)
 
 | actor_id | film_id | last_update |
 |----------|---------|-------------|
@@ -277,7 +277,7 @@ film_actor Table (5,462 rows)
 | 1 | 23 | 2026-02-05 16:18:45 |
 | 1 | 25 | 2026-02-05 16:18:45 |
 
-film Table (1,000 rows)
+*film* Table (1,000 rows)
 
 | film_id | title | description | release_year | rental_rate | length | rating |
 |---------|-------|-------------|--------------|-------------|--------|--------|
@@ -285,7 +285,7 @@ film Table (1,000 rows)
 | 2 | ACE GOLDFINGER | A Astounding Epistle of a... | 2006 | 4.99 | 48 | G |
 | 3 | ADAPTATION HOLES | A Astounding Reflection of... | 2006 | 2.99 | 50 | NC-17 |
 
-film_category Table (1,000 rows)
+*film_category* Table (1,000 rows)
 
 | film_id | category_id | last_update |
 |---------|-------------|-------------|
@@ -293,7 +293,7 @@ film_category Table (1,000 rows)
 | 2 | 11 | 2026-02-05 16:18:48 |
 | 3 | 6 | 2026-02-05 16:18:48 |
 
-category Table (16 rows)
+*category* Table (16 rows)
 
 | category_id | name | last_update |
 |-------------|------|-------------|
@@ -301,7 +301,7 @@ category Table (16 rows)
 | 2 | Animation | 2026-02-05 16:18:42 |
 | 3 | Children | 2026-02-05 16:18:42 |
 
-inventory Table (4,581 rows)
+*inventory* Table (4,581 rows)
 
 | inventory_id | film_id | store_id | last_update |
 |--------------|---------|----------|-------------|
@@ -309,7 +309,7 @@ inventory Table (4,581 rows)
 | 2 | 1 | 1 | 2026-02-05 16:18:42 |
 | 3 | 1 | 1 | 2026-02-05 16:18:42 |
 
-rental Table (16,044 rows)
+*rental* Table (16,044 rows)
 
 | rental_id | rental_date | inventory_id | customer_id | return_date | staff_id |
 |-----------|-------------|--------------|-------------|-------------|----------|
