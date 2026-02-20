@@ -258,45 +258,114 @@ laps
 ```
 
 ### 🖱️ NL2SQL Agent Case
-```python
-Find customers whose spending is above the overall average, and show their top 2 most spent music genres along with the amount spent on each.
+
+#### Table Structure
+
+actor Table (200 rows)
+
+| actor_id | first_name | last_name | last_update |
+|----------|------------|-----------|-------------|
+| 1 | PENELOPE | GUINESS | 2026-02-05 16:18:42 |
+| 2 | NICK | WAHLBERG | 2026-02-05 16:18:42 |
+| 3 | ED | CHASE | 2026-02-05 16:18:42 |
+
+film_actor Table (5,462 rows)
+
+| actor_id | film_id | last_update |
+|----------|---------|-------------|
+| 1 | 1 | 2026-02-05 16:18:45 |
+| 1 | 23 | 2026-02-05 16:18:45 |
+| 1 | 25 | 2026-02-05 16:18:45 |
+
+film Table (1,000 rows)
+
+| film_id | title | description | release_year | rental_rate | length | rating |
+|---------|-------|-------------|--------------|-------------|--------|--------|
+| 1 | ACADEMY DINOSAUR | A Epic Drama of a Feminist... | 2006 | 0.99 | 86 | PG |
+| 2 | ACE GOLDFINGER | A Astounding Epistle of a... | 2006 | 4.99 | 48 | G |
+| 3 | ADAPTATION HOLES | A Astounding Reflection of... | 2006 | 2.99 | 50 | NC-17 |
+
+film_category Table (1,000 rows)
+
+| film_id | category_id | last_update |
+|---------|-------------|-------------|
+| 1 | 6 | 2026-02-05 16:18:48 |
+| 2 | 11 | 2026-02-05 16:18:48 |
+| 3 | 6 | 2026-02-05 16:18:48 |
+
+category Table (16 rows)
+
+| category_id | name | last_update |
+|-------------|------|-------------|
+| 1 | Action | 2026-02-05 16:18:42 |
+| 2 | Animation | 2026-02-05 16:18:42 |
+| 3 | Children | 2026-02-05 16:18:42 |
+
+inventory Table (4,581 rows)
+
+| inventory_id | film_id | store_id | last_update |
+|--------------|---------|----------|-------------|
+| 1 | 1 | 1 | 2026-02-05 16:18:42 |
+| 2 | 1 | 1 | 2026-02-05 16:18:42 |
+| 3 | 1 | 1 | 2026-02-05 16:18:42 |
+
+rental Table (16,044 rows)
+
+| rental_id | rental_date | inventory_id | customer_id | return_date | staff_id |
+|-----------|-------------|--------------|-------------|-------------|----------|
+| 1 | 2005-05-24 22:53:30 | 367 | 130 | 2005-05-26 22:04:30 | 1 |
+| 2 | 2005-05-24 22:54:33 | 1525 | 459 | 2005-05-28 19:40:33 | 1 |
+| 3 | 2005-05-24 23:03:39 | 1711 | 408 | 2005-06-01 22:12:39 | 1 |
+
+
+#### Synthesized Question
+
+```
+Which film categories have more than 10 actors who have appeared in popular films, 
+and how many such actors are there in each category?
 ```
 
+
+#### Answer SQL
+
 ```sql
-WITH CustomerTotal AS (
-    SELECT c.CustomerId, SUM(il.UnitPrice * il.Quantity) AS TotalSpent
-    FROM Customer c
-    JOIN Invoice i ON c.CustomerId = i.CustomerId
-    JOIN InvoiceLine il ON i.InvoiceId = il.InvoiceId
-    GROUP BY c.CustomerId
-),
-AverageSpending AS (
-    SELECT AVG(TotalSpent) AS AvgSpent FROM CustomerTotal
-),
-GenreSpending AS (
-    SELECT c.CustomerId, g.Name AS GenreName, SUM(il.UnitPrice * il.Quantity) AS GenreSpent
-    FROM Customer c
-    JOIN Invoice i ON c.CustomerId = i.CustomerId
-    JOIN InvoiceLine il ON i.InvoiceId = il.InvoiceId
-    JOIN Track t ON il.TrackId = t.TrackId
-    JOIN Genre g ON t.GenreId = g.GenreId
-    GROUP BY c.CustomerId, g.GenreId
-),
-TopGenres AS (
-    SELECT gs.CustomerId, gs.GenreName, gs.GenreSpent,
-           ROW_NUMBER() OVER (PARTITION BY gs.CustomerId ORDER BY gs.GenreSpent DESC) as rn
-    FROM GenreSpending gs
-)
-SELECT 
-    c.FirstName || ' ' || c.LastName AS CustomerName, 
-    tg.GenreName, 
-    tg.GenreSpent
-FROM Customer c
-JOIN CustomerTotal ct ON c.CustomerId = ct.CustomerId
-JOIN AverageSpending avg ON ct.TotalSpent > avg.AvgSpent
-JOIN TopGenres tg ON c.CustomerId = tg.CustomerId
-WHERE tg.rn <= 2
-ORDER BY ct.TotalSpent DESC, tg.GenreSpent DESC;
+WITH film_popularity AS (
+    SELECT f.film_id, COUNT(r.rental_id) AS rental_count 
+    FROM film f 
+    JOIN inventory i ON f.film_id = i.film_id 
+    JOIN rental r ON i.inventory_id = r.inventory_id 
+    GROUP BY f.film_id
+), 
+top_popular_films AS (
+    SELECT film_id 
+    FROM film_popularity 
+    WHERE rental_count > (SELECT AVG(rental_count) FROM film_popularity)
+), 
+actor_film_count AS (
+    SELECT a.actor_id, COUNT(f.film_id) AS film_count 
+    FROM actor a 
+    JOIN film_actor fa ON a.actor_id = fa.actor_id 
+    JOIN film f ON fa.film_id = f.film_id 
+    GROUP BY a.actor_id
+), 
+top_actors AS (
+    SELECT actor_id 
+    FROM actor_film_count 
+    WHERE film_count > (SELECT AVG(film_count) FROM actor_film_count)
+), 
+actor_category_data AS (
+    SELECT fa.actor_id, c.name AS category_name 
+    FROM film_actor fa 
+    JOIN film_category fc ON fa.film_id = fc.film_id 
+    JOIN category c ON fc.category_id = c.category_id
+) 
+SELECT c.name AS category_name, COUNT(a.actor_id) AS actor_count 
+FROM top_actors ta 
+JOIN actor_category_data acd ON ta.actor_id = acd.actor_id 
+JOIN category c ON acd.category_name = c.name 
+GROUP BY c.name 
+HAVING COUNT(a.actor_id) > 10 
+ORDER BY actor_count DESC;
 ```
 
 ### 🖱️ GUI Agent Case
