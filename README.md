@@ -147,7 +147,7 @@ AgentFlow also has an extensive agent family. You can find more information in t
 | RAG |  [RAGShaper](https://huggingface.co/OpenDCAI/AgentFlow-Qwen3-30B-A3B-Think-RAGShaper)           | 
 | DeepResearch   |  [DeepResearch Agent](https://huggingface.co/OpenDCAI/AgentFlow-Qwen3-30B-A3B-Think-Web)        | 
 | General-datamix  | [Agent-datamix](https://huggingface.co/OpenDCAI/AgentFlow-Qwen3-30B-A3B-Think-DataMix)           |
-| General-RegMeanpp  | [Agent-datamix](https://huggingface.co/OpenDCAI/AgentFlow-Qwen3-30B-A3B-Think-RegMeanpp)           |
+| General-RegMeanpp  | [Agent-RegMeanpp](https://huggingface.co/OpenDCAI/AgentFlow-Qwen3-30B-A3B-Think-RegMeanpp)           |
 
 ### Datasets
 
