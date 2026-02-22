@@ -31,7 +31,7 @@
 
 + 🤖 Embodied Agents
 
-and more.
++ and more.
 
 It provides a **unified, extensible, all-in-one environment** for synthesizing agent trajectories, reasoning traces, tool interactions, and environment feedback.
 
