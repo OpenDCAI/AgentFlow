@@ -15,7 +15,23 @@
 
 ## 🚀 Overview
 
-**AgentFlow** is the **first unified agent data synthesis framework** that generates high-quality training and evaluation data across heterogeneous agent environments — including 📚 RAG, 🖼️ MM-Doc, 🔍 Deep Research, 🖱️ GUI, 🟰 Text2SQL, 📊 Data Analysis, 🤖 Embodied Agents, and more.
+**AgentFlow** is the **first unified agent data synthesis framework** that generates high-quality training and evaluation data across heterogeneous agent environments — including 
+
+📚 RAG
+
+🖼️ MM-Doc
+
+🔍 Deep Research
+
+🖱️ GUI
+
+🟰 Text2SQL
+
+📊 Data Analysis
+
+🤖 Embodied Agents
+
+and more.
 
 It provides a **unified, extensible, all-in-one environment** for synthesizing agent trajectories, reasoning traces, tool interactions, and environment feedback.
 
