@@ -7,6 +7,10 @@
 [![Docmutation](https://img.shields.io/badge/Docmutation-red?style=for-the-badge&logo=google-chrome&logoColor=white)](https://opendcai.github.io/AgentFlow-Doc/en/)
  </div>
 
+ <p align="center">
+  <a href="./assets/wechat.jpg">WeChat (微信)</a>
+</p>
+
 <p align="center">
   <b>English</b> | <a href="README_zh.md">中文</a>
 </p>
