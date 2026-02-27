@@ -440,6 +440,19 @@ Apache 2.0
 | **📣 Advisor** | Kuan Li ([UniPat.ai](https://unipat.ai/)) |
 | **🏫 Supervisor** | Wentao Zhang, Bin Cui |
 
+## 🤝 Community & Support
+💬 Join the AgentFlow open-source community to ask questions, share ideas, and collaborate with other developers!
+
+<br>
+
+<div align="center">
+<a name="wechat-group"></a>
+<img src="./assets/wechat.jpg" alt="AgentFlow WeChat Community" width="200"/>
+<br>
+<sub>👆 Scan to join the community WeChat group 🎉</sub>
+</div>
+
+
 ## 🌍 Citation
 
 If you use AgentFlow in your research, please cite:
