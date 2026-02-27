@@ -8,7 +8,7 @@
  </div>
 
  <p align="center">
-  <a href="./assets/wechat.jpg">WeChat (微信)</a>
+  <a href="./assets/wechatshow.png">WeChat (微信)</a>
 </p>
 
 <p align="center">
