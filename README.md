@@ -185,7 +185,7 @@ A challenging benchmark of 300 hand-crafted multimodal questions for evaluating 
 ## 🧪 Overall Performance
 ### Qwen3-30B-A3B-Think
 
-| Level               | **Strategy** | **Web: GAIA (Acc.)** | **Web: BC (Acc.)** | **Web: BC-zh (Acc.)** | **Doc: MMBD (Acc.)** | **Doc: DocB (Acc.)** | **RAG: HotPotQA (EM/F1)** | **RAG: AmbigQA (F1/EM)** | **RAG: Bamboogle (F1/EM)** |
+| Level               | **Strategy** | **Web: GAIA (Acc.)** | **Web: BC (Acc.)** | **Web: BC-zh (Acc.)** | **Doc: MMBD (Acc.)** | **Doc: DocB (Acc.)** | **RAG: HotPotQA (EM/F1)** | **RAG: AmbigQA (EM/F1)** | **RAG: Bamboogle (EM/F1)** |
 | ------------------- | ------------ | -------------------- | ------------------ | --------------------- | -------------------- | -------------------- | ------------------------- | ------------------------ | -------------------------- |
 | **Data-level**      | Data Mixing  | **64.08**            | **28.00**          | **34.00**             | 63.59                | **83.29**            | 38.00 / 42.53             | 49.50 / 58.84            | 53.10 / 60.20              |
 | **Parameter-Level**                | RegMean++    | 60.19                | 22.50              | 28.00                 | 64.66                | 80.76                | 45.50 / 58.27             | 58.80 / 69.36            | **52.80 / 66.48**          |
