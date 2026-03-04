@@ -85,10 +85,20 @@ AgentFlow synthesizes high-quality agent training data through a three-stage pip
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/your-org/AgentFlow
+git clone https://github.com/OpenDCAI/AgentFlow
 cd AgentFlow
-pip install -e .
+bash install.sh          # Install core dependencies
 ```
+
+Optional dependencies:
+
+```bash
+bash install.sh --ml     # + ML/DL (torch, transformers, etc.)
+bash install.sh --cloud  # + Alibaba Cloud SDK
+bash install.sh --all    # Install everything
+```
+
+All dependencies are listed in [`requirements.txt`](requirements.txt). See `bash install.sh --help` for details.
 
 ## 🛠️ QuickStart
 

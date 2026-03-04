@@ -1,0 +1,77 @@
+# =============================================================
+# AgentFlow - Dependencies
+# =============================================================
+
+# ------------- Core -------------
+requests
+fastapi
+pydantic
+openai>=1.0.0
+httpx
+httpx-retries
+pyyaml
+tqdm
+filelock
+psutil
+pytz
+python-dotenv
+aiofiles
+
+# ------------- Sandbox & Desktop Environment -------------
+playwright
+flask
+PyAutoGUI==0.9.54
+python3-xlib==0.15
+Pillow==10.1.0
+numpy
+opencv-python
+lxml
+pygame
+pywinauto
+pyxcursor
+requests-toolbelt
+docker
+
+# ------------- Document & File Processing -------------
+openpyxl
+python-docx
+python-pptx
+odfpy
+pypdf
+PyPDF2
+pdf2image
+pdfplumber
+PyMuPDF
+borb
+beautifulsoup4
+easyocr
+mutagen
+xmltodict
+
+# ------------- Evaluation & Metrics -------------
+pandas
+scipy
+scikit-image
+rapidfuzz
+imagehash
+fastdtw
+librosa
+formulas
+tldextract
+acoustid
+
+# ------------- Cloud (Alibaba Cloud, optional) -------------
+# alibabacloud-ecs20140526
+# alibabacloud-tea-openapi
+# alibabacloud-tea-util
+
+# ------------- ML/DL (optional, uncomment if needed) -------------
+# torch>=2.6.0
+# transformers>=4.51.1
+# accelerate>=1.5.1
+# torchvision
+# vllm>=0.10.0
+
+# ------------- Testing -------------
+pytest
+cryptography
