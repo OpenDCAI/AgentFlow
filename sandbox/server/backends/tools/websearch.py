@@ -90,6 +90,135 @@ class SerperClient:
             "## Web Results\n" + "\n\n".join(web_snippets)
         )
 
+    def _format_image_results(self, items: list, key_image: str = "imageUrl", key_title: str = "title", key_link: str = "link") -> str:
+        """Format image search results into a readable string."""
+        lines = []
+        for item in items[:3]:
+            img = item.get(key_image, "")
+            title = item.get(key_title, "")
+            url = item.get(key_link, "")
+            if img:
+                lines.append(f"Image: {img}, Title: {title}, Webpage Url: {url}")
+            elif title:
+                lines.append(f"Title: {title}, Webpage Url: {url}")
+        if not lines:
+            return ""
+        return "```\n" + "\n\n".join(lines) + "\n```"
+
+    def search_images(self, query: str) -> str:
+        """Search images by text query via Serper /images endpoint."""
+        if not self.api_key:
+            raise ToolBusinessError("SERPER_API_KEY not configured", ErrorCode.EXECUTION_ERROR)
+
+        payload = json.dumps({"q": query})
+        headers = {
+            'X-API-KEY': self.api_key,
+            'Content-Type': 'application/json'
+        }
+
+        conn = None
+        last_error = None
+
+        try:
+            for attempt in range(self.retry_times):
+                try:
+                    if conn:
+                        try: conn.close()
+                        except: pass
+
+                    conn = http.client.HTTPSConnection("google.serper.dev")
+                    conn.request("POST", "/images", payload, headers)
+                    res = conn.getresponse()
+
+                    if res.status == 200:
+                        data = res.read()
+                        results = json.loads(data.decode("utf-8"))
+                        images = results.get("images", [])
+                        if not images:
+                            return f"No image results found for '{query}'. Try a different query."
+                        return self._format_image_results(images)
+
+                    last_error = f"HTTP {res.status}"
+                    try: res.read()
+                    except: pass
+
+                except Exception as e:
+                    last_error = str(e)
+                    logger.warning(f"Image search attempt {attempt + 1}/{self.retry_times} failed: {e}")
+                    if conn:
+                        try: conn.close()
+                        except: pass
+                        conn = None
+
+            raise ToolBusinessError(
+                f"Failed to complete image search after {self.retry_times} attempts. Last error: {last_error}",
+                ErrorCode.EXECUTION_ERROR
+            )
+        except ToolBusinessError:
+            raise
+        except Exception as e:
+            raise ToolBusinessError(f"Unexpected error during image search: {str(e)}", ErrorCode.EXECUTION_ERROR)
+        finally:
+            if conn:
+                conn.close()
+
+    def search_by_image(self, image_url: str) -> str:
+        """Reverse image search via Serper /lens endpoint."""
+        if not self.api_key:
+            raise ToolBusinessError("SERPER_API_KEY not configured", ErrorCode.EXECUTION_ERROR)
+
+        payload = json.dumps({"url": image_url})
+        headers = {
+            'X-API-KEY': self.api_key,
+            'Content-Type': 'application/json'
+        }
+
+        conn = None
+        last_error = None
+
+        try:
+            for attempt in range(self.retry_times):
+                try:
+                    if conn:
+                        try: conn.close()
+                        except: pass
+
+                    conn = http.client.HTTPSConnection("google.serper.dev")
+                    conn.request("POST", "/lens", payload, headers)
+                    res = conn.getresponse()
+
+                    if res.status == 200:
+                        data = res.read()
+                        results = json.loads(data.decode("utf-8"))
+                        organic = results.get("organic", [])
+                        if not organic:
+                            return f"No reverse image search results found for the provided image URL."
+                        return self._format_image_results(organic)
+
+                    last_error = f"HTTP {res.status}"
+                    try: res.read()
+                    except: pass
+
+                except Exception as e:
+                    last_error = str(e)
+                    logger.warning(f"Reverse image search attempt {attempt + 1}/{self.retry_times} failed: {e}")
+                    if conn:
+                        try: conn.close()
+                        except: pass
+                        conn = None
+
+            raise ToolBusinessError(
+                f"Failed to complete reverse image search after {self.retry_times} attempts. Last error: {last_error}",
+                ErrorCode.EXECUTION_ERROR
+            )
+        except ToolBusinessError:
+            raise
+        except Exception as e:
+            raise ToolBusinessError(f"Unexpected error during reverse image search: {str(e)}", ErrorCode.EXECUTION_ERROR)
+        finally:
+            if conn:
+                conn.close()
+
     def search_single(self, query: str) -> str:
         """Execute a single search; return formatted text or raise an exception."""
         if not self.api_key:
@@ -414,7 +543,50 @@ search = register_api_tool(
 )(SearchTool())
 
 visit = register_api_tool(
-    name="web:visit", 
-    config_key="websearch", 
+    name="web:visit",
+    config_key="websearch",
     description="Visit web pages and extract content (Jina API)"
 )(VisitTool())
+
+
+class ImageSearchTool(BaseApiTool):
+    """Search images by text query via Serper Images API."""
+    def __init__(self):
+        super().__init__(tool_name="image_search", resource_type="websearch")
+
+    async def execute(self, query: str, **kwargs) -> Any:
+        api_key = self.get_config('serper_api_key') or os.getenv('SERPER_API_KEY')
+        if not api_key:
+            raise ToolBusinessError("SERPER_API_KEY not configured", ErrorCode.EXECUTION_ERROR)
+
+        retry_times = self.get_config('retry_times', 5)
+        client = SerperClient(api_key=api_key, retry_times=retry_times)
+        return client.search_images(query)
+
+
+class ReverseImageSearchTool(BaseApiTool):
+    """Reverse image search by image URL via Serper Lens API."""
+    def __init__(self):
+        super().__init__(tool_name="reverse_image_search", resource_type="websearch")
+
+    async def execute(self, image_url: str, **kwargs) -> Any:
+        api_key = self.get_config('serper_api_key') or os.getenv('SERPER_API_KEY')
+        if not api_key:
+            raise ToolBusinessError("SERPER_API_KEY not configured", ErrorCode.EXECUTION_ERROR)
+
+        retry_times = self.get_config('retry_times', 5)
+        client = SerperClient(api_key=api_key, retry_times=retry_times)
+        return client.search_by_image(image_url)
+
+
+image_search = register_api_tool(
+    name="web:image_search",
+    config_key="websearch",
+    description="Search images by text query (Serper Images API)"
+)(ImageSearchTool())
+
+reverse_image_search = register_api_tool(
+    name="web:reverse_image_search",
+    config_key="websearch",
+    description="Reverse image search by image URL (Serper Lens API)"
+)(ReverseImageSearchTool())

@@ -18,6 +18,8 @@ def get_web_tool_schemas() -> List[Dict[str, Any]]:
     return [
         get_web_search_schema(),
         get_web_visit_schema(),
+        get_image_search_schema(),
+        get_reverse_image_search_schema(),
     ]
 
 
@@ -68,6 +70,48 @@ def get_web_visit_schema() -> Dict[str, Any]:
                 "name": "goal",
                 "type": "string",
                 "description": "The goal or purpose for content extraction.",
+                "required": True
+            }
+        ]
+    }
+
+
+def get_image_search_schema() -> Dict[str, Any]:
+    """
+    Schema for image search tool - search images by text query.
+    """
+    return {
+        "name": "web-image_search",
+        "description": (
+            "Search images by text query. Returns top image results "
+            "with titles, image URLs, and source webpage URLs."
+        ),
+        "parameters": [
+            {
+                "name": "query",
+                "type": "string",
+                "description": "Text query to search for images.",
+                "required": True
+            }
+        ]
+    }
+
+
+def get_reverse_image_search_schema() -> Dict[str, Any]:
+    """
+    Schema for reverse image search tool - search by image URL.
+    """
+    return {
+        "name": "web-reverse_image_search",
+        "description": (
+            "Reverse image search by providing an image URL. "
+            "Returns visually similar images with titles and source URLs."
+        ),
+        "parameters": [
+            {
+                "name": "image_url",
+                "type": "string",
+                "description": "URL of the image to search for similar images.",
                 "required": True
             }
         ]
