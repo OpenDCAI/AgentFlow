@@ -231,65 +231,58 @@ python -m synthesis.pipeline \
   "model_name": "openai/gpt-oss-120b",
   "api_key": "<YOUR_API_KEY>",
   "base_url": "https://openrouter.ai/api/v1",
-  
   "max_depth": 20,
   "branching_factor": 2,
   "depth_threshold": 2,
   "min_depth": 3,
   "max_selected_traj": 2,
   "path_similarity_threshold": 0.7,
-  
+  "resource_types": ["doc"],
   "sandbox_server_url": "http://127.0.0.1:18890",
+  "sandbox_config_path": "configs/sandbox-server/doc_config.json",
   "available_tools": ["doc_search", "doc_read"],
-  
-  "sampling_tips": [
-    "Explore parsed PDF documents to gather evidence for multi-hop, visual-grounded Q&A",
-    "Focus on multi-page evidence (combine at least TWO different pages/sections)",
-    "Ensure visual elements are involved (charts, figures, tables, or page layouts)",
-    "Require multi-hop reasoning (e.g., cross-reference + computation, footnote + chart reading)",
-    "Use doc_search to find visuals, tables, footnotes with keywords like: Figure, Chart, Table, panel, footnote",
-    "Use doc_read to extract detailed information from sections with specific goals",
-    "Chain across pages: after finding a chart/table, search for its discussion elsewhere",
-    "Collect content-based clues (captions, axis labels, legend items, headers) instead of explicit locations",
-    "Do NOT use page numbers, section IDs, or explicit figure/table numbers in questions",
-    "Note: seed_path is automatically provided from seed.jsonl kwargs, you don't need to specify it when calling doc_search or doc_read",
-    "Avoid broad document counts, word-frequency counting, or repeating identical tool calls"
-  ],
-  
-  "synthesis_tips": [
-    "Create questions requiring multi-hop reasoning (>=3 hops)",
-    "Keep questions concise (<=5 sentences)",
-    "Answers should be specific facts (names, dates, locations, numbers)",
-    "Ensure answer is grounded in trajectory evidence",
-    "Provide clear reasoning steps",
-    "Every QA must satisfy ALL constraints: multi-page (>=2 pages), visual-grounded (involve charts/figures/tables), multi-hop (>=2 reasoning points)",
-    "Do NOT mention page numbers, section IDs, or explicit figure/table numbers in questions",
-    "Use content-based clues (caption phrases, axis labels, legend items, headers) to identify evidence",
-    "Preferred templates: text claim + chart verification, table + chart consistency, footnote-constrained mapping, layout comparison",
-    "Disallowed: single-hop lookups, broad document counts, word-frequency questions",
-    "If trajectory doesn't support all constraints, choose a different question. Never guess or hallucinate"
-  ],
-  
   "seeds_file": "seeds/doc/seeds.jsonl",
-  "output_dir": "results/doc"
+  "output_dir": "results/doc",
+  "description_path": "configs/synthesis/instructions/doc_instruction.md",
+  "skill_group": "doc",
+  "skill": {
+    "enabled": false
+  }
 }
 ```
 
-**Config parameters:**
+Instruction markdown (`description_path`) should be placed under:
+- `configs/synthesis/instructions/doc_instruction.md`
 
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `model_name` | - | LLM model for synthesis (OpenAI-compatible format) |
-| `max_depth` | `20` | Max exploration depth of the trajectory tree |
-| `branching_factor` | `2` | Number of branches per node |
-| `depth_threshold` | `2` | Min depth before branching starts |
-| `min_depth` | `3` | Min depth for a trajectory to be selected |
-| `max_selected_traj` | `2` | Max trajectories selected per seed |
-| `path_similarity_threshold` | `0.7` | Similarity threshold for trajectory deduplication |
-| `sampling_tips` | - | Hints guiding the agent's document exploration behavior |
-| `synthesis_tips` | - | Hints guiding QA generation with visual and multi-page constraints |
-| `seeds_file` | - | Path to seed data file (JSONL) |
-| `sandbox_server_url` | `http://127.0.0.1:18890` | Sandbox server address (must match Step 1) |
+Recommended markdown blocks:
+- `description`
+- `sampling_tips`
+- `selecting_tips`
+- `synthesis_tips`
+- `qa_examples`
+
+If you do **not** use skills (`skill.enabled=false`):
+- the markdown format above is required by synthesis (strict mode);
+- missing required blocks will trigger warning + stop synthesis.
+
+### If You Enable Skills
+
+If you want to enable skill selection and injection for QA synthesis, use the skill-related config as shown below:
+
+```json
+{
+  "description_path": "configs/synthesis/instructions/doc_instruction.md",
+  "skills_root": "synthesis/skills",
+  "skill_group": "doc",
+  "skill": {
+    "enabled": true,
+    "min_global_skills": 5,
+    "max_global_skills": 10
+  }
+}
+```
+
+When `skill.enabled=true`, markdown structured extraction is recommended but not mandatory. If extraction is incomplete, pipeline still runs and falls back to full markdown text for global skill selection, then injects selected skills into phase prompts.
 
 **Output files:**
 
@@ -517,6 +510,68 @@ For the LasJ metric used in MMLongDoc-Bench, please refer to the detailed evalua
 | `sandbox_server_url` | `str` | `"http://127.0.0.1:18890"` | Sandbox server address |
 | `number_of_seed` | `int` | `None` | Limit number of seeds to process |
 
+### Skill Config for Synthesis
+Use these fields in synthesis config (for example `configs/synthesis/doc_config_with_skill.json`):
+
+```json
+{
+  "description_path": "configs/synthesis/instructions/doc_instruction.md",
+  "skills_root": "synthesis/skills",
+  "skill_group": "doc",
+  "skill": {
+    "enabled": true,
+    "max_category_count": 1,
+    "min_global_skills": 5,
+    "max_global_skills": 10,
+    "max_desc_chars": 800,
+    "max_ref_chars": 3000,
+    "temperature": 0.2,
+    "max_skill_examples": 8,
+    "max_total_qa_examples": 24
+  }
+}
+```
+
+### Instruction Markdown Format Requirements
+
+Instruction markdown (for example `configs/synthesis/instructions/doc_instruction.md`) supports these blocks:
+- `description`
+- `sampling_tips`
+- `selecting_tips`
+- `synthesis_tips`
+- `qa_examples`
+
+Behavior by skill mode:
+- `skill.enabled=false`: strict mode. All blocks above are required; missing blocks will print a warning and terminate synthesis.
+- `skill.enabled=true`: tolerant mode. Structured extraction is recommended but not mandatory. If extraction is incomplete, pipeline falls back to full markdown text for global skill selection, continues synthesis, and uses skill guidance as phase injection.
+
+Meaning of key fields:
+
+| Field | Default | Description |
+|------|---------|-------------|
+| `description_path` | `null` | Instruction markdown path. Recommended blocks: `description`, `sampling_tips`, `selecting_tips`, `synthesis_tips`, `qa_examples`. |
+| `skills_root` | `synthesis/skills` | Skill library root path. Relative path is resolved from project root. |
+| `skill_group` | inferred from `resource_types` | Optional fixed category. For DocAgent, set `"doc"` for strict category scoping. |
+| `skill.enabled` | `false` | Whether to enable global skill selection and prompt injection. |
+| `skill.max_category_count` | `2` | Max skill categories selected in stage-1 category selection. |
+| `skill.min_global_skills` | `5` | Minimum skills selected in one global selection run. |
+| `skill.max_global_skills` | `10` | Maximum skills selected in one global selection run. |
+| `skill.max_desc_chars` | `800` | Max description length per skill when shown to selector LLM. |
+| `skill.max_ref_chars` | `3000` | Max injected reference length per phase per skill. |
+| `skill.temperature` | `0.2` | Temperature for skill-selection LLM calls. |
+| `skill.max_skill_examples` | `8` | Max QA examples collected from selected `SKILL.md` files. |
+| `skill.max_total_qa_examples` | `24` | Max merged QA examples finally passed to synthesizer prompt. |
+| `skill.include` | `[]` | Optional explicit skill IDs to force include (bypass LLM selection). |
+| `skill.exclude` | `[]` | Optional skill IDs to block from candidate pool. |
+
+`selection_mode` in `skills_used.json`:
+
+| Value | Meaning |
+|------|---------|
+| `disabled` | Skill is turned off; original tips/examples path is used. |
+| `explicit_include` | Skills are taken from `skill.include` after validation. |
+| `llm_global` | One-time LLM global selection (category -> skills) is applied. |
+
 ### Rollout Config (`RolloutConfig`)
 
 | Parameter | Type | Default | Description |
@@ -538,4 +593,30 @@ For the LasJ metric used in MMLongDoc-Bench, please refer to the detailed evalua
 | `trajectory_only` | `bool` | `false` | Save trajectories only |
 | `parallel` | `bool` | `false` | Enable parallel execution |
 
----
+### Skill Library Structure
+
+Default root:
+
+`AgentFlow/synthesis/skills`
+
+Expected layout:
+
+```text
+synthesis/skills/
+  doc/                                   # 一级类别（Agent 类型）
+    <skill-id>/
+      SKILL.md                           # skill 定义（name/description + capability）
+      references/
+        EXPLORATION.md                   # sampler 阶段注入
+        SELECTION.md                     # selector 阶段注入
+        SYNTHESIS.md                     # synthesizer 阶段注入
+```
+
+### How to Upload Your Own Doc Skills
+
+1. Create a new folder under `synthesis/skills/doc/<your-skill-id>/`.
+2. Add `SKILL.md` with frontmatter fields `name` and `description`.
+3. In `SKILL.md`, optionally provide reusable QA demos as paired lines:
+   - `**Real Question**: ...`
+   - `**Real Answer**: ...`
+4. Add `references/EXPLORATION.md`, `references/SELECTION.md`, `references/SYNTHESIS.md`.

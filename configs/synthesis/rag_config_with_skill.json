@@ -1,0 +1,43 @@
+{
+  "model_name": "openai/gpt-oss-120b",
+  "api_key": "${OPENROUTER_API_KEY}",
+  "base_url": "https://openrouter.ai/api/v1",
+  "max_depth": 4,
+  "branching_factor": 2,
+  "depth_threshold": 2,
+  "min_depth": 2,
+  "max_selected_traj": 2,
+  "path_similarity_threshold": 0.7,
+  "number_of_seed": null,
+  "resource_types": [
+    "rag"
+  ],
+  "resource_init_configs": {
+    "rag": {
+      "content": {
+        "top_k": 10
+      }
+    }
+  },
+  "sandbox_server_url": "http://127.0.0.1:18890",
+  "sandbox_auto_start": true,
+  "sandbox_config_path": "configs/sandbox-server/rag_config.json",
+  "sandbox_timeout": 120,
+  "available_tools": [
+    "rag-search"
+  ],
+  "seed_description": "Starting entity and its description",
+  "description_path": "configs/synthesis/instructions/rag_instruction.md",
+  "skills_root": "synthesis/skills",
+  "skill": {
+    "enabled": true,
+    "max_category_count": 1,
+    "min_global_skills": 5,
+    "max_global_skills": 10,
+    "max_desc_chars": 1000,
+    "max_ref_chars": 4000,
+    "temperature": 0.2
+  },
+  "seeds_file": "seeds/rag/seeds.jsonl",
+  "output_dir": "results"
+}

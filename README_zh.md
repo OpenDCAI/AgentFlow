@@ -139,6 +139,23 @@ pipeline(config_path="configs/infer/web_infer.json")
 | 🔄 Trajectory Rollout | [`configs/trajectory/`](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/trajectory/) |
 | 🚀 模型推理 | [`configs/infer/`](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/infer/) |
 
+## 🧠 Skill 接入
+
+AgentFlow 的 synthesis 支持可选的全局 skill 选择，通过预定义的 skill 提供更高质量的合成数据。 用户可以通过`configs/synthesis/*_config.json`设置 skill 配置字段使用 skill 功能。
+
+默认 skill 目录结构，自定义上传 skill。
+
+```text
+synthesis/skills/
+  <agent_type>/                           # rag / doc / web / sql / ...
+    <skill-id>/
+      SKILL.md
+      references/
+        EXPLORATION.md
+        SELECTION.md
+        SYNTHESIS.md
+```
+
 ## 🌟 AgentFlow Agent Family
 
 ### Papers

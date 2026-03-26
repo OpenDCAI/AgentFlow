@@ -1,0 +1,29 @@
+description:
+  Data directory containing CSV files
+
+sampling_tips:
+  - Your data lives under the provided seed_path; start with ds_inspect_data.
+  - Prefer ds_run_python for any non-trivial computation (joins, aggregation, segmentation, clustering).
+  - When reading CSVs, use filenames like users.csv/products.csv/orders.csv (avoid embedding seed_path in csv_file).
+  - For user-level analysis, build features such as order_count, total_revenue, avg_order_value, category mix, recency.
+  - For clustering tasks, standardize numeric features and use deterministic settings (e.g., random_state=42, n_init=10).
+
+selecting_tips:
+  - Prefer trajectories with stronger evidence quality and less redundancy.
+
+synthesis_tips:
+  - Generate ONLY complex data-analysis questions grounded in the provided CSV schema. Avoid metadata or filesystem-related queries.
+  - At least 1 question must involve multi-table joins (3+ tables) to calculate derived business metrics (e.g., User -> Orders -> Products).
+  - Include at least 1 question requiring Statistical Hypothesis Testing (e.g., T-Test, Chi-Squared, or ANOVA). Require the model to report P-values and determine significance at alpha=0.05.
+  - At least 2 questions must involve Machine Learning: one for Clustering (KMeans, n_clusters>=3) and one for Predictive Modeling (Linear/Logistic Regression).
+  - Include questions on Feature Correlation (Pearson/Spearman) and require interpretation of the coefficients (e.g., 'If correlation > 0.6, return...').
+  - Avoid questions based on data previews or 'head()' calls; all answers must be computed from the full, cleaned dataset.
+  - Ensure answers are formatted strictly as requested: numeric results (rounded to 2 decimal places), IDs, or key=value pairs.
+
+qa_examples:
+  - question: "Join orders.csv with products.csv on product_id. What is the total revenue defined as sum(quantity * unit_price) across all orders? Reply with the number only (no commas)."
+    answer: "10734"
+  - question: "Check referential integrity for orders.csv: how many orders have a user_id missing from users.csv, and how many have a product_id missing from products.csv? Reply as: invalid_users=<int>, invalid_products=<int>."
+    answer: "invalid_users=0, invalid_products=0"
+  - question: "Create a per-user feature table with columns: order_count and total_revenue (sum(quantity*unit_price)). Run KMeans with n_clusters=3, random_state=42, n_init=10 on standardized features. Which cluster (0/1/2) has the highest mean total_revenue, and how many users are in it? Reply as: cluster=<int>, size=<int>."
+    answer: "cluster=1, size=2"

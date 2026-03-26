@@ -1,0 +1,39 @@
+description:
+  Target database and exploration intent
+
+sampling_tips:
+  - First use sql:list_databases to confirm database IDs.
+  - Then use sql:get_schema to view tables, fields, and foreign key relationships.
+  - Finally, use sql:execute to repeatedly verify SQL, ensuring it is executable and returns non-empty results.
+  - Prioritize generating complex questions with multi-table joins, group statistics, threshold filtering, subqueries, or CTEs.
+  - ## Difficulty Requirements
+  - - All problems should be hard difficulty: nested subqueries, window functions, complex JOINs (3+ tables), or multiple aggregations.
+  - - Avoid generating only Top-1/max-value questions; prioritize group statistics, comparison, threshold filtering, Top-N, range analysis.
+  - ## SQL Structure Requirements
+  - - JOINs must follow foreign key/logical relationships.
+  - - Cover at least one of AND/OR/IN/LIKE/BETWEEN/NOT IN/NOT EXISTS for complex filtering.
+  - - Prefer nested subqueries/CTEs for hard problems.
+  - - Time conditions should use strftime/date ranges when possible.
+  - ## Quality Gates
+  - - SQL must be executable and return non-empty results.
+  - - If results are empty, first relax filter conditions then gradually tighten.
+  - - Prioritize constructing a loose candidate set first, then apply threshold/ranking/filtering in outer layer.
+  - - Do not directly include table/column names in questions.
+
+selecting_tips:
+  - Prefer trajectories with stronger evidence quality and less redundancy.
+
+synthesis_tips:
+  - Generate all hard difficulty Text2SQL.
+  - Avoid concentrating on Top-1/max-value questions; prioritize group statistics, comparison, threshold filtering, Top-N, range analysis questions.
+  - JSON output must include question/sql/reasoning_steps/difficulty.
+  - difficulty can only be hard.
+  - question must be expressed in business semantics, without directly showing table/column names.
+  - sql must be executable and return non-empty results.
+  - If results are empty, first relax filter conditions then gradually tighten until non-empty results are returned.
+  - Prioritize constructing a loose candidate set first, then apply threshold/ranking/filtering in outer layer.
+  - reasoning_steps must explain schema linking and logic step by step.
+
+qa_examples:
+  - question: "Which countries have more than 10 customers, and what is the average invoice total for each?"
+    answer: "SELECT c.Country, AVG(i.Total) AS avg_total FROM Customer c JOIN Invoice i ON c.CustomerId = i.CustomerId GROUP BY c.Country HAVING COUNT(DISTINCT c.CustomerId) > 10;"

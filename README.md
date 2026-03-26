@@ -157,6 +157,22 @@ pipeline(config_path="configs/infer/web_infer.json")
 | 🔄 Trajectory Rollout | [`configs/trajectory/`](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/trajectory/) |
 | 🚀 Model Inference | [`configs/infer/`](https://github.com/OpenDCAI/AgentFlow/tree/main/configs/infer/) |
 
+## 🧠 Skill Integration
+
+AgentFlow's synthesis module supports optional global skill selection, enabling higher-quality synthetic data through pre-defined skills. Users can enable skill functionalities by configuring the skill-related fields in `configs/synthesis/*_config.json`.
+
+The default skill directory structure is as follows, supporting to upload your own custom skill.
+
+```text
+synthesis/skills/
+  <agent_type>/                           # rag / doc / web / sql / ...
+    <skill-id>/
+      SKILL.md
+      references/
+        EXPLORATION.md
+        SELECTION.md
+        SYNTHESIS.md
+```
 
 ## 🌟 AgentFlow Agent Family
 ### Papers

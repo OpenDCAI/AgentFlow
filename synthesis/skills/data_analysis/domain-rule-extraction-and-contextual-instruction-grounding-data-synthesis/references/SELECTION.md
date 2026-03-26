@@ -1,0 +1,11 @@
+# Phase 2: Trajectory Selection Criteria
+* **Acceptance Metrics**:
+  - Accept only if a documented rule materially changes the analysis outcome. The trajectory must show that without the rule, the result would differ or remain undefined. A decorative note that does not influence computation is not enough.
+  - Accept only if the extracted rule can be written as a reproducible operational step. That may be a mapping, threshold, filter, scenario adjustment, or formula. If the contextual instruction remains too vague to implement cleanly, the trace is not ready for synthesis.
+  - Accept only if the rule source is explicitly identifiable in the environment. The trajectory should point to the section, file, or note where the rule came from. Hidden or implied prior knowledge should not be used as supervision.
+  - Accept only if a competent analyst would agree on the rule interpretation. Minor paraphrase differences are fine, but the operational meaning should be stable. If two reasonable interpretations would lead to different answers and the environment does not resolve them, reject the case.
+* **Rejection Criteria**:
+  - Reject cases where the rule is effectively encoded in a column that already gives the final answer. If the documentation only repeats what the data already states, the example is closer to ordinary lookup than contextual grounding. The skill should teach models to extract logic from text, not just confirm labels.
+  - Reject trajectories that cite documentation but never operationalize it. Copying a paragraph into the trace without converting it into a filter, formula, or scenario is weak evidence. Such traces do not provide reusable synthesis guidance.
+  - Reject examples where the rule is too broad or under-specified for deterministic evaluation. If the instruction reads like strategic advice rather than actionable analytical logic, the final answer will be unstable. Better to drop it than to create noisy supervision.
+  - Reject questions whose main challenge is multi-hop source integration but not rule use. If documentation is present but the hard part is really joining files or retrieving the right table, use a retrieval or multi-hop capability instead. The defining burden here must be rule extraction and application.

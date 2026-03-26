@@ -271,9 +271,45 @@ python -m synthesis.pipeline \
   "sandbox_timeout": 120,
   "available_tools": ["rag-search"],
   "seeds_file": "seeds/rag/seeds.jsonl",
-  "output_dir": "results"
+  "output_dir": "results",
+  "description_path": "configs/synthesis/instructions/rag_instruction.md",
+  "skill": {
+    "enabled": false
+  }
 }
 ```
+
+Instruction markdown (`description_path`) should be placed under:
+- `configs/synthesis/instructions/rag_instruction.md`
+
+Recommended markdown blocks:
+- `description`
+- `sampling_tips`
+- `selecting_tips`
+- `synthesis_tips`
+- `qa_examples`
+
+If you do **not** use skills (`skill.enabled=false`):
+- the markdown format above is required by synthesis (strict mode);
+- missing required blocks will trigger warning + stop synthesis.
+
+### If You Enable Skills
+
+If you want to enable skill selection and injection for QA synthesis, use the skill-related config as shown below:
+
+```json
+{
+  "description_path": "configs/synthesis/instructions/rag_instruction.md",
+  "skills_root": "synthesis/skills",
+  "skill": {
+    "enabled": true,
+    "min_global_skills": 5,
+    "max_global_skills": 10
+  }
+}
+```
+
+When `skill.enabled=true`, markdown structured extraction is recommended but not mandatory. If extraction is incomplete, pipeline still runs and falls back to full markdown text for global skill selection, then injects selected skills into phase prompts.
 
 **Output files:**
 
@@ -427,6 +463,68 @@ pipeline(config_path="configs/infer/rag_infer.json")
 | `sandbox_server_url` | `str` | `"http://127.0.0.1:18890"` | Sandbox server address |
 | `number_of_seed` | `int` | `None` | Limit number of seeds to process |
 
+### Skill Config for Synthesis
+
+Use these fields in synthesis config (for example `configs/synthesis/rag_config_with_skill.json`):
+
+```json
+{
+  "description_path": "configs/synthesis/instructions/rag_instruction.md",
+  "skills_root": "synthesis/skills",
+  "skill": {
+    "enabled": true,
+    "max_category_count": 1,
+    "min_global_skills": 5,
+    "max_global_skills": 10,
+    "max_desc_chars": 800,
+    "max_ref_chars": 3000,
+    "temperature": 0.2,
+    "max_skill_examples": 8,
+    "max_total_qa_examples": 24
+  }
+}
+```
+
+### Instruction Markdown Format Requirements
+
+Instruction markdown (for example `configs/synthesis/instructions/rag_instruction.md`) supports these blocks:
+- `description`
+- `sampling_tips`
+- `selecting_tips`
+- `synthesis_tips`
+- `qa_examples`
+
+Behavior by skill mode:
+- `skill.enabled=false`: strict mode. All blocks above are required; missing blocks will print a warning and terminate synthesis.
+- `skill.enabled=true`: tolerant mode. Structured extraction is recommended but not mandatory. If extraction is incomplete, pipeline falls back to full markdown text for global skill selection, continues synthesis, and uses skill guidance as phase injection.
+
+Meaning of key fields:
+
+| Field | Default | Description |
+|------|---------|-------------|
+| `description_path` | `null` | Instruction markdown path. Recommended blocks: `description`, `sampling_tips`, `selecting_tips`, `synthesis_tips`, `qa_examples`. |
+| `skills_root` | `synthesis/skills` | Skill library root path. Relative path is resolved from project root. |
+| `skill.enabled` | `false` | Whether to enable global skill selection and prompt injection. |
+| `skill.max_category_count` | `2` | Max skill categories selected in stage-1 category selection. |
+| `skill.min_global_skills` | `5` | Minimum skills selected in one global selection run. |
+| `skill.max_global_skills` | `10` | Maximum skills selected in one global selection run. |
+| `skill.max_desc_chars` | `800` | Max description length per skill when shown to selector LLM. |
+| `skill.max_ref_chars` | `3000` | Max injected reference length per phase per skill. |
+| `skill.temperature` | `0.2` | Temperature for skill-selection LLM calls. |
+| `skill.max_skill_examples` | `8` | Max QA examples collected from selected `SKILL.md` files. |
+| `skill.max_total_qa_examples` | `24` | Max merged QA examples finally passed to synthesizer prompt. |
+| `skill.include` | `[]` | Optional explicit skill IDs to force include (bypass LLM selection). |
+| `skill.exclude` | `[]` | Optional skill IDs to block from candidate pool. |
+
+`selection_mode` in `skills_used.json`:
+
+| Value | Meaning |
+|------|---------|
+| `disabled` | Skill is turned off; original tips/examples path is used. |
+| `explicit_include` | Skills are taken from `skill.include` after validation. |
+| `llm_global` | One-time LLM global selection (category -> skills) is applied. |
+
+
 ### Rollout Config (`RolloutConfig`)
 
 | Parameter | Type | Default | Description |
@@ -448,6 +546,34 @@ pipeline(config_path="configs/infer/rag_infer.json")
 | `trajectory_only` | `bool` | `false` | Save trajectories only |
 | `parallel` | `bool` | `false` | Enable parallel execution |
 
+### Skill Library Structure
+
+Default root:
+
+`AgentFlow/synthesis/skills`
+
+Expected layout:
+
+```text
+synthesis/skills/
+  rag/                                   # 一级类别（Agent 类型）
+    <skill-id>/
+      SKILL.md                           # skill 定义（name/description + capability）
+      references/
+        EXPLORATION.md                   # sampler 阶段注入
+        SELECTION.md                     # selector 阶段注入
+        SYNTHESIS.md                     # synthesizer 阶段注入
+```
+
+### How to Upload Your Own RAG Skills
+
+1. Create a new folder under `synthesis/skills/rag/<your-skill-id>/`.
+2. Add `SKILL.md` with frontmatter fields `name` and `description`.
+3. In `SKILL.md`, optionally provide reusable QA demos as paired lines:
+   - `**Real Question**: ...`
+   - `**Real Answer**: ...`
+4. Add `references/EXPLORATION.md`, `references/SELECTION.md`, `references/SYNTHESIS.md`.
+
 ---
 
 ## FAQ
@@ -463,5 +589,3 @@ A: The RAG backend formats retrieved chunks into a single string for prompt-frie
 **Q: My server fails on startup with missing paths.**
 
 A: Ensure `RAG_EMBEDDING_MODEL_PATH`, `RAG_INDEX_PATH`, and `RAG_CORPUS_PATH` are set (or hardcode them in `configs/sandbox-server/rag_config.json`).
-
-
