@@ -2289,13 +2289,11 @@ suitable for multi-hop QA.</pre>
         if (pageMain) pageMain.classList.toggle("is-hidden", normalized === "skill-hub");
         if (pageSkillHub) pageSkillHub.classList.toggle("is-hidden", normalized !== "skill-hub");
 
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
         if (normalized === "skill-hub") {
-            document.getElementById("skill-library")?.scrollIntoView({ behavior: "smooth", block: "start" });
             return;
         }
-
-        const targetPanel = document.getElementById(`api-${normalized}`);
-        targetPanel?.scrollIntoView({ behavior: "smooth", block: "start" });
 
         if (normalized === "pipeline-graph") {
             window.requestAnimationFrame(() => {
