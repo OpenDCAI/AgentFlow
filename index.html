@@ -3654,6 +3654,10 @@ suitable for multi-hop QA.</pre>
             topbar.classList.toggle('scrolled', window.scrollY > 10);
         }, { passive: true });
     }
+
+    // ensure page starts at top
+    window.scrollTo(0, 0);
+    if (history.scrollRestoration) history.scrollRestoration = 'manual';
 </script>
 </body>
 </html>
