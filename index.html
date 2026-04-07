@@ -8,17 +8,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
         :root {
-            --page-bg: #f3f1ec;
-            --card-bg: #ece9e2;
-            --card-bg-soft: #f7f5f1;
+            --page-bg: #f7f7f8;
+            --card-bg: #eeeef0;
+            --card-bg-soft: #f5f5f7;
             --text-main: #171717;
             --text-muted: #5d5a54;
-            --line: #d8d3c9;
-            --line-strong: #c9c3b8;
-            --accent: #b98f5e;
-            --accent-soft: #efe2d3;
+            --line: #e0e0e3;
+            --line-strong: #ccccd0;
+            --accent: #6366f1;
+            --accent-soft: #eef2ff;
             --white: #ffffff;
-            --shadow: 0 14px 28px rgba(22, 20, 16, 0.08);
+            --shadow: 0 14px 28px rgba(0, 0, 0, 0.06);
         }
 
         * { box-sizing: border-box; }
@@ -28,10 +28,7 @@
         body {
             margin: 0;
             font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background:
-                radial-gradient(circle at 85% -20%, rgba(188, 149, 98, 0.22), transparent 42%),
-                radial-gradient(circle at 10% 120%, rgba(185, 168, 139, 0.18), transparent 36%),
-                var(--page-bg);
+            background: var(--page-bg);
             color: var(--text-main);
             padding: 0 24px 56px;
         }
@@ -39,11 +36,11 @@
         /* custom scrollbar */
         ::-webkit-scrollbar { width: 7px; height: 7px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #cdc5b6; border-radius: 99px; }
-        ::-webkit-scrollbar-thumb:hover { background: #b5ad9e; }
+        ::-webkit-scrollbar-thumb { background: #c0c0c5; border-radius: 99px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a0a0a5; }
 
         /* selection color */
-        ::selection { background: rgba(185, 143, 94, 0.25); }
+        ::selection { background: rgba(99, 102, 241, 0.25); }
 
         .container {
             max-width: 1160px;
@@ -61,10 +58,10 @@
             align-items: center;
             justify-content: space-between;
             padding: 14px 32px;
-            background: rgba(243, 241, 236, 0.82);
+            background: rgba(247, 247, 248, 0.85);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(216, 211, 201, 0.6);
+            border-bottom: 1px solid rgba(224, 224, 227, 0.6);
             color: var(--text-muted);
             font-size: 13px;
             letter-spacing: 0.01em;
@@ -78,7 +75,7 @@
         .brand {
             font-weight: 700;
             font-size: 15px;
-            background: linear-gradient(135deg, #2f271d 30%, #b98f5e);
+            background: linear-gradient(135deg, #171717 30%, #6366f1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -113,8 +110,8 @@
 
         .nav-link.active {
             background: var(--accent-soft);
-            border-color: #e0c3a2;
-            color: #473a2b;
+            border-color: #a5b4fc;
+            color: #333336;
             font-weight: 600;
         }
 
@@ -140,7 +137,7 @@
             font-size: clamp(36px, 5vw, 56px);
             line-height: 1.05;
             letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #1a1a2e 40%, #b98f5e 100%);
+            background: linear-gradient(135deg, #1a1a2e 40%, #6366f1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -157,7 +154,7 @@
             margin: 0 0 28px;
             border: 1px solid var(--line);
             border-radius: 18px;
-            background: linear-gradient(180deg, #faf7f0, #f5f0e8);
+            background: linear-gradient(180deg, #fafafb, #f3f3f5);
             padding: 20px;
             box-shadow: 0 2px 12px rgba(22, 20, 16, 0.04);
         }
@@ -169,7 +166,7 @@
             margin: 0 0 10px;
             font-size: 20px;
             letter-spacing: -0.01em;
-            color: #2f271d;
+            color: #1e1e1e;
         }
 
         .api-panel p {
@@ -183,11 +180,11 @@
             display: inline-block;
             margin: 0 8px 8px 0;
             font-size: 12px;
-            color: #665a4b;
+            color: #6b6b70;
             padding: 5px 8px;
             border-radius: 8px;
-            border: 1px solid #ddd4c7;
-            background: #fffdf8;
+            border: 1px solid #dcdce0;
+            background: #ffffff;
         }
 
         .external-links {
@@ -200,27 +197,27 @@
         .external-link {
             display: inline-block;
             font-size: 12px;
-            color: #4b3d2d;
+            color: #4a4a4f;
             text-decoration: none;
             padding: 7px 14px;
             border-radius: 999px;
-            border: 1px solid #ddd4c7;
-            background: #fffdf8;
+            border: 1px solid #dcdce0;
+            background: #ffffff;
             transition: all 0.22s ease;
             font-weight: 500;
         }
 
         .external-link:hover {
-            border-color: #c9a574;
-            background: linear-gradient(180deg, #fff7eb, #f4e6d1);
-            color: #3a2f22;
+            border-color: #818cf8;
+            background: linear-gradient(180deg, #eef2ff, #e0e7ff);
+            color: #333336;
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(185, 143, 94, 0.15);
         }
 
         .demo-block {
             margin-top: 14px;
-            border-top: 1px solid #e5ddd1;
+            border-top: 1px solid #e2e2e5;
             padding-top: 14px;
         }
 
@@ -234,7 +231,7 @@
         .demo-card {
             border: 1px solid var(--line);
             border-radius: 14px;
-            background: #fffdf9;
+            background: #ffffff;
             padding: 14px;
             transition: transform 0.22s ease, box-shadow 0.22s ease;
         }
@@ -248,7 +245,7 @@
             margin: 0 0 10px;
             font-size: 15px;
             letter-spacing: -0.01em;
-            color: #2f271d;
+            color: #1e1e1e;
         }
 
         .demo-kv {
@@ -265,14 +262,14 @@
             font-size: 11px;
             padding: 5px 10px;
             border-radius: 999px;
-            background: linear-gradient(180deg, #f8f3eb, #f0e9de);
-            border: 1px solid #e3dbcf;
-            color: #534b41;
+            background: linear-gradient(180deg, #f5f5f7, #ededf0);
+            border: 1px solid #e0e0e3;
+            color: #555558;
             transition: border-color 0.2s ease;
         }
 
         .demo-tag:hover {
-            border-color: #caa16f;
+            border-color: #818cf8;
         }
 
         .demo-code {
@@ -281,8 +278,8 @@
             font-size: 12px;
             line-height: 1.6;
             color: #2f2b26;
-            background: #f8f5ef;
-            border: 1px solid #e4ddd2;
+            background: #f3f3f5;
+            border: 1px solid #e2e2e5;
             border-radius: 10px;
             padding: 10px 12px;
             white-space: pre-wrap;
@@ -302,8 +299,8 @@
         }
 
         .demo-step {
-            border: 1px solid #e5ddd1;
-            background: #faf7f2;
+            border: 1px solid #e2e2e5;
+            background: #f5f5f7;
             border-radius: 12px;
             padding: 10px 12px;
         }
@@ -315,7 +312,7 @@
         .demo-step-title {
             font-size: 12px;
             font-weight: 700;
-            color: #655a4c;
+            color: #6b6b70;
             margin-bottom: 6px;
             letter-spacing: 0.04em;
         }
@@ -323,14 +320,14 @@
         .demo-answer {
             font-size: 22px;
             font-weight: 700;
-            color: #2c241a;
+            color: #1e1e1e;
             margin: 6px 0 10px;
         }
 
         /* ===== pipeline graph ===== */
         .pipeline-block {
             margin-top: 14px;
-            border-top: 1px solid #e5ddd1;
+            border-top: 1px solid #e2e2e5;
             padding-top: 14px;
         }
 
@@ -344,7 +341,7 @@
         .pipeline-stat-card {
             border: 1px solid var(--line);
             border-radius: 14px;
-            background: #fffdf9;
+            background: #ffffff;
             padding: 12px 14px;
         }
 
@@ -357,7 +354,7 @@
         .pipeline-stat-value {
             font-size: 24px;
             font-weight: 700;
-            color: #2b241c;
+            color: #1e1e1e;
             letter-spacing: -0.02em;
         }
 
@@ -380,7 +377,7 @@
             min-height: 110px;
             border: 1px solid var(--line);
             border-radius: 16px;
-            background: #fffdf9;
+            background: #ffffff;
             padding: 12px;
             text-align: left;
             cursor: pointer;
@@ -397,27 +394,27 @@
         }
 
         .pipeline-node.active {
-            border-color: #caa16f;
-            box-shadow: 0 0 0 2px rgba(185, 143, 94, 0.16);
-            background: linear-gradient(180deg, #fffaf2, #f8efe2);
+            border-color: #818cf8;
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.16);
+            background: linear-gradient(180deg, #eef2ff, #e8ecff);
         }
 
         .pipeline-node.active-phase {
-            border-color: #d9ccb8;
-            background: #fffdf9;
-            box-shadow: inset 0 0 0 1px rgba(191, 157, 111, 0.18);
+            border-color: #d0d0d5;
+            background: #ffffff;
+            box-shadow: inset 0 0 0 1px rgba(99, 102, 241, 0.12);
         }
 
         .pipeline-node-title {
             font-size: 14px;
             font-weight: 700;
-            color: #2f271d;
+            color: #1e1e1e;
             line-height: 1.35;
         }
 
         .pipeline-node-sub {
             font-size: 11px;
-            color: #6b6358;
+            color: #6b6b70;
             line-height: 1.45;
         }
 
@@ -433,17 +430,17 @@
         }
 
         .pipeline-node-status.running {
-            background: #d79b37;
+            background: #818cf8;
         }
 
         .pipeline-node-status.waiting {
-            background: #b5aea4;
+            background: #b0b0b5;
         }
 
         .pipeline-edge {
             flex: 0 0 30px;
             height: 2px;
-            background: linear-gradient(90deg, #d7cfbf, #bdb3a4);
+            background: linear-gradient(90deg, #d0d0d5, #b8b8be);
             border-radius: 999px;
             position: relative;
         }
@@ -453,7 +450,7 @@
             position: absolute;
             right: -2px;
             top: -3px;
-            border-left: 8px solid #bdb3a4;
+            border-left: 8px solid #b8b8be;
             border-top: 4px solid transparent;
             border-bottom: 4px solid transparent;
         }
@@ -461,7 +458,7 @@
         .pipeline-detail-card {
             border: 1px solid var(--line);
             border-radius: 16px;
-            background: #fffdf9;
+            background: #ffffff;
             padding: 16px;
         }
 
@@ -475,7 +472,7 @@
 
         .pipeline-detail-kicker {
             font-size: 11px;
-            color: #827a6d;
+            color: #8a8a8f;
             letter-spacing: 0.08em;
             margin-bottom: 4px;
         }
@@ -490,9 +487,9 @@
             font-size: 11px;
             padding: 6px 8px;
             border-radius: 999px;
-            background: #f4efe7;
-            border: 1px solid #e3dbcf;
-            color: #534b41;
+            background: #f0f0f3;
+            border: 1px solid #e0e0e3;
+            color: #555558;
             white-space: nowrap;
         }
 
@@ -511,16 +508,16 @@
         }
 
         .pipeline-detail-section {
-            border: 1px solid #e7e0d5;
+            border: 1px solid #e0e0e3;
             border-radius: 12px;
-            background: #faf7f2;
+            background: #f5f5f7;
             padding: 12px;
         }
 
         .pipeline-detail-section-title {
             font-size: 12px;
             font-weight: 700;
-            color: #655a4c;
+            color: #6b6b70;
             margin-bottom: 8px;
             letter-spacing: 0.04em;
         }
@@ -536,7 +533,7 @@
         .pipeline-live-card {
             border: 1px solid var(--line);
             border-radius: 16px;
-            background: #fffdf9;
+            background: #ffffff;
             padding: 16px;
         }
 
@@ -564,9 +561,9 @@
             font-size: 11px;
             padding: 6px 8px;
             border-radius: 999px;
-            background: #f4efe7;
-            border: 1px solid #e3dbcf;
-            color: #534b41;
+            background: #f0f0f3;
+            border: 1px solid #e0e0e3;
+            color: #555558;
             white-space: nowrap;
         }
 
@@ -578,9 +575,9 @@
         }
 
         .pipeline-step-btn {
-            border: 1px solid #dfd6c8;
-            background: #faf7f2;
-            color: #564c40;
+            border: 1px solid #dcdce0;
+            background: #f5f5f7;
+            color: #555558;
             border-radius: 999px;
             padding: 8px 12px;
             font-size: 12px;
@@ -589,10 +586,10 @@
         }
 
         .pipeline-step-btn.active {
-            border-color: #caa16f;
-            background: linear-gradient(180deg, #fff7eb, #f4e6d1);
-            color: #2d241a;
-            box-shadow: 0 0 0 2px rgba(185, 143, 94, 0.14);
+            border-color: #818cf8;
+            background: linear-gradient(180deg, #eef2ff, #e0e7ff);
+            color: #1e1e1e;
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.14);
         }
 
         .pipeline-live-controls {
@@ -609,17 +606,17 @@
         }
 
         .pipeline-live-nav button {
-            border: 1px solid #ddd3c4;
+            border: 1px solid #dcdce0;
             background: #fff;
             border-radius: 10px;
             padding: 8px 12px;
             cursor: pointer;
-            color: #493f33;
+            color: #4a4a4f;
         }
 
         .pipeline-live-nav button:hover {
-            border-color: #c4b399;
-            background: #faf6ef;
+            border-color: #d0d0d5;
+            background: #f5f5f7;
         }
 
         .pipeline-kv-grid {
@@ -630,15 +627,15 @@
         }
 
         .pipeline-kv {
-            border: 1px solid #e7e0d5;
+            border: 1px solid #e0e0e3;
             border-radius: 12px;
-            background: #faf7f2;
+            background: #f5f5f7;
             padding: 10px 12px;
         }
 
         .pipeline-kv-label {
             font-size: 11px;
-            color: #7a7266;
+            color: #7d7d82;
             margin-bottom: 4px;
             text-transform: uppercase;
             letter-spacing: 0.06em;
@@ -647,13 +644,13 @@
         .pipeline-kv-value {
             font-size: 18px;
             font-weight: 700;
-            color: #2f271d;
+            color: #1e1e1e;
         }
 
         .pipeline-event-box {
-            border: 1px solid #e7e0d5;
+            border: 1px solid #e0e0e3;
             border-radius: 14px;
-            background: #faf7f2;
+            background: #f5f5f7;
             padding: 12px;
             margin-bottom: 12px;
         }
@@ -661,7 +658,7 @@
         .pipeline-event-title {
             font-size: 14px;
             font-weight: 700;
-            color: #2f271d;
+            color: #1e1e1e;
             margin-bottom: 6px;
         }
 
@@ -674,9 +671,9 @@
 
         .pipeline-event-chip {
             font-size: 11px;
-            color: #5f5548;
-            border: 1px solid #e2d7c7;
-            background: #fffdf9;
+            color: #60606a;
+            border: 1px solid #dfdfe3;
+            background: #ffffff;
             border-radius: 999px;
             padding: 4px 8px;
         }
@@ -688,16 +685,16 @@
         }
 
         .pipeline-snapshot-card {
-            border: 1px solid #e7e0d5;
+            border: 1px solid #e0e0e3;
             border-radius: 12px;
-            background: #faf7f2;
+            background: #f5f5f7;
             padding: 12px;
         }
 
         .pipeline-snapshot-title {
             font-size: 12px;
             font-weight: 700;
-            color: #655a4c;
+            color: #6b6b70;
             margin-bottom: 8px;
             letter-spacing: 0.04em;
             text-transform: uppercase;
@@ -718,7 +715,7 @@
         .pipeline-tree-depth {
             min-width: 56px;
             font-size: 11px;
-            color: #7b7266;
+            color: #7d7d82;
             padding-top: 7px;
             text-transform: uppercase;
             letter-spacing: 0.04em;
@@ -727,29 +724,29 @@
         .pipeline-tree-node {
             min-width: 138px;
             max-width: 180px;
-            border: 1px solid #ded4c4;
+            border: 1px solid #dcdce0;
             border-radius: 12px;
-            background: #fffdf9;
+            background: #ffffff;
             padding: 8px 10px;
         }
 
         .pipeline-tree-node.new {
-            border-color: #caa16f;
-            background: linear-gradient(180deg, #fff7eb, #f7ebdb);
-            box-shadow: 0 0 0 2px rgba(185, 143, 94, 0.12);
+            border-color: #818cf8;
+            background: linear-gradient(180deg, #eef2ff, #e0e7ff);
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.12);
         }
 
         .pipeline-tree-node-title {
             font-size: 12px;
             font-weight: 700;
-            color: #30281e;
+            color: #1e1e1e;
             margin-bottom: 3px;
         }
 
         .pipeline-tree-node-sub {
             font-size: 11px;
             line-height: 1.45;
-            color: #6e655a;
+            color: #6b6b70;
         }
 
         .pipeline-legend {
@@ -761,10 +758,10 @@
 
         .pipeline-legend-item {
             font-size: 11px;
-            color: #61584c;
-            border: 1px solid #e2d7c7;
+            color: #60606a;
+            border: 1px solid #dfdfe3;
             border-radius: 999px;
-            background: #fffdf9;
+            background: #ffffff;
             padding: 4px 8px;
         }
 
@@ -780,7 +777,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #8d877c;
+            color: #8a8a8f;
             font-size: 18px;
             user-select: none;
         }
@@ -803,9 +800,9 @@
         }
 
         .stage-card.active {
-            background: linear-gradient(180deg, #f8efe3, #f4e8d8);
-            border-color: #d7b389;
-            box-shadow: 0 12px 26px rgba(167, 127, 74, 0.2);
+            background: linear-gradient(180deg, #eef2ff, #e0e7ff);
+            border-color: #818cf8;
+            box-shadow: 0 12px 26px rgba(99, 102, 241, 0.2);
         }
 
         .stage-card.disabled {
@@ -817,7 +814,7 @@
         .stage-num {
             font-size: 12px;
             font-weight: 600;
-            color: #7e776b;
+            color: #7d7d82;
             margin-bottom: 18px;
         }
 
@@ -836,10 +833,10 @@
 
         .stage-desc code {
             font-size: 12px;
-            background: rgba(255, 255, 255, 0.65);
+            background: rgba(255, 255, 255, 0.6);
             padding: 1px 5px;
             border-radius: 5px;
-            border: 1px solid #e0d8cd;
+            border: 1px solid #e0e0e3;
         }
 
         .view-header {
@@ -858,7 +855,7 @@
 
         .view-header span {
             font-size: 12px;
-            color: #867f74;
+            color: #8a8a8f;
             letter-spacing: 0.08em;
         }
 
@@ -900,8 +897,8 @@
 
         .filter-search:focus {
             outline: none;
-            border-color: #c9a574;
-            box-shadow: 0 0 0 3px rgba(185, 143, 94, 0.2);
+            border-color: #818cf8;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
         }
 
         .domain-pills {
@@ -913,7 +910,7 @@
         .domain-pill {
             border: 1px solid var(--line);
             background: var(--white);
-            color: #4a453d;
+            color: #4a4a4f;
             font: inherit;
             font-size: 12px;
             padding: 6px 11px;
@@ -924,13 +921,13 @@
 
         .domain-pill:hover {
             border-color: var(--line-strong);
-            background: #f9f6f0;
+            background: #f5f5f7;
         }
 
         .domain-pill.active {
             background: var(--accent-soft);
-            border-color: #d7b389;
-            color: #3d3023;
+            border-color: #818cf8;
+            color: #333336;
         }
 
         .domain-section {
@@ -953,7 +950,7 @@
 
         .domain-section-header span {
             font-size: 12px;
-            color: #867f74;
+            color: #8a8a8f;
         }
 
         .skill-card-grid {
@@ -979,15 +976,15 @@
 
         .skill-card:hover {
             transform: translateY(-3px) scale(1.01);
-            border-color: #caa16f;
-            box-shadow: 0 12px 28px rgba(185, 143, 94, 0.12), 0 4px 10px rgba(22, 20, 16, 0.06);
-            background: #fffdf8;
+            border-color: #818cf8;
+            box-shadow: 0 12px 28px rgba(99, 102, 241, 0.12), 0 4px 10px rgba(22, 20, 16, 0.06);
+            background: #ffffff;
         }
 
         .skill-card:focus-visible {
             outline: none;
-            border-color: #c9a574;
-            box-shadow: 0 0 0 3px rgba(185, 143, 94, 0.25);
+            border-color: #818cf8;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
         }
 
         .skill-card-title {
@@ -1000,13 +997,13 @@
 
         .skill-card-slug {
             font-size: 11px;
-            color: #8a8278;
+            color: #8a8a8f;
             word-break: break-all;
             line-height: 1.35;
         }
 
         .skill-card-slug .domain-tag {
-            color: #6b655b;
+            color: #6b6b70;
             font-weight: 600;
         }
 
@@ -1019,12 +1016,12 @@
         }
 
         .skill-card-preview.is-loading {
-            color: #a39a8f;
+            color: #9a9aa0;
             font-style: italic;
         }
 
         .skill-card-preview.is-error {
-            color: #8b5a42;
+            color: #7a4040;
         }
 
         .skill-modal {
@@ -1052,7 +1049,7 @@
             position: relative;
             width: min(920px, 100%);
             max-height: min(92vh, 900px);
-            background: #fffdf9;
+            background: #ffffff;
             border-radius: 16px;
             border: 1px solid var(--line-strong);
             box-shadow: var(--shadow);
@@ -1068,7 +1065,7 @@
             gap: 12px;
             padding: 16px 18px 12px;
             border-bottom: 1px solid var(--line);
-            background: linear-gradient(180deg, #faf6ef, #f5f0e8);
+            background: linear-gradient(180deg, #f7f7f8, #f0f0f3);
         }
 
         .skill-modal-head h2 {
@@ -1080,7 +1077,7 @@
         .skill-modal-path {
             margin: 6px 0 0;
             font-size: 11px;
-            color: #7a7268;
+            color: #7d7d82;
             word-break: break-all;
         }
 
@@ -1124,27 +1121,27 @@
         }
 
         .skill-ref-card:hover {
-            border-color: #c9a574;
+            border-color: #818cf8;
         }
 
         .skill-ref-card.active {
-            border-color: #b98f5e;
-            box-shadow: 0 0 0 2px rgba(185, 143, 94, 0.35);
-            background: #fffdf8;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
+            background: #ffffff;
         }
 
         .skill-ref-card-kicker {
             font-size: 10px;
             font-weight: 700;
             letter-spacing: 0.06em;
-            color: #8a7d6c;
+            color: #8a8a8f;
             margin-bottom: 4px;
         }
 
         .skill-ref-card-title {
             font-size: 13px;
             font-weight: 600;
-            color: #3d3428;
+            color: #333336;
         }
 
         .skill-modal-body-wrap {
@@ -1162,8 +1159,8 @@
 
         .skill-modal-tab {
             border: 1px solid var(--line);
-            background: #f3efe8;
-            color: #4a453d;
+            background: #ededf0;
+            color: #4a4a4f;
             font: inherit;
             font-size: 12px;
             padding: 6px 12px;
@@ -1177,15 +1174,15 @@
 
         .skill-modal-tab.active {
             background: var(--accent-soft);
-            border-color: #d7b389;
-            color: #3d3023;
+            border-color: #818cf8;
+            color: #333336;
             font-weight: 600;
         }
 
         .skill-modal-md {
             font-size: 14px;
             line-height: 1.65;
-            color: #2e2a24;
+            color: #1e1e1e;
         }
 
         .skill-modal-md h1 {
@@ -1196,7 +1193,7 @@
         .skill-modal-md h2 {
             font-size: 1.15em;
             margin: 1em 0 0.45em;
-            border-bottom: 1px solid #e8e2d8;
+            border-bottom: 1px solid #e2e2e5;
             padding-bottom: 0.25em;
         }
 
@@ -1206,8 +1203,8 @@
         }
 
         .skill-modal-md pre {
-            background: #f4f0e8;
-            border: 1px solid #e5ddd1;
+            background: #efeff2;
+            border: 1px solid #e2e2e5;
             border-radius: 10px;
             padding: 12px;
             overflow: auto;
@@ -1216,7 +1213,7 @@
 
         .skill-modal-md code {
             font-size: 0.9em;
-            background: #efeae2;
+            background: #efeff2;
             padding: 2px 6px;
             border-radius: 5px;
         }
@@ -1287,21 +1284,21 @@
             align-items: center;
             gap: 8px;
             font-size: 12px;
-            color: #5d5448;
-            border: 1px solid #ddd3c4;
-            background: #fffdf9;
+            color: #60606a;
+            border: 1px solid #dcdce0;
+            background: #ffffff;
             border-radius: 999px;
             padding: 8px 12px;
         }
 
-        .pipeline-toggle input { accent-color: #b98f5e; }
+        .pipeline-toggle input { accent-color: #6366f1; }
 
         .pipeline-progress-wrap { margin-bottom: 12px; }
 
         .pipeline-progress-bar {
             height: 10px;
             border-radius: 999px;
-            background: #ebe3d7;
+            background: #e0e0e3;
             overflow: hidden;
             margin-bottom: 8px;
         }
@@ -1309,20 +1306,20 @@
         .pipeline-progress-fill {
             height: 100%;
             width: 0%;
-            background: linear-gradient(90deg, #d8b07a, #b98f5e);
+            background: linear-gradient(90deg, #818cf8, #6366f1);
             transition: width 0.4s ease;
         }
 
         .pipeline-growth-caption {
             font-size: 13px;
-            color: #5e5549;
+            color: #60606a;
             font-weight: 600;
         }
 
         .pipeline-tree-stage {
-            border: 1px solid #e7e0d5;
+            border: 1px solid #e0e0e3;
             border-radius: 16px;
-            background: linear-gradient(180deg, #fcfaf5, #f8f3eb);
+            background: linear-gradient(180deg, #fafafe, #f5f5f7);
             padding: 14px;
             min-height: 520px;
         }
@@ -1341,7 +1338,7 @@
 
         .pipeline-tree-row-label {
             font-size: 11px;
-            color: #7b7266;
+            color: #7d7d82;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             padding-top: 10px;
@@ -1396,7 +1393,7 @@
         }
 
         .pipeline-tree-link path {
-            stroke: #a07a4c;
+            stroke: #6366f1;
             stroke-width: 1.8;
             fill: none;
             stroke-linecap: round;
@@ -1404,7 +1401,7 @@
         }
 
         .pipeline-tree-link polygon {
-            fill: #a07a4c;
+            fill: #6366f1;
         }
 
         .pipeline-tree-link-seed {
@@ -1415,9 +1412,9 @@
         .pipeline-tree-card {
             min-width: 126px;
             max-width: 166px;
-            border: 1px solid #ddd2c1;
+            border: 1px solid #dcdce0;
             border-radius: 12px;
-            background: #fffdf9;
+            background: #ffffff;
             padding: 8px 9px;
             box-shadow: 0 8px 18px rgba(34, 28, 22, 0.05);
             opacity: 0;
@@ -1433,23 +1430,23 @@
         }
 
         .pipeline-tree-card.growing {
-            border-color: #caa16f;
-            background: linear-gradient(180deg, #fff7eb, #f7ecdd);
-            box-shadow: 0 0 0 2px rgba(185, 143, 94, 0.14), 0 12px 22px rgba(44, 31, 17, 0.08);
+            border-color: #818cf8;
+            background: linear-gradient(180deg, #eef2ff, #e4e9ff);
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.14), 0 12px 22px rgba(0, 0, 0, 0.06);
         }
 
         .pipeline-tree-card.selected {
-            border-color: #b98f5e;
-            box-shadow: 0 0 0 2px rgba(185, 143, 94, 0.18);
+            border-color: #6366f1;
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.18);
         }
 
-        .pipeline-tree-card.phase-selection { border-color: #d4c2a2; }
-        .pipeline-tree-card.phase-synthesis { border-color: #d7b389; }
+        .pipeline-tree-card.phase-selection { border-color: #a5b4fc; }
+        .pipeline-tree-card.phase-synthesis { border-color: #818cf8; }
 
 
         .pipeline-tree-card.path-active {
-            border-color: #b98f5e;
-            box-shadow: 0 0 0 2px rgba(185, 143, 94, 0.18), 0 10px 22px rgba(34, 28, 22, 0.07);
+            border-color: #6366f1;
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.18), 0 10px 22px rgba(34, 28, 22, 0.07);
         }
 
         .pipeline-tree-card.path-muted {
@@ -1463,8 +1460,8 @@
 
         .pipeline-path-overlay {
             position: absolute;
-            border: 2px solid rgba(185, 143, 94, 0.55);
-            background: rgba(185, 143, 94, 0.08);
+            border: 2px solid rgba(99, 102, 241, 0.45);
+            background: rgba(99, 102, 241, 0.08);
             border-radius: 18px;
             pointer-events: none;
             opacity: 0;
@@ -1487,7 +1484,7 @@
             position: absolute;
             width: 2px;
             border-radius: 999px;
-            background: #c9a574;
+            background: #818cf8;
             opacity: 0.9;
         }
 
@@ -1510,9 +1507,9 @@
         .pipeline-synthesis-preview {
             display: none;
             margin-top: 10px;
-            border: 1px solid #e2d7c7;
+            border: 1px solid #dfdfe3;
             border-radius: 14px;
-            background: linear-gradient(180deg, #fffaf2, #f7efe2);
+            background: linear-gradient(180deg, #eef2ff, #eef2ff);
             padding: 14px;
         }
 
@@ -1525,14 +1522,14 @@
             font-weight: 700;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: #8b6234;
+            color: #6366f1;
             margin-bottom: 6px;
         }
 
         .pipeline-synthesis-title {
             font-size: 16px;
             font-weight: 700;
-            color: #2f271d;
+            color: #1e1e1e;
             margin-bottom: 6px;
         }
 
@@ -1541,11 +1538,11 @@
             margin: 8px 0 10px;
             padding: 8px 10px;
             border-radius: 10px;
-            background: #fffdf9;
-            border: 1px solid #e2d7c7;
+            background: #ffffff;
+            border: 1px solid #dfdfe3;
             font-size: 20px;
             font-weight: 700;
-            color: #2c241a;
+            color: #1e1e1e;
         }
 
         .pipeline-synthesis-reasoning {
@@ -1555,19 +1552,19 @@
         }
 
         .pipeline-synthesis-hop {
-            border: 1px solid #e7dccd;
+            border: 1px solid #e0e0e3;
             border-radius: 10px;
             background: rgba(255,255,255,0.72);
             padding: 8px 10px;
             font-size: 12px;
             line-height: 1.55;
-            color: #5f5548;
+            color: #60606a;
         }
 
         .pipeline-trajectory-chip {
-            border: 1px solid #ddd3c4;
-            background: #fffdf9;
-            color: #4d4236;
+            border: 1px solid #dcdce0;
+            background: #ffffff;
+            color: #4a4a4f;
             border-radius: 12px;
             padding: 8px 10px;
             cursor: pointer;
@@ -1577,49 +1574,49 @@
         }
 
         .pipeline-trajectory-chip:hover {
-            border-color: #caa16f;
-            background: #fcf7ee;
+            border-color: #818cf8;
+            background: #f3f4ff;
         }
 
         .pipeline-trajectory-chip.active {
-            border-color: #b98f5e;
-            background: linear-gradient(180deg, #fff7eb, #f6ead8);
-            box-shadow: 0 0 0 2px rgba(185, 143, 94, 0.14);
+            border-color: #6366f1;
+            background: linear-gradient(180deg, #eef2ff, #e0e7ff);
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.14);
         }
 
         .pipeline-trajectory-chip-title {
             font-size: 12px;
             font-weight: 700;
             margin-bottom: 4px;
-            color: #2f271d;
+            color: #1e1e1e;
         }
 
         .pipeline-trajectory-chip-sub {
             font-size: 11px;
             line-height: 1.45;
-            color: #6b6156;
+            color: #6b6b70;
         }
 
         .pipeline-tree-card-title {
             font-size: 11px;
             font-weight: 700;
-            color: #2f271d;
+            color: #1e1e1e;
             margin-bottom: 3px;
         }
 
         .pipeline-tree-card-sub {
             font-size: 10px;
             line-height: 1.45;
-            color: #6a6156;
+            color: #6b6b70;
             margin-bottom: 8px;
         }
 
 
         .pipeline-tree-card.terminal {
             border-style: dashed;
-            border-color: #d4b183;
-            background: linear-gradient(180deg, #fff9ef, #f8ecda);
-            box-shadow: 0 10px 20px rgba(87, 57, 20, 0.08);
+            border-color: #818cf8;
+            background: linear-gradient(180deg, #eef2ff, #e4e9ff);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
         }
 
         .pipeline-tree-card.terminal.growing {
@@ -1631,7 +1628,7 @@
             font-weight: 700;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: #8b6234;
+            color: #6366f1;
             margin-bottom: 6px;
         }
 
@@ -1639,11 +1636,11 @@
             margin: 0 0 6px;
             padding: 5px 6px;
             border-radius: 10px;
-            border: 1px solid #ead8bf;
+            border: 1px solid #e0e0e3;
             background: rgba(255, 250, 242, 0.9);
             font-size: 10px;
             line-height: 1.45;
-            color: #6f5b44;
+            color: #6b6b70;
         }
 
         .pipeline-tree-card-meta {
@@ -1654,8 +1651,8 @@
 
         .pipeline-tree-meta-pill {
             font-size: 9px;
-            color: #665b4d;
-            border: 1px solid #e3d9ca;
+            color: #6b6b70;
+            border: 1px solid #e8e8eb;
             background: #fff;
             border-radius: 999px;
             padding: 3px 6px;
@@ -1667,14 +1664,14 @@
 
         .pipeline-node-inspector {
             margin-top: 12px;
-            border: 1px solid #e7e0d5;
+            border: 1px solid #e0e0e3;
             border-radius: 14px;
-            background: #faf7f2;
+            background: #f5f5f7;
             padding: 12px;
         }
 
         .pipeline-node-empty {
-            color: #746a5e;
+            color: #7d7d82;
             font-size: 13px;
             line-height: 1.6;
         }
@@ -1694,12 +1691,12 @@
         .pipeline-node-detail-title {
             font-size: 18px;
             font-weight: 700;
-            color: #2e261c;
+            color: #1e1e1e;
         }
 
         .pipeline-node-detail-sub {
             font-size: 12px;
-            color: #776d60;
+            color: #7d7d82;
             margin-top: 2px;
         }
 
@@ -1721,7 +1718,7 @@
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: #6d6458;
+            color: #6b6b70;
             margin-bottom: 6px;
             font-weight: 700;
         }
@@ -1729,7 +1726,7 @@
         .pipeline-node-detail-text {
             font-size: 13px;
             line-height: 1.65;
-            color: #2f271d;
+            color: #1e1e1e;
         }
 
         @media (max-width: 980px) {
@@ -1759,8 +1756,8 @@
         }
 
         .overview-flow-step {
-            border: 1px solid #e5ddd1;
-            background: #faf7f2;
+            border: 1px solid #e2e2e5;
+            background: #f5f5f7;
             border-radius: 14px;
             padding: 12px;
             transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
@@ -1768,16 +1765,16 @@
 
         .overview-flow-step:hover {
             transform: translateY(-2px);
-            border-color: #d4c2a2;
+            border-color: #a5b4fc;
             box-shadow: 0 8px 20px rgba(22, 20, 16, 0.06);
         }
 
         .overview-flow-step .step-label {
             display: inline-block;
             font-size: 11px;
-            color: #6f6456;
-            border: 1px solid #e2d8c9;
-            background: #fffdf8;
+            color: #6b6b70;
+            border: 1px solid #e0e0e3;
+            background: #ffffff;
             border-radius: 999px;
             padding: 4px 8px;
             margin-bottom: 8px;
@@ -1798,10 +1795,10 @@
         .overview-note {
             margin-top: 10px;
             padding: 12px 14px;
-            border: 1px solid #e4ddd2;
+            border: 1px solid #e2e2e5;
             border-radius: 12px;
-            background: #f8f5ef;
-            color: #4f473e;
+            background: #f3f3f5;
+            color: #55555a;
             font-size: 13px;
             line-height: 1.7;
         }
@@ -1830,14 +1827,14 @@
         }
 
         .site-footer a {
-            color: #8b6234;
+            color: #6366f1;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.2s ease;
         }
 
         .site-footer a:hover {
-            color: #b98f5e;
+            color: #6366f1;
         }
 
         .footer-links {
@@ -2268,7 +2265,7 @@ suitable for multi-hop QA.</pre>
 <a href="https://huggingface.co/collections/OpenDCAI/agentflow-models" target="_blank" rel="noopener noreferrer">Models</a>
 <a href="https://huggingface.co/collections/OpenDCAI/datasets-for-agentflow" target="_blank" rel="noopener noreferrer">Datasets</a>
 </div>
-<p style="margin-top: 10px; font-size: 12px; color: #a09888;">Apache 2.0 &middot; OpenDCAI</p>
+<p style="margin-top: 10px; font-size: 12px; color: #9a9aa0;">Apache 2.0 &middot; OpenDCAI</p>
 </div>
 </footer>
 
@@ -2464,7 +2461,7 @@ suitable for multi-hop QA.</pre>
             skillModalMdEl.closest(".skill-modal-body-wrap")?.scrollTo?.(0, 0);
         } catch (e) {
             skillModalMdEl.innerHTML = `<p class="skill-card-preview is-error" style="margin:0">Unable to load this file. Please open this directory through a local HTTP server (to avoid <code>file://</code> limitations), for example run <code>npx serve</code> at the project root.</p>
-                <p style="font-size:12px;color:#7a7268;word-break:break-all;margin-top:8px">${escapeHtml(path)}</p>`;
+                <p style="font-size:12px;color:#7d7d82;word-break:break-all;margin-top:8px">${escapeHtml(path)}</p>`;
         }
     }
 
