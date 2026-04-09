@@ -2492,14 +2492,15 @@ suitable for multi-hop QA.</pre>
                 text = await fetchMarkdownText(path);
                 modalDocCache.set(path, text);
             }
+            const cleaned = stripYamlFrontmatter(text);
             if (typeof marked !== "undefined") {
-                skillModalMdEl.innerHTML = marked.parse(text);
+                skillModalMdEl.innerHTML = marked.parse(cleaned);
             } else {
-                skillModalMdEl.innerHTML = `<pre style="white-space:pre-wrap;margin:0;font-size:12px">${escapeHtml(text)}</pre>`;
+                skillModalMdEl.innerHTML = `<pre style="white-space:pre-wrap;margin:0;font-size:12px">${escapeHtml(cleaned)}</pre>`;
             }
             skillModalMdEl.closest(".skill-modal-body-wrap")?.scrollTo?.(0, 0);
         } catch (e) {
-            skillModalMdEl.innerHTML = `<p class="skill-card-preview is-error" style="margin:0">Unable to load this file. Please open this directory through a local HTTP server (to avoid <code>file://</code> limitations), for example run <code>npx serve</code> at the project root.</p>
+            skillModalMdEl.innerHTML = `<p class="skill-card-preview is-error" style="margin:0">Unable to load this file: ${escapeHtml(e.message || String(e))}</p>
                 <p style="font-size:12px;color:#7d7d82;word-break:break-all;margin-top:8px">${escapeHtml(path)}</p>`;
         }
     }
