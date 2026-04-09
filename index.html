@@ -619,6 +619,41 @@
             background: #f5f5f7;
         }
 
+        .pipeline-live-nav button.pipeline-play-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+        }
+
+        .pipeline-live-nav button.pipeline-play-btn.is-playing {
+            background: #6366f1;
+            border-color: #6366f1;
+            color: #fff;
+        }
+
+        .pipeline-live-nav button.pipeline-play-btn.is-playing:hover {
+            background: #4f46e5;
+            border-color: #4f46e5;
+        }
+
+        .pipeline-speed-select {
+            border: 1px solid #dcdce0;
+            background: #fff;
+            border-radius: 10px;
+            padding: 7px 8px;
+            font-size: 12px;
+            color: #4a4a4f;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .pipeline-speed-select:hover {
+            border-color: #d0d0d5;
+            background: #f5f5f7;
+        }
+
         .pipeline-kv-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2115,7 +2150,13 @@ suitable for multi-hop QA.</pre>
 <div class="pipeline-growth-toolbar">
 <div class="pipeline-live-nav">
 <button id="pipeline-prev-btn" type="button">← Prev</button>
+<button class="pipeline-play-btn" id="pipeline-play-btn" type="button">▶ Play</button>
 <button id="pipeline-next-btn" type="button">Next →</button>
+<select class="pipeline-speed-select" id="pipeline-speed-select" title="Playback speed">
+<option value="2500">Slow</option>
+<option selected value="1500">Normal</option>
+<option value="800">Fast</option>
+</select>
 </div>
 </div>
 <div class="pipeline-progress-wrap">
@@ -3621,14 +3662,64 @@ suitable for multi-hop QA.</pre>
 
     function bindPipelineLiveNavigation() {
         document.getElementById('pipeline-prev-btn')?.addEventListener('click', () => {
+            stopAutoPlay();
             pipelineLiveIndex = Math.max(0, pipelineLiveIndex - 1);
             renderPipelineLiveStep();
         });
         document.getElementById('pipeline-next-btn')?.addEventListener('click', () => {
+            stopAutoPlay();
             pipelineLiveIndex = Math.min(PIPELINE_LIVE_STEPS.length - 1, pipelineLiveIndex + 1);
             renderPipelineLiveStep();
         });
     }
+
+    /* ── Auto-play / continuous animation ── */
+    let autoPlayTimer = null;
+
+    function getAutoPlayInterval() {
+        const sel = document.getElementById('pipeline-speed-select');
+        return sel ? Number(sel.value) : 1500;
+    }
+
+    function startAutoPlay() {
+        if (autoPlayTimer) return;
+        const playBtn = document.getElementById('pipeline-play-btn');
+        if (playBtn) {
+            playBtn.classList.add('is-playing');
+            playBtn.textContent = '⏸ Pause';
+        }
+        autoPlayTimer = setInterval(() => {
+            if (pipelineLiveIndex >= PIPELINE_LIVE_STEPS.length - 1) {
+                pipelineLiveIndex = 0;
+            } else {
+                pipelineLiveIndex++;
+            }
+            renderPipelineLiveStep();
+        }, getAutoPlayInterval());
+    }
+
+    function stopAutoPlay() {
+        if (!autoPlayTimer) return;
+        clearInterval(autoPlayTimer);
+        autoPlayTimer = null;
+        const playBtn = document.getElementById('pipeline-play-btn');
+        if (playBtn) {
+            playBtn.classList.remove('is-playing');
+            playBtn.textContent = '▶ Play';
+        }
+    }
+
+    function toggleAutoPlay() {
+        autoPlayTimer ? stopAutoPlay() : startAutoPlay();
+    }
+
+    document.getElementById('pipeline-play-btn')?.addEventListener('click', toggleAutoPlay);
+    document.getElementById('pipeline-speed-select')?.addEventListener('change', () => {
+        if (autoPlayTimer) {
+            stopAutoPlay();
+            startAutoPlay();
+        }
+    });
 
     filterInput.addEventListener("input", () => {
         window.clearTimeout(filterInput._t);
