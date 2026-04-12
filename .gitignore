@@ -61,6 +61,7 @@ Thumbs.db
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.worktrees
 
 # 上传和缓存目录
 uploads/
