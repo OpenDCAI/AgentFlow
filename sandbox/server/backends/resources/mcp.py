@@ -2,10 +2,18 @@
 MCP backend skeleton for Toolathlon-GYM integration.
 """
 
+import shutil
+import subprocess
+import time
 from pathlib import Path
 from typing import Any
 
 from sandbox.server.backends.base import Backend, BackendConfig
+from sandbox.server.backends.error_codes import ErrorCode
+from sandbox.server.backends.response_builder import (
+    build_error_response,
+    build_success_response,
+)
 from sandbox.tool_schemas.mcp_tools import get_mcp_tool_schemas
 
 from .mcp_client import MCPStdioClient, load_mcp_process_config
@@ -42,6 +50,17 @@ class MCPBackend(Backend):
     async def initialize(self, worker_id: str, config: dict) -> dict:
         workspace = self._prepare_workspace(worker_id)
         task_context = self._resolve_task_context(config)
+        task_dir = Path(task_context["task_dir"]) if task_context["task_dir"] else None
+
+        if task_dir and task_context["copy_initial_workspace"]:
+            self._copy_initial_workspace(task_dir / "initial_workspace", workspace)
+        if task_dir and task_context["run_preprocess"]:
+            self._run_preprocess(
+                task_dir,
+                workspace,
+                launch_time=task_context.get("launch_time"),
+            )
+
         clients = await self._start_enabled_clients(workspace, task_context)
         return {
             "workspace": str(workspace),
@@ -72,6 +91,42 @@ class MCPBackend(Backend):
         servers = self.get_default_config().get("enabled_mcp_servers") or []
         return [str(server) for server in servers]
 
+    def _copy_initial_workspace(self, source_dir: Path, target_dir: Path) -> None:
+        if not source_dir.exists():
+            return
+        for child in source_dir.iterdir():
+            destination = target_dir / child.name
+            if child.is_dir():
+                shutil.copytree(child, destination, dirs_exist_ok=True)
+            else:
+                shutil.copy2(child, destination)
+
+    def _run_preprocess(
+        self,
+        task_dir: Path,
+        workspace: Path,
+        *,
+        launch_time: str | None = None,
+    ) -> None:
+        script_path = task_dir / "preprocess" / "main.py"
+        if not script_path.exists():
+            return
+
+        command = f"python {script_path} --agent_workspace {workspace}"
+        cleaned_launch_time = " ".join((launch_time or "").split()[:2])
+        if cleaned_launch_time:
+            command += f' --launch_time "{cleaned_launch_time}"'
+
+        result = subprocess.run(
+            command,
+            shell=True,
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode != 0:
+            message = (result.stderr or "").strip() or "unknown error"
+            raise RuntimeError(f"preprocess failed: {message}")
+
     async def _start_enabled_clients(
         self,
         workspace: Path,
@@ -98,13 +153,71 @@ class MCPBackend(Backend):
 
     def _make_bridge_tool(self, full_name: str):
         async def bridge_tool(session_info: dict, **params):
-            del session_info, params
-            raise NotImplementedError(
-                f"Bridge dispatch for '{full_name}' is implemented in Task 4"
-            )
+            return await self._dispatch(full_name, session_info, params)
 
         bridge_tool.__name__ = full_name.replace(":", "_").replace(".", "_")
         return bridge_tool
+
+    async def _dispatch(
+        self,
+        full_name: str,
+        session_info: dict,
+        params: dict[str, Any],
+    ) -> dict[str, Any]:
+        start_time = time.time()
+        session_id = (session_info or {}).get("session_id")
+        server_name, tool_name = self._parse_bridge_name(full_name)
+
+        if server_name not in self._resolve_enabled_servers():
+            return build_error_response(
+                code=ErrorCode.BACKEND_NOT_INITIALIZED,
+                message=f"MCP server '{server_name}' is not enabled in the current session",
+                tool=full_name,
+                execution_time_ms=(time.time() - start_time) * 1000,
+                resource_type=self.name,
+                session_id=session_id,
+            )
+
+        clients = ((session_info or {}).get("data") or {}).get("clients") or {}
+        client = clients.get(server_name)
+        if client is None:
+            return build_error_response(
+                code=ErrorCode.RESOURCE_NOT_INITIALIZED,
+                message=f"MCP client for server '{server_name}' is not available",
+                tool=full_name,
+                execution_time_ms=(time.time() - start_time) * 1000,
+                resource_type=self.name,
+                session_id=session_id,
+            )
+
+        try:
+            result = await client.call_tool(tool_name, params)
+        except TimeoutError as exc:
+            return build_error_response(
+                code=ErrorCode.TIMEOUT_ERROR,
+                message=str(exc),
+                tool=full_name,
+                execution_time_ms=(time.time() - start_time) * 1000,
+                resource_type=self.name,
+                session_id=session_id,
+            )
+        except Exception as exc:
+            return build_error_response(
+                code=ErrorCode.DEPENDENCY_FAILURE,
+                message=str(exc),
+                tool=full_name,
+                execution_time_ms=(time.time() - start_time) * 1000,
+                resource_type=self.name,
+                session_id=session_id,
+            )
+
+        return build_success_response(
+            data=result,
+            tool=full_name,
+            execution_time_ms=(time.time() - start_time) * 1000,
+            resource_type=self.name,
+            session_id=session_id,
+        )
 
     def _get_toolathlon_root(self) -> Path:
         value = self.get_default_config().get("toolathlon_root")
@@ -113,3 +226,8 @@ class MCPBackend(Backend):
     def _get_workspace_root(self) -> Path:
         value = self.get_default_config().get("workspace_root") or "/tmp/agentflow_mcp"
         return Path(value)
+
+    def _parse_bridge_name(self, full_name: str) -> tuple[str, str]:
+        tool_ref = full_name.split(":", 1)[1]
+        server_name, tool_name = tool_ref.split(".", 1)
+        return server_name, tool_name
