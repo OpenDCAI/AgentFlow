@@ -97,6 +97,8 @@ class TestPipelineSetup:
         config = RolloutConfig(
             benchmark_name="test",
             model_name="test-model",
+            api_key="test-key",
+            base_url="http://localhost:8000/v1",
             available_tools=["web_search"],
         )
         
