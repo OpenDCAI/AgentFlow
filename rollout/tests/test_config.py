@@ -81,6 +81,8 @@ class TestRolloutConfig:
     def test_validate_valid_config(self):
         """Test validation of valid config"""
         config = RolloutConfig(
+            api_key="test-key",
+            base_url="http://localhost:8000/v1",
             max_turns=10,
             max_retries=3,
             max_workers=2,
@@ -100,7 +102,9 @@ class TestRolloutConfig:
         )
         
         errors = config.validate()
-        assert len(errors) == 4
+        assert len(errors) == 6
+        assert "api_key must be provided in config" in errors
+        assert "base_url must be provided in config" in errors
 
     def test_get_system_prompt_default(self):
         """Test getting default system prompt"""

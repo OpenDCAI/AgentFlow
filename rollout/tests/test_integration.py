@@ -97,6 +97,8 @@ class TestPipelineSetup:
         config = RolloutConfig(
             benchmark_name="test",
             model_name="test-model",
+            api_key="test-key",
+            base_url="http://localhost:8000/v1",
             available_tools=["web_search"],
         )
         
@@ -127,6 +129,8 @@ class TestPipelineSetup:
         config = RolloutConfig(
             benchmark_name="test",
             data_path=str(data_path),
+            api_key="test-key",
+            base_url="http://localhost:8000/v1",
             number_of_tasks=3,  # Limit to 3 tasks
         )
         
