@@ -93,11 +93,37 @@ def load_mcp_process_config(
         raise FileNotFoundError(f"MCP config dir not found: {config_path}")
 
     yaml_file = config_path / f"{server_name}.yaml"
-    if not yaml_file.exists():
-        raise FileNotFoundError(f"MCP config not found for server: {server_name}")
+    cfg: dict[str, Any] | None = None
 
-    with yaml_file.open(encoding="utf-8") as fh:
-        cfg = yaml.safe_load(fh) or {}
+    if yaml_file.exists():
+        with yaml_file.open(encoding="utf-8") as fh:
+            cfg = yaml.safe_load(fh) or {}
+    else:
+        yaml_file_yml = config_path / f"{server_name}.yml"
+        if yaml_file_yml.exists():
+            with yaml_file_yml.open(encoding="utf-8") as fh:
+                cfg = yaml.safe_load(fh) or {}
+        else:
+            matches: list[tuple[Path, dict[str, Any]]] = []
+            for candidate in sorted(config_path.glob("*.yaml")) + sorted(config_path.glob("*.yml")):
+                with candidate.open(encoding="utf-8") as fh:
+                    candidate_cfg = yaml.safe_load(fh) or {}
+                if not isinstance(candidate_cfg, dict):
+                    continue
+                candidate_name = candidate_cfg.get("name", candidate.stem)
+                if candidate_name == server_name:
+                    matches.append((candidate, candidate_cfg))
+
+            if not matches:
+                raise FileNotFoundError(f"MCP config not found for server: {server_name}")
+            if len(matches) > 1:
+                conflict_files = ", ".join(str(path.name) for path, _ in matches)
+                raise ValueError(
+                    f"Multiple MCP configs matched server name '{server_name}': {conflict_files}"
+                )
+            yaml_file, cfg = matches[0]
+
+    assert cfg is not None
 
     if cfg.get("type") != "stdio":
         raise ValueError(f"Only stdio MCP servers are supported (found: {cfg.get('type')})")
@@ -197,11 +223,12 @@ class MCPStdioClient:
     async def _request(
         self, *, method: str, params: dict | None = None
     ) -> dict[str, Any]:
-        payload = {"jsonrpc": "2.0", "id": self._next_request_id(), "method": method}
+        request_id = self._next_request_id()
+        payload = {"jsonrpc": "2.0", "id": request_id, "method": method}
         if params is not None:
             payload["params"] = params
         await self._send(payload)
-        response = await self._read_response()
+        response = await self._read_response(expected_request_id=request_id)
         if "error" in response:
             raise RuntimeError(f"MCP request failed for '{method}': {response['error']}")
         return response
@@ -213,7 +240,7 @@ class MCPStdioClient:
         self._process.stdin.write(data)
         await self._process.stdin.drain()
 
-    async def _read_response(self) -> dict[str, Any]:
+    async def _read_response(self, *, expected_request_id: int | None = None) -> dict[str, Any]:
         assert self._process is not None
         stdout = self._process.stdout
         if stdout is None:
@@ -234,6 +261,8 @@ class MCPStdioClient:
             except json.JSONDecodeError:
                 continue
             if "id" not in payload:
+                continue
+            if expected_request_id is not None and payload.get("id") != expected_request_id:
                 continue
             return payload
 

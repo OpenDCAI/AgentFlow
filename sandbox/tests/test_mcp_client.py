@@ -88,6 +88,36 @@ params:
         )
 
 
+def test_load_mcp_process_config_finds_yaml_by_name_when_filename_differs(tmp_path):
+    module = load_mcp_client_module()
+    config_dir = tmp_path / "configs" / "mcp_servers"
+    config_dir.mkdir(parents=True)
+    (tmp_path / "local_servers").mkdir()
+    (config_dir / "npx-fetch.yaml").write_text(
+        """
+type: stdio
+name: fetch
+params:
+  command: node
+  args:
+    - ${local_servers_paths}/mcp-npx-fetch/dist/index.js
+        """.strip()
+        + "\n",
+        encoding="utf-8",
+    )
+
+    config = module.load_mcp_process_config(
+        toolathlon_root=tmp_path,
+        server_name="fetch",
+        agent_workspace=str(tmp_path / "workspace"),
+        config_dir=config_dir,
+    )
+
+    assert config.name == "fetch"
+    assert config.command == "node"
+    assert config.args[0].endswith("/local_servers/mcp-npx-fetch/dist/index.js")
+
+
 @pytest.mark.anyio
 async def test_stdio_client_initialize_and_list_tools(monkeypatch):
     module = load_mcp_client_module()
@@ -170,6 +200,82 @@ async def test_stdio_client_initialize_and_list_tools(monkeypatch):
     assert any(b'"method": "initialize"' in payload for payload in process.stdin.writes)
     assert any(b'"method": "notifications/initialized"' in payload for payload in process.stdin.writes)
     assert any(b'"method": "tools/list"' in payload for payload in process.stdin.writes)
+
+
+@pytest.mark.anyio
+async def test_stdio_client_ignores_mismatched_response_id(monkeypatch):
+    module = load_mcp_client_module()
+
+    class FakeWriter:
+        def __init__(self):
+            self.writes = []
+
+        def write(self, data):
+            self.writes.append(data)
+
+        async def drain(self):
+            return None
+
+    class FakeReader:
+        def __init__(self, messages):
+            self._messages = list(messages)
+
+        async def readline(self):
+            if not self._messages:
+                return b""
+            return self._messages.pop(0)
+
+    class FakeProcess:
+        def __init__(self, messages):
+            self.stdin = FakeWriter()
+            self.stdout = FakeReader(messages)
+            self.stderr = FakeReader([])
+            self.returncode = None
+
+        def terminate(self):
+            self.returncode = 0
+
+        async def wait(self):
+            return self.returncode
+
+    process = FakeProcess(
+        [
+            json.dumps({"jsonrpc": "2.0", "id": 999, "result": {"serverInfo": {"name": "stale"}}}).encode()
+            + b"\n",
+            json.dumps({"jsonrpc": "2.0", "id": 0, "result": {"serverInfo": {}}}).encode() + b"\n",
+            json.dumps({"jsonrpc": "2.0", "id": 7, "result": {"tools": [{"name": "wrong"}]}}).encode()
+            + b"\n",
+            json.dumps({"jsonrpc": "2.0", "id": 1, "result": {"tools": [{"name": "right"}]}}).encode()
+            + b"\n",
+        ]
+    )
+
+    async def fake_create_subprocess_exec(*args, **kwargs):
+        return process
+
+    monkeypatch.setattr(
+        module.asyncio,
+        "create_subprocess_exec",
+        fake_create_subprocess_exec,
+    )
+
+    client = module.MCPStdioClient(
+        module.MCPProcessConfig(
+            name="filesystem",
+            command="node",
+            args=["server.js"],
+            env={"FOO": "bar"},
+            cwd="/tmp/workspace",
+            timeout_seconds=5.0,
+        )
+    )
+
+    await client.start()
+    await client.initialize()
+    tools = await client.list_tools()
+    await client.close()
+
+    assert tools == [{"name": "right"}]
 
 
 def test_load_mcp_process_config_resolves_toolathlon_defaults(tmp_path):
