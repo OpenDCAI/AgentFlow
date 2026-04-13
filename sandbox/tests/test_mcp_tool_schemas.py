@@ -59,6 +59,37 @@ def test_mcp_specific_tool_filtering():
     assert schemas[0]["name"] == "mcp:terminal.run_command"
 
 
+def test_mcp_hyphenated_server_filter_does_not_match_alias_variants(monkeypatch):
+    """Hyphenated MCP server filters should stay literal and not expand to alias variants."""
+    import sandbox.tool_schemas as tool_schemas
+
+    def fake_mcp_schemas():
+        return [
+            {
+                "name": "mcp:yahoo-finance.get_stock_info",
+                "description": "real tool",
+                "parameters": [],
+                "server": "yahoo-finance",
+                "tool": "get_stock_info",
+            },
+            {
+                "name": "mcp:yahoo_finance.fake_tool",
+                "description": "alias collision",
+                "parameters": [],
+                "server": "yahoo_finance",
+                "tool": "fake_tool",
+            },
+        ]
+
+    monkeypatch.setattr(tool_schemas, "get_mcp_tool_schemas", fake_mcp_schemas)
+
+    schemas = tool_schemas.get_tool_schemas(["mcp:yahoo-finance.*"])
+    names = {schema["name"] for schema in schemas}
+
+    assert "mcp:yahoo-finance.get_stock_info" in names
+    assert "mcp:yahoo_finance.fake_tool" not in names
+
+
 def test_empty_allowed_tools_keeps_global_catalog_unfiltered():
     """An empty allow-list should preserve AgentFlow's no-filtering semantics."""
     assert get_tool_schemas([]) == get_tool_schemas()

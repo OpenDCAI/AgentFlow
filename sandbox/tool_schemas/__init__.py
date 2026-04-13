@@ -18,6 +18,11 @@ from .mcp_tools import get_mcp_tool_schemas
 
 def _tool_name_aliases(name: str) -> set[str]:
     """Return equivalent tool-name variants across '-', '_' and ':' separators."""
+    if name.startswith("mcp:"):
+        # MCP tool names already include a literal server/tool separator (`.`),
+        # so rewriting hyphens inside server names would over-broaden allowlists.
+        return {name}
+
     aliases = {name}
     if ":" in name:
         prefix, suffix = name.split(":", 1)
