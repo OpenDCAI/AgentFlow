@@ -121,6 +121,7 @@ params:
 @pytest.mark.anyio
 async def test_stdio_client_initialize_and_list_tools(monkeypatch):
     module = load_mcp_client_module()
+    create_kwargs = {}
 
     class FakeWriter:
         def __init__(self):
@@ -171,6 +172,7 @@ async def test_stdio_client_initialize_and_list_tools(monkeypatch):
     )
 
     async def fake_create_subprocess_exec(*args, **kwargs):
+        create_kwargs.update(kwargs)
         return process
 
     monkeypatch.setattr(
@@ -197,6 +199,7 @@ async def test_stdio_client_initialize_and_list_tools(monkeypatch):
 
     assert tools == [{"name": "list_directory"}]
     assert process.terminated is True
+    assert create_kwargs["stderr"] is module.asyncio.subprocess.DEVNULL
     assert any(b'"method": "initialize"' in payload for payload in process.stdin.writes)
     assert any(b'"method": "notifications/initialized"' in payload for payload in process.stdin.writes)
     assert any(b'"method": "tools/list"' in payload for payload in process.stdin.writes)
@@ -276,6 +279,54 @@ async def test_stdio_client_ignores_mismatched_response_id(monkeypatch):
     await client.close()
 
     assert tools == [{"name": "right"}]
+
+
+@pytest.mark.anyio
+async def test_close_kills_process_after_wait_timeout(monkeypatch):
+    module = load_mcp_client_module()
+
+    class FakeProcess:
+        def __init__(self):
+            self.returncode = None
+            self.terminated = False
+            self.killed = False
+
+        def terminate(self):
+            self.terminated = True
+
+        def kill(self):
+            self.killed = True
+            self.returncode = -9
+
+        async def wait(self):
+            return self.returncode
+
+    async def fake_wait_for(awaitable, timeout):
+        if timeout == 5.0:
+            awaitable.close()
+            raise TimeoutError("simulated timeout")
+        return await awaitable
+
+    monkeypatch.setattr(module.asyncio, "wait_for", fake_wait_for)
+
+    client = module.MCPStdioClient(
+        module.MCPProcessConfig(
+            name="filesystem",
+            command="node",
+            args=["server.js"],
+            env={"FOO": "bar"},
+            cwd="/tmp/workspace",
+            timeout_seconds=30.0,
+        )
+    )
+    process = FakeProcess()
+    client._process = process
+
+    await client.close()
+
+    assert client._process is None
+    assert process.terminated is True
+    assert process.killed is True
 
 
 def test_load_mcp_process_config_resolves_toolathlon_defaults(tmp_path):

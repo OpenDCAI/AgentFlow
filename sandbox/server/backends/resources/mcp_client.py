@@ -173,7 +173,7 @@ class MCPStdioClient:
             *self._config.args,
             stdin=asyncio.subprocess.PIPE,
             stdout=asyncio.subprocess.PIPE,
-            stderr=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.DEVNULL,
             env=self._config.env,
             cwd=self._config.cwd,
         )
@@ -215,7 +215,13 @@ class MCPStdioClient:
             process.terminate()
         except Exception:
             pass
-        await process.wait()
+        try:
+            await asyncio.wait_for(process.wait(), timeout=5.0)
+        except TimeoutError:
+            kill = getattr(process, "kill", None)
+            if callable(kill):
+                kill()
+            await process.wait()
 
     async def _send_notifications_initialized(self) -> None:
         await self._send({"jsonrpc": "2.0", "method": "notifications/initialized"})
