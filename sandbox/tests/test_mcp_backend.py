@@ -9,6 +9,7 @@ import types
 from pathlib import Path
 
 from sandbox.server.backends.base import BackendConfig
+from sandbox.server.config_loader import ConfigLoader
 
 MODULE_PATH = (
     Path(__file__).resolve().parents[1]
@@ -355,3 +356,69 @@ def test_bridge_tool_returns_clear_error_for_missing_client(tmp_path):
 
     assert result["code"] != 0
     assert "not available" in result["message"]
+
+
+def test_initialize_passes_env_overrides_to_process_config(tmp_path, monkeypatch):
+    module = load_mcp_backend_module()
+    captured = {}
+
+    class FakeClient:
+        def __init__(self, process_config):
+            self.process_config = process_config
+
+        async def start(self):
+            return None
+
+        async def initialize(self):
+            return None
+
+    def fake_load_mcp_process_config(**kwargs):
+        captured.update(kwargs)
+        return object()
+
+    monkeypatch.setattr(module, "MCPStdioClient", FakeClient)
+    monkeypatch.setattr(module, "load_mcp_process_config", fake_load_mcp_process_config)
+
+    backend = module.MCPBackend(
+        config=BackendConfig(
+            enabled=True,
+            default_config={
+                "toolathlon_root": str(tmp_path / "toolathlon"),
+                "enabled_mcp_servers": ["filesystem"],
+                "workspace_root": str(tmp_path / "agentflow_mcp"),
+                "env_overrides": {"PGHOST": "toolathlon_pg", "PGPORT": "15432"},
+            },
+        )
+    )
+
+    asyncio.run(
+        backend.initialize(
+            "runner_123",
+            {
+                "task_dir": str(tmp_path / "task"),
+                "copy_initial_workspace": False,
+                "run_preprocess": False,
+            },
+        )
+    )
+
+    assert captured["process_env"]["PGHOST"] == "toolathlon_pg"
+    assert captured["process_env"]["PGPORT"] == "15432"
+
+
+def test_mcp_config_template_parses():
+    loader = ConfigLoader()
+    config_path = (
+        Path(__file__).resolve().parents[2]
+        / "configs"
+        / "sandbox-server"
+        / "mcp_config.json"
+    )
+
+    config = loader.load(str(config_path))
+
+    assert "mcp" in config.resources
+    assert (
+        config.resources["mcp"].backend_class
+        == "sandbox.server.backends.resources.mcp.MCPBackend"
+    )

@@ -2,6 +2,7 @@
 MCP backend skeleton for Toolathlon-GYM integration.
 """
 
+import os
 import shutil
 import subprocess
 import time
@@ -134,12 +135,15 @@ class MCPBackend(Backend):
     ) -> dict[str, MCPStdioClient]:
         clients: dict[str, MCPStdioClient] = {}
         toolathlon_root = self._get_toolathlon_root()
+        process_env = dict(os.environ)
+        process_env.update(self.get_default_config().get("env_overrides") or {})
         for server_name in self._resolve_enabled_servers():
             process_config = load_mcp_process_config(
                 toolathlon_root=toolathlon_root,
                 server_name=server_name,
                 agent_workspace=str(workspace),
                 task_dir=task_context.get("task_dir", ""),
+                process_env=process_env,
             )
             client = MCPStdioClient(process_config)
             await client.start()

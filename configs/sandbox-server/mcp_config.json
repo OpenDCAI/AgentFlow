@@ -1,0 +1,30 @@
+{
+  "server": {
+    "url": "http://127.0.0.1:18890",
+    "port": 18890,
+    "session_ttl": 600
+  },
+  "resources": {
+    "mcp": {
+      "enabled": true,
+      "description": "Toolathlon-GYM MCP backend",
+      "backend_class": "sandbox.server.backends.resources.mcp.MCPBackend",
+      "config": {
+        "toolathlon_root": "${TOOLATHLON_ROOT}",
+        "enabled_mcp_servers": ["filesystem", "terminal", "snowflake"],
+        "workspace_root": "${TOOLATHLON_WORKSPACE_ROOT:-/tmp/agentflow_mcp}",
+        "env_overrides": {
+          "PGHOST": "${PGHOST:-toolathlon_pg}",
+          "PGPORT": "${PGPORT:-5432}",
+          "PGUSER": "${PGUSER:-eigent}",
+          "PGPASSWORD": "${PGPASSWORD:-camel}",
+          "PGDATABASE": "${PGDATABASE:-toolathlon_gym}"
+        }
+      }
+    }
+  },
+  "warmup": {
+    "enabled": true,
+    "resources": ["mcp"]
+  }
+}
