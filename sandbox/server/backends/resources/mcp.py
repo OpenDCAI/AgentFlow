@@ -5,6 +5,7 @@ MCP backend skeleton for Toolathlon-GYM integration.
 import os
 import shutil
 import subprocess
+import sys
 import time
 from pathlib import Path
 from typing import Any
@@ -113,14 +114,19 @@ class MCPBackend(Backend):
         if not script_path.exists():
             return
 
-        command = f"python {script_path} --agent_workspace {workspace}"
+        command = [
+            sys.executable,
+            str(script_path),
+            "--agent_workspace",
+            str(workspace),
+        ]
         cleaned_launch_time = " ".join((launch_time or "").split()[:2])
         if cleaned_launch_time:
-            command += f' --launch_time "{cleaned_launch_time}"'
+            command.extend(["--launch_time", cleaned_launch_time])
 
         result = subprocess.run(
             command,
-            shell=True,
+            shell=False,
             capture_output=True,
             text=True,
         )
@@ -137,18 +143,22 @@ class MCPBackend(Backend):
         toolathlon_root = self._get_toolathlon_root()
         process_env = dict(os.environ)
         process_env.update(self.get_default_config().get("env_overrides") or {})
-        for server_name in self._resolve_enabled_servers():
-            process_config = load_mcp_process_config(
-                toolathlon_root=toolathlon_root,
-                server_name=server_name,
-                agent_workspace=str(workspace),
-                task_dir=task_context.get("task_dir", ""),
-                process_env=process_env,
-            )
-            client = MCPStdioClient(process_config)
-            await client.start()
-            await client.initialize()
-            clients[server_name] = client
+        try:
+            for server_name in self._resolve_enabled_servers():
+                process_config = load_mcp_process_config(
+                    toolathlon_root=toolathlon_root,
+                    server_name=server_name,
+                    agent_workspace=str(workspace),
+                    task_dir=task_context.get("task_dir", ""),
+                    process_env=process_env,
+                )
+                client = MCPStdioClient(process_config)
+                await client.start()
+                await client.initialize()
+                clients[server_name] = client
+        except Exception:
+            await self._close_clients(clients)
+            raise
         return clients
 
     async def _close_clients(self, clients: dict[str, MCPStdioClient]) -> None:

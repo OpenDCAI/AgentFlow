@@ -3,10 +3,13 @@ Tests for the MCP backend skeleton and bridge-tool registration.
 """
 
 import asyncio
+import importlib
 import importlib.util
 import sys
 import types
 from pathlib import Path
+
+import pytest
 
 from sandbox.server.backends.base import BackendConfig
 from sandbox.server.config_loader import ConfigLoader
@@ -37,6 +40,22 @@ def load_mcp_backend_module():
     sys.modules[spec.name] = module
     spec.loader.exec_module(module)
     return module
+
+
+def test_importing_mcp_backend_via_package_path_does_not_require_vm_dependencies():
+    resources_module = sys.modules.pop("sandbox.server.backends.resources", None)
+    mcp_module = sys.modules.pop("sandbox.server.backends.resources.mcp", None)
+
+    try:
+        module = importlib.import_module("sandbox.server.backends.resources.mcp")
+        assert module.MCPBackend.__name__ == "MCPBackend"
+    finally:
+        sys.modules.pop("sandbox.server.backends.resources.mcp", None)
+        sys.modules.pop("sandbox.server.backends.resources", None)
+        if resources_module is not None:
+            sys.modules["sandbox.server.backends.resources"] = resources_module
+        if mcp_module is not None:
+            sys.modules["sandbox.server.backends.resources.mcp"] = mcp_module
 
 
 class FakeServer:
@@ -177,7 +196,7 @@ def test_initialize_runs_preprocess_when_requested(tmp_path, monkeypatch):
     monkeypatch.setattr(backend, "_start_enabled_clients", fake_start_enabled_clients)
     monkeypatch.setattr(module.subprocess, "run", fake_run)
 
-    asyncio.run(
+    session = asyncio.run(
         backend.initialize(
             "runner_123",
             {
@@ -189,8 +208,10 @@ def test_initialize_runs_preprocess_when_requested(tmp_path, monkeypatch):
         )
     )
 
-    assert "--agent_workspace" in recorded["command"]
-    assert '--launch_time "2026-03-07 10:00:00"' in recorded["command"]
+    assert recorded["shell"] is False
+    assert recorded["command"][1].endswith("preprocess/main.py")
+    assert recorded["command"][2:4] == ["--agent_workspace", str(Path(session["workspace"]))]
+    assert recorded["command"][4:6] == ["--launch_time", "2026-03-07 10:00:00"]
 
 
 def test_initialize_fails_when_preprocess_returns_error(tmp_path, monkeypatch):
@@ -404,6 +425,59 @@ def test_initialize_passes_env_overrides_to_process_config(tmp_path, monkeypatch
 
     assert captured["process_env"]["PGHOST"] == "toolathlon_pg"
     assert captured["process_env"]["PGPORT"] == "15432"
+
+
+def test_initialize_closes_started_clients_when_later_server_fails(tmp_path, monkeypatch):
+    module = load_mcp_backend_module()
+    created_clients = []
+
+    class FakeClient:
+        def __init__(self, process_config):
+            self.process_config = process_config
+            self.closed = False
+            created_clients.append(self)
+
+        async def start(self):
+            return None
+
+        async def initialize(self):
+            if self.process_config.name == "terminal":
+                raise RuntimeError("boom")
+
+        async def close(self):
+            self.closed = True
+
+    def fake_load_mcp_process_config(**kwargs):
+        return types.SimpleNamespace(name=kwargs["server_name"])
+
+    monkeypatch.setattr(module, "MCPStdioClient", FakeClient)
+    monkeypatch.setattr(module, "load_mcp_process_config", fake_load_mcp_process_config)
+
+    backend = module.MCPBackend(
+        config=BackendConfig(
+            enabled=True,
+            default_config={
+                "toolathlon_root": str(tmp_path / "toolathlon"),
+                "enabled_mcp_servers": ["filesystem", "terminal"],
+                "workspace_root": str(tmp_path / "agentflow_mcp"),
+            },
+        )
+    )
+
+    with pytest.raises(RuntimeError, match="boom"):
+        asyncio.run(
+            backend.initialize(
+                "runner_123",
+                {
+                    "task_dir": str(tmp_path / "task"),
+                    "copy_initial_workspace": False,
+                    "run_preprocess": False,
+                },
+            )
+        )
+
+    assert [client.process_config.name for client in created_clients] == ["filesystem", "terminal"]
+    assert created_clients[0].closed is True
 
 
 def test_mcp_config_template_parses():

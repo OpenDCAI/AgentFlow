@@ -163,6 +163,7 @@ class MCPStdioClient:
         self._config = config
         self._process: asyncio.subprocess.Process | None = None
         self._request_id = 0
+        self._request_lock = asyncio.Lock()
 
     async def start(self) -> None:
         if self._process is not None:
@@ -229,15 +230,16 @@ class MCPStdioClient:
     async def _request(
         self, *, method: str, params: dict | None = None
     ) -> dict[str, Any]:
-        request_id = self._next_request_id()
-        payload = {"jsonrpc": "2.0", "id": request_id, "method": method}
-        if params is not None:
-            payload["params"] = params
-        await self._send(payload)
-        response = await self._read_response(expected_request_id=request_id)
-        if "error" in response:
-            raise RuntimeError(f"MCP request failed for '{method}': {response['error']}")
-        return response
+        async with self._request_lock:
+            request_id = self._next_request_id()
+            payload = {"jsonrpc": "2.0", "id": request_id, "method": method}
+            if params is not None:
+                payload["params"] = params
+            await self._send(payload)
+            response = await self._read_response(expected_request_id=request_id)
+            if "error" in response:
+                raise RuntimeError(f"MCP request failed for '{method}': {response['error']}")
+            return response
 
     async def _send(self, payload: dict[str, Any]) -> None:
         await self._ensure_process()

@@ -2,6 +2,7 @@
 Tests for the lightweight MCP stdio client and Toolathlon YAML resolution.
 """
 
+import asyncio
 import importlib.util
 import json
 from pathlib import Path
@@ -327,6 +328,47 @@ async def test_close_kills_process_after_wait_timeout(monkeypatch):
     assert client._process is None
     assert process.terminated is True
     assert process.killed is True
+
+
+@pytest.mark.anyio
+async def test_stdio_client_serializes_concurrent_requests(monkeypatch):
+    module = load_mcp_client_module()
+    active_reads = 0
+    max_active_reads = 0
+
+    async def fake_send(payload):
+        del payload
+        return None
+
+    async def fake_read_response(expected_request_id=None):
+        del expected_request_id
+        nonlocal active_reads, max_active_reads
+        active_reads += 1
+        max_active_reads = max(max_active_reads, active_reads)
+        await asyncio.sleep(0)
+        active_reads -= 1
+        return {"result": {"content": []}}
+
+    client = module.MCPStdioClient(
+        module.MCPProcessConfig(
+            name="filesystem",
+            command="node",
+            args=["server.js"],
+            env={"FOO": "bar"},
+            cwd="/tmp/workspace",
+            timeout_seconds=30.0,
+        )
+    )
+    client._process = object()
+    monkeypatch.setattr(client, "_send", fake_send)
+    monkeypatch.setattr(client, "_read_response", fake_read_response)
+
+    await asyncio.gather(
+        client.call_tool("list_directory", {"path": "."}),
+        client.call_tool("read_text_file", {"path": "README.md"}),
+    )
+
+    assert max_active_reads == 1
 
 
 def test_load_mcp_process_config_resolves_toolathlon_defaults(tmp_path):
