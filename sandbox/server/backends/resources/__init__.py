@@ -59,33 +59,13 @@ Config example:
 ```
 """
 
-from importlib import import_module
-
-
-_LAZY_IMPORTS = {
-    "VMBackend": ".vm",
-    "create_vm_backend": ".vm",
-    "RAGBackend": ".rag",
-    "create_rag_backend": ".rag",
-    "MCPBackend": ".mcp",
-}
-
-
-def __getattr__(name):
-    module_name = _LAZY_IMPORTS.get(name)
-    if module_name is None:
-        raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
-
-    module = import_module(module_name, __name__)
-    value = getattr(module, name)
-    globals()[name] = value
-    return value
+from .vm import VMBackend, create_vm_backend
+from .rag import RAGBackend, create_rag_backend
 
 __all__ = [
     # Backend classes
     "VMBackend",
     "RAGBackend",
-    "MCPBackend",
     
     # Convenience factories
     "create_vm_backend",

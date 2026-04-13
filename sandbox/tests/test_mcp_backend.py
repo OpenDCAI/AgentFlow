@@ -3,7 +3,6 @@ Tests for the MCP backend skeleton and bridge-tool registration.
 """
 
 import asyncio
-import importlib
 import importlib.util
 import sys
 import types
@@ -40,22 +39,6 @@ def load_mcp_backend_module():
     sys.modules[spec.name] = module
     spec.loader.exec_module(module)
     return module
-
-
-def test_importing_mcp_backend_via_package_path_does_not_require_vm_dependencies():
-    resources_module = sys.modules.pop("sandbox.server.backends.resources", None)
-    mcp_module = sys.modules.pop("sandbox.server.backends.resources.mcp", None)
-
-    try:
-        module = importlib.import_module("sandbox.server.backends.resources.mcp")
-        assert module.MCPBackend.__name__ == "MCPBackend"
-    finally:
-        sys.modules.pop("sandbox.server.backends.resources.mcp", None)
-        sys.modules.pop("sandbox.server.backends.resources", None)
-        if resources_module is not None:
-            sys.modules["sandbox.server.backends.resources"] = resources_module
-        if mcp_module is not None:
-            sys.modules["sandbox.server.backends.resources.mcp"] = mcp_module
 
 
 class FakeServer:
