@@ -276,11 +276,14 @@ class ToolExecutor:
                     if key in sig.parameters or has_var_keyword:
                         params[key] = value
 
-            inject_if_missing("worker_id", worker_id)
-            inject_if_missing("trace_id", trace_id)
-            
+            if resource_type != "mcp":
+                inject_if_missing("worker_id", worker_id)
+                inject_if_missing("trace_id", trace_id)
+
+                if session_info:
+                    inject_if_missing("session_id", session_info.get("session_id"))
+
             if session_info:
-                inject_if_missing("session_id", session_info.get("session_id"))
                 inject_if_missing("session_info", session_info)
             
             # Execute tool function.
@@ -477,4 +480,3 @@ class ToolExecutor:
             data=data,
             execution_time_ms=execution_time_ms
         )
-

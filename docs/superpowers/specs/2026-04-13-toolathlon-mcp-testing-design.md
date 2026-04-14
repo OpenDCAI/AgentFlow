@@ -184,6 +184,36 @@ The goal is to verify integrated toolchain viability, not agent intelligence.
 
 Run AgentFlow's existing tests plus the MCP unit/integration suite first. This protects against regressions before real-environment smoke tests begin.
 
+### Controller and Subagent Model
+
+The test system uses an explicit controller/subagent split.
+
+The controller is responsible for all shared concerns:
+
+- preparing and validating the shared base environment
+- owning the authoritative `A`/`B` server classification
+- deciding which server-layer cases may run in parallel
+- creating per-case isolated runtime inputs such as workspace roots, worker IDs, temp directories, and logs
+- owning shared base config, shared fixtures, shared environment variables, and shared infrastructure policy
+- running the serial all-servers startup test
+
+Subagents are workers for isolated test execution, not owners of the shared environment.
+
+Subagents may:
+
+- execute assigned single-server or domain smoke cases
+- inspect failures within their assigned case
+- modify only server-specific or case-specific test assets when explicitly allowed
+
+Subagents may not:
+
+- modify shared environment policy
+- mutate shared base config or common fixtures used by unrelated cases
+- change controller-owned port allocation or global isolation rules
+- repair shared infrastructure from inside an isolated case
+
+If a failure is traced to shared infrastructure, ownership returns to the controller. This keeps parallel work from corrupting the common environment.
+
 ### Parallel Policy
 
 Parallelization is allowed only for `A`-class single-server smoke cases.
