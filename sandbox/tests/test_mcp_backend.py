@@ -12,6 +12,7 @@ import pytest
 
 from sandbox.server.backends.base import BackendConfig
 from sandbox.server.config_loader import ConfigLoader
+from sandbox.server.core.tool_executor import ToolExecutor
 
 MODULE_PATH = (
     Path(__file__).resolve().parents[1]
@@ -270,6 +271,71 @@ def test_bridge_tool_dispatches_to_matching_server_client(tmp_path):
     )
 
     assert result["code"] == 0
+    assert result["data"]["content"] == [{"type": "text", "text": "ok"}]
+
+
+def test_mcp_bridge_preserves_explicit_session_id_and_skips_runtime_injection(tmp_path):
+    module = load_mcp_backend_module()
+    backend = module.MCPBackend(
+        config=BackendConfig(
+            enabled=True,
+            default_config={
+                "toolathlon_root": str(tmp_path / "toolathlon"),
+                "enabled_mcp_servers": ["canvas"],
+                "workspace_root": str(tmp_path / "agentflow_mcp"),
+            },
+        )
+    )
+    fake_server = FakeServer()
+    backend.bind_server(fake_server)
+    captured = {}
+
+    class FakeClient:
+        async def call_tool(self, tool_name, arguments):
+            captured["tool_name"] = tool_name
+            captured["arguments"] = arguments
+            return {"content": [{"type": "text", "text": "ok"}]}
+
+    class FakeResourceRouter:
+        async def get_session(self, worker_id, resource_type):
+            assert worker_id == "worker-1"
+            assert resource_type == "mcp"
+            return {
+                "session_id": "agentflow-session",
+                "data": {"clients": {"canvas": FakeClient()}},
+            }
+
+        async def get_or_create_session(self, worker_id, resource_type, auto_created=False):
+            del worker_id, resource_type, auto_created
+            raise AssertionError("Did not expect temporary MCP session creation")
+
+        async def refresh_session(self, worker_id, resource_type):
+            assert worker_id == "worker-1"
+            assert resource_type == "mcp"
+            return True
+
+        async def destroy_session(self, worker_id, resource_type):
+            del worker_id, resource_type
+            raise AssertionError("Did not expect MCP session destruction")
+
+    executor = ToolExecutor(
+        tools=fake_server._tools,
+        tool_name_index={},
+        tool_resource_types=fake_server._tool_resource_types,
+        resource_router=FakeResourceRouter(),
+    )
+    result = asyncio.run(
+        executor.execute(
+            action="mcp:canvas.canvas_list_account_users",
+            params={"session_id": "canvas-session", "page": 2},
+            worker_id="worker-1",
+            trace_id="trace-1",
+        )
+    )
+
+    assert result["code"] == 0
+    assert captured["tool_name"] == "canvas_list_account_users"
+    assert captured["arguments"] == {"session_id": "canvas-session", "page": 2}
     assert result["data"]["content"] == [{"type": "text", "text": "ok"}]
 
 
