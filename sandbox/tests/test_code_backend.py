@@ -69,8 +69,24 @@ def create_fake_claude_code_root(tmp_path):
     tools_dir = root / "tools"
     tools_dir.mkdir(parents=True, exist_ok=True)
 
+    (root / "log.py").write_text(
+        "ROOT_LOG_MARKER = 'log-helper'\n",
+        encoding="utf-8",
+    )
+
+    (root / "trace.py").write_text(
+        "ROOT_TRACE_MARKER = 'trace-helper'\n",
+        encoding="utf-8",
+    )
+
     (root / "tool.py").write_text(
+        "from log import ROOT_LOG_MARKER\n"
+        "from trace import ROOT_TRACE_MARKER\n"
+        "\n"
         "class Tool:\n"
+        "    ROOT_LOG_MARKER = ROOT_LOG_MARKER\n"
+        "    ROOT_TRACE_MARKER = ROOT_TRACE_MARKER\n"
+        "\n"
         "    async def call(self, params, ctx):\n"
         "        raise NotImplementedError\n",
         encoding="utf-8",
@@ -86,6 +102,10 @@ def create_fake_claude_code_root(tmp_path):
         "from pathlib import Path\n"
         "\n"
         "class ReadTool(Tool):\n"
+        "    def __init__(self):\n"
+        "        self.loaded_log_marker = self.ROOT_LOG_MARKER\n"
+        "        self.loaded_trace_marker = self.ROOT_TRACE_MARKER\n"
+        "\n"
         "    async def call(self, params, ctx):\n"
         "        file_path = Path(params['file_path'])\n"
         "        if not file_path.exists():\n"
@@ -246,6 +266,17 @@ def test_load_claude_code_tools_uses_direct_file_loading(tmp_path):
     tools = backend._load_claude_code_tools()
 
     assert set(tools.keys()) == {"read", "glob", "grep", "bash", "edit", "write"}
+
+
+def test_load_claude_code_tools_supports_root_local_tool_dependencies(tmp_path):
+    module = load_code_backend_module()
+    create_fake_claude_code_root(tmp_path)
+    backend = module.CodeBackend(config=build_backend_config(tmp_path))
+
+    tools = backend._load_claude_code_tools()
+
+    assert tools["read"].loaded_log_marker == "log-helper"
+    assert tools["read"].loaded_trace_marker == "trace-helper"
 
 
 def test_load_code_backend_module_does_not_install_resources_package_in_sys_modules():

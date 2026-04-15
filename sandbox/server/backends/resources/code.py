@@ -4,6 +4,7 @@ Code backend skeleton for lightweight coding workspace integration.
 
 from __future__ import annotations
 
+from contextlib import contextmanager
 import importlib.util
 import re
 import shutil
@@ -148,26 +149,22 @@ class CodeBackend(Backend):
         root_path = self._get_claude_code_root()
         if root_path is None:
             raise ValueError("claude_code_root is not configured")
-        tool_module = self._load_module_from_path(
-            f"{self._module_namespace}.tool",
-            root_path / "tool.py",
-        )
-        previous_tool_module = sys.modules.get("tool")
-        sys.modules["tool"] = tool_module
-        try:
-            file_tools = self._load_module_from_path(
-                f"{self._module_namespace}.file_tools",
-                root_path / "tools" / "file_tools.py",
+
+        support_modules = self._load_root_support_modules(root_path)
+        with self._temporary_module_aliases(support_modules):
+            tool_module = self._load_module_from_path(
+                f"{self._module_namespace}.tool",
+                root_path / "tool.py",
             )
-            edit_tools = self._load_module_from_path(
-                f"{self._module_namespace}.edit_tools",
-                root_path / "tools" / "edit_tools.py",
-            )
-        finally:
-            if previous_tool_module is None:
-                sys.modules.pop("tool", None)
-            else:
-                sys.modules["tool"] = previous_tool_module
+            with self._temporary_module_aliases({"tool": tool_module}):
+                file_tools = self._load_module_from_path(
+                    f"{self._module_namespace}.file_tools",
+                    root_path / "tools" / "file_tools.py",
+                )
+                edit_tools = self._load_module_from_path(
+                    f"{self._module_namespace}.edit_tools",
+                    root_path / "tools" / "edit_tools.py",
+                )
 
         self._tool_instances = {
             "read": file_tools.ReadTool(),
@@ -178,6 +175,52 @@ class CodeBackend(Backend):
             "write": edit_tools.WriteTool(),
         }
         return self._tool_instances
+
+    def _load_root_support_modules(self, root_path: Path) -> dict[str, Any]:
+        support_modules: dict[str, Any] = {}
+        pending_modules = {
+            module_name: root_path / f"{module_name}.py"
+            for module_name in ("log", "trace")
+            if (root_path / f"{module_name}.py").exists()
+        }
+
+        while pending_modules:
+            made_progress = False
+            for module_name, module_path in list(pending_modules.items()):
+                try:
+                    with self._temporary_module_aliases(support_modules):
+                        support_modules[module_name] = self._load_module_from_path(
+                            f"{self._module_namespace}.{module_name}",
+                            module_path,
+                        )
+                except ModuleNotFoundError as exc:
+                    if exc.name in pending_modules:
+                        continue
+                    raise
+                else:
+                    del pending_modules[module_name]
+                    made_progress = True
+
+            if not made_progress:
+                unresolved = ", ".join(sorted(pending_modules))
+                raise ImportError(f"Unable to resolve root support modules: {unresolved}")
+
+        return support_modules
+
+    @contextmanager
+    def _temporary_module_aliases(self, aliases: dict[str, Any]):
+        previous_modules: dict[str, Any] = {}
+        for module_name, module in aliases.items():
+            previous_modules[module_name] = sys.modules.get(module_name)
+            sys.modules[module_name] = module
+        try:
+            yield
+        finally:
+            for module_name, previous_module in previous_modules.items():
+                if previous_module is None:
+                    sys.modules.pop(module_name, None)
+                else:
+                    sys.modules[module_name] = previous_module
 
     def _load_module_from_path(self, module_name: str, path: Path):
         spec = importlib.util.spec_from_file_location(module_name, str(path))
