@@ -438,4 +438,13 @@ class CodeBackend(Backend):
 
             normalized[key] = str(resolved)
 
+        if tool_name == "glob":
+            pattern = normalized.get("pattern")
+            if (
+                isinstance(pattern, str)
+                and pattern
+                and re.search(r"(^|[\\/])\.\.([\\/]|$)", pattern)
+            ):
+                raise ValueError("Glob pattern must not contain parent traversal segments")
+
         return normalized

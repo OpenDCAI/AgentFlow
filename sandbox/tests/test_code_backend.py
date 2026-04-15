@@ -100,6 +100,7 @@ def create_fake_claude_code_root(tmp_path):
     (tools_dir / "file_tools.py").write_text(
         "from tool import Tool\n"
         "from pathlib import Path\n"
+        "import glob\n"
         "\n"
         "class ReadTool(Tool):\n"
         "    def __init__(self):\n"
@@ -114,7 +115,10 @@ def create_fake_claude_code_root(tmp_path):
         "\n"
         "class GlobTool(Tool):\n"
         "    async def call(self, params, ctx):\n"
-        "        return f\"Matched 1 path in {Path(params.get('path', '.'))}\"\n"
+        "        base = Path(params.get('path', '.'))\n"
+        "        pattern = params.get('pattern', '*')\n"
+        "        matches = sorted(glob.glob(pattern, root_dir=str(base), recursive=True))\n"
+        "        return [str((base / match).resolve(strict=False)) for match in matches]\n"
         "\n"
         "class GrepTool(Tool):\n"
         "    async def call(self, params, ctx):\n"
@@ -767,6 +771,113 @@ def test_code_write_rejects_parent_escape_outside_workspace(tmp_path):
 
     assert result["code"] != ErrorCode.SUCCESS
     assert not escaped_file.exists()
+
+
+def test_code_glob_rejects_parent_traversal_pattern(tmp_path):
+    module = load_code_backend_module()
+    create_fake_claude_code_root(tmp_path)
+    backend = module.CodeBackend(config=build_backend_config(tmp_path))
+    fake_server = FakeServer()
+    backend.bind_server(fake_server)
+
+    runtime_workspace = tmp_path / "agentflow_code" / "worker-1"
+    runtime_workspace.mkdir(parents=True)
+    executor = ToolExecutor(
+        tools=fake_server._tools,
+        tool_name_index={},
+        tool_resource_types=fake_server._tool_resource_types,
+        resource_router=FakeResourceRouter(
+            {
+                "session_id": "code-session-glob-parent-traversal",
+                "data": {"workspace": str(runtime_workspace)},
+            }
+        ),
+    )
+
+    result = asyncio.run(
+        executor.execute(
+            action="code:glob",
+            params={"path": ".", "pattern": "../*"},
+            worker_id="worker-1",
+            trace_id="trace-glob-parent-traversal",
+        )
+    )
+
+    assert result["code"] == ErrorCode.BUSINESS_FAILURE
+    assert "pattern" in result["message"].lower()
+
+
+def test_code_glob_rejects_embedded_parent_traversal_pattern(tmp_path):
+    module = load_code_backend_module()
+    create_fake_claude_code_root(tmp_path)
+    backend = module.CodeBackend(config=build_backend_config(tmp_path))
+    fake_server = FakeServer()
+    backend.bind_server(fake_server)
+
+    runtime_workspace = tmp_path / "agentflow_code" / "worker-1"
+    runtime_workspace.mkdir(parents=True)
+    (runtime_workspace / "nested").mkdir(parents=True)
+    (runtime_workspace / "nested" / "demo.py").write_text("print('safe')\n", encoding="utf-8")
+    executor = ToolExecutor(
+        tools=fake_server._tools,
+        tool_name_index={},
+        tool_resource_types=fake_server._tool_resource_types,
+        resource_router=FakeResourceRouter(
+            {
+                "session_id": "code-session-glob-embedded-traversal",
+                "data": {"workspace": str(runtime_workspace)},
+            }
+        ),
+    )
+
+    result = asyncio.run(
+        executor.execute(
+            action="code:glob",
+            params={"path": ".", "pattern": "**/../*"},
+            worker_id="worker-1",
+            trace_id="trace-glob-embedded-traversal",
+        )
+    )
+
+    assert result["code"] == ErrorCode.BUSINESS_FAILURE
+    assert "pattern" in result["message"].lower()
+
+
+def test_code_glob_allows_safe_workspace_pattern(tmp_path):
+    module = load_code_backend_module()
+    create_fake_claude_code_root(tmp_path)
+    backend = module.CodeBackend(config=build_backend_config(tmp_path))
+    fake_server = FakeServer()
+    backend.bind_server(fake_server)
+
+    runtime_workspace = tmp_path / "agentflow_code" / "worker-1"
+    runtime_workspace.mkdir(parents=True)
+    safe_file = runtime_workspace / "nested" / "demo.py"
+    safe_file.parent.mkdir(parents=True)
+    safe_file.write_text("print('ok')\n", encoding="utf-8")
+    executor = ToolExecutor(
+        tools=fake_server._tools,
+        tool_name_index={},
+        tool_resource_types=fake_server._tool_resource_types,
+        resource_router=FakeResourceRouter(
+            {
+                "session_id": "code-session-glob-safe",
+                "data": {"workspace": str(runtime_workspace)},
+            }
+        ),
+    )
+
+    result = asyncio.run(
+        executor.execute(
+            action="code:glob",
+            params={"path": ".", "pattern": "**/*.py"},
+            worker_id="worker-1",
+            trace_id="trace-glob-safe",
+        )
+    )
+
+    assert result["code"] == ErrorCode.SUCCESS
+    assert result["data"] == [str(safe_file.resolve(strict=False))]
 
 
 def test_initialize_rejects_hostile_worker_id_without_deleting_outside_dir(tmp_path):
