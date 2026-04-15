@@ -4,6 +4,7 @@ Tests for the Code backend skeleton and bridge-tool registration.
 
 import asyncio
 import importlib.util
+import os
 import sys
 import types
 from pathlib import Path
@@ -82,18 +83,22 @@ def create_fake_claude_code_root(tmp_path):
 
     (tools_dir / "file_tools.py").write_text(
         "from tool import Tool\n"
+        "from pathlib import Path\n"
         "\n"
         "class ReadTool(Tool):\n"
         "    async def call(self, params, ctx):\n"
-        "        return {'content': [{'type': 'text', 'text': f\"read:{ctx.cwd}\"}], 'params': params}\n"
+        "        file_path = Path(params['file_path'])\n"
+        "        if not file_path.exists():\n"
+        "            return f'Error: File not found: {file_path}'\n"
+        "        return {'content': [{'type': 'text', 'text': file_path.read_text(encoding=\"utf-8\")}], 'params': params}\n"
         "\n"
         "class GlobTool(Tool):\n"
         "    async def call(self, params, ctx):\n"
-        "        return {'glob': True, 'cwd': ctx.cwd, 'params': params}\n"
+        "        return {'glob': True, 'path': str(Path(params.get('path', '.'))), 'cwd': ctx.cwd, 'params': params}\n"
         "\n"
         "class GrepTool(Tool):\n"
         "    async def call(self, params, ctx):\n"
-        "        return {'grep': True, 'cwd': ctx.cwd, 'params': params}\n"
+        "        return {'grep': True, 'path': str(Path(params.get('path', '.'))), 'cwd': ctx.cwd, 'params': params}\n"
         "\n"
         "class BashTool(Tool):\n"
         "    async def call(self, params, ctx):\n"
@@ -103,13 +108,23 @@ def create_fake_claude_code_root(tmp_path):
 
     (tools_dir / "edit_tools.py").write_text(
         "from tool import Tool\n"
+        "from pathlib import Path\n"
         "\n"
         "class EditTool(Tool):\n"
         "    async def call(self, params, ctx):\n"
+        "        file_path = Path(params['file_path'])\n"
+        "        if not file_path.exists():\n"
+        "            return f'Error: File does not exist: {file_path}'\n"
+        "        text = file_path.read_text(encoding='utf-8')\n"
+        "        text = text.replace(params.get('old_string', ''), params.get('new_string', ''))\n"
+        "        file_path.write_text(text, encoding='utf-8')\n"
         "        return {'edit': True, 'cwd': ctx.cwd, 'params': params}\n"
         "\n"
         "class WriteTool(Tool):\n"
         "    async def call(self, params, ctx):\n"
+        "        file_path = Path(params['file_path'])\n"
+        "        file_path.parent.mkdir(parents=True, exist_ok=True)\n"
+        "        file_path.write_text(params.get('content', ''), encoding='utf-8')\n"
         "        return {'write': True, 'cwd': ctx.cwd, 'params': params}\n",
         encoding="utf-8",
     )
@@ -194,6 +209,10 @@ def test_tool_executor_code_dispatch_returns_standard_success_response(tmp_path)
     backend = module.CodeBackend(config=build_backend_config(tmp_path))
     fake_server = FakeServer()
     backend.bind_server(fake_server)
+    runtime_workspace = tmp_path / "runtime-workspace"
+    runtime_workspace.mkdir(parents=True)
+    demo_file = runtime_workspace / "demo.py"
+    demo_file.write_text("hello from demo\n", encoding="utf-8")
 
     executor = ToolExecutor(
         tools=fake_server._tools,
@@ -202,7 +221,7 @@ def test_tool_executor_code_dispatch_returns_standard_success_response(tmp_path)
         resource_router=FakeResourceRouter(
             {
                 "session_id": "code-session-1",
-                "data": {"workspace": str(tmp_path / "runtime-workspace")},
+                "data": {"workspace": str(runtime_workspace)},
             }
         ),
     )
@@ -210,14 +229,14 @@ def test_tool_executor_code_dispatch_returns_standard_success_response(tmp_path)
     result = asyncio.run(
         executor.execute(
             action="code:read",
-            params={"path": "demo.py"},
+            params={"file_path": str(demo_file)},
             worker_id="worker-1",
             trace_id="trace-1",
         )
     )
 
     assert result["code"] == ErrorCode.SUCCESS
-    assert result["data"]["content"][0]["text"].startswith("read:")
+    assert result["data"]["content"][0]["text"] == "hello from demo\n"
 
 
 def test_tool_executor_blocks_bash_when_allow_bash_false(tmp_path):
@@ -252,3 +271,105 @@ def test_tool_executor_blocks_bash_when_allow_bash_false(tmp_path):
 
     assert result["code"] == ErrorCode.BUSINESS_FAILURE
     assert "disabled" in result["message"].lower()
+
+
+def test_code_write_relative_file_path_resolves_inside_session_workspace(tmp_path):
+    module = load_code_backend_module()
+    create_fake_claude_code_root(tmp_path)
+    backend = module.CodeBackend(config=build_backend_config(tmp_path))
+    fake_server = FakeServer()
+    backend.bind_server(fake_server)
+
+    runtime_workspace = tmp_path / "runtime-workspace"
+    runtime_workspace.mkdir(parents=True)
+    process_cwd = tmp_path / "process-cwd"
+    process_cwd.mkdir(parents=True)
+    prev_cwd = Path.cwd()
+    os.chdir(process_cwd)
+    try:
+        executor = ToolExecutor(
+            tools=fake_server._tools,
+            tool_name_index={},
+            tool_resource_types=fake_server._tool_resource_types,
+            resource_router=FakeResourceRouter(
+                {
+                    "session_id": "code-session-3",
+                    "data": {"workspace": str(runtime_workspace)},
+                }
+            ),
+        )
+
+        result = asyncio.run(
+            executor.execute(
+                action="code:write",
+                params={"file_path": "nested/output.txt", "content": "from workspace\n"},
+                worker_id="worker-1",
+                trace_id="trace-1",
+            )
+        )
+    finally:
+        os.chdir(prev_cwd)
+
+    assert result["code"] == ErrorCode.SUCCESS
+    assert (runtime_workspace / "nested" / "output.txt").read_text(encoding="utf-8") == (
+        "from workspace\n"
+    )
+    assert not (process_cwd / "nested" / "output.txt").exists()
+
+
+def test_code_read_error_prefix_is_returned_as_agentflow_error_response(tmp_path):
+    module = load_code_backend_module()
+    create_fake_claude_code_root(tmp_path)
+    backend = module.CodeBackend(config=build_backend_config(tmp_path))
+    fake_server = FakeServer()
+    backend.bind_server(fake_server)
+
+    runtime_workspace = tmp_path / "runtime-workspace"
+    runtime_workspace.mkdir(parents=True)
+    executor = ToolExecutor(
+        tools=fake_server._tools,
+        tool_name_index={},
+        tool_resource_types=fake_server._tool_resource_types,
+        resource_router=FakeResourceRouter(
+            {
+                "session_id": "code-session-4",
+                "data": {"workspace": str(runtime_workspace)},
+            }
+        ),
+    )
+
+    result = asyncio.run(
+        executor.execute(
+            action="code:read",
+            params={"file_path": "missing.txt"},
+            worker_id="worker-1",
+            trace_id="trace-1",
+        )
+    )
+
+    assert result["code"] != ErrorCode.SUCCESS
+    assert result["message"].startswith("Error:")
+
+
+def test_initialize_recreates_worker_workspace_without_stale_files(tmp_path):
+    module = load_code_backend_module()
+    create_fake_claude_code_root(tmp_path)
+    backend = module.CodeBackend(config=build_backend_config(tmp_path))
+    first_source = tmp_path / "source-first"
+    second_source = tmp_path / "source-second"
+    first_source.mkdir(parents=True)
+    second_source.mkdir(parents=True)
+    (first_source / "stale.py").write_text("print('old')\n", encoding="utf-8")
+    (second_source / "fresh.py").write_text("print('new')\n", encoding="utf-8")
+
+    first_session = asyncio.run(
+        backend.initialize("runner_123", {"source_dir": str(first_source)})
+    )
+    second_session = asyncio.run(
+        backend.initialize("runner_123", {"source_dir": str(second_source)})
+    )
+
+    assert first_session["workspace"] == second_session["workspace"]
+    workspace = Path(second_session["workspace"])
+    assert not (workspace / "stale.py").exists()
+    assert (workspace / "fresh.py").exists()

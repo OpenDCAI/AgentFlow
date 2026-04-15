@@ -75,6 +75,8 @@ class CodeBackend(Backend):
 
     def _prepare_workspace(self, worker_id: str) -> Path:
         workspace = self._get_workspace_root() / worker_id
+        if workspace.exists():
+            shutil.rmtree(workspace)
         workspace.mkdir(parents=True, exist_ok=True)
         return workspace
 
@@ -181,12 +183,27 @@ class CodeBackend(Backend):
             or str(self._get_workspace_root())
         )
         ctx = SimpleNamespace(cwd=workspace)
+        normalized_params = self._normalize_tool_params(
+            tool_name=tool_name,
+            params=params,
+            workspace=Path(workspace),
+        )
         try:
-            result = await tool.call(params, ctx)
+            result = await tool.call(normalized_params, ctx)
         except Exception as exc:
             return build_error_response(
                 code=ErrorCode.EXECUTION_ERROR,
                 message=str(exc),
+                tool=full_name,
+                execution_time_ms=(time.time() - start_time) * 1000,
+                resource_type=self.name,
+                session_id=session_id,
+            )
+
+        if isinstance(result, str) and result.startswith("Error:"):
+            return build_error_response(
+                code=ErrorCode.BUSINESS_FAILURE,
+                message=result,
                 tool=full_name,
                 execution_time_ms=(time.time() - start_time) * 1000,
                 resource_type=self.name,
@@ -200,3 +217,28 @@ class CodeBackend(Backend):
             resource_type=self.name,
             session_id=session_id,
         )
+
+    def _normalize_tool_params(
+        self,
+        tool_name: str,
+        params: dict[str, Any],
+        workspace: Path,
+    ) -> dict[str, Any]:
+        normalized = dict(params)
+
+        path_keys: tuple[str, ...] = ()
+        if tool_name in {"read", "edit", "write"}:
+            path_keys = ("file_path",)
+        elif tool_name in {"glob", "grep"}:
+            path_keys = ("path",)
+
+        for key in path_keys:
+            raw_value = normalized.get(key)
+            if not isinstance(raw_value, str) or not raw_value:
+                continue
+            value_path = Path(raw_value)
+            if value_path.is_absolute():
+                continue
+            normalized[key] = str(workspace / value_path)
+
+        return normalized
