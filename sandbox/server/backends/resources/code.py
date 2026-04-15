@@ -50,20 +50,41 @@ class CodeBackend(Backend):
             )
 
     async def initialize(self, worker_id: str, config: dict) -> dict:
-        workspace = self._prepare_workspace(worker_id)
         source_dir = self._resolve_source_dir(config)
+        workspace = self._prepare_workspace(worker_id)
 
-        if source_dir:
-            self._copy_source_dir(source_dir, workspace)
+        try:
+            if source_dir:
+                self._copy_source_dir(source_dir, workspace)
 
-        self._load_claude_code_tools()
+            self._load_claude_code_tools()
+        except Exception:
+            if workspace.exists():
+                shutil.rmtree(workspace)
+            raise
+
         return {
             "workspace": str(workspace),
             "source_dir": str(source_dir) if source_dir else "",
         }
 
     async def cleanup(self, worker_id: str, session_info: dict) -> None:
-        del worker_id, session_info
+        del worker_id
+        workspace_value = ((session_info or {}).get("data") or {}).get("workspace")
+        if not isinstance(workspace_value, str) or not workspace_value.strip():
+            return None
+
+        try:
+            workspace = Path(workspace_value).resolve()
+            workspace_root = self._get_workspace_root().resolve()
+            workspace.relative_to(workspace_root)
+        except (OSError, RuntimeError, ValueError):
+            return None
+
+        if workspace == workspace_root:
+            return None
+        if workspace.exists() and workspace.is_dir():
+            shutil.rmtree(workspace)
         return None
 
     def _get_claude_code_root(self) -> Path | None:

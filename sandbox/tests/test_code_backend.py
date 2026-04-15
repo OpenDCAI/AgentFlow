@@ -524,3 +524,63 @@ def test_initialize_rejects_nonexistent_source_dir(tmp_path):
 
     with pytest.raises(ValueError, match="source_dir"):
         asyncio.run(backend.initialize("runner_123", {"source_dir": str(missing_source)}))
+
+
+def test_initialize_invalid_source_dir_leaves_no_workspace(tmp_path):
+    module = load_code_backend_module()
+    create_fake_claude_code_root(tmp_path)
+    backend = module.CodeBackend(config=build_backend_config(tmp_path))
+    missing_source = tmp_path / "missing-source"
+    workspace = tmp_path / "agentflow_code" / "runner_123"
+
+    with pytest.raises(ValueError, match="source_dir"):
+        asyncio.run(backend.initialize("runner_123", {"source_dir": str(missing_source)}))
+
+    assert not workspace.exists()
+
+
+def test_initialize_unconfigured_claude_root_leaves_no_workspace(tmp_path):
+    module = load_code_backend_module()
+    config = BackendConfig(
+        enabled=True,
+        default_config={
+            "claude_code_root": "",
+            "workspace_root": str(tmp_path / "agentflow_code"),
+            "allow_bash": True,
+        },
+        description="Code backend",
+    )
+    backend = module.CodeBackend(config=config)
+    workspace = tmp_path / "agentflow_code" / "runner_123"
+
+    with pytest.raises(ValueError, match="claude_code_root"):
+        asyncio.run(backend.initialize("runner_123", {}))
+
+    assert not workspace.exists()
+
+
+def test_cleanup_removes_worker_workspace(tmp_path):
+    module = load_code_backend_module()
+    create_fake_claude_code_root(tmp_path)
+    backend = module.CodeBackend(config=build_backend_config(tmp_path))
+    session = asyncio.run(backend.initialize("runner_123", {}))
+    workspace = Path(session["workspace"])
+
+    assert workspace.exists()
+    asyncio.run(backend.cleanup("runner_123", {"data": {"workspace": str(workspace)}}))
+
+    assert not workspace.exists()
+
+
+def test_cleanup_does_not_delete_workspace_outside_root(tmp_path):
+    module = load_code_backend_module()
+    create_fake_claude_code_root(tmp_path)
+    backend = module.CodeBackend(config=build_backend_config(tmp_path))
+    outside_workspace = tmp_path / "outside-workspace"
+    outside_workspace.mkdir(parents=True)
+
+    asyncio.run(
+        backend.cleanup("runner_123", {"data": {"workspace": str(outside_workspace)}})
+    )
+
+    assert outside_workspace.exists()
