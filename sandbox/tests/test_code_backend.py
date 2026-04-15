@@ -4,9 +4,9 @@ Tests for the Code backend skeleton and bridge-tool registration.
 
 import asyncio
 import importlib.util
+import itertools
 import os
 import sys
-import types
 from pathlib import Path
 
 import pytest
@@ -25,22 +25,20 @@ MODULE_PATH = (
 
 
 def load_code_backend_module():
-    package_name = "sandbox.server.backends.resources"
-    if package_name not in sys.modules:
-        package = types.ModuleType(package_name)
-        package.__path__ = [str(MODULE_PATH.parent)]
-        sys.modules[package_name] = package
-
+    unique_id = next(_MODULE_LOAD_COUNTER)
+    module_name = f"_test_code_backend_{unique_id}"
     spec = importlib.util.spec_from_file_location(
-        f"{package_name}.code",
+        module_name,
         MODULE_PATH,
     )
     module = importlib.util.module_from_spec(spec)
     assert spec is not None
     assert spec.loader is not None
-    sys.modules[spec.name] = module
     spec.loader.exec_module(module)
     return module
+
+
+_MODULE_LOAD_COUNTER = itertools.count()
 
 
 class FakeServer:
@@ -133,6 +131,51 @@ def create_fake_claude_code_root(tmp_path):
     return root
 
 
+def create_marker_claude_code_root(tmp_path, root_name: str, marker: str):
+    root = tmp_path / root_name
+    tools_dir = root / "tools"
+    tools_dir.mkdir(parents=True, exist_ok=True)
+
+    (root / "tool.py").write_text(
+        f"class Tool:\n"
+        f"    ROOT_MARKER = {marker!r}\n"
+        "    async def call(self, params, ctx):\n"
+        "        return self.ROOT_MARKER\n",
+        encoding="utf-8",
+    )
+
+    (tools_dir / "file_tools.py").write_text(
+        "from tool import Tool\n"
+        "\n"
+        "class ReadTool(Tool):\n"
+        "    def __init__(self):\n"
+        "        self.loaded_marker = self.ROOT_MARKER\n"
+        "\n"
+        "class GlobTool(Tool):\n"
+        "    pass\n"
+        "\n"
+        "class GrepTool(Tool):\n"
+        "    pass\n"
+        "\n"
+        "class BashTool(Tool):\n"
+        "    pass\n",
+        encoding="utf-8",
+    )
+
+    (tools_dir / "edit_tools.py").write_text(
+        "from tool import Tool\n"
+        "\n"
+        "class EditTool(Tool):\n"
+        "    pass\n"
+        "\n"
+        "class WriteTool(Tool):\n"
+        "    pass\n",
+        encoding="utf-8",
+    )
+
+    return root
+
+
 class FakeResourceRouter:
     def __init__(self, session_info):
         self._session_info = session_info
@@ -203,6 +246,39 @@ def test_load_claude_code_tools_uses_direct_file_loading(tmp_path):
     tools = backend._load_claude_code_tools()
 
     assert set(tools.keys()) == {"read", "glob", "grep", "bash", "edit", "write"}
+
+
+def test_load_code_backend_module_does_not_install_resources_package_in_sys_modules():
+    package_name = "sandbox.server.backends.resources"
+    previous = sys.modules.pop(package_name, None)
+
+    try:
+        module = load_code_backend_module()
+        assert hasattr(module, "CodeBackend")
+        assert package_name not in sys.modules
+    finally:
+        if previous is not None:
+            sys.modules[package_name] = previous
+
+
+def test_load_claude_code_tools_is_isolated_per_backend_root(tmp_path):
+    module = load_code_backend_module()
+    root_a = create_marker_claude_code_root(tmp_path, "claude-code-a", "root-a")
+    root_b = create_marker_claude_code_root(tmp_path, "claude-code-b", "root-b")
+
+    config_a = build_backend_config(tmp_path)
+    config_a.default_config["claude_code_root"] = str(root_a)
+    backend_a = module.CodeBackend(config=config_a)
+
+    config_b = build_backend_config(tmp_path)
+    config_b.default_config["claude_code_root"] = str(root_b)
+    backend_b = module.CodeBackend(config=config_b)
+
+    tools_a = backend_a._load_claude_code_tools()
+    tools_b = backend_b._load_claude_code_tools()
+
+    assert tools_a["read"].loaded_marker == "root-a"
+    assert tools_b["read"].loaded_marker == "root-b"
 
 
 def test_tool_executor_code_dispatch_returns_standard_success_response(tmp_path):

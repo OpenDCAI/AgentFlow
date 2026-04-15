@@ -39,6 +39,7 @@ class CodeBackend(Backend):
             )
         super().__init__(config)
         self._tool_instances: dict[str, Any] | None = None
+        self._module_namespace = f"_agentflow_code_backend_{id(self)}"
 
     def bind_server(self, server) -> None:
         super().bind_server(server)
@@ -147,33 +148,36 @@ class CodeBackend(Backend):
         root_path = self._get_claude_code_root()
         if root_path is None:
             raise ValueError("claude_code_root is not configured")
-        root = str(root_path)
-        inserted = False
-        if root and root not in sys.path:
-            sys.path.insert(0, root)
-            inserted = True
-
+        tool_module = self._load_module_from_path(
+            f"{self._module_namespace}.tool",
+            root_path / "tool.py",
+        )
+        previous_tool_module = sys.modules.get("tool")
+        sys.modules["tool"] = tool_module
         try:
             file_tools = self._load_module_from_path(
-                "_agentflow_code_file_tools",
+                f"{self._module_namespace}.file_tools",
                 root_path / "tools" / "file_tools.py",
             )
             edit_tools = self._load_module_from_path(
-                "_agentflow_code_edit_tools",
+                f"{self._module_namespace}.edit_tools",
                 root_path / "tools" / "edit_tools.py",
             )
-            self._tool_instances = {
-                "read": file_tools.ReadTool(),
-                "glob": file_tools.GlobTool(),
-                "grep": file_tools.GrepTool(),
-                "bash": file_tools.BashTool(),
-                "edit": edit_tools.EditTool(),
-                "write": edit_tools.WriteTool(),
-            }
-            return self._tool_instances
         finally:
-            if inserted and root in sys.path:
-                sys.path.remove(root)
+            if previous_tool_module is None:
+                sys.modules.pop("tool", None)
+            else:
+                sys.modules["tool"] = previous_tool_module
+
+        self._tool_instances = {
+            "read": file_tools.ReadTool(),
+            "glob": file_tools.GlobTool(),
+            "grep": file_tools.GrepTool(),
+            "bash": file_tools.BashTool(),
+            "edit": edit_tools.EditTool(),
+            "write": edit_tools.WriteTool(),
+        }
+        return self._tool_instances
 
     def _load_module_from_path(self, module_name: str, path: Path):
         spec = importlib.util.spec_from_file_location(module_name, str(path))
