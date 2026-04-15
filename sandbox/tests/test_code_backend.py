@@ -92,15 +92,15 @@ def create_fake_claude_code_root(tmp_path):
         "        file_path = Path(params['file_path'])\n"
         "        if not file_path.exists():\n"
         "            return f'Error: File not found: {file_path}'\n"
-        "        return {'content': [{'type': 'text', 'text': file_path.read_text(encoding=\"utf-8\")}], 'params': params}\n"
+        "        return file_path.read_text(encoding='utf-8')\n"
         "\n"
         "class GlobTool(Tool):\n"
         "    async def call(self, params, ctx):\n"
-        "        return {'glob': True, 'path': str(Path(params.get('path', '.'))), 'cwd': ctx.cwd, 'params': params}\n"
+        "        return f\"Matched 1 path in {Path(params.get('path', '.'))}\"\n"
         "\n"
         "class GrepTool(Tool):\n"
         "    async def call(self, params, ctx):\n"
-        "        return {'grep': True, 'path': str(Path(params.get('path', '.'))), 'cwd': ctx.cwd, 'params': params}\n"
+        "        return f\"Found 0 matches in {Path(params.get('path', '.'))}\"\n"
         "\n"
         "class BashTool(Tool):\n"
         "    async def call(self, params, ctx):\n"
@@ -120,14 +120,14 @@ def create_fake_claude_code_root(tmp_path):
         "        text = file_path.read_text(encoding='utf-8')\n"
         "        text = text.replace(params.get('old_string', ''), params.get('new_string', ''))\n"
         "        file_path.write_text(text, encoding='utf-8')\n"
-        "        return {'edit': True, 'cwd': ctx.cwd, 'params': params}\n"
+        "        return f\"Updated {file_path}\"\n"
         "\n"
         "class WriteTool(Tool):\n"
         "    async def call(self, params, ctx):\n"
         "        file_path = Path(params['file_path'])\n"
         "        file_path.parent.mkdir(parents=True, exist_ok=True)\n"
         "        file_path.write_text(params.get('content', ''), encoding='utf-8')\n"
-        "        return {'write': True, 'cwd': ctx.cwd, 'params': params}\n",
+        "        return f\"Wrote {file_path}\"\n",
         encoding="utf-8",
     )
     return root
@@ -211,7 +211,7 @@ def test_tool_executor_code_dispatch_returns_standard_success_response(tmp_path)
     backend = module.CodeBackend(config=build_backend_config(tmp_path))
     fake_server = FakeServer()
     backend.bind_server(fake_server)
-    runtime_workspace = tmp_path / "runtime-workspace"
+    runtime_workspace = tmp_path / "agentflow_code" / "runtime-workspace"
     runtime_workspace.mkdir(parents=True)
     demo_file = runtime_workspace / "demo.py"
     demo_file.write_text("hello from demo\n", encoding="utf-8")
@@ -238,7 +238,7 @@ def test_tool_executor_code_dispatch_returns_standard_success_response(tmp_path)
     )
 
     assert result["code"] == ErrorCode.SUCCESS
-    assert result["data"]["content"][0]["text"] == "hello from demo\n"
+    assert result["data"] == "hello from demo\n"
 
 
 def test_tool_executor_code_dispatch_preserves_trace_id(tmp_path):
@@ -247,7 +247,7 @@ def test_tool_executor_code_dispatch_preserves_trace_id(tmp_path):
     backend = module.CodeBackend(config=build_backend_config(tmp_path))
     fake_server = FakeServer()
     backend.bind_server(fake_server)
-    runtime_workspace = tmp_path / "runtime-workspace"
+    runtime_workspace = tmp_path / "agentflow_code" / "runtime-workspace"
     runtime_workspace.mkdir(parents=True)
     demo_file = runtime_workspace / "demo.py"
     demo_file.write_text("hello from demo\n", encoding="utf-8")
@@ -293,7 +293,9 @@ def test_tool_executor_blocks_bash_when_allow_bash_false(tmp_path):
         resource_router=FakeResourceRouter(
             {
                 "session_id": "code-session-2",
-                "data": {"workspace": str(tmp_path / "runtime-workspace")},
+                "data": {
+                    "workspace": str(tmp_path / "agentflow_code" / "runtime-workspace")
+                },
             }
         ),
     )
@@ -318,7 +320,7 @@ def test_code_write_relative_file_path_resolves_inside_session_workspace(tmp_pat
     fake_server = FakeServer()
     backend.bind_server(fake_server)
 
-    runtime_workspace = tmp_path / "runtime-workspace"
+    runtime_workspace = tmp_path / "agentflow_code" / "runtime-workspace"
     runtime_workspace.mkdir(parents=True)
     process_cwd = tmp_path / "process-cwd"
     process_cwd.mkdir(parents=True)
@@ -362,7 +364,7 @@ def test_code_read_error_prefix_is_returned_as_agentflow_error_response(tmp_path
     fake_server = FakeServer()
     backend.bind_server(fake_server)
 
-    runtime_workspace = tmp_path / "runtime-workspace"
+    runtime_workspace = tmp_path / "agentflow_code" / "runtime-workspace"
     runtime_workspace.mkdir(parents=True)
     executor = ToolExecutor(
         tools=fake_server._tools,
@@ -387,6 +389,80 @@ def test_code_read_error_prefix_is_returned_as_agentflow_error_response(tmp_path
 
     assert result["code"] != ErrorCode.SUCCESS
     assert result["message"].startswith("Error:")
+
+
+def test_tool_executor_rejects_missing_session_workspace_without_fallback(tmp_path):
+    module = load_code_backend_module()
+    create_fake_claude_code_root(tmp_path)
+    backend = module.CodeBackend(config=build_backend_config(tmp_path))
+    fake_server = FakeServer()
+    backend.bind_server(fake_server)
+
+    workspace_root = tmp_path / "agentflow_code"
+    workspace_root.mkdir(parents=True, exist_ok=True)
+    fallback_file = workspace_root / "fallback.txt"
+    fallback_file.write_text("must-not-read\n", encoding="utf-8")
+
+    executor = ToolExecutor(
+        tools=fake_server._tools,
+        tool_name_index={},
+        tool_resource_types=fake_server._tool_resource_types,
+        resource_router=FakeResourceRouter(
+            {
+                "session_id": "code-session-missing-workspace",
+                "data": {},
+            }
+        ),
+    )
+
+    result = asyncio.run(
+        executor.execute(
+            action="code:read",
+            params={"file_path": "fallback.txt"},
+            worker_id="worker-1",
+            trace_id="trace-missing-workspace",
+        )
+    )
+
+    assert result["code"] == ErrorCode.BUSINESS_FAILURE
+    assert "session workspace" in result["message"].lower()
+
+
+def test_tool_executor_rejects_session_workspace_outside_workspace_root(tmp_path):
+    module = load_code_backend_module()
+    create_fake_claude_code_root(tmp_path)
+    backend = module.CodeBackend(config=build_backend_config(tmp_path))
+    fake_server = FakeServer()
+    backend.bind_server(fake_server)
+
+    outside_workspace = tmp_path / "outside-workspace"
+    outside_workspace.mkdir(parents=True)
+    demo_file = outside_workspace / "demo.py"
+    demo_file.write_text("outside\n", encoding="utf-8")
+
+    executor = ToolExecutor(
+        tools=fake_server._tools,
+        tool_name_index={},
+        tool_resource_types=fake_server._tool_resource_types,
+        resource_router=FakeResourceRouter(
+            {
+                "session_id": "code-session-outside-workspace",
+                "data": {"workspace": str(outside_workspace)},
+            }
+        ),
+    )
+
+    result = asyncio.run(
+        executor.execute(
+            action="code:read",
+            params={"file_path": str(demo_file)},
+            worker_id="worker-1",
+            trace_id="trace-outside-workspace",
+        )
+    )
+
+    assert result["code"] == ErrorCode.BUSINESS_FAILURE
+    assert "session workspace" in result["message"].lower()
 
 
 def test_initialize_recreates_worker_workspace_without_stale_files(tmp_path):
@@ -420,7 +496,7 @@ def test_code_read_rejects_absolute_path_outside_workspace(tmp_path):
     fake_server = FakeServer()
     backend.bind_server(fake_server)
 
-    runtime_workspace = tmp_path / "runtime-workspace"
+    runtime_workspace = tmp_path / "agentflow_code" / "runtime-workspace"
     runtime_workspace.mkdir(parents=True)
     outside_file = tmp_path / "outside.txt"
     outside_file.write_text("secret\n", encoding="utf-8")
@@ -455,7 +531,7 @@ def test_code_write_rejects_parent_escape_outside_workspace(tmp_path):
     fake_server = FakeServer()
     backend.bind_server(fake_server)
 
-    runtime_workspace = tmp_path / "runtime-workspace"
+    runtime_workspace = tmp_path / "agentflow_code" / "runtime-workspace"
     runtime_workspace.mkdir(parents=True)
     escaped_file = tmp_path / "escaped.txt"
     executor = ToolExecutor(

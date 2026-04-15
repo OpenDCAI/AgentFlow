@@ -227,16 +227,39 @@ class CodeBackend(Backend):
                 trace_id=trace_id,
             )
 
-        workspace = (
-            ((session_info or {}).get("data") or {}).get("workspace")
-            or str(self._get_workspace_root())
-        )
-        ctx = SimpleNamespace(cwd=workspace)
+        workspace_value = ((session_info or {}).get("data") or {}).get("workspace")
+        if not isinstance(workspace_value, str) or not workspace_value.strip():
+            return build_error_response(
+                code=ErrorCode.BUSINESS_FAILURE,
+                message="Invalid session workspace: missing or empty data.workspace",
+                tool=full_name,
+                execution_time_ms=(time.time() - start_time) * 1000,
+                resource_type=self.name,
+                session_id=session_id,
+                trace_id=trace_id,
+            )
+
+        try:
+            workspace = Path(workspace_value).resolve(strict=False)
+            workspace_root = self._get_workspace_root().resolve()
+            workspace.relative_to(workspace_root)
+        except (OSError, RuntimeError, ValueError):
+            return build_error_response(
+                code=ErrorCode.BUSINESS_FAILURE,
+                message="Invalid session workspace: must resolve inside workspace_root",
+                tool=full_name,
+                execution_time_ms=(time.time() - start_time) * 1000,
+                resource_type=self.name,
+                session_id=session_id,
+                trace_id=trace_id,
+            )
+
+        ctx = SimpleNamespace(cwd=str(workspace))
         try:
             normalized_params = self._normalize_tool_params(
                 tool_name=tool_name,
                 params=runtime_params,
-                workspace=Path(workspace),
+                workspace=workspace,
             )
         except ValueError as exc:
             return build_error_response(
