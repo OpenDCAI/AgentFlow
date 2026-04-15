@@ -378,22 +378,23 @@ class CodeBackend(Backend):
                 bash_timeout_seconds = float(
                     self.get_default_config().get("bash_timeout_seconds", 30)
                 )
-                result = await asyncio.wait_for(
-                    tool.call(normalized_params, ctx),
-                    timeout=bash_timeout_seconds,
-                )
+                try:
+                    result = await asyncio.wait_for(
+                        tool.call(normalized_params, ctx),
+                        timeout=bash_timeout_seconds,
+                    )
+                except asyncio.TimeoutError:
+                    return build_error_response(
+                        code=ErrorCode.TIMEOUT_ERROR,
+                        message="code:bash execution timeout",
+                        tool=full_name,
+                        execution_time_ms=(time.time() - start_time) * 1000,
+                        resource_type=self.name,
+                        session_id=session_id,
+                        trace_id=trace_id,
+                    )
             else:
                 result = await tool.call(normalized_params, ctx)
-        except asyncio.TimeoutError:
-            return build_error_response(
-                code=ErrorCode.TIMEOUT_ERROR,
-                message="code:bash execution timeout",
-                tool=full_name,
-                execution_time_ms=(time.time() - start_time) * 1000,
-                resource_type=self.name,
-                session_id=session_id,
-                trace_id=trace_id,
-            )
         except Exception as exc:
             return build_error_response(
                 code=ErrorCode.EXECUTION_ERROR,

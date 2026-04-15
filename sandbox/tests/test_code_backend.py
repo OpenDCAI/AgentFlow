@@ -503,6 +503,50 @@ def test_tool_executor_returns_timeout_error_when_bash_exceeds_limit(tmp_path):
     assert "timeout" in result["message"].lower()
 
 
+def test_tool_executor_non_bash_timeout_uses_standard_error_handling(tmp_path):
+    module = load_code_backend_module()
+    create_fake_claude_code_root(tmp_path)
+    backend = module.CodeBackend(config=build_backend_config(tmp_path))
+    fake_server = FakeServer()
+    backend.bind_server(fake_server)
+
+    class TimeoutReadTool:
+        async def call(self, params, ctx):
+            del params, ctx
+            raise asyncio.TimeoutError("read timeout")
+
+    backend._load_claude_code_tools = lambda: {"read": TimeoutReadTool()}
+
+    runtime_workspace = tmp_path / "agentflow_code" / "worker-1"
+    runtime_workspace.mkdir(parents=True)
+    demo_file = runtime_workspace / "demo.py"
+    demo_file.write_text("hello from demo\n", encoding="utf-8")
+
+    executor = ToolExecutor(
+        tools=fake_server._tools,
+        tool_name_index={},
+        tool_resource_types=fake_server._tool_resource_types,
+        resource_router=FakeResourceRouter(
+            {
+                "session_id": "code-session-read-timeout",
+                "data": {"workspace": str(runtime_workspace)},
+            }
+        ),
+    )
+
+    result = asyncio.run(
+        executor.execute(
+            action="code:read",
+            params={"file_path": str(demo_file)},
+            worker_id="worker-1",
+            trace_id="trace-read-timeout",
+        )
+    )
+
+    assert result["code"] == ErrorCode.EXECUTION_ERROR
+    assert result["message"] == "read timeout"
+
+
 def test_code_write_relative_file_path_resolves_inside_session_workspace(tmp_path):
     module = load_code_backend_module()
     create_fake_claude_code_root(tmp_path)
