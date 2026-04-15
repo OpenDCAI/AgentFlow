@@ -120,7 +120,7 @@ def get_code_tool_schemas() -> List[Dict[str, Any]]:
         },
         {
             "name": "code-write",
-            "description": "Write full file content to a path in the coding workspace.",
+            "description": "Write full file content to a file in the coding workspace and create parent directories if needed.",
             "parameters": [
                 {
                     "name": "file_path",

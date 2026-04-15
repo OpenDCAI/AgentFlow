@@ -45,19 +45,43 @@ def test_get_tools_by_resource_code():
 
 
 def test_code_tool_parameter_contract():
-    """Each code tool should expose the exact expected parameter names."""
+    """Each code tool should expose the exact expected parameter contracts."""
     expected_params = {
-        "code-read": {"file_path", "offset", "limit"},
-        "code-glob": {"pattern", "path"},
-        "code-grep": {"pattern", "path", "glob"},
-        "code-bash": {"command"},
-        "code-edit": {"file_path", "old_string", "new_string", "replace_all"},
-        "code-write": {"file_path", "content"},
+        "code-read": {
+            ("file_path", "string", True),
+            ("offset", "integer", False),
+            ("limit", "integer", False),
+        },
+        "code-glob": {
+            ("pattern", "string", True),
+            ("path", "string", False),
+        },
+        "code-grep": {
+            ("pattern", "string", True),
+            ("path", "string", False),
+            ("glob", "string", False),
+        },
+        "code-bash": {
+            ("command", "string", True),
+        },
+        "code-edit": {
+            ("file_path", "string", True),
+            ("old_string", "string", True),
+            ("new_string", "string", True),
+            ("replace_all", "boolean", False),
+        },
+        "code-write": {
+            ("file_path", "string", True),
+            ("content", "string", True),
+        },
     }
     schemas = _code_schemas_by_name()
 
     for tool_name, expected in expected_params.items():
-        actual = {param["name"] for param in schemas[tool_name]["parameters"]}
+        actual = {
+            (param["name"], param["type"], param["required"])
+            for param in schemas[tool_name]["parameters"]
+        }
         assert actual == expected
 
 
@@ -81,3 +105,15 @@ def test_code_bash_description_mentions_backend_config_availability():
     assert "backend" in description
     assert "config" in description
     assert "depend" in description
+
+
+def test_code_write_description_mentions_workspace_full_content_and_parent_dirs():
+    """code-write docs should mention writing full content and creating parent directories."""
+    schema = _code_schemas_by_name()["code-write"]
+    description = schema["description"].lower()
+
+    assert "workspace" in description
+    assert "full file content" in description
+    assert "parent" in description
+    assert "director" in description
+    assert "create" in description
