@@ -14,6 +14,7 @@ from .doc_tools import get_doc_tool_schemas
 from .ds_tools import get_ds_tool_schemas
 from .sql_tools import get_sql_tool_schemas
 from .mcp_tools import get_mcp_tool_schemas
+from .code_tools import get_code_tool_schemas
 
 
 def _tool_name_aliases(name: str) -> set[str]:
@@ -58,6 +59,7 @@ def get_tool_schemas(allowed_tools: Optional[List[str]] = None) -> List[Dict[str
         + get_ds_tool_schemas()
         + get_sql_tool_schemas()
         + get_mcp_tool_schemas()
+        + get_code_tool_schemas()
     )
 
     if not allowed_tools:
@@ -132,4 +134,5 @@ __all__ = [
     "get_ds_tool_schemas",
     "get_sql_tool_schemas",
     "get_mcp_tool_schemas",
+    "get_code_tool_schemas",
 ]
