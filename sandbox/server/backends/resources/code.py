@@ -4,6 +4,7 @@ Code backend skeleton for lightweight coding workspace integration.
 
 from __future__ import annotations
 
+import asyncio
 from contextlib import contextmanager
 import importlib.util
 import re
@@ -36,6 +37,7 @@ class CodeBackend(Backend):
                     "claude_code_root": "",
                     "workspace_root": "/tmp/agentflow_code",
                     "allow_bash": False,
+                    "bash_timeout_seconds": 30,
                 },
                 description="Code backend",
             )
@@ -372,7 +374,26 @@ class CodeBackend(Backend):
                 trace_id=trace_id,
             )
         try:
-            result = await tool.call(normalized_params, ctx)
+            if tool_name == "bash":
+                bash_timeout_seconds = float(
+                    self.get_default_config().get("bash_timeout_seconds", 30)
+                )
+                result = await asyncio.wait_for(
+                    tool.call(normalized_params, ctx),
+                    timeout=bash_timeout_seconds,
+                )
+            else:
+                result = await tool.call(normalized_params, ctx)
+        except asyncio.TimeoutError:
+            return build_error_response(
+                code=ErrorCode.TIMEOUT_ERROR,
+                message="code:bash execution timeout",
+                tool=full_name,
+                execution_time_ms=(time.time() - start_time) * 1000,
+                resource_type=self.name,
+                session_id=session_id,
+                trace_id=trace_id,
+            )
         except Exception as exc:
             return build_error_response(
                 code=ErrorCode.EXECUTION_ERROR,

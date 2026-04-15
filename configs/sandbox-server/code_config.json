@@ -1,0 +1,26 @@
+{
+  "server": {
+    "url": "http://127.0.0.1:18890",
+    "port": 18890,
+    "session_ttl": 600
+  },
+  "resources": {
+    "code": {
+      "enabled": true,
+      "description": "Code backend",
+      "backend_class": "sandbox.server.backends.resources.code.CodeBackend",
+      "config": {
+        "claude_code_root": "/home/a1/sdb/dxd/claude-code-py",
+        "workspace_root": "/tmp/agentflow_code",
+        "allow_bash": true,
+        "bash_timeout_seconds": 30
+      }
+    }
+  },
+  "warmup": {
+    "enabled": true,
+    "resources": [
+      "code"
+    ]
+  }
+}

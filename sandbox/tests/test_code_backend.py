@@ -13,6 +13,7 @@ import pytest
 
 from sandbox.server.backends.base import BackendConfig
 from sandbox.server.backends.error_codes import ErrorCode
+from sandbox.server.config_loader import ConfigLoader
 from sandbox.server.core.tool_executor import ToolExecutor
 
 MODULE_PATH = (
@@ -59,6 +60,7 @@ def build_backend_config(tmp_path):
             "claude_code_root": str(tmp_path / "claude-code-py"),
             "workspace_root": str(tmp_path / "agentflow_code"),
             "allow_bash": True,
+            "bash_timeout_seconds": 30,
         },
         description="Code backend",
     )
@@ -99,6 +101,7 @@ def create_fake_claude_code_root(tmp_path):
 
     (tools_dir / "file_tools.py").write_text(
         "from tool import Tool\n"
+        "import asyncio\n"
         "from pathlib import Path\n"
         "import glob\n"
         "\n"
@@ -126,7 +129,13 @@ def create_fake_claude_code_root(tmp_path):
         "\n"
         "class BashTool(Tool):\n"
         "    async def call(self, params, ctx):\n"
-        "        raise RuntimeError('bash tool should not be invoked')\n",
+        "        command = params.get('command', '')\n"
+        "        if command == 'pwd':\n"
+        "            return ctx.cwd\n"
+        "        if command.startswith('sleep '):\n"
+        "            await asyncio.sleep(float(command.split(' ', 1)[1]))\n"
+        "            return 'slept'\n"
+        "        return f\"ran: {command}\"\n",
         encoding="utf-8",
     )
 
@@ -422,6 +431,76 @@ def test_tool_executor_blocks_bash_when_allow_bash_false(tmp_path):
 
     assert result["code"] == ErrorCode.BUSINESS_FAILURE
     assert "disabled" in result["message"].lower()
+
+
+def test_tool_executor_runs_bash_in_session_workspace_when_enabled(tmp_path):
+    module = load_code_backend_module()
+    create_fake_claude_code_root(tmp_path)
+    backend = module.CodeBackend(config=build_backend_config(tmp_path))
+    fake_server = FakeServer()
+    backend.bind_server(fake_server)
+
+    runtime_workspace = tmp_path / "agentflow_code" / "worker-1"
+    runtime_workspace.mkdir(parents=True)
+    executor = ToolExecutor(
+        tools=fake_server._tools,
+        tool_name_index={},
+        tool_resource_types=fake_server._tool_resource_types,
+        resource_router=FakeResourceRouter(
+            {
+                "session_id": "code-session-bash-enabled",
+                "data": {"workspace": str(runtime_workspace)},
+            }
+        ),
+    )
+
+    result = asyncio.run(
+        executor.execute(
+            action="code:bash",
+            params={"command": "pwd"},
+            worker_id="worker-1",
+            trace_id="trace-bash-enabled",
+        )
+    )
+
+    assert result["code"] == ErrorCode.SUCCESS
+    assert result["data"] == str(runtime_workspace.resolve(strict=False))
+
+
+def test_tool_executor_returns_timeout_error_when_bash_exceeds_limit(tmp_path):
+    module = load_code_backend_module()
+    create_fake_claude_code_root(tmp_path)
+    config = build_backend_config(tmp_path)
+    config.default_config["bash_timeout_seconds"] = 0.01
+    backend = module.CodeBackend(config=config)
+    fake_server = FakeServer()
+    backend.bind_server(fake_server)
+
+    runtime_workspace = tmp_path / "agentflow_code" / "worker-1"
+    runtime_workspace.mkdir(parents=True)
+    executor = ToolExecutor(
+        tools=fake_server._tools,
+        tool_name_index={},
+        tool_resource_types=fake_server._tool_resource_types,
+        resource_router=FakeResourceRouter(
+            {
+                "session_id": "code-session-bash-timeout",
+                "data": {"workspace": str(runtime_workspace)},
+            }
+        ),
+    )
+
+    result = asyncio.run(
+        executor.execute(
+            action="code:bash",
+            params={"command": "sleep 0.2"},
+            worker_id="worker-1",
+            trace_id="trace-bash-timeout",
+        )
+    )
+
+    assert result["code"] == ErrorCode.TIMEOUT_ERROR
+    assert "timeout" in result["message"].lower()
 
 
 def test_code_write_relative_file_path_resolves_inside_session_workspace(tmp_path):
@@ -1021,3 +1100,21 @@ def test_cleanup_does_not_delete_nested_under_root_non_worker_path(tmp_path):
     )
 
     assert nested_workspace.exists()
+
+
+def test_code_config_template_parses():
+    loader = ConfigLoader()
+    config_path = (
+        Path(__file__).resolve().parents[2]
+        / "configs"
+        / "sandbox-server"
+        / "code_config.json"
+    )
+
+    config = loader.load(str(config_path))
+
+    assert "code" in config.resources
+    assert (
+        config.resources["code"].backend_class
+        == "sandbox.server.backends.resources.code.CodeBackend"
+    )
