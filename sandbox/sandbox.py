@@ -36,6 +36,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 import uuid
 from .client import HTTPServiceClient, HTTPClientConfig, HTTPClientError
+from .server.config_loader import expand_env_vars
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("Sandbox")
@@ -1037,7 +1038,7 @@ class Sandbox:
             if os.path.exists(config_path):
                 logger.info(f"📄 Loading config from: {config_path}")
                 with open(config_path, 'r', encoding='utf-8') as f:
-                    config = json.load(f)
+                    config = expand_env_vars(json.load(f))
                 resources = [k for k in config.get("resources", {}).keys() if not k.startswith("_")]
                 logger.info(f"   Resources in config: {resources}")
                 return config

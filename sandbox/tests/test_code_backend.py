@@ -469,6 +469,45 @@ def test_tool_executor_runs_bash_in_session_workspace_when_enabled(tmp_path):
     assert result["data"].strip() == str(runtime_workspace.resolve(strict=False))
 
 
+def test_tool_executor_bash_success_formats_stdout_and_stderr_like_upstream(tmp_path):
+    module = load_code_backend_module()
+    create_fake_claude_code_root(tmp_path)
+    backend = module.CodeBackend(config=build_backend_config(tmp_path))
+    fake_server = FakeServer()
+    backend.bind_server(fake_server)
+
+    runtime_workspace = tmp_path / "agentflow_code" / "worker-1"
+    runtime_workspace.mkdir(parents=True)
+    executor = ToolExecutor(
+        tools=fake_server._tools,
+        tool_name_index={},
+        tool_resource_types=fake_server._tool_resource_types,
+        resource_router=FakeResourceRouter(
+            {
+                "session_id": "code-session-bash-format",
+                "data": {"workspace": str(runtime_workspace)},
+            }
+        ),
+    )
+
+    result = asyncio.run(
+        executor.execute(
+            action="code:bash",
+            params={
+                "command": (
+                    f"{shlex.quote(sys.executable)} -c "
+                    "\"import sys; print('stdout-line'); print('stderr-line', file=sys.stderr)\""
+                )
+            },
+            worker_id="worker-1",
+            trace_id="trace-bash-format",
+        )
+    )
+
+    assert result["code"] == ErrorCode.SUCCESS
+    assert result["data"] == "stdout-line\n\n[stderr]:\nstderr-line"
+
+
 def test_tool_executor_returns_timeout_error_when_bash_exceeds_limit(tmp_path):
     module = load_code_backend_module()
     create_fake_claude_code_root(tmp_path)
@@ -1280,4 +1319,11 @@ def test_code_config_template_parses():
         config.resources["code"].backend_class
         == "sandbox.server.backends.resources.code.CodeBackend"
     )
+    assert config.server.session_ttl == 300
+    assert (
+        config.resources["code"].description
+        == "Lightweight coding backend powered by claude-code-py tools"
+    )
     assert config.resources["code"].config["bash_timeout_seconds"] == 30
+    assert config.warmup.enabled is False
+    assert config.warmup.resources == []

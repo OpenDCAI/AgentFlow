@@ -464,14 +464,10 @@ class CodeBackend(Backend):
         stdout_text = stdout_bytes.decode("utf-8", errors="replace") if stdout_bytes else ""
         stderr_text = stderr_bytes.decode("utf-8", errors="replace") if stderr_bytes else ""
 
-        output = stdout_text.rstrip()
-        if stderr_text.strip():
-            stderr_section = stderr_text.rstrip()
-            output = f"{output}\n\n[stderr]\n{stderr_section}" if output else f"[stderr]\n{stderr_section}"
-
-        if not output.strip():
-            return "(no output)"
-        return output
+        out = stdout_text
+        if stderr_text:
+            out += f"\n[stderr]:\n{stderr_text}"
+        return out.strip() or "(no output)"
 
     def _normalize_tool_params(
         self,
