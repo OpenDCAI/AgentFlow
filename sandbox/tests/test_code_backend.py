@@ -5,6 +5,7 @@ Tests for the Code backend skeleton and bridge-tool registration.
 import asyncio
 import importlib
 import os
+import shlex
 import sys
 from pathlib import Path
 
@@ -291,7 +292,7 @@ def test_tool_executor_returns_business_failure_for_vendored_bash_error(tmp_path
         "code:bash",
         params={
             "command": (
-                f"{sys.executable} -c "
+                f"{shlex.quote(sys.executable)} -c "
                 "\"import sys; "
                 "print('out'); "
                 "print('err', file=sys.stderr); "
