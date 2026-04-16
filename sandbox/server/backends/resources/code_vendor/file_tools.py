@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import asyncio
+import io
+import locale
 import os
 import signal
 import subprocess
@@ -45,11 +47,26 @@ class BashTool(Tool):
             await proc.communicate()
             raise
 
-        output = stdout_bytes.decode("utf-8", errors="replace") if stdout_bytes else ""
-        stderr = stderr_bytes.decode("utf-8", errors="replace") if stderr_bytes else ""
+        output = _decode_text_mode_output(stdout_bytes)
+        stderr = _decode_text_mode_output(stderr_bytes)
         if stderr:
             output += f"\n[stderr]:\n{stderr}"
         return output.strip() or "(no output)"
+
+
+def _decode_text_mode_output(data: bytes | None) -> str:
+    if not data:
+        return ""
+
+    text_stream = io.TextIOWrapper(
+        io.BytesIO(data),
+        encoding=locale.getpreferredencoding(False),
+        newline=None,
+    )
+    try:
+        return text_stream.read()
+    finally:
+        text_stream.detach()
 
 
 class ReadTool(Tool):

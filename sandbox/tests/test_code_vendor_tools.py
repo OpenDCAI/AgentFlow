@@ -205,6 +205,21 @@ def test_bash_tool_combines_stdout_and_stderr(tmp_path):
     assert result == "out\n\n[stderr]:\nerr"
 
 
+def test_bash_tool_matches_text_mode_newline_normalization(tmp_path):
+    result = call_tool(
+        BashTool(),
+        {
+            "command": (
+                f"{shlex.quote(sys.executable)} -c "
+                "\"import sys; sys.stdout.buffer.write(b'a\\r\\nb\\r\\n')\""
+            )
+        },
+        make_ctx(tmp_path),
+    )
+
+    assert result == "a\nb"
+
+
 def test_bash_tool_cancellation_stops_background_command(tmp_path):
     marker = tmp_path / "marker.txt"
 
