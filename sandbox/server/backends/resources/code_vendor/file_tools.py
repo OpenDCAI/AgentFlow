@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import glob
-import re
 import subprocess
 from pathlib import Path
 from typing import Any
@@ -31,11 +29,10 @@ class BashTool(Tool):
             text=True,
             cwd=ctx.cwd,
         )
-        output = result.stdout.rstrip("\n")
-        stderr = result.stderr.rstrip("\n")
-        if stderr:
-            output = f"{output}\n[stderr]:\n{stderr}" if output else f"[stderr]:\n{stderr}"
-        return output or "(no output)"
+        output = result.stdout
+        if result.stderr:
+            output += f"\n[stderr]:\n{result.stderr}"
+        return output.strip() or "(no output)"
 
 
 class ReadTool(Tool):
@@ -48,7 +45,7 @@ class ReadTool(Tool):
             "type": "object",
             "properties": {
                 "file_path": {"type": "string"},
-                "offset": {"type": "integer", "description": "Number of lines to skip"},
+                "offset": {"type": "integer", "description": "Start line (1-indexed)"},
                 "limit": {"type": "integer", "description": "Maximum lines to return"},
             },
             "required": ["file_path"],
@@ -61,11 +58,11 @@ class ReadTool(Tool):
             return f"Error: file not found: {path}"
 
         lines = path.read_text(encoding="utf-8").splitlines()
-        offset = max(args.get("offset", 0), 0)
+        offset = max(0, args.get("offset", 1) - 1)
         limit = args.get("limit", 2000)
         selected = lines[offset : offset + limit]
         return "\n".join(
-            f"{line_number}: {line}"
+            f"{line_number:4}→{line}"
             for line_number, line in enumerate(selected, start=offset + 1)
         )
 
@@ -92,9 +89,8 @@ class GlobTool(Tool):
     async def call(self, args: dict[str, Any], ctx: Any) -> str:
         base = Path(args.get("path", ctx.cwd))
         pattern = args["pattern"]
-        matches = sorted(glob.glob(pattern, root_dir=base, recursive=True))
-        resolved = [str((base / match).resolve(strict=False)) for match in matches]
-        return "\n".join(resolved) or "(no matches)"
+        matches = sorted(base.glob(pattern))
+        return "\n".join(str(match) for match in matches) or "(no matches)"
 
     def is_read_only(self, args: dict[str, Any]) -> bool:
         del args
@@ -119,20 +115,12 @@ class GrepTool(Tool):
 
     async def call(self, args: dict[str, Any], ctx: Any) -> str:
         base = Path(args.get("path", ctx.cwd))
-        pattern = re.compile(args["pattern"])
-        file_glob = args.get("glob")
-
-        if file_glob:
-            paths = sorted(path for path in base.rglob(file_glob) if path.is_file())
-        else:
-            paths = sorted(path for path in base.rglob("*") if path.is_file())
-
-        matches: list[str] = []
-        for path in paths:
-            for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
-                if pattern.search(line):
-                    matches.append(f"{path}:{line_number}:{line}")
-        return "\n".join(matches) or "(no matches)"
+        cmd = ["grep", "-r", "-n", args["pattern"]]
+        if "glob" in args:
+            cmd += ["--include", args["glob"]]
+        cmd.append(str(base))
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        return result.stdout or "(no matches)"
 
     def is_read_only(self, args: dict[str, Any]) -> bool:
         del args

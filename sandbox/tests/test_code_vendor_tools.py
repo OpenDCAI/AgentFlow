@@ -64,7 +64,7 @@ def test_read_tool_returns_line_numbered_content(tmp_path):
 
     result = call_tool(ReadTool(), {"file_path": str(target)}, make_ctx(tmp_path))
 
-    assert result == "1: alpha\n2: beta\n3: gamma"
+    assert result == "   1→alpha\n   2→beta\n   3→gamma"
 
 
 def test_read_tool_honors_offset_and_limit(tmp_path):
@@ -77,7 +77,7 @@ def test_read_tool_honors_offset_and_limit(tmp_path):
         make_ctx(tmp_path),
     )
 
-    assert result == "2: beta\n3: gamma"
+    assert result == "   1→alpha\n   2→beta"
 
 
 def test_edit_tool_requires_unique_match_by_default(tmp_path):
@@ -114,8 +114,10 @@ def test_edit_tool_replace_all_updates_each_match(tmp_path):
     assert target.read_text(encoding="utf-8") == "alpha\nBETA\nBETA\n"
 
 
-def test_write_tool_creates_parent_directories_and_writes_content(tmp_path):
+def test_write_tool_creates_parent_directories_and_overwrites_full_file(tmp_path):
     target = tmp_path / "nested" / "dir" / "sample.txt"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text("stale content that should disappear\n", encoding="utf-8")
 
     result = call_tool(
         WriteTool(),
@@ -143,7 +145,7 @@ def test_glob_tool_returns_sorted_matches(tmp_path):
     assert result == f"{tmp_path / 'a.py'}\n{tmp_path / 'pkg' / 'b.py'}"
 
 
-def test_grep_tool_returns_matches_with_line_numbers(tmp_path):
+def test_grep_tool_returns_matches_with_line_numbers_for_filtered_files(tmp_path):
     first = tmp_path / "first.txt"
     second = tmp_path / "second.txt"
     first.write_text("alpha\nbeta\n", encoding="utf-8")
@@ -155,7 +157,32 @@ def test_grep_tool_returns_matches_with_line_numbers(tmp_path):
         make_ctx(tmp_path),
     )
 
-    assert result == f"{first}:2:beta\n{second}:1:beta"
+    assert result.endswith("\n")
+    assert set(result.splitlines()) == {
+        f"{first}:2:beta",
+        f"{second}:1:beta",
+    }
+
+
+def test_grep_tool_searches_recursively_without_glob_filter(tmp_path):
+    root_match = tmp_path / "root.txt"
+    nested_dir = tmp_path / "pkg" / "nested"
+    nested_dir.mkdir(parents=True)
+    nested_match = nested_dir / "deep.py"
+    root_match.write_text("needle at root\n", encoding="utf-8")
+    nested_match.write_text("first line\nneedle in nested file\n", encoding="utf-8")
+
+    result = call_tool(
+        GrepTool(),
+        {"pattern": "needle", "path": str(tmp_path)},
+        make_ctx(tmp_path),
+    )
+
+    assert result.endswith("\n")
+    assert set(result.splitlines()) == {
+        f"{nested_match}:2:needle in nested file",
+        f"{root_match}:1:needle at root",
+    }
 
 
 def test_bash_tool_combines_stdout_and_stderr(tmp_path):
@@ -171,7 +198,7 @@ def test_bash_tool_combines_stdout_and_stderr(tmp_path):
         make_ctx(tmp_path),
     )
 
-    assert result == "out\n[stderr]:\nerr"
+    assert result == "out\n\n[stderr]:\nerr"
 
 
 def test_tool_api_format_and_read_only_flags():
