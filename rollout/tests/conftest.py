@@ -9,9 +9,13 @@ _REAL_CODE_TEST_FILES = {
 }
 
 
+def _code_real_enabled():
+    return os.environ.get("AGENTFLOW_RUN_CODE_REAL") == "1"
+
+
 def pytest_ignore_collect(collection_path, config):
     del config
-    if os.environ.get("AGENTFLOW_RUN_CODE_REAL") == "1":
+    if _code_real_enabled():
         return False
 
     path = Path(str(collection_path))
@@ -47,14 +51,25 @@ def pytest_configure(config):
     )
 
 
-def require_code_real_enabled():
-    return [
-        pytest.mark.code_real,
-        pytest.mark.skipif(
-            os.environ.get("AGENTFLOW_RUN_CODE_REAL") != "1",
-            reason="set AGENTFLOW_RUN_CODE_REAL=1 to run real code rollout smoke tests",
-        ),
-    ]
+def pytest_collection_modifyitems(config, items):
+    if _code_real_enabled():
+        return
+
+    deselected = []
+    kept = []
+    for item in items:
+        if item.get_closest_marker("code_real") is None:
+            kept.append(item)
+            continue
+
+        if Path(str(item.fspath)).name in _REAL_CODE_TEST_FILES:
+            deselected.append(item)
+        else:
+            kept.append(item)
+
+    if deselected:
+        items[:] = kept
+        config.hook.pytest_deselected(items=deselected)
 
 
 def _get_real_credentials(config):
@@ -81,6 +96,9 @@ def _missing_real_credential_options(config):
 def pytest_runtest_setup(item):
     if item.get_closest_marker("code_real") is None:
         return
+
+    if not _code_real_enabled():
+        pytest.skip("set AGENTFLOW_RUN_CODE_REAL=1 to run real code rollout smoke tests")
 
     missing = _missing_real_credential_options(item.config)
     if missing:
