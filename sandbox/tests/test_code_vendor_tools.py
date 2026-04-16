@@ -205,27 +205,34 @@ def test_bash_tool_combines_stdout_and_stderr(tmp_path):
     assert result == "out\n\n[stderr]:\nerr"
 
 
-def test_bash_tool_does_not_block_event_loop_during_long_command(tmp_path):
+def test_bash_tool_cancellation_stops_background_command(tmp_path):
+    marker = tmp_path / "marker.txt"
+
     async def run_bash_with_timeout():
-        start = time.monotonic()
+        timeout_start = time.monotonic()
         with pytest.raises(asyncio.TimeoutError):
             await asyncio.wait_for(
                 BashTool().call(
                     {
                         "command": (
                             f"{shlex.quote(sys.executable)} -c "
-                            "\"import time; time.sleep(1)\""
+                            "\"import pathlib, time; "
+                            "time.sleep(0.3); "
+                            "pathlib.Path('marker.txt').write_text('created', encoding='utf-8')\""
                         )
                     },
                     make_ctx(tmp_path),
                 ),
                 timeout=0.1,
             )
-        return time.monotonic() - start
+        timeout_elapsed = time.monotonic() - timeout_start
+        await asyncio.sleep(0.4)
+        return timeout_elapsed
 
-    elapsed = asyncio.run(run_bash_with_timeout())
+    timeout_elapsed = asyncio.run(run_bash_with_timeout())
 
-    assert elapsed < 0.5
+    assert timeout_elapsed < 0.25
+    assert not marker.exists()
 
 
 def test_tool_api_format_and_read_only_flags():

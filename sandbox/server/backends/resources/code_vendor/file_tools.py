@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import asyncio
+import os
+import signal
 import subprocess
 from pathlib import Path
 from typing import Any
@@ -23,17 +25,30 @@ class BashTool(Tool):
         }
 
     async def call(self, args: dict[str, Any], ctx: Any) -> str:
-        result = await asyncio.to_thread(
-            subprocess.run,
+        proc = await asyncio.create_subprocess_shell(
             args["command"],
             shell=True,
-            capture_output=True,
-            text=True,
             cwd=ctx.cwd,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
+            start_new_session=True,
         )
-        output = result.stdout
-        if result.stderr:
-            output += f"\n[stderr]:\n{result.stderr}"
+
+        try:
+            stdout_bytes, stderr_bytes = await proc.communicate()
+        except asyncio.CancelledError:
+            if proc.returncode is None:
+                try:
+                    os.killpg(proc.pid, signal.SIGKILL)
+                except (ProcessLookupError, PermissionError):
+                    proc.kill()
+            await proc.communicate()
+            raise
+
+        output = stdout_bytes.decode("utf-8", errors="replace") if stdout_bytes else ""
+        stderr = stderr_bytes.decode("utf-8", errors="replace") if stderr_bytes else ""
+        if stderr:
+            output += f"\n[stderr]:\n{stderr}"
         return output.strip() or "(no output)"
 
 
