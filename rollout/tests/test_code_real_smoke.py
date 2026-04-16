@@ -62,8 +62,11 @@ def test_code_real_smoke_reads_token_via_real_tools(
         sandbox_auto_start=True,
         evaluate_results=False,
         save_trajectories=True,
+        max_turns=5,
         number_of_tasks=1,
     )
+
+    assert config.max_turns == 5
 
     summary = RolloutPipeline(config, output_dir=str(output_dir)).run()
 
