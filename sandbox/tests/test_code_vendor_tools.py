@@ -1,8 +1,12 @@
 import asyncio
 import importlib.util
+import shlex
 import sys
+import time
 from types import SimpleNamespace
 from pathlib import Path
+
+import pytest
 
 PACKAGE_DIR = (
     Path(__file__).resolve().parents[1]
@@ -199,6 +203,29 @@ def test_bash_tool_combines_stdout_and_stderr(tmp_path):
     )
 
     assert result == "out\n\n[stderr]:\nerr"
+
+
+def test_bash_tool_does_not_block_event_loop_during_long_command(tmp_path):
+    async def run_bash_with_timeout():
+        start = time.monotonic()
+        with pytest.raises(asyncio.TimeoutError):
+            await asyncio.wait_for(
+                BashTool().call(
+                    {
+                        "command": (
+                            f"{shlex.quote(sys.executable)} -c "
+                            "\"import time; time.sleep(1)\""
+                        )
+                    },
+                    make_ctx(tmp_path),
+                ),
+                timeout=0.1,
+            )
+        return time.monotonic() - start
+
+    elapsed = asyncio.run(run_bash_with_timeout())
+
+    assert elapsed < 0.5
 
 
 def test_tool_api_format_and_read_only_flags():

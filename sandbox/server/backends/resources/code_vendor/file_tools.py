@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import subprocess
 from pathlib import Path
 from typing import Any
@@ -22,7 +23,8 @@ class BashTool(Tool):
         }
 
     async def call(self, args: dict[str, Any], ctx: Any) -> str:
-        result = subprocess.run(
+        result = await asyncio.to_thread(
+            subprocess.run,
             args["command"],
             shell=True,
             capture_output=True,
