@@ -62,6 +62,13 @@ def install_resources_package_stub():
         module_spec.loader.exec_module(module)
 
 
+def remove_resources_modules():
+    package_name = "sandbox.server.backends.resources"
+    for module_name in list(sys.modules):
+        if module_name == package_name or module_name.startswith(f"{package_name}."):
+            sys.modules.pop(module_name, None)
+
+
 def load_code_backend_module():
     install_resources_package_stub()
     unique_id = next(_MODULE_LOAD_COUNTER)
@@ -756,6 +763,7 @@ def test_code_config_template_parses():
 
 def test_create_server_loads_code_backend_via_config_loader(tmp_path):
     workspace_root = tmp_path / "agentflow_code"
+    remove_resources_modules()
     loader = ConfigLoader()
     loader.load_from_dict(
         {
@@ -781,7 +789,11 @@ def test_create_server_loads_code_backend_via_config_loader(tmp_path):
     )
 
     server = loader.create_server(host="127.0.0.1", port=0)
+    resources_package = sys.modules["sandbox.server.backends.resources"]
+    code_module = sys.modules["sandbox.server.backends.resources.code"]
 
     assert "code" in server._backends
     assert "code:read" in server._tools
     assert server._tool_resource_types["code:read"] == "code"
+    assert Path(resources_package.__file__).resolve() == (MODULE_PATH.parent / "__init__.py").resolve()
+    assert Path(code_module.__file__).resolve() == MODULE_PATH.resolve()
