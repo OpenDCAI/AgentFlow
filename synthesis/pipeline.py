@@ -242,9 +242,8 @@ class SynthesisPipeline:
                 f.write(json.dumps(traj, ensure_ascii=False) + "\n")
 
     def _build_user_need_text(self, seeds: List[Dict[str, Any]]) -> str:
-        runtime = self.config.runtime if isinstance(self.config.runtime, dict) else {}
-        instr = runtime.get("instruction") if isinstance(runtime.get("instruction"), dict) else {}
-        parsed = instr.get("parsed") if isinstance(instr.get("parsed"), dict) else {}
+        instr = self.config.runtime.get("instruction", {})
+        parsed = instr.get("parsed", {})
         extracted_complete = bool(instr.get("extracted_complete", False))
 
         parts: List[str] = []
@@ -304,16 +303,13 @@ class SynthesisPipeline:
         selector = GlobalSkillSelector(self.config)
         result = selector.run_once(user_need_text)
 
-        # Write runtime and inject phase text into original pipeline hooks.
-        if not isinstance(self.config.runtime, dict):
-            self.config.runtime = {}
         self.config.runtime["skill"] = result
 
         base_sampling_tips = str(self.config.sampling_tips or "")
         base_selecting_tips = str(self.config.selecting_tips or "")
         base_synthesis_tips = str(self.config.synthesis_tips or "")
 
-        injections = result.get("injections", {}) if isinstance(result, dict) else {}
+        injections = result.get("injections", {})
         self.config.sampling_tips = self._merge_phase_guidance(
             base_sampling_tips,
             str(injections.get(PHASE_ENV_EXPLORATION, "") or ""),
@@ -328,20 +324,20 @@ class SynthesisPipeline:
         )
 
         # Merge skill-native QA examples (from selected SKILL.md) into synthesizer examples.
-        selected_ids = result.get("selected_skill_ids", []) if isinstance(result, dict) else []
-        if isinstance(selected_ids, list) and selected_ids:
+        selected_ids = result.get("selected_skill_ids", [])
+        if selected_ids:
             catalog = load_skill_catalog(self.config.skills_root, group=None)
             skill_examples = collect_qa_examples_from_skills(
                 catalog,
                 selected_ids,
-                max_total=int(settings.get("max_skill_examples", 8) or 8),
+                max_total=settings["max_skill_examples"],
                 max_per_skill=2,
             )
             if skill_examples:
                 merged = self._merge_qa_examples(
                     self.config.qa_examples,
                     skill_examples,
-                    max_total=int(settings.get("max_total_qa_examples", 24) or 24),
+                    max_total=settings["max_total_qa_examples"],
                 )
                 self.config.qa_examples = merged
                 result["qa_examples_from_skills"] = skill_examples
@@ -358,7 +354,7 @@ class SynthesisPipeline:
         max_total: int,
     ) -> List[Dict[str, str]]:
         out: List[Dict[str, str]] = []
-        seen = set()
+        seen: set = set()
 
         def _push(items: List[Dict[str, Any]]):
             for it in items:
@@ -374,9 +370,9 @@ class SynthesisPipeline:
                 if len(out) >= max_total:
                     return
 
-        _push(base if isinstance(base, list) else [])
+        _push(base)
         if len(out) < max_total:
-            _push(incoming if isinstance(incoming, list) else [])
+            _push(incoming)
         return out
 
     def _merge_phase_guidance(self, base_text: str, skill_text: str) -> str:

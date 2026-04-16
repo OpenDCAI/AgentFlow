@@ -1,5 +1,5 @@
 """
-Instruction markdown parsing for synthesis pipeline.
+Instruction markdown parsing for the synthesis pipeline.
 """
 
 from __future__ import annotations
@@ -10,18 +10,16 @@ from typing import Any, Dict, List, Optional
 
 _KNOWN_KEYS = {
     "description",
-    "constraints",
     "seed_description",
     "sampling_tips",
     "selecting_tips",
     "synthesis_tips",
     "qa_examples",
-    "skills",
 }
 
 
 def parse_qa_syn_instruction_md(text: str) -> Dict[str, Any]:
-    """Parse key-block markdown into a dict."""
+    """Parse key-block markdown into a structured dict."""
     raw = (text or "").replace("\r\n", "\n").replace("\r", "\n")
     lines = raw.split("\n")
 
@@ -58,12 +56,9 @@ def parse_qa_syn_instruction_md(text: str) -> Dict[str, Any]:
     _flush()
 
     out: Dict[str, Any] = {}
-    for k in ("description", "constraints", "seed_description", "sampling_tips", "selecting_tips", "synthesis_tips"):
+    for k in ("description", "seed_description", "sampling_tips", "selecting_tips", "synthesis_tips"):
         if k in blocks:
             out[k] = _normalize_block_text(blocks[k])
-
-    if "skills" in blocks:
-        out["skills"] = _parse_explicit_skills(blocks["skills"])
 
     if "qa_examples" in blocks:
         ex = _parse_qa_examples(blocks["qa_examples"])
@@ -118,30 +113,3 @@ def _parse_qa_examples(lines: List[str]) -> List[Dict[str, str]]:
         examples.append({"question": cur["question"], "answer": cur["answer"]})
 
     return [e for e in examples if e["question"] and e["answer"]]
-
-
-def _parse_explicit_skills(lines: List[str]) -> List[str]:
-    text = _normalize_block_text(lines)
-    if not text:
-        return []
-
-    ids: List[str] = []
-    for ln in text.split("\n"):
-        s = ln.strip()
-        if not s:
-            continue
-        if s.startswith("- "):
-            s = s[2:].strip()
-        for part in s.split(","):
-            pid = part.strip()
-            if pid:
-                ids.append(pid)
-
-    seen = set()
-    out: List[str] = []
-    for x in ids:
-        if x in seen:
-            continue
-        seen.add(x)
-        out.append(x)
-    return out

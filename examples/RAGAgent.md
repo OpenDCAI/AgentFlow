@@ -303,6 +303,7 @@ If you want to enable skill selection and injection for QA synthesis, use the sk
   "skills_root": "synthesis/skills",
   "skill": {
     "enabled": true,
+    "max_category_count": 1,
     "min_global_skills": 5,
     "max_global_skills": 10
   }
@@ -465,7 +466,7 @@ pipeline(config_path="configs/infer/rag_infer.json")
 
 ### Skill Config for Synthesis
 
-Use these fields in synthesis config (for example `configs/synthesis/rag_config_with_skill.json`):
+Use these fields in synthesis config (for example `configs/synthesis/rag_config.json`):
 
 ```json
 {

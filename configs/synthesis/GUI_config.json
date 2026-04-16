@@ -30,13 +30,27 @@
 
   "seed_description": "Starting entity and its description",
 
+  "sampling_tips": [
+    "Use VM tools to explore the UI and gather concrete evidence",
+    "Record precise UI states, labels, and values",
+    "Prefer actionable steps that lead to verifiable facts"
+  ],
+
+  "synthesis_tips": [
+    "Create questions requiring multi-step UI interactions",
+    "Keep questions concise (<=3 sentences)",
+    "Answers should be specific and verifiable from the UI state",
+    "Provide clear reasoning steps based on observed UI evidence"
+  ],
+
+  "qa_examples": [
+    {
+      "question": "What is the displayed version number in the settings window?",
+      "answer": "1.2.3"
+    }
+  ],
+
   "seeds_file": "seeds/vm/seeds.jsonl",
-  "output_dir": "results",
-  
-  "description_path": "configs/synthesis/instructions/GUI_instruction.md",
-  "skills_root": "synthesis/skills",
-  "skill": {
-    "enabled": false
-  }
+  "output_dir": "results"
 }
 

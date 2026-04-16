@@ -1,7 +1,7 @@
 """
-Skill catalog loader and phase-guidance rendering for synthesis pipeline.
+Skill catalog loader and phase-guidance rendering for the synthesis pipeline.
 
-Expected layout:
+Expected directory layout:
   synthesis/skills/<group>/<skill-id>/SKILL.md
   synthesis/skills/<group>/<skill-id>/references/{EXPLORATION,SELECTION,SYNTHESIS}.md
 """
@@ -281,51 +281,6 @@ def normalize_selected_skill_ids(selected: Any, valid_skill_ids: List[str], max_
             break
     return out
 
-
-def render_skill_catalog_for_phase(
-    skills: List[SkillSpec],
-    phase: str,
-    *,
-    include_skill_ids: Optional[List[str]] = None,
-    max_desc_chars: int = 800,
-    max_ref_chars: int = 3000,
-) -> str:
-    if not skills:
-        return "No skills available."
-
-    include_set = None
-    if include_skill_ids is not None:
-        include_set = set([str(x).strip() for x in include_skill_ids if str(x).strip()])
-        if not include_set:
-            return "No skills selected."
-
-    lines: List[str] = []
-    idx = 0
-    for s in skills:
-        if include_set is not None and s.skill_id not in include_set:
-            continue
-
-        idx += 1
-        desc = (s.description or s.definition or "").strip()
-        ref = (s.references.get(phase) or "").strip()
-
-        if max_desc_chars > 0 and len(desc) > max_desc_chars:
-            desc = desc[:max_desc_chars].rstrip() + "..."
-        if max_ref_chars > 0 and len(ref) > max_ref_chars:
-            ref = ref[:max_ref_chars].rstrip() + "\n...(truncated)"
-
-        lines.append(f"{idx}. id={s.skill_id}")
-        lines.append(f"   group={s.group}")
-        lines.append(f"   name={s.name}")
-        lines.append(f"   description={desc or '(empty)'}")
-        lines.append(f"   phase_guidance_{phase}:")
-        if ref:
-            for ln in ref.splitlines():
-                lines.append(f"     {ln}")
-        else:
-            lines.append("     (none)")
-
-    return "\n".join(lines)
 
 
 def collect_qa_examples_from_skills(

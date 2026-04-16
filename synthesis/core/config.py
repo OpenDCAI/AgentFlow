@@ -190,76 +190,40 @@ class SynthesisConfig:
         return errors
 
     def skill_settings(self) -> Dict[str, Any]:
-        """Normalize skill settings into a standard dict."""
+        """Normalize the skill field into a canonical settings dict."""
         if isinstance(self.skill, dict):
             out = dict(self.skill)
             out.setdefault("enabled", True)
         else:
             out = {"enabled": bool(self.skill)}
 
-        # Global selection controls
         out.setdefault("max_category_count", 2)
         out.setdefault("max_global_skills", 10)
         out.setdefault("min_global_skills", 5)
-
-        # Prompt rendering controls
         out.setdefault("max_desc_chars", 800)
         out.setdefault("max_ref_chars", 3000)
         out.setdefault("max_skill_examples", 8)
         out.setdefault("max_total_qa_examples", 24)
-
-        # LLM controls
         out.setdefault("temperature", 0.2)
         out.setdefault("include", [])
         out.setdefault("exclude", [])
 
-        try:
-            out["max_category_count"] = max(1, int(out.get("max_category_count", 2) or 2))
-        except Exception:
-            out["max_category_count"] = 2
-
-        try:
-            out["max_global_skills"] = max(1, int(out.get("max_global_skills", 10) or 10))
-        except Exception:
-            out["max_global_skills"] = 10
-
-        try:
-            out["min_global_skills"] = max(0, int(out.get("min_global_skills", 5) or 5))
-        except Exception:
-            out["min_global_skills"] = 5
-
+        # Coerce numeric fields; None values in JSON config are handled by `or default`.
+        out["max_category_count"] = max(1, int(out["max_category_count"] or 2))
+        out["max_global_skills"] = max(1, int(out["max_global_skills"] or 10))
+        out["min_global_skills"] = max(0, int(out["min_global_skills"] or 5))
         if out["min_global_skills"] > out["max_global_skills"]:
             out["min_global_skills"] = out["max_global_skills"]
+        out["max_desc_chars"] = max(100, int(out["max_desc_chars"] or 800))
+        out["max_ref_chars"] = max(200, int(out["max_ref_chars"] or 3000))
+        out["max_skill_examples"] = max(0, int(out["max_skill_examples"] or 8))
+        out["max_total_qa_examples"] = max(1, int(out["max_total_qa_examples"] or 24))
+        out["temperature"] = float(out["temperature"] or 0.2)
 
-        try:
-            out["max_desc_chars"] = max(100, int(out.get("max_desc_chars", 800) or 800))
-        except Exception:
-            out["max_desc_chars"] = 800
-
-        try:
-            out["max_ref_chars"] = max(200, int(out.get("max_ref_chars", 3000) or 3000))
-        except Exception:
-            out["max_ref_chars"] = 3000
-
-        try:
-            out["max_skill_examples"] = max(0, int(out.get("max_skill_examples", 8) or 8))
-        except Exception:
-            out["max_skill_examples"] = 8
-
-        try:
-            out["max_total_qa_examples"] = max(1, int(out.get("max_total_qa_examples", 24) or 24))
-        except Exception:
-            out["max_total_qa_examples"] = 24
-
-        try:
-            out["temperature"] = float(out.get("temperature", 0.2) or 0.2)
-        except Exception:
-            out["temperature"] = 0.2
-
-        include = out.get("include", [])
-        exclude = out.get("exclude", [])
-        out["include"] = include if isinstance(include, list) else []
-        out["exclude"] = exclude if isinstance(exclude, list) else []
+        if not isinstance(out["include"], list):
+            out["include"] = []
+        if not isinstance(out["exclude"], list):
+            out["exclude"] = []
 
         return out
 

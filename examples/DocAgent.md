@@ -229,7 +229,7 @@ python -m synthesis.pipeline \
 ```json
 {
   "model_name": "openai/gpt-oss-120b",
-  "api_key": "<YOUR_API_KEY>",
+  "api_key": "${OPENROUTER_API_KEY}",
   "base_url": "https://openrouter.ai/api/v1",
   "max_depth": 20,
   "branching_factor": 2,
@@ -237,10 +237,10 @@ python -m synthesis.pipeline \
   "min_depth": 3,
   "max_selected_traj": 2,
   "path_similarity_threshold": 0.7,
-  "resource_types": ["doc"],
+  "resource_types": [],
   "sandbox_server_url": "http://127.0.0.1:18890",
   "sandbox_config_path": "configs/sandbox-server/doc_config.json",
-  "available_tools": ["doc_search", "doc_read"],
+  "available_tools": ["doc-search", "doc-read"],
   "seeds_file": "seeds/doc/seeds.jsonl",
   "output_dir": "results/doc",
   "description_path": "configs/synthesis/instructions/doc_instruction.md",
@@ -511,7 +511,7 @@ For the LasJ metric used in MMLongDoc-Bench, please refer to the detailed evalua
 | `number_of_seed` | `int` | `None` | Limit number of seeds to process |
 
 ### Skill Config for Synthesis
-Use these fields in synthesis config (for example `configs/synthesis/doc_config_with_skill.json`):
+Use these fields in synthesis config (for example `configs/synthesis/doc_config.json`):
 
 ```json
 {

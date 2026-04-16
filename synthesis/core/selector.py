@@ -1,5 +1,5 @@
 """
-Trajectory selector with skill-aware LLM ranking and deterministic fallback.
+Trajectory selector: LLM-based ranking when skill is enabled, rule-based fallback otherwise.
 """
 
 import json
@@ -7,10 +7,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 from .config import SynthesisConfig
 from .models import Trajectory, TrajectoryNode
-from .skills import (
-    PHASE_TRAJECTORY_SELECTION,
-    load_skill_catalog,
-)
+from .skills import PHASE_TRAJECTORY_SELECTION
 from .utils import chat_completion, create_openai_client, extract_json_object
 
 
@@ -26,9 +23,8 @@ class TrajectorySelector:
         )
 
         self.skill_settings = self.config.skill_settings()
-        self.skill_catalog = load_skill_catalog(self.config.skills_root, group=None)
-        runtime_skill = (self.config.runtime or {}).get("skill", {}) if isinstance(self.config.runtime, dict) else {}
-        selected_ids = runtime_skill.get("selected_skill_ids", []) if isinstance(runtime_skill, dict) else []
+        runtime_skill = self.config.runtime.get("skill", {})
+        selected_ids = runtime_skill.get("selected_skill_ids", [])
         self.global_selected_skill_ids = [str(x).strip() for x in selected_ids if str(x).strip()]
         self.skill_enabled = bool(self.skill_settings.get("enabled", False)) and bool(self.global_selected_skill_ids)
         self.last_selection_record: Dict[str, Any] = {}
