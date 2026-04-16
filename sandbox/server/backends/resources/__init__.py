@@ -27,7 +27,7 @@ Usage example:
 ```python
 from sandbox.server import HTTPServiceServer
 from sandbox.server.backends.resources import (
-    VMBackend, 
+    VMBackend,
     RAGBackend
 )
 
@@ -59,18 +59,17 @@ Config example:
 ```
 """
 
-from .vm import VMBackend, create_vm_backend
-from .rag import RAGBackend, create_rag_backend
+from .code import CodeBackend
 from .mcp import MCPBackend, ToolathlonGymBackend
+from .rag import RAGBackend, create_rag_backend
+from .vm import VMBackend, create_vm_backend
 
 __all__ = [
-    # Backend classes
     "VMBackend",
     "RAGBackend",
     "MCPBackend",
+    "CodeBackend",
     "ToolathlonGymBackend",
-
-    # Convenience factories
     "create_vm_backend",
     "create_rag_backend",
 ]
