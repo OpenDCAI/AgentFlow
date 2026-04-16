@@ -1,0 +1,19 @@
+# Yahoo Finance
+# Source: https://github.com/Alex2Yang97/yahoo-finance-mcp
+# Toolathlon Version: https://github.com/lockon-n/yahoo-finance-mcp
+type: stdio
+name: yahoo-finance
+params:
+  command: uv
+  args:
+    - "run"
+    - "${local_servers_paths}/yahoo-finance-mcp/environment/server.py"
+  env:
+    PG_HOST: "${config.pg_host}"
+    PG_PORT: "5434"
+    PG_DATABASE: "${config.pg_database}"
+    PG_USER: "eigent"
+    PG_PASSWORD: "camel"
+  # cwd: "${agent_workspace}" # do not add this for compatibility
+client_session_timeout_seconds: 180
+cache_tools_list: true

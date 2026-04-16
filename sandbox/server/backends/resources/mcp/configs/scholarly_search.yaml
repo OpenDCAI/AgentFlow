@@ -1,0 +1,16 @@
+# Scholarly Search - search for articles on arxiv and google scholar (but cannot download full text)
+# Source: https://github.com/adityak74/mcp-scholarly
+# Toolathlon Version: https://github.com/lockon-n/mcp-scholarly
+type: stdio
+name: scholarly
+params:
+  command: uvx
+  args:
+    - "mcp-scholarly"
+  env:
+    # Clear SOCKS proxy — scholarly uses httpx which crashes without socksio package
+    ALL_PROXY: ""
+    all_proxy: ""
+  cwd: "${agent_workspace}"
+client_session_timeout_seconds: 180
+cache_tools_list: true

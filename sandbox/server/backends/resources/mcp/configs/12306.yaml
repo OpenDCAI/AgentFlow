@@ -1,0 +1,19 @@
+# 12306 China Railway Ticket Query System
+# Source: https://github.com/Joooook/12306-mcp
+# Toolathlon Version: https://github.com/lockon-n/12306-mcp
+# Mock: PG-backed local server (replaces real kyfw.12306.cn API)
+type: stdio
+name: rail_12306
+params:
+  command: node
+  args:
+    - "${local_servers_paths}/12306-mcp/environment/build/index.js"
+  cwd: "${agent_workspace}"
+  env:
+    PG_HOST: "${config.pg_host}"
+    PG_PORT: "5434"
+    PG_DATABASE: "${config.pg_database}"
+    PG_USER: "eigent"
+    PG_PASSWORD: "camel"
+cache_tools_list: true
+client_session_timeout_seconds: 60

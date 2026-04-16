@@ -1,0 +1,25 @@
+# Google Sheet
+# Source: https://github.com/xing5/mcp-google-sheets
+# Mock: PG-backed local server
+type: stdio
+name: google_sheet
+params:
+  command: uv
+  args:
+    - "--directory"
+    - "${local_servers_paths}/mcp-google-sheets/environment"
+    - "run"
+    - "mcp-google-sheets"
+  env:
+    PG_HOST: "${config.pg_host}"
+    PG_PORT: "5434"
+    PG_DATABASE: "${config.pg_database}"
+    PG_USER: "eigent"
+    PG_PASSWORD: "camel"
+    PGHOST: "${config.pg_host}"
+    PGPORT: "5434"
+    PGDATABASE: "${config.pg_database}"
+    PGUSER: "eigent"
+    PGPASSWORD: "camel"
+client_session_timeout_seconds: 60
+cache_tools_list: true

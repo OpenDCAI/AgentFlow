@@ -14,7 +14,8 @@ MODULE_PATH = (
     / "server"
     / "backends"
     / "resources"
-    / "mcp_client.py"
+    / "mcp"
+    / "client.py"
 )
 
 
@@ -40,16 +41,17 @@ def test_resolve_toolathlon_placeholders(tmp_path):
     assert resolved == "/opt/toolathlon/local_servers/filesystem/dist/index.js"
 
 
-def test_resolve_mcp_value_rejects_unknown_placeholder(tmp_path):
+def test_resolve_mcp_value_leaves_unknown_placeholders_as_literals(tmp_path):
     module = load_mcp_client_module()
 
-    with pytest.raises(ValueError, match="placeholder"):
-        module.resolve_mcp_value(
-            "${unsupported}/filesystem/dist/index.js",
-            local_servers_path="/opt/toolathlon/local_servers",
-            agent_workspace=str(tmp_path / "workspace"),
-            task_dir=str(tmp_path / "task"),
-        )
+    result = module.resolve_mcp_value(
+        "${unsupported}/filesystem/dist/index.js",
+        local_servers_path="/opt/toolathlon/local_servers",
+        agent_workspace=str(tmp_path / "workspace"),
+        task_dir=str(tmp_path / "task"),
+    )
+
+    assert result == "${unsupported}/filesystem/dist/index.js"
 
 
 def test_pg_env_bridge_prefers_libpq_overrides():
@@ -82,7 +84,6 @@ params:
 
     with pytest.raises(ValueError, match="stdio"):
         module.load_mcp_process_config(
-            toolathlon_root=tmp_path,
             server_name="bad",
             agent_workspace=str(tmp_path / "workspace"),
             config_dir=config_dir,
@@ -108,9 +109,9 @@ params:
     )
 
     config = module.load_mcp_process_config(
-        toolathlon_root=tmp_path,
         server_name="fetch",
         agent_workspace=str(tmp_path / "workspace"),
+        mcp_servers_path=str(tmp_path / "local_servers"),
         config_dir=config_dir,
     )
 
@@ -158,6 +159,9 @@ async def test_stdio_client_initialize_and_list_tools(monkeypatch):
         async def wait(self):
             return self.returncode
 
+        async def communicate(self):
+            return b"", b""
+
     process = FakeProcess(
         [
             json.dumps({"jsonrpc": "2.0", "id": 0, "result": {"serverInfo": {}}}).encode() + b"\n",
@@ -200,7 +204,7 @@ async def test_stdio_client_initialize_and_list_tools(monkeypatch):
 
     assert tools == [{"name": "list_directory"}]
     assert process.terminated is True
-    assert create_kwargs["stderr"] is module.asyncio.subprocess.DEVNULL
+    assert create_kwargs["stderr"] is module.asyncio.subprocess.PIPE
     assert any(b'"method": "initialize"' in payload for payload in process.stdin.writes)
     assert any(b'"method": "notifications/initialized"' in payload for payload in process.stdin.writes)
     assert any(b'"method": "tools/list"' in payload for payload in process.stdin.writes)
@@ -241,6 +245,9 @@ async def test_stdio_client_ignores_mismatched_response_id(monkeypatch):
 
         async def wait(self):
             return self.returncode
+
+        async def communicate(self):
+            return b"", b""
 
     process = FakeProcess(
         [
@@ -301,6 +308,9 @@ async def test_close_kills_process_after_wait_timeout(monkeypatch):
 
         async def wait(self):
             return self.returncode
+
+        async def communicate(self):
+            return b"", b""
 
     async def fake_wait_for(awaitable, timeout):
         if timeout == 5.0:
@@ -371,12 +381,10 @@ async def test_stdio_client_serializes_concurrent_requests(monkeypatch):
     assert max_active_reads == 1
 
 
-def test_load_mcp_process_config_resolves_toolathlon_defaults(tmp_path):
+def test_load_mcp_process_config_resolves_with_mcp_servers_path(tmp_path):
     module = load_mcp_client_module()
-    toolathlon_root = tmp_path / "toolathlon"
-    config_dir = toolathlon_root / "configs" / "mcp_servers"
+    config_dir = tmp_path / "configs"
     config_dir.mkdir(parents=True)
-    (toolathlon_root / "local_servers").mkdir()
     (config_dir / "filesystem.yaml").write_text(
         """
 type: stdio
@@ -397,25 +405,54 @@ cache_tools_list: true
     )
 
     config = module.load_mcp_process_config(
-        toolathlon_root=toolathlon_root,
         server_name="filesystem",
         agent_workspace=str(tmp_path / "workspace"),
+        mcp_servers_path=str(tmp_path / "mcp_servers"),
+        config_dir=config_dir,
     )
 
     assert config.command == "node"
-    assert config.args[0].endswith("/local_servers/filesystem/dist/index.js")
+    assert config.args[0].endswith("/mcp_servers/filesystem/dist/index.js")
     assert config.args[1] == str(tmp_path / "workspace")
     assert config.env["ALLOWED_DIR"] == str(tmp_path / "workspace")
     assert config.cwd == str(tmp_path / "workspace")
     assert config.timeout_seconds == 42
 
 
-def test_load_mcp_process_config_uses_process_env_overrides(tmp_path):
+def test_load_mcp_process_config_backward_compat_toolathlon_root(tmp_path):
     module = load_mcp_client_module()
     toolathlon_root = tmp_path / "toolathlon"
     config_dir = toolathlon_root / "configs" / "mcp_servers"
     config_dir.mkdir(parents=True)
     (toolathlon_root / "local_servers").mkdir()
+    (config_dir / "filesystem.yaml").write_text(
+        """
+type: stdio
+name: filesystem
+params:
+  command: node
+  args:
+    - ${local_servers_paths}/filesystem/dist/index.js
+  cwd: ${agent_workspace}
+        """.strip()
+        + "\n",
+        encoding="utf-8",
+    )
+
+    config = module.load_mcp_process_config(
+        toolathlon_root=toolathlon_root,
+        server_name="filesystem",
+        agent_workspace=str(tmp_path / "workspace"),
+    )
+
+    assert config.command == "node"
+    assert "/local_servers/" in config.args[0]
+
+
+def test_load_mcp_process_config_uses_process_env_overrides(tmp_path):
+    module = load_mcp_client_module()
+    config_dir = tmp_path / "configs"
+    config_dir.mkdir(parents=True)
     (config_dir / "postgres.yaml").write_text(
         """
 type: stdio
@@ -432,9 +469,9 @@ params:
     )
 
     config = module.load_mcp_process_config(
-        toolathlon_root=toolathlon_root,
         server_name="postgres",
         agent_workspace=str(tmp_path / "workspace"),
+        config_dir=config_dir,
         process_env={"PGHOST": "from_process", "PGPORT": "15432"},
     )
 

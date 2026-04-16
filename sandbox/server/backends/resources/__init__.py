@@ -1,3 +1,4 @@
+# sandbox/server/backends/resources/__init__.py
 """
 Stateful resource backend module.
 
@@ -59,7 +60,7 @@ Config example:
 """
 
 from .code import CodeBackend
-from .mcp import MCPBackend
+from .mcp import MCPBackend, ToolathlonGymBackend
 from .rag import RAGBackend, create_rag_backend
 from .vm import VMBackend, create_vm_backend
 
@@ -68,6 +69,7 @@ __all__ = [
     "RAGBackend",
     "MCPBackend",
     "CodeBackend",
+    "ToolathlonGymBackend",
     "create_vm_backend",
     "create_rag_backend",
 ]

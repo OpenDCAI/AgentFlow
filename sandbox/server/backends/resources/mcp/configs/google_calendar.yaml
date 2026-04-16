@@ -1,0 +1,18 @@
+# Google Calendar
+# Source: https://github.com/GongRzhe/Calendar-Autoauth-MCP-Server
+# Mock: PG-backed local server
+type: stdio
+name: google_calendar
+params:
+  command: node
+  args:
+    - "${local_servers_paths}/Calendar-Autoauth-MCP-Server/environment/build/index.js"
+  env:
+    PG_HOST: "${config.pg_host}"
+    PG_PORT: "5434"
+    PG_DATABASE: "${config.pg_database}"
+    PG_USER: "eigent"
+    PG_PASSWORD: "camel"
+  cwd: "${agent_workspace}"
+client_session_timeout_seconds: 60
+cache_tools_list: true

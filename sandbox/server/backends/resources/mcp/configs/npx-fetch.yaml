@@ -1,0 +1,22 @@
+# Fetch web content and convert to various formats (HTML, JSON, Markdown, plain text)
+# Source: https://github.com/tokenizin-agency/mcp-npx-fetch
+# Toolathlon Version: The same
+type: stdio
+name: fetch
+params:
+  command: npx
+  args:
+    - "-y"
+    - "@tokenizin/mcp-npx-fetch"
+  cwd: "${agent_workspace}"
+  env:
+    # Node.js v22+ native fetch() partially respects proxy env vars but fails on
+    # TLS certificate verification through MITM proxies. Since the fetch tool can
+    # reach the internet directly, clear proxy vars to prevent injection by
+    # tool_servers.py (which auto-injects proxy env from the host environment).
+    HTTP_PROXY: ""
+    HTTPS_PROXY: ""
+    http_proxy: ""
+    https_proxy: ""
+client_session_timeout_seconds: 300
+cache_tools_list: true

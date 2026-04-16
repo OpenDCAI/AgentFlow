@@ -1,0 +1,24 @@
+# notion
+# Source: https://github.com/makenotion/notion-mcp-server
+# Toolathlon Version: https://github.com/lockon-n/notion-mcp-server
+# Mock: PG-backed local server
+type: stdio
+name: notion
+params:
+  command: node
+  args:
+    - "${local_servers_paths}/notion-mcp-server/environment/bin/cli-dev.mjs"
+  env:
+    OPENAPI_MCP_HEADERS: "{\"Authorization\": \"Bearer placeholder\", \"Notion-Version\": \"2022-06-28\" }"
+    PG_HOST: "${config.pg_host}"
+    PG_PORT: "5434"
+    PG_DATABASE: "${config.pg_database}"
+    PG_USER: "eigent"
+    PG_PASSWORD: "camel"
+    HTTP_PROXY: ""
+    HTTPS_PROXY: ""
+    http_proxy: ""
+    https_proxy: ""
+  cwd: "${agent_workspace}"
+client_session_timeout_seconds: 60
+cache_tools_list: true

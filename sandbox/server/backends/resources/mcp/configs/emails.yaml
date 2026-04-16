@@ -1,0 +1,28 @@
+# emails
+# Source: https://github.com/lockon-n/emails-mcp
+# Mock: PG-backed local server
+type: stdio
+name: emails
+params:
+  command: uv
+  args:
+    - "--directory"
+    - "${local_servers_paths}/emails-mcp/environment"
+    - "run"
+    - "emails-mcp"
+    - "--attachment_download_path"
+    - "${agent_workspace}/emails_download"
+    - "--attachment_upload_path"
+    - "${agent_workspace}"
+    - "--email_export_path"
+    - "${agent_workspace}/emails_export"
+    - "--config_file"
+    - "${token.emails_config_file}"
+  env:
+    PG_HOST: "${config.pg_host}"
+    PG_PORT: "5434"
+    PG_DATABASE: "${config.pg_database}"
+    PG_USER: "eigent"
+    PG_PASSWORD: "camel"
+client_session_timeout_seconds: 120
+cache_tools_list: true

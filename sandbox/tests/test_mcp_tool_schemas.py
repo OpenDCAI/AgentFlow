@@ -67,7 +67,7 @@ def test_mcp_hyphenated_server_filter_does_not_match_alias_variants(monkeypatch)
         return [
             {
                 "name": "mcp:yahoo-finance.get_stock_info",
-                "description": "real tool",
+                "description": "test tool",
                 "parameters": [],
                 "server": "yahoo-finance",
                 "tool": "get_stock_info",

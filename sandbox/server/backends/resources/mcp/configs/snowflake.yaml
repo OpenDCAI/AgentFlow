@@ -1,0 +1,38 @@
+# snowflake
+# Source: https://github.com/isaacwasserman/mcp-snowflake-server
+# Toolathlon Version: https://github.com/lockon-n/mcp-snowflake-server
+# Mock: PG-backed local server
+type: stdio
+name: snowflake
+params:
+  command: uv
+  args:
+    - "--directory"
+    - "${local_servers_paths}/mcp-snowflake-server/environment"
+    - "run"
+    - "mcp_snowflake_server"
+    - "--account"
+    - "local_pg"
+    - "--warehouse"
+    - "local"
+    - "--user"
+    - "eigent"
+    - "--private_key_path"
+    - ""
+    - "--database"
+    - "HR_ANALYTICS"
+    - "--schema"
+    - "sf"
+    - "--allowed_databases"
+    - "HR_ANALYTICS,SUPPORT_CENTER,SALES_DW"
+    - "--allow_write"
+    - "--exclude-json-results"
+  env:
+    PG_HOST: "${config.pg_host}"
+    PG_PORT: "5434"
+    PG_DATABASE: "${config.pg_database}"
+    PG_USER: "eigent"
+    PG_PASSWORD: "camel"
+  cwd: "${agent_workspace}"
+client_session_timeout_seconds: 120
+cache_tools_list: true

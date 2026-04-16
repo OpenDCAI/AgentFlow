@@ -4,6 +4,7 @@ Tests for the MCP backend skeleton and bridge-tool registration.
 
 import asyncio
 import importlib
+import importlib.util
 import sys
 import types
 from pathlib import Path
@@ -14,7 +15,14 @@ from sandbox.server.backends.base import BackendConfig
 from sandbox.server.config_loader import ConfigLoader
 from sandbox.server.core.tool_executor import ToolExecutor
 
-MODULE_PATH = Path(__file__).resolve().parents[1] / "server" / "backends" / "resources" / "mcp.py"
+MODULE_PATH = (
+    Path(__file__).resolve().parents[1]
+    / "server"
+    / "backends"
+    / "resources"
+    / "mcp"
+    / "toolathlon_gym.py"
+)
 
 
 def remove_resources_modules():
@@ -26,7 +34,27 @@ def remove_resources_modules():
 
 def load_mcp_backend_module():
     remove_resources_modules()
-    return importlib.import_module("sandbox.server.backends.resources.mcp")
+
+    package_name = "sandbox.server.backends.resources"
+    package = types.ModuleType(package_name)
+    package.__path__ = [str(MODULE_PATH.parent.parent)]
+    sys.modules[package_name] = package
+
+    mcp_package_name = f"{package_name}.mcp"
+    mcp_package = types.ModuleType(mcp_package_name)
+    mcp_package.__path__ = [str(MODULE_PATH.parent)]
+    sys.modules[mcp_package_name] = mcp_package
+
+    spec = importlib.util.spec_from_file_location(
+        f"{mcp_package_name}.toolathlon_gym",
+        MODULE_PATH,
+    )
+    module = importlib.util.module_from_spec(spec)
+    assert spec is not None
+    assert spec.loader is not None
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return module
 
 
 class FakeServer:
@@ -44,7 +72,6 @@ def build_backend_config(tmp_path):
     return BackendConfig(
         enabled=True,
         default_config={
-            "toolathlon_root": str(tmp_path / "toolathlon"),
             "enabled_mcp_servers": [],
             "workspace_root": str(tmp_path / "agentflow_mcp"),
         },
@@ -54,7 +81,7 @@ def build_backend_config(tmp_path):
 
 def test_bind_server_registers_manifest_tools(tmp_path):
     module = load_mcp_backend_module()
-    backend = module.MCPBackend(config=build_backend_config(tmp_path))
+    backend = module.ToolathlonGymBackend(config=build_backend_config(tmp_path))
     fake_server = FakeServer()
 
     backend.bind_server(fake_server)
@@ -71,12 +98,13 @@ def test_resources_package_exports_mcp_backend():
     mcp_module = importlib.import_module("sandbox.server.backends.resources.mcp")
 
     assert resources.MCPBackend is mcp_module.MCPBackend
-    assert Path(resources.__file__).resolve() == (MODULE_PATH.parent / "__init__.py").resolve()
+    assert resources.ToolathlonGymBackend is mcp_module.ToolathlonGymBackend
+    assert Path(resources.__file__).resolve() == (MODULE_PATH.parent.parent / "__init__.py").resolve()
 
 
 def test_initialize_creates_worker_workspace(tmp_path, monkeypatch):
     module = load_mcp_backend_module()
-    backend = module.MCPBackend(config=build_backend_config(tmp_path))
+    backend = module.ToolathlonGymBackend(config=build_backend_config(tmp_path))
 
     async def fake_start_enabled_clients(workspace, task_context):
         return {}
@@ -102,7 +130,7 @@ def test_initialize_creates_worker_workspace(tmp_path, monkeypatch):
 
 def test_cleanup_closes_session_clients(tmp_path):
     module = load_mcp_backend_module()
-    backend = module.MCPBackend(config=build_backend_config(tmp_path))
+    backend = module.ToolathlonGymBackend(config=build_backend_config(tmp_path))
 
     class FakeClient:
         def __init__(self):
@@ -125,7 +153,7 @@ def test_cleanup_closes_session_clients(tmp_path):
 
 def test_initialize_copies_initial_workspace(tmp_path, monkeypatch):
     module = load_mcp_backend_module()
-    backend = module.MCPBackend(config=build_backend_config(tmp_path))
+    backend = module.ToolathlonGymBackend(config=build_backend_config(tmp_path))
     task_dir = tmp_path / "task"
     initial_workspace = task_dir / "initial_workspace"
     initial_workspace.mkdir(parents=True)
@@ -152,7 +180,7 @@ def test_initialize_copies_initial_workspace(tmp_path, monkeypatch):
 
 def test_initialize_runs_preprocess_when_requested(tmp_path, monkeypatch):
     module = load_mcp_backend_module()
-    backend = module.MCPBackend(config=build_backend_config(tmp_path))
+    backend = module.ToolathlonGymBackend(config=build_backend_config(tmp_path))
     task_dir = tmp_path / "task"
     preprocess_dir = task_dir / "preprocess"
     preprocess_dir.mkdir(parents=True)
@@ -197,7 +225,7 @@ def test_initialize_runs_preprocess_when_requested(tmp_path, monkeypatch):
 
 def test_initialize_fails_when_preprocess_returns_error(tmp_path, monkeypatch):
     module = load_mcp_backend_module()
-    backend = module.MCPBackend(config=build_backend_config(tmp_path))
+    backend = module.ToolathlonGymBackend(config=build_backend_config(tmp_path))
     task_dir = tmp_path / "task"
     preprocess_dir = task_dir / "preprocess"
     preprocess_dir.mkdir(parents=True)
@@ -237,11 +265,11 @@ def test_initialize_fails_when_preprocess_returns_error(tmp_path, monkeypatch):
 
 def test_bridge_tool_dispatches_to_matching_server_client(tmp_path):
     module = load_mcp_backend_module()
-    backend = module.MCPBackend(
+    backend = module.ToolathlonGymBackend(
         config=BackendConfig(
             enabled=True,
             default_config={
-                "toolathlon_root": str(tmp_path / "toolathlon"),
+                "mcp_servers_path": str(tmp_path / "mcp_servers"),
                 "enabled_mcp_servers": ["filesystem"],
                 "workspace_root": str(tmp_path / "agentflow_mcp"),
             },
@@ -273,11 +301,11 @@ def test_bridge_tool_dispatches_to_matching_server_client(tmp_path):
 
 def test_mcp_bridge_preserves_explicit_session_id_and_skips_runtime_injection(tmp_path):
     module = load_mcp_backend_module()
-    backend = module.MCPBackend(
+    backend = module.ToolathlonGymBackend(
         config=BackendConfig(
             enabled=True,
             default_config={
-                "toolathlon_root": str(tmp_path / "toolathlon"),
+                "mcp_servers_path": str(tmp_path / "mcp_servers"),
                 "enabled_mcp_servers": ["canvas"],
                 "workspace_root": str(tmp_path / "agentflow_mcp"),
             },
@@ -338,11 +366,11 @@ def test_mcp_bridge_preserves_explicit_session_id_and_skips_runtime_injection(tm
 
 def test_bridge_tool_returns_clear_error_for_disabled_server(tmp_path):
     module = load_mcp_backend_module()
-    backend = module.MCPBackend(
+    backend = module.ToolathlonGymBackend(
         config=BackendConfig(
             enabled=True,
             default_config={
-                "toolathlon_root": str(tmp_path / "toolathlon"),
+                "mcp_servers_path": str(tmp_path / "mcp_servers"),
                 "enabled_mcp_servers": ["terminal"],
                 "workspace_root": str(tmp_path / "agentflow_mcp"),
             },
@@ -365,11 +393,11 @@ def test_bridge_tool_returns_clear_error_for_disabled_server(tmp_path):
 
 def test_bridge_tool_returns_clear_error_for_client_failure(tmp_path):
     module = load_mcp_backend_module()
-    backend = module.MCPBackend(
+    backend = module.ToolathlonGymBackend(
         config=BackendConfig(
             enabled=True,
             default_config={
-                "toolathlon_root": str(tmp_path / "toolathlon"),
+                "mcp_servers_path": str(tmp_path / "mcp_servers"),
                 "enabled_mcp_servers": ["filesystem"],
                 "workspace_root": str(tmp_path / "agentflow_mcp"),
             },
@@ -400,11 +428,11 @@ def test_bridge_tool_returns_clear_error_for_client_failure(tmp_path):
 
 def test_bridge_tool_returns_clear_error_for_missing_client(tmp_path):
     module = load_mcp_backend_module()
-    backend = module.MCPBackend(
+    backend = module.ToolathlonGymBackend(
         config=BackendConfig(
             enabled=True,
             default_config={
-                "toolathlon_root": str(tmp_path / "toolathlon"),
+                "mcp_servers_path": str(tmp_path / "mcp_servers"),
                 "enabled_mcp_servers": ["filesystem"],
                 "workspace_root": str(tmp_path / "agentflow_mcp"),
             },
@@ -446,11 +474,11 @@ def test_initialize_passes_env_overrides_to_process_config(tmp_path, monkeypatch
     monkeypatch.setattr(module, "MCPStdioClient", FakeClient)
     monkeypatch.setattr(module, "load_mcp_process_config", fake_load_mcp_process_config)
 
-    backend = module.MCPBackend(
+    backend = module.ToolathlonGymBackend(
         config=BackendConfig(
             enabled=True,
             default_config={
-                "toolathlon_root": str(tmp_path / "toolathlon"),
+                "mcp_servers_path": str(tmp_path / "mcp_servers"),
                 "enabled_mcp_servers": ["filesystem"],
                 "workspace_root": str(tmp_path / "agentflow_mcp"),
                 "env_overrides": {"PGHOST": "toolathlon_pg", "PGPORT": "15432"},
@@ -499,11 +527,11 @@ def test_initialize_closes_started_clients_when_later_server_fails(tmp_path, mon
     monkeypatch.setattr(module, "MCPStdioClient", FakeClient)
     monkeypatch.setattr(module, "load_mcp_process_config", fake_load_mcp_process_config)
 
-    backend = module.MCPBackend(
+    backend = module.ToolathlonGymBackend(
         config=BackendConfig(
             enabled=True,
             default_config={
-                "toolathlon_root": str(tmp_path / "toolathlon"),
+                "mcp_servers_path": str(tmp_path / "mcp_servers"),
                 "enabled_mcp_servers": ["filesystem", "terminal"],
                 "workspace_root": str(tmp_path / "agentflow_mcp"),
             },
@@ -540,5 +568,5 @@ def test_mcp_config_template_parses():
     assert "mcp" in config.resources
     assert (
         config.resources["mcp"].backend_class
-        == "sandbox.server.backends.resources.mcp.MCPBackend"
+        == "sandbox.server.backends.resources.mcp.toolathlon_gym.ToolathlonGymBackend"
     )

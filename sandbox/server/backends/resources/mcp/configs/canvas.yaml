@@ -1,0 +1,23 @@
+# canvas
+# Source: https://github.com/DMontgomery40/mcp-canvas-lms
+# Toolathlon Version: https://github.com/lockon-n/mcp-canvas-lms
+# Mock: PG-backed local server
+type: stdio
+name: canvas
+params:
+  command: node
+  args:
+    - "${local_servers_paths}/mcp-canvas-lms/environment/build/index.js"
+  env:
+    CANVAS_API_TOKEN: "${token.canvas_api_token}"
+    CANVAS_STUDENT_EMAIL: "${token.canvas_student_email}"
+    CANVAS_DOMAIN: "localhost:8080"
+    NODE_TLS_REJECT_UNAUTHORIZED: "0"
+    PG_HOST: "${config.pg_host}"
+    PG_PORT: "5434"
+    PG_DATABASE: "${config.pg_database}"
+    PG_USER: "eigent"
+    PG_PASSWORD: "camel"
+  cwd: "${agent_workspace}"
+client_session_timeout_seconds: 60
+cache_tools_list: true

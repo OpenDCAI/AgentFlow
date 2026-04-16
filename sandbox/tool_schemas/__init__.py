@@ -13,8 +13,8 @@ from .vm_tools import get_vm_tool_schemas
 from .doc_tools import get_doc_tool_schemas
 from .ds_tools import get_ds_tool_schemas
 from .sql_tools import get_sql_tool_schemas
-from .mcp_tools import get_mcp_tool_schemas
 from .code_tools import get_code_tool_schemas
+from .mcp import get_mcp_tool_schemas
 
 
 def _tool_name_aliases(name: str) -> set[str]:
@@ -58,9 +58,22 @@ def get_tool_schemas(allowed_tools: Optional[List[str]] = None) -> List[Dict[str
         + get_doc_tool_schemas()
         + get_ds_tool_schemas()
         + get_sql_tool_schemas()
-        + get_mcp_tool_schemas()
         + get_code_tool_schemas()
     )
+
+    # MCP manifest (438 tools) is expensive to load into every prompt.
+    # Only include when the caller explicitly requests them via
+    # allowed_tools (e.g. "mcp:*") or when no filter is given.
+    _needs_mcp = False
+    if not allowed_tools:
+        _needs_mcp = True
+    else:
+        for tool in allowed_tools:
+            lower = tool.lower()
+            if lower.startswith("mcp:") or lower.startswith("mcp.") or lower.startswith("mcp_") or lower.startswith("mcp-"):
+                _needs_mcp = True
+    if _needs_mcp:
+        all_schemas += get_mcp_tool_schemas()
 
     if not allowed_tools:
         return all_schemas
@@ -107,7 +120,7 @@ def get_tools_by_resource(resource_type: str) -> List[Dict[str, Any]]:
     Get tools for a specific resource type.
 
     Args:
-        resource_type: Resource type like "vm", "rag", "web", "bash", "code"
+        resource_type: Resource type like "vm", "rag", "web", "mcp", "code"
 
     Returns:
         List of tool schemas for that resource
@@ -133,6 +146,6 @@ __all__ = [
     "get_doc_tool_schemas",
     "get_ds_tool_schemas",
     "get_sql_tool_schemas",
-    "get_mcp_tool_schemas",
     "get_code_tool_schemas",
+    "get_mcp_tool_schemas",
 ]

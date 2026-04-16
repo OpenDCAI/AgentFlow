@@ -8,9 +8,8 @@
     "mcp": {
       "enabled": true,
       "description": "Toolathlon-GYM MCP backend",
-      "backend_class": "sandbox.server.backends.resources.mcp.MCPBackend",
+      "backend_class": "sandbox.server.backends.resources.mcp.toolathlon_gym.ToolathlonGymBackend",
       "config": {
-        "toolathlon_root": "${TOOLATHLON_ROOT}",
         "enabled_mcp_servers": ["filesystem", "terminal", "snowflake"],
         "workspace_root": "${TOOLATHLON_WORKSPACE_ROOT:-/tmp/agentflow_mcp}",
         "env_overrides": {

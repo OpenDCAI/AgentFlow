@@ -1,0 +1,13 @@
+# file system server - for reading and writing files
+# Source: https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem
+# Mock: local server
+type: stdio
+name: filesystem
+params:
+  command: node
+  args:
+    - "${local_servers_paths}/filesystem/environment/dist/index.js"
+    - "${agent_workspace}"
+  cwd: "${agent_workspace}"
+client_session_timeout_seconds: 900
+cache_tools_list: true
