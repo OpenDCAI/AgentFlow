@@ -127,9 +127,12 @@ This is an intentional example-oriented default, not a removal of backend capabi
 
 The same config will also define an explicit MCP server path contract so the checked-in MCP YAMLs can resolve `${local_servers_paths}` at runtime. The planned default is an environment-backed path such as:
 
-- `mcp_servers_path: "${TOOLATHLON_GYM_ROOT}/mcp_servers"`
+- `mcp_servers_path: "${TOOLATHLON_GYM_ROOT}/local_servers"`
 
 The implementation will rely on the existing MCP backend translation layer: `ToolathlonGymBackend` passes `mcp_servers_path` into the MCP YAML loader, and that loader substitutes the value into `${local_servers_paths}` when resolving each bundled server YAML.
+In other words, `mcp_servers_path` is the JSON config field name, while `${local_servers_paths}` is the existing MCP YAML placeholder name for the same `local_servers/` directory.
+
+The current repository version of `configs/sandbox-server/mcp_config.json` does not yet define `mcp_servers_path`; adding that field is part of this example work.
 
 No separate `mcp_all_config.json` or metadata registry file will be introduced.
 
@@ -218,9 +221,9 @@ Server name mapping will follow the current MCP backend naming:
 
 - a local `toolathlon_gym` checkout that has already completed its own setup and is running before AgentFlow starts
 - `TOOLATHLON_GYM_ROOT` pointing to that checkout
-- the MCP server bundle reachable at `${TOOLATHLON_GYM_ROOT}/mcp_servers`
+- the MCP server bundle reachable at `${TOOLATHLON_GYM_ROOT}/local_servers`
 - required local runtimes such as `node` and `uv`
-- the following checked-in local defaults in `configs/sandbox-server/mcp_config.json`:
+- the following planned example defaults in `configs/sandbox-server/mcp_config.json`:
   - `PGHOST=localhost`
   - `PGPORT=5432`
   - `PGUSER=eigent`
