@@ -1,7 +1,7 @@
 ## MCP and Coding Examples Design
 
 Date: 2026-04-20
-Status: Proposed for planning
+Status: Approved for planning
 
 ## Summary
 
@@ -64,7 +64,7 @@ Without these assets, the new backends are discoverable in code but not presente
 After this work, the repository will present MCP and Coding the same way it already presents RAG, Doc, DS, and Text2SQL:
 
 - a dedicated example document
-- a dedicated sandbox config entry point
+- a sandbox config entry point
 - a synthesis config
 - a trajectory config
 - seed data
@@ -110,7 +110,26 @@ The existing MCP sandbox config path remains the canonical entry point:
 
 - `configs/sandbox-server/mcp_config.json`
 
-This file will be updated so its `enabled_mcp_servers` covers the full MCP server set used by the backend and Toolathlon-GYM integration path.
+This file will be updated so its default `enabled_mcp_servers` matches the exact server subset needed by the official example domains, rather than the full 25-server backend surface:
+
+- `canvas`
+- `snowflake`
+- `woocommerce`
+- `yahoo-finance`
+- `youtube`
+- `youtube-transcript`
+- `rail_12306`
+- `filesystem`
+
+This keeps Step 1 aligned with the example scope while still allowing all six documented domains to run from the shared MCP sandbox entry point.
+
+This is an intentional example-oriented default, not a removal of backend capability. The current checked-in `mcp_config.json` already enables only a subset of servers today, and full-surface MCP usage will remain available by expanding `enabled_mcp_servers` in the same file or in a user-local copy outside the official examples.
+
+The same config will also define an explicit MCP server path contract so the checked-in MCP YAMLs can resolve `${local_servers_paths}` at runtime. The planned default is an environment-backed path such as:
+
+- `mcp_servers_path: "${TOOLATHLON_GYM_ROOT}/mcp_servers"`
+
+The implementation will rely on the existing MCP backend translation layer: `ToolathlonGymBackend` passes `mcp_servers_path` into the MCP YAML loader, and that loader substitutes the value into `${local_servers_paths}` when resolving each bundled server YAML.
 
 No separate `mcp_all_config.json` or metadata registry file will be introduced.
 
@@ -148,9 +167,9 @@ Therefore the official Coding example will use:
 
 - a small demo repository committed inside AgentFlow
 - `resource_types=["code"]`
-- `resource_init_configs["code"]["content"]["source_dir"]` pointing to that demo repository
+- `resource_init_configs["code"]["content"]["source_dir"]` pointing to that demo repository through the explicit repo-root contract `${AGENTFLOW_REPO_ROOT}/seeds/code/seed/demo_repo`
 
-Users can later replace `source_dir` with their own repository path, but the official example will ship with a known default so its seeds and benchmark remain correct.
+AgentFlow's config loader already expands `${VAR}` placeholders before backend initialization, so no new path resolver is needed for this contract. The official docs will require exporting `AGENTFLOW_REPO_ROOT` after `cd AgentFlow`, and Step 2 / Step 3 will use that variable consistently. Users can later replace `source_dir` with their own repository path, but the official example will ship with a known default so its seeds and benchmark remain correct.
 
 ### 7. CodingAgent uses demo-scale mixed tasks
 
@@ -187,6 +206,32 @@ The MCP example will cover the six data-rich Toolathlon-GYM domains already refl
 - `train`
 
 The docs will cover all six domains, but each domain is still a small demo workflow rather than a long end-to-end enterprise task.
+
+Server name mapping will follow the current MCP backend naming:
+
+- `yahoo_finance` uses MCP server `yahoo-finance`
+- `train` uses MCP server `rail_12306`
+
+### Sandbox prerequisites and server subset
+
+`examples/MCPAgent.md` will document the minimum local prerequisites needed for Step 1 to be runnable:
+
+- a local `toolathlon_gym` checkout that has already completed its own setup and is running before AgentFlow starts
+- `TOOLATHLON_GYM_ROOT` pointing to that checkout
+- the MCP server bundle reachable at `${TOOLATHLON_GYM_ROOT}/mcp_servers`
+- required local runtimes such as `node` and `uv`
+- the following checked-in local defaults in `configs/sandbox-server/mcp_config.json`:
+  - `PGHOST=localhost`
+  - `PGPORT=5432`
+  - `PGUSER=eigent`
+  - `PGPASSWORD=camel`
+  - `PGDATABASE=toolathlon_gym`
+  - `CANVAS_DOMAIN=localhost:8080`
+  - `WORDPRESS_SITE_URL=http://localhost:8081`
+
+AgentFlow will not bootstrap the Toolathlon-GYM services itself in the official example. If a local setup differs from those defaults, the doc will show them as explicit override points in `mcp_config.json`.
+
+The checked-in MCP sandbox config will enable only the shared example subset listed in Core Decision 3, so warmup behavior matches the domains covered by the example doc.
 
 ### Files to add
 
@@ -235,6 +280,8 @@ Each `configs/synthesis/mcp_<domain>_config.json` will follow the same structure
 - small `qa_examples`
 - `seeds_file`
 - `output_dir`
+
+These configs will rely on the shared MCP sandbox startup path above rather than redefining server startup details per domain.
 
 ### Trajectory config shape
 
@@ -294,6 +341,8 @@ Expected MCP task style:
 - optionally save a result artifact into the workspace through filesystem tools
 - produce answers that are easy to verify in a small benchmark
 
+Benchmark correctness will be defined by the final textual answer in each benchmark row. Workspace artifact creation is allowed as an illustrative side effect, but it is not required for benchmark success and will not be treated as a scoring criterion in the official example data.
+
 Examples of target task shape:
 
 - list a small set of course or user information from Canvas
@@ -317,6 +366,14 @@ It will not explain internal domain orchestration, workspace strategy, or design
 
 ## CodingAgent Design
 
+### Sandbox entry point
+
+`examples/CodingAgent.md` will reuse the existing coding sandbox config entry point:
+
+- `configs/sandbox-server/code_config.json`
+
+Step 1 in the Coding example will start that config directly, matching the current repository pattern of reusing a checked-in sandbox config rather than introducing a second coding sandbox file.
+
 ### Files to add
 
 Add:
@@ -325,7 +382,11 @@ Add:
 - `configs/synthesis/code_config.json`
 - `configs/trajectory/code_trajectory.json`
 - `seeds/code/seeds.jsonl`
-- `seeds/code/seed/demo_repo/...`
+- `seeds/code/seed/demo_repo/README.md`
+- `seeds/code/seed/demo_repo/app.py`
+- `seeds/code/seed/demo_repo/config/app_config.json`
+- `seeds/code/seed/demo_repo/lib/helpers.py`
+- `seeds/code/seed/demo_repo/tests/smoke_test.py`
 - `benchmark/code_benchmark.jsonl`
 
 The demo repository under `seeds/code/seed/demo_repo/` should be small, stable, and easy to understand.
@@ -337,7 +398,7 @@ The demo repository under `seeds/code/seed/demo_repo/` should be small, stable, 
 - model settings
 - sandbox settings
 - `resource_types: ["code"]`
-- `resource_init_configs.code.content.source_dir`
+- `resource_init_configs.code.content.source_dir` using the explicit repo-root contract `${AGENTFLOW_REPO_ROOT}/seeds/code/seed/demo_repo`
 - `available_tools: ["code-*"]`
 - coding-specific `sampling_tips`
 - coding-specific `synthesis_tips`
@@ -353,7 +414,7 @@ The demo repository under `seeds/code/seed/demo_repo/` should be small, stable, 
 - model settings
 - sandbox settings
 - `resource_types: ["code"]`
-- `resource_init_configs.code.content.source_dir`
+- `resource_init_configs.code.content.source_dir` using the same explicit repo-root contract `${AGENTFLOW_REPO_ROOT}/seeds/code/seed/demo_repo`
 - `available_tools: ["code-*"]`
 - coding-specific `system_prompt`
 - `data_path`
@@ -372,10 +433,11 @@ The demo repository should be intentionally small and support both task types:
 
 The repo should include a few files such as:
 
-- a small entry file
-- one config file
-- one or two helper modules
-- at least one easily verifiable placeholder or token
+- `README.md` describing the tiny app
+- `app.py` as the main entry file
+- `config/app_config.json` with one or two settings used by the app
+- `lib/helpers.py` with at least one helper imported by `app.py`
+- `tests/smoke_test.py` for a minimal verification path
 
 The goal is not realism through size. The goal is stable, example-quality coding tasks.
 
@@ -389,6 +451,14 @@ Coding benchmark tasks should be few and simple, mixing:
 - edit tasks such as replacing a placeholder string or updating a simple setting
 
 The benchmark should be authored against the committed demo repository so expected answers remain stable.
+
+Benchmark contract:
+
+- read-only tasks will use the standard `id` + `question` + `answer` shape
+- edit tasks will still run under `trajectory_only: true` and `evaluate_results: false`, so they are for trajectory capture rather than auto-grading
+- edit-task rows will include a short expected completion statement in `answer` plus metadata such as `target_files` and `check_command` to document the intended post-run verification path
+- those extra verification fields will live under benchmark `metadata`, so existing rollout loaders can safely ignore them
+- the recommended verification path for edit tasks will be the committed `tests/smoke_test.py`, not rollout-time automatic scoring
 
 ### Coding example document shape
 
@@ -411,10 +481,12 @@ The implementation should be considered correct only if:
 
 - the new example docs match the style and granularity of current examples
 - the new configs parse successfully
+- `configs/sandbox-server/mcp_config.json` resolves MCP server executables through the documented `TOOLATHLON_GYM_ROOT` contract
 - MCP synthesis and rollout configs align with the real MCP backend surface
 - Coding synthesis and rollout configs align with the real code backend surface
 - the demo seeds and benchmarks are internally consistent with the assets they target
 - representative runs can be executed by following the example documents
+- Coding Step 1, QA synthesis, and rollout remain runnable when the documented `cd AgentFlow` plus `export AGENTFLOW_REPO_ROOT=$(pwd)` prerequisite is followed
 
 ## Open Questions Resolved
 
