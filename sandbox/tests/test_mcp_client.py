@@ -419,6 +419,38 @@ cache_tools_list: true
     assert config.timeout_seconds == 42
 
 
+def test_load_mcp_process_config_resolves_toolathlon_local_servers_path(tmp_path):
+    module = load_mcp_client_module()
+    config_dir = tmp_path / "configs" / "mcp_servers"
+    config_dir.mkdir(parents=True)
+    (config_dir / "filesystem.yaml").write_text(
+        """
+type: stdio
+name: filesystem
+params:
+  command: node
+  args:
+    - ${local_servers_paths}/filesystem/environment/dist/index.js
+    - ${agent_workspace}
+        """.strip()
+        + "\n",
+        encoding="utf-8",
+    )
+
+    config = module.load_mcp_process_config(
+        server_name="filesystem",
+        agent_workspace="/tmp/agentflow-worker",
+        mcp_servers_path="/tmp/toolathlon/local_servers",
+        config_dir=config_dir,
+    )
+
+    assert config.command == "node"
+    assert config.args == [
+        "/tmp/toolathlon/local_servers/filesystem/environment/dist/index.js",
+        "/tmp/agentflow-worker",
+    ]
+
+
 def test_load_mcp_process_config_backward_compat_toolathlon_root(tmp_path):
     module = load_mcp_client_module()
     toolathlon_root = tmp_path / "toolathlon"

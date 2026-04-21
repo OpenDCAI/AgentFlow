@@ -10,14 +10,26 @@
       "description": "Toolathlon-GYM MCP backend",
       "backend_class": "sandbox.server.backends.resources.mcp.toolathlon_gym.ToolathlonGymBackend",
       "config": {
-        "enabled_mcp_servers": ["filesystem", "terminal", "snowflake"],
+        "mcp_servers_path": "${TOOLATHLON_GYM_ROOT}/local_servers",
+        "enabled_mcp_servers": [
+          "canvas",
+          "snowflake",
+          "woocommerce",
+          "yahoo-finance",
+          "youtube",
+          "youtube-transcript",
+          "rail_12306",
+          "filesystem"
+        ],
         "workspace_root": "${TOOLATHLON_WORKSPACE_ROOT:-/tmp/agentflow_mcp}",
         "env_overrides": {
-          "PGHOST": "${PGHOST:-toolathlon_pg}",
+          "PGHOST": "${PGHOST:-localhost}",
           "PGPORT": "${PGPORT:-5432}",
           "PGUSER": "${PGUSER:-eigent}",
           "PGPASSWORD": "${PGPASSWORD:-camel}",
-          "PGDATABASE": "${PGDATABASE:-toolathlon_gym}"
+          "PGDATABASE": "${PGDATABASE:-toolathlon_gym}",
+          "CANVAS_DOMAIN": "${CANVAS_DOMAIN:-localhost:8080}",
+          "WORDPRESS_SITE_URL": "${WORDPRESS_SITE_URL:-http://localhost:8081}"
         }
       }
     }
