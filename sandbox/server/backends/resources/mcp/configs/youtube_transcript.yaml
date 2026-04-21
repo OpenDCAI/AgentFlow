@@ -1,21 +1,23 @@
-# YouTube Transcript
+# YouTube Transcript MCP Server (PostgreSQL-backed, no real YouTube API calls)
 # Source: https://github.com/jkawamoto/mcp-youtube-transcript
-# Mock: PG-backed local server
+# Toolathlon Version: local pg-backed version in local_mcp_servers_copy/mcp-youtube-transcript
+# Schema: youtube (transcripts, videos tables)
+# Toolathlon_GYM: ../../local_servers/mcp-youtube-transcript
 type: stdio
 name: youtube-transcript
 params:
-  command: uv
+  # Use venv python directly instead of `uv run` to avoid stdin being consumed by uv
+  # (uv run reads stdin before passing to the child process, causing FastMCP to see EOF and exit)
+  command: "${local_servers_paths}/mcp-youtube-transcript/.venv/bin/python3"
   args:
-    - "--directory"
-    - "${local_servers_paths}/mcp-youtube-transcript/environment"
-    - "run"
-    - "mcp-youtube-transcript"
+    - "-c"
+    - "import sys,os; os.chdir('${local_servers_paths}/mcp-youtube-transcript'); from mcp_youtube_transcript import server; import anyio; anyio.run(server(50000).run_stdio_async)"
   env:
-    PG_HOST: "${config.pg_host}"
-    PG_PORT: "5434"
-    PG_DATABASE: "${config.pg_database}"
-    PG_USER: "eigent"
-    PG_PASSWORD: "camel"
-  cwd: "${agent_workspace}"
-client_session_timeout_seconds: 60
+    PG_HOST: "postgres"
+    PG_PORT: "5432"
+    PG_DATABASE: "toolathlon"
+    PG_USER: "postgres"
+    PG_PASSWORD: "postgres"
+  cwd: "${local_servers_paths}/mcp-youtube-transcript"
+client_session_timeout_seconds: 20
 cache_tools_list: true

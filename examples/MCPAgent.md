@@ -95,6 +95,11 @@ python3 synthesis/pipeline.py \
   --output-dir results/mcp_train
 ```
 
+> Note: in this repo, synthesis currently writes to the fixed aggregation directory `results/ds_synthesized_qa/`, even if you provide a different `--output-dir`.
+
+- QA: `results/ds_synthesized_qa/synthesized_qa.jsonl`
+- Trajectory: `results/ds_synthesized_qa/trajectories.jsonl`
+
 These runs synthesize QA pairs and save the corresponding tool-use traces for the selected MCP domain.
 
 ## Step 3: Synthesize Trajectory Data

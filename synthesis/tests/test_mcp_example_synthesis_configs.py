@@ -6,6 +6,8 @@ import pytest
 from synthesis.core.config import SynthesisConfig
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+OPENAI_API_KEY = "secret"
+OPENAI_API_URL = "https://example.test/v1"
 EXPECTED = {
     "canvas": {
         "tools": ["mcp:canvas.*", "mcp:filesystem.*"],
@@ -44,9 +46,27 @@ EXPECTED = {
 }
 
 
+def _set_openai_env(monkeypatch: pytest.MonkeyPatch, enabled: bool) -> None:
+    if enabled:
+        monkeypatch.setenv("OPENAI_API_KEY", OPENAI_API_KEY)
+        monkeypatch.setenv("OPENAI_API_URL", OPENAI_API_URL)
+        return
+
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    monkeypatch.delenv("OPENAI_API_URL", raising=False)
+
+
+def _expected_openai_value(enabled: bool, env_value: str, placeholder: str) -> str:
+    if enabled:
+        return env_value
+    return placeholder
+
+
+@pytest.mark.parametrize("env_enabled", [False, True], ids=["env-unset", "env-set"])
 @pytest.mark.parametrize("domain", sorted(EXPECTED))
-def test_mcp_synthesis_config_contract(domain):
+def test_mcp_synthesis_config_contract(domain, env_enabled, monkeypatch):
     expected = EXPECTED[domain]
+    _set_openai_env(monkeypatch, env_enabled)
     config_path = REPO_ROOT / "configs" / "synthesis" / f"mcp_{domain}_config.json"
     raw = json.loads(config_path.read_text(encoding="utf-8"))
     config = SynthesisConfig.from_json(str(config_path))
@@ -58,8 +78,12 @@ def test_mcp_synthesis_config_contract(domain):
     assert raw_init in ({}, {"mcp": {"content": {}}})
     assert config.resource_init_configs in ({}, {"mcp": {"content": {}}})
     assert config.model_name == "openai/gpt-oss-120b"
-    assert config.api_key == "${OPENAI_API_KEY}"
-    assert config.base_url == "${OPENAI_API_URL}"
+    assert config.api_key == _expected_openai_value(
+        env_enabled, OPENAI_API_KEY, "${OPENAI_API_KEY}"
+    )
+    assert config.base_url == _expected_openai_value(
+        env_enabled, OPENAI_API_URL, "${OPENAI_API_URL}"
+    )
     assert config.max_depth == 12
     assert config.branching_factor == 2
     assert config.depth_threshold == 2
@@ -73,3 +97,28 @@ def test_mcp_synthesis_config_contract(domain):
     assert len(config.qa_examples) >= 2
     assert config.sampling_tips.strip()
     assert config.synthesis_tips.strip()
+
+
+@pytest.mark.parametrize("env_enabled", [False, True], ids=["env-unset", "env-set"])
+def test_mcp_synthesis_config_ignores_unknown_env_placeholders(
+    caplog, monkeypatch, env_enabled
+):
+    _set_openai_env(monkeypatch, env_enabled)
+    monkeypatch.delenv("IGNORED_SYNTHESIS_VAR", raising=False)
+
+    with caplog.at_level("WARNING", logger="ConfigLoader"):
+        config = SynthesisConfig.from_dict(
+            {
+                "api_key": "${OPENAI_API_KEY}",
+                "base_url": "${OPENAI_API_URL}",
+                "unknown_field": "${IGNORED_SYNTHESIS_VAR}",
+            }
+        )
+
+    assert config.api_key == _expected_openai_value(
+        env_enabled, OPENAI_API_KEY, "${OPENAI_API_KEY}"
+    )
+    assert config.base_url == _expected_openai_value(
+        env_enabled, OPENAI_API_URL, "${OPENAI_API_URL}"
+    )
+    assert "IGNORED_SYNTHESIS_VAR" not in caplog.text

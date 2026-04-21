@@ -17,8 +17,9 @@ def _read_jsonl(path: Path):
     ]
 
 
-def test_code_rollout_config_contract():
+def test_code_rollout_config_contract_expands_repo_root_when_set(monkeypatch):
     config_path = REPO_ROOT / "configs" / "trajectory" / "code_trajectory.json"
+    monkeypatch.setenv("AGENTFLOW_REPO_ROOT", str(REPO_ROOT))
     config = RolloutConfig.from_json(str(config_path))
 
     assert config.benchmark_name == "code_trajectory"
@@ -30,7 +31,7 @@ def test_code_rollout_config_contract():
     assert config.resource_init_configs == {
         "code": {
             "content": {
-                "source_dir": "${AGENTFLOW_REPO_ROOT}/seeds/code/seed/demo_repo"
+                "source_dir": f"{REPO_ROOT}/seeds/code/seed/demo_repo"
             }
         }
     }
@@ -38,6 +39,55 @@ def test_code_rollout_config_contract():
     assert config.trajectory_only is True
     assert config.save_trajectories is True
     assert config.save_summary is False
+
+
+def test_code_rollout_config_preserves_placeholder_when_repo_root_unset(monkeypatch):
+    config_path = REPO_ROOT / "configs" / "trajectory" / "code_trajectory.json"
+    monkeypatch.delenv("AGENTFLOW_REPO_ROOT", raising=False)
+
+    config = RolloutConfig.from_json(str(config_path))
+
+    assert config.resource_init_configs == {
+        "code": {
+            "content": {
+                "source_dir": "${AGENTFLOW_REPO_ROOT}/seeds/code/seed/demo_repo"
+            }
+        }
+    }
+
+
+def test_rollout_config_from_dict_expands_nested_env_values(monkeypatch):
+    monkeypatch.setenv("CODE_ROOT", "/tmp/demo")
+    monkeypatch.delenv("UNSET_VALUE", raising=False)
+
+    config = RolloutConfig.from_dict(
+        {
+            "resource_init_configs": {
+                "code": {
+                    "content": {
+                        "source_dir": "${CODE_ROOT}/repo",
+                        "fallback_dir": "${UNSET_VALUE:-/tmp/fallback}",
+                        "preserved_dir": "${UNSET_VALUE}/repo",
+                        "artifacts": [
+                            "${CODE_ROOT}/one",
+                            "${UNSET_VALUE:-/tmp/two}",
+                            "${UNSET_VALUE}/three",
+                        ],
+                    }
+                }
+            }
+        }
+    )
+
+    content = config.resource_init_configs["code"]["content"]
+    assert content["source_dir"] == "/tmp/demo/repo"
+    assert content["fallback_dir"] == "/tmp/fallback"
+    assert content["preserved_dir"] == "${UNSET_VALUE}/repo"
+    assert content["artifacts"] == [
+        "/tmp/demo/one",
+        "/tmp/two",
+        "${UNSET_VALUE}/three",
+    ]
 
 
 def test_code_seed_file_contract():

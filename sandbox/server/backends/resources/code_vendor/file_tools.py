@@ -89,6 +89,10 @@ def _format_command_error(tool_name: str, returncode: int, stdout: str, stderr: 
     return f"{summary}\n{details}"
 
 
+def _resolve_search_base(args: dict[str, Any], ctx: Any) -> Path:
+    return Path(args.get("path") or ctx.cwd)
+
+
 class ReadTool(Tool):
     name = "Read"
     description = "Read a file and return its contents with line numbers."
@@ -141,7 +145,7 @@ class GlobTool(Tool):
         }
 
     async def call(self, args: dict[str, Any], ctx: Any) -> str:
-        base = Path(args.get("path", ctx.cwd))
+        base = _resolve_search_base(args, ctx)
         pattern = args["pattern"]
         matches = sorted(base.glob(pattern))
         return "\n".join(str(match) for match in matches) or "(no matches)"
@@ -168,7 +172,7 @@ class GrepTool(Tool):
         }
 
     async def call(self, args: dict[str, Any], ctx: Any) -> str:
-        base = Path(args.get("path", ctx.cwd))
+        base = _resolve_search_base(args, ctx)
         cmd = ["grep", "-r", "-n"]
         if "glob" in args:
             cmd += ["--include", args["glob"]]

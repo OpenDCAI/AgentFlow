@@ -17,6 +17,10 @@ logger = logging.getLogger("MCPStdioClient")
 _PLACEHOLDER_PATTERN = re.compile(r"\$\{([^}]+)\}")
 _SUPPORTED_PLACEHOLDERS = {"local_servers_paths", "agent_workspace", "task_dir"}
 _BUNDLED_CONFIG_DIR = Path(__file__).parent / "configs"
+_BUNDLED_PYTHON_SERVER_FALLBACKS = {
+    "yahoo-finance": ("yahoo-finance-mcp", "server.py"),
+    "youtube-transcript": ("mcp-youtube-transcript", "run_server.py"),
+}
 
 
 @dataclass
@@ -80,6 +84,65 @@ def build_server_env(
     return {k: str(v) for k, v in merged.items() if v is not None}
 
 
+def discover_mcp_config_dir(mcp_servers_path: str | Path | None) -> Path | None:
+    if not mcp_servers_path:
+        return None
+
+    servers_path = Path(mcp_servers_path)
+    if servers_path.name != "local_servers" or not servers_path.is_dir():
+        return None
+
+    candidate = servers_path.parent / "configs" / "mcp_servers"
+    if candidate.is_dir():
+        return candidate
+    return None
+
+
+def _is_usable_executable(path: str) -> bool:
+    if not path:
+        return False
+
+    executable = Path(path)
+    return executable.is_file() and os.access(executable, os.X_OK)
+
+
+def _is_toolathlon_config_dir(config_dir: Path, mcp_servers_path: str | Path | None) -> bool:
+    resolved_config_dir = config_dir.resolve()
+    if resolved_config_dir == _BUNDLED_CONFIG_DIR.resolve():
+        return True
+
+    discovered_config_dir = discover_mcp_config_dir(mcp_servers_path)
+    if discovered_config_dir is None:
+        return False
+
+    return resolved_config_dir == discovered_config_dir.resolve()
+
+
+def _apply_bundled_python_server_fallback(
+    *,
+    server_name: str,
+    config_dir: Path,
+    command: str,
+    args: list[str],
+    cwd: str,
+    local_servers_path: str,
+) -> tuple[str, list[str], str]:
+    fallback = _BUNDLED_PYTHON_SERVER_FALLBACKS.get(server_name)
+    if fallback is None or not _is_toolathlon_config_dir(config_dir, local_servers_path):
+        return command, args, cwd
+
+    if ".venv/bin/python3" not in command or _is_usable_executable(command):
+        return command, args, cwd
+
+    project_dir_name, entrypoint = fallback
+    project_dir = Path(local_servers_path) / project_dir_name if local_servers_path else Path(cwd)
+    if not (project_dir / entrypoint).is_file():
+        return command, args, cwd
+
+    project_dir_str = str(project_dir)
+    return "uv", ["--directory", project_dir_str, "run", "python", entrypoint], project_dir_str
+
+
 def load_mcp_process_config(
     *,
     server_name: str,
@@ -98,6 +161,9 @@ def load_mcp_process_config(
             config_dir = toolathlon_root / "configs" / "mcp_servers"
         if mcp_servers_path is None:
             mcp_servers_path = str(toolathlon_root / "local_servers")
+
+    if config_dir is None:
+        config_dir = discover_mcp_config_dir(mcp_servers_path)
 
     config_path = Path(config_dir) if config_dir else _BUNDLED_CONFIG_DIR
     if not config_path.exists():
@@ -155,7 +221,22 @@ def load_mcp_process_config(
     cwd_value = resolve(params.get("cwd", agent_workspace))
 
     runtime_env = dict(os.environ) if process_env is None else dict(process_env)
+    command, args, cwd_value = _apply_bundled_python_server_fallback(
+        server_name=server_name,
+        config_dir=config_path,
+        command=command,
+        args=args,
+        cwd=cwd_value,
+        local_servers_path=local_servers_path,
+    )
+
     full_env = build_server_env(yaml_env=env_values, process_env=runtime_env)
+    if (
+        command == "uv"
+        and "UV_CACHE_DIR" not in full_env
+        and _is_toolathlon_config_dir(config_path, mcp_servers_path)
+    ):
+        full_env["UV_CACHE_DIR"] = str(Path(workspace) / ".cache" / "uv")
 
     timeout_seconds = float(cfg.get("client_session_timeout_seconds", 60.0))
 

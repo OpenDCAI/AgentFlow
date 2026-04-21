@@ -28,6 +28,12 @@ def load_mcp_client_module():
     return module
 
 
+def make_executable(path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("#!/bin/sh\nexit 0\n", encoding="utf-8")
+    path.chmod(0o755)
+
+
 def test_resolve_toolathlon_placeholders(tmp_path):
     module = load_mcp_client_module()
 
@@ -419,6 +425,68 @@ cache_tools_list: true
     assert config.timeout_seconds == 42
 
 
+def test_load_mcp_process_config_prefers_toolathlon_configs_next_to_local_servers(tmp_path):
+    module = load_mcp_client_module()
+    toolathlon_root = tmp_path / "toolathlon"
+    config_dir = toolathlon_root / "configs" / "mcp_servers"
+    local_servers_dir = toolathlon_root / "local_servers"
+    config_dir.mkdir(parents=True)
+    local_servers_dir.mkdir()
+    (config_dir / "canvas.yaml").write_text(
+        """
+type: stdio
+name: canvas
+params:
+  command: node
+  args:
+    - ${local_servers_paths}/mcp-canvas-lms/build/index.js
+  env:
+    CANVAS_API_TOKEN: placeholder
+  cwd: ${agent_workspace}
+client_session_timeout_seconds: 10
+        """.strip()
+        + "\n",
+        encoding="utf-8",
+    )
+
+    config = module.load_mcp_process_config(
+        server_name="canvas",
+        agent_workspace=str(tmp_path / "workspace"),
+        mcp_servers_path=str(local_servers_dir),
+        process_env={},
+    )
+
+    assert config.command == "node"
+    assert config.args == [str(local_servers_dir / "mcp-canvas-lms" / "build" / "index.js")]
+    assert config.env["CANVAS_API_TOKEN"] == "placeholder"
+    assert config.cwd == str(tmp_path / "workspace")
+    assert config.timeout_seconds == 10
+
+
+def test_discover_mcp_config_dir_requires_toolathlon_local_servers_layout(tmp_path):
+    module = load_mcp_client_module()
+    toolathlon_root = tmp_path / "toolathlon"
+    config_dir = toolathlon_root / "configs" / "mcp_servers"
+    config_dir.mkdir(parents=True)
+    (toolathlon_root / "custom_servers").mkdir()
+    (toolathlon_root / "local_servers").mkdir()
+
+    assert module.discover_mcp_config_dir(toolathlon_root / "custom_servers") is None
+    assert module.discover_mcp_config_dir(toolathlon_root / "local_servers") == config_dir
+
+
+def test_discover_mcp_config_dir_requires_real_directory(tmp_path):
+    module = load_mcp_client_module()
+    toolathlon_root = tmp_path / "toolathlon"
+    local_servers_dir = toolathlon_root / "local_servers"
+    local_servers_dir.mkdir(parents=True)
+    config_path = toolathlon_root / "configs" / "mcp_servers"
+    config_path.parent.mkdir(parents=True)
+    config_path.write_text("not a directory\n", encoding="utf-8")
+
+    assert module.discover_mcp_config_dir(local_servers_dir) is None
+
+
 def test_load_mcp_process_config_resolves_toolathlon_local_servers_path(tmp_path):
     module = load_mcp_client_module()
     config_dir = tmp_path / "configs" / "mcp_servers"
@@ -509,3 +577,394 @@ params:
 
     assert config.env["PG_HOST"] == "from_process"
     assert config.env["PG_PORT"] == "15432"
+
+
+def test_load_mcp_process_config_sets_workspace_uv_cache_for_uv_servers(tmp_path):
+    module = load_mcp_client_module()
+    workspace = tmp_path / "workspace"
+    local_servers_dir = tmp_path / "toolathlon" / "local_servers"
+    (local_servers_dir / "mcp-snowflake-server").mkdir(parents=True)
+
+    config = module.load_mcp_process_config(
+        server_name="snowflake",
+        agent_workspace=str(workspace),
+        mcp_servers_path=str(local_servers_dir),
+        process_env={},
+    )
+
+    assert config.command == "uv"
+    assert config.env["UV_CACHE_DIR"] == str(workspace / ".cache" / "uv")
+
+
+def test_load_mcp_process_config_preserves_existing_uv_cache_dir(tmp_path):
+    module = load_mcp_client_module()
+    workspace = tmp_path / "workspace"
+    local_servers_dir = tmp_path / "toolathlon" / "local_servers"
+    (local_servers_dir / "mcp-snowflake-server").mkdir(parents=True)
+
+    config = module.load_mcp_process_config(
+        server_name="snowflake",
+        agent_workspace=str(workspace),
+        mcp_servers_path=str(local_servers_dir),
+        process_env={"UV_CACHE_DIR": "/tmp/custom-uv-cache"},
+    )
+
+    assert config.env["UV_CACHE_DIR"] == "/tmp/custom-uv-cache"
+
+
+def test_load_mcp_process_config_does_not_inject_uv_cache_for_custom_config_dir(tmp_path):
+    module = load_mcp_client_module()
+    config_dir = tmp_path / "custom-configs"
+    config_dir.mkdir(parents=True)
+    (config_dir / "custom-uv.yaml").write_text(
+        """
+type: stdio
+name: custom-uv
+params:
+  command: uv
+  args:
+    - run
+    - python
+    - server.py
+        """.strip()
+        + "\n",
+        encoding="utf-8",
+    )
+
+    config = module.load_mcp_process_config(
+        server_name="custom-uv",
+        agent_workspace=str(tmp_path / "workspace"),
+        config_dir=config_dir,
+        process_env={},
+    )
+
+    assert config.command == "uv"
+    assert "UV_CACHE_DIR" not in config.env
+
+
+def test_load_mcp_process_config_keeps_direct_python_fast_path_when_venv_exists(tmp_path):
+    module = load_mcp_client_module()
+    local_servers_dir = tmp_path / "toolathlon" / "local_servers"
+    project_dir = local_servers_dir / "yahoo-finance-mcp"
+    make_executable(project_dir / ".venv" / "bin" / "python3")
+    (project_dir / "server.py").write_text("print('ok')\n", encoding="utf-8")
+
+    config = module.load_mcp_process_config(
+        server_name="yahoo-finance",
+        agent_workspace=str(tmp_path / "workspace"),
+        mcp_servers_path=str(local_servers_dir),
+        process_env={},
+    )
+
+    assert config.command == str(project_dir / ".venv" / "bin" / "python3")
+    assert config.args == ["server.py"]
+    assert config.cwd == str(project_dir)
+
+
+def test_load_mcp_process_config_falls_back_to_uv_for_yahoo_finance_without_venv_launcher(tmp_path):
+    module = load_mcp_client_module()
+    local_servers_dir = tmp_path / "toolathlon" / "local_servers"
+    project_dir = local_servers_dir / "yahoo-finance-mcp"
+    project_dir.mkdir(parents=True)
+    (project_dir / "server.py").write_text("print('ok')\n", encoding="utf-8")
+
+    config = module.load_mcp_process_config(
+        server_name="yahoo-finance",
+        agent_workspace=str(tmp_path / "workspace"),
+        mcp_servers_path=str(local_servers_dir),
+        process_env={},
+    )
+
+    assert config.command == "uv"
+    assert config.args == ["--directory", str(project_dir), "run", "python", "server.py"]
+    assert config.cwd == str(project_dir)
+
+
+def test_load_mcp_process_config_does_not_fallback_when_bundled_entrypoint_is_missing(tmp_path):
+    module = load_mcp_client_module()
+    local_servers_dir = tmp_path / "toolathlon" / "local_servers"
+    project_dir = local_servers_dir / "yahoo-finance-mcp"
+    project_dir.mkdir(parents=True)
+
+    config = module.load_mcp_process_config(
+        server_name="yahoo-finance",
+        agent_workspace=str(tmp_path / "workspace"),
+        mcp_servers_path=str(local_servers_dir),
+        process_env={},
+    )
+
+    assert config.command == str(project_dir / ".venv" / "bin" / "python3")
+    assert config.args == ["server.py"]
+    assert config.cwd == str(project_dir)
+
+
+def test_load_mcp_process_config_falls_back_to_uv_for_youtube_transcript_when_launcher_unusable(
+    tmp_path,
+):
+    module = load_mcp_client_module()
+    local_servers_dir = tmp_path / "toolathlon" / "local_servers"
+    project_dir = local_servers_dir / "mcp-youtube-transcript"
+    launcher = project_dir / ".venv" / "bin" / "python3"
+    launcher.parent.mkdir(parents=True, exist_ok=True)
+    launcher.write_text("#!/bin/sh\nexit 0\n", encoding="utf-8")
+    launcher.chmod(0o644)
+    (project_dir / "run_server.py").write_text("print('ok')\n", encoding="utf-8")
+
+    config = module.load_mcp_process_config(
+        server_name="youtube-transcript",
+        agent_workspace=str(tmp_path / "workspace"),
+        mcp_servers_path=str(local_servers_dir),
+        process_env={},
+    )
+
+    assert config.command == "uv"
+    assert config.args == ["--directory", str(project_dir), "run", "python", "run_server.py"]
+    assert config.cwd == str(project_dir)
+
+
+@pytest.mark.parametrize(
+    ("server_name", "project_subdir", "entrypoint"),
+    [
+        ("yahoo-finance", "yahoo-finance-mcp", "server.py"),
+        ("youtube-transcript", "mcp-youtube-transcript", "run_server.py"),
+    ],
+)
+def test_load_mcp_process_config_falls_back_to_uv_for_discovered_toolathlon_python_servers(
+    tmp_path,
+    server_name,
+    project_subdir,
+    entrypoint,
+):
+    module = load_mcp_client_module()
+    toolathlon_root = tmp_path / "toolathlon"
+    config_dir = toolathlon_root / "configs" / "mcp_servers"
+    local_servers_dir = toolathlon_root / "local_servers"
+    project_dir = local_servers_dir / project_subdir
+    config_dir.mkdir(parents=True)
+    project_dir.mkdir(parents=True)
+    (project_dir / entrypoint).write_text("print('ok')\n", encoding="utf-8")
+    (config_dir / f"{server_name}.yaml").write_text(
+        f"""
+type: stdio
+name: {server_name}
+params:
+  command: ${{local_servers_paths}}/{project_subdir}/.venv/bin/python3
+  args:
+    - {entrypoint}
+  cwd: ${{local_servers_paths}}/{project_subdir}
+        """.strip()
+        + "\n",
+        encoding="utf-8",
+    )
+
+    config = module.load_mcp_process_config(
+        server_name=server_name,
+        agent_workspace=str(tmp_path / "workspace"),
+        mcp_servers_path=str(local_servers_dir),
+        process_env={},
+    )
+
+    assert config.command == "uv"
+    assert config.args == ["--directory", str(project_dir), "run", "python", entrypoint]
+    assert config.cwd == str(project_dir)
+
+
+def assert_resolved_runtime_paths(config) -> None:
+    all_values = [config.command, config.cwd, *config.args]
+    for value in all_values:
+        assert "${local_servers_paths}" not in value
+        assert "/environment/" not in value
+
+
+def assert_arg_contains_path(config, expected_path: str) -> None:
+    assert expected_path in config.args
+
+
+def assert_python_server_launch(config, server_subdir: str, fallback_entrypoint: str) -> None:
+    expected_project_dir = f"/toolathlon/local_servers/{server_subdir}"
+    assert config.cwd == expected_project_dir
+
+    if config.command.endswith("/.venv/bin/python3"):
+        assert config.command == f"{expected_project_dir}/.venv/bin/python3"
+        if fallback_entrypoint == "server.py":
+            assert config.args == ["server.py"]
+        else:
+            assert config.args[0] == "-c"
+            assert "mcp_youtube_transcript" in config.args[1]
+            assert expected_project_dir in config.args[1]
+        return
+
+    assert "--directory" in config.args
+    assert_arg_contains_path(config, expected_project_dir)
+    assert "run" in config.args
+    assert fallback_entrypoint in config.args
+
+
+@pytest.mark.parametrize(
+    ("server_name", "expected"),
+    [
+        (
+            "canvas",
+            {
+                "launch": "node",
+                "server_subdir": "mcp-canvas-lms",
+                "entrypoint_suffix": "/build/index.js",
+                "cwd": "/workspace",
+                "timeout_seconds": 10,
+                "env_subset": {
+                    "CANVAS_API_TOKEN": "placeholder",
+                    "CANVAS_DOMAIN": "localhost:8080",
+                    "NODE_TLS_REJECT_UNAUTHORIZED": "0",
+                },
+            },
+        ),
+        (
+            "snowflake",
+            {
+                "launch": "uv",
+                "server_subdir": "mcp-snowflake-server",
+                "entrypoint": "mcp_snowflake_server",
+                "cwd": "/workspace",
+                "timeout_seconds": 120,
+                "env_subset": {
+                    "PG_HOST": "toolathlon_pg",
+                    "PG_PORT": "5432",
+                    "PG_DATABASE": "toolathlon_gym",
+                    "PG_USER": "eigent",
+                    "PG_PASSWORD": "camel",
+                },
+            },
+        ),
+        (
+            "woocommerce",
+            {
+                "launch": "node",
+                "server_subdir": "woocommerce-mcp",
+                "entrypoint_suffix": "/dist/index.js",
+                "cwd": "/workspace",
+                "timeout_seconds": 10,
+                "env_subset": {
+                    "WORDPRESS_SITE_URL": "http://localhost:8081",
+                    "WOOCOMMERCE_CONSUMER_KEY": "placeholder",
+                    "WOOCOMMERCE_CONSUMER_SECRET": "placeholder",
+                },
+            },
+        ),
+        (
+            "yahoo-finance",
+            {
+                "launch": "python_or_uv",
+                "server_subdir": "yahoo-finance-mcp",
+                "fallback_entrypoint": "server.py",
+                "cwd": "/toolathlon/local_servers/yahoo-finance-mcp",
+                "timeout_seconds": 60,
+                "env_subset": {},
+            },
+        ),
+        (
+            "youtube",
+            {
+                "launch": "node",
+                "server_subdir": "youtube-mcp-server",
+                "entrypoint_suffix": "/dist/index.js",
+                "cwd": "/workspace",
+                "timeout_seconds": 120,
+                "env_subset": {
+                    "PG_HOST": "postgres",
+                    "PG_PORT": "5432",
+                    "PG_DATABASE": "toolathlon",
+                    "PG_USER": "postgres",
+                    "PG_PASSWORD": "postgres",
+                },
+            },
+        ),
+        (
+            "youtube-transcript",
+            {
+                "launch": "python_or_uv",
+                "server_subdir": "mcp-youtube-transcript",
+                "fallback_entrypoint": "run_server.py",
+                "cwd": "/toolathlon/local_servers/mcp-youtube-transcript",
+                "timeout_seconds": 20,
+                "env_subset": {
+                    "PG_HOST": "postgres",
+                    "PG_PORT": "5432",
+                    "PG_DATABASE": "toolathlon",
+                    "PG_USER": "postgres",
+                    "PG_PASSWORD": "postgres",
+                },
+            },
+        ),
+        (
+            "rail_12306",
+            {
+                "launch": "node",
+                "server_subdir": "12306-mcp",
+                "entrypoint_suffix": "/build/index.js",
+                "cwd": "/workspace",
+                "timeout_seconds": 20,
+                "env_subset": {
+                    "PG_HOST": "postgres",
+                    "PG_PORT": "5432",
+                    "PG_DATABASE": "toolathlon",
+                    "PG_USER": "postgres",
+                    "PG_PASSWORD": "postgres",
+                },
+            },
+        ),
+        (
+            "filesystem",
+            {
+                "launch": "node_with_workspace_arg",
+                "server_subdir": "filesystem",
+                "entrypoint_suffix": "/dist/index.js",
+                "cwd": "/workspace",
+                "timeout_seconds": 300,
+                "env_subset": {},
+            },
+        ),
+    ],
+)
+def test_bundled_mcp_runtime_configs_match_current_toolathlon_layout(server_name, expected):
+    module = load_mcp_client_module()
+
+    config = module.load_mcp_process_config(
+        server_name=server_name,
+        agent_workspace="/workspace",
+        mcp_servers_path="/toolathlon/local_servers",
+        process_env={},
+    )
+
+    assert_resolved_runtime_paths(config)
+    assert config.cwd == expected["cwd"]
+    assert config.timeout_seconds == expected["timeout_seconds"]
+
+    launch = expected["launch"]
+    if launch == "node":
+        assert_arg_contains_path(
+            config,
+            f"/toolathlon/local_servers/{expected['server_subdir']}{expected['entrypoint_suffix']}",
+        )
+    elif launch == "node_with_workspace_arg":
+        assert_arg_contains_path(
+            config,
+            f"/toolathlon/local_servers/{expected['server_subdir']}{expected['entrypoint_suffix']}",
+        )
+        assert_arg_contains_path(config, "/workspace")
+    elif launch == "uv":
+        expected_project_dir = f"/toolathlon/local_servers/{expected['server_subdir']}"
+        assert "--directory" in config.args
+        assert_arg_contains_path(config, expected_project_dir)
+        assert "run" in config.args
+        assert expected["entrypoint"] in config.args
+    elif launch == "python_or_uv":
+        assert_python_server_launch(
+            config,
+            server_subdir=expected["server_subdir"],
+            fallback_entrypoint=expected["fallback_entrypoint"],
+        )
+    else:
+        raise AssertionError(f"Unknown launch mode: {launch}")
+
+    for key, value in expected["env_subset"].items():
+        assert config.env[key] == value

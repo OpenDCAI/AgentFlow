@@ -77,6 +77,11 @@ python3 synthesis/pipeline.py \
   --output-dir results/code
 ```
 
+> Note: in this repo, synthesis currently writes to the fixed aggregation directory `results/ds_synthesized_qa/`, even if you provide a different `--output-dir`.
+
+- QA: `results/ds_synthesized_qa/synthesized_qa.jsonl`
+- Trajectory: `results/ds_synthesized_qa/trajectories.jsonl`
+
 By default, the synthesis config initializes the code resource from `${AGENTFLOW_REPO_ROOT}/seeds/code/seed/demo_repo` through `resource_init_configs.code.content.source_dir`.
 
 The committed prompts are designed around the bundled demo repository and support both repository-reading questions and a lightweight edit-validation workflow.

@@ -7,6 +7,8 @@ import yaml
 from typing import Dict, List, Any, Optional
 from dataclasses import dataclass, field, fields
 
+from sandbox.server.config_loader import expand_env_vars
+
 
 @dataclass
 class SynthesisConfig:
@@ -67,6 +69,7 @@ class SynthesisConfig:
 
         valid_fields = {f.name for f in fields(cls)}
         filtered = {k: v for k, v in config_dict.items() if k in valid_fields}
+        filtered = expand_env_vars(filtered)
 
         # Normalize text fields (allow list[str] for easier editing)
         def _normalize_text_field(v: Any) -> str:

@@ -149,6 +149,32 @@ def test_glob_tool_returns_sorted_matches(tmp_path):
     assert result == f"{tmp_path / 'a.py'}\n{tmp_path / 'pkg' / 'b.py'}"
 
 
+def test_glob_tool_uses_ctx_cwd_when_path_is_empty_string(tmp_path):
+    target = tmp_path / "target.py"
+    target.write_text("print('target')\n", encoding="utf-8")
+
+    result = call_tool(
+        GlobTool(),
+        {"pattern": "target.py", "path": ""},
+        make_ctx(tmp_path),
+    )
+
+    assert result == str(target)
+
+
+def test_glob_tool_uses_ctx_cwd_when_path_is_omitted(tmp_path):
+    target = tmp_path / "target.py"
+    target.write_text("print('target')\n", encoding="utf-8")
+
+    result = call_tool(
+        GlobTool(),
+        {"pattern": "target.py"},
+        make_ctx(tmp_path),
+    )
+
+    assert result == str(target)
+
+
 def test_grep_tool_returns_matches_with_line_numbers_for_filtered_files(tmp_path):
     first = tmp_path / "first.txt"
     second = tmp_path / "second.txt"
@@ -187,6 +213,32 @@ def test_grep_tool_searches_recursively_without_glob_filter(tmp_path):
         f"{nested_match}:2:needle in nested file",
         f"{root_match}:1:needle at root",
     }
+
+
+def test_grep_tool_uses_ctx_cwd_when_path_is_empty_string(tmp_path):
+    target = tmp_path / "target.txt"
+    target.write_text("needle\n", encoding="utf-8")
+
+    result = call_tool(
+        GrepTool(),
+        {"pattern": "needle", "path": ""},
+        make_ctx(tmp_path),
+    )
+
+    assert result == f"{target}:1:needle\n"
+
+
+def test_grep_tool_uses_ctx_cwd_when_path_is_omitted(tmp_path):
+    target = tmp_path / "target.txt"
+    target.write_text("needle\n", encoding="utf-8")
+
+    result = call_tool(
+        GrepTool(),
+        {"pattern": "needle"},
+        make_ctx(tmp_path),
+    )
+
+    assert result == f"{target}:1:needle\n"
 
 
 def test_grep_tool_returns_no_matches_for_exit_code_one(tmp_path):

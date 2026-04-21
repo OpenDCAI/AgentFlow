@@ -1,19 +1,15 @@
 # Yahoo Finance
 # Source: https://github.com/Alex2Yang97/yahoo-finance-mcp
 # Toolathlon Version: https://github.com/lockon-n/yahoo-finance-mcp
+# Toolathlon_GYM: ../../local_servers/yahoo-finance-mcp
 type: stdio
 name: yahoo-finance
 params:
-  command: uv
+  # Use the server venv directly instead of `uv run` so stdio passes through to FastMCP
+  # and the server resolves dependencies from its own project environment.
+  command: "${local_servers_paths}/yahoo-finance-mcp/.venv/bin/python3"
   args:
-    - "run"
-    - "${local_servers_paths}/yahoo-finance-mcp/environment/server.py"
-  env:
-    PG_HOST: "${config.pg_host}"
-    PG_PORT: "5434"
-    PG_DATABASE: "${config.pg_database}"
-    PG_USER: "eigent"
-    PG_PASSWORD: "camel"
-  # cwd: "${agent_workspace}" # do not add this for compatibility
-client_session_timeout_seconds: 180
+    - "server.py"
+  cwd: "${local_servers_paths}/yahoo-finance-mcp"
+client_session_timeout_seconds: 60
 cache_tools_list: true
