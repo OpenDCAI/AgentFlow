@@ -1,0 +1,31 @@
+{
+  "benchmark_name": "code_trajectory",
+  "model_name": "openai/gpt-oss-120b",
+  "api_key": "${OPENAI_API_KEY}",
+  "base_url": "${OPENAI_API_URL}",
+  "max_turns": 12,
+  "available_tools": ["code-*"],
+  "sandbox_server_url": "http://127.0.0.1:18890",
+  "sandbox_auto_start": false,
+  "sandbox_config_path": "configs/sandbox-server/code_config.json",
+  "resource_types": ["code"],
+  "resource_init_configs": {
+    "code": {
+      "content": {
+        "source_dir": "${AGENTFLOW_REPO_ROOT}/seeds/code/seed/demo_repo"
+      }
+    }
+  },
+  "system_prompt": [
+    "You are a coding assistant working inside a small repository.",
+    "Inspect files before editing them.",
+    "When a task asks for verification, run the requested command inside the coding workspace before giving the final answer."
+  ],
+  "evaluate_results": false,
+  "data_path": "benchmark/code_benchmark.jsonl",
+  "output_dir": "trajectory_results/code",
+  "save_results": true,
+  "save_trajectories": true,
+  "trajectory_only": true,
+  "save_summary": false
+}

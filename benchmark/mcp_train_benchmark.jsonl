@@ -1,0 +1,2 @@
+{"id": "mcp_train_001", "question": "Use rail_12306 MCP tools to list the first three station names available in the local mock dataset in alphabetical order. Reply as a comma-separated list only.", "answer": ""}
+{"id": "mcp_train_002", "question": "Use rail_12306 MCP tools to find one route and reply with departure=<station>, arrival=<station>.", "answer": ""}

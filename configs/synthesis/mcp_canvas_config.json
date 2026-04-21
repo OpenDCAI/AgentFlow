@@ -1,0 +1,38 @@
+{
+  "model_name": "openai/gpt-oss-120b",
+  "api_key": "${OPENAI_API_KEY}",
+  "base_url": "${OPENAI_API_URL}",
+  "max_depth": 12,
+  "branching_factor": 2,
+  "depth_threshold": 2,
+  "min_depth": 2,
+  "max_selected_traj": 1,
+  "path_similarity_threshold": 0.7,
+  "sandbox_server_url": "http://127.0.0.1:18890",
+  "sandbox_auto_start": false,
+  "sandbox_config_path": "configs/sandbox-server/mcp_config.json",
+  "resource_types": ["mcp"],
+  "resource_init_configs": {},
+  "available_tools": ["mcp:canvas.*", "mcp:filesystem.*"],
+  "sampling_tips": [
+    "Inspect courses, assignments, and enrollments before drafting any question.",
+    "Prefer filesystem tools only for scratch notes or short saved artifacts."
+  ],
+  "synthesis_tips": [
+    "Generate domain-grounded factual QA only.",
+    "Keep answers short and directly verifiable from Canvas MCP tool outputs."
+  ],
+  "qa_examples": [
+    {
+      "question": "If a Canvas tool result shows a course with code HIST-201 and 28 enrolled students, how should the answer be formatted?",
+      "answer": "code=HIST-201, enrolled=28"
+    },
+    {
+      "question": "If the first three course names in alphabetical order are Biology 101, Chemistry Lab, and World History, how should the answer be returned?",
+      "answer": "Biology 101, Chemistry Lab, World History"
+    }
+  ],
+  "seed_description": "Canvas MCP prompts",
+  "seeds_file": "seeds/mcp/canvas_seeds.jsonl",
+  "output_dir": "results/mcp_canvas"
+}

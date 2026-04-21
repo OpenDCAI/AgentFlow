@@ -251,6 +251,9 @@ class CodeExecutionResult(ToolResult):
             error_msg = self.metadata.get("message", "Code execution failed")
             return f"[Error] {error_msg}"
 
+        if isinstance(self.raw_data, str):
+            return self.raw_data
+
         stdout = self.raw_data.get("stdout", "")
         stderr = self.raw_data.get("stderr", "")
         return_code = self.raw_data.get("return_code", 0)
@@ -357,6 +360,56 @@ class BrowserResult(ToolResult):
 
         # Default: return JSON.
         return json.dumps(self.raw_data, indent=2, ensure_ascii=False)
+
+
+# ============================================================================
+# MCP tool result.
+# ============================================================================
+
+class MCPResult(ToolResult):
+    """MCP tool result."""
+
+    def to_str(self, verbose: bool = False) -> str:
+        del verbose
+
+        if not self.success:
+            error_msg = self.metadata.get("message", "MCP tool execution failed")
+            return f"[Error] {error_msg}"
+
+        if isinstance(self.raw_data, str):
+            return self.raw_data
+
+        content = self.raw_data.get("content", [])
+        if not isinstance(content, list):
+            return json.dumps(self.raw_data, indent=2, ensure_ascii=False)
+
+        lines = []
+        has_text_content = False
+        for item in content:
+            if isinstance(item, dict):
+                if item.get("type") == "text":
+                    text = str(item.get("text", ""))
+                    lines.append(text)
+                    if text.strip():
+                        has_text_content = True
+                else:
+                    item_type = item.get("type", "content")
+                    lines.append(f"[{item_type} content]")
+            else:
+                text = str(item)
+                lines.append(text)
+                if text.strip():
+                    has_text_content = True
+
+        rendered_content = "\n".join(lines)
+        if has_text_content:
+            return rendered_content
+
+        structured_content = self.raw_data.get("structuredContent")
+        if structured_content is not None:
+            return json.dumps(structured_content, indent=2, ensure_ascii=False)
+
+        return rendered_content
 
 
 # ============================================================================
@@ -724,6 +777,7 @@ class ResultFormatter:
         "vm": VMResult,
         "doc": DocResult,
         "ds": DocResult,
+        "mcp": MCPResult,
     }
 
     @classmethod

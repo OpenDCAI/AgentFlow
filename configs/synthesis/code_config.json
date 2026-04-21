@@ -1,0 +1,44 @@
+{
+  "model_name": "openai/gpt-oss-120b",
+  "api_key": "${OPENAI_API_KEY}",
+  "base_url": "${OPENAI_API_URL}",
+  "max_depth": 10,
+  "branching_factor": 2,
+  "depth_threshold": 2,
+  "min_depth": 2,
+  "max_selected_traj": 1,
+  "path_similarity_threshold": 0.7,
+  "sandbox_server_url": "http://127.0.0.1:18890",
+  "sandbox_auto_start": false,
+  "sandbox_config_path": "configs/sandbox-server/code_config.json",
+  "resource_types": ["code"],
+  "resource_init_configs": {
+    "code": {
+      "content": {
+        "source_dir": "${AGENTFLOW_REPO_ROOT}/seeds/code/seed/demo_repo"
+      }
+    }
+  },
+  "available_tools": ["code-*"],
+  "sampling_tips": [
+    "Inspect the repository before proposing edits.",
+    "Use code-bash only for lightweight checks that fit the bundled demo repo."
+  ],
+  "synthesis_tips": [
+    "Generate repo-grounded QA only.",
+    "Prefer file-path, function-behavior, and small edit-validation questions over open-ended design prompts."
+  ],
+  "qa_examples": [
+    {
+      "question": "Which file stores the greeting suffix used by the demo app? Reply with the relative file path only.",
+      "answer": "config/app_config.json"
+    },
+    {
+      "question": "What string does `build_message()` return before any edits? Reply with the exact string only.",
+      "answer": "Hello, AgentFlow?"
+    }
+  ],
+  "seed_description": "Coding demo repository prompts",
+  "seeds_file": "seeds/code/seeds.jsonl",
+  "output_dir": "results/code"
+}

@@ -1,0 +1,21 @@
+{
+  "server": {
+    "url": "http://127.0.0.1:18890",
+    "port": 18890,
+    "session_ttl": 300
+  },
+  "resources": {
+    "code": {
+      "enabled": true,
+      "description": "Lightweight coding backend powered by vendored internal tools",
+      "backend_class": "sandbox.server.backends.resources.code.CodeBackend",
+      "config": {
+        "workspace_root": "/tmp/agentflow_code"
+      }
+    }
+  },
+  "warmup": {
+    "enabled": false,
+    "resources": []
+  }
+}

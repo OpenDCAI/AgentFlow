@@ -3,6 +3,7 @@ Tests for the MCP backend skeleton and bridge-tool registration.
 """
 
 import asyncio
+import json
 import importlib.util
 import sys
 import types
@@ -536,7 +537,17 @@ def test_initialize_closes_started_clients_when_later_server_fails(tmp_path, mon
     assert created_clients[0].closed is True
 
 
-def test_mcp_config_template_parses():
+def test_mcp_config_template_declares_example_server_subset(monkeypatch):
+    monkeypatch.delenv("TOOLATHLON_GYM_ROOT", raising=False)
+    monkeypatch.delenv("TOOLATHLON_WORKSPACE_ROOT", raising=False)
+    monkeypatch.delenv("PGHOST", raising=False)
+    monkeypatch.delenv("PGPORT", raising=False)
+    monkeypatch.delenv("PGUSER", raising=False)
+    monkeypatch.delenv("PGPASSWORD", raising=False)
+    monkeypatch.delenv("PGDATABASE", raising=False)
+    monkeypatch.delenv("CANVAS_DOMAIN", raising=False)
+    monkeypatch.delenv("WORDPRESS_SITE_URL", raising=False)
+
     loader = ConfigLoader()
     config_path = (
         Path(__file__).resolve().parents[2]
@@ -544,11 +555,48 @@ def test_mcp_config_template_parses():
         / "sandbox-server"
         / "mcp_config.json"
     )
+    raw_config = json.loads(config_path.read_text(encoding="utf-8"))
+    raw_mcp_config = raw_config["resources"]["mcp"]["config"]
 
     config = loader.load(str(config_path))
+    mcp_resource = config.resources["mcp"]
+    mcp_config = mcp_resource.config
 
-    assert "mcp" in config.resources
-    assert (
-        config.resources["mcp"].backend_class
-        == "sandbox.server.backends.resources.mcp.toolathlon_gym.ToolathlonGymBackend"
+    assert mcp_resource.backend_class == (
+        "sandbox.server.backends.resources.mcp.toolathlon_gym.ToolathlonGymBackend"
     )
+    assert mcp_config["mcp_servers_path"] == "${TOOLATHLON_GYM_ROOT}/local_servers"
+    assert mcp_config["enabled_mcp_servers"] == [
+        "canvas",
+        "snowflake",
+        "woocommerce",
+        "yahoo-finance",
+        "youtube",
+        "youtube-transcript",
+        "rail_12306",
+        "filesystem",
+    ]
+    assert raw_mcp_config["workspace_root"] == (
+        "${TOOLATHLON_WORKSPACE_ROOT:-/tmp/agentflow_mcp}"
+    )
+    assert raw_mcp_config["env_overrides"] == {
+        "PGHOST": "${PGHOST:-localhost}",
+        "PGPORT": "${PGPORT:-5432}",
+        "PGUSER": "${PGUSER:-eigent}",
+        "PGPASSWORD": "${PGPASSWORD:-camel}",
+        "PGDATABASE": "${PGDATABASE:-toolathlon_gym}",
+        "CANVAS_DOMAIN": "${CANVAS_DOMAIN:-localhost:8080}",
+        "WORDPRESS_SITE_URL": "${WORDPRESS_SITE_URL:-http://localhost:8081}",
+    }
+    assert mcp_config["workspace_root"] == "/tmp/agentflow_mcp"
+    assert mcp_config["env_overrides"] == {
+        "PGHOST": "localhost",
+        "PGPORT": "5432",
+        "PGUSER": "eigent",
+        "PGPASSWORD": "camel",
+        "PGDATABASE": "toolathlon_gym",
+        "CANVAS_DOMAIN": "localhost:8080",
+        "WORDPRESS_SITE_URL": "http://localhost:8081",
+    }
+    assert config.warmup.enabled is True
+    assert config.warmup.resources == ["mcp"]

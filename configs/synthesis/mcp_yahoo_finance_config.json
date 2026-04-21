@@ -1,0 +1,38 @@
+{
+  "model_name": "openai/gpt-oss-120b",
+  "api_key": "${OPENAI_API_KEY}",
+  "base_url": "${OPENAI_API_URL}",
+  "max_depth": 12,
+  "branching_factor": 2,
+  "depth_threshold": 2,
+  "min_depth": 2,
+  "max_selected_traj": 1,
+  "path_similarity_threshold": 0.7,
+  "sandbox_server_url": "http://127.0.0.1:18890",
+  "sandbox_auto_start": false,
+  "sandbox_config_path": "configs/sandbox-server/mcp_config.json",
+  "resource_types": ["mcp"],
+  "resource_init_configs": {},
+  "available_tools": ["mcp:yahoo-finance.*", "mcp:filesystem.*"],
+  "sampling_tips": [
+    "Inspect available tickers and quote fields before drafting a finance lookup question.",
+    "Prefer filesystem tools only for scratch notes or short saved artifacts."
+  ],
+  "synthesis_tips": [
+    "Generate domain-grounded factual QA only.",
+    "Keep answers short and directly verifiable from Yahoo Finance MCP tool outputs."
+  ],
+  "qa_examples": [
+    {
+      "question": "If the available tickers sorted alphabetically begin with AAPL, MSFT, and NVDA, how should the answer be returned?",
+      "answer": "AAPL, MSFT, NVDA"
+    },
+    {
+      "question": "If one comparison shows MSFT has the larger price, how should the answer be formatted?",
+      "answer": "symbol=MSFT"
+    }
+  ],
+  "seed_description": "Yahoo Finance MCP prompts",
+  "seeds_file": "seeds/mcp/yahoo_finance_seeds.jsonl",
+  "output_dir": "results/mcp_yahoo_finance"
+}
