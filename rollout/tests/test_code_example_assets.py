@@ -1,4 +1,7 @@
 import json
+import shutil
+import subprocess
+import sys
 from pathlib import Path
 
 from rollout.core.config import RolloutConfig
@@ -80,3 +83,39 @@ def test_code_demo_repo_contract():
     smoke_test = (repo_root / "tests" / "smoke_test.py").read_text(encoding="utf-8")
     assert "build_message" in smoke_test
     assert "SMOKE_OK" in smoke_test
+
+
+def test_code_demo_repo_smoke_test_runtime_contract(tmp_path):
+    source_repo = REPO_ROOT / "seeds" / "code" / "seed" / "demo_repo"
+    repo_copy = tmp_path / "demo_repo"
+    shutil.copytree(source_repo, repo_copy)
+
+    pre_fix = subprocess.run(
+        [sys.executable, "tests/smoke_test.py"],
+        cwd=repo_copy,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert pre_fix.returncode != 0
+    assert "AssertionError: Hello, AgentFlow?" in pre_fix.stderr
+    assert "ModuleNotFoundError" not in pre_fix.stderr
+
+    app_path = repo_copy / "app.py"
+    app_text = app_path.read_text(encoding="utf-8")
+    app_path.write_text(
+        app_text.replace('render_greeting(config["default_name"], "?")', 'render_greeting(config["default_name"], "!")'),
+        encoding="utf-8",
+    )
+
+    post_fix = subprocess.run(
+        [sys.executable, "tests/smoke_test.py"],
+        cwd=repo_copy,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert post_fix.returncode == 0, post_fix.stderr
+    assert post_fix.stdout.strip() == "SMOKE_OK"
