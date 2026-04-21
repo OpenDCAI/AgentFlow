@@ -138,7 +138,7 @@ File: `configs/sandbox-server/mcp_config.json`
 Important fields:
 
 - `mcp_servers_path`: `${TOOLATHLON_GYM_ROOT}/local_servers`
-- `enabled_mcp_servers`: includes the six example domains plus shared helpers such as `filesystem` and the YouTube transcript server
+- `enabled_mcp_servers`: includes the concrete MCP server identifiers from `configs/sandbox-server/mcp_config.json`, plus shared helpers such as `filesystem` and the YouTube transcript server. Most example domains use the same name as the server, but some differ: `yahoo_finance -> yahoo-finance` and `train -> rail_12306`.
 - `env_overrides`: `PGHOST`, `PGPORT`, `PGUSER`, `PGPASSWORD`, `PGDATABASE`, `CANVAS_DOMAIN`, `WORDPRESS_SITE_URL`
 
 ### Synthesis Configs
