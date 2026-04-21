@@ -1,0 +1,38 @@
+{
+  "model_name": "openai/gpt-oss-120b",
+  "api_key": "${OPENAI_API_KEY}",
+  "base_url": "${OPENAI_API_URL}",
+  "max_depth": 12,
+  "branching_factor": 2,
+  "depth_threshold": 2,
+  "min_depth": 2,
+  "max_selected_traj": 1,
+  "path_similarity_threshold": 0.7,
+  "sandbox_server_url": "http://127.0.0.1:18890",
+  "sandbox_auto_start": false,
+  "sandbox_config_path": "configs/sandbox-server/mcp_config.json",
+  "resource_types": ["mcp"],
+  "resource_init_configs": {},
+  "available_tools": ["mcp:snowflake.*", "mcp:filesystem.*"],
+  "sampling_tips": [
+    "Inspect schemas and table names before choosing a reporting question.",
+    "Prefer filesystem tools only for scratch notes or short saved artifacts."
+  ],
+  "synthesis_tips": [
+    "Generate domain-grounded factual QA only.",
+    "Keep answers short and directly verifiable from Snowflake MCP query outputs."
+  ],
+  "qa_examples": [
+    {
+      "question": "If the first three visible tables are CUSTOMERS, LINE_ITEMS, and ORDERS, how should the answer be returned?",
+      "answer": "CUSTOMERS, LINE_ITEMS, ORDERS"
+    },
+    {
+      "question": "If a Snowflake aggregate query returns total_orders=125, how should the answer be formatted?",
+      "answer": "total_orders=125"
+    }
+  ],
+  "seed_description": "Snowflake MCP prompts",
+  "seeds_file": "seeds/mcp/snowflake_seeds.jsonl",
+  "output_dir": "results/mcp_snowflake"
+}

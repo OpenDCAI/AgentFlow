@@ -1,0 +1,38 @@
+{
+  "model_name": "openai/gpt-oss-120b",
+  "api_key": "${OPENAI_API_KEY}",
+  "base_url": "${OPENAI_API_URL}",
+  "max_depth": 12,
+  "branching_factor": 2,
+  "depth_threshold": 2,
+  "min_depth": 2,
+  "max_selected_traj": 1,
+  "path_similarity_threshold": 0.7,
+  "sandbox_server_url": "http://127.0.0.1:18890",
+  "sandbox_auto_start": false,
+  "sandbox_config_path": "configs/sandbox-server/mcp_config.json",
+  "resource_types": ["mcp"],
+  "resource_init_configs": {},
+  "available_tools": ["mcp:woocommerce.*", "mcp:filesystem.*"],
+  "sampling_tips": [
+    "Inspect customers, products, and orders before selecting a small store question.",
+    "Prefer filesystem tools only for scratch notes or short saved artifacts."
+  ],
+  "synthesis_tips": [
+    "Generate domain-grounded factual QA only.",
+    "Keep answers short and directly verifiable from WooCommerce MCP tool outputs."
+  ],
+  "qa_examples": [
+    {
+      "question": "If the first three product names alphabetically are Backpack, Coffee Mug, and Notebook, how should the answer be returned?",
+      "answer": "Backpack, Coffee Mug, Notebook"
+    },
+    {
+      "question": "If a customer email is alex@example.com and that customer has 3 orders, how should the answer be formatted?",
+      "answer": "email=alex@example.com, orders=3"
+    }
+  ],
+  "seed_description": "WooCommerce MCP prompts",
+  "seeds_file": "seeds/mcp/woocommerce_seeds.jsonl",
+  "output_dir": "results/mcp_woocommerce"
+}

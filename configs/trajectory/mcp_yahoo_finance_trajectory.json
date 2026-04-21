@@ -1,0 +1,24 @@
+{
+  "benchmark_name": "mcp_yahoo_finance_trajectory",
+  "model_name": "openai/gpt-oss-120b",
+  "api_key": "${OPENAI_API_KEY}",
+  "base_url": "${OPENAI_API_URL}",
+  "max_turns": 20,
+  "available_tools": ["mcp:yahoo-finance.*", "mcp:filesystem.*"],
+  "sandbox_server_url": "http://127.0.0.1:18890",
+  "sandbox_auto_start": false,
+  "sandbox_config_path": "configs/sandbox-server/mcp_config.json",
+  "resource_types": ["mcp"],
+  "resource_init_configs": {},
+  "system_prompt": [
+    "You are an MCP domain assistant.",
+    "Use only the available MCP tools to answer the question.",
+    "Reply with the final answer only unless the question explicitly asks for another format."
+  ],
+  "evaluate_results": false,
+  "data_path": "benchmark/mcp_yahoo_finance_benchmark.jsonl",
+  "output_dir": "trajectory_results/mcp_yahoo_finance",
+  "save_results": true,
+  "save_trajectories": true,
+  "trajectory_only": true
+}

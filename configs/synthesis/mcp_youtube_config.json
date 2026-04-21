@@ -1,0 +1,38 @@
+{
+  "model_name": "openai/gpt-oss-120b",
+  "api_key": "${OPENAI_API_KEY}",
+  "base_url": "${OPENAI_API_URL}",
+  "max_depth": 12,
+  "branching_factor": 2,
+  "depth_threshold": 2,
+  "min_depth": 2,
+  "max_selected_traj": 1,
+  "path_similarity_threshold": 0.7,
+  "sandbox_server_url": "http://127.0.0.1:18890",
+  "sandbox_auto_start": false,
+  "sandbox_config_path": "configs/sandbox-server/mcp_config.json",
+  "resource_types": ["mcp"],
+  "resource_init_configs": {},
+  "available_tools": ["mcp:youtube.*", "mcp:youtube-transcript.*", "mcp:filesystem.*"],
+  "sampling_tips": [
+    "Inspect video metadata first, then use transcript tools only when language or transcript details matter.",
+    "Prefer filesystem tools only for scratch notes or short saved artifacts."
+  ],
+  "synthesis_tips": [
+    "Generate domain-grounded factual QA only.",
+    "Keep answers short and directly verifiable from YouTube MCP tool outputs."
+  ],
+  "qa_examples": [
+    {
+      "question": "If the first three video titles alphabetically are Intro to Databases, MCP Demo, and Testing Walkthrough, how should the answer be returned?",
+      "answer": "Intro to Databases, MCP Demo, Testing Walkthrough"
+    },
+    {
+      "question": "If a transcript lookup shows video id abc123 with language en, how should the answer be formatted?",
+      "answer": "video=abc123, language=en"
+    }
+  ],
+  "seed_description": "YouTube MCP prompts",
+  "seeds_file": "seeds/mcp/youtube_seeds.jsonl",
+  "output_dir": "results/mcp_youtube"
+}
