@@ -1,0 +1,2 @@
+{"id": "code_read_001", "question": "Use code tools to inspect the demo repository. What default name does the app greet? Reply with the name only.", "answer": "AgentFlow"}
+{"id": "code_edit_001", "question": "Update the demo repository so `python tests/smoke_test.py` succeeds. Preserve the config-driven greeting behavior, verify the fix with that command, then reply with exactly `smoke test passed`.", "answer": "smoke test passed", "metadata": {"target_files": ["app.py"], "check_command": "python tests/smoke_test.py"}}

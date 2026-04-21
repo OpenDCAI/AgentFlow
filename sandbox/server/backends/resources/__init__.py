@@ -62,7 +62,27 @@ Config example:
 from .code import CodeBackend
 from .mcp import MCPBackend, ToolathlonGymBackend
 from .rag import RAGBackend, create_rag_backend
-from .vm import VMBackend, create_vm_backend
+
+_VM_IMPORT_ERROR = None
+try:
+    from .vm import VMBackend, create_vm_backend
+except ImportError as exc:
+    if "cssselect" not in str(exc):
+        raise
+    _VM_IMPORT_ERROR = exc
+
+    class VMBackend:  # type: ignore[no-redef]
+        def __init__(self, *args, **kwargs):
+            del args, kwargs
+            raise ImportError(
+                "VMBackend requires the optional 'cssselect' dependency"
+            ) from _VM_IMPORT_ERROR
+
+    def create_vm_backend(*args, **kwargs):  # type: ignore[no-redef]
+        del args, kwargs
+        raise ImportError(
+            "VMBackend requires the optional 'cssselect' dependency"
+        ) from _VM_IMPORT_ERROR
 
 __all__ = [
     "VMBackend",
