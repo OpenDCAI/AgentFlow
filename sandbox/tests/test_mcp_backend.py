@@ -3,6 +3,7 @@ Tests for the MCP backend skeleton and bridge-tool registration.
 """
 
 import asyncio
+import json
 import importlib.util
 import sys
 import types
@@ -538,6 +539,7 @@ def test_initialize_closes_started_clients_when_later_server_fails(tmp_path, mon
 
 def test_mcp_config_template_declares_example_server_subset(monkeypatch):
     monkeypatch.delenv("TOOLATHLON_GYM_ROOT", raising=False)
+    monkeypatch.delenv("TOOLATHLON_WORKSPACE_ROOT", raising=False)
     monkeypatch.delenv("PGHOST", raising=False)
     monkeypatch.delenv("PGPORT", raising=False)
     monkeypatch.delenv("PGUSER", raising=False)
@@ -553,6 +555,8 @@ def test_mcp_config_template_declares_example_server_subset(monkeypatch):
         / "sandbox-server"
         / "mcp_config.json"
     )
+    raw_config = json.loads(config_path.read_text(encoding="utf-8"))
+    raw_mcp_config = raw_config["resources"]["mcp"]["config"]
 
     config = loader.load(str(config_path))
     mcp_resource = config.resources["mcp"]
@@ -572,6 +576,19 @@ def test_mcp_config_template_declares_example_server_subset(monkeypatch):
         "rail_12306",
         "filesystem",
     ]
+    assert raw_mcp_config["workspace_root"] == (
+        "${TOOLATHLON_WORKSPACE_ROOT:-/tmp/agentflow_mcp}"
+    )
+    assert raw_mcp_config["env_overrides"] == {
+        "PGHOST": "${PGHOST:-localhost}",
+        "PGPORT": "${PGPORT:-5432}",
+        "PGUSER": "${PGUSER:-eigent}",
+        "PGPASSWORD": "${PGPASSWORD:-camel}",
+        "PGDATABASE": "${PGDATABASE:-toolathlon_gym}",
+        "CANVAS_DOMAIN": "${CANVAS_DOMAIN:-localhost:8080}",
+        "WORDPRESS_SITE_URL": "${WORDPRESS_SITE_URL:-http://localhost:8081}",
+    }
+    assert mcp_config["workspace_root"] == "/tmp/agentflow_mcp"
     assert mcp_config["env_overrides"] == {
         "PGHOST": "localhost",
         "PGPORT": "5432",
