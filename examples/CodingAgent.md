@@ -1,4 +1,4 @@
-# CodingAgent: Repository QA / Edit Agent - Data Synthesis Guide (No Training/Deployment)
+# CodingAgent: Repository QA / Edit Agent — 3-Step Example Guide (No Training/Deployment/Inference)
 
 This guide explains how to use AgentFlow's CodingAgent example to synthesize QA data and trajectory data for a small repository workflow.
 

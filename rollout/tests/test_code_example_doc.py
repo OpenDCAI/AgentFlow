@@ -21,7 +21,10 @@ def test_coding_example_doc_has_required_sections_and_repo_root_contract():
         assert section in content
 
     required_strings = [
+        "3-Step Example Guide",
         "cd AgentFlow",
+        "export OPENAI_API_KEY=",
+        "export OPENAI_API_URL=",
         "export AGENTFLOW_REPO_ROOT=$(pwd)",
         "code-*",
         "configs/sandbox-server/code_config.json",
