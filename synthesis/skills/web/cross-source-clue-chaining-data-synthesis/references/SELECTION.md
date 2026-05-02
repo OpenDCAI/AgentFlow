@@ -1,0 +1,12 @@
+# Phase 2: Trajectory Selection Criteria
+* **Acceptance Metrics**:
+  - Accept the trajectory only if at least two webpages provide disjoint but complementary facts. The final answer must depend on combining those facts rather than choosing whichever page sounds most authoritative. A publication page plus an author profile page is acceptable; two mirror pages repeating the same metadata are not.
+  - Accept only when every major clue slot is traceable to evidence. The agent should be able to point to where the identity constraint, temporal constraint, affiliation or membership constraint, and comparison step were resolved. If any link is assumed rather than evidenced, the trajectory is incomplete.
+  - Accept only if the trajectory includes an explicit bridge between hops. The bridge can be a shared name, identifier, date, or institution, but it must be visible in the evidence chain. Without such a bridge, the synthesis is too brittle and risks accidental hallucination.
+  - Accept only if removing one of the supporting sources would break answerability. This counterfactual check is important because it confirms the data really tests multi-source chaining. If the answer survives with any one source removed, the task is probably too centralized.
+
+* **Rejection Criteria**:
+  - Reject trajectories where one source states or implies the full answer by itself. Such examples reduce to retrieval plus extraction, which is not the intended capability. The data should require genuine inter-source composition.
+  - Reject examples that chain pages only through weak coincidence. Shared topicality is not enough; the relation between pages must be explicit and verifiable. For example, two pages about the same field are insufficient if they do not clearly identify the same paper or person.
+  - Reject tasks whose clue slots are overly loose or admit many silent substitutions. The tighter the chain, the easier it is to verify whether the agent followed the right path. If multiple unrelated pages can satisfy a slot with no visible bridge, the task becomes ambiguous rather than multi-hop.
+  - Reject trajectories that front-load all necessary evidence into a provided bundle or cached snapshot when the skill is meant for open-web clue gathering. A browser agent should need to move between URLs or page states to finish the chain. If the environment prevents that, the example belongs elsewhere.

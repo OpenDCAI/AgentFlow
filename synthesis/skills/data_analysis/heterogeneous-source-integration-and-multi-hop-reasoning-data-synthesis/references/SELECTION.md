@@ -1,0 +1,11 @@
+# Phase 2: Trajectory Selection Criteria
+* **Acceptance Metrics**:
+  - Accept only if the answer depends on combining at least two non-redundant sources. If one source alone could answer the question after inspection, the case is not genuinely heterogeneous. The sources should contribute different kinds of information such as raw values, definitions, or reference mappings.
+  - Accept only if the trajectory includes a documented intermediate computation or transformation. Examples include set differences, grouped fraud rates, cross-file filters, or multi-source joins. Without an intermediate state, the task may be retrieval-heavy but not true multi-hop analysis.
+  - Accept only if the reasoning chain is stable and reproducible. Another competent analyst following the same sources should reach the same intermediate artifacts and final answer. If the chain depends on ad hoc assumptions not justified by the environment, reject it.
+  - Accept only if the source integration challenge is legible from the trace. Reviewers should be able to point to where hop one ended, where hop two began, and why both were necessary. This explicitness is important for later data synthesis and evaluation.
+* **Rejection Criteria**:
+  - Reject trajectories that open many files but still use only one of them materially. Mere browsing across heterogeneous files is not enough. The final answer must require true cross-source dependency.
+  - Reject cases where the extra sources are decorative rather than necessary. If a documentation file or side table is present but does not alter filtering, grouping, or interpretation, it does not create the intended capability. Such cases should be simplified or reassigned.
+  - Reject multi-hop chains with unresolved source conflicts. If two sources disagree on keys, year coverage, or entity definitions and the trajectory never resolves the mismatch, the resulting supervision is unstable. Better to discard the trace than encode confusion as a skill example.
+  - Reject examples where the main challenge is open-ended narrative synthesis after the integration is done. This capability should end in a concrete answer driven by multi-source reasoning. If most of the difficulty is writing prose, use a reporting-oriented capability instead.

@@ -1,0 +1,11 @@
+# Phase 2: Trajectory Selection Criteria
+* **Acceptance Metrics**:
+  - Accept only if the task genuinely requires prediction or model application. If the answer can be obtained by direct descriptive computation with no predictive step, the example is misclassified. The trajectory should revolve around generating outputs not already present in the data.
+  - Accept only if the evaluation target is explicit enough to constrain the pipeline. The agent should know what artifact or metric constitutes success. Ambiguous “build the best model” prompts are less suitable for stable synthesis unless the environment provides a clear scoring rule.
+  - Accept only if the output format is objectively checkable. A valid submission file, result text file, or metric-bearing artifact is ideal. This keeps the skill aligned with automatic evaluation and practical data-analysis-agent behavior.
+  - Accept only if the modeling burden fits the disposable-sandbox setting. The task may involve standard libraries and reasonable training or formula application, but it should not require heavy distributed systems or productization. This preserves alignment with the Data Analysis Agent constraints.
+* **Rejection Criteria**:
+  - Reject cases where the prompt says model but the work is really just arithmetic. If no predictive object, training step, or model application is needed, the example belongs under descriptive analysis. Supervision should reflect true predictive behavior.
+  - Reject trajectories that never validate the output artifact. A script that claims to produce predictions but does not materialize the required file or format is weak for synthesis. Artifact compliance is part of the capability.
+  - Reject examples where performance depends mainly on obscure benchmark-specific tricks not recoverable from the environment. The point is to synthesize robust data-analysis skills, not competition-specific exploitation. If success requires hidden leaderboard folklore, the trace is too brittle.
+  - Reject tasks whose main challenge is external-knowledge filtering rather than modeling itself. While hints may help, the central burden here should be fitting or applying a model and producing correct outputs. Otherwise route the case to critical external-knowledge integration.

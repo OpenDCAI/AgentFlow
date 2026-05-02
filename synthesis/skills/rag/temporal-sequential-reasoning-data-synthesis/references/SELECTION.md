@@ -1,0 +1,11 @@
+# Phase 2: Trajectory Selection Criteria
+* **Acceptance Metrics**:
+  - **Multiple temporal anchors are required.** Accept only if at least two temporally distinct pieces of evidence are necessary. A single-date lookup is not enough for this skill. The question must force temporal comparison, ordering, or aggregation.
+  - **Temporal reasoning, not just retrieval, decides the answer.** The accepted sample must still require an ordering, offset, or trend computation after retrieval. If the answer is directly written in one document, reject it. The core difficulty should be chronological reasoning.
+  - **Time expressions are auditable.** Every critical time expression should be recoverable from the corpus and traceable to a concrete document. Reviewers must be able to verify the ordering step independently. Hidden date assumptions are not allowed.
+  - **The final response is sharply scorable.** Accept answers that can be checked as an entity, relation, or tightly bounded trend statement. This keeps the skill useful for synthetic QA generation at scale. Overly essayistic temporal responses should be tightened.
+* **Rejection Criteria**:
+  - **Single-document date lookup only.** Reject cases where one document already states the complete temporal answer. Those samples test retrieval, not temporal sequencing. At least one reasoning step over time must remain.
+  - **Ambiguous calendar mapping.** Reject if the time references cannot be normalized unambiguously from the corpus, such as conflicting calendars or underspecified periods. Temporal tasks must remain objectively solvable. Ambiguous timelines make evaluation noisy.
+  - **Dominant difficulty is arithmetic unrelated to time.** Reject if the sample is mostly a math problem with incidental dates attached. Temporal reasoning may include light calculation, but chronology should remain the main hinge. Otherwise it belongs under constraint or numerical reasoning.
+  - **Trend summary is subjective.** Reject trend cases whose expected answer could reasonably be phrased in several incompatible ways because the directionality itself is unclear. Keep only cases with a stable interpretable pattern. Objective trend labels are necessary.

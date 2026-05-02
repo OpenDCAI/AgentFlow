@@ -1,0 +1,11 @@
+# Phase 2: Trajectory Selection Criteria
+* **Acceptance Metrics**:
+  - Accept only if the question specifies or strongly implies a definite statistic or classical procedure. The trajectory should not have to invent the analytical target. Stable supervision depends on having a determinate numerical or categorical result.
+  - Accept only if the agent’s calculation can be independently verified from the data. This may be through a regression score, overlap percentage, or direct descriptive computation. Black-box verbal claims without a visible statistic are not sufficient.
+  - Accept only if interpretation, when required, is tightly linked to the computed result. A fit judgment, trend description, or association label must follow from the actual number produced. Otherwise the case risks teaching confident but unsupported narration.
+  - Accept only if the task remains within the scope of disposable sandbox analysis. The agent should be able to solve it with ordinary scientific Python or notebook tools without building production systems. This keeps the skill aligned with the Data Analysis Agent definition.
+* **Rejection Criteria**:
+  - Reject trajectories where the main difficulty is finding the right data rather than doing the statistic. If retrieval or long-document grounding dominates the trace, the example should be routed to a grounding capability. This skill should start once the relevant variables are basically known.
+  - Reject cases where the statistical target is ambiguous. If the question could reasonably mean correlation, regression, or grouped difference and the environment does not resolve that choice, the supervision is unstable. Such cases should be rewritten or discarded.
+  - Reject examples that collapse into pure plotting without quantitative output. While visualization may accompany descriptive analysis, this capability needs an explicit statistic or direct numerical conclusion. Otherwise evaluation becomes too subjective.
+  - Reject tasks that actually require predictive modeling, hyperparameter tuning, or long iterative optimization. Descriptive and statistical analysis should be lighter-weight and more directly answerable. If the main burden is model selection, use a predictive-modeling capability instead.

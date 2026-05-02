@@ -1,0 +1,11 @@
+# Phase 2: Trajectory Selection Criteria
+* **Acceptance Metrics**:
+  - **Coverage is necessary for correctness.** Accept only when omitting one required document would change the answer or make it incomplete. This ensures the sample actually measures coverage discipline. If omission does not matter, the example is too weak.
+  - **Evidence dispersion is real.** Accept only if the needed support is distributed across the long context rather than concentrated in one conveniently central block. The dispersion should be visible at the document level. This distinguishes true long-context tasks from artificially padded short tasks.
+  - **Trajectory records per-document contributions.** The accepted trace must show what was extracted from each relevant document or candidate document. A bare final answer without that ledger is not enough. Coverage must be inspectable.
+  - **The answer remains tightly scorable.** Even though the context is long, the final target should still be a clean entity, value, grouping, or short trend statement. This keeps evaluation practical. Length should increase coverage difficulty, not answer ambiguity.
+* **Rejection Criteria**:
+  - **One-document shortcut exists.** Reject if the answer can be trusted after reading just one or two documents despite the large context. That would measure retrieval luck, not exhaustive coverage. Large context alone is not sufficient.
+  - **Document set is too heterogeneous.** Reject if the documents vary so wildly in structure that coverage failures become annotation noise rather than genuine reasoning failures. This skill works best when same-domain similarity makes skipping tempting. Use heterogeneity sparingly and deliberately.
+  - **The context is long only because of filler.** Reject cases padded with irrelevant or random text whose omission would never matter. That creates token length without coverage pressure. The long context must be semantically meaningful.
+  - **Expected answer depends on subjective summarization.** Reject if broad coverage leads only to an open-ended narrative without a stable gold target. Coverage tasks should end in objectively checkable outputs whenever possible. Otherwise evaluation becomes too soft.

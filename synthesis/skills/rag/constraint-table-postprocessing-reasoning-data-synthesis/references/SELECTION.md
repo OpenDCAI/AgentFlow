@@ -1,0 +1,11 @@
+# Phase 2: Trajectory Selection Criteria
+* **Acceptance Metrics**:
+  - **Retrieval alone is insufficient.** Accept only when the answer still requires an explicit operation after the evidence is retrieved. If the correct final answer is stated verbatim in the corpus, the sample is too easy. This skill exists to supervise the operation layer.
+  - **Operation is objectively checkable.** The required reasoning step must be verifiable by a reviewer without relying on hidden heuristics or subjective judgment. Simple filtering, sorting, arithmetic, and representation conversion are ideal. Subjective synthesis tasks should be routed elsewhere.
+  - **All operands or constraints are corpus-grounded.** Every value, condition, or comparison point needed for the operation must be recoverable from the environment. The model should not need outside facts to complete the step. This preserves the bounded-corpus assumption.
+  - **Output schema is stable.** The expected answer should have a stable, easily judgeable schema such as one entity, one number, or a clearly defined grouped object. This keeps large-scale synthetic generation practical. Open-ended interpretive essays are not suitable here.
+* **Rejection Criteria**:
+  - **Operation is merely decorative.** Reject if the post-processing step does not actually affect the answer or if multiple operations lead to the same result. The question must force the model to do the named operation correctly. Otherwise the sample gives weak supervision.
+  - **Table evidence is too noisy to parse.** Reject structured-evidence cases where headers, rows, or role labels are too ambiguous for stable annotation. The downstream model should be challenged, not confused by corrupt formatting. Clean but realistic structure is preferred.
+  - **External domain expertise is required to interpret the operation.** Reject if the needed transformation depends on specialist conventions not inferable from the task statement or corpus. For example, hidden accounting rules or legal doctrine should not be necessary unless explicitly provided. Keep the reasoning transparent.
+  - **Too many operations stack at once.** Reject examples that require a long chain of unrelated operations because they blur the main capability signal. One or two compact steps are ideal. Beyond that, errors become hard to attribute.

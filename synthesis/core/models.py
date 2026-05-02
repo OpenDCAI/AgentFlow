@@ -30,6 +30,7 @@ class Trajectory:
     seed_data: str
     total_depth: int
     source_id: str = ""
+    metadata: Dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         """Convert to dictionary format"""
@@ -38,7 +39,8 @@ class Trajectory:
             "source_id": self.source_id,
             "seed_data": self.seed_data,
             "total_depth": self.total_depth,
-            "nodes": [node.to_dict() for node in self.nodes]
+            "nodes": [node.to_dict() for node in self.nodes],
+            "metadata": self.metadata,
         }
 
 

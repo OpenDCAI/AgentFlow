@@ -1,0 +1,11 @@
+# Phase 2: Trajectory Selection Criteria
+* **Acceptance Metrics**:
+  - **Answer is graph-derivable from a connected support set.** Accept only when the final answer can be derived from retrieved nodes and edges that form a coherent subgraph. Disconnected fragments with no justified bridge should be rejected. Connectivity is a core acceptance condition for this skill.
+  - **Relations, not just attributes, are necessary.** Accept only if the question requires at least one graph relation, path step, or structured adjacency beyond plain node lookup. Simple single-node attribute extraction is too weak. The capability target is relational reasoning.
+  - **Every claimed graph fact is verifiable.** The accepted trajectory must allow a reviewer to map each important answer claim back to specific nodes or edges. This is the main defense against graph hallucination. Unverifiable relation claims are disallowed.
+  - **Graph environment stays bounded and read-only.** Accept only tasks compatible with a fixed graph store that the agent can query but not modify. This keeps the skill aligned with the user’s RAG-agent constraints. Graph editing or dynamic graph construction should not be required at execution time.
+* **Rejection Criteria**:
+  - **Single-node lookup dominates.** Reject if the answer is recoverable from one node attribute without meaningful relation use. Those cases belong to ordinary extraction. This skill is for relation-aware reasoning.
+  - **Subgraph cannot be made coherent.** Reject if the relevant nodes and edges never form a justifiable connected reasoning object. A disconnected trace encourages hallucinated links. Coherence of the support subgraph is mandatory.
+  - **Graph semantics are too under-specified.** Reject if edge labels or node semantics are so unclear that reviewers would disagree about the intended path or relation meaning. Graph QA must remain auditable. Ambiguous schemas make poor synthesis targets.
+  - **External visual grounding is required.** Reject cases that depend on raw image inspection or non-textual signals not represented in the textualized graph or structured store. The target agent operates over textual or structured knowledge storage. Keep the task within that accessible environment.

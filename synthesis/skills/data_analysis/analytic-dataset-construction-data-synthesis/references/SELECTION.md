@@ -1,0 +1,11 @@
+# Phase 2: Trajectory Selection Criteria
+* **Acceptance Metrics**:
+  - Accept only if the main challenge is defining the correct analysis frame. The case should require meaningful decisions about variables, filters, denominators, weights, or cohorts. If the raw dataset is already analysis-ready, the example is too shallow.
+  - Accept only if the trajectory exposes the population logic explicitly. A reviewer should be able to say who or what is in scope and why. This is particularly important for survey, financial, and healthcare tasks where scope mistakes are common.
+  - Accept only if the constructed dataset would support reuse for nearby questions. Strong dataset-construction traces leave behind a sensible analysis frame that could answer related questions with small modifications. This indicates that the setup work, not just the final number, was genuinely valuable.
+  - Accept only if the construction decisions are grounded in provided context. The agent should rely on documentation, schemas, and data previews rather than hidden prior assumptions. Otherwise the example becomes too dependent on latent world knowledge.
+* **Rejection Criteria**:
+  - Reject cases where variable selection is obvious from the question and headers alone. If the right analysis frame can be assembled without reading context or making scope decisions, there is little dataset-construction skill involved. Such cases should be simplified into another capability.
+  - Reject trajectories that conflate cleaning and construction without clarifying either. While the two often interact, this skill needs a visible emphasis on building the right analysis-ready table. If the trace is dominated by typo fixes and missing-value imputation, it likely belongs under data cleaning instead.
+  - Reject examples with unstable cohort definitions. If several plausible populations exist and the environment never resolves which one the question intends, the resulting synthetic data will be noisy. Stable scope is essential here.
+  - Reject tasks whose main burden is downstream modeling after a trivial setup. Analytic dataset construction should be the bottleneck. If once a couple of columns are selected the real difficulty becomes model tuning, route the case to predictive modeling.
