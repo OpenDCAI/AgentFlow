@@ -278,6 +278,28 @@ python -m synthesis.pipeline \
 | `synthesis_tips` | - | Hints guiding QA generation |
 | `seeds_file` | - | Path to seed data file (JSONL) |
 | `sandbox_server_url` | `http://127.0.0.1:18890` | Sandbox server address (must match Step 1) |
+| `description_path` | `None` | Instruction markdown path (alternative to inline tips; supports LLM fallback) |
+
+Alternatively, you can use `description_path` to point to a free-form instruction markdown file instead of inline `sampling_tips`/`synthesis_tips`. See [Configuration Reference](#configuration-reference) for details.
+
+### If You Enable Skills
+
+If you want to enable skill selection and injection for QA synthesis, use the skill-related config as shown below:
+
+```json
+{
+  "description_path": "configs/synthesis/instructions/web_instruction.md",
+  "skills_root": "synthesis/skills",
+  "skill_group": "web",
+  "skill": {
+    "enabled": true,
+    "min_global_skills": 5,
+    "max_global_skills": 10
+  }
+}
+```
+
+When `skill.enabled=true`, markdown structured extraction is recommended but not mandatory. If extraction is incomplete, pipeline still runs and falls back to full markdown text for global skill selection, then injects selected skills into phase prompts.
 
 **Output files:**
 
@@ -482,6 +504,112 @@ pipeline(config_path="configs/infer/web_infer.json")
 | `path_similarity_threshold` | `float` | `0.7` | Path similarity threshold |
 | `sandbox_server_url` | `str` | `"http://127.0.0.1:18890"` | Sandbox server address |
 | `number_of_seed` | `int` | `None` | Limit number of seeds to process |
+| `description_path` | `str` | `None` | Instruction markdown path (alternative to inline `sampling_tips`/`synthesis_tips`) |
+
+> **Tip — Instruction Markdown with LLM Fallback:** Instead of specifying `sampling_tips` / `selecting_tips` / `synthesis_tips` inline in the JSON config, you can point `description_path` to a markdown file containing all guidance in free-form natural language. The pipeline uses a two-stage parser (regex + LLM fallback) to automatically extract structured fields. This is especially useful when guidance is long or written in prose.
+
+### Skill Config for Synthesis
+
+Use these fields in synthesis config (for example `configs/synthesis/web_config.json`):
+
+```json
+{
+  "description_path": "configs/synthesis/instructions/web_instruction.md",
+  "skills_root": "synthesis/skills",
+  "skill_group": "web",
+  "skill": {
+    "enabled": true,
+    "max_category_count": 2,
+    "min_global_skills": 5,
+    "max_global_skills": 10,
+    "max_desc_chars": 800,
+    "max_ref_chars": 3000,
+    "temperature": 0.2,
+    "max_skill_examples": 8,
+    "max_total_qa_examples": 24
+  }
+}
+```
+
+### Instruction Markdown Format Requirements
+
+Instruction markdown (for example `configs/synthesis/instructions/web_instruction.md`) supports these blocks:
+- `description`
+- `sampling_tips`
+- `selecting_tips`
+- `synthesis_tips`
+- `qa_examples`
+
+#### Two-stage Parsing with LLM Fallback
+
+The instruction markdown is parsed in two stages:
+
+1. **Regex-based parsing** (zero-cost, deterministic): Extracts structured blocks using `key: value` line format. Works best when the markdown follows the strict key-block format above.
+2. **LLM fallback** (triggered automatically): When regex parsing is incomplete (missing required blocks) and model credentials (`api_key` + `base_url`) are configured, the pipeline automatically calls the LLM to extract structured fields from free-form / colloquial markdown.
+
+This means you can write instruction markdown in **natural language prose** (headings, paragraphs, bullet points) without strict `key: value` formatting — the LLM fallback will intelligently extract the required fields.
+
+> **Note:** The LLM fallback uses a single API call with a structured-data extraction prompt. If the provider does not support `response_format={"type": "json_object"}`, the pipeline automatically retries without that constraint.
+
+#### Behavior by Skill Mode
+
+- `skill.enabled=false`: strict mode. All blocks above are required after parsing (regex + LLM fallback combined); if still incomplete, synthesis terminates with an error.
+- `skill.enabled=true`: tolerant mode. Structured extraction is recommended but not mandatory. If extraction is incomplete even after LLM fallback, pipeline falls back to full markdown text for global skill selection, continues synthesis, and uses skill guidance as phase injection.
+
+Meaning of key fields:
+
+| Field | Default | Description |
+|------|---------|-------------|
+| `description_path` | `null` | Instruction markdown path. Recommended blocks: `description`, `sampling_tips`, `selecting_tips`, `synthesis_tips`, `qa_examples`. |
+| `skills_root` | `synthesis/skills` | Skill library root path. Relative path is resolved from project root. |
+| `skill_group` | inferred from `resource_types` | Optional fixed category. For WebAgent, set `"web"` for strict category scoping. |
+| `skill.enabled` | `false` | Whether to enable global skill selection and prompt injection. |
+| `skill.max_category_count` | `2` | Max skill categories selected in stage-1 category selection. |
+| `skill.min_global_skills` | `5` | Minimum skills selected in one global selection run. |
+| `skill.max_global_skills` | `10` | Maximum skills selected in one global selection run. |
+| `skill.max_desc_chars` | `800` | Max description length per skill when shown to selector LLM. |
+| `skill.max_ref_chars` | `3000` | Max injected reference length per phase per skill. |
+| `skill.temperature` | `0.2` | Temperature for skill-selection LLM calls. |
+| `skill.max_skill_examples` | `8` | Max QA examples collected from selected `SKILL.md` files. |
+| `skill.max_total_qa_examples` | `24` | Max merged QA examples finally passed to synthesizer prompt. |
+| `skill.include` | `[]` | Optional explicit skill IDs to force include (bypass LLM selection). |
+| `skill.exclude` | `[]` | Optional skill IDs to block from candidate pool. |
+
+`selection_mode` in `skills_used.json`:
+
+| Value | Meaning |
+|------|---------|
+| `disabled` | Skill is turned off; original tips/examples path is used. |
+| `explicit_include` | Skills are taken from `skill.include` after validation. |
+| `llm_global` | One-time LLM global selection (category -> skills) is applied. |
+
+### Skill Library Structure
+
+Default root:
+
+`AgentFlow/synthesis/skills`
+
+Expected layout:
+
+```text
+synthesis/skills/
+  web/                                   # 一级类别（Agent 类型）
+    <skill-id>/
+      SKILL.md                           # skill 定义（name/description + capability）
+      references/
+        EXPLORATION.md                   # sampler 阶段注入
+        SELECTION.md                     # selector 阶段注入
+        SYNTHESIS.md                     # synthesizer 阶段注入
+```
+
+### How to Upload Your Own Web Skills
+
+1. Create a new folder under `synthesis/skills/web/<your-skill-id>/`.
+2. Add `SKILL.md` with frontmatter fields `name` and `description`.
+3. In `SKILL.md`, optionally provide reusable QA demos as paired lines:
+   - `**Real Question**: ...`
+   - `**Real Answer**: ...`
+4. Add `references/EXPLORATION.md`, `references/SELECTION.md`, `references/SYNTHESIS.md`.
 
 ### Rollout Config (`RolloutConfig`)
 

@@ -261,9 +261,11 @@ Recommended markdown blocks:
 - `synthesis_tips`
 - `qa_examples`
 
+> **New:** You can write instruction markdown in free-form natural language (headings, paragraphs, prose). The pipeline uses a two-stage parser: regex first, then LLM fallback to extract structured fields automatically. See [Instruction Markdown Format Requirements](#instruction-markdown-format-requirements) for details.
+
 If you do **not** use skills (`skill.enabled=false`):
-- the markdown format above is required by synthesis (strict mode);
-- missing required blocks will trigger warning + stop synthesis.
+- all required blocks must be extractable (via regex or LLM fallback);
+- if still incomplete after both parsing stages, synthesis terminates with an error.
 
 ### If You Enable Skills
 
@@ -541,9 +543,21 @@ Instruction markdown (for example `configs/synthesis/instructions/doc_instructio
 - `synthesis_tips`
 - `qa_examples`
 
-Behavior by skill mode:
-- `skill.enabled=false`: strict mode. All blocks above are required; missing blocks will print a warning and terminate synthesis.
-- `skill.enabled=true`: tolerant mode. Structured extraction is recommended but not mandatory. If extraction is incomplete, pipeline falls back to full markdown text for global skill selection, continues synthesis, and uses skill guidance as phase injection.
+#### Two-stage Parsing with LLM Fallback
+
+The instruction markdown is parsed in two stages:
+
+1. **Regex-based parsing** (zero-cost, deterministic): Extracts structured blocks using `key: value` line format. Works best when the markdown follows the strict key-block format above.
+2. **LLM fallback** (triggered automatically): When regex parsing is incomplete (missing required blocks) and model credentials (`api_key` + `base_url`) are configured, the pipeline automatically calls the LLM to extract structured fields from free-form / colloquial markdown.
+
+This means you can write instruction markdown in **natural language prose** (headings, paragraphs, bullet points) without strict `key: value` formatting — the LLM fallback will intelligently extract the required fields.
+
+> **Note:** The LLM fallback uses a single API call with a structured-data extraction prompt. If the provider does not support `response_format={"type": "json_object"}`, the pipeline automatically retries without that constraint.
+
+#### Behavior by Skill Mode
+
+- `skill.enabled=false`: strict mode. All blocks above are required after parsing (regex + LLM fallback combined); if still incomplete, synthesis terminates with an error.
+- `skill.enabled=true`: tolerant mode. Structured extraction is recommended but not mandatory. If extraction is incomplete even after LLM fallback, pipeline falls back to full markdown text for global skill selection, continues synthesis, and uses skill guidance as phase injection.
 
 Meaning of key fields:
 

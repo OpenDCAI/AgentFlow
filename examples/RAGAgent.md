@@ -289,9 +289,11 @@ Recommended markdown blocks:
 - `synthesis_tips`
 - `qa_examples`
 
+> **New:** You can write instruction markdown in free-form natural language (headings, paragraphs, prose). The pipeline uses a two-stage parser: regex first, then LLM fallback to extract structured fields automatically. See [Instruction Markdown Format Requirements](#instruction-markdown-format-requirements) for details.
+
 If you do **not** use skills (`skill.enabled=false`):
-- the markdown format above is required by synthesis (strict mode);
-- missing required blocks will trigger warning + stop synthesis.
+- all required blocks must be extractable (via regex or LLM fallback);
+- if still incomplete after both parsing stages, synthesis terminates with an error.
 
 ### If You Enable Skills
 

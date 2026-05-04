@@ -266,7 +266,11 @@ def _apply_instruction_markdown(cfg: SynthesisConfig) -> SynthesisConfig:
 
     text = p.read_text(encoding="utf-8")
 
-    from .instruction import parse_qa_syn_instruction_md
+    from .instruction import (
+        _merge_parsed,
+        llm_parse_qa_syn_instruction_md,
+        parse_qa_syn_instruction_md,
+    )
 
     parsed = parse_qa_syn_instruction_md(text)
     required_keys = ("description", "sampling_tips", "selecting_tips", "synthesis_tips", "qa_examples")
@@ -279,6 +283,47 @@ def _apply_instruction_markdown(cfg: SynthesisConfig) -> SynthesisConfig:
 
     missing_required = [k for k in required_keys if not _is_non_empty(k)]
     extracted_complete = len(missing_required) == 0
+    llm_fallback_used = False
+
+    # -----------------------------------------------------------------------
+    # LLM fallback: triggered only when regex parsing is incomplete and
+    # model credentials are available.
+    # -----------------------------------------------------------------------
+    if not extracted_complete and cfg.api_key and cfg.base_url:
+        print(
+            "⚠️ Instruction markdown regex parsing incomplete "
+            f"(missing: {', '.join(missing_required)}). "
+            "Trying LLM fallback to extract structured fields..."
+        )
+        try:
+            from .utils import create_openai_client
+            client = create_openai_client(api_key=cfg.api_key, base_url=cfg.base_url)
+            llm_parsed = llm_parse_qa_syn_instruction_md(
+                text, client, cfg.model_name, temperature=0.0
+            )
+            if llm_parsed:
+                parsed = _merge_parsed(parsed, llm_parsed)
+                missing_required = [k for k in required_keys if not _is_non_empty(k)]
+                extracted_complete = len(missing_required) == 0
+                llm_fallback_used = True
+                print(
+                    "✅ LLM instruction parsing succeeded. "
+                    + (
+                        "All required fields extracted."
+                        if extracted_complete
+                        else f"Still missing: {', '.join(missing_required)}"
+                    )
+                )
+            else:
+                print("⚠️ LLM instruction parsing returned empty result; keeping regex output.")
+        except Exception as exc:
+            print(f"⚠️ LLM instruction parsing fallback error ({type(exc).__name__}: {exc}); keeping regex output.")
+    elif not extracted_complete:
+        print(
+            "⚠️ Instruction markdown regex parsing incomplete "
+            f"(missing: {', '.join(missing_required)}). "
+            "LLM fallback skipped: api_key or base_url not configured."
+        )
 
     cfg.runtime["instruction"] = {
         "path": str(p),
@@ -287,6 +332,7 @@ def _apply_instruction_markdown(cfg: SynthesisConfig) -> SynthesisConfig:
         "required_keys": list(required_keys),
         "missing_required": missing_required,
         "extracted_complete": extracted_complete,
+        "llm_fallback_used": llm_fallback_used,
     }
 
     # Share generic task description when available.
