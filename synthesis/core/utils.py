@@ -21,6 +21,11 @@ def extract_json_object(text: str) -> str:
     """Extract the first complete JSON object from text (forward scan)."""
     if not text:
         return text
+    # 1. Strip thinking blocks (e.g. <think>...</think>)
+    text = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL)
+    # 2. Strip markdown code fences
+    text = re.sub(r"```(?:json|JSON)?\s*", "", text)
+    text = text.replace("```", "")
     start = text.find("{")
     if start == -1:
         return text
