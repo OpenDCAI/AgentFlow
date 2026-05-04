@@ -42,8 +42,10 @@ AgentFlow provides core tools for RAGAgent:
 ```bash
 git clone https://github.com/OpenDCAI/AgentFlow
 cd AgentFlow
-pip install -e .
+bash install.sh
 ```
+
+> **Options:** `bash install.sh --ml` to include ML/DL dependencies (torch, transformers), `--all` for everything. See `bash install.sh --help` for details.
 
 2. **Prepare API Keys**
 

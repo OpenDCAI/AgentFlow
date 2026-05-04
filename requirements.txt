@@ -5,6 +5,7 @@
 # ------------- Core -------------
 requests
 fastapi
+uvicorn
 pydantic
 openai>=1.0.0
 httpx
@@ -20,17 +21,18 @@ aiofiles
 # ------------- Sandbox & Desktop Environment -------------
 playwright
 flask
-PyAutoGUI==0.9.54
-python3-xlib==0.15
-Pillow==10.1.0
+PyAutoGUI>=0.9.54
+python3-xlib>=0.15
+Pillow>=10.1.0
 numpy
 opencv-python
 lxml
-pygame
 pywinauto
 pyxcursor
 requests-toolbelt
 docker
+faiss-cpu
+crawl4ai
 
 # ------------- Document & File Processing -------------
 openpyxl
@@ -51,7 +53,9 @@ xmltodict
 # ------------- Evaluation & Metrics -------------
 pandas
 scipy
+scikit-learn
 scikit-image
+matplotlib
 rapidfuzz
 imagehash
 fastdtw
@@ -64,6 +68,13 @@ acoustid
 # alibabacloud-ecs20140526
 # alibabacloud-tea-openapi
 # alibabacloud-tea-util
+
+# ------------- DS Analysis (optional, for ds_tool advanced features) -------------
+# statsmodels
+# seaborn
+
+# ------------- Desktop Evaluation (optional, for desktop_env) -------------
+# pydrive
 
 # ------------- ML/DL (optional, uncomment if needed) -------------
 # torch>=2.6.0

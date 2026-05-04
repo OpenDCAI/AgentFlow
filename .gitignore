@@ -92,3 +92,6 @@ fordiff/
 
 # Local SQL workspace
 sql/
+
+# Local test scripts
+test_instruction_pipeline.py
