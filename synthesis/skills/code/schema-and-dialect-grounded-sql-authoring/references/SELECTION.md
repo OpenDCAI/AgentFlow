@@ -1,0 +1,11 @@
+# Phase 2: Trajectory Selection Criteria
+* **Acceptance Metrics**:
+  - Accept only if the trajectory clearly grounds the request in concrete schema elements. At minimum, the trace should identify the main fact tables or views, relevant dimensions, and the columns implementing filters or aggregations. If schema linkage is hand-waved, the example is too weak.
+  - Accept only if a dialect-specific or warehouse-specific choice materially affects correctness. The environment may be BigQuery, Snowflake, SQLite, or another system, but the query should require more than database-agnostic SQL trivia. This is what distinguishes the capability from ordinary classroom text-to-SQL.
+  - Accept only if candidate queries are executed or otherwise checked against the environment. The task should reward agents that use real execution feedback, not only static drafting. This is essential for catching wrong joins, wrong null semantics, and silent aggregation mistakes.
+  - Accept only if the final query is reasonably minimal and answer-focused. A trace that ends with sprawling exploratory SQL and no clear final form is not ready for synthesis. The task should culminate in one query or a tightly related set of queries that directly answer the question.
+* **Rejection Criteria**:
+  - Reject traces where the schema is tiny and obvious enough that no real linking is needed. Those examples may still be valid SQL tasks, but they do not test the enterprise grounding this skill targets. The presence of SQL alone is not sufficient.
+  - Reject trajectories that never consult or infer dialect semantics despite dialect-specific functions being required. Guessing and getting lucky is not the behavior to teach. Such traces make the benchmark shallower than the source tasks warrant.
+  - Reject traces that stop at syntactic validity without examining result plausibility. Enterprise SQL tasks often admit many executable but incorrect queries. If no semantic check exists, the resulting synthetic data will over-reward shallow completion.
+  - Reject trajectories where the final answer depends on hidden manually supplied context not discoverable from the environment. The point of the skill is grounded authoring from schema, docs, and execution feedback. If those are insufficient on their own, the item is not suitable.

@@ -1,0 +1,10 @@
+{"content": "Database: chinook", "kwargs": {"focus_tables": ["Customer", "Invoice", "InvoiceLine", "Track", "Album", "Artist", "Genre"], "exploration_mode": "hard_customer_revenue_and_genre_mix"}}
+{"content": "Database: chinook", "kwargs": {"focus_tables": ["Track", "Album", "Artist", "Genre", "MediaType", "Playlist", "PlaylistTrack"], "exploration_mode": "hard_catalog_depth_and_playlist_overlap"}}
+{"content": "Database: sakila", "kwargs": {"focus_tables": ["film", "film_actor", "actor", "film_category", "category", "inventory", "rental", "payment"], "exploration_mode": "hard_category_revenue_and_actor_depth"}}
+{"content": "Database: sakila", "kwargs": {"focus_tables": ["customer", "rental", "payment", "store", "staff", "address", "city", "country"], "exploration_mode": "hard_customer_geo_and_rental_patterns"}}
+{"content": "Database: adventureworks", "kwargs": {"focus_tables": ["SalesOrderHeader", "SalesOrderDetail", "Product", "ProductSubcategory", "ProductCategory"], "exploration_mode": "hard_category_revenue_and_region_mix"}}
+{"content": "Database: adventureworks", "kwargs": {"focus_tables": ["Customer", "SalesOrderHeader", "SalesTerritory", "SalesOrderDetail", "Product"], "exploration_mode": "hard_territory_performance_and_customer_lifetime"}}
+{"content": "Database: retail", "kwargs": {"focus_tables": [], "exploration_mode": "hard_sales_trend_and_basket_analysis"}}
+{"content": "Database: music", "kwargs": {"focus_tables": [], "exploration_mode": "hard_listening_pattern_and_recommendation"}}
+{"content": "Database: hospital", "kwargs": {"focus_tables": [], "exploration_mode": "hard_patient_diagnosis_and_treatment_correlation"}}
+{"content": "Database: finance", "kwargs": {"focus_tables": [], "exploration_mode": "hard_transaction_anomaly_and_portfolio_analysis"}}

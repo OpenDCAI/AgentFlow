@@ -1,0 +1,11 @@
+# Phase 2: Trajectory Selection Criteria
+* **Acceptance Metrics**:
+  - Accept only if the environment contains mixed-quality side information. There must be a realistic opportunity for both correct and incorrect adoption decisions. A hint bundle that is entirely helpful or entirely harmful does not fully exercise critical integration.
+  - Accept only if adoption decisions are traceable to the data and task. Reviewers should be able to explain why a hint was accepted or rejected using schema, target, metric, or split logic. If the judgment appears arbitrary, the trajectory is unsuitable.
+  - Accept only if the final script or output format remains valid. The case should not degrade into speculative reasoning with no executable outcome. For example, a submission task should still produce submission.csv correctly even after the hint filtering step.
+  - Accept only if the harmful guidance is subtle enough to be tempting. The best examples contain plausible-but-wrong advice, not absurd nonsense. This ensures the capability measures critical reasoning rather than obvious trap detection.
+* **Rejection Criteria**:
+  - Reject trajectories where the side information is never actually considered. If the agent ignores the hints completely and still solves the task, the case does not teach selective integration. The external knowledge must matter enough to warrant explicit judgment.
+  - Reject cases where helpful and adversarial hints are indistinguishable even to a human analyst with the same data. If the environment does not allow principled separation, the resulting supervision will be noisy. Such traces should be discarded.
+  - Reject trajectories that evaluate hints only by prior world knowledge. The agent should justify decisions using the provided task, schema, and evaluation setup. Otherwise the example becomes a generic reasoning task instead of grounded external-knowledge integration.
+  - Reject examples where the main challenge is pure predictive modeling after the hints are settled. If the critical part is choosing the model architecture rather than judging side information, the trace belongs under predictive modeling. This skill should center on the decision to trust or reject guidance.

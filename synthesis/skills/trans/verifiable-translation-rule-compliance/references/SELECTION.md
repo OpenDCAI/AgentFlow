@@ -1,0 +1,11 @@
+# Phase 2: Trajectory Selection Criteria
+* **Acceptance Metrics**:
+  - 100% Trace-backed rule solvability and formal exactness. Trajectories are authorized ONLY if every mathematical conversion, URL, nested XML tag, placeholder, or exact syllable count strictly matches the prompt’s programmatic instructions. Match this using standard parsing validations (regex, char counts).
+  - Isomorphism aligning target syntactical boundaries with the embedded format. Ensure that incorporating raw constraints (like injecting English schema names or brackets into standard Spanish grammar) results in a grammatically coherent wrapper around the locked constraint object.
+  - Target script purity and length accuracy. When a task enforces a rule like 'use strictly the Arabic script' or 'keep it exactly 10 syllables', the validator checks the Unicode range and phonetic boundaries. Any leakage of untargeted alphabets or mathematical deviations triggers instant rejection.
+  - Semantic linkage mapping source dependent constraints. Confirm that the finalized generated text maps functionally to the literal constraints provided, preventing outputs where an agent invents missing HTML tags not present in the original prompt.
+* **Rejection Criteria**:
+  - Structural nesting destruction or syntax leakage. Exclude the outcome immediately if markup nodes are disrupted, if a {PLACEHOLDER} bracket is dropped, or if spacing constraints collapse. Failed tags or unclosed boundaries are catastrophic violations.
+  - Mathematical or formatting approximation. Reject samples where the agent 'comes close' to a rule. If 8 syllables were requested and 9 were given, or if an MM/DD/YYYY date was generated when DD/MM/YYYY was specified, it fails.
+  - Categorical collapse of entity identifiers. Exclude output traces where the system translates or morphs a prescribed database schema, standard identifier, or test-template placeholder into a generic translated word (e.g., turning {RACE_GROUP} into 'racial groups').
+  - Non-localized extraction rule execution. Discard outputs where the agent used knowledge outside of the strict rules (e.g., using a random internet FX rate instead of the FX rate mandated precisely in the prompt rule bracket).

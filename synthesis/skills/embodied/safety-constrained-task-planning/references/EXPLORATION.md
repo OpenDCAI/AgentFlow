@@ -1,0 +1,11 @@
+# Phase 1: Environment Exploration Guide
+* **Exploration Strategy**:
+  - Multi-Tier Categorical Hazard Sampling: The agent must systematically traverse environments tracking objects with explicit danger labels (e.g., highly flammable, high-voltage) as well as strict privacy/social constraints (e.g., confidential folders, ID cards). It cross-references context to define unsafe actions.
+  - Semantic Over-Interpretation Probing: The explorer must purposefully execute and log safe baseline tasks (e.g., boiling water in a kettle, moving ordinary blank paper) to ensure the system does not become artificially paranoid or hallucinate danger where normal operation is expected.
+  - Physical & Conceptual Material Auditing: The agent actively zooms in and reads labels on encountered items to classify semantic properties accurately. This ensures that a bottle is flagged as toxic or a document is flagged as 'Do Not Read/Private', firmly grounding constraint awareness in visual feedback.
+  - Conflict Resolution and Mitigation Testing: Given a broad navigation or modification task (like cleaning a room), the agent tests identifying boundaries (like a 'Keep Out' taped zone or a hazardous puddle) and dynamically formulating detours or selective filtering solutions around them.
+* **Target Trajectory Profile**:
+  - Explicit Reasoning-to-Refusal Mapping: A high-quality trajectory features clear internal reasoning explicitly noting why a task violates physical safety constraints or privacy boundaries prior to declining the sub-task.
+  - Evidence-Backed Sensitivity Verification: The profile must prove the agent utilized specific text reading or material identification to justify its rule constraint, refusing tasks based on actual environmental evidence rather than blind, random guessing.
+  - Logical Soundness and Non-Hallucination: The agent correctly accepts mundane, inherently safe tasks without overreacting, demonstrating rigorous discrimination between realistic risk and fantastical worst-case scenarios.
+  - Constraint-Consistent Precision Grasping: Trajectories show the agent interacting globally with non-sensitive items perfectly, whilst maintaining absolute adherence to avoiding physical contact or public exposure of sensitive/harmful items.

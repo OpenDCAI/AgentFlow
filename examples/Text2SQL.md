@@ -205,7 +205,7 @@ curl http://127.0.0.1:18890/health
 
 Seed data defines the exploration starting points. Each seed specifies a target database and exploration intent.
 
-**Seed file format** (`seeds/text2sql/seeds.jsonl`):
+**Seed file format** (`seeds/text2sql/seeds.jsonl` — create this directory and file before running):
 
 ```jsonl
 {"content": "Database: chinook", "kwargs": {"focus_tables": ["Customer", "Invoice", "InvoiceLine", "Track", "Album", "Artist", "Genre"], "exploration_mode": "hard_customer_revenue_and_genre_mix"}}
@@ -267,10 +267,12 @@ Configure the synthesis pipeline in `configs/synthesis/text2sql_config.json`:
     "If results are empty, first relax filter conditions then gradually tighten."
   ],
 
-  "seeds_file": "/path/to/AgentFlow/seeds/text2sql/seeds.jsonl",
+  "seeds_file": "seeds/text2sql/seeds.jsonl",
   "output_dir": "results/text2sql"
 }
 ```
+
+> **Note:** The `seeds/text2sql/` directory does not exist by default. You need to create it and add your `seeds.jsonl` file before running synthesis.
 
 **Key config parameters:**
 
@@ -288,6 +290,12 @@ Configure the synthesis pipeline in `configs/synthesis/text2sql_config.json`:
 | `sandbox_server_url` | `http://127.0.0.1:18890` | Sandbox server address |
 
 > **Tip — Instruction Markdown with LLM Fallback:** Instead of specifying `sampling_tips` / `selecting_tips` / `synthesis_tips` inline in the JSON config, you can point `description_path` to a markdown file containing all guidance in free-form natural language. The pipeline uses a two-stage parser (regex + LLM fallback) to automatically extract structured fields. This is especially useful when guidance is long or written in prose.
+
+> **⚠️ Important — LLM-based Instruction Parsing:**
+>
+> The default instruction file (`configs/synthesis/instructions/text2sql_instruction.md`) is written in **natural language prose**. The pipeline will use an **LLM API call** to parse and extract structured fields from it. For this to work, you **must** ensure `api_key` and `base_url` are correctly configured in your synthesis config. Without valid LLM credentials, the instruction parsing will fail.
+>
+> Since the instruction files use natural language by default, **the LLM fallback will always be triggered**. Make sure your API is reachable before running synthesis.
 
 ### If You Enable Skills
 
@@ -387,9 +395,9 @@ Run inference on benchmark data with the trained model.
 **Usage:**
 
 ```python
-from rollout import pipeline
+from rollout import rollout
 
-pipeline(config_path="configs/infer/text2sql_infer.json")
+rollout(config_path="configs/infer/text2sql_infer.json")
 ```
 
 **Config file** `configs/infer/text2sql_infer.json`:

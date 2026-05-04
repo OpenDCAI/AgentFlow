@@ -1,0 +1,11 @@
+# Phase 2: Trajectory Selection Criteria
+* **Acceptance Metrics**:
+  - Verify 'Alignment Monotonicity' where the generated strategy is a valid instrument for the inferred intention. If an agent infers a 'Hope' intention but uses an educational 'Information' strategy inappropriately, it fails logic-chain grounding.
+  - Demand 'Quad-Aspect Completeness' in the emotional state analysis phase, ensuring 'Main Issue,' 'Emotions,' 'Needs,' and 'Dynamics' are all checked against the previous 3 turns. A failure case is accurately capturing the 'Issue' but ignoring the 'Needs,' leading to a cold response.
+  - Confirm 'Protocol Flow Integrity' by verifying that all stages of sensemaking and empathy are visited in order. The selector must count the number of turns in each stage and confirm the agent only moved to 'Providing Information' or 'Advice' after a sufficient 'Gathering/Validating' phase (typically 3-5 turns).
+  - Check for 'Non-Directive Strategy Adherence' in situations involving sensitive user ambivalence. Accept only trajectories where the agent avoids 'Directive Shaming' (e.g., 'You should stop being sad') in favor of 'Active Listening' (e.g., 'It makes sense you feel that way').
+* **Rejection Criteria**:
+  - Reject 'Transactional/Advice-First' responses that jump to solutions or diagnoses before the seeker's emotional state has been validated. Discard trajectories where the agent ignores 'Catharsis' intentions in early turns of high-distress scenarios.
+  - Discard 'Generic Explanation Templates' where the agent uses sterile, clinical definitions to explain a problem without integrating the user's specific emotional state. If an explanation lacks personalized 'atomic facts' (e.g., sounding like a Wikipedia entry instead of a tailored supportive chat), it fails.
+  - Eliminate 'Sycophantic Validation' where the agent agrees with harmful or irrational cognitions to maintain a polite tone. Instead of saying 'You're right, you must be perfect,' the agent should use 'Cognitive Reframing' to dispute irrational self-harming thoughts.
+  - Refuse 'Generic Platitude Loops' where intention is identified but the response is a mass-applicable cliché ('I hear you'). Empty empathy lacking situational grounding from the 'Main Issue' must be rejected.

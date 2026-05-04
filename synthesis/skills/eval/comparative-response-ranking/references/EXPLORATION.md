@@ -1,0 +1,11 @@
+# Phase 1: Environment Exploration Guide
+* **Exploration Strategy**:
+  - Listwise candidate collection: The goal is to obtain at least three candidate answers to the same prompt so that ranking, not just classification, becomes necessary. Gather responses from diverse generation settings or editing passes, ensuring the set contains meaningful gradations (e.g., one concise answer, one overlong but correct answer, and one partially correct answer).
+  - Length-bias symmetric pruning: Balance datasets by ensuring the preferred response is not consistently longer. Construct a histogram of candidate lengths and specifically prune pairs from the 'longer-is-better' tail until the resulting distribution isolates true qualitative superiority over verbosity heuristics.
+  - Adjacent-separation logging: Make every ranking boundary explainable. Note why answer A should beat answer B and why answer B should beat answer C, explicitly documenting tradeoffs in utility, adherence, or creative plot. Without these artifacts, later ranking risks becoming arbitrary.
+  - Format-consistent response sets: Avoid trivial ranking based on incompatible formats. Collect responses attempting the same task in the same language and broad response type, comparing actual execution quality rather than penalizing a poem compared to a bullet list unless explicitly requested.
+* **Target Trajectory Profile**:
+  - At least three comparable candidates: Must include at least three responses addressing the same instruction in comparable form, exercising genuine listwise ranking logic rather than disguised binary choices.
+  - Length-invariant preference evidence: Must demonstrate a preference persisting regardless of relative word counts. The evaluator's rationale focuses on 'content density', 'utility', or 'narrative arc' rather than raw prose length.
+  - Ranking grounded in user intent: Requires an ordering that explicitly references the user's actual request constraints rather than generic stylistic preferences. The top-ranked answer wins for reasons tied to the prompt, avoiding taste-based drifting.
+  - Listwise consistency evidence: Final ranking must be justified through consistent local comparisons explaining at least two adjacent boundaries, meaning the second vs third place is just as auditable as the overall winner.

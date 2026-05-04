@@ -256,14 +256,15 @@ python -m synthesis.pipeline \
 Instruction markdown (`description_path`) should be placed under:
 - `configs/synthesis/instructions/doc_instruction.md`
 
-Recommended markdown blocks:
-- `description`
-- `sampling_tips`
-- `selecting_tips`
-- `synthesis_tips`
-- `qa_examples`
-
-> **New:** You can write instruction markdown in free-form natural language (headings, paragraphs, prose). The pipeline uses a two-stage parser: regex first, then LLM fallback to extract structured fields automatically. See [Instruction Markdown Format Requirements](#instruction-markdown-format-requirements) for details.
+> **⚠️ Important — LLM-based Instruction Parsing:**
+>
+> The default instruction files are written in **natural language prose** (not strict key-value YAML). This means the pipeline will use an **LLM API call** to parse and extract structured fields from the markdown. For this to work, you **must** ensure `api_key` and `base_url` are correctly configured in your synthesis config (e.g., `configs/synthesis/doc_config.json`). Without valid LLM credentials, the instruction parsing will fail and synthesis cannot proceed.
+>
+> The pipeline uses a two-stage parser:
+> 1. **Regex pass** — attempts to extract structured blocks (zero-cost, deterministic)
+> 2. **LLM fallback** — triggered automatically when regex is incomplete; sends one API call to extract fields from free-form text
+>
+> Since our instruction files use natural language by default, **Step 2 (LLM fallback) will always be triggered**. Make sure your API is reachable.
 
 If you do **not** use skills (`skill.enabled=false`):
 - all required blocks must be extractable (via regex or LLM fallback);
@@ -304,9 +305,9 @@ This step runs the agent on benchmark data via the Rollout Pipeline to generate 
 **Usage:**
 
 ```python
-from rollout import pipeline
+from rollout import rollout
 
-pipeline(config_path="configs/trajectory/doc_trajectory.json")
+rollout(config_path="configs/trajectory/doc_trajectory.json")
 ```
 
 Or via CLI:
@@ -337,7 +338,7 @@ python -m rollout.pipeline \
   ],
 
   "evaluate_results": false,
-  "data_path": "benchmark/doc_benchmark.jsonl",
+  "data_path": "benchmark/doc_benchmark/Input/doc_benchmark.jsonl",
   "output_dir": "trajectory_results/doc",
 
   "save_results": true,
@@ -356,7 +357,7 @@ python -m rollout.pipeline \
 | `trajectory_only` | `true` | Save trajectories only (auto-disables evaluation) |
 | `data_path` | - | Path to benchmark data file |
 
-**Benchmark data format** (`benchmark/doc_benchmark.jsonl`):
+**Benchmark data format** (`benchmark/doc_benchmark/Input/doc_benchmark.jsonl`):
 
 ```jsonl
 {"doc_id": "task_001", "doc_type": "Administration/Industry file", "question": "\nI've uploaded a document, and below is the outline in XML format:\n<?xml version='1.0' encoding='utf-8'?>\n<Outline>...</Outline>\n\nAnswer the following question based on the content of the document:\nWho is the commanding officer in the first figure on the second page?\n", "answer": "Capt. John W. Sanders", "evidence_pages": "[2]", "evidence_sources": "['Figure', 'Pure-text (Plain-text)']", "answer_format": "Str", "kwargs": {"seed_path": "benchmark/doc_benchmark/Input/0b85477387a9d0cc33fca0f4becaa0e5"}}
@@ -428,9 +429,9 @@ Run inference on the benchmark with the trained model and evaluate results.
 **Usage:**
 
 ```python
-from rollout import pipeline
+from rollout import rollout
 
-pipeline(config_path="configs/infer/doc_infer.json")
+rollout(config_path="configs/infer/doc_infer.json")
 ```
 
 **Config file** `configs/infer/doc_infer.json` — key fields:
@@ -455,7 +456,7 @@ pipeline(config_path="configs/infer/doc_infer.json")
   ],
   
   "evaluate_results": false,
-  "data_path": "benchmark/doc_benchmark.jsonl",
+  "data_path": "benchmark/doc_benchmark/Input/doc_benchmark.jsonl",
   "output_dir": "infer_results/doc",
   
   "save_results": true,

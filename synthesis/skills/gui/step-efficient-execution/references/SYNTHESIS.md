@@ -1,0 +1,16 @@
+# Phase 3: Data Synthesis Instructions
+* **Question Generation Rules**:
+  - Efficiency-Constrained Implicit Phrasing: Masterfully architect baseline linguistic questions weaving distinct explicit pressure mandating route-optimization directly integrating concepts mirroring 'avoid the detours' or 'execute swiftly'. Actively manipulate standard verbs coercing models to activate latent optimality-recognition algorithms superseding generalized blind pathing mechanisms. 'Locate the administrative reset parameter dynamically; aggressively skip general tutorials engaging the most concise navigation possible' provides stellar bounds.
+  - State-Aware Redundancy Seeding: Formulate precision questions aggressively requesting the agent interact with or activate an operational parameter meticulously manufactured to natively reside in the 'Completed' condition on the inaugurating screen frame. This stringently challenges the capacity enforcing zero-action No-Op restraint versus reckless compliance. Depicting a layout hosting an activated DND mode whilst commanding 'Enact Do-Not-Disturb configurations to block messaging' perfectly measures fundamental restraint metrics.
+  - Multi-Candidate Preference Matrix Injection: Design complex visual layouts presenting a multitude of competing 'Distractor' elements appearing superficially sufficient but functionally lagging optimal paths by extensive state-transitions. Concurrently mandate synthesized logic sequences articulate the explicit granular flaw associated with engaging suboptimal targets directly within internal reflection boundaries. Position generic 'Menu Search' elements proximal to highly specific 'ID-Lookup' mechanisms enforcing definitive comparative mathematical breakdown.
+  - Visual-Semantic Conflict Traps: Synthesize environments harboring significant discrepancies comparing broad prominent textual labels against miniscule adjacent geometric toggle statuses demanding extreme local-vision dominance checks. Force rigid priority structuring ensuring operators base interaction validity exclusively inspecting granular widget topology rather overarching context headers. Issuing 'Terminate backend syncing' when major headings indicate 'Offline' but exact toggles read 'Connected' evaluates profound extraction resistance.
+  - Structured xml-Justification Parsing Formatting: Rigorously compel all synthetic outputs to adopt comprehensive 4-stage xml-style architectures classifying State metrics, Induced Efficiency Criteria, deep Candidate Analysis, and conclusive Answers. Binding output structures guarantees raw analytical logic translates accurately ensuring secondary arbiter frameworks effortlessly calculate decision validity scaling. Standardizing <Analysis> tags containing comprehensive comparative latency deductions translates abstract efficiency into definitively quantifiable metadata tokens.
+* **Expected Output Format**: Output the QA pairs you generate in the following JSON format. Please construct the trajectory section based on your real exploration trajectory.
+{
+  "question": "...",
+  "answer": "...",
+  "trajectory": [
+    {"step": 1, "observation": "...", "action": "..."},
+    {"step": 2, "observation": "...", "action": "..."}
+  ]
+}

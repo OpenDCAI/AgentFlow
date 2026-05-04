@@ -1,0 +1,16 @@
+# Phase 3: Data Synthesis Instructions
+* **Question Generation Rules**:
+  - Engineer 'Asymmetric Knowledge Gaps' by providing a broad natural language goal while withholding the exact file locations or technical document contents until the agent explores the repo. The question should specify the intent—such as 'find the activation function specified in the tech paper'—but use a repository where the paper is in a deep folder and the code uses non-obvious variable names. Success is awarded when the agent uses a structured 'Explorer-Reader-Verifier' chain to bridge the gap. For example, hide the fact that the hyperparameter is stored in a hidden `.env` or a specific LaTeX table.
+  - Incorporate 'Architectural Friction' by focusing implementation questions on layers that are decoupled through abstractions like decorators, plugins, or inheritance. For instance, ask 'Why does the system behave differently for PNG inputs compared to JPEGs?' or 'How are custom extensions registered?'. These questions cannot be answered by local grep searches and require the agent to understand the 'contract' between the core and its extensions. This creates the 'connecting the dots' difficulty that identifies expert-level understanding in repository-scale reasoning.
+  - Frame factual 'What' questions around Semantic Contracts and Edge Case Handling rather than simple implementation summaries. Instead of asking 'What does this class do?', ask 'What are the three boundary conditions Function X checks before performing its primary calculation?'. This requires the agent to read the conditional blocks and exception handling within the code, ensuring the synthesized QA pair captures a deeper level of implementation detail. For example, the agent must identify a 'None' check or a specific 'try-except' block that is mentioned in the project's 'Safety Guide' document.
+  - Design 'Multimodal Documentation Stressors' where the correct answer relies on combining information from a diagram in a PDF and a variable in a YAML file. The question might ask 'Based on the architecture diagram in the paper, which YAML setting controls the bottleneck width?'. This forces the agent to use both visual/LaTeX reasoning and terminal-based file auditing concurrently. A successful synthesis will result in an agent performing a systematic cross-audit between non-textual assets and executable code artifacts.
+  - Require the final output JSON to include an 'Evidence-to-Intent Ledger' that maps every part of the final answer to a specific tool observation in the trajectory. The synthesis instructions should mandate that the reasoning records: 'Found intent in Section 3 of paper.pdf -> matched logic in `core.py` line 45 -> verified constant in `settings.json`'. This documentation makes the synthesized data valuable for training models to verify their own cross-asset reasoning. A specific requirement is: 'Every design rationale provided in the answer must be justified by an observed docstring or manual section.'
+* **Expected Output Format**: Output the QA pairs you generate in the following JSON format. Please construct the trajectory section based on your real exploration trajectory.
+{
+  "question": "...",
+  "answer": "...",
+  "trajectory": [
+    {"step": 1, "observation": "...", "action": "..."},
+    {"step": 2, "observation": "...", "action": "..."}
+  ]
+}

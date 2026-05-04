@@ -1,0 +1,17 @@
+# Phase 3: Data Synthesis Instructions
+* **Question Generation Rules**:
+  - Design synthesis prompts that use 'Signal-Based' layoffs—tasks where the answer is physically present in the environment but hidden inside an unstructured modality that must be joined to a structured ID. For example, ask for the 'average cost behavior' where costs are in scanned PDFs and behavior groups are in a CSV. This forces the agent to plan a multimodal extraction and join pipeline. An edge case is asking for a comparison of 'Trend vs Status', requiring the extraction of a slope from telemetry and a label from a table.
+  - Create synthetic environments with 'Modality Distractors' where the same concept is described in a table and an unstructured file, but with different levels of detail. The prompt should require the 'detailed' version (e.g., 'list sub-item counts from the bill' rather than 'total bill from the table'). This ensures the agent exercises its document-parsing logic rather than defaulting to the easiest source. This teaches the agent that the goal of multimodal analysis is to find 'hidden' granularity.
+  - Incorporate 'Temporal Aggregation Targets' where the agent must summarize a series of logs into a single state (e.g., 'Has this facility been consistently improving?'). This forces the agent to use its sequence-reduction logic—like counting positive keyword days or computing a slope—rather than just looking at the last record. A successful synthesized example will show the agent handling 10+ time points per ID to derive a single 'engineered' signal.
+  - Mandate a 'Schema Mapping -> Regex/Stat Extraction -> Cross-Table Join' trajectory format in the synthesized JSON output. The agent should first define how to find the IDs, then show the code for pulling the features from the unstructured file, and finally show the merge result. This logical loop reflects the 'Signal Engineering' strategy required for clinical and operational multimodal prediction. Use specific variable names for the extracted results, such as `slope_HR` or `imaging_count_pdf`.
+  - Include 'Near-Miss Modality Traps' where the agent is tempted to use an inappropriate extraction method (like TF-IDF on a 5-word status note). The prompt should be written in a way that implies a deep analytical need, but the logs are so short that only keyword matching makes sense. This tests if the agent can adapt its signal-engineering strategy to the physical reality of the dataset's constraints. A concrete example is a prompt asking for 'Thematic analysis of error logs' where each error log is just a 2-word code.
+  - Design 'Cross-Source Discrepancy' challenges where the agent must find cases where the PDF information contradicts the CSV information. For example: 'Find patients where the billed total in the receipt PDF is greater than the recorded cost in the visitation table.' This mandates extracting a specific numeric value from a document and performing a coordinate-wise comparison against a structured record, measuring robustness in data-verification tasks.
+* **Expected Output Format**: Output the QA pairs you generate in the following JSON format. Please construct the trajectory section based on your real exploration trajectory.
+{
+  "question": "...",
+  "answer": "...",
+  "trajectory": [
+    {"step": 1, "observation": "...", "action": "..."},
+    {"step": 2, "observation": "...", "action": "..."}
+  ]
+}

@@ -284,14 +284,15 @@ python -m synthesis.pipeline \
 Instruction markdown (`description_path`) should be placed under:
 - `configs/synthesis/instructions/rag_instruction.md`
 
-Recommended markdown blocks:
-- `description`
-- `sampling_tips`
-- `selecting_tips`
-- `synthesis_tips`
-- `qa_examples`
-
-> **New:** You can write instruction markdown in free-form natural language (headings, paragraphs, prose). The pipeline uses a two-stage parser: regex first, then LLM fallback to extract structured fields automatically. See [Instruction Markdown Format Requirements](#instruction-markdown-format-requirements) for details.
+> **⚠️ Important — LLM-based Instruction Parsing:**
+>
+> The default instruction files are written in **natural language prose** (not strict key-value YAML). This means the pipeline will use an **LLM API call** to parse and extract structured fields from the markdown. For this to work, you **must** ensure `api_key` and `base_url` are correctly configured in your synthesis config (e.g., `configs/synthesis/rag_config.json`). Without valid LLM credentials, the instruction parsing will fail and synthesis cannot proceed.
+>
+> The pipeline uses a two-stage parser:
+> 1. **Regex pass** — attempts to extract structured blocks (zero-cost, deterministic)
+> 2. **LLM fallback** — triggered automatically when regex is incomplete; sends one API call to extract fields from free-form text
+>
+> Since our instruction files use natural language by default, **Step 2 (LLM fallback) will always be triggered**. Make sure your API is reachable.
 
 If you do **not** use skills (`skill.enabled=false`):
 - all required blocks must be extractable (via regex or LLM fallback);
@@ -332,9 +333,9 @@ This step runs the agent on benchmark data via the Rollout Pipeline to generate 
 **Usage:**
 
 ```python
-from rollout import pipeline
+from rollout import rollout
 
-pipeline(config_path="configs/trajectory/rag_trajectory.json")
+rollout(config_path="configs/trajectory/rag_trajectory.json")
 ```
 
 Or via CLI:
@@ -409,9 +410,9 @@ Run inference on the benchmark with the trained model and evaluate results.
 **Usage:**
 
 ```python
-from rollout import pipeline
+from rollout import rollout
 
-pipeline(config_path="configs/infer/rag_infer.json")
+rollout(config_path="configs/infer/rag_infer.json")
 ```
 
 **Config file** `configs/infer/rag_infer.json` — key fields:

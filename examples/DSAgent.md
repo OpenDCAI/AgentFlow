@@ -195,6 +195,12 @@ Key fields:
 
 > **Tip — Instruction Markdown with LLM Fallback:** Instead of specifying `sampling_tips` / `selecting_tips` / `synthesis_tips` inline in the JSON config, you can point `description_path` to a markdown file containing all guidance in free-form natural language. The pipeline uses a two-stage parser (regex + LLM fallback) to automatically extract structured fields. This is especially useful when guidance is long or written in prose.
 
+> **⚠️ Important — LLM-based Instruction Parsing:**
+>
+> The default instruction file (`configs/synthesis/instructions/ds_instruction.md`) is written in **natural language prose**. The pipeline will use an **LLM API call** to parse and extract structured fields from it. For this to work, you **must** ensure `api_key` and `base_url` are correctly configured in your synthesis config (`configs/synthesis/ds_config.json`). Without valid LLM credentials, the instruction parsing will fail.
+>
+> Since the instruction files use natural language by default, **the LLM fallback will always be triggered**. Make sure your API is reachable before running synthesis.
+
 ### Skill Config for Synthesis
 
 Use these fields in synthesis config (for example `configs/synthesis/ds_config.json`):

@@ -1,0 +1,16 @@
+# Phase 3: Data Synthesis Instructions
+* **Question Generation Rules**:
+  - Phrase the main question using 'Alias or Syntax Ambiguity' (e.g., using a 1-based ID for a 0-indexed API or asking to query a table using an outdated synonym) to ensure the first attempt predictably fails. The goal is to see if the agent natively handles the real-world friction when its first logical attempt falls short due to technical invariants. This guarantees a natural 'Research-to-Correct' loop is triggered where the model must interpret its own execution failure to survive. An important edge case is asking for a 'Band Gap' using a generic tool when the documentation says only the 'Electronic Tool' supports it.
+  - Inject a 'Handoff/Signature Mismatch' requirement where the task involves two distinct steps—one to generate a function definition and one to call it—using different internal specifications. This simulates a high-density industrial framework where the generator and executor models might use slightly different 'dialects.' The synthesized trajectory must force the orchestrator to identify and fix the 'NameError' or 'SignatureMismatch' that occurs when the caller uses a different function name than the one provided by the generator.
+  - Build 'Long-Horizon Log Traps' focusing on the 'Review' phase of a multi-stage workflow. Design a scenario where the agent dispatches a 5-hour scientific computation that returns a 'Job Finished' status code, but the internal log file reveals a 'Convergence Failure' marker at the very end. The model must be judged on its ability to scrape the log, identify the hidden error, and trigger an 'Autonomous Rollback' to resubmit the job with corrected parameters. This ensures the agent does not blindly trust system-level success flags when the data-level integrity is compromised.
+  - Incorporate 'Instructional Manual Constraints' provided as a separate context block (e.g., 'Modeling Tips' or 'Software Manual') that contain the non-obvious rules needed to fix errors. The question should be a standard request like 'Find the max pressure,' while the manual contains the 'hidden' rule that 'pressure is only valid if index = index - 1'. This tests the agent's ability to cross-reference machine errors (e.g., 'IndexError') with technical guidelines to find the 'Correct Domain Path' for remediation.
+  - Formulate user incident reports focusing on the 'Symptom' rather than the source (e.g., 'The system is returning zero flow results'). Do not say 'Fix the SQL column'; instead demand 'Restore the query integrity.' This mandates that the orchestrator execute full stack localization, read diagnostic tracebacks for the affected area, and perform discovery-augmented self-correction to patch the underlying logic. A concrete example is providing a raw OUTCAR file and asking why the crystal prediction failed, forcing the agent to find the 'Abnormal Completion' text.
+* **Expected Output Format**: Output the QA pairs you generate in the following JSON format. Please construct the trajectory section based on your real exploration trajectory.
+{
+  "question": "...",
+  "answer": "...",
+  "trajectory": [
+    {"step": 1, "observation": "...", "action": "..."},
+    {"step": 2, "observation": "...", "action": "..."}
+  ]
+}

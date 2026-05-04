@@ -1,0 +1,16 @@
+# Phase 3: Data Synthesis Instructions
+* **Question Generation Rules**:
+  - Implement 'Referral-Based Nesting' to construct queries that force navigational redirection through organizational hints. The agent must synthesize questions where the direct target is obscured, requiring the model to first find 'who' knows the information based on descriptions. For example, change 'What is the budget?' into 'Ask the teammate identified as the financial expert for the total budget.' This creates complex scenarios where correctly identifying the retrieval target is the primary challenge. A practical rule is to ensure the hint (e.g., 'Bhushan knows X') is present in the initial environment to allow for zero-shot navigation.
+  - Design 'Siloed Fragment Join' challenges by splitting a single relational table across two documents with a shared primary key. Formulate questions that require aggregating attributes from both files (e.g., 'Find the names from User A's file for all student IDs listed as dog-owners in User B's file'). This tests 'Distributed Reconstitution' where the model must execute a join operation over separate context windows. A successful synthesis prompt specifies: 'Ensure the final answer cannot be derived without retrieving both Part 1 and Part 2 of the dataset.'
+  - Incorporate 'Distinguishing Detail Injections' to ensure query-evidence uniqueness within large page-pools or personnel directories. If a query about 'Employee Salaries' returns ten hits, the agent must synthesize a refinement by adding a discriminator found only on the target page (e.g., 'Employee salaries in the 'Beta' division for members who joined after 2022'). This tests the agent's ability to handle 'Keyword Ambiguity'—a major real-world bottleneck. A success signal is a QA pair that consistently retrieves the same single evidence path in tests.
+  - Design 'Modality-Switching Traps' where the sub-answer or the referral hint is located in a chart or table but the query mentions it in a textual context. For example, have a text question about 'growth rates' where the answer '15%' or the hint 'See the auditor's report' is only found in a visual bar chart on Page 12. This forces the agent to use its perceptual alignment and captioning capabilities. Synthesis should command the agent: 'Ensure the critical link between Hop 2 and Hop 3 is only available in the visual modality of the document.'
+  - Embed 'Epistemic Humility' Negative Pairs by intentionally removing one link in the redirection or fragment chain. Synthesize a percentage of questions where the 'referred source' is missing from the corpus, and the 'Gold Answer' is a specific refusal or identification of the missing evidence. This provides high-quality supervision for preventing Overconfidence. A concrete synth-prompt: 'Create a 3-hop query where the intermediate referral document is missing, and verify the agent refuses to guess the answer.'
+* **Expected Output Format**: Output the QA pairs you generate in the following JSON format. Please construct the trajectory section based on your real exploration trajectory.
+{
+  "question": "...",
+  "answer": "...",
+  "trajectory": [
+    {"step": 1, "observation": "...", "action": "..."},
+    {"step": 2, "observation": "...", "action": "..."}
+  ]
+}

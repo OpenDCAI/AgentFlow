@@ -1,0 +1,11 @@
+# Phase 1: Environment Exploration Guide
+* **Exploration Strategy**:
+  - Prioritize the discovery of 'Correctness-Sensitive' tasks such as complex accounting, geometry, or regulatory audits where the final answer depends on a chain of sub-steps. Search for false answers where a single missing variable results in a wrong but confident conclusion.
+  - Implement a 'Reference Retrieval' loop simulating scenarios where the agent must fetch a verified human answer key, standard rubric, or solution manual to base its judgment entirely upon external reality rather than internal priors.
+  - Implement 'Fuzzy-set Boundary Probes' by seeding environments with dialogue candidate turns that sit on the cusp between two subjective labels (e.g., 'Borderline' vs 'Unprofessional'). Test the judge's ability to maintain nuanced thresholds when applying behavioral guidelines.
+  - Execute 'Multi-Axis Conflict Scenarios' by testing prompts where a candidate turn is highly relevant but ethically dangerous, or perfectly professional but highly distracting. Ensure the 4-dimensional classification system doesn't exhibit 'attribute bleed' (scoring something unprofessional just because it is factually incorrect).
+* **Target Trajectory Profile**:
+  - Ensure the trajectory contains 'Step-by-Step Contrastive' logic where the agent explicitly maps candidate steps to reference steps or rubric axes. The profile must show the agent identifying the exact line or feature where the candidate diverted from the gold standard.
+  - Require evidence of 'Policy-Reflection' where the agent justifies its verdict using the provided reference's specific rules (whether mathematical or behavioral). 'My intuition says X, but the reference rubric says Y; Y is the binding truth.'
+  - Must demonstrate 'Multi-Dimensional Independence' in fuzzy evaluations, ensuring that high scores in one assessment axis do not automatically trigger high scores in others. Politeness and factual accuracy must be audited independently.
+  - Maintain 'Alphanumeric Integrity' for objective tests, ensuring numerical values, dates, and entity names are matched identically. Rounding errors must be methodically classified as acceptable variance or fundamental failures based on the rigid reference parameters.

@@ -1,0 +1,11 @@
+# Phase 2: Trajectory Selection Criteria
+* **Acceptance Metrics**:
+  * Accept a trajectory only if all source-supported core elements have been explicitly considered. The plan must show whether entity, date, event, and result are present, absent, or intentionally omitted due to budget. This makes the eventual summary auditable for information loss.
+  * Accept a trajectory only if the extracted facts are faithful to the source. The summary candidate may paraphrase but cannot add missing dates, causes, or outcomes. A positive example is leaving out a date if the source never specifies one instead of inventing a calendar reference.
+  * Accept a trajectory only if the event and result are logically linked. The summary should preserve what happened and what came of it, not merely mention both as disconnected clauses. This matters because many low-quality summaries collapse the outcome into an afterthought.
+  * Accept a trajectory only if compression remains relevance-aware. Non-core detail should be reduced or omitted when it competes with indispensable facts. An edge case is a dramatic quote or adjective that consumes space better used for the actual outcome.
+* **Rejection Criteria**:
+  * Reject any trajectory that produces a smooth but under-informative gist. If the summary sounds plausible yet omits the principal result or main event, it does not satisfy this capability. This is a common failure mode in generic abstractive summarization.
+  * Reject any trajectory that hallucinates missing core elements to complete the pattern. If the source has no date or the outcome is unresolved, fabricated completion is disqualifying. The benchmark values consistency over template completion.
+  * Reject any trajectory that overweights secondary detail at the expense of the informational spine. A summary that foregrounds colorful background detail while burying the actual event or result should be discarded. For example, describing severe vehicle damage without clearly stating survival or death is insufficient.
+  * Reject any trajectory that preserves isolated facts but breaks coherence. Listing entity, date, event, and result as fragments without causal flow is not enough. The final text must still function as a readable summary rather than a raw extraction dump.

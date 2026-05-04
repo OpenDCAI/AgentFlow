@@ -1,0 +1,17 @@
+# Phase 3: Data Synthesis Instructions
+* **Question Generation Rules**:
+  - Deploy 'Cultural' and 'Paraphrase' Prompt Templates to trigger figurative understanding. Synthesized questions must incorporate specific instructions to 'avoid word-for-word translation,' 'preserve cultural meaning,' and 'use natural expressions.' Research indicates that explicit guiding prompts like these significantly enhance idiomatic translation quality in larger models. For example, a synthesized prompt should be: 'Translate this Urdu text into English using natural expressions and preserve its cultural meaning: [Source Text].'
+  - Embed 'Phonetic Orthography Noise' into source figurative seeds. Synthesize inputs where a native proverb is written using Latin-script phonetic approximations (e.g., Roman Urdu or Arabizi) instead of the standard alphabet. The gold answer must reflect the correctly recovered idiomatic meaning in the target language. This forces the agent to demonstrate that it can navigate non-standard spelling to reach the metaphorical truth. For instance, pair the Roman Urdu 'Aankh ka tara' with the English gold answer 'the apple of one\'s eye.'
+  - Synthesize 'Symbolic Dissonance' stressors using conflicting literal vs. poetic cues. Design prompts where a word's literal dictionary meaning and its symbolic cultural meaning are in direct conflict. Command the agent to prioritze 'cultural aura' and 'metaphorical intent' over direct matching. For example, provide a poem where 'red' signifies death, and the gold answer must reflect the tragedy rather than just the color description. This ensures the data tests deep semantic reasoning rather than shallow pattern matching.
+  - Include 'Dialogue-format' or 'Social-Media' contextualization wrappers. Create synthetic questions by providing previous narrative turns or adjacent digital artifacts (like hashtags or emojis) to simulate a real-world environment. This forces the agent to use distant context for disambiguating the idiom rather than relying on a standalone string. For instance, a comment about 'FOMO' should include a nearby hashtag like #event or #soldout to ground the slang properly.
+  - Serialize the 'Phonetic-to-Figurative' reasoning chain in the JSON trajectory. The synthesis rule mandates that the agent explicitly records the transformation from raw phonetic text to standardized identity, and then to the idiomatic target. This providing a clear audit trail proving the agent navigated the script-variant challenge found in low-resource benchmarks. Step 1: 'Identified Romanized phonetics'; Step 2: 'Recovered native idiom identity'; Step 3: 'Applied idiomatic English mapping.'
+  - Modulate between 'Standard Script' and 'Romanized Script' versions for the same idiom. Create paired synthesis batches where the same figurative expression is presented in both its formal writing system and its informal Romanized version. This allows for cross-script consistency testing. The gold answers for both should be identical in meaning but might differ slightly in register if the script implies a shift from formal to informal usage.
+* **Expected Output Format**: Output the QA pairs you generate in the following JSON format. Please construct the trajectory section based on your real exploration trajectory.
+{
+  "question": "...",
+  "answer": "...",
+  "trajectory": [
+    {"step": 1, "observation": "...", "action": "..."},
+    {"step": 2, "observation": "...", "action": "..."}
+  ]
+}

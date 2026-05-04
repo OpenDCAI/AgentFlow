@@ -1,0 +1,11 @@
+# Phase 1: Environment Exploration Guide
+* **Exploration Strategy**:
+  - Start by drafting an analysis schema. Name the target outcome, the candidate variables, the unit of analysis, and any denominator or weighting fields before pulling substantial data. This prevents the common failure mode where an agent writes code over the wrong population or level of aggregation.
+  - Map physical dependencies across parameters (time windows vs observation grain). Assess the temporal resolution if the question asks for rolling aggregates or sequences to ensure consistency prevents biased sample frames. An edge case is detecting 'heartbeat' signals where a time gap resets a streak sequence state.
+  - Resolve population and scope explicitly. Many analytic dataset construction failures come from silently mixing entity levels, such as household versus person or merchant versus transaction. Exploration should therefore create a precise in-scope definition before deriving any final table.
+  - Materialize only the columns and transformations that are analytically necessary. The goal is not to create a huge convenience dataframe but to build the minimal analysis-ready table needed for the question. This keeps the trajectory interpretable and reusable for synthesis.
+* **Target Trajectory Profile**:
+  - A good trajectory should name the final analysis-ready table in conceptual terms. Even if the code never stores it under a formal table name, the trace should reveal which rows, columns, filters, sliding windows, and derived fields define it.
+  - The trajectory should show that variable selection and sequence/scope decisions precede the final computation. The answer should appear only after the analysis frame is completely assembled. An edge case to avoid is code that convolutes metric calculation alongside row iteration logic.
+  - The constructed dataset should be minimal but sufficient. It should include every ingredient needed for the target statistic (including stateful accumulator metrics) and exclude distractor fields that were considered but rejected.
+  - The handoff to downstream analysis should be seamless. Once the analytic dataset is built, the final cohort query or statistic should be extremely straightforward to compute. If major ambiguity remains after construction, the trajectory is too weak.

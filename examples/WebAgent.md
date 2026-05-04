@@ -284,6 +284,16 @@ python -m synthesis.pipeline \
 
 Alternatively, you can use `description_path` to point to a free-form instruction markdown file instead of inline `sampling_tips`/`synthesis_tips`. See [Configuration Reference](#configuration-reference) for details.
 
+> **⚠️ Important — LLM-based Instruction Parsing:**
+>
+> The default instruction file (`configs/synthesis/instructions/web_instruction.md`) is written in **natural language prose**. The pipeline will use an **LLM API call** to parse and extract structured fields from it. For this to work, you **must** ensure `api_key` and `base_url` are correctly configured in your synthesis config. Without valid LLM credentials, the instruction parsing will fail.
+>
+> The two-stage parser:
+> 1. **Regex pass** — attempts to extract structured blocks (zero-cost)
+> 2. **LLM fallback** — triggered when regex is incomplete; sends one API call to extract fields from free-form text
+>
+> Since the instruction files use natural language by default, **the LLM fallback will always be triggered**. Make sure your API is reachable.
+
 ### If You Enable Skills
 
 If you want to enable skill selection and injection for QA synthesis, use the skill-related config as shown below:
@@ -319,9 +329,9 @@ This step runs the agent on benchmark data via the Rollout Pipeline to generate 
 **Usage:**
 
 ```python
-from rollout import pipeline
+from rollout import rollout
 
-pipeline(config_path="configs/trajectory/web_trajectory.json")
+rollout(config_path="configs/trajectory/web_trajectory.json")
 ```
 
 Or via CLI:
@@ -444,9 +454,9 @@ Run inference on the benchmark with the trained model and evaluate results.
 **Usage:**
 
 ```python
-from rollout import pipeline
+from rollout import rollout
 
-pipeline(config_path="configs/infer/web_infer.json")
+rollout(config_path="configs/infer/web_infer.json")
 ```
 
 **Config file** `configs/infer/web_infer.json` — key fields:

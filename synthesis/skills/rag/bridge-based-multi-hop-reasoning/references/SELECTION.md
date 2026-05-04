@@ -1,0 +1,11 @@
+# Phase 2: Trajectory Selection Criteria
+* **Acceptance Metrics**:
+  - A visible bridge definitively connects the support set. Accept only if the supporting documents or procedural chunks are linked by an identifiable bridge entity, topic, or state transition. The bridge must matter to the resolution; if removing the bridge leaves the text capable of answering the query natively, the sample is too weak.
+  - At least one non-trivial hop is structurally required. Accept solely when the outcome demands crossing from one document's claim/state to another via the bridge. If the final derived answer is isolated entirely within a single support document, reject it.
+  - Validate Milestone Probabilistic Alignment for workflows. Accept procedural trajectories only where the agent's logic explicitly formally verifies that each step strictly contributes to the defined prerequisites of the subsequent sub-goal. Skipping a step must demonstrably break the chain.
+  - The traversal chain is auditable step by step. Each hop must be explainable via a short, verifier-friendly textual citation note mapping exactly to corpus identifiers. Reviewers must be able to confidently recreate standard or hierarchical reasoning paths from the trajectory matrix.
+* **Rejection Criteria**:
+  - Single-hop shortcut directly bypasses the chain. Reject situations where singular comprehensive text paragraphs or executive summaries inadvertently feature the fully aggregated answer, completely neutralizing the need to hop across dispersed entities.
+  - Bridge is accidental rather than functionally necessary. Reject if the shared entity or milestone is present but does not actively control the flow of the logical outcome. The bridging variable must act as the primary gating mechanism to subsequent reasoning phases.
+  - Eliminate Generic Path triviality. Reject cases allowing the final multi-hop answer to be intuitively guessed via universal baseline LLM knowledge (e.g., generic logic without consulting specific structured menus or niche document relations).
+  - Path skips invalid nodes to force an outcome. Reject trajectories that blindly gloss over broken links or missing state prerequisites just because they generally 'look correct'. A multi-hop capability demands rigid obedience to the explicitly provided paths.

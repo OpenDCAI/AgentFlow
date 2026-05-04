@@ -1,0 +1,11 @@
+# Phase 2: Trajectory Selection Criteria
+* **Acceptance Metrics**:
+  - The trajectory is acceptable only if the central failure boundary for scheduling and parallelism is objectively testable by observing strict enforcement of asynchronous promise tags and sync triggers. You must analyze the logged artifacts to verify that background threads absolutely do not intertwine with the active workflow prior to the structured merge marker.
+  - The trace must encompass Objective Speedup attributes where the number of sequentially dictated steps firmly remains lower than the raw token output normally requiring full serial chaining. Calculate theoretical token speedup using the ratio between the holistic token span versus the execution cost of the longest serial bottleneck.
+  - A given trace requires a synchronization point placed perfectly at the earliest necessary dependency union, demonstrating precise temporal comprehension of the asynchronous data gap.
+  - Acceptance requires 'Constraint-Aware Integration,' where a deadline or budget parameter retrieved earlier is correctly used to shape or validate the final parallel sync output. You must verify the final parallelized aggregation explicitly confirms none of the independent streams broke the global constraint.
+* **Rejection Criteria**:
+  - Reject any trajectory blatantly exhibiting attempts to parallelize nested causal sequences, fundamentally confusing serial dependency management with asynchronous operations. If an actor concurrently spins up queries asking for 'the director of the movie' alongside 'the birthdate of that director', causality is profoundly violated.
+  - Discard systematically any trace relying heavily on internal generative hallucinations to assume results preceding the official sync barriers validating those results.
+  - Eliminate traces exhibiting a glaringly absent synchronization integration node, resulting in parallel threads remaining open perpetually without arriving at a merged terminal goal. A sequence initializing three individual web scrapers and simply ending the interaction block without digesting those results exemplifies negative habits.
+  - Reject overly verbose workflows where tangential capability barriers like OCR complexities, immense document distillation, or intensive arithmetic drastically overshadow the parallel scheduling execution.

@@ -1,0 +1,12 @@
+# Phase 1: Environment Exploration Guide
+* **Exploration Strategy**:
+  - Conduct an 'Analytical Seed Extraction' to identify potential insights, rule conditions, causality markers, and specific target entities from individual sources before grouping them. You must look for sentences in retrieved articles where authors provide explicit causal explanations or state mandatory conditions.
+  - Perform a 'Taxonomic Informational Audit' to classify gathered evidence into distinct domain buckets (Regulatory, Academic, Industry, Market Data) or thematic topic clusters depending on the input scale.
+  - Construct an 'Evidence-to-Conclusion' tracking ledger to securely map disparate pieces of data to the final analytical verdict before generating text. Pair each required element of your overarching argument with at least one verifiable fact retrieved from the environment context.
+  - Conduct a 'Saturation-Targeted Evidence Scan' to ensure extremely high recall of atomic facts. Avoid sparse extraction; continuously pull specific tool names, percentage metrics, and methodologies until each planned section surpasses a high-density reference threshold.
+  - Identify the 'Importance and Implication Metadata' by evaluating why the derived insight or verdict actually matters to the reader's broader context, such as identifying a technical discrepancy that actually reveals a hidden systemic failure.
+* **Target Trajectory Profile**:
+  - The trajectory MUST contain a dedicated 'Insight-Derivation Plan' that explicitly lists the sequential logical steps the agent intends to draw out. It should visibly plot a clear deductive move from 'Source 1 establishes Premise A' and 'Source 2 establishes Premise B' to 'Therefore, Conclusion C is inescapable.'
+  - A trajectory exhibits 'Plan-then-Write Orchestration' over massive contexts, generating a unified 'Intellectual Skeleton' that securely links over a dozen disparate papers or datasets to a specific structured outline before drafting.
+  - A good trajectory demonstrates 'Analytical Stability' by actively and logically resolving any conflicts encountered within the search results, explicitly deciding which viewpoint is superiorly justified based on methodological rigor or credible sourcing.
+  - A trajectory clearly prioritizes 'Signal Complementarity,' seamlessly pairing a purely statistical market data point mathematically alongside a qualitative abstract interpretation sourced from academic literature.

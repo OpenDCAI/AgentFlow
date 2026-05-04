@@ -1,0 +1,11 @@
+# Phase 1: Environment Exploration Guide
+* **Exploration Strategy**:
+  - Map abstract question requirements to concrete schema constraints before any computation. Extract the necessary variables, cohorts, and temporal filters from the question and verify their exact presence in the data dictionary or headers. For example, if a question asks for revenue, confirm that either 'revenue' or both 'price' and 'quantity' columns exist.
+  - Differentiate between missing values (nulls) and missing variables. An unanswerable task might have an entirely missing column (e.g., no revenue data) or a missing cohort (e.g., records exist for 2021, but the question asks for 2023). Focus on structural absence rather than data cleanliness.
+  - Actively search for proxies before giving up. Before declaring unanswerability, the agent should check if the requested metric can be mathematically derived from other columns. If neither direct nor mathematically derived variables exist, then confidently declare data insufficiency.
+  - Formulate an explicit non-verifiable proof. Once absence is confirmed, the agent should explicitly document what was searched for and what was missing instead of silently crashing or returning None. This provides a transparent audit trail for the refusal.
+* **Target Trajectory Profile**:
+  - A good trajectory demonstrates exhaustive search. The trace should show the agent inspecting all plausible tables or columns in the environment before concluding the data is insufficient. This proves the agent didn't just give up early.
+  - The trajectory must avoid zero-shot LLM refusal. The agent should confidently attempt to find the data through code execution or schema inspection, failing only because the data actively lacks the fields, rather than from an untriggered prior refusal.
+  - The trace should clearly distinguish between 'I cannot code this' and 'The data cannot support this'. The final output must attribute the failure to the data schema, variables, or time coverage, proving an analytical judgment rather than a skill limitation.
+  - The trajectory must end in a definitive unanswerable state. The agent must clearly output a designated refusal or 'unanswerable' text, avoiding hallucinating a plausible but structurally unsupported numeric answer.
