@@ -3,9 +3,38 @@ Configuration management for RAG synthesis pipeline
 """
 
 import json
+import os
+import re
 import yaml
 from typing import Dict, List, Any, Optional
 from dataclasses import dataclass, field, fields
+
+
+def _expand_env_vars(value: Any) -> Any:
+    """Recursively expand ${VAR} and ${VAR:-default} placeholders."""
+    if isinstance(value, str):
+        pattern = r'\$\{([^}:]+)(?::-([^}]*))?\}'
+
+        def replace(match: re.Match[str]) -> str:
+            var_name = match.group(1)
+            default_value = match.group(2)
+            env_value = os.environ.get(var_name)
+
+            if env_value is not None:
+                return env_value
+            if default_value is not None:
+                return default_value
+            return match.group(0)
+
+        return re.sub(pattern, replace, value)
+
+    if isinstance(value, dict):
+        return {k: _expand_env_vars(v) for k, v in value.items()}
+
+    if isinstance(value, list):
+        return [_expand_env_vars(item) for item in value]
+
+    return value
 
 
 @dataclass
@@ -65,6 +94,7 @@ class SynthesisConfig:
         if not isinstance(config_dict, dict):
             raise TypeError(f"config_dict must be dict, got: {type(config_dict).__name__}")
 
+        config_dict = _expand_env_vars(config_dict)
         valid_fields = {f.name for f in fields(cls)}
         filtered = {k: v for k, v in config_dict.items() if k in valid_fields}
 

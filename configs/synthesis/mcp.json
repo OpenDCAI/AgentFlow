@@ -1,0 +1,44 @@
+{
+  "model_name": "deepseek/deepseek-v4-flash",
+  "api_key": "${OPENROUTER_API_KEY}",
+  "base_url": "https://openrouter.ai/api/v1",
+  "max_depth": 12,
+  "branching_factor": 2,
+  "depth_threshold": 2,
+  "min_depth": 4,
+  "max_selected_traj": 3,
+  "path_similarity_threshold": 0.72,
+  "number_of_seed": null,
+  "sandbox_server_url": "http://127.0.0.1:18890",
+  "sandbox_auto_start": true,
+  "sandbox_config_path": "configs/sandbox-server/mcp_config.json",
+  "sandbox_timeout": 300,
+  "available_tools": [
+    "mcp:canvas.*",
+    "mcp:filesystem.*",
+    "mcp:memory.*",
+    "mcp:pdf-tools.*",
+    "mcp:playwright_with_chunk.*",
+    "mcp:pptx.*",
+    "mcp:terminal.*",
+    "mcp:word.*",
+    "mcp:excel.*"
+  ],
+  "sampling_tips": [
+    "Canvas communication for large courses is scattered across inbox conversations, announcements, discussion topics, course context, grades, submissions, and due-date signals. Teachers often need to answer repeated student questions, identify which messages require attention, and prepare targeted follow-up without manually scanning every course artifact or gradebook row.",
+    "They expect a context-aware communication assistant that summarizes Canvas inbox conversations and course discussion topics, drafts replies to common student questions using relevant course context, identifies students or groups who may need follow-up based on grades, late submissions, missing grading status, or upcoming deadlines, and prepares instructor-approved Canvas messages or announcements for targeted communication.",
+    "You have access to Canvas, a Learning Management System, which records 22 courses, 28,865 users, 32,663 enrollments, 206 assignments, 173,912 submissions and 77 quizzes. You can also use other tools provided.",
+    "We need mountains of training data that is diverse and challenging to train the agents help teachers meet their expectations."
+  ],
+  "synthesis_tips": [
+    "Canvas communication for large courses is scattered across inbox conversations, announcements, discussion topics, course context, grades, submissions, and due-date signals. Teachers often need to answer repeated student questions, identify which messages require attention, and prepare targeted follow-up without manually scanning every course artifact or gradebook row.",
+    "They expect a context-aware communication assistant that summarizes Canvas inbox conversations and course discussion topics, drafts replies to common student questions using relevant course context, identifies students or groups who may need follow-up based on grades, late submissions, missing grading status, or upcoming deadlines, and prepares instructor-approved Canvas messages or announcements for targeted communication.",
+    "Please adopt the perspective of a teacher or a professor, and think about what kinds of questions you would ask a agent in the specific scenario, as well as what kind of answers would truly meet your needs.",
+    "We need mountains of training data that is diverse and challenging to train the agents help teachers meet their expectations."
+  ],
+  "seeds_file": "seeds/mcp/seeds.jsonl",
+  "output_dir": "results/communication",
+  "resource_types": [
+    "mcp"
+  ]
+}

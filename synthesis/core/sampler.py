@@ -6,13 +6,18 @@ import json
 import hashlib
 from typing import Dict, List, Optional, Any
 import uuid
-import bdb
 import asyncio
 from sandbox import format_tool_result
 from .models import TrajectoryNode
 from .config import SynthesisConfig
 from .worker import SandboxWorker
-from .utils import create_openai_client, parse_action_xml, async_chat_completion
+from .utils import (
+    EmptyLLMResponseError,
+    async_chat_completion,
+    create_openai_client,
+    extract_message_content,
+    parse_action_xml,
+)
 
 from sandbox.tool_schemas import get_tool_schemas
 
@@ -173,35 +178,31 @@ class TrajectorySampler:
         # Build prompt
         prompt = self._build_exploration_prompt(context, seed_data, used_actions_block)
 
-        try:
-            response = await async_chat_completion(
-                self.client,
-                model=self.config.model_name,
-                messages=[{"role": "user", "content": prompt}],
-                temperature=0.7
-            )
-            content = response.choices[0].message.content
-            result = parse_action_xml(content)
-            intent = result.get("intent", "")
-            action = result.get("action", {})
+        response = await async_chat_completion(
+            self.client,
+            model=self.config.model_name,
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.7
+        )
+        content = extract_message_content(response)
+        result = parse_action_xml(content)
+        intent = result.get("intent", "")
+        action = result.get("action", {})
 
-            if action and isinstance(action, dict):
-                # Check for duplicate action
-                sig = self._action_signature(action, intent=intent)
-                if sig in self._seed_used_action_signatures:
-                    print(f"  ⚠️ Duplicate action detected, skipping: {sig}")
-                    return "", None
-                # Record the action signature
-                self._seed_used_action_signatures.add(sig)
-                self._seed_used_action_signatures_ordered.append(sig)
+        tool_name = str(action.get("tool_name", "")).strip() if isinstance(action, dict) else ""
+        if not tool_name:
+            raise EmptyLLMResponseError("LLM response did not include a valid tool_name")
 
-            return intent, action
-
-        except Exception as e:
-            if isinstance(e, bdb.BdbQuit):
-                raise e
-            print(f"  ⚠️ LLM generation failed: {e}")
+        # Check for duplicate action
+        sig = self._action_signature(action, intent=intent)
+        if sig in self._seed_used_action_signatures:
+            print(f"  ⚠️ Duplicate action detected, skipping: {sig}")
             return "", None
+
+        # Record the action signature
+        self._seed_used_action_signatures.add(sig)
+        self._seed_used_action_signatures_ordered.append(sig)
+        return intent, action
 
     async def _execute_action(self, action: Dict[str, Any]) -> str:
         """Execute an action via worker (async)"""

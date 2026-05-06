@@ -10,14 +10,12 @@
       "description": "Toolathlon-GYM MCP backend",
       "backend_class": "sandbox.server.backends.resources.mcp.toolathlon_gym.ToolathlonGymBackend",
       "config": {
-        "enabled_mcp_servers": ["filesystem", "terminal", "snowflake"],
+        "enabled_mcp_servers": ["excel", "filesystem", "memory", "pdf-tools", "playwright_with_chunk", "pptx", "terminal", "word", "canvas", "notion", "woocommerce"],
         "workspace_root": "${TOOLATHLON_WORKSPACE_ROOT:-/tmp/agentflow_mcp}",
         "env_overrides": {
-          "PGHOST": "${PGHOST:-toolathlon_pg}",
-          "PGPORT": "${PGPORT:-5432}",
-          "PGUSER": "${PGUSER:-eigent}",
-          "PGPASSWORD": "${PGPASSWORD:-camel}",
-          "PGDATABASE": "${PGDATABASE:-toolathlon_gym}"
+          "CANVAS_DOMAIN": "${AGENTFLOW_MCP_CANVAS_ENDPOINT:-127.0.0.1:38080}",
+          "BASE_URL": "${AGENTFLOW_MCP_NOTION_ENDPOINT:-http://127.0.0.1:38081}",
+          "WORDPRESS_SITE_URL": "${AGENTFLOW_MCP_WOOCOMMERCE_ENDPOINT:-http://127.0.0.1:38082}"
         }
       }
     }

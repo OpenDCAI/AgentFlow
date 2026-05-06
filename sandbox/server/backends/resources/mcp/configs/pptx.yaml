@@ -7,7 +7,7 @@ params:
   command: uv
   args:
     - "--directory"
-    - "${local_servers_paths}/Office-PowerPoint-MCP-Server/environment"
+    - "${local_servers_paths}/Office-PowerPoint-MCP-Server"
     - "run"
     - "ppt_mcp_server"
   cwd: "${agent_workspace}"

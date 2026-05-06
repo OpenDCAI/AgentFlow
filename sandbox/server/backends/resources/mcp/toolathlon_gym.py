@@ -22,6 +22,7 @@ from sandbox.tool_schemas.mcp import get_mcp_tool_schemas
 from .client import MCPStdioClient, load_mcp_process_config
 
 logger = logging.getLogger("MCPBackend")
+_BUNDLED_MCP_SERVERS_PATH = Path(__file__).resolve().parent / "vendor" / "local_servers"
 
 
 class ToolathlonGymBackend(Backend):
@@ -235,16 +236,34 @@ class ToolathlonGymBackend(Backend):
             session_id=session_id,
         )
 
-    def _get_mcp_servers_path(self) -> str | None:
-        """Return the configured path to MCP server executables, or None."""
+    def _get_mcp_servers_path(self) -> str:
+        """Return the configured path to MCP server executables."""
         value = self.get_default_config().get("mcp_servers_path")
         if value:
-            return str(value)
+            explicit_path = Path(value)
+            if not explicit_path.is_dir():
+                raise RuntimeError(
+                    "Configured mcp_servers_path does not exist or is not a directory: "
+                    f"'{explicit_path}'"
+                )
+            return str(explicit_path)
         # Backward compat: derive from toolathlon_root.
         toolathlon_root = self.get_default_config().get("toolathlon_root")
         if toolathlon_root:
-            return str(Path(toolathlon_root) / "local_servers")
-        return None
+            derived_path = Path(toolathlon_root) / "local_servers"
+            if not derived_path.is_dir():
+                raise RuntimeError(
+                    "Configured toolathlon_root resolves to a missing or invalid "
+                    f"local_servers directory: '{derived_path}'"
+                )
+            return str(derived_path)
+        if _BUNDLED_MCP_SERVERS_PATH.exists():
+            return str(_BUNDLED_MCP_SERVERS_PATH)
+        raise RuntimeError(
+            "Bundled MCP servers are missing at "
+            f"'{_BUNDLED_MCP_SERVERS_PATH}'. Vendor them into the package or "
+            "configure an explicit mcp_servers_path."
+        )
 
     def _get_workspace_root(self) -> Path:
         value = self.get_default_config().get("workspace_root") or "/tmp/agentflow_mcp"

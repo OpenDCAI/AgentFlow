@@ -9,6 +9,10 @@ import pdb
 import openai
 
 
+class EmptyLLMResponseError(ValueError):
+    """Raised when an LLM response is missing usable content."""
+
+
 def create_openai_client(api_key: str, base_url: str) -> openai.OpenAI:
     if not api_key:
         raise ValueError("Missing api_key in synthesis config")
@@ -95,6 +99,26 @@ def parse_action_xml(text: str) -> Dict[str, Any]:
             "parameters": parameters
         }
     }
+
+
+def extract_message_content(response: Any) -> str:
+    """Return validated content from the first response choice."""
+    choices = getattr(response, "choices", None)
+    if not choices:
+        raise EmptyLLMResponseError("LLM response has no choices")
+
+    message = getattr(choices[0], "message", None)
+    if message is None:
+        raise EmptyLLMResponseError("LLM response choice has no message")
+
+    content = getattr(message, "content", None)
+    if content is None:
+        raise EmptyLLMResponseError("LLM response content is None")
+    if not isinstance(content, str):
+        raise EmptyLLMResponseError("LLM response content is not a string")
+    if not content.strip():
+        raise EmptyLLMResponseError("LLM response content is empty")
+    return content
 
 
 def chat_completion(

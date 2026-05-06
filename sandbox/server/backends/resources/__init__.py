@@ -62,12 +62,14 @@ Config example:
 from .vm import VMBackend, create_vm_backend
 from .rag import RAGBackend, create_rag_backend
 from .mcp import MCPBackend, ToolathlonGymBackend
+from .code import CodeBackend
 
 __all__ = [
     # Backend classes
     "VMBackend",
     "RAGBackend",
     "MCPBackend",
+    "CodeBackend",
     "ToolathlonGymBackend",
 
     # Convenience factories

@@ -1,0 +1,45 @@
+{
+  "model_name": "deepseek/deepseek-v4-flash",
+  "api_key": "${OPENROUTER_API_KEY}",
+  "base_url": "https://openrouter.ai/api/v1",
+  "max_depth": 12,
+  "branching_factor": 2,
+  "depth_threshold": 2,
+  "min_depth": 4,
+  "max_selected_traj": 3,
+  "path_similarity_threshold": 0.72,
+  "number_of_seed": null,
+  "sandbox_server_url": "http://127.0.0.1:18890",
+  "sandbox_auto_start": true,
+  "sandbox_config_path": "configs/sandbox-server/coding_config.json",
+  "sandbox_timeout": 300,
+  "available_tools": [
+    "code-*"
+  ],
+  "sampling_tips": [
+    "You are exploring a local code repository, not a knowledge base.",
+    "Use only code tools to inspect files, search symbols, and run lightweight shell commands inside the workspace.",
+    "Prioritize repository structure, entrypoints, dependency files, configuration files, scripts, and tests.",
+    "Ground every conclusion in concrete evidence from files or command output.",
+    "Do not rely on outside knowledge or invent project behavior that is not supported by the repository."
+  ],
+  "synthesis_tips": [
+    "We are training an assistant for repository-level coding tasks.",
+    "Generate realistic engineering questions that can be answered strictly from the explored repository.",
+    "Prefer questions about entrypoints, commands, configs, dependencies, file locations, and module relationships.",
+    "Answers should be short, factual, and grounded in trajectory evidence.",
+    "Avoid generic software trivia and avoid questions that require external documentation."
+  ],
+  "seeds_file": "seeds/coding/coding.jsonl",
+  "output_dir": "results/coding",
+  "resource_types": [
+    "code"
+  ],
+  "resource_init_configs": {
+    "code": {
+       "content": {
+         "source_dir": "${SOURCE_DIR}"
+       }
+    }
+  }
+}

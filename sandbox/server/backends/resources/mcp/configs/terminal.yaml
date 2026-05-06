@@ -8,7 +8,7 @@ params:
   command: uv
   args:
     - "--directory"
-    - "${local_servers_paths}/cli-mcp-server/environment"
+    - "${local_servers_paths}/cli-mcp-server"
     - "run"
     - "cli-mcp-server"
   env:

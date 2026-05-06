@@ -7,7 +7,7 @@ params:
   command: uv
   args:
     - "--directory"
-    - "${local_servers_paths}/pdf-tools-mcp/environment"
+    - "${local_servers_paths}/pdf-tools-mcp"
     - "run"
     - "pdf-tools-mcp"
     - "--workspace_path"

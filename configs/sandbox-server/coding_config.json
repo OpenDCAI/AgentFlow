@@ -1,0 +1,17 @@
+{
+  "server": {
+    "url": "http://127.0.0.1:18890",
+    "port": 18890,
+    "session_ttl": 900
+  },
+  "resources": {
+    "code": {
+      "enabled": true,
+      "description": "Local coding backend for symbolic checks, Lean/Coq validation, bib processing, and plotting",
+      "backend_class": "sandbox.server.backends.resources.code.CodeBackend",
+      "config": {
+        "workspace_root": "${CODE_WORKSPACE_ROOT}"
+      }
+    }
+  }
+}

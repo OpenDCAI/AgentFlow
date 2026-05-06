@@ -72,6 +72,110 @@ def build_backend_config(tmp_path):
     )
 
 
+def test_get_mcp_servers_path_returns_explicit_configured_path(tmp_path):
+    module = load_mcp_backend_module()
+    explicit_path = tmp_path / "mcp_servers"
+    explicit_path.mkdir()
+    backend = module.ToolathlonGymBackend(
+        config=BackendConfig(
+            enabled=True,
+            default_config={
+                "mcp_servers_path": str(explicit_path),
+                "enabled_mcp_servers": [],
+                "workspace_root": str(tmp_path / "agentflow_mcp"),
+            },
+            description="MCP backend",
+        )
+    )
+
+    assert backend._get_mcp_servers_path() == str(explicit_path)
+
+
+def test_get_mcp_servers_path_fails_for_missing_explicit_configured_path(tmp_path):
+    module = load_mcp_backend_module()
+    explicit_path = tmp_path / "missing_mcp_servers"
+    backend = module.ToolathlonGymBackend(
+        config=BackendConfig(
+            enabled=True,
+            default_config={
+                "mcp_servers_path": str(explicit_path),
+                "enabled_mcp_servers": [],
+                "workspace_root": str(tmp_path / "agentflow_mcp"),
+            },
+            description="MCP backend",
+        )
+    )
+
+    with pytest.raises(RuntimeError) as excinfo:
+        backend._get_mcp_servers_path()
+
+    assert "mcp_servers_path" in str(excinfo.value)
+    assert str(explicit_path) in str(excinfo.value)
+
+
+def test_get_mcp_servers_path_uses_deprecated_toolathlon_root(tmp_path):
+    module = load_mcp_backend_module()
+    toolathlon_root = tmp_path / "toolathlon"
+    (toolathlon_root / "local_servers").mkdir(parents=True)
+    backend = module.ToolathlonGymBackend(
+        config=BackendConfig(
+            enabled=True,
+            default_config={
+                "toolathlon_root": str(toolathlon_root),
+                "enabled_mcp_servers": [],
+                "workspace_root": str(tmp_path / "agentflow_mcp"),
+            },
+            description="MCP backend",
+        )
+    )
+
+    assert backend._get_mcp_servers_path() == str(toolathlon_root / "local_servers")
+
+
+def test_get_mcp_servers_path_fails_for_missing_deprecated_toolathlon_root(tmp_path):
+    module = load_mcp_backend_module()
+    toolathlon_root = tmp_path / "toolathlon"
+    backend = module.ToolathlonGymBackend(
+        config=BackendConfig(
+            enabled=True,
+            default_config={
+                "toolathlon_root": str(toolathlon_root),
+                "enabled_mcp_servers": [],
+                "workspace_root": str(tmp_path / "agentflow_mcp"),
+            },
+            description="MCP backend",
+        )
+    )
+
+    with pytest.raises(RuntimeError) as excinfo:
+        backend._get_mcp_servers_path()
+
+    assert "toolathlon_root" in str(excinfo.value)
+    assert str(toolathlon_root / "local_servers") in str(excinfo.value)
+
+
+def test_get_mcp_servers_path_returns_internal_vendor_bundle_when_present(tmp_path, monkeypatch):
+    module = load_mcp_backend_module()
+    bundled_path = tmp_path / "vendor" / "local_servers"
+    bundled_path.mkdir(parents=True)
+    monkeypatch.setattr(module, "_BUNDLED_MCP_SERVERS_PATH", bundled_path)
+    backend = module.ToolathlonGymBackend(config=build_backend_config(tmp_path))
+
+    assert backend._get_mcp_servers_path() == str(bundled_path)
+
+
+def test_get_mcp_servers_path_fails_when_internal_vendor_bundle_missing(tmp_path):
+    module = load_mcp_backend_module()
+    backend = module.ToolathlonGymBackend(config=build_backend_config(tmp_path))
+
+    with pytest.raises(RuntimeError) as excinfo:
+        backend._get_mcp_servers_path()
+
+    assert "Bundled MCP servers are missing" in str(excinfo.value)
+    assert "mcp_servers_path" in str(excinfo.value)
+    assert "toolathlon_root/local_servers" not in str(excinfo.value)
+
+
 def test_bind_server_registers_manifest_tools(tmp_path):
     module = load_mcp_backend_module()
     backend = module.ToolathlonGymBackend(config=build_backend_config(tmp_path))
@@ -438,6 +542,7 @@ def test_bridge_tool_returns_clear_error_for_missing_client(tmp_path):
 def test_initialize_passes_env_overrides_to_process_config(tmp_path, monkeypatch):
     module = load_mcp_backend_module()
     captured = {}
+    (tmp_path / "mcp_servers").mkdir()
 
     class FakeClient:
         def __init__(self, process_config):
@@ -486,6 +591,7 @@ def test_initialize_passes_env_overrides_to_process_config(tmp_path, monkeypatch
 def test_initialize_closes_started_clients_when_later_server_fails(tmp_path, monkeypatch):
     module = load_mcp_backend_module()
     created_clients = []
+    (tmp_path / "mcp_servers").mkdir()
 
     class FakeClient:
         def __init__(self, process_config):

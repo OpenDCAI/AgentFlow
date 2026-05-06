@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-toolathlon_gym}
+      POSTGRES_USER: ${POSTGRES_USER:-eigent}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-camel}
+    ports:
+      - "${POSTGRES_HOST_PORT}:5432"
+    volumes:
+      - ./db/init.sql.gz:/docker-entrypoint-initdb.d/init.sql.gz:ro
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U ${POSTGRES_USER:-eigent} -d ${POSTGRES_DB:-toolathlon_gym}
+      interval: 5s
+      timeout: 5s
+      retries: 12

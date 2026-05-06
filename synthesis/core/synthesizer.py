@@ -9,7 +9,7 @@ from datetime import datetime
 
 from .models import Trajectory, SynthesizedQA
 from .config import SynthesisConfig
-from .utils import create_openai_client, extract_json_object, chat_completion
+from .utils import chat_completion, create_openai_client, extract_json_object, extract_message_content
 
 
 class QASynthesizer:
@@ -34,16 +34,33 @@ class QASynthesizer:
 
         for attempt in range(1, max_attempts + 1):
             prompt = self._build_prompt(trajectory, traj_description, last_failure_reason)
+            request_kwargs = {
+                "model": self.config.model_name,
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": 0.7 + 0.1 * (attempt - 1),
+                "response_format": {"type": "json_object"},
+            }
 
             try:
                 response = chat_completion(
                     self.client,
-                    model=self.config.model_name,
-                    messages=[{"role": "user", "content": prompt}],
-                    temperature=0.7 + 0.1 * (attempt - 1),
-                    response_format={"type": "json_object"}
+                    **request_kwargs
                 )
-                result = json.loads(extract_json_object(response.choices[0].message.content))
+            except Exception as e:
+                if not self._is_json_mode_unsupported_error(e):
+                    last_failure_reason = f"Synthesis exception: {str(e)}"
+                    continue
+
+                fallback_kwargs = dict(request_kwargs)
+                fallback_kwargs.pop("response_format", None)
+                try:
+                    response = chat_completion(self.client, **fallback_kwargs)
+                except Exception as fallback_error:
+                    last_failure_reason = f"Synthesis exception: {str(fallback_error)}"
+                    continue
+
+            try:
+                result = json.loads(extract_json_object(extract_message_content(response)))
             except Exception as e:
                 last_failure_reason = f"Synthesis exception: {str(e)}"
                 continue
@@ -61,6 +78,24 @@ class QASynthesizer:
 
         print(f"  ✗ Synthesis failed after {max_attempts} attempts. Last reason: {last_failure_reason}")
         return None
+
+    def _is_json_mode_unsupported_error(self, error: Exception) -> bool:
+        """Detect provider/model errors for unsupported JSON mode calls."""
+        error_payload = getattr(error, "body", {}) or {}
+        error_info = error_payload.get("error", {}) if isinstance(error_payload, dict) else {}
+        message = str(error_info.get("message") or error or "").lower()
+        error_type = str(error_info.get("type") or "").lower()
+        error_code = str(error_info.get("code") or "").lower()
+
+        if any(token in value for value in (error_type, error_code) for token in ("rate_limit", "too_many_requests")):
+            return False
+        if not any(token in message for token in ("json mode", "json_object", "response_format")):
+            return False
+        if not any(token in message for token in ("not supported", "unsupported", "does not support")):
+            return False
+        if error_type and error_type not in ("invalid_request_error", "bad_request_error"):
+            return error_code in ("unsupported_parameter", "unsupported_feature")
+        return True
 
     def _build_qa_from_result(self,
                              result: Dict[str, Any],

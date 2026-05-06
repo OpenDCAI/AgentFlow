@@ -45,7 +45,7 @@ Per-tool `data` schema:
 - rag:search:   {"context": str, "query": str}
 - rag:batch_search: {"contexts": List[str], "count": int, "errors"?: List[Dict]}
 - bash:         {"stdout": str, "stderr": str, "return_code": int, "cwd"?: str}
-- code:         {"stdout": str, "stderr": str, "return_code": int, ...}
+- code:         str for workspace/file tools, or {"stdout": str, "stderr": str, "return_code": int, ...}
 
 ============================================================================
 
@@ -57,7 +57,7 @@ Supported tool types:
 - rag:stats: RAGStatsResult - RAG stats
 - text2sql:*: SQLResult - SQL tool results (list_databases, get_schema, execute)
 - bash: BashResult - bash execution result (`stdout/stderr`)
-- code: CodeExecutionResult - code execution result (`stdout/stderr`)
+- code: CodeExecutionResult - code tool result (string payloads or `stdout/stderr`)
     - browser: BrowserResult - browser operation result
     - vm: VMResult - VM operation result (accessibility tree only)
 - session:*: SessionResult - session/status API result
@@ -121,7 +121,7 @@ class ToolResult(ABC):
     - Support custom filtering rules when needed.
     """
 
-    def __init__(self, raw_data: Dict[str, Any], metadata: Optional[Dict[str, Any]] = None):
+    def __init__(self, raw_data: Any, metadata: Optional[Dict[str, Any]] = None):
         """
         Initialize a tool result object.
 
@@ -228,13 +228,15 @@ class CodeExecutionResult(ToolResult):
     Code execution result.
 
     Raw data schema:
-    {
-        "stdout": str,
-        "stderr": str,
-        "return_code": int,
-        "execution_time_ms": float,
-        "memory_used_mb": float
-    }
+    - Workspace/file tools: str
+    - Execution-style tools:
+      {
+          "stdout": str,
+          "stderr": str,
+          "return_code": int,
+          "execution_time_ms": float,
+          "memory_used_mb": float
+      }
     """
 
     def to_str(self, verbose: bool = False) -> str:
@@ -250,6 +252,15 @@ class CodeExecutionResult(ToolResult):
         if not self.success:
             error_msg = self.metadata.get("message", "Code execution failed")
             return f"[Error] {error_msg}"
+
+        if isinstance(self.raw_data, str):
+            return self.raw_data.rstrip("\r\n") or "[Code executed successfully with no output]"
+
+        if not isinstance(self.raw_data, dict):
+            try:
+                return json.dumps(self.raw_data, ensure_ascii=False, separators=(",", ":"))
+            except Exception:
+                return str(self.raw_data)
 
         stdout = self.raw_data.get("stdout", "")
         stderr = self.raw_data.get("stderr", "")
@@ -572,6 +583,62 @@ class DocResult(ToolResult):
 
 
 # ============================================================================
+# MCP tool result.
+# ============================================================================
+
+class MCPResult(ToolResult):
+    """MCP tool result."""
+
+    def to_str(self, verbose: bool = False) -> str:
+        del verbose
+
+        if not self.success:
+            error_msg = self.metadata.get("message", "MCP tool failed")
+            return f"[Error] {error_msg}"
+
+        content = self.raw_data.get("content", [])
+        text_blocks = []
+        has_error_block = False
+        if isinstance(content, list):
+            for block in content:
+                if (
+                    isinstance(block, dict)
+                    and block.get("type") == "text"
+                    and isinstance(block.get("text"), str)
+                    and block.get("text").strip()
+                ):
+                    if block.get("error") is True:
+                        has_error_block = True
+                    text_blocks.append(block["text"].rstrip())
+
+        if text_blocks:
+            result = "\n".join(text_blocks)
+        else:
+            structured_content = self.raw_data.get("structuredContent")
+            if (
+                isinstance(structured_content, dict)
+                and isinstance(structured_content.get("content"), str)
+                and structured_content.get("content").strip()
+            ):
+                result = structured_content["content"].rstrip()
+            else:
+                fallback_data = structured_content if structured_content else self.raw_data
+                try:
+                    result = json.dumps(
+                        fallback_data,
+                        ensure_ascii=False,
+                        separators=(",", ":"),
+                    )
+                except Exception:
+                    result = str(fallback_data)
+
+        if self.raw_data.get("isError") or has_error_block:
+            return f"[Error] {result}"
+
+        return result
+
+
+# ============================================================================
 # SQL tool result (text2sql).
 # ============================================================================
 
@@ -724,6 +791,7 @@ class ResultFormatter:
         "vm": VMResult,
         "doc": DocResult,
         "ds": DocResult,
+        "mcp": MCPResult,
     }
 
     @classmethod

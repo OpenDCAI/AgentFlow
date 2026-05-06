@@ -6,7 +6,7 @@ name: filesystem
 params:
   command: node
   args:
-    - "${local_servers_paths}/filesystem/environment/dist/index.js"
+    - "${local_servers_paths}/filesystem/dist/index.js"
     - "${agent_workspace}"
   cwd: "${agent_workspace}"
 client_session_timeout_seconds: 900

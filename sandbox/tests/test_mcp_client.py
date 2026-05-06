@@ -211,6 +211,83 @@ async def test_stdio_client_initialize_and_list_tools(monkeypatch):
 
 
 @pytest.mark.anyio
+async def test_default_stream_reader_fails_on_long_single_line_json_response():
+    reader = asyncio.StreamReader(limit=65536)
+    reader.feed_data(
+        b'{"jsonrpc":"2.0","id":0,"result":{"tools":[{"name":"tool","description":"'
+        + b"x" * 70000
+    )
+
+    with pytest.raises(ValueError, match="chunk exceed the limit"):
+        await reader.readline()
+
+
+@pytest.mark.anyio
+async def test_stdio_client_handles_long_single_line_json_response(monkeypatch):
+    module = load_mcp_client_module()
+    create_kwargs = {}
+
+    class FakeWriter:
+        def write(self, data):
+            self.data = data
+
+        async def drain(self):
+            return None
+
+    class FakeProcess:
+        def __init__(self, stdout):
+            self.stdin = FakeWriter()
+            self.stdout = stdout
+            self.stderr = FakeWriter()
+
+        def terminate(self):
+            return None
+
+        async def wait(self):
+            return 0
+
+        async def communicate(self):
+            return b"", b""
+
+    stdout = None
+    long_payload = {
+        "jsonrpc": "2.0",
+        "id": 0,
+        "result": {"tools": [{"name": "tool", "description": "x" * (1024 * 1024 + 1)}]},
+    }
+
+    client = module.MCPStdioClient(
+        module.MCPProcessConfig(
+            name="filesystem",
+            command="node",
+            args=["server.js"],
+            env={"FOO": "bar"},
+            cwd="/tmp/workspace",
+            timeout_seconds=5.0,
+        )
+    )
+
+    async def fake_create_subprocess_exec(*args, **kwargs):
+        del args
+        create_kwargs.update(kwargs)
+        nonlocal stdout
+        stdout = asyncio.StreamReader(limit=kwargs.get("limit", 65536))
+        return FakeProcess(stdout)
+
+    monkeypatch.setattr(module.asyncio, "create_subprocess_exec", fake_create_subprocess_exec)
+
+    await client.start()
+    assert create_kwargs["limit"] >= 8 * 1024 * 1024
+    assert stdout is not None
+    stdout.feed_data(json.dumps(long_payload).encode() + b"\n")
+    stdout.feed_eof()
+
+    tools = await client.list_tools()
+
+    assert tools == [{"name": "tool", "description": "x" * (1024 * 1024 + 1)}]
+
+
+@pytest.mark.anyio
 async def test_stdio_client_ignores_mismatched_response_id(monkeypatch):
     module = load_mcp_client_module()
 

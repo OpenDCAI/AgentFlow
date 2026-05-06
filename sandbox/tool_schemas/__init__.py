@@ -13,6 +13,7 @@ from .vm_tools import get_vm_tool_schemas
 from .doc_tools import get_doc_tool_schemas
 from .ds_tools import get_ds_tool_schemas
 from .sql_tools import get_sql_tool_schemas
+from .code_tools import get_code_tool_schemas
 from .mcp import get_mcp_tool_schemas
 
 
@@ -57,6 +58,7 @@ def get_tool_schemas(allowed_tools: Optional[List[str]] = None) -> List[Dict[str
         + get_doc_tool_schemas()
         + get_ds_tool_schemas()
         + get_sql_tool_schemas()
+        + get_code_tool_schemas()
     )
 
     # MCP manifest (438 tools) is expensive to load into every prompt.
@@ -118,7 +120,7 @@ def get_tools_by_resource(resource_type: str) -> List[Dict[str, Any]]:
     Get tools for a specific resource type.
 
     Args:
-        resource_type: Resource type like "vm", "rag", "web", "mcp"
+        resource_type: Resource type like "vm", "rag", "web", "mcp", "code"
 
     Returns:
         List of tool schemas for that resource
@@ -144,5 +146,6 @@ __all__ = [
     "get_doc_tool_schemas",
     "get_ds_tool_schemas",
     "get_sql_tool_schemas",
+    "get_code_tool_schemas",
     "get_mcp_tool_schemas",
 ]

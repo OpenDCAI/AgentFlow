@@ -14,6 +14,7 @@ import yaml
 
 logger = logging.getLogger("MCPStdioClient")
 
+_MCP_STDIO_STREAM_LIMIT = 8 * 1024 * 1024  # Covers observed Canvas conversations payloads with room to spare.
 _PLACEHOLDER_PATTERN = re.compile(r"\$\{([^}]+)\}")
 _SUPPORTED_PLACEHOLDERS = {"local_servers_paths", "agent_workspace", "task_dir"}
 _BUNDLED_CONFIG_DIR = Path(__file__).parent / "configs"
@@ -186,6 +187,7 @@ class MCPStdioClient:
             stdin=asyncio.subprocess.PIPE,
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
+            limit=_MCP_STDIO_STREAM_LIMIT,
             env=self._config.env,
             cwd=self._config.cwd,
         )
